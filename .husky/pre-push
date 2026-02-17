@@ -1,0 +1,41 @@
+#!/bin/bash
+
+BASIC_RED="\e[0;31m"
+BASIC_GREEN="\e[0;32m"
+BASIC_CYAN="\e[0;36m"
+BASIC_YELLOW="\e[0;33m"
+ENDCOLOR="\e[0m"
+
+current_branch=$(git rev-parse --abbrev-ref HEAD)
+
+if [[ "$current_branch" == "main" || "$current_branch" == "master" ]];
+then
+  echo -e "${BASIC_RED}ERROR: Direct push to $current_branch is prohibited!${ENDCOLOR}"
+  echo -e "${BASIC_YELLOW}Please create a Pull Request from a feature branch.${ENDCOLOR}"
+  exit 1
+fi
+
+
+run_branch_name_validation () {
+  echo -e "${BASIC_CYAN}Validating branch name: $current_branch...${ENDCOLOR}"
+  npx validate-branch-name
+  if [[ $? -ne 0 ]];
+  then
+    exit 1
+  fi
+}
+
+run_tests () {
+  echo -e "${BASIC_CYAN}Running tests...${ENDCOLOR}"
+  npm test --workspaces --if-present
+  if [[ $? -ne 0 ]];
+  then
+    echo -e "${BASIC_RED}Tests failed. Please fix the errors before pushing.${ENDCOLOR}"
+    exit 1
+  fi
+}
+
+run_branch_name_validation
+run_tests
+
+printf "${BASIC_GREEN}All checks passed. Proceeding with push...${ENDCOLOR}\n"
