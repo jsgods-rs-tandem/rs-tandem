@@ -1,6 +1,6 @@
 {
   "name": "rs-tandem",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "private": true,
   "type": "module",
   "workspaces": [
@@ -16,7 +16,7 @@
     "lint:fix": "eslint . --fix",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
-    "typecheck": "tsc --noEmit -p packages/shared && tsc --noEmit -p packages/frontend",
+    "typecheck": "tsc --noEmit -p packages/shared && tsc --noEmit -p packages/frontend && tsc --noEmit -p packages/backend",
     "prepare": "husky"
   },
   "devDependencies": {
