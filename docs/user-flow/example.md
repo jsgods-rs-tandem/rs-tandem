@@ -1,1 +1,1 @@
-![Diagram](user-flow-tandem.svg)
+![Diagram](user-flow-diagram.svg)
