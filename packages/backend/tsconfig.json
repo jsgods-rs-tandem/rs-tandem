@@ -1,0 +1,18 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+    "outDir": "./dist",
+    "baseUrl": ".",
+    "paths": {
+      "@rs-tandem/shared": ["../shared/src/index.ts"]
+    },
+
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+
+    "incremental": true,
+    "isolatedModules": true
+  }
+}
