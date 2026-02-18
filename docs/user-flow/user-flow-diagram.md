@@ -44,7 +44,7 @@ graph TD
         DnDIsLast{Is last?}
     end
 
-    %% Основные связи
+    %% General connections
     Landing --> Auth
     Auth -- No --> Login
     Auth -- Yes --> Dashboard
@@ -55,9 +55,11 @@ graph TD
     Dashboard --> Library
     Dashboard --> AIChat
 
-    %% Связи внутри и между модулями
     Library --> Quiz
     Library --> DnD
+
+
+    %% Connections between components
 
     AIChat -.-> Quiz
     AIChat -.-> DnD
