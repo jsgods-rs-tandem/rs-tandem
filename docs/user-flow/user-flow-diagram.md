@@ -10,10 +10,14 @@ graph TD
     AIChat[AI chat]
     Quiz[Quiz widget]
     DnD[Drag and Drop widget]
-    Answer([Ответ])
-    Validation([Валидация])
-    Correct{Верно?}
-    Report[Report page]
+    QuizAnswer([Ответ])
+    QuizValidation([Валидация])
+    QuizCorrect{Верно?}
+    QuizReport[Report page]
+    DnDAnswer([Ответ])
+    DnDValidation([Валидация])
+    DnDCorrect{Верно?}
+    DnDReport[Report page]
 
     %% Connections
     Landing --> Auth
@@ -33,17 +37,26 @@ graph TD
 
     AIChat -.-> Quiz
     AIChat -.-> DnD
-    AIChat -.-> Report
+    AIChat -.-> DnDReport
+    AIChat -.-> QuizReport
 
-    Quiz --> Answer
-    DnD --> Answer
-    
-    Answer --> Validation
-    Validation --> Correct
-    
-    Correct -- Нет --> Quiz
-    Correct -- Нет --> DnD
-    Correct -- Да --> Report
-    
-    Report --> Library
+    Quiz --> QuizAnswer
+
+    QuizAnswer --> QuizValidation
+    QuizValidation --> QuizCorrect
+
+    QuizCorrect -- No --> Quiz
+    QuizCorrect -- Yes --> QuizReport
+    QuizReport --> Library
+
+    DnD --> DnDAnswer
+
+    DnDAnswer --> DnDValidation
+
+    DnDValidation --> DnDCorrect
+
+    DnDCorrect -- Нет --> DnD
+    DnDCorrect -- Да --> DnDReport
+
+    DnDReport --> Library
 ```
