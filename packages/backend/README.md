@@ -11,7 +11,7 @@ Run these commands from the **project root**:
 npm run start:backend
 
 ### Full Stack Development (Frontend + Backend)
-npm run dev
+npm start
 
 ### Build all packages
 npm run build

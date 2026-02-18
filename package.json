@@ -9,7 +9,7 @@
   "scripts": {
     "start:frontend": "npm start -w @rs-tandem/frontend",
     "start:backend": "npm run start:dev -w @rs-tandem/backend",
-    "dev": "concurrently \"npm:start:frontend\" \"npm:start:backend\"",
+    "start": "concurrently \"npm:start:frontend\" \"npm:start:backend\"",
     "build": "npm run build --ws --if-present",
     "test": "npm run test --ws --if-present",
     "lint": "eslint . --max-warnings 0",

@@ -14,5 +14,5 @@ npm run start:frontend
 npm run build
 
 ### Run tests
-npm tes
+npm test
 ```
