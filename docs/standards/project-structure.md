@@ -27,12 +27,12 @@ src/
 │  ├─ ui/                # UI-kit (wrappers for Angular Material, etc.)
 │  ├─ pipes/             # Common pipes (date-format, currency)
 │  ├─ directives/        # Common directives
-│  ├─ services/          # Helpers, validators, common API clients
+│  └─ services/          # Helpers, validators, common API clients
 ├─ assets/               # Static assets
-│ ├─ styles/             # Global styles, themes, variables
-│ ├─ images/             # Images, icons, illustrations
-│ ├─ favicon/            # Favicon files
-│ └─ localize/           # Localization files (i18n, translations)
+│  ├─ styles/             # Global styles, themes, variables
+│  ├─ images/             # Images, icons, illustrations
+│  ├─ favicon/            # Favicon files
+│  └─ localize/           # Localization files (i18n, translations)
 └─ app/                  # Root module and routing configuration
 ```
 
