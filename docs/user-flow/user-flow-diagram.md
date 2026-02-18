@@ -2,30 +2,30 @@
 graph TD
     %% Nodes
     Landing[Landing page]
-    Auth{Авторизован}
+    Auth{Is authorized?}
     Login[Login/register]
     Dashboard[Dashboard]
     Profile[Profile]
-    Library[Library<br/>темы+поиск+фильтры]
+    Library[Library<br/>themes+searching+filters]
     AIChat[AI chat]
     Quiz[Quiz widget]
     DnD[Drag and Drop widget]
-    QuizAnswer([Ответ])
-    QuizValidation([Валидация])
-    QuizCorrect{Верно?}
+    QuizAnswer([Answer])
+    QuizValidation([Validation])
+    QuizCorrect{Is correct?}
     QuizReport[Report page]
     QuizIsLast{Is last?}
-    DnDAnswer([Ответ])
-    DnDValidation([Валидация])
-    DnDCorrect{Верно?}
+    DnDAnswer([Answer])
+    DnDValidation([Validation])
+    DnDCorrect{Is correct?}
     DnDReport[Report page]
     DnDIsLast{Is last?}
 
     %% Connections
     Landing --> Auth
     
-    Auth -- Нет --> Login
-    Auth -- Да --> Dashboard
+    Auth -- No --> Login
+    Auth -- Yes --> Dashboard
     
     Login --> Auth
     
@@ -61,8 +61,8 @@ graph TD
 
     DnDValidation --> DnDCorrect
 
-    DnDCorrect -- Нет --> DnD
-    DnDCorrect -- Да --> DnDReport
+    DnDCorrect -- No --> DnD
+    DnDCorrect -- Yes --> DnDReport
 
     DnDReport --> Library
     DnDReport --> DnDIsLast
