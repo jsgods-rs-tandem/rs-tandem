@@ -14,10 +14,12 @@ graph TD
     QuizValidation([Валидация])
     QuizCorrect{Верно?}
     QuizReport[Report page]
+    QuizIsLast{Is last?}
     DnDAnswer([Ответ])
     DnDValidation([Валидация])
     DnDCorrect{Верно?}
     DnDReport[Report page]
+    DnDIsLast{Is last?}
 
     %% Connections
     Landing --> Auth
@@ -47,7 +49,11 @@ graph TD
 
     QuizCorrect -- No --> Quiz
     QuizCorrect -- Yes --> QuizReport
-    QuizReport --> Library
+
+    QuizReport --> QuizIsLast
+
+    QuizIsLast -- Yes --> Library
+    QuizIsLast -- No --> Quiz
 
     DnD --> DnDAnswer
 
@@ -59,4 +65,8 @@ graph TD
     DnDCorrect -- Да --> DnDReport
 
     DnDReport --> Library
+    DnDReport --> DnDIsLast
+
+    DnDIsLast -- Yes --> Library
+    DnDIsLast -- No --> DnD
 ```
