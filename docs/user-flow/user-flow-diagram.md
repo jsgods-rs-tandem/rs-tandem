@@ -26,22 +26,13 @@ graph TD
         Library[Library<br/>themes+searching+filters]
     end
 
-    subgraph QuizModule [Quiz Component]
-        Quiz[Quiz widget]
-        QuizAnswer([Answer])
-        QuizValidation([Validation])
-        QuizCorrect{Is correct?}
-        QuizReport[Report page]
-        QuizIsLast{Is last?}
-    end
-
-    subgraph DnDModule [Drag and Drop Component]
-        DnD[Drag and Drop widget]
-        DnDAnswer([Answer])
-        DnDValidation([Validation])
-        DnDCorrect{Is correct?}
-        DnDReport[Report page]
-        DnDIsLast{Is last?}
+    subgraph WidgetModule [Widget Component]
+        Widget[Widget]
+        WidgetAnswer([Answer])
+        WidgetValidation([Validation])
+        WidgetCorrect{Is correct?}
+        WidgetReport[Report page]
+        WidgetIsLast{Is last?}
     end
 
     %% General connections
@@ -55,34 +46,22 @@ graph TD
     Dashboard --> Library
     Dashboard --> AIChat
 
-    Library --> Quiz
-    Library --> DnD
+    Library --> Widget
 
 
     %% Connections between components
 
-    AIChat -.-> Quiz
-    AIChat -.-> DnD
-    AIChat -.-> DnDReport
-    AIChat -.-> QuizReport
+    AIChat -.-> Widget
+    AIChat -.-> WidgetReport
 
-    %% Quiz
-    Quiz --> QuizAnswer
-    QuizAnswer --> QuizValidation
-    QuizValidation --> QuizCorrect
-    QuizCorrect -- No --> Quiz
-    QuizCorrect -- Yes --> QuizReport
-    QuizReport --> QuizIsLast
-    QuizIsLast -- Yes --> Library
-    QuizIsLast -- No --> Quiz
 
-    %% DnD
-    DnD --> DnDAnswer
-    DnDAnswer --> DnDValidation
-    DnDValidation --> DnDCorrect
-    DnDCorrect -- No --> DnD
-    DnDCorrect -- Yes --> DnDReport
-    DnDReport --> DnDIsLast
-    DnDIsLast -- Yes --> Library
-    DnDIsLast -- No --> DnD
+    %% Widget
+    Widget --> WidgetAnswer
+    WidgetAnswer --> WidgetValidation
+    WidgetValidation --> WidgetCorrect
+    WidgetCorrect -- No --> Widget
+    WidgetCorrect -- Yes --> WidgetReport
+    WidgetReport --> WidgetIsLast
+    WidgetIsLast -- Yes --> Library
+    WidgetIsLast -- No --> Widget
 ```
