@@ -4,6 +4,21 @@
 
 > `prefix/component-name/feature-name`
 
+### Prefix Reference
+
+| Prefix       | Description                                                                                                     |
+| ------------ | --------------------------------------------------------------------------------------------------------------- |
+| **feat**     | A new feature                                                                                                   |
+| **fix**      | A bug fix                                                                                                       |
+| **docs**     | Documentation-only changes                                                                                      |
+| **refactor** | A code change that neither fixes a bug nor adds a feature                                                       |
+| **style**    | Changes that do not affect the meaning of the code (formatting, white-space, missing semicolons, etc.)          |
+| **test**     | Adding missing tests or correcting existing tests                                                               |
+| **chore**    | Maintenance tasks that do not affect application logic (build config, dependencies, tooling, CI/CD, repo setup) |
+| **revert**   | Reverts a previous commit                                                                                       |
+
+---
+
 ### Examples:
 
 ```text
@@ -11,7 +26,10 @@ feat/ai/initialize
 fix/login/auth-error
 docs/api/endpoints-update
 refactor/header/mobile-nav
-chore/root/package-cleanup
+style/global/prettier-formatting
+test/auth/login-flow
+chore/root/update-eslint-config
+revert/auth/remove-oauth-support
 ```
 
 ### Rules:
