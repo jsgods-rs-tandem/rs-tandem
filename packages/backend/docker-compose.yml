@@ -1,0 +1,14 @@
+services:
+  db:
+    image: postgres:15-alpine
+    ports: ['5432:5432']
+    environment:
+      DB_HOST: localhost
+      DB_PORT: '5432'
+      DB_USER: postgres
+      DB_PASSWORD: qwe123
+      DB_NAME: rs_tandem
+      DATABASE_URL: postgresql://postgres:qwe123@localhost:5432/rs_tandem
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: qwe123
+      POSTGRES_DB: rs_tandem
