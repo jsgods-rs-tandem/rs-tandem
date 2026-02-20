@@ -1,7 +1,8 @@
 import { Body, Controller, Get, Post, Request, UseGuards } from '@nestjs/common';
-import type { AuthResponseDto, LoginDto, RegisterDto, UserDto } from '@rs-tandem/shared';
+import type { AuthResponseDto, UserDto } from '@rs-tandem/shared';
 import { AuthService } from './auth.service.js';
 import { JwtAuthGuard } from './guards/jwt-auth.guard.js';
+import { LoginDto, RegisterDto } from './dto/index.js';
 
 @Controller('auth')
 export class AuthController {
