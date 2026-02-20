@@ -105,8 +105,8 @@ export class UserRepository {
 
   async create(input: CreateUserInput): Promise<UserRow> {
     const result = await this.pool.query<Record<string, unknown>>(
-      `INSERT INTO users (id, email, password_hash, display_name, created_at, updated_at)
-       VALUES (gen_random_uuid(), $1, $2, $3, NOW(), NOW())
+      `INSERT INTO users (email, password_hash, display_name)
+       VALUES ($1, $2, $3)
        RETURNING id, email, display_name, created_at, updated_at`,
       [input.email, input.passwordHash, input.displayName],
     );
