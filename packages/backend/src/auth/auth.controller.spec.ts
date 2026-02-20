@@ -70,10 +70,9 @@ describe('AuthController', () => {
     });
 
     it('is protected by JwtAuthGuard', () => {
-      const guards: unknown[] = Reflect.getMetadata(
-        '__guards__',
-        AuthController.prototype.me.bind(AuthController),
-      ) as unknown[];
+      const handler = Object.getOwnPropertyDescriptor(AuthController.prototype, 'me')
+        ?.value as object;
+      const guards = Reflect.getMetadata('__guards__', handler) as unknown[];
 
       expect(guards).toContain(JwtAuthGuard);
     });
