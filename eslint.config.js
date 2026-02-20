@@ -91,6 +91,17 @@ export default defineConfig([
   },
 
   {
+    files: ['packages/backend/**/*.ts'],
+    rules: {
+      '@typescript-eslint/no-empty-object-type': [
+        'error',
+        { allowInterfaces: 'with-single-extends' },
+      ],
+      '@typescript-eslint/no-extraneous-class': ['error', { allowWithDecorator: true }],
+    },
+  },
+
+  {
     files: ['packages/frontend/**/*.ts'],
     extends: [...angular.configs.tsRecommended],
     processor: angular.processInlineTemplates,
