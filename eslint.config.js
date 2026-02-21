@@ -33,8 +33,13 @@ export default defineConfig([
     ],
     languageOptions: {
       parserOptions: {
-        projectService: true,
         tsconfigRootDir: import.meta.dirname,
+        project: [
+          './packages/frontend/tsconfig.app.json',
+          './packages/frontend/tsconfig.spec.json',
+          './packages/backend/tsconfig.json',
+          './packages/shared/tsconfig.json',
+        ],
       },
     },
     plugins: {
@@ -84,7 +89,13 @@ export default defineConfig([
     settings: {
       'import/resolver': {
         typescript: {
-          project: './tsconfig.base.json',
+          project: [
+            './tsconfig.base.json',
+            './packages/frontend/tsconfig.app.json',
+            './packages/frontend/tsconfig.spec.json',
+            './packages/backend/tsconfig.json',
+            './packages/shared/tsconfig.json',
+          ],
         },
       },
     },
