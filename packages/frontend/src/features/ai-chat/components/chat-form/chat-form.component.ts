@@ -19,9 +19,11 @@ export class ChatFormComponent {
   });
 
   autoResize(event: Event) {
-    const textarea = event.target as HTMLTextAreaElement;
-    textarea.style.height = 'auto';
-    textarea.style.height = `${(textarea.scrollHeight - baseTextAreaHeight).toString()}px`;
+    if (event.target instanceof HTMLTextAreaElement) {
+      const textarea = event.target;
+      textarea.style.height = 'auto';
+      textarea.style.height = `${(textarea.scrollHeight - baseTextAreaHeight).toString()}px`;
+    }
   }
 
   handleSubmit() {
