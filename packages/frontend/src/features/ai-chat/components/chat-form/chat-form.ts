@@ -1,5 +1,5 @@
 import { Component, output } from '@angular/core';
-import { ReactiveFormsModule , FormGroup, FormControl } from '@angular/forms';
+import { ReactiveFormsModule, FormGroup, FormControl } from '@angular/forms';
 
 const padding = 12;
 const lineHeight = 16;
@@ -21,7 +21,7 @@ export class ChatFormComponent {
   autoResize(event: Event) {
     const textarea = event.target as HTMLTextAreaElement;
     textarea.style.height = 'auto';
-    textarea.style.height = `${(textarea.scrollHeight - baseTextAreaHeight).toString()} + px`;
+    textarea.style.height = `${(textarea.scrollHeight - baseTextAreaHeight).toString()}px`;
   }
 
   handleSubmit() {
