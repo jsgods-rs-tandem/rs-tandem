@@ -1,0 +1,11 @@
+<form [formGroup]="messageForm" (ngSubmit)="handleSubmit()" class="form">
+  <textarea
+    name="message"
+    type="text"
+    formControlName="message"
+    class="text-area"
+    (input)="autoResize($event)"
+    placeholder="Message"
+  ></textarea>
+  <button class="submit" [disabled]="!messageForm.value.message?.trim()">>_</button>
+</form>
