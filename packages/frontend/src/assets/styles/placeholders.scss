@@ -1,0 +1,41 @@
+%visually-hidden {
+  position: absolute;
+  inset-block-start: 0;
+  inset-inline-start: 0;
+
+  overflow: hidden;
+
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+
+  white-space: nowrap;
+
+  opacity: 0;
+  clip-path: inset(100%);
+}
+
+%hidden {
+  visibility: hidden;
+  opacity: 0;
+}
+
+%visible {
+  visibility: visible;
+  opacity: 1;
+}
+
+%text-inline-hidden {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+%position-center {
+  position: absolute;
+  inset-block-start: 50%;
+  inset-inline-start: 50%;
+  translate: -50% -50%;
+}
