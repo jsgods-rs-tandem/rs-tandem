@@ -31,7 +31,19 @@ export class ChatFormComponent {
     }
   }
 
+<<<<<<< HEAD
   handleSubmit(textarea: HTMLTextAreaElement) {
+=======
+  submitOnEnter(event: Event) {
+    if (event instanceof KeyboardEvent) {
+      if (event.shiftKey) return;
+      event.preventDefault();
+      this.handleSubmit();
+    }
+  }
+
+  handleSubmit() {
+>>>>>>> c93a5ca (feat: implement submiting form by pressing Enter)
     const message = this.messageForm.value.message;
     if (message?.trim()) {
       this.sendMessageEvent.emit(message);
