@@ -6,7 +6,8 @@
     class="text-area"
     (input)="autoResize($event)"
     placeholder="Message"
-    aria-label="submit"
   ></textarea>
-  <button class="submit" [disabled]="!messageForm.value.message?.trim()">>_</button>
+  <button class="submit" [disabled]="!messageForm.value.message?.trim()" aria-label="submit">
+    >_
+  </button>
 </form>
