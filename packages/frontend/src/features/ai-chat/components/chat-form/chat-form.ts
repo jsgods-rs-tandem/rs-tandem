@@ -26,10 +26,9 @@ export class ChatFormComponent {
 
   handleSubmit() {
     const message = this.messageForm.value.message;
-    if (message) {
+    if (message?.trim()) {
       this.sendMessageEvent.emit(message);
+      this.messageForm.reset();
     }
-
-    this.messageForm.reset();
   }
 }
