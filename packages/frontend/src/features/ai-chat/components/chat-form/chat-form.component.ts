@@ -8,8 +8,8 @@ const baseTextAreaHeight = padding * 2 + lineHeight;
 @Component({
   selector: 'app-chat-form',
   imports: [ReactiveFormsModule],
-  templateUrl: './chat-form.html',
-  styleUrl: './chat-form.scss',
+  templateUrl: './chat-form.component.html',
+  styleUrl: './chat-form.component.scss',
 })
 export class ChatFormComponent {
   readonly sendMessageEvent = output<string>();
