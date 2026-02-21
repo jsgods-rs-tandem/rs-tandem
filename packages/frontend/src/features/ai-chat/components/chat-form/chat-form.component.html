@@ -5,6 +5,7 @@
     formControlName="message"
     class="text-area"
     (input)="autoResize($event)"
+    (keydown.enter)="submitOnEnter($event)"
     placeholder="Message"
   ></textarea>
   <button class="submit" [disabled]="!messageForm.value.message?.trim()" aria-label="submit">

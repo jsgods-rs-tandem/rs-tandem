@@ -26,6 +26,14 @@ export class ChatFormComponent {
     }
   }
 
+  submitOnEnter(event: Event) {
+    if (event instanceof KeyboardEvent) {
+      if (event.shiftKey) return;
+      event.preventDefault();
+      this.handleSubmit();
+    }
+  }
+
   handleSubmit() {
     const message = this.messageForm.value.message;
     if (message?.trim()) {
