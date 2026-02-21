@@ -1,0 +1,29 @@
+@use 'sass:map';
+@use 'sass:math';
+@use './variables' as vars;
+
+@function to-rem($size, $root-font-size: 16px) {
+  @return math.div($size, $root-font-size) * 1rem;
+}
+
+@function round($value, $fraction-digits: 0) {
+  $power: math.pow(10, $fraction-digits);
+
+  @return math.div(math.round($power * $value), $power);
+}
+
+@function fluid($min-value, $max-value, $min-viewport: 'xs', $max-viewport: 'l') {
+  $min-value-rem: to-rem($min-value);
+  $max-value-rem: to-rem($max-value);
+  $min-breakpoint: map.get(vars.$grid-breakpoints, $min-viewport);
+  $max-breakpoint: map.get(vars.$grid-breakpoints, $max-viewport) - 1;
+  $variable-part: math.div($max-value - $min-value, $max-breakpoint - $min-breakpoint);
+  $constant-rem: round(math.div($max-value - $max-breakpoint * $variable-part, 16px) * 1rem, 3);
+  $vw-percent: math.div(math.round($variable-part * 100 * 100), 100px);
+
+  @return clamp(
+    $min-value-rem,
+    #{if($constant-rem != 0rem, $constant-rem + ' + ', '')}#{$vw-percent}vw,
+    $max-value-rem
+  );
+}
