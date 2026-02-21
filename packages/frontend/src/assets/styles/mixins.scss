@@ -1,0 +1,50 @@
+@use 'sass:math';
+@use 'sass:list';
+@use 'sass:map';
+@use './variables' as vars;
+
+@mixin media($device-size) {
+  $breakpoint: map.get(vars.$grid-breakpoints, $device-size) - 1;
+
+  @media (width <= #{$breakpoint}px) {
+    @content;
+  }
+}
+
+@mixin hover {
+  @media (hover: hover) {
+    &:hover {
+      @content;
+    }
+  }
+}
+
+@mixin transition(
+  $properties,
+  $duration: var(--transition-duration-basic),
+  $easing-func: var(--transition-easing-func)
+) {
+  $transitions: ();
+
+  @each $property in $properties {
+    $transitions: list.append($transitions, #{$property} #{$duration} #{$easing-func}, 'comma');
+  }
+
+  transition: $transitions;
+}
+
+@mixin line-clamp($num-lines: 2) {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: $num-lines;
+}
+
+@mixin hide-scrollbar {
+  scrollbar-width: none;
+  overflow: hidden;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
