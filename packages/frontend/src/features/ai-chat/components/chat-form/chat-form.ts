@@ -29,5 +29,7 @@ export class ChatFormComponent {
     if (message) {
       this.sendMessageEvent.emit(message);
     }
+
+    this.messageForm.reset();
   }
 }
