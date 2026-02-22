@@ -42,4 +42,4 @@ ENV NODE_ENV=production
 EXPOSE 3000
 
 # Run migrations then start the server
-CMD sh -c "npm run migrate:up -w @rs-tandem/backend && node packages/backend/dist/backend/src/main.js"
+CMD sh -c "npm run migrate:up -w @rs-tandem/backend && exec node packages/backend/dist/backend/src/main.js"
