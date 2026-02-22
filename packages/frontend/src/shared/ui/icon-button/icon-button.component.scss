@@ -1,0 +1,6 @@
+@use 'assets/styles/placeholders';
+
+:host,
+.icon-button {
+  @extend %host-base;
+}
