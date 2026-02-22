@@ -4,6 +4,7 @@
 @use './placeholders';
 @use './mixins';
 @use './functions';
+@use './typography';
 
 :root {
   --transition-duration-basic: 0.3s;
@@ -13,6 +14,9 @@
   --accent-color: #ff6900;
   --error-color: #9b3737;
   --success-color: #357a55;
+  --font-main: 'Roboto Mono', monospace;
+  --fw-regular: 400;
+  --fw-medium: 500;
 }
 
 [data-theme='dark'] {
@@ -26,5 +30,7 @@ html {
 
 body {
   height: 100%;
+  font-family: var(--font-main);
+  color: var(--secondary-color);
   background-color: var(--primary-color);
 }
