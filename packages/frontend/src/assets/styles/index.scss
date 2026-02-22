@@ -17,6 +17,14 @@
   --font-main: 'Roboto Mono', monospace;
   --fw-regular: 400;
   --fw-medium: 500;
+  --spacing-module: 4px;
+  --spacing-x1: var(--spacing-module);
+  --spacing-x2: calc(var(--spacing-module) * 2);
+  --spacing-x3: calc(var(--spacing-module) * 3);
+  --spacing-x4: calc(var(--spacing-module) * 4);
+  --spacing-x5: calc(var(--spacing-module) * 5);
+  --spacing-x10: calc(var(--spacing-module) * 10);
+  --spacing-x13: calc(var(--spacing-module) * 13);
 }
 
 [data-theme='dark'] {
