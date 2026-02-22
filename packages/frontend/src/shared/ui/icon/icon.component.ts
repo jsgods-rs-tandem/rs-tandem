@@ -10,8 +10,8 @@ import type { IconName, IconSize, IconColor } from './Icon.types';
 })
 export class IconComponent {
   name = input.required<IconName>();
-  size = input<IconSize | undefined>('m');
-  color = input<IconColor | undefined>('neutral');
+  size = input<IconSize>('m');
+  color = input<IconColor>('neutral');
 
   private readonly _spritePath = '@/assets/icons/sprite.svg';
 

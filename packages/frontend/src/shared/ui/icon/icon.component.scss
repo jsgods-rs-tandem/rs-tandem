@@ -17,14 +17,13 @@
     }
   }
 
-  // TODO: when colors are ready in UI Kit, use variables
   &_color {
     &_neutral {
-      color: #222;
+      color: var(--secondary-color);
     }
 
     &_brand {
-      color: #ff6900;
+      color: var(--accent-color);
     }
   }
 }
