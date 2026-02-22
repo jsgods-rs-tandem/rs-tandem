@@ -1,0 +1,9 @@
+[build]
+builder = "dockerfile"
+dockerfilePath = "packages/backend/Dockerfile"
+
+[deploy]
+healthcheckPath = "/api/health"
+healthcheckTimeout = 30
+restartPolicyType = "on_failure"
+restartPolicyMaxRetries = 3

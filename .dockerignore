@@ -1,0 +1,16 @@
+node_modules
+packages/*/node_modules
+packages/*/dist
+packages/frontend
+packages/shared/node_modules
+.angular
+dist
+.git
+.husky
+.vscode
+.claude
+coverage
+*.tsbuildinfo
+.env
+.env.*
+.DS_Store
