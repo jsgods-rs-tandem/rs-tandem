@@ -25,6 +25,9 @@
   --spacing-x5: calc(var(--spacing-module) * 5);
   --spacing-x10: calc(var(--spacing-module) * 10);
   --spacing-x13: calc(var(--spacing-module) * 13);
+  --radius-xs: 2px;
+  --radius-sm: 4px;
+  --radius-md: 6px;
 }
 
 [data-theme='dark'] {
