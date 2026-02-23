@@ -8,6 +8,8 @@
 
 The live application is available at: **[Deployment Link - TBC]**
 
+**Backend API:** https://rs-tandem-production.up.railway.app (deployed on Railway)
+
 ---
 
 ## 👥 Team & Development Diaries
@@ -77,7 +79,8 @@ npm start
 ```
 
 The applications will be available at: \
-**Frontend:** http://localhost:4200
+**Frontend:** http://localhost:4200 \
+**Backend:** http://localhost:3000
 
 #### Useful Commands:
 
@@ -111,6 +114,7 @@ The applications will be available at: \
 ### Architecture & Tooling
 
 - **Architecture:** Monorepo (NPM Workspaces)
+- **Deployment:** Railway (backend)
 - **CI/CD:** GitHub Actions
 - **Code Quality:** ESLint (Unicorn plugin), Prettier
 - **Git Hooks:** Husky (pre-commit, pre-push, commit-msg)
