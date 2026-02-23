@@ -1,6 +1,5 @@
 import { Component, output } from '@angular/core';
 import { ReactiveFormsModule, FormGroup, FormControl } from '@angular/forms';
-import { isTextAreaElement } from 'src/core/guards/is-text-area-element';
 
 const padding = 12;
 const lineHeight = 16;
@@ -19,7 +18,6 @@ export class ChatFormComponent {
     message: new FormControl(''),
   });
 
-<<<<<<< HEAD
   autoResize(textarea: HTMLTextAreaElement) {
     textarea.style.height = 'auto';
     textarea.style.height = `${(textarea.scrollHeight - baseTextAreaHeight).toString()}px`;
@@ -30,29 +28,10 @@ export class ChatFormComponent {
       if (event.shiftKey) return;
       event.preventDefault();
       this.handleSubmit(textarea);
-=======
-  autoResize(event: Event) {
-    if (isTextAreaElement(event.target)) {
-      const textarea = event.target;
-      textarea.style.height = 'auto';
-      textarea.style.height = `${(textarea.scrollHeight - baseTextAreaHeight).toString()}px`;
->>>>>>> 200798e (refactor: move type check logic into guard)
     }
   }
 
-<<<<<<< HEAD
   handleSubmit(textarea: HTMLTextAreaElement) {
-=======
-  submitOnEnter(event: Event) {
-    if (event instanceof KeyboardEvent) {
-      if (event.shiftKey) return;
-      event.preventDefault();
-      this.handleSubmit();
-    }
-  }
-
-  handleSubmit() {
->>>>>>> c93a5ca (feat: implement submiting form by pressing Enter)
     const message = this.messageForm.value.message;
     if (message?.trim()) {
       this.sendMessageEvent.emit(message);
