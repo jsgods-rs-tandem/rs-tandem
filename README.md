@@ -12,6 +12,8 @@ https://jsgods-rs-tandem.github.io/rs-tandem/
 🚀 **Backend API (Railway):**
 https://rs-tandem-production.up.railway.app
 
+**Backend API:** https://rs-tandem-production.up.railway.app (deployed on Railway)
+
 ---
 
 ## 👥 Team & Development Diaries
