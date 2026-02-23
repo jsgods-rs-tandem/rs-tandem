@@ -1,1 +1,0 @@
-export const isTextAreaElement = (target: unknown) => target instanceof HTMLTextAreaElement;
