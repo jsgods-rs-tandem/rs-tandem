@@ -1,0 +1,38 @@
+@use './functions' as fn;
+
+.h1 {
+  font-size: fn.to-rem(128px);
+  font-weight: var(--fw-regular);
+  line-height: 0.9;
+}
+
+.h2 {
+  font-size: fn.fluid(40px, 64px);
+  font-weight: var(--fw-regular);
+  line-height: 1.2;
+}
+
+.h3 {
+  font-size: fn.to-rem(24px);
+  font-weight: var(--fw-medium);
+  line-height: 1.3;
+}
+
+.text {
+  font-size: fn.to-rem(16px);
+  font-weight: var(--fw-regular);
+  line-height: 1.5;
+}
+
+.button {
+  font-family: var(--font-main);
+  font-size: fn.to-rem(20px);
+  font-weight: var(--fw-regular);
+  line-height: 1.2;
+}
+
+.card-link {
+  font-size: fn.to-rem(14px);
+  font-weight: var(--fw-regular);
+  line-height: 1.4;
+}

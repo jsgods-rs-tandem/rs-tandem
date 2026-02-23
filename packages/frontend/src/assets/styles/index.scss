@@ -1,47 +1,49 @@
-// Include theming for Angular Material with `mat.theme()`.
-// This Sass mixin will define CSS variables that are used for styling Angular Material
-// components according to the Material 3 design spec.
-// Learn more about theming and how to use it for your application's
-// custom components at https://material.angular.dev/guide/theming
 @use '@angular/material' as mat;
 @use './reset';
 @use './variables';
 @use './placeholders';
 @use './mixins';
 @use './functions';
+@use './typography';
 
 :root {
   --transition-duration-basic: 0.3s;
   --transition-easing-func: ease-in-out;
+  --primary-color: #ececec;
+  --secondary-color: #222;
+  --accent-color: #ff6900;
+  --error-color: #9b3737;
+  --success-color: #357a55;
+  --font-main: 'Roboto Mono', monospace;
+  --fw-regular: 400;
+  --fw-medium: 500;
+  --spacing-module: 4px;
+  --spacing-x1: var(--spacing-module);
+  --spacing-x2: calc(var(--spacing-module) * 2);
+  --spacing-x3: calc(var(--spacing-module) * 3);
+  --spacing-x4: calc(var(--spacing-module) * 4);
+  --spacing-x5: calc(var(--spacing-module) * 5);
+  --spacing-x10: calc(var(--spacing-module) * 10);
+  --spacing-x13: calc(var(--spacing-module) * 13);
+  --radius-xs: 2px;
+  --radius-sm: 4px;
+  --radius-md: 6px;
+  --shadow: -4px 4px 4.8px 0 rgb(0 0 0 / 18%);
+}
+
+[data-theme='dark'] {
+  --primary-color: #181e22;
+  --secondary-color: #ececec;
+  --shadow: -4px 4px 4.8px 0 rgb(0 0 0 / 50%);
 }
 
 html {
   height: 100%;
-  @include mat.theme(
-    (
-      color: (
-        primary: mat.$cyan-palette,
-        tertiary: mat.$orange-palette,
-      ),
-      typography: Roboto,
-      density: 0,
-    )
-  );
 }
 
 body {
   height: 100%;
-
-  font: var(--mat-sys-body-medium);
-  color: var(--mat-sys-on-surface);
-
-  // Default the application to a light color theme. This can be changed to
-  // `dark` to enable the dark color theme, or to `light dark` to defer to the
-  // user's system settings.
-  color-scheme: light;
-
-  // Set a default background, font and text colors for the application using
-  // Angular Material's system-level CSS variables. Learn more about these
-  // variables at https://material.angular.dev/guide/system-variables
-  background-color: var(--mat-sys-surface);
+  font-family: var(--font-main);
+  color: var(--secondary-color);
+  background-color: var(--primary-color);
 }
