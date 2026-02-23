@@ -28,11 +28,13 @@
   --radius-xs: 2px;
   --radius-sm: 4px;
   --radius-md: 6px;
+  --shadow: -4px 4px 4.8px 0 rgb(0 0 0 / 18%);
 }
 
 [data-theme='dark'] {
   --primary-color: #181e22;
   --secondary-color: #ececec;
+  --shadow: -4px 4px 4.8px 0 rgb(0 0 0 / 50%);
 }
 
 html {
