@@ -4,14 +4,9 @@
     type="text"
     formControlName="message"
     class="text-area"
-<<<<<<< HEAD
     #messageTextarea
     (input)="autoResize(messageTextarea)"
     (keydown.enter)="submitOnEnter($event, messageTextarea)"
-=======
-    (input)="autoResize($event)"
-    (keydown.enter)="submitOnEnter($event)"
->>>>>>> c93a5ca (feat: implement submiting form by pressing Enter)
     placeholder="Message"
   ></textarea>
   <button class="submit" [disabled]="!messageForm.value.message?.trim()" aria-label="send">
