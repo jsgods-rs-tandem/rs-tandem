@@ -1,0 +1,43 @@
+@use 'assets/styles/placeholders';
+@use 'assets/styles/functions' as fn;
+
+:host,
+.logo {
+  @extend %host-base;
+  font-family: var(--font-main);
+  font-weight: var(--fw-medium);
+}
+
+.logo {
+  &.logo_size_m {
+    .logo-prefix {
+      font-size: fn.to-rem(32px);
+      line-height: 1.3;
+    }
+
+    .logo-text {
+      font-size: fn.to-rem(24px);
+      line-height: 1.3;
+    }
+  }
+
+  &.logo_size_s {
+    .logo-prefix {
+      font-size: fn.to-rem(24px);
+      line-height: 1.3;
+    }
+
+    .logo-text {
+      font-size: fn.to-rem(16px);
+      line-height: 1.5;
+    }
+  }
+}
+
+.logo-prefix {
+  color: var(--accent-color);
+}
+
+.logo-text {
+  color: var(--secondary-color);
+}

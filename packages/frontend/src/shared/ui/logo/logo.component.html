@@ -1,0 +1,8 @@
+<div class="logo logo_size_{{ size() }}">
+  @if (showPrefix()) {
+    <span class="logo-prefix">{{ prefix }}</span>
+  }
+  @if (showText()) {
+    <span class="logo-text">{{ text }}</span>
+  }
+</div>
