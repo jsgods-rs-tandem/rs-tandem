@@ -1,4 +1,4 @@
-import { Component, computed, input } from '@angular/core';
+import { Component, input } from '@angular/core';
 import { LogoSize } from './logo.types';
 
 @Component({
@@ -14,7 +14,4 @@ export class LogoComponent {
 
   showPrefix = input<boolean>(true);
   showText = input<boolean>(true);
-
-  displayPrefix = computed<boolean>(() => this.showPrefix() || !this.showText());
-  displayText = computed<boolean>(() => this.showText() || !this.showText());
 }
