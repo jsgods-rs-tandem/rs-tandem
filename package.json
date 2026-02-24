@@ -3,6 +3,10 @@
   "version": "0.0.1",
   "private": true,
   "type": "module",
+  "engines": {
+    "node": "24.13.1",
+    "npm": "11.10.1"
+  },
   "workspaces": [
     "packages/*"
   ],
