@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
-import { Ollama } from 'ollama';
+import { ChatResponse, Ollama } from 'ollama';
 import { IErrorResponse, IMessage } from '../models/llm-message-model';
-import { isAsyncIterable } from '@/core/guards/is-async-iterable';
 
 const errorResponse: IErrorResponse = {
   error: true,
@@ -13,26 +12,22 @@ type OllamaModel = 'gemma3:1b' | 'gemma3:4b';
 @Injectable({
   providedIn: 'root',
 })
-abstract class LlmProvider {
-  abstract sendPrompt(
-    messages: IMessage[],
-    model: string,
-  ): Promise<AsyncIterable<unknown> | IErrorResponse>;
-}
-
-export class LocalLlmApi implements LlmProvider {
+export class OllamaService {
   private ollama = new Ollama();
 
-  async sendPrompt(messages: IMessage[], model: OllamaModel) {
+  async sendPrompt(
+    messages: IMessage[],
+    model: OllamaModel,
+  ): Promise<AsyncIterable<ChatResponse> | IErrorResponse> {
     try {
       const response = await this.ollama.chat({
         model,
         messages,
         stream: true,
       });
-      if (isAsyncIterable(response)) return response;
-      return errorResponse;
-    } catch {
+      return response;
+    } catch (error) {
+      console.error(error);
       return errorResponse;
     }
   }
