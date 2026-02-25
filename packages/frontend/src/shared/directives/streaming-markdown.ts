@@ -1,4 +1,4 @@
-import { Directive, ElementRef, OnDestroy } from '@angular/core';
+import { Directive, ElementRef, OnDestroy, inject } from '@angular/core';
 import DOMPurify from 'dompurify';
 import * as smd from 'streaming-markdown';
 
@@ -7,15 +7,9 @@ import * as smd from 'streaming-markdown';
   exportAs: 'streamMd',
 })
 export class StreamingMarkdownDirective implements OnDestroy {
-  private renderer: smd.Default_Renderer;
-  private parser: smd.Parser;
-  private el: ElementRef<HTMLElement>;
-
-  constructor(element: ElementRef<HTMLElement>) {
-    this.el = element;
-    this.renderer = smd.default_renderer(this.el.nativeElement);
-    this.parser = smd.parser(this.renderer);
-  }
+  private readonly el = inject<ElementRef<HTMLElement>>(ElementRef);
+  private readonly renderer = smd.default_renderer(this.el.nativeElement);
+  private readonly parser = smd.parser(this.renderer);
 
   write(chunk: string) {
     const sanitized = DOMPurify.sanitize(chunk);
