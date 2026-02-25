@@ -14,6 +14,8 @@
   --accent-color: #ff6900;
   --error-color: #9b3737;
   --success-color: #357a55;
+  --btn-bg-color: var(--secondary-color);
+  --btn-bg-hover-color: var(--accent-color);
   --font-main: 'Roboto Mono', monospace;
   --fw-regular: 400;
   --fw-medium: 500;
@@ -29,12 +31,16 @@
   --radius-sm: 4px;
   --radius-md: 6px;
   --shadow: -4px 4px 4.8px 0 rgb(0 0 0 / 18%);
+  --button-border: 2px solid var(--accent-color);
 }
 
 [data-theme='dark'] {
   --primary-color: #181e22;
   --secondary-color: #ececec;
+  --btn-bg-color: var(--accent-color);
+  --btn-bg-hover-color: var(--secondary-color);
   --shadow: -4px 4px 4.8px 0 rgb(0 0 0 / 50%);
+  --button-border: 2px solid var(--secondary-color);
 }
 
 html {
