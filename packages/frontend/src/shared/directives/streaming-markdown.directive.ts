@@ -8,7 +8,7 @@ import * as smd from 'streaming-markdown';
   standalone: true,
 })
 export class StreamingMarkdownDirective implements OnDestroy, OnInit {
-  readonly stream = input.required<AsyncIterable<ChatResponse>>();
+  readonly stream = input.required<AsyncIterable<ChatResponse>>({ alias: 'appStreamingMarkdown' });
   private readonly el = inject<ElementRef<HTMLElement>>(ElementRef);
   private readonly renderer = smd.default_renderer(this.el.nativeElement);
   private readonly parser = smd.parser(this.renderer);
