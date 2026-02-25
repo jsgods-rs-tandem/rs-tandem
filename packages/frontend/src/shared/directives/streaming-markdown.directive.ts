@@ -5,7 +5,6 @@ import * as smd from 'streaming-markdown';
 
 @Directive({
   selector: '[appStreamingMarkdown]',
-  standalone: true,
 })
 export class StreamingMarkdownDirective implements OnDestroy, OnInit {
   readonly stream = input.required<AsyncIterable<ChatResponse>>({ alias: 'appStreamingMarkdown' });
