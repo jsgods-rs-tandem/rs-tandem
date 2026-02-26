@@ -1,4 +1,4 @@
-import { Directive, ElementRef, OnDestroy, inject, input, OnInit } from '@angular/core';
+import { Directive, ElementRef, OnDestroy, inject, input, OnInit, output } from '@angular/core';
 import DOMPurify from 'dompurify';
 import { ChatResponse } from 'ollama';
 import * as smd from 'streaming-markdown';
@@ -11,6 +11,7 @@ export class StreamingMarkdownDirective implements OnDestroy, OnInit {
   private readonly el = inject<ElementRef<HTMLElement>>(ElementRef);
   private readonly renderer = smd.default_renderer(this.el.nativeElement);
   private readonly parser = smd.parser(this.renderer);
+  readonly streamingMarkdownErrorEvent = output<unknown>();
 
   ngOnInit() {
     void this.writeStream();
@@ -23,8 +24,13 @@ export class StreamingMarkdownDirective implements OnDestroy, OnInit {
   private async writeStream() {
     const mdStream = this.stream();
 
-    for await (const part of mdStream) {
-      this.write(part.message.content);
+    try {
+      for await (const part of mdStream) {
+        this.write(part.message.content);
+      }
+    } catch (error) {
+      console.error(error);
+      this.streamingMarkdownErrorEvent.emit(error);
     }
   }
 
