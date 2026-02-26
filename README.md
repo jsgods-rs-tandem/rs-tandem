@@ -8,7 +8,7 @@
 
 The live application is available at: **[Deployment Link - TBC]**
 
-**Backend API:** https://rs-tandem-production.up.railway.app (deployed on Railway)
+**Backend API:** https://rs-tandem-prod.up.railway.app (deployed on Railway)
 
 ---
 
