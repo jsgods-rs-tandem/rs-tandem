@@ -47,7 +47,10 @@ html {
 
 body {
   height: 100%;
+  padding: 0 var(--spacing-x4);
+
   font-family: var(--font-main);
   color: var(--secondary-color);
+
   background-color: var(--primary-color);
 }

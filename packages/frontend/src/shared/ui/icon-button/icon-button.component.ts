@@ -14,5 +14,6 @@ export class IconButtonComponent {
   type = input<ButtonType>('button');
   icon = input.required<ReturnType<IconComponent['name']>>();
   color = input<ReturnType<IconComponent['color']>>('neutral');
+  size = input<ReturnType<IconComponent['size']>>('m');
   ariaLabel = input<string>();
 }

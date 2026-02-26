@@ -1,0 +1,45 @@
+<header class="header">
+  <div class="header__logo">
+    <app-logo size="m" />
+  </div>
+
+  <div class="header__menu">
+    <div class="header__system">
+      <!-- TODO: change to buttonComponent with icon languages when available -->
+      <button
+        class="button"
+        icon="earth"
+        ariaLabel="Change language"
+        (click)="languageClick.emit()"
+      >
+        EN
+      </button>
+      <app-icon-button
+        [icon]="isDarkTheme() ? 'sun' : 'moon'"
+        ariaLabel="Switch theme"
+        (click)="themeClick.emit()"
+      />
+    </div>
+    <div class="header__actions">
+      <!-- TODO: change to buttonComponent with icons when available -->
+      @switch (mode()) {
+        @case ('login') {
+          <button class="button">Sign In</button>
+        }
+        @case ('logout') {
+          <button class="button">Log Out</button>
+        }
+        @case ('home') {
+          <button class="button">Home</button>
+        }
+      }
+    </div>
+    <app-icon-button
+      class="burger-menu"
+      [icon]="isMenuOpen() ? 'close' : 'menu'"
+      size="l"
+      ariaLabel="Toggle menu"
+      (click)="burgerClick.emit()"
+    />
+  </div>
+</header>

@@ -1,0 +1,39 @@
+@use 'assets/styles/mixins.scss' as m;
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: var(--spacing-x4);
+
+  &__menu,
+  &__system,
+  &__actions {
+    display: flex;
+    align-items: center;
+  }
+
+  &__menu {
+    gap: var(--spacing-x5);
+  }
+
+  &__system {
+    gap: var(--spacing-x2);
+    @include m.media('s') {
+      display: none;
+    }
+  }
+
+  &__actions {
+    @include m.media('s') {
+      display: none;
+    }
+  }
+}
+
+.burger-menu {
+  display: none;
+  @include m.media('s') {
+    display: block;
+  }
+}
