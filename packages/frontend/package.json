@@ -6,7 +6,7 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "echo 'Tests will be implemented later' && exit 0"
+    "test": "ng test"
   },
   "private": true,
   "packageManager": "npm@10.9.2",

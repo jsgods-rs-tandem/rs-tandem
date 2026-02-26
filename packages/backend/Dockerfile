@@ -1,7 +1,8 @@
 # ---- Build stage ----
-FROM node:22-alpine AS builder
+FROM node:24-alpine AS builder
 
 WORKDIR /app
+RUN npm install -g npm@11.10.1
 
 # Copy manifests for all workspaces so npm can resolve the monorepo graph
 COPY package.json package-lock.json tsconfig.base.json ./
@@ -17,9 +18,10 @@ COPY packages/backend ./packages/backend
 RUN npm run build -w @rs-tandem/backend
 
 # ---- Production stage ----
-FROM node:22-alpine AS production
+FROM node:24-alpine AS production
 
 WORKDIR /app
+RUN npm install -g npm@11.10.1
 
 # Reproduce workspace structure so npm links @rs-tandem/shared correctly
 COPY package.json package-lock.json tsconfig.base.json ./

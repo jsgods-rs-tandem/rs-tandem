@@ -1,5 +1,4 @@
-
-``` mermaid
+```mermaid
 graph TD
     subgraph LandingGroup [Landing Component]
     Landing[Landing page]
@@ -40,7 +39,7 @@ graph TD
     Auth -- No --> Login
     Auth -- Yes --> Dashboard
     Login --> Auth
-    
+
     Dashboard -- Logout --> Login
     Dashboard --> Profile
     Dashboard --> Library
