@@ -2,7 +2,7 @@
 
 REST API на NestJS. Работает на `http://localhost:3000`, все эндпоинты под `/api`.
 
-**Production:** https://rs-tandem-prod.up.railway.app
+**Production:** https://rs-tandem-production.up.railway.app
 
 ## Необходимо
 
