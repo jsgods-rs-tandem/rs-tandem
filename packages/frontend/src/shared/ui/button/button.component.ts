@@ -18,11 +18,11 @@ export class ButtonComponent {
   text = input<string>('');
   icon = input<IconName>();
   iconColor = input<IconColor>('secondary');
-  // FYI: for Angular Router
+  /** for Angular Router */
   link = input<string>();
-  // FYI: for links like GitHub or #about
+  /** for links like GitHub or #about */
   href = input<string>();
-  // FYI: Open link in a new tab if true.
+  /** Open link in a new tab if true.*/
   external = input<boolean>(false);
   disabled = input<boolean>(false);
   ariaLabel = input<string>('');
