@@ -1,4 +1,6 @@
-import { IconButtonComponent, LogoComponent, ButtonComponent } from '@/shared/ui';
+import { LogoComponent } from '@/shared/ui/logo/logo.component';
+import { IconButtonComponent } from '@/shared/ui/icon-button/icon-button.component';
+import { ButtonComponent } from '@/shared/ui/button/button.component';
 import { ChangeDetectionStrategy, Component, computed, input, output } from '@angular/core';
 import type { HeaderMode } from './header.types';
 import { HEADER_ACTIONS } from './header.config';

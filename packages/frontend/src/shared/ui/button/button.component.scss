@@ -17,7 +17,11 @@
   height: 100%;
   border-radius: var(--radius-sm);
 
-  @include m.transition((background-color, color, box-shadow, transform), 0.2s, ease-in-out);
+  @include m.transition(
+    (background-color, color, box-shadow, transform),
+    var(--transition-duration-basic),
+    var(--transition-easing-func)
+  );
 
   &_primary {
     gap: var(--spacing-x2);
