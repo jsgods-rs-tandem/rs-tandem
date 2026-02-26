@@ -1,0 +1,75 @@
+@use 'assets/styles/mixins.scss' as m;
+@use 'assets/styles/functions' as fn;
+@use 'assets/styles/placeholders';
+
+:host {
+  @extend %host-base;
+}
+
+.button {
+  cursor: pointer;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+  height: 100%;
+  border-radius: var(--radius-sm);
+
+  @include m.transition((background-color, color, box-shadow, transform), 0.2s, ease-in-out);
+
+  &_primary {
+    gap: var(--spacing-x2);
+    padding: var(--spacing-x4) var(--spacing-x5);
+    color: var(--primary-color);
+    background-color: var(--btn-bg-color);
+
+    @include m.hover {
+      transform: translate(fn.to-rem(-4px), fn.to-rem(-4px));
+      background-color: var(--accent-color);
+      box-shadow: fn.to-rem(4px) fn.to-rem(4px) var(--secondary-color);
+    }
+
+    @include m.active {
+      transform: translate(0);
+      box-shadow: none;
+    }
+
+    &:focus-visible {
+      outline: var(--button-border);
+      outline-offset: 0;
+    }
+  }
+
+  &_ghost,
+  &_ghost_brand {
+    gap: var(--spacing-x1);
+    padding: var(--spacing-x1);
+    color: var(--secondary-color);
+
+    @include m.hover {
+      text-decoration: underline;
+    }
+    @include m.active {
+      text-decoration: underline;
+    }
+
+    &:focus-visible {
+      outline: var(--button-border);
+      outline-offset: 4px;
+    }
+  }
+
+  &_ghost_brand {
+    font-weight: var(--fw-medium);
+    color: var(--accent-color);
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    text-decoration: none;
+    opacity: 0.4;
+    filter: saturate(0.1);
+  }
+}

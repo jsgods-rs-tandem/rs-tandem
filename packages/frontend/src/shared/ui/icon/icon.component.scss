@@ -25,5 +25,9 @@
     &_brand {
       color: var(--accent-color);
     }
+
+    &_secondary {
+      color: var(--primary-color);
+    }
   }
 }

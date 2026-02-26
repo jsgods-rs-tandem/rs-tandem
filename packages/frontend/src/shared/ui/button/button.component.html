@@ -1,0 +1,44 @@
+<ng-template #content>
+  @if (version().includes('ghost')) {
+    @if (icon()) {
+      <app-icon [name]="icon()!" size="m" class="button__icon" [color]="iconColor()" />
+    }
+    @if (text()) {
+      <span>{{ text() }}</span>
+    }
+  } @else {
+    @if (text()) {
+      <span>{{ text() }}</span>
+    }
+    @if (icon()) {
+      <app-icon [name]="icon()!" size="m" class="button__icon" [color]="iconColor()" />
+    }
+  }
+</ng-template>
+
+@if (href() && !disabled()) {
+  <a
+    [href]="href()"
+    [class]="classes()"
+    [target]="external() ? '_blank' : '_self'"
+    [attr.rel]="external() ? 'noopener noreferrer' : null"
+    [attr.aria-label]="displayAriaLabel()"
+  >
+    <ng-container *ngTemplateOutlet="content"></ng-container>
+  </a>
+
+} @else if (link() && !disabled()) {
+  <a [routerLink]="link()" [class]="classes()" [attr.aria-label]="displayAriaLabel()">
+    <ng-container *ngTemplateOutlet="content"></ng-container>
+  </a>
+
+} @else {
+  <button
+    [type]="type()"
+    [class]="classes()"
+    [disabled]="disabled()"
+    [attr.aria-label]="displayAriaLabel()"
+  >
+    <ng-container *ngTemplateOutlet="content"></ng-container>
+  </button>
+}

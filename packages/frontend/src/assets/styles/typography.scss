@@ -26,7 +26,7 @@
 
 .button {
   font-family: var(--font-main);
-  font-size: fn.to-rem(20px);
+  font-size: fn.fluid(16px, 20px);
   font-weight: var(--fw-regular);
   line-height: 1.2;
 }
