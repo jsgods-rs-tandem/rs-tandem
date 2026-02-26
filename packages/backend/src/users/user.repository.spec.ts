@@ -137,6 +137,76 @@ describe('UserRepository', () => {
     });
   });
 
+  describe('update', () => {
+    it('updates displayName only and returns mapped UserRow', async () => {
+      const updatedRow = { ...validDatabaseRow, display_name: 'Bob' };
+      mockPool.query.mockResolvedValue({ rows: [updatedRow] });
+
+      const result = await repository.update('u1', { displayName: 'Bob' });
+
+      expect(result.displayName).toBe('Bob');
+      expect(mockPool.query).toHaveBeenCalledWith(expect.stringContaining('display_name = $1'), [
+        'Bob',
+        'u1',
+      ]);
+    });
+
+    it('updates email only and returns mapped UserRow', async () => {
+      const updatedRow = { ...validDatabaseRow, email: 'new@b.com' };
+      mockPool.query.mockResolvedValue({ rows: [updatedRow] });
+
+      const result = await repository.update('u1', { email: 'new@b.com' });
+
+      expect(result.email).toBe('new@b.com');
+      expect(mockPool.query).toHaveBeenCalledWith(expect.stringContaining('email = $1'), [
+        'new@b.com',
+        'u1',
+      ]);
+    });
+
+    it('updates both fields and returns mapped UserRow', async () => {
+      const updatedRow = { ...validDatabaseRow, display_name: 'Bob', email: 'new@b.com' };
+      mockPool.query.mockResolvedValue({ rows: [updatedRow] });
+
+      const result = await repository.update('u1', { displayName: 'Bob', email: 'new@b.com' });
+
+      expect(result.displayName).toBe('Bob');
+      expect(result.email).toBe('new@b.com');
+      expect(mockPool.query).toHaveBeenCalledWith(expect.stringContaining('display_name = $1'), [
+        'Bob',
+        'new@b.com',
+        'u1',
+      ]);
+    });
+
+    it('handles empty input (only sets updated_at)', async () => {
+      mockPool.query.mockResolvedValue({ rows: [validDatabaseRow] });
+
+      const result = await repository.update('u1', {});
+
+      expect(result).toEqual(expectedUserRow);
+      expect(mockPool.query).toHaveBeenCalledWith(expect.stringContaining('updated_at = NOW()'), [
+        'u1',
+      ]);
+    });
+
+    it('throws when update returns no rows', async () => {
+      mockPool.query.mockResolvedValue({ rows: [] });
+
+      await expect(repository.update('missing', { displayName: 'Bob' })).rejects.toThrow(
+        'Update returned no rows',
+      );
+    });
+
+    it('throws when returned row has unexpected shape', async () => {
+      mockPool.query.mockResolvedValue({ rows: [{ id: 'u1' }] });
+
+      await expect(repository.update('u1', { displayName: 'Bob' })).rejects.toThrow(
+        'Unexpected user row shape from database',
+      );
+    });
+  });
+
   describe('create', () => {
     it('returns mapped UserRow on successful insert', async () => {
       mockPool.query.mockResolvedValue({ rows: [validDatabaseRow] });

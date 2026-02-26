@@ -1,7 +1,12 @@
 import { Inject, Injectable } from '@nestjs/common';
 import { Pool } from 'pg';
 import { PG_POOL } from '../database/database.constants.js';
-import type { CreateUserInput, UserRow, UserWithPasswordRow } from './user.entity.js';
+import type {
+  CreateUserInput,
+  UpdateUserInput,
+  UserRow,
+  UserWithPasswordRow,
+} from './user.entity.js';
 
 interface UserDatabaseRow extends Record<string, unknown> {
   id: string;
@@ -101,6 +106,43 @@ export class UserRepository {
     const row = result.rows[0];
 
     return row ? toUserWithPasswordRow(row) : undefined;
+  }
+
+  async update(id: string, input: UpdateUserInput): Promise<UserRow> {
+    const setClauses: string[] = [];
+    const values: unknown[] = [];
+    let parameterIndex = 1;
+
+    if (input.displayName !== undefined) {
+      setClauses.push(`display_name = $${String(parameterIndex)}`);
+      values.push(input.displayName);
+      parameterIndex++;
+    }
+
+    if (input.email !== undefined) {
+      setClauses.push(`email = $${String(parameterIndex)}`);
+      values.push(input.email);
+      parameterIndex++;
+    }
+
+    setClauses.push('updated_at = NOW()');
+    values.push(id);
+
+    const result = await this.pool.query<Record<string, unknown>>(
+      `UPDATE users
+       SET ${setClauses.join(', ')}
+       WHERE id = $${String(parameterIndex)}
+       RETURNING id, email, display_name, created_at, updated_at`,
+      values,
+    );
+
+    const row = result.rows[0];
+
+    if (!row) {
+      throw new Error('Update returned no rows');
+    }
+
+    return toUserRow(row);
   }
 
   async create(input: CreateUserInput): Promise<UserRow> {

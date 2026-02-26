@@ -5,6 +5,7 @@ import { ConfigService } from '@nestjs/config';
 import * as bcrypt from 'bcryptjs';
 import { AuthService } from './auth.service.js';
 import { UserRepository } from '../users/user.repository.js';
+import { ProfilesService } from '../profiles/profiles.service.js';
 import { JwtStrategy } from './strategies/jwt.strategy.js';
 import { UsersService } from '../users/users.service.js';
 
@@ -20,6 +21,10 @@ const mockJwtService = {
   sign: jest.fn(),
 };
 
+const mockProfilesService = {
+  createProfile: jest.fn(),
+};
+
 describe('AuthService', () => {
   let service: AuthService;
 
@@ -30,6 +35,7 @@ describe('AuthService', () => {
         AuthService,
         { provide: UserRepository, useValue: mockUserRepository },
         { provide: JwtService, useValue: mockJwtService },
+        { provide: ProfilesService, useValue: mockProfilesService },
       ],
     }).compile();
     service = module.get(AuthService);

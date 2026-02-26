@@ -3,12 +3,14 @@ import { JwtService } from '@nestjs/jwt';
 import * as bcrypt from 'bcryptjs';
 import type { AuthResponseDto, LoginDto, RegisterDto, UserDto } from '@rs-tandem/shared';
 import { UserRepository } from '../users/user.repository.js';
+import { ProfilesService } from '../profiles/profiles.service.js';
 
 @Injectable()
 export class AuthService {
   constructor(
     private readonly userRepository: UserRepository,
     private readonly jwtService: JwtService,
+    private readonly profilesService: ProfilesService,
   ) {}
 
   async login(dto: LoginDto): Promise<AuthResponseDto> {
@@ -44,6 +46,8 @@ export class AuthService {
       passwordHash,
       displayName: dto.displayName ?? '',
     });
+
+    await this.profilesService.createProfile(row.id);
 
     return {
       id: row.id,

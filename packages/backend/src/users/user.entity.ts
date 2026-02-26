@@ -15,3 +15,8 @@ export interface CreateUserInput {
   passwordHash: string;
   displayName: string;
 }
+
+export interface UpdateUserInput {
+  displayName?: string;
+  email?: string;
+}
