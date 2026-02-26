@@ -1,0 +1,57 @@
+name: CD
+on:
+  push:
+    branches: [dev, main]
+  workflow_dispatch:
+
+permissions:
+  pages: write
+  id-token: write
+jobs:
+  deploy-frontend:
+    name: Deploy FE
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: 'package.json'
+          cache: 'npm'
+
+      - name: Setup NPM
+        run: npm install -g npm@11.10.1
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build FE
+        run: npm run build -w @rs-tandem/frontend -- --base-href /rs-tandem/
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: 'packages/frontend/dist/frontend/browser'
+
+      - name: Deploy
+        id: deployment
+        uses: actions/deploy-pages@v4
+
+  deploy-backend:
+    name: Deploy BE
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install Railway CLI
+        run: npm install -g @railway/cli
+
+      - name: Deploy to Railway
+        run: railway up --service ${{ secrets.RAILWAY_SERVICE_ID }} --detach
+        env:
+          RAILWAY_TOKEN: ${{ secrets.RAILWAY_TOKEN }}
