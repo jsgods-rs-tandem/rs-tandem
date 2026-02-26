@@ -26,6 +26,11 @@ export class ButtonComponent {
   external = input<boolean>(false);
   disabled = input<boolean>(false);
   ariaLabel = input<string>('');
+  isSmallButton = input<boolean>(false);
   displayAriaLabel = computed(() => this.ariaLabel() || this.text());
-  classes = computed(() => `button button_${this.version()}`);
+  classes = computed(() => {
+    return ['button', `button_${this.version()}`, this.isSmallButton() ? 'button_size_s' : null]
+      .filter(Boolean)
+      .join(' ');
+  });
 }

@@ -48,8 +48,15 @@
     padding: var(--spacing-x1);
     color: var(--secondary-color);
 
+    ::ng-deep .icon {
+      @include m.transition(all, var(--transition-duration-basic), var(--transition-easing-func));
+    }
     @include m.hover {
       text-decoration: underline;
+
+      ::ng-deep .icon {
+        color: var(--accent-color);
+      }
     }
     @include m.active {
       text-decoration: underline;
@@ -71,5 +78,11 @@
     text-decoration: none;
     opacity: 0.4;
     filter: saturate(0.1);
+  }
+
+  &_size {
+    &_s {
+      padding: var(--spacing-x2) var(--spacing-x3);
+    }
   }
 }
