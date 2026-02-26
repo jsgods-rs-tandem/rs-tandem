@@ -29,7 +29,7 @@ export class ButtonComponent {
   isSmallButton = input<boolean>(false);
   displayAriaLabel = computed(() => this.ariaLabel() || this.text());
   classes = computed(() => {
-    return ['button', `button_${this.version()}`, this.isSmallButton() ? 'button_size_s' : null]
+    return ['button', `button_${this.version()}`, this.isSmallButton() && 'button_size_s']
       .filter(Boolean)
       .join(' ');
   });
