@@ -1,0 +1,36 @@
+<header class="header">
+  <app-logo size="m" class="header__logo" />
+
+  <div class="header__menu">
+    <div class="header__system">
+      <app-button
+        [text]="langText()"
+        version="ghost"
+        icon="language"
+        iconColor="neutral"
+        (click)="languageClick.emit()"
+      />
+      <app-icon-button [icon]="themeIcon()" ariaLabel="Switch theme" (click)="themeClick.emit()" />
+    </div>
+
+    <div class="header__actions">
+      @let config = actionConfig();
+      <app-button
+        [text]="config.text"
+        [icon]="config.icon"
+        [link]="config.link"
+        version="primary"
+        [isSmallButton]="true"
+        (click)="config.emitLogout ? logoutClick.emit() : null"
+      />
+    </div>
+
+    <app-icon-button
+      class="burger-menu"
+      [icon]="isMenuOpen() ? 'close' : 'menu'"
+      size="l"
+      ariaLabel="Toggle menu"
+      (click)="burgerClick.emit()"
+    />
+  </div>
+</header>

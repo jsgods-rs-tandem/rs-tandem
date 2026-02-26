@@ -1,6 +1,17 @@
 @use 'assets/styles/placeholders';
+@use 'assets/styles/mixins.scss' as m;
 
 :host,
 .icon-button {
   @extend %host-base;
+
+  ::ng-deep .icon {
+    @include m.transition(all, var(--transition-duration-basic), var(--transition-easing-func));
+  }
+
+  @include m.hover {
+    ::ng-deep .icon {
+      color: var(--accent-color);
+    }
+  }
 }
