@@ -1,6 +1,7 @@
-import { Component, signal } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
 import { DialogueWindowComponent } from './components/dialogue-window/dialogue-window.component';
 import { ChatFormComponent } from './components/chat-form/chat-form.component';
+import { AiChatMockStore } from './services/ai-chat-mock.store';
 
 @Component({
   selector: 'app-ai-chat',
@@ -9,6 +10,6 @@ import { ChatFormComponent } from './components/chat-form/chat-form.component';
   styleUrl: './ai-chat.component.scss',
 })
 export class AiChatComponent {
-  username = signal('Ivan Ivanov');
-  history = signal([]);
+  readonly store = inject(AiChatMockStore);
+  protected readonly username = signal('Ivan Ivanov');
 }
