@@ -6,9 +6,11 @@
 
 ## 🔗 Deployment
 
-The live application is available at: **[Deployment Link - TBC]**
+🌐 **Live Application:**
+https://jsgods-rs-tandem.github.io/rs-tandem/
 
-**Backend API:** https://rs-tandem-production.up.railway.app (deployed on Railway)
+🚀 **Backend API (Railway):**
+https://rs-tandem-production.up.railway.app
 
 ---
 
@@ -62,7 +64,7 @@ Follow these steps to set up the project locally.
 #### Clone the repository:
 
 ```bash
-git clone https://github.com/dukhd/rs-tandem.git
+git clone https://github.com/jsgods-rs-tandem/rs-tandem.git
 cd rs-tandem
 ```
 
@@ -102,7 +104,6 @@ The applications will be available at: \
 
 - **Framework:** Angular
 - **Language:** TypeScript
-- **UI Library:** Angular Material
 - **Styling:** SCSS
 - **Build Tool:** Angular CLI (Vite/Esbuild)
 
