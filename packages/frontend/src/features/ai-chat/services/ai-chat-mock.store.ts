@@ -1,5 +1,5 @@
 import { Injectable, signal, computed } from '@angular/core';
-import { IMessage } from '../models/llm-message-model';
+import { IMessage, IStreamMessage } from '../models/llm-message-model';
 import { OllamaService } from './ollama-service';
 import { isAsyncIterable } from '@/core/guards/is-async-iterable';
 
@@ -18,9 +18,10 @@ const mockHistory: IMessage[] = [
 export class AiChatMockStore {
   private llm = new OllamaService();
   private _history = signal<IMessage[]>([...mockHistory]);
+  private _messages = signal<(IMessage | IStreamMessage)[]>([...this._history()]);
 
-  readonly history = this._history.asReadonly();
-  readonly historyLength = computed(() => this._history().length);
+  readonly messages = this._messages.asReadonly();
+  readonly messagesLength = computed(() => this._messages().length);
 
   sendPrompt(text: string) {
     const message: IMessage = { role: 'user', content: text };
@@ -30,19 +31,11 @@ export class AiChatMockStore {
 
   private async send() {
     const response = await this.llm.sendPrompt(this._history(), 'gemma3:1b');
-    try {
-      if (isAsyncIterable(response)) {
-        const message: IMessage = { role: 'assistant', content: '' };
 
-        for await (const part of response) {
-          message.content += part.message.content;
-        }
+    if (isAsyncIterable(response)) {
+      const message: IStreamMessage = { role: 'assistant', content: response };
 
-        this._history.update((array) => [...array, message]);
-      }
-    } catch (error) {
-      console.error(error);
-      return;
+      this._messages.update((array) => [...array, message]);
     }
   }
 
