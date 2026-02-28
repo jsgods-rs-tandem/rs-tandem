@@ -22,7 +22,7 @@
   gap: var(--spacing-x1);
   align-items: baseline;
 
-  font-family: var(--font-main), monospace;
+  font-family: var(--font-main);
   font-size: fn.fluid(16px, 24px);
   font-weight: var(--fw-medium, 500);
   line-height: 1.3;
@@ -41,7 +41,7 @@
   border: 1px solid var(--secondary-color);
   border-radius: var(--radius-md);
 
-  font-family: var(--font-main), monospace;
+  font-family: var(--font-main);
   font-size: fn.to-rem(16px);
   line-height: 1.5;
   color: var(--text-primary);
