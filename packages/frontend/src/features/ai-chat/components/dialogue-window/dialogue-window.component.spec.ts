@@ -12,7 +12,13 @@ describe('DialogueWindowComponent', () => {
     }).compileComponents();
 
     fixture = TestBed.createComponent(DialogueWindowComponent);
+
+    fixture.componentRef.setInput('messages', []);
+
     component = fixture.componentInstance;
+
+    fixture.detectChanges();
+
     await fixture.whenStable();
   });
 
