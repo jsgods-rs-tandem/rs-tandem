@@ -12,4 +12,8 @@ import { AiChatMockStore } from './services/ai-chat-mock.store';
 export class AiChatComponent {
   readonly store = inject(AiChatMockStore);
   protected readonly username = signal('Ivan Ivanov');
+
+  protected sendPrompt(message: string) {
+    this.store.sendPrompt(message);
+  }
 }

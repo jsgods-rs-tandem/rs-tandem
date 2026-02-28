@@ -1,8 +1,7 @@
 @if (store.messagesLength()) {
   <p class="greeting">Hi, {{ username() }}!</p>
   <app-dialogue-window class="dialogue-window" [messsages]="store.messages()"></app-dialogue-window>
-  <app-chat-form class="chat-form"></app-chat-form>
 } @else {
   <h1 class="title">How can I help you?</h1>
-  <app-chat-form class="chat-form"></app-chat-form>
 }
+<app-chat-form class="chat-form" (sendMessageEvent)="sendPrompt($event)"></app-chat-form>
