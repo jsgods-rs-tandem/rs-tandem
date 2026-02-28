@@ -9,5 +9,5 @@ import { MarkdownDirective } from '@/shared/directives/markdown.directive';
   styleUrl: './dialogue-window.component.scss',
 })
 export class DialogueWindowComponent {
-  messsages = input.required<(IMessage | IStreamMessage)[]>();
+  messages = input.required<(IMessage | IStreamMessage)[]>();
 }
