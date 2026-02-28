@@ -1,6 +1,6 @@
 @if (store.messagesLength()) {
   <p class="greeting">Hi, {{ username() }}!</p>
-  <app-dialogue-window class="dialogue-window" [messages]="store.messages()"></app-dialogue-window>
+  <app-dialogue-window class="dialogue-window"></app-dialogue-window>
 } @else {
   <h1 class="title">How can I help you?</h1>
 }

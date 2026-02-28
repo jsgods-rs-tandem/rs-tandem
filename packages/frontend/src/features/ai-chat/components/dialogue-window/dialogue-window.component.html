@@ -1,4 +1,4 @@
-@for (message of messages(); track message) {
+@for (message of store.messages(); track message) {
   @if (message.role === 'assistant') {
     <div [appMarkdown]="message.content" class="assistant-message"></div>
   }
