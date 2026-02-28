@@ -1,6 +1,6 @@
-import { Component, input } from '@angular/core';
-import { IMessage, IStreamMessage } from '../../models/llm-message-model';
+import { Component, effect, ElementRef, inject } from '@angular/core';
 import { MarkdownDirective } from '@/shared/directives/markdown.directive';
+import { AiChatMockStore } from '../../services/ai-chat-mock.store';
 
 @Component({
   selector: 'app-dialogue-window',
@@ -9,5 +9,21 @@ import { MarkdownDirective } from '@/shared/directives/markdown.directive';
   styleUrl: './dialogue-window.component.scss',
 })
 export class DialogueWindowComponent {
-  messages = input.required<(IMessage | IStreamMessage)[]>();
+  protected readonly store = inject(AiChatMockStore);
+  private prevLength = this.store.messagesLength();
+  private host = inject<ElementRef<HTMLElement>>(ElementRef);
+
+  constructor() {
+    effect(() => {
+      if (this.prevLength !== this.store.messagesLength()) {
+        this.scrollToDown();
+        this.prevLength = this.store.messagesLength();
+      }
+    });
+  }
+
+  private scrollToDown() {
+    const element = this.host.nativeElement;
+    element.scrollTop = element.scrollHeight;
+  }
 }
