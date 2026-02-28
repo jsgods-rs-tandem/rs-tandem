@@ -11,20 +11,22 @@
 .chat-form,
 .dialogue-window,
 .greeting {
-  display: block;
   width: 100%;
   max-width: 714px;
 }
 
 .greeting {
+  display: block;
   margin-top: 33px;
 }
 
 .chat-form {
+  display: block;
   margin-bottom: 65px;
 }
 
 .dialogue-window {
+  overflow-y: scroll;
   flex: 1;
   margin-top: 8px;
   margin-bottom: 24px;
