@@ -26,6 +26,7 @@ export class AiChatMockStore {
   sendPrompt(text: string) {
     const message: IMessage = { role: 'user', content: text };
     this._history.update((array) => [...array, message]);
+    this._messages.update((array) => [...array, message]);
     void this.send();
   }
 
