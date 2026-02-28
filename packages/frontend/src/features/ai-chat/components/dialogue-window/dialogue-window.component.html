@@ -1,0 +1,5 @@
+@for (message of messsages(); track message) {
+  @if (message.role === 'assistant') {
+    <div [appMarkdown]="message.content"></div>
+  }
+}
