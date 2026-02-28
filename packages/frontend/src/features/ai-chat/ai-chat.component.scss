@@ -26,10 +26,13 @@
 }
 
 .dialogue-window {
-  overflow-y: scroll;
+  overflow-y: auto;
   flex: 1;
+
   margin-top: 8px;
   margin-bottom: 24px;
+
+  overflow-wrap: anywhere;
 }
 
 .title {
