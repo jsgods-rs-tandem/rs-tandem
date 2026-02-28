@@ -23,8 +23,9 @@
   align-items: baseline;
 
   font-family: var(--font-main), monospace;
-  font-size: fn.to-rem(24px);
+  font-size: fn.fluid(16px, 24px);
   font-weight: var(--fw-medium, 500);
+  line-height: 1.3;
   color: var(--text-primary);
 
   &.is-disabled {
@@ -42,11 +43,16 @@
 
   font-family: var(--font-main), monospace;
   font-size: fn.to-rem(16px);
+  line-height: 1.5;
   color: var(--text-primary);
 
   background-color: transparent;
   outline: none;
-  @include m.transition((border-color, box-shadow), 0.3s, ease-in-out);
+  @include m.transition(
+    (border-color, box-shadow),
+    var(--transition-duration-basic),
+    var(--transition-easing-func)
+  );
 
   &::placeholder {
     color: var(--text-secondary);
@@ -76,6 +82,7 @@
 .input-error-text {
   margin-top: var(--spacing-x1);
   font-size: fn.to-rem(12px);
+  font-weight: var(--fw-medium);
   color: var(--error-color);
 }
 

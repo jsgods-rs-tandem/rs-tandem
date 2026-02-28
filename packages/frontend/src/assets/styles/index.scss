@@ -33,7 +33,6 @@
   --button-border: 2px solid var(--accent-color);
   --text-primary: #222;
   --text-secondary: #222c;
-  --text-error: var(--error-color);
 }
 
 [data-theme='dark'] {
@@ -44,7 +43,6 @@
   --button-border: 2px solid var(--secondary-color);
   --text-primary: #ececec;
   --text-secondary: #ecececcc;
-  --text-error: var(--error-color);
 }
 
 html {
