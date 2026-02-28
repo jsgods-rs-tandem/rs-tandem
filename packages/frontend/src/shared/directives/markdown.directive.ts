@@ -34,6 +34,7 @@ export class MarkdownDirective implements OnDestroy, OnInit {
       for await (const part of mdStream) {
         this.write(part.message.content);
       }
+      this.write('\n');
     } catch (error) {
       console.error(error);
       this.markdownErrorEvent.emit(error);
