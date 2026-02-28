@@ -4,16 +4,16 @@ import { ChatResponse } from 'ollama';
 import * as smd from 'streaming-markdown';
 
 @Directive({
-  selector: '[appStreamingMarkdown]',
+  selector: '[appMarkdown]',
 })
-export class StreamingMarkdownDirective implements OnDestroy, OnInit {
+export class MarkdownDirective implements OnDestroy, OnInit {
   readonly markdown = input.required<AsyncIterable<ChatResponse> | string>({
-    alias: 'appStreamingMarkdown',
+    alias: 'appMarkdown',
   });
   private readonly el = inject<ElementRef<HTMLElement>>(ElementRef);
   private readonly renderer = smd.default_renderer(this.el.nativeElement);
   private readonly parser = smd.parser(this.renderer);
-  readonly streamingMarkdownErrorEvent = output<unknown>();
+  readonly markdownErrorEvent = output<unknown>();
 
   ngOnInit() {
     const markdown = this.markdown();
@@ -36,7 +36,7 @@ export class StreamingMarkdownDirective implements OnDestroy, OnInit {
       }
     } catch (error) {
       console.error(error);
-      this.streamingMarkdownErrorEvent.emit(error);
+      this.markdownErrorEvent.emit(error);
     }
   }
 
