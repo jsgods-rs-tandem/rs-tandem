@@ -1,0 +1,31 @@
+<div
+  class="input-wrapper"
+  [ngClass]="{ 'is-error': hasError() || errorText(), 'is-disabled': disabled() }"
+>
+  @if (label()) {
+    <label [for]="inputId()" class="input-label" [class.is-disabled]="disabled()">
+      {{ label() }}
+
+      @if (required()) {
+        <span class="required-asterisk" aria-hidden="true">*</span>
+      }
+    </label>
+  }
+
+  <input
+    class="input-element"
+    [id]="inputId()"
+    [name]="name() || inputId()"
+    [attr.name]="name() || inputId()"
+    [type]="targetType()"
+    [placeholder]="placeholder()"
+    [disabled]="disabled()"
+    [(ngModel)]="value"
+    [autocomplete]="autoComplete()"
+    [required]="required()"
+  />
+
+  @if (errorText()) {
+    <span class="input-error-text">{{ errorText() }}</span>
+  }
+</div>

@@ -31,6 +31,9 @@
   --radius-md: 6px;
   --shadow: -4px 4px 4.8px 0 rgb(0 0 0 / 18%);
   --button-border: 2px solid var(--accent-color);
+  --text-primary: #222;
+  --text-secondary: #222c;
+  --text-error: var(--error-color);
 }
 
 [data-theme='dark'] {
@@ -39,6 +42,9 @@
   --btn-bg-color: var(--accent-color);
   --shadow: -4px 4px 4.8px 0 rgb(0 0 0 / 50%);
   --button-border: 2px solid var(--secondary-color);
+  --text-primary: #ececec;
+  --text-secondary: #ecececcc;
+  --text-error: var(--error-color);
 }
 
 html {

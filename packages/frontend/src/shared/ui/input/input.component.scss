@@ -1,0 +1,84 @@
+@use 'assets/styles/mixins.scss' as m;
+@use 'assets/styles/functions' as fn;
+
+:host {
+  display: block;
+  width: 100%;
+}
+
+.input-wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+
+  &.is-disabled {
+    cursor: not-allowed;
+    opacity: 0.6;
+  }
+}
+
+.input-label {
+  display: flex;
+  gap: var(--spacing-x1);
+  align-items: baseline;
+
+  font-family: var(--font-main), monospace;
+  font-size: fn.to-rem(24px);
+  font-weight: var(--fw-medium, 500);
+  color: var(--text-primary);
+
+  &.is-disabled {
+    cursor: not-allowed;
+  }
+}
+
+.input-element {
+  width: 100%;
+  min-height: 52px;
+  margin-top: var(--spacing-x2);
+  padding: var(--spacing-x2) var(--spacing-x3);
+  border: 1px solid var(--secondary-color);
+  border-radius: var(--radius-md);
+
+  font-family: var(--font-main), monospace;
+  font-size: fn.to-rem(16px);
+  color: var(--text-primary);
+
+  background-color: transparent;
+  outline: none;
+  @include m.transition((border-color, box-shadow), 0.3s, ease-in-out);
+
+  &::placeholder {
+    color: var(--text-secondary);
+  }
+
+  &:focus {
+    border-color: var(--accent-color);
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    background-color: rgb(255 255 255 / 5%);
+  }
+}
+
+.is-error {
+  .input-element {
+    border-color: var(--error-color);
+
+    &:focus {
+      border-color: var(--error-color);
+      box-shadow: 0 0 0 1px var(--error-color);
+    }
+  }
+}
+
+.input-error-text {
+  margin-top: var(--spacing-x1);
+  font-size: fn.to-rem(12px);
+  color: var(--error-color);
+}
+
+.required-asterisk {
+  color: var(--error-color);
+}
