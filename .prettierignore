@@ -5,3 +5,4 @@ out-tsc
 .cache
 package-lock.json
 coverage
+development-notes
