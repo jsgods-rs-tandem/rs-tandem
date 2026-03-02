@@ -1,0 +1,15 @@
+<form [formGroup]="messageForm" (ngSubmit)="handleSubmit(messageTextarea)" class="form">
+  <textarea
+    name="message"
+    type="text"
+    formControlName="message"
+    class="text-area"
+    #messageTextarea
+    (input)="autoResize(messageTextarea)"
+    (keydown.enter)="submitOnEnter($event, messageTextarea)"
+    placeholder="Message"
+  ></textarea>
+  <button class="submit" [disabled]="!messageForm.value.message?.trim()" aria-label="send">
+    SEND PROMPT
+  </button>
+</form>

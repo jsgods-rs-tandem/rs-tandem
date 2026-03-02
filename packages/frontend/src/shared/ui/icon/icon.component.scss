@@ -1,0 +1,33 @@
+@use 'assets/styles/placeholders';
+
+:host {
+  @extend %host-base;
+}
+
+.icon {
+  aspect-ratio: 1;
+
+  &_size {
+    &_l {
+      width: 40px;
+    }
+
+    &_m {
+      width: 24px;
+    }
+  }
+
+  &_color {
+    &_neutral {
+      color: var(--secondary-color);
+    }
+
+    &_brand {
+      color: var(--accent-color);
+    }
+
+    &_secondary {
+      color: var(--primary-color);
+    }
+  }
+}

@@ -6,6 +6,7 @@
     "outDir": "./out-tsc",
     "baseUrl": ".",
     "paths": {
+      "@/*": ["src/*"],
       "@rs-tandem/shared": ["../shared/src/index.ts"]
     },
     "experimentalDecorators": true,

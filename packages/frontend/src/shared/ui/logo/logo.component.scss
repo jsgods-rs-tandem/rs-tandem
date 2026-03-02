@@ -1,0 +1,46 @@
+@use 'assets/styles/placeholders';
+@use 'assets/styles/functions' as fn;
+
+:host,
+.logo {
+  @extend %host-base;
+  font-weight: var(--fw-medium);
+}
+
+.logo {
+  $this: &;
+
+  &_size {
+    &_m {
+      #{$this}__prefix {
+        font-size: fn.to-rem(32px);
+        line-height: 1.3;
+      }
+
+      #{$this}__text {
+        font-size: fn.to-rem(24px);
+        line-height: 1.3;
+      }
+    }
+
+    &_s {
+      #{$this}__prefix {
+        font-size: fn.to-rem(24px);
+        line-height: 1.3;
+      }
+
+      #{$this}__text {
+        font-size: fn.to-rem(16px);
+        line-height: 1.5;
+      }
+    }
+  }
+
+  &__prefix {
+    color: var(--accent-color);
+  }
+
+  &__text {
+    color: var(--secondary-color);
+  }
+}

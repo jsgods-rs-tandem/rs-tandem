@@ -3,6 +3,10 @@
   "version": "0.0.1",
   "private": true,
   "type": "module",
+  "engines": {
+    "node": "24.13.1",
+    "npm": "11.10.1"
+  },
   "workspaces": [
     "packages/*"
   ],
@@ -27,6 +31,7 @@
     "concurrently": "^8.2.2",
     "eslint": "^9.39.2",
     "eslint-config-prettier": "10.1.8",
+    "eslint-import-resolver-typescript": "^4.4.4",
     "eslint-plugin-import": "^2.32.0",
     "eslint-plugin-unicorn": "^62.0.0",
     "eslint-plugin-unused-imports": "^4.3.0",
@@ -40,5 +45,10 @@
   },
   "overrides": {
     "glob": "^13.0.5"
+  },
+  "dependencies": {
+    "dompurify": "^3.3.1",
+    "ollama": "^0.6.3",
+    "streaming-markdown": "^0.2.15"
   }
 }

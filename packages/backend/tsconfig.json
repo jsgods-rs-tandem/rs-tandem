@@ -4,10 +4,7 @@
     "module": "NodeNext",
     "moduleResolution": "NodeNext",
     "outDir": "./dist",
-    "baseUrl": ".",
-    "paths": {
-      "@rs-tandem/shared": ["../shared/src/index.ts"]
-    },
+    "erasableSyntaxOnly": false,
 
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,

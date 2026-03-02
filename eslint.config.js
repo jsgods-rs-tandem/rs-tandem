@@ -33,8 +33,13 @@ export default defineConfig([
     ],
     languageOptions: {
       parserOptions: {
-        projectService: true,
         tsconfigRootDir: import.meta.dirname,
+        project: [
+          './packages/frontend/tsconfig.app.json',
+          './packages/frontend/tsconfig.spec.json',
+          './packages/backend/tsconfig.json',
+          './packages/shared/tsconfig.json',
+        ],
       },
     },
     plugins: {
@@ -84,9 +89,26 @@ export default defineConfig([
     settings: {
       'import/resolver': {
         typescript: {
-          project: './tsconfig.base.json',
+          project: [
+            './tsconfig.base.json',
+            './packages/frontend/tsconfig.app.json',
+            './packages/frontend/tsconfig.spec.json',
+            './packages/backend/tsconfig.json',
+            './packages/shared/tsconfig.json',
+          ],
         },
       },
+    },
+  },
+
+  {
+    files: ['packages/backend/**/*.ts'],
+    rules: {
+      '@typescript-eslint/no-empty-object-type': [
+        'error',
+        { allowInterfaces: 'with-single-extends' },
+      ],
+      '@typescript-eslint/no-extraneous-class': ['error', { allowWithDecorator: true }],
     },
   },
 
@@ -110,6 +132,13 @@ export default defineConfig([
     files: ['packages/frontend/**/*.html'],
     extends: [...angular.configs.templateRecommended, ...angular.configs.templateAccessibility],
     rules: {},
+  },
+
+  {
+    files: ['**/*.spec.ts'],
+    rules: {
+      '@typescript-eslint/no-non-null-assertion': 'off',
+    },
   },
 
   prettierConfig,
