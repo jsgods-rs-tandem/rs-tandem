@@ -18,6 +18,7 @@ export class ButtonComponent {
   text = input<string>('');
   icon = input<IconName>();
   iconColor = input<IconColor>('secondary');
+  iconPosition = input<'start' | 'end'>('start');
   /** for Angular Router */
   link = input<string>();
   /** for links like GitHub or #about */
@@ -29,7 +30,12 @@ export class ButtonComponent {
   isSmallButton = input<boolean>(false);
   displayAriaLabel = computed(() => this.ariaLabel() || this.text());
   classes = computed(() => {
-    return ['button', `button_${this.version()}`, this.isSmallButton() && 'button_size_s']
+    return [
+      'button',
+      `button_${this.version()}`,
+      `button_icon-${this.iconPosition()}`,
+      this.isSmallButton() ? 'button_size_s' : null,
+    ]
       .filter(Boolean)
       .join(' ');
   });
