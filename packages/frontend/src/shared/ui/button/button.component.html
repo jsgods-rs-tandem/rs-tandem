@@ -1,18 +1,9 @@
 <ng-template #content>
-  @if (version().includes('ghost')) {
-    @if (icon()) {
-      <app-icon [name]="icon()!" size="m" class="button__icon" [color]="iconColor()" />
-    }
-    @if (text()) {
-      <span>{{ text() }}</span>
-    }
-  } @else {
-    @if (text()) {
-      <span>{{ text() }}</span>
-    }
-    @if (icon()) {
-      <app-icon [name]="icon()!" size="m" class="button__icon" [color]="iconColor()" />
-    }
+  @if (icon()) {
+    <app-icon [name]="icon()!" size="m" class="button__icon" [color]="iconColor()" />
+  }
+  @if (text()) {
+    <span class="button__text">{{ text() }}</span>
   }
 </ng-template>
 
