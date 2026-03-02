@@ -134,5 +134,12 @@ export default defineConfig([
     rules: {},
   },
 
+  {
+    files: ['**/*.spec.ts'],
+    rules: {
+      '@typescript-eslint/no-non-null-assertion': 'off',
+    },
+  },
+
   prettierConfig,
 ]);
