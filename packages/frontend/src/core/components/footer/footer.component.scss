@@ -1,0 +1,44 @@
+@use 'assets/styles/placeholders';
+@use 'assets/styles/mixins.scss' as m;
+
+:host {
+  @extend %host-base;
+  width: 100%;
+  margin-top: auto;
+}
+
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--spacing-x4) 0;
+
+  &__content {
+    display: flex;
+    align-items: center;
+
+    @include m.media('s') {
+      flex-direction: column;
+    }
+  }
+
+  &__credits {
+    display: flex;
+    align-items: center;
+
+    &::before {
+      content: '|';
+      margin: 0 var(--spacing-x2);
+      color: var(--text-secondary);
+
+      @include m.media('s') {
+        display: none;
+      }
+    }
+  }
+
+  @include m.media('s') {
+    flex-direction: column-reverse;
+    gap: var(--spacing-x1);
+  }
+}
