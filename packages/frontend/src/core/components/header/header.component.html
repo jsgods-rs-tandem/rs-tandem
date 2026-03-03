@@ -29,7 +29,7 @@
     iconColor="neutral"
     (click)="languageClick.emit()"
   />
-  <app-icon-button [icon]="themeIcon()" ariaLabel="Switch theme" (click)="themeClick.emit()" />
+  <app-icon-button [icon]="themeIcon()" ariaLabel="Switch theme" (click)="toggleTheme()" />
 </ng-template>
 
 <ng-template #mainAction>

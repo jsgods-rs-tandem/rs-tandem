@@ -1,2 +1,2 @@
 export type { ButtonType } from './dom.types';
-export * from './theme.types';
+export type { Theme } from './theme.types';

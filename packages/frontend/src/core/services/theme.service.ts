@@ -1,10 +1,13 @@
-import { effect, Injectable, signal } from '@angular/core';
-import { Theme, isTheme } from '@/shared/types';
+import { effect, inject, Injectable, signal } from '@angular/core';
+import { Theme } from '@/shared/types';
+import { isTheme } from '../guards/is-theme';
+import { LocalStorageService } from './local-storage.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ThemeService {
+  private storage = inject(LocalStorageService);
   private readonly STORAGE_KEY = 'user-theme';
   public readonly theme = signal<Theme>(this.getInitialTheme());
   constructor() {
@@ -21,11 +24,11 @@ export class ThemeService {
   private syncTheme(theme: Theme): void {
     document.documentElement.setAttribute('data-theme', theme);
     document.documentElement.style.setProperty('color-scheme', theme);
-    localStorage.setItem(this.STORAGE_KEY, theme);
+    this.storage.setItem(this.STORAGE_KEY, theme);
   }
 
   private getInitialTheme(): Theme {
-    const savedTheme = localStorage.getItem(this.STORAGE_KEY);
+    const savedTheme = this.storage.getItem(this.STORAGE_KEY);
     if (isTheme(savedTheme)) return savedTheme;
     return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
   }

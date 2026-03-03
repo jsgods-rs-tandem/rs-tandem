@@ -125,6 +125,11 @@
     box-shadow: var(--shadow-mobile-menu);
 
     animation: slideIn 0.7s cubic-bezier(0.77, 0.2, 0.05, 1);
+    @include m.transition(
+      background-color,
+      var(--transition-duration-basic),
+      var(--transition-easing-func)
+    );
   }
 
   &__content {

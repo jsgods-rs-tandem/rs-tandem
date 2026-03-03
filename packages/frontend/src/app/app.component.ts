@@ -1,6 +1,5 @@
 import { HeaderComponent } from '@/core/components/header/header.component';
-import { Component, signal, computed, inject } from '@angular/core';
-import { ThemeService } from '@/core/services/theme.service';
+import { Component, signal } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -10,8 +9,6 @@ import { ThemeService } from '@/core/services/theme.service';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  public themeService = inject(ThemeService);
-  isDark = computed(() => this.themeService.theme() === 'dark');
   title = 'JSGods';
   isMobileMenuOpen = signal(false);
 
