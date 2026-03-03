@@ -1,2 +1,3 @@
 <app-header [isMenuOpen]="isMobileMenuOpen()" (menuToggled)="toggleMenu()" />
+<app-header [isDarkTheme]="isDark()" (themeClick)="themeService.toggleTheme()"></app-header>
 <h1>{{ title }}</h1>

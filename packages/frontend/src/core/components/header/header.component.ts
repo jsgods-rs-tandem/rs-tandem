@@ -35,4 +35,7 @@ export class HeaderComponent {
   actionConfig = computed(() => HEADER_ACTIONS[this.mode()]);
   langText = computed(() => (this.isEngLanguage() ? 'EN' : 'RU'));
   themeIcon = computed(() => (this.isDarkTheme() ? 'sun' : 'moon'));
+  themeAriaLabel = computed(() =>
+    this.isDarkTheme() ? 'Switch to light theme' : 'Switch to dark theme',
+  );
 }
