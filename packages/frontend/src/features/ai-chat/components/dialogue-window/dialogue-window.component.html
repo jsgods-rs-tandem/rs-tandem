@@ -1,0 +1,10 @@
+@for (message of store.messages(); track message) {
+  @if (message.role === 'assistant') {
+    <div [appMarkdown]="message.content" class="assistant-message"></div>
+  }
+  @if (message.role === 'user') {
+    <div class="user-message-row">
+      <div class="user-message">{{ message.content }}</div>
+    </div>
+  }
+}
