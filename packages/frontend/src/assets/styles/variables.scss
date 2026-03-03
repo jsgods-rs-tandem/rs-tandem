@@ -4,9 +4,11 @@ $grid-breakpoints: (
   l: 1440,
   m: 1280,
   s: 768,
-  xs: 320,
+  xs: 414,
+  xxs: 320,
 );
 $grid-breakpoint-l: map.get($grid-breakpoints, l);
 $grid-breakpoint-m: map.get($grid-breakpoints, m);
 $grid-breakpoint-s: map.get($grid-breakpoints, s);
 $grid-breakpoint-xs: map.get($grid-breakpoints, xs);
+$grid-breakpoint-xs: map.get($grid-breakpoints, xxs);
