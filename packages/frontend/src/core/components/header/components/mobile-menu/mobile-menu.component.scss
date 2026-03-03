@@ -103,7 +103,6 @@
 
     background-color: var(--backdrop-color);
     backdrop-filter: blur(2px);
-    backdrop-filter: blur(2px);
 
     animation:
       fadeIn var(--transition-duration-basic),
@@ -125,7 +124,7 @@
     background-color: var(--primary-color);
     box-shadow: var(--shadow-mobile-menu);
 
-    animation: slideIn var(--transition-duration-basic) var(--transition-easing-func);
+    animation: slideIn 0.7s cubic-bezier(0.77, 0.2, 0.05, 1);
   }
 
   &__content {
