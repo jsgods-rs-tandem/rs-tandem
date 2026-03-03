@@ -2,7 +2,7 @@
 @use './reset';
 @use './variables';
 @use './placeholders';
-@use './mixins';
+@use './mixins' as m;
 @use './functions';
 @use './typography';
 
@@ -37,6 +37,7 @@
   --text-primary: #222;
   --text-secondary: #222c;
   --header-height: 60px;
+  color-scheme: light;
 }
 
 [data-theme='dark'] {
@@ -45,9 +46,11 @@
   --backdrop-color: rgb(255 255 255 / 50%);
   --btn-bg-color: var(--accent-color);
   --shadow: -4px 4px 4.8px 0 rgb(0 0 0 / 50%);
+  --shadow-mobile-menu: -4px 4px 4.8px 4px rgb(255 255 255 / 18%);
   --button-border: 2px solid var(--secondary-color);
   --text-primary: #ececec;
   --text-secondary: #ecececcc;
+  color-scheme: dark;
 }
 
 html {
@@ -62,6 +65,11 @@ body {
   color: var(--secondary-color);
 
   background-color: var(--primary-color);
+  @include m.transition(
+    (background-color),
+    var(--transition-duration-basic),
+    var(--transition-easing-func)
+  );
 }
 
 body.no-scroll {

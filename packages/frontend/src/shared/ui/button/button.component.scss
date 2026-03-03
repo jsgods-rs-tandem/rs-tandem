@@ -19,7 +19,7 @@
   border-radius: var(--radius-sm);
 
   @include m.transition(
-    (background-color, transform, box-shadow, color, opacity),
+    (background-color, transform, box-shadow, border-color, opacity),
     var(--transition-duration-basic),
     var(--transition-easing-func)
   );
@@ -29,11 +29,15 @@
   }
 
   ::ng-deep .icon {
-    @include m.transition(all, var(--transition-duration-basic), var(--transition-easing-func));
+    @include m.transition(color, var(--transition-duration-basic), var(--transition-easing-func));
   }
 
   &__text {
-    @include m.transition(border, var(--transition-duration-basic), var(--transition-easing-func));
+    @include m.transition(
+      (border-color, color),
+      var(--transition-duration-basic),
+      var(--transition-easing-func)
+    );
     border-bottom: 1px solid transparent;
   }
 
