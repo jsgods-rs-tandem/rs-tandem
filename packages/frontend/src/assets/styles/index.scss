@@ -14,6 +14,7 @@
   --accent-color: #ff6900;
   --error-color: #9b3737;
   --success-color: #357a55;
+  --backdrop-color: rgb(0 0 0 / 50%);
   --btn-bg-color: var(--secondary-color);
   --font-main: 'Roboto Mono', monospace;
   --fw-regular: 400;
@@ -24,20 +25,24 @@
   --spacing-x3: calc(var(--spacing-module) * 3);
   --spacing-x4: calc(var(--spacing-module) * 4);
   --spacing-x5: calc(var(--spacing-module) * 5);
+  --spacing-x6: calc(var(--spacing-module) * 6);
   --spacing-x10: calc(var(--spacing-module) * 10);
   --spacing-x13: calc(var(--spacing-module) * 13);
   --radius-xs: 2px;
   --radius-sm: 4px;
   --radius-md: 6px;
   --shadow: -4px 4px 4.8px 0 rgb(0 0 0 / 18%);
+  --shadow-mobile-menu: -4px 4px 4.8px 4px rgb(0 0 0 / 18%);
   --button-border: 2px solid var(--accent-color);
   --text-primary: #222;
   --text-secondary: #222c;
+  --header-height: 60px;
 }
 
 [data-theme='dark'] {
   --primary-color: #181e22;
   --secondary-color: #ececec;
+  --backdrop-color: rgb(255 255 255 / 50%);
   --btn-bg-color: var(--accent-color);
   --shadow: -4px 4px 4.8px 0 rgb(0 0 0 / 50%);
   --button-border: 2px solid var(--secondary-color);
@@ -57,4 +62,10 @@ body {
   color: var(--secondary-color);
 
   background-color: var(--primary-color);
+}
+
+body.no-scroll {
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
 }

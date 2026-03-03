@@ -1,10 +1,18 @@
 @use 'assets/styles/mixins.scss' as m;
 
 .header {
+  position: sticky;
+  z-index: 1000;
+  top: 0;
+
   display: flex;
   align-items: center;
   justify-content: space-between;
+
+  height: var(--header-height);
   padding-top: var(--spacing-x4);
+
+  background-color: var(--primary-color);
 
   &__menu,
   &__system,
@@ -31,9 +39,18 @@
   }
 }
 
-.burger-menu {
-  display: none;
-  @include m.media('s') {
-    display: block;
-  }
+.mobile-nav-layout {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-x5);
+  align-items: flex-start;
+
+  width: 100%;
+  padding: var(--spacing-x4);
+}
+
+.mobile-nav-group {
+  display: flex;
+  gap: var(--spacing-x4);
+  align-items: center;
 }

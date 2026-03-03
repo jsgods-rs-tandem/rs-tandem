@@ -5,6 +5,7 @@
   @if (text()) {
     <span class="button__text">{{ text() }}</span>
   }
+  <ng-content />
 </ng-template>
 
 @if (href() && !disabled()) {

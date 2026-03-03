@@ -4,11 +4,19 @@ import { ButtonComponent } from '@/shared/ui/button/button.component';
 import { ChangeDetectionStrategy, Component, computed, input, output } from '@angular/core';
 import type { HeaderMode } from './header.types';
 import { HEADER_ACTIONS } from './header.config';
+import { MobileMenuComponent } from './components/mobile-menu/mobile-menu.component';
+import { NgTemplateOutlet } from '@angular/common';
 
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [LogoComponent, IconButtonComponent, ButtonComponent],
+  imports: [
+    LogoComponent,
+    IconButtonComponent,
+    ButtonComponent,
+    MobileMenuComponent,
+    NgTemplateOutlet,
+  ],
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -19,7 +27,7 @@ export class HeaderComponent {
   isDarkTheme = input(false);
   isEngLanguage = input(true);
 
-  burgerClick = output();
+  menuToggled = output();
   themeClick = output();
   languageClick = output();
   logoutClick = output();

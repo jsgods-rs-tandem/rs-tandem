@@ -12,7 +12,7 @@
   @return math.div(math.round($power * $value), $power);
 }
 
-@function fluid($min-value, $max-value, $min-viewport: 'xs', $max-viewport: 'l') {
+@function fluid($min-value, $max-value, $min-viewport: 'xxs', $max-viewport: 'l') {
   $min-value-rem: to-rem($min-value);
   $max-value-rem: to-rem($max-value);
   $min-breakpoint: map.get(vars.$grid-breakpoints, $min-viewport);

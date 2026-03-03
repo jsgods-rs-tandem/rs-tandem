@@ -3,35 +3,44 @@
 
   <div class="header__menu">
     <div class="header__system">
-      <app-button
-        [text]="langText()"
-        version="ghost"
-        icon="language"
-        iconColor="neutral"
-        (click)="languageClick.emit()"
-      />
-      <app-icon-button [icon]="themeIcon()" ariaLabel="Switch theme" (click)="themeClick.emit()" />
+      <ng-container *ngTemplateOutlet="systemButtons" />
     </div>
-
     <div class="header__actions">
-      @let config = actionConfig();
-      <app-button
-        [text]="config.text"
-        [icon]="config.icon"
-        iconPosition="end"
-        [link]="config.link"
-        version="primary"
-        [isSmallButton]="true"
-        (click)="config.emitLogout ? logoutClick.emit() : null"
-      />
+      <ng-container *ngTemplateOutlet="mainAction" />
     </div>
-
-    <app-icon-button
-      class="burger-menu"
-      [icon]="isMenuOpen() ? 'close' : 'menu'"
-      size="l"
-      ariaLabel="Toggle menu"
-      (click)="burgerClick.emit()"
-    />
+    <app-mobile-menu [isOpen]="isMenuOpen()" (menuToggled)="menuToggled.emit()">
+      <div menu-content class="mobile-nav-layout">
+        <div class="mobile-nav-group">
+          <ng-container *ngTemplateOutlet="systemButtons" />
+        </div>
+        <div class="mobile-nav-group">
+          <ng-container *ngTemplateOutlet="mainAction" />
+        </div>
+      </div>
+    </app-mobile-menu>
   </div>
 </header>
+
+<ng-template #systemButtons>
+  <app-button
+    [text]="langText()"
+    version="ghost"
+    icon="language"
+    iconColor="neutral"
+    (click)="languageClick.emit()"
+  />
+  <app-icon-button [icon]="themeIcon()" ariaLabel="Switch theme" (click)="themeClick.emit()" />
+</ng-template>
+
+<ng-template #mainAction>
+  @let config = actionConfig();
+  <app-button
+    [text]="config.text"
+    [icon]="config.icon"
+    iconPosition="end"
+    [link]="config.link"
+    version="primary"
+    [isSmallButton]="true"
+    (click)="config.emitLogout ? logoutClick.emit() : null"
+  />
+</ng-template>

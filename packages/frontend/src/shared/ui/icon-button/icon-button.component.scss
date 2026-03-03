@@ -9,6 +9,12 @@
     @include m.transition(all, var(--transition-duration-basic), var(--transition-easing-func));
   }
 
+  &:focus-visible {
+    border-radius: var(--radius-sm);
+    outline: var(--button-border);
+    outline-offset: 2px;
+  }
+
   @include m.hover {
     ::ng-deep .icon {
       color: var(--accent-color);

@@ -9,7 +9,6 @@ type IconName =
   | 'plus'
   | 'sun'
   | 'moon'
-  | 'menu'
   | 'close'
   | 'login'
   | 'logout'
