@@ -18,7 +18,11 @@
   height: 100%;
   border-radius: var(--radius-sm);
 
-  @include m.transition(all, var(--transition-duration-basic), var(--transition-easing-func));
+  @include m.transition(
+    (background-color, transform, box-shadow, color, opacity),
+    var(--transition-duration-basic),
+    var(--transition-easing-func)
+  );
 
   &_icon-end {
     flex-direction: row-reverse;
@@ -80,7 +84,7 @@
 
     &:focus-visible {
       outline: var(--button-border);
-      outline-offset: 4px;
+      outline-offset: 2px;
     }
   }
 

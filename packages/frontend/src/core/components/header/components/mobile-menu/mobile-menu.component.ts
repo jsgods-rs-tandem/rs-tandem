@@ -18,6 +18,12 @@ export class MobileMenuComponent {
       this.onToggle();
     }
   }
+  @HostListener('document:keydown.escape')
+  onEscape(): void {
+    if (this.isOpen()) {
+      this.onToggle();
+    }
+  }
   onToggle(): void {
     this.menuToggled.emit();
   }
