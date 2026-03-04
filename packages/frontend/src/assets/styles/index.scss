@@ -54,12 +54,13 @@
 }
 
 html {
+  scrollbar-gutter: stable;
   height: 100%;
 }
 
 body {
   height: 100%;
-  padding: 0 var(--spacing-x4);
+  padding: 0 var(--spacing-x1) 0 var(--spacing-x5);
 
   font-family: var(--font-main);
   color: var(--secondary-color);

@@ -24,6 +24,12 @@
   line-height: 1.4;
 }
 
+.footer__text {
+  font-size: fn.fluid(12px, 14px);
+  font-weight: var(--fw-regular);
+  line-height: 1.4;
+}
+
 .button {
   font-family: var(--font-main);
   font-size: fn.fluid(16px, 20px);
