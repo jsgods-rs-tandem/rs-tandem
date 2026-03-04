@@ -16,3 +16,7 @@
 @if (store.status() === 'pending') {
   <div>Thinking...</div>
 }
+
+@if (store.status() === 'error') {
+  <div>Unable to get a response...</div>
+}
