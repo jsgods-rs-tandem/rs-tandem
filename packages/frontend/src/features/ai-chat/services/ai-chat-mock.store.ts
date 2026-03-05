@@ -17,7 +17,7 @@ export class AiChatMockStore {
   readonly status = this._status.asReadonly();
 
   sendPrompt(text: string) {
-    if (this.status() === 'default') {
+    if (this.status() === 'default' || this.status() === 'error') {
       const message: IMessage = { role: 'user', content: text };
       this._messages.update((array) => [...array, message]);
       void this.send(message);
