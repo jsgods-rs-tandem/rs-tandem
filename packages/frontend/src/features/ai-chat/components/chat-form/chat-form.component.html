@@ -1,4 +1,9 @@
-<form [formGroup]="messageForm" (ngSubmit)="handleSubmit(messageTextarea)" class="form">
+<form
+  [formGroup]="messageForm"
+  (ngSubmit)="handleSubmit(messageTextarea)"
+  class="form"
+  [class.disabled]="!isActive"
+>
   <textarea
     name="message"
     type="text"

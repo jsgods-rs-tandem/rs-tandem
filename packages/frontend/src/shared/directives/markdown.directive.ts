@@ -1,3 +1,4 @@
+import { ChatStatus } from '@/features/ai-chat/models/ai-chat-status';
 import { Directive, ElementRef, OnDestroy, inject, input, OnInit, output } from '@angular/core';
 import DOMPurify from 'dompurify';
 import { ChatResponse } from 'ollama';
@@ -13,7 +14,7 @@ export class MarkdownDirective implements OnDestroy, OnInit {
   private readonly el = inject<ElementRef<HTMLElement>>(ElementRef);
   private readonly renderer = smd.default_renderer(this.el.nativeElement);
   private readonly parser = smd.parser(this.renderer);
-  readonly markdownErrorEvent = output<unknown>();
+  readonly MDStatusChangeEvent = output<ChatStatus>();
 
   ngOnInit() {
     const markdown = this.markdown();
@@ -31,13 +32,15 @@ export class MarkdownDirective implements OnDestroy, OnInit {
 
   private async writeStream(mdStream: AsyncIterable<ChatResponse>) {
     try {
+      this.MDStatusChangeEvent.emit('typing');
       for await (const part of mdStream) {
         this.write(part.message.content);
       }
       this.write('\n');
+      this.MDStatusChangeEvent.emit('default');
     } catch (error) {
       console.error(error);
-      this.markdownErrorEvent.emit(error);
+      this.MDStatusChangeEvent.emit('error');
     }
   }
 

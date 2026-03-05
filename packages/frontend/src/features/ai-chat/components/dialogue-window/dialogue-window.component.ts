@@ -1,6 +1,7 @@
 import { Component, effect, ElementRef, inject } from '@angular/core';
 import { MarkdownDirective } from '@/shared/directives/markdown.directive';
 import { AiChatMockStore } from '../../services/ai-chat-mock.store';
+import { ChatStatus } from '../../models/ai-chat-status';
 
 @Component({
   selector: 'app-dialogue-window',
@@ -20,6 +21,10 @@ export class DialogueWindowComponent {
         this.prevLength = this.store.messagesLength();
       }
     });
+  }
+
+  protected onMDStatusChange(status: ChatStatus) {
+    this.store.updateStatus(status);
   }
 
   private scrollToDown() {
