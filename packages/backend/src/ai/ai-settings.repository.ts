@@ -3,13 +3,37 @@ import { Pool } from 'pg';
 import { PG_POOL } from '../database/database.constants.js';
 import type { UserAiSettingsRow } from './ai-settings.entity.js';
 
+interface UserAiSettingsDatabaseRow extends Record<string, unknown> {
+  user_id: string;
+  provider_id: string;
+  api_key: string | null;
+  created_at: Date;
+  updated_at: Date;
+}
+
+function isUserAiSettingsDatabaseRow(
+  row: Record<string, unknown>,
+): row is UserAiSettingsDatabaseRow {
+  return (
+    typeof row.user_id === 'string' &&
+    typeof row.provider_id === 'string' &&
+    (row.api_key === null || typeof row.api_key === 'string') &&
+    row.created_at instanceof Date &&
+    row.updated_at instanceof Date
+  );
+}
+
 function toUserAiSettingsRow(row: Record<string, unknown>): UserAiSettingsRow {
+  if (!isUserAiSettingsDatabaseRow(row)) {
+    throw new Error('Unexpected user AI settings row shape from database');
+  }
+
   return {
-    userId: row.user_id as string,
-    providerId: row.provider_id as string,
-    apiKey: row.api_key as string | null,
-    createdAt: row.created_at as Date,
-    updatedAt: row.updated_at as Date,
+    userId: row.user_id,
+    providerId: row.provider_id,
+    apiKey: row.api_key,
+    createdAt: row.created_at,
+    updatedAt: row.updated_at,
   };
 }
 
