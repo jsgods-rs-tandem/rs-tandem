@@ -1,12 +1,4 @@
-import {
-  ArrayMinSize,
-  IsArray,
-  IsIn,
-  IsOptional,
-  IsString,
-  MinLength,
-  ValidateNested,
-} from 'class-validator';
+import { ArrayMinSize, IsArray, IsIn, IsString, MinLength, ValidateNested } from 'class-validator';
 import { Type } from 'class-transformer';
 import type { AiChatRequestDto as IAiChatRequestDto, AiMessage } from '@rs-tandem/shared';
 
@@ -25,8 +17,4 @@ export class AiChatDto implements IAiChatRequestDto {
   @ValidateNested({ each: true })
   @Type(() => AiMessageDto)
   messages!: AiMessageDto[];
-
-  @IsOptional()
-  @IsString()
-  lessonId?: string;
 }

@@ -20,7 +20,6 @@ export interface UpdateAiSettingsDto {
 
 export interface AiChatRequestDto {
   messages: AiMessage[];
-  lessonId?: string;
 }
 
 export interface AiChatResponseDto {
