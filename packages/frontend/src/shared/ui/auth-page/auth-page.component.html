@@ -1,0 +1,8 @@
+<section class="auth-page">
+  <h2 class="auth-page__heading h2">{{ heading() }}</h2>
+  <ng-content></ng-content>
+  <p class="auth-page__switch">
+    {{ switchText() }}
+    <a class="auth-page__switch-link" [routerLink]="switchRoute()">{{ switchLinkText() }}</a>
+  </p>
+</section>

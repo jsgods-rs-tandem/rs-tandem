@@ -1,6 +1,6 @@
-import { Component, input, model, computed } from '@angular/core';
+import { Component, input, computed, forwardRef } from '@angular/core';
 import { NgClass } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { NG_VALUE_ACCESSOR, ControlValueAccessor } from '@angular/forms';
 import type { InputType } from './input.types';
 
 let nextUniqueId = 0;
@@ -8,12 +8,19 @@ let nextUniqueId = 0;
 @Component({
   selector: 'app-input',
   standalone: true,
-  imports: [NgClass, FormsModule],
+  providers: [
+    {
+      provide: NG_VALUE_ACCESSOR,
+      useExisting: forwardRef(() => InputComponent),
+      multi: true,
+    },
+  ],
+  imports: [NgClass],
   templateUrl: './input.component.html',
   styleUrl: './input.component.scss',
 })
-export class InputComponent {
-  value = model<string>('');
+export class InputComponent implements ControlValueAccessor {
+  value = '';
 
   name = input<string>();
   autoComplete = input<string>('on');
@@ -28,4 +35,29 @@ export class InputComponent {
   hasError = input<boolean>(false);
 
   computedName = computed(() => this.name() ?? this.inputId());
+
+  onChange: (value: string) => void = () => {
+    /* noop */
+  };
+  onTouched: () => void = () => {
+    /* noop */
+  };
+
+  writeValue(value: string): void {
+    this.value = value;
+  }
+
+  registerOnChange(function_: (value: string) => void): void {
+    this.onChange = function_;
+  }
+
+  registerOnTouched(function_: () => void): void {
+    this.onTouched = function_;
+  }
+
+  onInputChange(event: Event): void {
+    const target = event.target as HTMLInputElement;
+    this.value = target.value;
+    this.onChange(this.value);
+  }
 }

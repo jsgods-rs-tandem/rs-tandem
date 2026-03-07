@@ -60,7 +60,8 @@ html {
 
 body {
   height: 100%;
-  padding: 0 var(--spacing-x1) 0 var(--spacing-x5);
+  padding-right: calc(var(--spacing-x5) - calc(100vw - 100%));
+  padding-left: var(--spacing-x5);
 
   font-family: var(--font-main);
   color: var(--secondary-color);

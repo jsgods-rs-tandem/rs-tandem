@@ -1,0 +1,37 @@
+<app-auth-page
+  heading="Sign Up"
+  switchText="Already have an account?"
+  switchRoute="/sign-in"
+  switchLinkText="Sign In"
+>
+  <form [formGroup]="signUpForm" (ngSubmit)="onSubmit()">
+    <app-input
+      id="username"
+      targetType="text"
+      formControlName="username"
+      label="Username"
+      [hasError]="signUpForm.controls.username.touched && signUpForm.controls.username.invalid"
+      [errorText]="getErrorText('username')"
+    />
+
+    <app-input
+      id="email"
+      targetType="email"
+      formControlName="email"
+      label="Email"
+      [hasError]="signUpForm.controls.email.touched && signUpForm.controls.email.invalid"
+      [errorText]="getErrorText('email')"
+    />
+
+    <app-input
+      id="password"
+      targetType="password"
+      formControlName="password"
+      label="Password"
+      [hasError]="signUpForm.controls.password.touched && signUpForm.controls.password.invalid"
+      [errorText]="getErrorText('password')"
+    />
+
+    <app-button type="submit" text="Sign Up" />
+  </form>
+</app-auth-page>
