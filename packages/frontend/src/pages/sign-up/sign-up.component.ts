@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
-import { AuthPageComponent } from '../../shared/ui/auth-page/auth-page.component';
 import { FormControl, ReactiveFormsModule, FormGroup, Validators } from '@angular/forms';
-import { InputComponent } from '../../shared/ui/input/input.component';
-import { ButtonComponent } from '../../shared/ui/button/button.component';
+import { AuthPageComponent } from '@/shared/ui/auth-page/auth-page.component';
+import { InputComponent } from '@/shared/ui/input/input.component';
+import { ButtonComponent } from '@/shared/ui';
 
 @Component({
   selector: 'app-sign-up',
