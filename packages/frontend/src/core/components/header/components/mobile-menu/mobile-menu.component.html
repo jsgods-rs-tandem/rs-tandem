@@ -20,6 +20,9 @@
   <div class="mobile-menu__backdrop" (click)="onToggle()" aria-hidden="true"></div>
   <div id="mobile-navigation" class="mobile-menu__panel" role="dialog" aria-modal="true">
     <div class="mobile-menu__content">
+      @if (layoutService.showSidebar()) {
+        <app-sidebar />
+      }
       <ng-content select="[menu-content]"></ng-content>
     </div>
   </div>

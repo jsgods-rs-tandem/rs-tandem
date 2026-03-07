@@ -1,6 +1,14 @@
-<app-header [isMenuOpen]="isMobileMenuOpen()" (menuToggled)="toggleMenu()" />
-<main class="main-content">
-  <h1>{{ title }}</h1>
-  <router-outlet></router-outlet>
-</main>
+<app-header
+  [isMenuOpen]="isMobileMenuOpen()"
+  (menuToggled)="toggleMenu()"
+  [mode]="layoutService.headerMode()"
+/>
+<div class="layout-wrapper">
+  @if (layoutService.showSidebar()) {
+    <app-sidebar />
+  }
+  <main class="main-content">
+    <router-outlet></router-outlet>
+  </main>
+</div>
 <app-footer />
