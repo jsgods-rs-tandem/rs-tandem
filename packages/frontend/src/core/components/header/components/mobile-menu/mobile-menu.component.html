@@ -21,7 +21,7 @@
   <div id="mobile-navigation" class="mobile-menu__panel" role="dialog" aria-modal="true">
     <div class="mobile-menu__content">
       @if (layoutService.showSidebar()) {
-        <app-sidebar />
+        <app-navigation [links]="navService.links()" (linkClicked)="onToggle()" />
       }
       <ng-content select="[menu-content]"></ng-content>
     </div>

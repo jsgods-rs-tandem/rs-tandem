@@ -6,8 +6,9 @@
 
   overflow-y: auto;
   display: block;
+  flex-shrink: 1;
 
-  width: 280px;
+  width: clamp(160px, 20%, 280px);
   height: calc(100vh - var(--header-height) - var(--footer-height));
   @include m.media('s') {
     display: none;
