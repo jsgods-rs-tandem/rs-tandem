@@ -1,14 +1,14 @@
 import { Component, computed, input } from '@angular/core';
 import type { ButtonType } from '@/shared/types';
 import { IconComponent } from '../icon/icon.component';
-import { RouterModule } from '@angular/router';
+import { RouterLink } from '@angular/router';
 import { ButtonVersion } from './button.types';
 import { IconColor, IconName } from '../icon/Icon.types';
 import { NgTemplateOutlet } from '@angular/common';
 
 @Component({
   selector: 'app-button',
-  imports: [NgTemplateOutlet, IconComponent, RouterModule],
+  imports: [NgTemplateOutlet, IconComponent, RouterLink],
   templateUrl: './button.component.html',
   styleUrl: './button.component.scss',
 })
@@ -21,7 +21,8 @@ export class ButtonComponent {
   iconPosition = input<'start' | 'end'>('start');
   /** for Angular Router */
   link = input<string>();
-  /** for links like GitHub or #about */
+  fragment = input<string>();
+  /** for links like GitHub*/
   href = input<string>();
   /** Open link in a new tab if true.*/
   external = input<boolean>(false);

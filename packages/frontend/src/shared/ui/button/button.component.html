@@ -19,7 +19,12 @@
     <ng-container *ngTemplateOutlet="content"></ng-container>
   </a>
 } @else if (link() && !disabled()) {
-  <a [routerLink]="link()" [class]="classes()" [attr.aria-label]="displayAriaLabel()">
+  <a
+    [routerLink]="link()"
+    [fragment]="fragment() ?? ''"
+    [class]="classes()"
+    [attr.aria-label]="displayAriaLabel()"
+  >
     <ng-container *ngTemplateOutlet="content"></ng-container>
   </a>
 } @else {
