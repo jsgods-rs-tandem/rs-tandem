@@ -54,6 +54,37 @@ npm run start:backend
 
 ---
 
+## Ollama (локальный AI)
+
+Для работы AI-чата нужен запущенный [Ollama](https://ollama.com/).
+
+### 1. Установить Ollama
+
+Скачать с [ollama.com](https://ollama.com/) и установить.
+
+### 2. Скачать модель
+
+```bash
+ollama pull gemma3:1b
+```
+
+### 3. Запустить Ollama
+
+```bash
+ollama serve
+```
+
+Ollama будет доступна на `http://localhost:11434`.
+
+По умолчанию используется модель `gemma3:1b` и адрес `http://localhost:11434`. Переопределить через переменные окружения в `.env`:
+
+```
+OLLAMA_BASE_URL=http://localhost:11434
+OLLAMA_MODEL=gemma3:1b
+```
+
+---
+
 ## Что такое миграции
 
 Миграции — это SQL-файлы, которые описывают структуру базы данных: какие таблицы есть, какие у них колонки. Хранятся в `src/migrations/`.
