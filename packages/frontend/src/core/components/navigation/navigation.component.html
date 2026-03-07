@@ -1,0 +1,24 @@
+<nav class="nav__container">
+  @for (link of links(); track link.path) {
+    @if (link.isAnchor) {
+      <app-button
+        version="ghost"
+        link="/"
+        [fragment]="link.path"
+        class="nav__item"
+        [text]="link.label"
+        [class.active]="scrollSpy.activeAnchor() === link.path"
+        (click)="onAnchorClick(link.path)"
+      />
+    } @else {
+      <app-button
+        version="ghost"
+        [link]="link.path"
+        class="nav__item"
+        [text]="link.label"
+        routerLinkActive="active"
+        (click)="linkClicked.emit()"
+      />
+    }
+  }
+</nav>

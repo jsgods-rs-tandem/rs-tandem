@@ -1,0 +1,19 @@
+@use 'assets/styles/mixins.scss' as m;
+
+:host {
+  position: sticky;
+  top: var(--header-height);
+
+  overflow-y: auto;
+  display: block;
+
+  width: 280px;
+  height: calc(100vh - var(--header-height) - var(--footer-height));
+  @include m.media('s') {
+    display: none;
+  }
+}
+
+.sidebar {
+  height: 100%;
+}

@@ -10,10 +10,12 @@ import {
   output,
   Renderer2,
 } from '@angular/core';
-
+import { NavService } from '@/core/services/navigation.service';
+import { SidebarComponent } from '@/core/components/sidebar/sidebar.component';
+import { LayoutService } from '@/core/services/layout.service';
 @Component({
   selector: 'app-mobile-menu',
-  imports: [ButtonComponent],
+  imports: [ButtonComponent, SidebarComponent],
   templateUrl: './mobile-menu.component.html',
   styleUrl: './mobile-menu.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -21,6 +23,8 @@ import {
 export class MobileMenuComponent {
   private renderer = inject(Renderer2);
   private document = inject(DOCUMENT);
+  layoutService = inject(LayoutService);
+  navService = inject(NavService);
   isOpen = input<boolean>(false);
   menuToggled = output();
   constructor() {
