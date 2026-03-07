@@ -1,7 +1,5 @@
-@use 'assets/styles/placeholders';
-
 :host {
-  @extend %host-base;
+  display: inline-flex;
 }
 
 .badge {
