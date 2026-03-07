@@ -1,0 +1,14 @@
+@let list = topics();
+
+<ul class="topic-card-list">
+  @for (listItem of list; track listItem.id) {
+    <li>
+      <app-topic-card
+        [heading]="listItem.topic"
+        [description]="listItem.description"
+        [questionsCount]="listItem.questionsCount"
+        [score]="listItem.score"
+      />
+    </li>
+  }
+</ul>
