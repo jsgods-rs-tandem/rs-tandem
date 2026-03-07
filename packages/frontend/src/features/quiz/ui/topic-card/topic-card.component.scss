@@ -1,0 +1,31 @@
+.topic-card {
+  padding: var(--spacing-x6);
+  border: 1px solid var(--secondary-color);
+  border-radius: var(--radius-md);
+
+  &__header {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    gap: var(--spacing-x1) var(--spacing-x3);
+    justify-content: space-between;
+  }
+
+  &__heading {
+    word-break: break-all;
+  }
+
+  &__subheading {
+    grid-column: 1 / 2;
+  }
+
+  &__score {
+    grid-column: 2 / 3;
+    grid-row: 1 / 2;
+    height: fit-content;
+  }
+
+  &__body,
+  &__footer {
+    margin-block-start: var(--spacing-x2);
+  }
+}

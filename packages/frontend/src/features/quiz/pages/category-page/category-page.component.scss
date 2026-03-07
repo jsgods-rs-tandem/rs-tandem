@@ -1,0 +1,12 @@
+.category-page {
+  &__header {
+    display: flex;
+    gap: var(--spacing-x4);
+    align-items: end;
+    justify-content: space-between;
+  }
+
+  &__topic-card-list {
+    margin-block-start: var(--spacing-x6);
+  }
+}

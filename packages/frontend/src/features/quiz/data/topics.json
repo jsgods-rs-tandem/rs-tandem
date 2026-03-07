@@ -1,0 +1,170 @@
+{
+  "topics": [
+    {
+      "id": "e4b3c9a1-8d2f-4b0e-9c7a-5d1f8e2a3b4c",
+      "topic": "Introduction",
+      "description": "Where do you put your scripts? Learn the basics of linking JS to HTML and the difference between internal and external scripts.",
+      "questionsCount": 5,
+      "score": 100
+    },
+    {
+      "id": "f2a1d8c3-7e5b-4a2d-8f9c-0b1e2d3c4a5b",
+      "topic": "Variables & Data Types",
+      "description": "What is the difference between let, const, and var? This quiz covers primitives like Strings, Numbers, and Booleans.",
+      "questionsCount": 12,
+      "score": 95
+    },
+    {
+      "id": "c9b8a7d6-5e4f-4d3c-b2a1-0f9e8d7c6b5a",
+      "topic": "Basic Operators",
+      "description": "Math operations, comparison operators, and the difference between == and ===. Essential for any Junior developer.",
+      "questionsCount": 10,
+      "score": 85
+    },
+    {
+      "id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+      "topic": "Conditionals (If/Else)",
+      "description": "Learning how to control the flow of your program using if, else if, else, and basic switch statements.",
+      "questionsCount": 8
+    },
+    {
+      "id": "d5e6f7a8-b9c0-4d1e-2f3a-4b5c6d7e8f9a",
+      "topic": "Loops Basics",
+      "description": "For, While, and Do-While. Learn how to repeat actions without repeating your code.",
+      "questionsCount": 10,
+      "score": 70
+    },
+    {
+      "id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+      "topic": "Functions: The Basics",
+      "description": "How to declare a function, pass parameters, and return values. Covers both regular functions and an introduction to Arrow functions.",
+      "questionsCount": 15,
+      "score": 90
+    },
+    {
+      "id": "f8e7d6c5-b4a3-4d2c-1b0a-9f8e7d6c5b4a",
+      "topic": "Array Fundamentals",
+      "description": "Creating arrays, accessing elements by index, and understanding the length property.",
+      "questionsCount": 12
+    },
+    {
+      "id": "a9b8c7d6-e5f4-4a3b-2c1d-0e9f8a7b6c5d",
+      "topic": "Object Basics",
+      "description": "A set of questions designed to test a user's knowledge of how objects work. Covers key-value pairs and dot notation vs bracket notation.",
+      "questionsCount": 14,
+      "score": 65
+    },
+    {
+      "id": "c1d2e3f4-a5b6-4c7d-8e9f-0a1b2c3d4e5f",
+      "topic": "String Methods",
+      "description": "How to manipulate text using slice, replace, toUpperCase, and search methods.",
+      "questionsCount": 9
+    },
+    {
+      "id": "d4e5f6a7-b8c9-4d0e-1f2a-3b4c5d6e7f8a",
+      "topic": "DOM: Finding Elements",
+      "description": "GetElementById, querySelector, and other ways to find your HTML in JavaScript. Crucial for web interactivity.",
+      "questionsCount": 8,
+      "score": 100
+    },
+    {
+      "id": "e7f8a9b0-c1d2-4e3f-4a5b-6c7d8e9f0a1b",
+      "topic": "Event Listeners",
+      "description": "Click, input, and submit. Learn how to make your buttons actually do something when a user clicks them.",
+      "questionsCount": 11
+    },
+    {
+      "id": "b3c4d5e6-f7a8-4b9c-0d1e-2f3a4b5c6d7e",
+      "topic": "Array Methods: map & filter",
+      "description": "The most used methods in modern development. Learn how to transform and filter lists of data easily.",
+      "questionsCount": 12,
+      "score": 40
+    },
+    {
+      "id": "a6b7c8d9-e0f1-4a2b-3c4d-5e6f7a8b9c0d",
+      "topic": "Scope & Hoisting",
+      "description": "Why can you call some functions before they are defined? Understanding global vs local scope.",
+      "questionsCount": 7
+    },
+    {
+      "id": "f1a2b3c4-d5e6-4f7a-8b9c-0d1e2f3a4b5c",
+      "topic": "Template Literals",
+      "description": "Backticks and string interpolation. Making multi-line strings and variables inside text much easier.",
+      "questionsCount": 5,
+      "score": 90
+    },
+    {
+      "id": "e8d7c6b5-a432-4f1e-0d9c-8b7a6f5e4d3c",
+      "topic": "Destructuring Basics",
+      "description": "A quick way to extract data from arrays and objects into separate variables.",
+      "questionsCount": 6
+    },
+    {
+      "id": "c4d5e6f7-a8b9-4c0d-1e2f-3a4b5c6d7e8f",
+      "topic": "Arrow Functions Deep Dive",
+      "description": "How they differ from regular functions and when you should (or shouldn't) use them.",
+      "questionsCount": 8,
+      "score": 55
+    },
+    {
+      "id": "b9c0d1e2-f3a4-4b5c-6d7e-8f9a0b1c2d3e",
+      "topic": "Promises: The Basics",
+      "description": "Introduction to asynchronous code. What is .then(), .catch(), and why do we need them for API calls?",
+      "questionsCount": 10
+    },
+    {
+      "id": "a2b3c4d5-e6f7-4a8b-9c0d-1e2f3a4b5c6d",
+      "topic": "Async / Await",
+      "description": "Making asynchronous code look synchronous. The modern way to handle data fetching.",
+      "questionsCount": 9,
+      "score": 30
+    },
+    {
+      "id": "d7e8f9a0-b1c2-4d3e-4f5a-6b7c8d9e0f1a",
+      "topic": "Fetch API Introduction",
+      "description": "How to get data from a real server and display it on your page.",
+      "questionsCount": 12
+    },
+    {
+      "id": "f4a5b6c7-d8e9-4f0a-1b2c-3d4e5f6a7b8c",
+      "topic": "JSON Data Format",
+      "description": "Parsing and stringifying data. Understanding the standard format for web communication.",
+      "questionsCount": 7,
+      "score": 88
+    },
+    {
+      "id": "e1d2c3b4-a5f6-4e7d-8c9b-0a1f2e3d4c5b",
+      "topic": "Error Handling: Try/Catch",
+      "description": "Don't let your app crash! Learn how to gracefully handle errors when things go wrong.",
+      "questionsCount": 6
+    },
+    {
+      "id": "c6d7e8f9-a0b1-4c2d-3e4f-5a6b7c8d9e0f",
+      "topic": "LocalStorage & SessionStorage",
+      "description": "How to save simple data in the user's browser so it stays there even after a page refresh.",
+      "questionsCount": 8,
+      "score": 75
+    },
+    {
+      "id": "b1c2d3e4-f5a6-4b7c-8d9e-0f1a2b3c4d5e",
+      "topic": "Debugging in Chrome",
+      "description": "Using console.log effectively and an introduction to the 'Sources' tab in DevTools.",
+      "questionsCount": 10
+    },
+    {
+      "id": "a4b5c6d7-e8f9-4a0b-1c2d-3e4f5a6b7c8d",
+      "topic": "ES Modules: Import & Export",
+      "description": "Breaking your code into multiple files to keep your project organized.",
+      "questionsCount": 5
+    },
+    {
+      "id": "f7e8d9a0-b1c2-4f3e-4a5b-6c7d8e9f0a1b",
+      "topic": "Coding Best Practices",
+      "description": "Naming variables correctly, keeping functions small, and writing code that other humans can read.",
+      "questionsCount": 15,
+      "score": 20
+    }
+  ],
+  "topicsCount": 25,
+  "topicsCompleteCount": 14
+}
