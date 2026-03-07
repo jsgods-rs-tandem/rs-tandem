@@ -1,0 +1,20 @@
+<section class="hero">
+  <p class="hero__text">{{ subtitle }}</p>
+  <h1 class="h1">{{ title }}</h1>
+  <div class="feature__wrapper">
+    @for (feature of features; track feature.text) {
+      <div class="feature__item">
+        <app-icon [name]="feature.icon" color="brand" size="m" />
+        <p class="feature__text">{{ feature.text }}</p>
+      </div>
+    }
+  </div>
+  <app-button
+    link="/login"
+    text="Start Preparation"
+    version="primary"
+    icon="arrow-up"
+    iconColor="secondary"
+    iconPosition="end"
+  />
+</section>

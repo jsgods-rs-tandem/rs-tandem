@@ -1,0 +1,39 @@
+@use 'assets/styles/mixins' as m;
+
+:host {
+  @include m.full-page-section;
+}
+
+.hero {
+  width: 100%;
+
+  &__text {
+    margin-bottom: var(--spacing-x1);
+  }
+}
+
+.feature {
+  &__wrapper,
+  &__item {
+    display: flex;
+    flex-direction: row;
+  }
+
+  &__wrapper {
+    gap: var(--spacing-x8);
+    margin: var(--spacing-x4) 0 var(--spacing-x13);
+    @include m.media('s') {
+      gap: var(--spacing-x4);
+      margin: var(--spacing-x6) 0 var(--spacing-x8);
+    }
+    @include m.media('xs') {
+      flex-direction: column;
+      gap: var(--spacing-x4);
+      margin: var(--spacing-x6) 0 var(--spacing-x8);
+    }
+  }
+
+  &__item {
+    gap: var(--spacing-x2);
+  }
+}

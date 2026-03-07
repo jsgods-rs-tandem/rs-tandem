@@ -26,6 +26,7 @@
   --spacing-x4: calc(var(--spacing-module) * 4);
   --spacing-x5: calc(var(--spacing-module) * 5);
   --spacing-x6: calc(var(--spacing-module) * 6);
+  --spacing-x8: calc(var(--spacing-module) * 8);
   --spacing-x10: calc(var(--spacing-module) * 10);
   --spacing-x13: calc(var(--spacing-module) * 13);
   --radius-xs: 2px;
@@ -38,6 +39,9 @@
   --text-secondary: #222c;
   --header-height: 60px;
   --footer-height: 64px;
+  @include m.media('s') {
+    --footer-height: 103.81px;
+  }
   color-scheme: light;
 }
 
