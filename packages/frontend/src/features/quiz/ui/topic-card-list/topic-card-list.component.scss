@@ -1,0 +1,10 @@
+:host {
+  display: flex;
+  flex-direction: column;
+}
+
+.topic-card-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-x5);
+}
