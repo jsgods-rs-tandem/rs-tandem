@@ -1,0 +1,42 @@
+import { Injectable, inject } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Observable, tap } from 'rxjs';
+import { LoginDto, RegisterDto, AuthResponseDto, UserDto } from '@rs-tandem/shared';
+import { LocalStorageService } from './local-storage.service';
+import { environment } from '@/environments/environment';
+
+@Injectable({
+  providedIn: 'root',
+})
+export class AuthService {
+  private http = inject(HttpClient);
+  private localStorageService = inject(LocalStorageService);
+
+  private readonly TOKEN_KEY = 'auth_token';
+
+  register(dto: RegisterDto): Observable<UserDto> {
+    return this.http.post<UserDto>(`${environment.apiUrl}/auth/register`, dto);
+  }
+
+  login(dto: LoginDto): Observable<AuthResponseDto> {
+    return this.http.post<AuthResponseDto>(`${environment.apiUrl}/auth/login`, dto).pipe(
+      tap((response) => {
+        if (response.accessToken) {
+          this.localStorageService.setItem(this.TOKEN_KEY, response.accessToken);
+        }
+      }),
+    );
+  }
+
+  logout(): void {
+    this.localStorageService.removeItem(this.TOKEN_KEY);
+  }
+
+  getToken(): string | null {
+    return this.localStorageService.getItem(this.TOKEN_KEY);
+  }
+
+  isAuthenticated(): boolean {
+    return !!this.getToken();
+  }
+}
