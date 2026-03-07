@@ -1,0 +1,22 @@
+@let s = score();
+
+<article class="topic-card">
+  <header class="topic-card__header">
+    <h3 class="h3 topic-card__heading">{{ heading() }}</h3>
+
+    <p class="topic-card__subheading">{{ subheading() }}</p>
+
+    <!-- TODO: add here tooltip with legend. Perhaps, some label to show user that it's not a difficulty lvl, but his achievement? -->
+    @if (typeof s === 'number') {
+      <app-badge class="topic-card__score" [score]="s" />
+    }
+  </header>
+
+  <div class="topic-card__body">
+    <p>{{ description() }}</p>
+  </div>
+
+  <footer class="topic-card__footer">
+    <app-button [isSmallButton]="true">Start practice</app-button>
+  </footer>
+</article>

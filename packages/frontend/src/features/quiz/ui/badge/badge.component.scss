@@ -1,0 +1,25 @@
+:host {
+  display: inline-flex;
+}
+
+.badge {
+  padding: var(--spacing-x1) var(--spacing-x2);
+  border-radius: var(--radius-sm);
+
+  // TODO: think on color variables
+  &_senior {
+    background-color: gold;
+  }
+
+  &_middle {
+    background-color: silver;
+  }
+
+  &_junior {
+    background-color: lightcoral;
+  }
+
+  &_trainee {
+    background-color: pink;
+  }
+}
