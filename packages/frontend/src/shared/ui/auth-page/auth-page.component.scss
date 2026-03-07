@@ -1,0 +1,26 @@
+.auth-page {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  &__heading {
+    margin-bottom: var(--spacing-x10);
+    font-style: normal;
+  }
+
+  &__switch {
+    margin-top: var(--spacing-x10);
+  }
+
+  &__switch-link {
+    color: var(--accent-color);
+    text-decoration: none;
+
+    &:hover {
+      cursor: pointer;
+      text-decoration: underline;
+    }
+  }
+}

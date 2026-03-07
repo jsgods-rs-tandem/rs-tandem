@@ -125,6 +125,8 @@ export default defineConfig([
         'error',
         { type: 'attribute', prefix: 'app', style: 'camelCase' },
       ],
+      // Angular RxJS pipes and Validators rely on unbound methods, which is safe in this context
+      '@typescript-eslint/unbound-method': 'off',
     },
   },
 
