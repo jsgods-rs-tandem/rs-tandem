@@ -11,11 +11,11 @@ import {
   Renderer2,
 } from '@angular/core';
 import { NavService } from '@/core/services/navigation.service';
-import { SidebarComponent } from '@/core/components/sidebar/sidebar.component';
 import { LayoutService } from '@/core/services/layout.service';
+import { NavigationComponent } from '@/core/components/navigation/navigation.component';
 @Component({
   selector: 'app-mobile-menu',
-  imports: [ButtonComponent, SidebarComponent],
+  imports: [ButtonComponent, NavigationComponent],
   templateUrl: './mobile-menu.component.html',
   styleUrl: './mobile-menu.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
