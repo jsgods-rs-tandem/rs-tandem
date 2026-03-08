@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 
 import { ProgressComponent, TopicCardListComponent } from '../../ui';
 
-import list from '../../data/topics.json';
+import category from '../../data/category.json';
 
 @Component({
   selector: 'app-category-page',
@@ -13,9 +13,9 @@ import list from '../../data/topics.json';
 })
 export class CategoryPageComponent {
   // mocks
-  readonly heading = list.category;
-  readonly topics = list.topics;
-  readonly topicsCount = list.topicsCount;
-  readonly topicsCompleteCount = list.topicsCompleteCount;
-  readonly topicsProgress = list.progress;
+  readonly heading = category.category;
+  readonly topics = category.topics;
+  readonly topicsCount = category.topicsCount;
+  readonly topicsCompleteCount = category.topicsCompleteCount;
+  readonly topicsProgress = category.progress;
 }

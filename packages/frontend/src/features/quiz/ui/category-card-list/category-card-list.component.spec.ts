@@ -16,7 +16,7 @@ describe('CategoryCardListComponent', () => {
     fixture.componentRef.setInput('categories', [
       {
         id: 'category-1',
-        topic: 'JavaScript',
+        name: 'JavaScript',
         description: 'Learn core JS concepts and patterns.',
         topicsCount: 25,
         topicsCompleteCount: 14,
