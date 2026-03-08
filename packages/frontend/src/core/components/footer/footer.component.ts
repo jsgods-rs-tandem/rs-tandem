@@ -10,4 +10,5 @@ import { Component } from '@angular/core';
 })
 export class FooterComponent {
   readonly githubUrl = EXTERNAL_LINKS.githubRepo;
+  readonly buttonAriaLabel = 'Project Repository';
 }

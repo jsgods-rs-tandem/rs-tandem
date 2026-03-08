@@ -27,4 +27,5 @@ export class ModulesComponent {
       text: 'The modern typing standard. Learn static types, interfaces, generics, and advanced language features to write reliable code.',
     },
   ] as const;
+  readonly buttonText = 'Explore';
 }

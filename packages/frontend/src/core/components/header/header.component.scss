@@ -10,6 +10,11 @@
   width: 100%;
 
   background-color: var(--primary-color);
+  @include m.transition(
+    background-color,
+    var(--transition-duration-basic),
+    var(--transition-easing-func)
+  );
 }
 
 .header {

@@ -15,4 +15,5 @@ export class HeroComponent {
     { icon: 'code', text: 'Real-Interview Cases' },
     { icon: 'ai', text: 'Smart AI Review' },
   ] as const;
+  readonly buttonText = 'Start preparation';
 }

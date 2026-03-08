@@ -3,13 +3,13 @@
   <div class="about__description">
     <p class="text">
       <span class="text_brand">{{ highlightBrand }}</span>
-      {{ firstParagrap }}
+      {{ firstParagraph }}
     </p>
-    <p class="text">{{ secondParagrap }}</p>
+    <p class="text">{{ secondParagraph }}</p>
   </div>
   <app-button
     link="/login"
-    text="Start your journey"
+    [text]="buttonText"
     version="primary"
     icon="arrow-up"
     iconColor="secondary"
