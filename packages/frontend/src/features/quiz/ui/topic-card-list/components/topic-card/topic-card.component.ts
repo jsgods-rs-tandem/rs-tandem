@@ -1,7 +1,7 @@
 import { Component, input, computed } from '@angular/core';
 
 import { ButtonComponent } from '@/shared/ui';
-import { BadgeComponent } from '../badge/badge.component';
+import { BadgeComponent } from '../../../badge/badge.component';
 
 import { computeQuestionsCount } from './topic-card.utilities';
 
@@ -16,7 +16,7 @@ export class TopicCardComponent {
   readonly questionsCount = input.required<number>();
 
   readonly heading = input.required<string>();
-  readonly description = input.required<string>();
   readonly subheading = computed(() => computeQuestionsCount(this.questionsCount()));
+  readonly description = input.required<string>();
   readonly score = input<number>();
 }

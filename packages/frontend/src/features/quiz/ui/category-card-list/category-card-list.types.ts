@@ -1,6 +1,6 @@
 interface CategoryCardListItem {
   id: string;
-  topic: string;
+  name: string;
   description: string;
   topicsCount: number;
   topicsCompleteCount: number;
