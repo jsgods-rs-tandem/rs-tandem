@@ -1,0 +1,20 @@
+@use 'assets/styles/mixins' as m;
+
+:host {
+  @include m.full-page-section;
+}
+
+.modules {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: clamp(300px, 90%, 714px);
+
+  &__wrapper {
+    margin: var(--spacing-x10) 0 var(--spacing-x13);
+  }
+
+  &__button {
+    align-self: flex-end;
+  }
+}
