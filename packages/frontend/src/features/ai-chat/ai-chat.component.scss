@@ -1,8 +1,6 @@
 :host {
   display: flex;
-  flex: 1;
   justify-content: center;
-
   width: 100%;
   height: calc(100vh - var(--header-height) - var(--footer-height));
 }
