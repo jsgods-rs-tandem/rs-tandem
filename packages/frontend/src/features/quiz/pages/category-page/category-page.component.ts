@@ -1,4 +1,4 @@
-import { Component, input } from '@angular/core';
+import { Component } from '@angular/core';
 
 import { ProgressComponent, TopicCardListComponent } from '../../ui';
 
@@ -12,9 +12,10 @@ import list from '../../data/topics.json';
   standalone: true,
 })
 export class CategoryPageComponent {
-  readonly heading = input.required<string>();
   // mocks
+  readonly heading = list.category;
   readonly topics = list.topics;
   readonly topicsCount = list.topicsCount;
   readonly topicsCompleteCount = list.topicsCompleteCount;
+  readonly topicsProgress = list.progress;
 }

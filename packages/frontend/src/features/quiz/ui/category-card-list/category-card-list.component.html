@@ -1,0 +1,15 @@
+@let list = categories();
+
+<ul class="category-card-list">
+  @for (listItem of list; track listItem.id) {
+    <li>
+      <app-category-card
+        [heading]="listItem.topic"
+        [description]="listItem.description"
+        [topicsCount]="listItem.topicsCount"
+        [topicsCompleteCount]="listItem.topicsCompleteCount"
+        [topicsProgress]="listItem.progress"
+      />
+    </li>
+  }
+</ul>

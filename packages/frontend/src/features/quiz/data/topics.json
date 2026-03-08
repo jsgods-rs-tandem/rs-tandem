@@ -1,4 +1,6 @@
 {
+  "id": "e4b3c9a1-8d2f-4b0e-9c7a-5d1f8e2a3b3a",
+  "category": "JavaScript",
   "topics": [
     {
       "id": "e4b3c9a1-8d2f-4b0e-9c7a-5d1f8e2a3b4c",
@@ -166,5 +168,6 @@
     }
   ],
   "topicsCount": 25,
-  "topicsCompleteCount": 14
+  "topicsCompleteCount": 14,
+  "progress": 0.56
 }

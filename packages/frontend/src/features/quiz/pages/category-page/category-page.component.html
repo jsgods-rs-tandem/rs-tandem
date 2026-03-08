@@ -1,9 +1,14 @@
-<div class="category-page">
-  <div class="category-page__header">
-    <h2 class="h2">{{ heading() }}</h2>
+<section class="category-page">
+  <header class="category-page__header">
+    <h2 class="h2">{{ heading }}</h2>
 
-    <app-progress [start]="topicsCompleteCount" [end]="topicsCount" />
-  </div>
+    <app-progress
+      class="category-page__progress"
+      [valueNow]="topicsCompleteCount"
+      [valueMax]="topicsCount"
+      [valueProgress]="topicsProgress"
+    />
+  </header>
 
   <app-topic-card-list class="category-page__topic-card-list" [topics]="topics" />
-</div>
+</section>
