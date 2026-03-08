@@ -1,7 +1,11 @@
 .form {
   display: flex;
   align-items: center;
-  border: 1px solid black;
+
+  border: 1px solid var(--secondary-color);
+  border-radius: var(--radius-md);
+
+  box-shadow: var(--shadow);
 }
 
 .text-area {
