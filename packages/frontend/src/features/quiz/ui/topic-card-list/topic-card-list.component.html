@@ -4,7 +4,7 @@
   @for (listItem of list; track listItem.id) {
     <li>
       <app-topic-card
-        [heading]="listItem.topic"
+        [heading]="listItem.name"
         [description]="listItem.description"
         [questionsCount]="listItem.questionsCount"
         [score]="listItem.score"
