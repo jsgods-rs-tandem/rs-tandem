@@ -1,5 +1,10 @@
 :host {
   display: block;
   flex: 1;
+
   width: 100%;
+  padding-right: var(--spacing-x5);
+  padding-left: var(--spacing-x5);
+  border: 1px solid var(--secondary-color);
+  border-radius: var(--radius-md);
 }
