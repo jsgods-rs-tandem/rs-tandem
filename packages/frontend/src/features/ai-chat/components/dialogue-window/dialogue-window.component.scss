@@ -41,8 +41,30 @@
 }
 
 .assistant-message {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-x3);
+
   width: 100%;
+
   overflow-wrap: anywhere;
+
+  ::ng-deep ol,
+  ::ng-deep ul {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-x2);
+
+    li {
+      margin-left: var(--spacing-x10);
+      list-style-type: circle;
+    }
+
+    li li {
+      margin-left: var(--spacing-x10);
+      list-style-type: square;
+    }
+  }
 
   ::ng-deep pre {
     padding: var(--spacing-x3);
@@ -52,7 +74,10 @@
 
   ::ng-deep code {
     padding: 1px;
-    border-radius: var(--radius-md);
+    padding-right: var(--spacing-x1);
+    padding-left: var(--spacing-x1);
+    border-radius: var(--radius-sm);
+
     background-color: var(--code-bg-color);
   }
 }
