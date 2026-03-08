@@ -8,3 +8,17 @@
   border: 1px solid var(--secondary-color);
   border-radius: var(--radius-md);
 }
+
+.user-message-row {
+  display: flex;
+  justify-content: end;
+  width: 100%;
+}
+
+.user-message {
+  margin-top: var(--spacing-x3);
+  margin-bottom: var(--spacing-x3);
+  padding: var(--spacing-x3);
+  border: 1px solid var(--accent-color);
+  border-radius: var(--radius-md);
+}
