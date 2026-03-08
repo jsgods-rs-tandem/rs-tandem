@@ -1,0 +1,68 @@
+{
+  "categories": [
+    {
+      "id": "b1a2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+      "topic": "HTML Fundamentals",
+      "description": "Test your knowledge of the web's skeleton. This quiz series challenges you on semantic HTML5 tagging, form validation patterns, accessibility standards (ARIA), and the technical nuances of global attributes.",
+      "topicsCount": 10,
+      "topicsCompleteCount": 10,
+      "progress": 1.0
+    },
+    {
+      "id": "d1e2f3a4-b5c6-4d7e-8f9a-0b1c2d3e4f5b",
+      "topic": "CSS Fundamentals",
+      "description": "Put your styling skills to the test. These interactive questions cover everything from Box Model calculations and specificity rules to complex Flexbox and Grid layouts, ensuring you can build pixel-perfect designs.",
+      "topicsCount": 12,
+      "topicsCompleteCount": 12,
+      "progress": 1.0
+    },
+    {
+      "id": "e4b3c9a1-8d2f-4b0e-9c7a-5d1f8e2a3b3a",
+      "topic": "Basic JavaScript",
+      "description": "Master the core of JS through targeted questions. Solve challenges on variable hoisting, truthy/falsy values, loop efficiency, and DOM event propagation to build a rock-solid foundation for dynamic coding.",
+      "topicsCount": 25,
+      "topicsCompleteCount": 14,
+      "progress": 0.56
+    },
+    {
+      "id": "7d2e9f1a-3c4b-5a6d-8e9f-0b1c2d3e4f5a",
+      "topic": "Advanced JavaScript",
+      "description": "A high-level challenge for seasoned developers. Prove your expertise in closure scopes, prototype inheritance, event loop timing, and the complex mechanics of asynchronous Promises and Async/Await patterns.",
+      "topicsCount": 18,
+      "topicsCompleteCount": 3,
+      "progress": 0.16
+    },
+    {
+      "id": "f9a8b7c6-d5e4-4c3b-2a1d-0e9f8a7b6c5d",
+      "topic": "TypeScript",
+      "description": "How well do you know your types? This quiz track covers interface vs. type aliases, generics, union types, and advanced utility types, designed to help you catch bugs before they ever reach the compiler.",
+      "topicsCount": 15,
+      "topicsCompleteCount": 15,
+      "progress": 1.0
+    },
+    {
+      "id": "c2b5d8e1-f4a7-4932-8c1d-9e0a2b3c4f5d",
+      "topic": "Angular",
+      "description": "The ultimate test for Angular developers. Navigate through tricky questions on Dependency Injection, RxJS pipeable operators, the component lifecycle, and enterprise-grade state management strategies.",
+      "topicsCount": 22,
+      "topicsCompleteCount": 11,
+      "progress": 0.5
+    },
+    {
+      "id": "b5a4c3d2-e1f0-4a9b-8c7d-6e5f4d3c2b1a",
+      "topic": "Algorithms & Data Structures",
+      "description": "Sharpen your problem-solving logic. These algorithm quizzes test your ability to calculate Big O complexity, navigate binary trees, and choose the most efficient data structure for real-world performance scenarios.",
+      "topicsCount": 20,
+      "topicsCompleteCount": 0,
+      "progress": 0.0
+    },
+    {
+      "id": "a8b4c1d7-e2f9-4d6c-8a1b-0e9f8a7b6c5e",
+      "topic": "Node.js & Backend",
+      "description": "Validate your server-side expertise. This quiz covers the Node.js event-driven architecture, RESTful API design patterns, middleware logic in Express, and efficient database indexing for scalable backends.",
+      "topicsCount": 12,
+      "topicsCompleteCount": 4,
+      "progress": 0.33
+    }
+  ]
+}

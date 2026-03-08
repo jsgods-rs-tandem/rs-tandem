@@ -13,7 +13,10 @@ describe('ProgressComponent', () => {
 
     fixture = TestBed.createComponent(ProgressComponent);
     component = fixture.componentInstance;
-    fixture.componentRef.setInput('end', 30);
+    fixture.componentRef.setInput('valueNow', 15);
+    fixture.componentRef.setInput('valueMax', 30);
+    fixture.componentRef.setInput('valueProgress', 0.5);
+    fixture.detectChanges();
     await fixture.whenStable();
   });
 
