@@ -15,6 +15,13 @@
     outline-offset: 2px;
   }
 
+  &:disabled {
+    cursor: not-allowed;
+    text-decoration: none;
+    opacity: 0.4;
+    filter: saturate(0.1);
+  }
+
   @include m.hover {
     ::ng-deep .icon {
       color: var(--accent-color);

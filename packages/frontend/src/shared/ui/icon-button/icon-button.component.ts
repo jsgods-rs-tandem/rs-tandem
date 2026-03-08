@@ -16,4 +16,5 @@ export class IconButtonComponent {
   color = input<ReturnType<IconComponent['color']>>('neutral');
   size = input<ReturnType<IconComponent['size']>>('m');
   ariaLabel = input<string>();
+  disabled = input<boolean>(false);
 }
