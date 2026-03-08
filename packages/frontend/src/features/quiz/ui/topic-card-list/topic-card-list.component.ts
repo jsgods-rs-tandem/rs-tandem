@@ -1,6 +1,6 @@
 import { Component, input } from '@angular/core';
 
-import { TopicCardComponent } from '../topic-card/topic-card.component';
+import { TopicCardComponent } from './components';
 
 import type { TopicCardListItem } from './topic-card-list.types';
 

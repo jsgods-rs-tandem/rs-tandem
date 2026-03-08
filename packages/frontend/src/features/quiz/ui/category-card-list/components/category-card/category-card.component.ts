@@ -1,7 +1,7 @@
 import { Component, input } from '@angular/core';
 
 import { ButtonComponent } from '@/shared/ui';
-import { ProgressComponent } from '../progress/progress.component';
+import { ProgressComponent } from '../../../progress/progress.component';
 
 @Component({
   selector: 'app-category-card',

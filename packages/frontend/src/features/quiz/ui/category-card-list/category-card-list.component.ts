@@ -1,6 +1,6 @@
 import { Component, input } from '@angular/core';
 
-import { CategoryCardComponent } from '../category-card/category-card.component';
+import { CategoryCardComponent } from './components';
 
 import type { CategoryCardListItem } from './category-card-list.types';
 
