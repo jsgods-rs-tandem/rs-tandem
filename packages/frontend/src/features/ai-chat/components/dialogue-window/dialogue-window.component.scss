@@ -43,4 +43,16 @@
 .assistant-message {
   width: 100%;
   overflow-wrap: anywhere;
+
+  ::ng-deep pre {
+    padding: var(--spacing-x3);
+    border-radius: var(--radius-md);
+    background-color: var(--code-bg-color);
+  }
+
+  ::ng-deep code {
+    padding: 1px;
+    border-radius: var(--radius-md);
+    background-color: var(--code-bg-color);
+  }
 }
