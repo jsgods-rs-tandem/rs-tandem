@@ -1,6 +1,7 @@
 import { Component, effect, inject, output } from '@angular/core';
 import { ReactiveFormsModule, FormGroup, FormControl } from '@angular/forms';
 import { AiChatMockStore } from '../../services/ai-chat-mock.store';
+import { ButtonComponent } from '@/shared/ui';
 
 const padding = 12;
 const lineHeight = 16;
@@ -8,7 +9,7 @@ const baseTextAreaHeight = padding * 2 + lineHeight;
 
 @Component({
   selector: 'app-chat-form',
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule, ButtonComponent],
   templateUrl: './chat-form.component.html',
   styleUrl: './chat-form.component.scss',
 })

@@ -14,7 +14,11 @@
     (keydown.enter)="submitOnEnter($event, messageTextarea)"
     placeholder="Message"
   ></textarea>
-  <button class="submit" [disabled]="!messageForm.value.message?.trim()" aria-label="send">
-    SEND PROMPT
-  </button>
+  <app-button
+    class="submit"
+    [icon]="'arrow-up'"
+    [disabled]="!messageForm.value.message?.trim()"
+    aria-label="send"
+    type="submit"
+  ></app-button>
 </form>
