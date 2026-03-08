@@ -1,0 +1,20 @@
+<article class="category-card">
+  <header class="category-card__header">
+    <h3 class="h3 category-card__heading">{{ heading() }}</h3>
+
+    <app-progress
+      class="category-card__progress"
+      [valueNow]="topicsCompleteCount()"
+      [valueMax]="topicsCount()"
+      [valueProgress]="topicsProgress()"
+    />
+  </header>
+
+  <div class="category-card__body">
+    <p>{{ description() }}</p>
+  </div>
+
+  <footer class="category-card__footer">
+    <app-button [isSmallButton]="true">Explore topics</app-button>
+  </footer>
+</article>
