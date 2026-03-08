@@ -46,3 +46,14 @@
 .submit {
   margin-right: var(--spacing-x5);
 }
+
+.disabled {
+  pointer-events: none;
+  touch-action: none;
+  user-select: none;
+
+  text-decoration: none;
+
+  opacity: 0.4;
+  filter: saturate(0.1);
+}

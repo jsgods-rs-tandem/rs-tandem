@@ -1,4 +1,4 @@
-import { Component, effect, inject, output } from '@angular/core';
+import { Component, effect, ElementRef, inject, output } from '@angular/core';
 import { ReactiveFormsModule, FormGroup, FormControl } from '@angular/forms';
 import { AiChatMockStore } from '../../services/ai-chat-mock.store';
 import { IconButtonComponent } from '@/shared/ui';
@@ -20,6 +20,7 @@ export class ChatFormComponent {
     message: new FormControl(''),
   });
   protected isActive = false;
+  private el = inject<ElementRef<HTMLElement>>(ElementRef);
 
   constructor() {
     effect(() => {
@@ -27,6 +28,7 @@ export class ChatFormComponent {
         this.isActive = true;
       } else {
         this.isActive = false;
+        this.removeFocus();
       }
     });
   }
@@ -51,5 +53,10 @@ export class ChatFormComponent {
       this.messageForm.reset();
       this.autoResize(textarea);
     }
+  }
+
+  private removeFocus() {
+    const textarea = this.el.nativeElement.querySelector<HTMLTextAreaElement>('textarea');
+    textarea?.blur();
   }
 }
