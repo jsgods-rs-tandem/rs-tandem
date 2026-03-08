@@ -56,12 +56,12 @@
     gap: var(--spacing-x2);
 
     li {
-      margin-left: var(--spacing-x10);
+      margin-left: var(--spacing-x6);
       list-style-type: circle;
     }
 
     li li {
-      margin-left: var(--spacing-x10);
+      margin-left: var(--spacing-x6);
       list-style-type: square;
     }
   }
