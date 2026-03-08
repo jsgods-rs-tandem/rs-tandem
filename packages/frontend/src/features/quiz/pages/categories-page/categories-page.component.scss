@@ -1,4 +1,4 @@
-.category-page {
+.categories-page {
   &__header {
     display: flex;
     gap: var(--spacing-x4);
@@ -6,12 +6,7 @@
     justify-content: space-between;
   }
 
-  &__progress {
-    width: 100%;
-    max-width: 300px;
-  }
-
-  &__topic-card-list {
+  &__category-card-list {
     margin-block-start: var(--spacing-x10);
   }
 }

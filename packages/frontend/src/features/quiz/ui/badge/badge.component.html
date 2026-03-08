@@ -1,5 +1,20 @@
 @let l = level();
 
-<span class="badge badge_{{ l }}">
-  {{ l | titlecase }}
-</span>
+<div>
+  <button
+    [id]="id"
+    class="text badge__button badge__button_{{ l }}"
+    type="button"
+    [attr.popovertarget]="anchorId"
+  >
+    {{ l | titlecase }}
+  </button>
+
+  <app-popover [id]="anchorId" [anchorId]="id">
+    <ul>
+      <li>90%+ Senior</li>
+      <li>70%+ Middle</li>
+      <li>50%+ Junior</li>
+    </ul>
+  </app-popover>
+</div>

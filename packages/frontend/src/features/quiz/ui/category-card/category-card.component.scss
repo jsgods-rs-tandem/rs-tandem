@@ -1,0 +1,26 @@
+.category-card {
+  padding: var(--spacing-x6);
+  border: 1px solid var(--secondary-color);
+  border-radius: var(--radius-md);
+
+  &__header {
+    display: flex;
+    gap: var(--spacing-x3);
+    justify-content: space-between;
+  }
+
+  &__heading {
+    word-break: break-all;
+  }
+
+  &__progress {
+    width: 100%;
+    max-width: 300px;
+    height: fit-content;
+  }
+
+  &__body,
+  &__footer {
+    margin-block-start: var(--spacing-x2);
+  }
+}
