@@ -17,7 +17,6 @@
   min-height: 52px;
   max-height: 200px;
   padding-top: var(--spacing-x4);
-  padding-right: var(--spacing-x5);
   padding-left: var(--spacing-x5);
   border: 0;
 
@@ -25,13 +24,12 @@
   line-height: 16px;
 
   background-color: inherit;
+
+  &:focus {
+    outline: none;
+  }
 }
 
 .submit {
-  cursor: pointer;
-  background-color: inherit;
-
-  &:disabled {
-    pointer-events: none;
-  }
+  margin-right: var(--spacing-x5);
 }
