@@ -120,6 +120,7 @@
 
     width: 65%;
     height: calc(100dvh - var(--header-height));
+    padding: var(--spacing-x4);
 
     background-color: var(--primary-color);
     box-shadow: var(--shadow-mobile-menu);

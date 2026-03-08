@@ -4,6 +4,14 @@
   min-height: 100vh;
 }
 
+.layout-wrapper {
+  display: flex;
+  flex: 1;
+  align-items: flex-start;
+  width: 100%;
+}
+
 .main-content {
   flex: 1;
+  min-width: 0;
 }
