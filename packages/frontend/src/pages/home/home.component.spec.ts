@@ -10,6 +10,9 @@ describe('HomeComponent', () => {
     spy: () => {
       return;
     },
+    cleanup: () => {
+      return;
+    },
   };
   beforeEach(async () => {
     await TestBed.configureTestingModule({
