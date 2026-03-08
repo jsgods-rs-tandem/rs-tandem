@@ -1,0 +1,20 @@
+<aside class="card">
+  @if (title() || imageSrc()) {
+    <div class="card__header">
+      @if (title()) {
+        <h3 class="h3">{{ title() }}</h3>
+      }
+      @if (imageSrc()) {
+        <img [src]="imageSrc()" [alt]="imageAlt()" class="card__img" />
+      }
+    </div>
+  }
+  <div class="card__main">
+    <ng-content></ng-content>
+  </div>
+  @if (footerExists()) {
+    <div [class]="footerClasses()">
+      <ng-content select="[card-footer]"></ng-content>
+    </div>
+  }
+</aside>
