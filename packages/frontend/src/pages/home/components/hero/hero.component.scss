@@ -17,23 +17,31 @@
   &__item {
     display: flex;
     flex-direction: row;
+    align-items: center;
   }
 
   &__wrapper {
     gap: var(--spacing-x8);
     margin: var(--spacing-x4) 0 var(--spacing-x13);
-    @include m.media('s') {
+    @include m.media('m') {
       gap: var(--spacing-x4);
+    }
+    @include m.media('s') {
       margin: var(--spacing-x6) 0 var(--spacing-x8);
     }
     @include m.media('xs') {
       flex-direction: column;
       gap: var(--spacing-x4);
+      align-items: flex-start;
       margin: var(--spacing-x6) 0 var(--spacing-x8);
     }
   }
 
   &__item {
     gap: var(--spacing-x2);
+    width: fit-content;
+    @include m.media('xs') {
+      width: 100%;
+    }
   }
 }

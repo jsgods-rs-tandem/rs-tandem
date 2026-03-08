@@ -61,13 +61,15 @@
 html {
   scrollbar-gutter: stable;
   height: 100%;
+  @media (pointer: coarse) {
+    scrollbar-gutter: auto;
+  }
 }
 
 body {
   max-width: 1440px;
   height: 100%;
   margin: 0 auto;
-  padding: 0 var(--spacing-x1) 0 var(--spacing-x5);
 
   font-family: var(--font-main);
   color: var(--secondary-color);
@@ -78,6 +80,12 @@ body {
     var(--transition-duration-basic),
     var(--transition-easing-func)
   );
+  @media (hover: hover) and (pointer: fine) {
+    padding: 0 var(--spacing-x1) 0 var(--spacing-x5);
+  }
+  @media (hover: none), (pointer: coarse) {
+    padding: 0 var(--spacing-x5);
+  }
 }
 
 body.no-scroll {

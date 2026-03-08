@@ -5,14 +5,13 @@
 }
 
 .about {
+  width: 100%;
+
   &__description {
     display: flex;
     flex-direction: column;
     gap: var(--spacing-x6);
-
-    width: clamp(300px, 90%, 714px);
     margin: var(--spacing-x10) 0 var(--spacing-x13);
-    padding-right: var(--spacing-x4);
   }
 }
 

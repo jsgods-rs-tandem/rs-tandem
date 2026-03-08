@@ -1,4 +1,10 @@
+@use 'assets/styles/mixins' as m;
+
 :host {
   display: flex;
   flex-direction: column;
+  width: clamp(280px, 90%, 750px);
+  @include m.media('s') {
+    margin: 0 auto;
+  }
 }
