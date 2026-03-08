@@ -12,7 +12,9 @@
   <div class="card__main">
     <ng-content></ng-content>
   </div>
-  <div [class]="footerClasses()">
-    <ng-content select="[card-footer]"></ng-content>
-  </div>
+  @if (footerExists()) {
+    <div [class]="footerClasses()">
+      <ng-content select="[card-footer]"></ng-content>
+    </div>
+  }
 </aside>

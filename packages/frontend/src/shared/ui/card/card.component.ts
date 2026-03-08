@@ -1,4 +1,4 @@
-import { Component, computed, input } from '@angular/core';
+import { Component, computed, contentChild, ElementRef, input } from '@angular/core';
 
 @Component({
   selector: 'app-card',
@@ -11,6 +11,7 @@ export class CardComponent {
   imageSrc = input<string>();
   imageAlt = input<string>('');
   isFooterPositionStart = input<boolean>(true);
+  footerExists = contentChild<ElementRef>('footerContent');
   footerClasses = computed(() => {
     return [
       'card__footer',
