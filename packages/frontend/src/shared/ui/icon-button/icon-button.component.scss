@@ -22,9 +22,19 @@
     filter: saturate(0.1);
   }
 
-  @include m.hover {
-    ::ng-deep .icon {
-      color: var(--accent-color);
+  &_neutral {
+    @include m.hover {
+      ::ng-deep .icon {
+        color: var(--accent-color);
+      }
+    }
+  }
+
+  &_brand {
+    @include m.hover {
+      ::ng-deep .icon {
+        color: var(--secondary-color);
+      }
     }
   }
 }
