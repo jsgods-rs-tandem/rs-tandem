@@ -14,10 +14,14 @@
   overflow-y: auto;
 
   width: 100%;
-  min-height: 36px;
+  min-height: 52px;
   max-height: 200px;
+  padding-top: var(--spacing-x4);
+  padding-right: var(--spacing-x5);
+  padding-left: var(--spacing-x5);
   border: 0;
 
+  font-size: 16px;
   line-height: 16px;
 
   background-color: inherit;
