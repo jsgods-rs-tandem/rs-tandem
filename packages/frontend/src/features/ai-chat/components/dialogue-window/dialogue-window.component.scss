@@ -8,6 +8,19 @@
   padding-bottom: 20%;
   border: 1px solid var(--secondary-color);
   border-radius: var(--radius-md);
+
+  &::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    border-radius: var(--radius-md);
+    background: var(--secondary-color);
+  }
 }
 
 .user-message-row {

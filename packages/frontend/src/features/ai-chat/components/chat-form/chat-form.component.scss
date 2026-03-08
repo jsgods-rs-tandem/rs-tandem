@@ -25,6 +25,19 @@
 
   background-color: inherit;
 
+  &::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    border-radius: var(--radius-md);
+    background: var(--secondary-color);
+  }
+
   &:focus {
     outline: none;
   }
