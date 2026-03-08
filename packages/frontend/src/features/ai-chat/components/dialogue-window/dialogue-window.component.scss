@@ -16,9 +16,12 @@
 }
 
 .user-message {
+  max-width: 70%;
   margin-top: var(--spacing-x3);
   margin-bottom: var(--spacing-x3);
   padding: var(--spacing-x3);
   border: 1px solid var(--accent-color);
   border-radius: var(--radius-md);
+
+  overflow-wrap: anywhere;
 }
