@@ -16,7 +16,7 @@ describe('TopicCardListComponent', () => {
     fixture.componentRef.setInput('topics', [
       {
         id: 'topic-1',
-        topic: 'Introduction',
+        name: 'Introduction',
         description: 'Where do you put your scripts? Learn the basics of linking JS to HTML.',
         questionsCount: 5,
         score: 100,
