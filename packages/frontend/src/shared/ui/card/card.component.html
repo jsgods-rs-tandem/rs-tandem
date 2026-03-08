@@ -1,0 +1,21 @@
+<aside class="card">
+  @if (title() || imageSrc()) {
+    <div class="card__header">
+      @if (title()) {
+        <h3 class="h3">{{ title() }}</h3>
+      }
+      @if (imageSrc()) {
+        <img [src]="imageSrc()" [alt]="imageAlt()" class="card__img" />
+      }
+    </div>
+  }
+  <div class="card__main">
+    <ng-content></ng-content>
+  </div>
+  <div
+    class="card__footer"
+    [class]="isFooterPositionStart() ? 'card__footer_start' : 'card__footer_end'"
+  >
+    <ng-content select="[card-footer]"></ng-content>
+  </div>
+</aside>
