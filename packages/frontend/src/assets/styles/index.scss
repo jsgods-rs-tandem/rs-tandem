@@ -64,7 +64,9 @@ html {
 }
 
 body {
+  max-width: 1440px;
   height: 100%;
+  margin: 0 auto;
   padding: 0 var(--spacing-x1) 0 var(--spacing-x5);
 
   font-family: var(--font-main);

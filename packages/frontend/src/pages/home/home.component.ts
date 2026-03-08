@@ -1,10 +1,11 @@
 import { AfterViewInit, Component, ElementRef, inject } from '@angular/core';
 import { HeroComponent } from './components/hero/hero.component';
 import { ScrollSpyService } from '@/shared/services/scroll-spy.service';
+import { AboutComponent } from './components/about/about.component';
 
 @Component({
   selector: 'app-home',
-  imports: [HeroComponent],
+  imports: [HeroComponent, AboutComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
 })
