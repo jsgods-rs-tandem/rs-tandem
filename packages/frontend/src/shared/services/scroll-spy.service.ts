@@ -59,7 +59,7 @@ export class ScrollSpyService {
       this.isAnchorLocked = false;
     }, 1000);
   }
-  private cleanup(): void {
+  public cleanup(): void {
     this.observer?.disconnect();
     this.observer = null;
   }

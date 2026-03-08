@@ -1,0 +1,20 @@
+@use 'assets/styles/mixins' as m;
+
+:host {
+  @include m.full-page-section;
+}
+
+.about {
+  width: 100%;
+
+  &__description {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-x6);
+    margin: var(--spacing-x10) 0 var(--spacing-x13);
+  }
+}
+
+.text_brand {
+  color: var(--accent-color);
+}

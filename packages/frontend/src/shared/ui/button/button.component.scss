@@ -22,6 +22,8 @@
   height: 100%;
   border-radius: var(--radius-sm);
 
+  text-transform: capitalize;
+
   @include m.transition(
     (background-color, transform, box-shadow, border-color, opacity),
     var(--transition-duration-basic),

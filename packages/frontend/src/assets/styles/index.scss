@@ -26,6 +26,7 @@
   --spacing-x4: calc(var(--spacing-module) * 4);
   --spacing-x5: calc(var(--spacing-module) * 5);
   --spacing-x6: calc(var(--spacing-module) * 6);
+  --spacing-x8: calc(var(--spacing-module) * 8);
   --spacing-x10: calc(var(--spacing-module) * 10);
   --spacing-x13: calc(var(--spacing-module) * 13);
   --radius-xs: 2px;
@@ -38,6 +39,9 @@
   --text-secondary: #222c;
   --header-height: 60px;
   --footer-height: 64px;
+  @include m.media('s') {
+    --footer-height: 103.81px;
+  }
   color-scheme: light;
 }
 
@@ -57,11 +61,15 @@
 html {
   scrollbar-gutter: stable;
   height: 100%;
+  @media (pointer: coarse) {
+    scrollbar-gutter: auto;
+  }
 }
 
 body {
+  max-width: 1440px;
   height: 100%;
-  padding: 0 var(--spacing-x1) 0 var(--spacing-x5);
+  margin: 0 auto;
 
   font-family: var(--font-main);
   color: var(--secondary-color);
@@ -72,6 +80,12 @@ body {
     var(--transition-duration-basic),
     var(--transition-easing-func)
   );
+  @media (hover: hover) and (pointer: fine) {
+    padding: 0 var(--spacing-x1) 0 var(--spacing-x5);
+  }
+  @media (hover: none), (pointer: coarse) {
+    padding: 0 var(--spacing-x5);
+  }
 }
 
 body.no-scroll {

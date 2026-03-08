@@ -39,6 +39,10 @@ export class HeaderComponent {
   themeAriaLabel = computed(() =>
     this.isDarkTheme() ? 'Switch to light theme' : 'Switch to dark theme',
   );
+  languageAriaLabel = computed(() =>
+    this.isEngLanguage() ? 'Switch to Russian language' : 'Switch to English language',
+  );
+
   toggleTheme(): void {
     this.themeService.toggleTheme();
   }

@@ -54,3 +54,13 @@
     display: none;
   }
 }
+
+@mixin full-page-section {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+
+  width: 100%;
+  min-height: calc(100vh - var(--header-height) - var(--footer-height));
+}
