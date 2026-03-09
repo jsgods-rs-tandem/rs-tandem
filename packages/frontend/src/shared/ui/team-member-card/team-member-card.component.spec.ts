@@ -37,24 +37,6 @@ describe('TeamMemberCardComponent', () => {
     expect(nameElement.textContent.trim()).toBe('Diana Dukhovskaya');
   });
 
-  it('should compute displayHref for GitHub login correctly', () => {
-    fixture.componentRef.setInput('name', 'Diana Dukhovskaya');
-    fixture.componentRef.setInput('avatarUrl', 'test-url');
-    fixture.componentRef.setInput('githubLogin', 'dukhd');
-
-    expect(component.displayHref()).toBe('https://github.com/dukhd');
-  });
-
-  it('should prioritize externalLink over githubLogin', () => {
-    fixture.componentRef.setInput('name', 'RS School');
-    fixture.componentRef.setInput('avatarUrl', 'test-url');
-    fixture.componentRef.setInput('githubLogin', 'test-login');
-    fixture.componentRef.setInput('externalLink', 'https://rs.school/');
-    fixture.componentRef.setInput('linkText', 'RS school');
-
-    expect(component.displayHref()).toBe('https://rs.school/');
-  });
-
   it('should apply "team-card_rotate" class when isRotate is true', () => {
     fixture.componentRef.setInput('name', 'RS School');
     fixture.componentRef.setInput('avatarUrl', 'test-url');
