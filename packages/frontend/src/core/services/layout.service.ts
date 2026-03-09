@@ -22,7 +22,7 @@ export class LayoutService {
       .subscribe((event) => {
         const urlWithoutQuery = event.urlAfterRedirects.split('?')[0] ?? '';
         const url = urlWithoutQuery.split('#')[0] ?? '';
-        if (url === '/login') {
+        if (url === '/sign-in' || url === '/sign-up') {
           this.headerMode.set('home');
           this.showSidebar.set(false);
         } else if (url === '/') {

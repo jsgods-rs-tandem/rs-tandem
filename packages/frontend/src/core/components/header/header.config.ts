@@ -9,7 +9,7 @@ export interface ActionConfig {
 }
 
 export const HEADER_ACTIONS: Record<HeaderMode, ActionConfig> = {
-  login: { text: 'Sign in', icon: 'login', link: '/login' },
+  login: { text: 'Sign in', icon: 'login', link: '/sign-in' },
   home: { text: 'Home', icon: 'home', link: '/' },
   logout: { text: 'Sign out', icon: 'logout', emitLogout: true },
 };

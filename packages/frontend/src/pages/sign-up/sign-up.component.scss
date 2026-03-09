@@ -1,3 +1,9 @@
+:host {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+}
+
 form {
   display: flex;
   flex-direction: column;
