@@ -1,0 +1,23 @@
+:host {
+  display: flex;
+}
+
+.alert {
+  display: flex;
+  gap: var(--spacing-x2);
+
+  width: 100%;
+  padding: var(--spacing-x2) var(--spacing-x3);
+
+  // TODO use variable
+  border: 2px solid #91caff;
+  border-radius: var(--radius-md);
+
+  background-color: #e6f4ff;
+
+  &__icon {
+    ::ng-deep .icon {
+      color: #1677ff;
+    }
+  }
+}

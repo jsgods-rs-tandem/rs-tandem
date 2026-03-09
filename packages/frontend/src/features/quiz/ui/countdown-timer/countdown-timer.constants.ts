@@ -1,0 +1,1 @@
+export const DEFAULT_TIME_IN_SECONDS = 120;

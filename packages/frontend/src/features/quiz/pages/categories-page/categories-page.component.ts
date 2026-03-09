@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import { CategoryCardListComponent } from '../../ui/category-card-list/category-card-list.component';
+import { CategoryCardListComponent } from '../../ui';
 
 import list from '../../data/categories.json';
 
