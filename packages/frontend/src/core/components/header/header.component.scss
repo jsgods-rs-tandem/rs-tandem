@@ -1,10 +1,23 @@
 @use 'assets/styles/mixins.scss' as m;
 
-.header {
+:host {
   position: sticky;
   z-index: 1000;
   top: 0;
 
+  display: block;
+
+  width: 100%;
+
+  background-color: var(--primary-color);
+  @include m.transition(
+    background-color,
+    var(--transition-duration-basic),
+    var(--transition-easing-func)
+  );
+}
+
+.header {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -44,7 +57,6 @@
   align-items: flex-start;
 
   width: 100%;
-  padding: var(--spacing-x4);
 }
 
 .mobile-nav-group {

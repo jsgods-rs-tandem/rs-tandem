@@ -1,0 +1,9 @@
+@use 'assets/styles/mixins' as m;
+
+:host {
+  @include m.full-page-section;
+}
+
+.faq {
+  width: 100%;
+}

@@ -4,6 +4,10 @@
 
 :host {
   @extend %host-base;
+
+  &.active .button__text {
+    border-bottom-color: var(--accent-color);
+  }
 }
 
 .button {
@@ -17,6 +21,8 @@
   width: 100%;
   height: 100%;
   border-radius: var(--radius-sm);
+
+  text-transform: capitalize;
 
   @include m.transition(
     (background-color, transform, box-shadow, border-color, opacity),
@@ -75,12 +81,6 @@
         color: var(--accent-color);
       }
 
-      .button__text {
-        border-bottom-color: var(--secondary-color);
-      }
-    }
-
-    @include m.active {
       .button__text {
         border-bottom-color: var(--secondary-color);
       }
