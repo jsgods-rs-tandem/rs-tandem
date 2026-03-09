@@ -3,7 +3,7 @@ import { DecimalPipe } from '@angular/common';
 
 import { PopoverComponent } from '../popover/popover.component';
 
-import { countPercentage } from './progress.utilities';
+import { countProgressPercentage } from '../../utilities';
 
 @Component({
   selector: 'app-progress',
@@ -20,5 +20,5 @@ export class ProgressComponent {
   readonly valueMax = input.required<number>();
   readonly valueProgress = input.required<number>();
 
-  readonly progressInPercentage = computed(() => countPercentage(this.valueProgress()));
+  readonly progressInPercentage = computed(() => countProgressPercentage(this.valueProgress()));
 }

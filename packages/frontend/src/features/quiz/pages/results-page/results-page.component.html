@@ -1,0 +1,36 @@
+@let linksValue = links;
+
+<section class="results-page">
+  <header class="results-page__header">
+    <h2 class="h2 results-page__heading">{{ heading() }}</h2>
+
+    <p class="h3 results-page__subheading">
+      Your progress is
+      <strong class="results-page__progress"
+        >{{ progressInPercentage() | number: '2.0-0' }}%</strong
+      >
+    </p>
+  </header>
+
+  <div class="results-page__body">
+    <h3 class="h3">Further reading:</h3>
+
+    <ul class="results-page__reading-list">
+      @for (link of linksValue; track $index) {
+        <li>
+          <app-button
+            class="results-page__reading-link"
+            version="ghost"
+            [href]="link"
+            [text]="link"
+            [external]="true"
+          />
+        </li>
+      }
+    </ul>
+  </div>
+
+  <footer class="results-page__footer">
+    <app-button>Try again</app-button>
+  </footer>
+</section>
