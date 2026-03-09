@@ -3,7 +3,7 @@ import { TitleCasePipe } from '@angular/common';
 
 import { PopoverComponent } from '../popover/popover.component';
 
-import { computeRewardLevel } from './badge.utilities';
+import { computeRewardLevel } from '../../utilities';
 
 @Component({
   selector: 'app-badge',

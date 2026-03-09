@@ -2,8 +2,8 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { BadgeComponent } from './badge.component';
 
-import { computeRewardLevel } from './badge.utilities';
-import { REWARD_LEVEL, REWARD_SCORE } from './badge.constants';
+import { computeRewardLevel } from '../../utilities';
+import { REWARD_LEVEL, REWARD_SCORE } from '../../constants';
 
 describe('BadgeComponent', () => {
   let component: BadgeComponent;
