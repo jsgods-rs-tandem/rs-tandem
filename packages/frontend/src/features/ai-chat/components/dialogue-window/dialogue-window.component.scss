@@ -67,9 +67,27 @@
   }
 
   ::ng-deep pre {
+    overflow-x: auto;
+
+    width: 100%;
     padding: var(--spacing-x3);
     border-radius: var(--radius-md);
+
     background-color: var(--code-bg-color);
+
+    &::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+
+    &::-webkit-scrollbar-track {
+      background: transparent;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      border-radius: var(--radius-md);
+      background: var(--secondary-color);
+    }
   }
 
   ::ng-deep code {
