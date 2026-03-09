@@ -1,0 +1,34 @@
+:host {
+  display: flex;
+  width: 100%;
+  height: calc(100vh - var(--header-height) - var(--footer-height));
+}
+
+.chat-wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 714px;
+}
+
+.chat-wrapper_empty {
+  gap: var(--spacing-x10);
+  justify-content: center;
+}
+
+.chat-wrapper_filled {
+  justify-content: space-between;
+}
+
+.title {
+  text-align: center;
+}
+
+.dialogue-window {
+  margin-top: var(--spacing-x2);
+  margin-bottom: var(--spacing-x6);
+}
+
+.user-name {
+  color: var(--accent-color);
+}

@@ -1,7 +1,11 @@
 .form {
   display: flex;
   align-items: center;
-  border: 1px solid black;
+
+  border: 1px solid var(--secondary-color);
+  border-radius: var(--radius-md);
+
+  box-shadow: var(--shadow);
 }
 
 .text-area {
@@ -10,20 +14,46 @@
   overflow-y: auto;
 
   width: 100%;
-  min-height: 36px;
+  min-height: 52px;
   max-height: 200px;
+  padding-top: var(--spacing-x4);
+  padding-left: var(--spacing-x5);
   border: 0;
 
+  font-size: 16px;
   line-height: 16px;
 
   background-color: inherit;
+
+  &::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    border-radius: var(--radius-md);
+    background: var(--secondary-color);
+  }
+
+  &:focus {
+    outline: none;
+  }
 }
 
 .submit {
-  cursor: pointer;
-  background-color: inherit;
+  margin-right: var(--spacing-x5);
+}
 
-  &:disabled {
-    pointer-events: none;
-  }
+.disabled {
+  pointer-events: none;
+  touch-action: none;
+  user-select: none;
+
+  text-decoration: none;
+
+  opacity: 0.4;
+  filter: saturate(0.1);
 }

@@ -9,6 +9,7 @@
 :root {
   --transition-duration-basic: 0.3s;
   --transition-easing-func: ease-in-out;
+  --code-bg-color: #d8d8d8;
   --primary-color: #ececec;
   --secondary-color: #222;
   --accent-color: #ff6900;
@@ -47,6 +48,7 @@
 }
 
 [data-theme='dark'] {
+  --code-bg-color: #252e35;
   --primary-color: #181e22;
   --secondary-color: #ececec;
   --backdrop-color: rgb(255 255 255 / 50%);

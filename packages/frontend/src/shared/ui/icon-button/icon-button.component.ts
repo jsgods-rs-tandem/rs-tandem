@@ -1,4 +1,4 @@
-import { Component, input } from '@angular/core';
+import { Component, computed, input } from '@angular/core';
 
 import { IconComponent } from '../icon/icon.component';
 
@@ -16,4 +16,8 @@ export class IconButtonComponent {
   color = input<ReturnType<IconComponent['color']>>('neutral');
   size = input<ReturnType<IconComponent['size']>>('m');
   ariaLabel = input<string>();
+  disabled = input<boolean>(false);
+  classes = computed(() => {
+    return ['icon-button', `icon-button_${this.color()}`].join(' ');
+  });
 }
