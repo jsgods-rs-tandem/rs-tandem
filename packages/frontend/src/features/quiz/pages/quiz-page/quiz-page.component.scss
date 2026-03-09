@@ -1,0 +1,44 @@
+.quiz-page {
+  &__header {
+    display: flex;
+    gap: var(--spacing-x4);
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__body {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__question {
+    font-weight: 400;
+    text-align: center;
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+
+    width: 100%;
+    max-width: 712px;
+    margin: var(--spacing-x10) auto;
+    padding: var(--spacing-x10) var(--spacing-x13);
+    border: 2px solid var(--secondary-color);
+    border-radius: var(--radius-md);
+  }
+
+  &__answer-tile-group {
+    margin-block-start: var(--spacing-x3);
+  }
+
+  &__error {
+    margin-block-start: var(--spacing-x3);
+    color: var(--error-color);
+    text-align: center;
+  }
+
+  &__submit-button {
+    margin: var(--spacing-x5) auto 0;
+  }
+}

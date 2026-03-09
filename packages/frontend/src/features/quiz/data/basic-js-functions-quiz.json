@@ -1,0 +1,240 @@
+{
+  "quizId": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+  "category": "Basic JavaScript",
+  "name": "Functions: The Basics",
+  "questionsCount": 15,
+  "questions": [
+    {
+      "id": "7b1a2c3d-e4f5-4a6b-8c9d-0e1f2a3b4c5d",
+      "step": 1,
+      "question": "Which keyword is used to declare a standard function in JavaScript?",
+      "codeSnippet": null,
+      "correctAnswerId": "2b3c4d5e-6f7a-4b8c-9d0e-1f2a3b4c5d6e",
+      "explanation": "In JavaScript, the 'function' keyword is the standard way to define a function declaration or expression.",
+      "answers": [
+        { "id": "1a2b3c4d-5e6f-4a7b-8c9d-0e1f2a3b4c5d", "text": "func" },
+        { "id": "2b3c4d5e-6f7a-4b8c-9d0e-1f2a3b4c5d6e", "text": "function" },
+        { "id": "3c4d5e6f-7a8b-4c9d-0e1f2a3b4c5d6", "text": "def" },
+        { "id": "4d5e6f7a-8b9c-4d0e-1f2a-3b4c5d6e7f8a", "text": "method" },
+        { "id": "5e6f7a8b-9c0d-4e1f-2g3h-4i5j6k7l8m9n", "text": "declare" }
+      ]
+    },
+    {
+      "id": "a1b2c3d4-e5f6-4g7h-8i9j-0k1l2m3n4o5p",
+      "step": 2,
+      "question": "What will be the output of the following code?",
+      "codeSnippet": "function sayHello() {\n  return 'Hello!';\n}\nconsole.log(sayHello);",
+      "correctAnswerId": "8b9c0d1e-2f3g-4h4i-5j6k-7l8m9n0o1p2q",
+      "explanation": "If you reference a function by its name without parentheses (), you are accessing the function object itself, not executing it.",
+      "answers": [
+        { "id": "6f7a8b9c-0d1e-4f2g-3h4i-5j6k7l8m9n0o", "text": "'Hello!'" },
+        { "id": "7a8b9c0d-1e2f-4g3h-4i5j-6k7l8m9n0o1p", "text": "undefined" },
+        { "id": "8b9c0d1e-2f3g-4h4i-5j6k-7l8m9n0o1p2q", "text": "The function definition itself" },
+        { "id": "9c0d1e2f-3g4h-4i5j-6k7l-8m9n0o1p2q3r", "text": "ReferenceError" }
+      ]
+    },
+    {
+      "id": "c1d2e3f4-a5b6-4c7d-8e9f-0a1b2c3d4e5f",
+      "step": 3,
+      "question": "What is the correct way to call a function named 'init'?",
+      "codeSnippet": null,
+      "correctAnswerId": "2f3g4h5i-6j7k-4l8m-9n0o-1p2q3r4s5t6u",
+      "explanation": "To execute (call) a function in JavaScript, you must use parentheses immediately after the function name.",
+      "answers": [
+        { "id": "0d1e2f3g-4h5i-4j6k-7l8m-9n0o1p2q3r4s", "text": "call init()" },
+        { "id": "1e2f3g4h-5i6j-4k7l-8m9n-0o1p2q3r4s5t", "text": "init;" },
+        { "id": "2f3g4h5i-6j7k-4l8m-9n0o-1p2q3r4s5t6u", "text": "init()" },
+        { "id": "3g4h5i6j-7k8l-4m9n-0o1p-2q3r4s5t6u7v", "text": "run init" },
+        { "id": "4h5i6j7k-8l9m-4n0o-1p2q-3r4s5t6u7v8w", "text": "execute init" },
+        { "id": "5i6j7k8l-9m0n-4o1p-2q3r-4s5t6u7v8w9x", "text": "new init" }
+      ]
+    },
+    {
+      "id": "d4e5f6a7-b8c9-4d0e-1f2a-3b4c5d6e7f8a",
+      "step": 4,
+      "question": "What will this function return?",
+      "codeSnippet": "function multiply(a, b) {\n  a * b;\n}\nconsole.log(multiply(2, 5));",
+      "correctAnswerId": "8l9m0n1o-2p3q-4r4s-5t6u-7v8w9x0y1z2a",
+      "explanation": "If a function doesn't have an explicit 'return' statement, it returns 'undefined' by default, even if an expression is evaluated inside.",
+      "answers": [
+        { "id": "6j7k8l9m-0n1o-4p2q-3r4s-5t6u7v8w9x0y", "text": "10" },
+        { "id": "7k8l9m0n-1o2p-4q3r-4s5t-6u7v8w9x0y1z", "text": "null" },
+        { "id": "8l9m0n1o-2p3q-4r4s-5t6u-7v8w9x0y1z2a", "text": "undefined" },
+        { "id": "9m0n1o2p-3q4r-4s5t-6u7v-8w9x0y1z2a3b", "text": "NaN" }
+      ]
+    },
+    {
+      "id": "e7f8a9b0-c1d2-4e3f-4a5b-6c7d8e9f0a1b",
+      "step": 5,
+      "question": "In an arrow function, if there is only one parameter, are parentheses optional?",
+      "codeSnippet": "const double = n => n * 2;",
+      "correctAnswerId": "0n1o2p3q-4r5s-4t6u-7v8w-9x0y1z2a3b4c",
+      "explanation": "In arrow functions, you can omit the parentheses around the parameter list if and only if there is exactly one parameter.",
+      "answers": [
+        { "id": "0n1o2p3q-4r5s-4t6u-7v8w-9x0y1z2a3b4c", "text": "Yes, always" },
+        { "id": "1o2p3q4r-5s6t-4u7v-8w9x-0y1z2a3b4c5d", "text": "No, never" },
+        {
+          "id": "2p3q4r5s-6t7u-4v8w-9x0y-1z2a3b4c5d6e",
+          "text": "Only if using the 'return' keyword"
+        },
+        { "id": "3q4r5s6t-7u8v-4w9x-0y1z-2a3b4c5d6e7f", "text": "Only in strict mode" }
+      ]
+    },
+    {
+      "id": "f8e7d6c5-b4a3-4d2c-1b0a-9f8e7d6c5b4a",
+      "step": 6,
+      "question": "What is a 'parameter' in a function context?",
+      "codeSnippet": null,
+      "correctAnswerId": "5s6t7u8v-9w0x-4y1z-2a3b-4c5d6e7f8g9h",
+      "explanation": "A parameter is the named variable listed in the function's definition, while an argument is the actual value passed to the function when it is called.",
+      "answers": [
+        {
+          "id": "4r5s6t7u-8v9w-4x0y-1z2a-3b4c5d6e7f8g",
+          "text": "The value passed during the call"
+        },
+        {
+          "id": "5s6t7u8v-9w0x-4y1z-2a3b-4c5d6e7f8g9h",
+          "text": "The variable name in the declaration"
+        },
+        { "id": "6t7u8v9w-0x1y-4z2a-3b4c-5d6e7f8g9h0i", "text": "The function's return type" },
+        { "id": "7u8v9w0x-1y2z-4a3b-4c5d-6e7f8g9h0i1j", "text": "A reserved keyword" },
+        { "id": "8v9w0x1y-2z3a-4b4c-5d6e-7f8g9h0i1j2k", "text": "The function's memory address" }
+      ]
+    },
+    {
+      "id": "b3c4d5e6-f7a8-4b9c-0d1e-2f3a4b5c6d7e",
+      "step": 7,
+      "question": "Which of these is a valid function expression?",
+      "codeSnippet": null,
+      "correctAnswerId": "0x1y2z3a-4b5c-4d6e-7f8g-9h0i1j2k3l4m",
+      "explanation": "A function expression involves assigning a function (often anonymous) to a variable. 'const start = function() {};' is a classic example.",
+      "answers": [
+        { "id": "9w0x1y2z-3a4b-4c5d-6e7f-8g9h0i1j2k3l", "text": "function start() {}" },
+        { "id": "0x1y2z3a-4b5c-4d6e-7f8g-9h0i1j2k3l4m", "text": "const start = function() {};" },
+        { "id": "1y2z3a4b-5c6d-4e7f-8g9h-0i1j2k3l4m5n", "text": "start: function() {}" },
+        { "id": "2z3a4b5c-6d7e-4f8g-9h0i-1j2k3l4m5n6o", "text": "new function start() {}" }
+      ]
+    },
+    {
+      "id": "a6b7c8d9-e0f1-4a2b-3c4d-5e6f7a8b9c0d",
+      "step": 8,
+      "question": "What happens to extra arguments passed to a function?",
+      "codeSnippet": "function sum(a, b) {\n  return a + b;\n}\nsum(1, 2, 3, 4);",
+      "correctAnswerId": "4b5c6d7e-8f9g-4h0i-1j2k-3l4m5n6o7p8q",
+      "explanation": "JavaScript doesn't throw an error if you pass too many arguments. They aren't assigned to named parameters, but they are still accessible via the 'arguments' object or 'rest parameters'.",
+      "answers": [
+        { "id": "3a4b5c6d-7e8f-4g9h-0i1j-2k3l4m5n6o7p", "text": "Throws a SyntaxError" },
+        {
+          "id": "4b5c6d7e-8f9g-4h0i-1j2k-3l4m5n6o7p8q",
+          "text": "Ignored, but stored in 'arguments'"
+        },
+        { "id": "5c6d7e8f-9g0h-4i1j-2k3l-4m5n6o7p8q9r", "text": "Function automatically expands" },
+        { "id": "6d7e8f9g-0h1i-4j2k-3l4m-5n6o7p8q9r0s", "text": "Returns NaN" },
+        { "id": "7e8f9g0h-1i2j-4k3l-4m5n-6o7p8q9r0s1t", "text": "The code won't compile" }
+      ]
+    },
+    {
+      "id": "f1a2b3c4-d5e6-4f7a-8b9c-0d1e2f3a4b5c",
+      "step": 9,
+      "question": "How do you define a default value for a parameter?",
+      "codeSnippet": null,
+      "correctAnswerId": "8f9g0h1i-2j3k-4l4m-5n6o-7p8q9r0s1t2u",
+      "explanation": "ES6 introduced a concise syntax for default parameters using the assignment operator (=) directly in the function signature.",
+      "answers": [
+        { "id": "8f9g0h1i-2j3k-4l4m-5n6o-7p8q9r0s1t2u", "text": "function test(a = 10) {}" },
+        { "id": "9g0h1i2j-3k4l-4m5n-6o7p-8q9r0s1t2u3v", "text": "function test(a : 10) {}" },
+        { "id": "0h1i2j3k-4l5m-4n6o-7p8q-9r0s1t2u3v4w", "text": "function test(a) { a || 10 }" },
+        { "id": "1i2j3k4l-5m6n-4o7p-8q9r-0s1t2u3v4w5x", "text": "function test(default a = 10) {}" }
+      ]
+    },
+    {
+      "id": "e8d7c6b5-a432-4f1e-0d9c-8b7a6f5e4d3c",
+      "step": 10,
+      "question": "What is the value of 'result' in this IIFE?",
+      "codeSnippet": "let result = (function(x) {\n  return x * x;\n})(4);",
+      "correctAnswerId": "3k4l5m6n-7o8p-4q9r-0s1t-2u3v4w5x6y7z",
+      "explanation": "This is an Immediately Invoked Function Expression (IIFE). It executes immediately with the argument 4, returning 4 * 4, which is 16.",
+      "answers": [
+        { "id": "2j3k4l5m-6n7o-4p8q-9r0s-1t2u3v4w5x6y", "text": "4" },
+        { "id": "3k4l5m6n-7o8p-4q9r-0s1t-2u3v4w5x6y7z", "text": "16" },
+        { "id": "4l5m6n7o-8p9q-4r0s-1t2u-3v4w5x6y7z8a", "text": "undefined" },
+        { "id": "5m6n7o8p-9q0r-4s1t-2u3v-4w5x6y7z8a9b", "text": "Function object" },
+        { "id": "6n7o8p9q-0r1s-4t2u-3v4w-5x6y7z8a9b0c", "text": "ReferenceError" }
+      ]
+    },
+    {
+      "id": "c4d5e6f7-a8b9-4c0d-1e2f-3a4b5c6d7e8f",
+      "step": 11,
+      "question": "Which of the following is a valid arrow function?",
+      "codeSnippet": null,
+      "correctAnswerId": "7o8p9q0r-1s2t-4u3v-4w5x-6y7z8a9b0c1d",
+      "explanation": "Arrow functions use the '=>' syntax. 'let f = () => {}' is the correct way to define one without parameters.",
+      "answers": [
+        { "id": "7o8p9q0r-1s2t-4u3v-4w5x-6y7z8a9b0c1d", "text": "let f = () => {}" },
+        { "id": "8p9q0r1s-2t3u-4v4w-5x6y-7z8a9b0c1d2e", "text": "let f = function => {}" },
+        { "id": "9q0r1s2t-3u4v-4w5x-6y7z-8a9b0c1d2e3f", "text": "let f = () -> {}" },
+        { "id": "0r1s2t3u-4v5w-4x6y-7z8a-9b0c1d2e3f4g", "text": "let f = => {}" },
+        { "id": "1s2t3u4v-5w6x-4y7z-8a9b-0c1d2e3f4g5h", "text": "let f = () => return 1" }
+      ]
+    },
+    {
+      "id": "b9c0d1e2-f3a4-4b5c-6d7e-8f9a0b1c2d3e",
+      "step": 12,
+      "question": "What will this code output?",
+      "codeSnippet": "const greet = (name) => `Hi ${name}`;\nconsole.log(greet());",
+      "correctAnswerId": "3u4v5w6x-7y8z-4a9b-0c1d-2e3f4g5h6i7j",
+      "explanation": "If an argument is missing during a function call, the corresponding parameter is assigned 'undefined'. The template literal then evaluates to 'Hi undefined'.",
+      "answers": [
+        { "id": "2t3u4v5w-6x7y-4z8a-9b0c-1d2e3f4g5h6i", "text": "Hi name" },
+        { "id": "3u4v5w6x-7y8z-4a9b-0c1d-2e3f4g5h6i7j", "text": "Hi undefined" },
+        { "id": "4v5w6x7y-8z9a-4b0c-1d2e-3f4g5h6i7j8k", "text": "Error" },
+        { "id": "5w6x7y8z-9a0b-4c1d-2e3f-4g5h6i7j8k9l", "text": "Hi " }
+      ]
+    },
+    {
+      "id": "a2b3c4d5-e6f7-4a8b-9c0d-1e2f3a4b5c6d",
+      "step": 13,
+      "question": "Can a function return another function?",
+      "codeSnippet": null,
+      "correctAnswerId": "6x7y8z9a-0b1c-4d2e-3f4g-5h6i7j8k9l0m",
+      "explanation": "Yes, functions are 'first-class citizens' in JavaScript, meaning they can be treated like any other value, including being returned from other functions (often called Higher-Order Functions).",
+      "answers": [
+        { "id": "6x7y8z9a-0b1c-4d2e-3f4g-5h6i7j8k9l0m", "text": "Yes" },
+        { "id": "7y8z9a0b-1c2d-4e3f-4g5h-6i7j8k9l0m1n", "text": "No, only primitives" },
+        { "id": "8z9a0b1c-2d3e-4f4g-5h6i-7j8k9l0m1n2o", "text": "No, only objects" },
+        { "id": "9a0b1c2d-3e4f-4g5h-6i7j-8k9l0m1n2o3p", "text": "Only if it is a method" }
+      ]
+    },
+    {
+      "id": "d7e8f9a0-b1c2-4d3e-4f5a-6b7c8d9e0f1a",
+      "step": 14,
+      "question": "What is 'arguments' inside a non-arrow function?",
+      "codeSnippet": null,
+      "correctAnswerId": "1c2d3e4f-5g6h-4i7j-8k9l-0m1n2o3p4q5r",
+      "explanation": "The 'arguments' object is an array-like object accessible inside functions. It has a 'length' property and indexed elements, but lacks built-in Array methods like map() or filter().",
+      "answers": [
+        { "id": "0b1c2d3e-4f5g-4h6i-7j8k-9l0m1n2o3p4q", "text": "A true Array" },
+        { "id": "1c2d3e4f-5g6h-4i7j-8k9l-0m1n2o3p4q5r", "text": "An array-like object" },
+        { "id": "2d3e4f5g-6h7i-4j8k-9l0m-1n2o3p4q5r6s", "text": "A string" },
+        { "id": "3e4f5g6h-7i8j-4k9l-0m1n-2o3p4q5r6s7t", "text": "A list of global variables" },
+        { "id": "4f5g6h7i-8j9k-4l0m-1n2o-3p4q5r6s7t8u", "text": "Undefined" }
+      ]
+    },
+    {
+      "id": "f4a5b6c7-d8e9-4f0a-1b2c-3d4e5f6a7b8c",
+      "step": 15,
+      "question": "What is the output of the following?",
+      "codeSnippet": "function check(a) {\n  return a || 'Default';\n}\nconsole.log(check(0));",
+      "correctAnswerId": "6h7i8j9k-0l1m-4n2o-3p4q-5r6s7t8u9v0w",
+      "explanation": "The logical OR (||) operator returns the first truthy value. Since 0 is falsy in JavaScript, the operator evaluates and returns the second operand: 'Default'.",
+      "answers": [
+        { "id": "5g6h7i8j-9k0l-4m1n-2o3p-4q5r6s7t8u9v", "text": "0" },
+        { "id": "6h7i8j9k-0l1m-4n2o-3p4q-5r6s7t8u9v0w", "text": "'Default'" },
+        { "id": "7i8j9k0l-1m2n-4o3p-4q5r-6s7t8u9v0w1x", "text": "undefined" },
+        { "id": "8j9k0l1m-2n3o-4p4q-5r6s-7t8u9v0w1x2y", "text": "true" },
+        { "id": "9k0l1m2n-3o4p-4q5r-6s7t-8u9v0w1x2y3z", "text": "null" },
+        { "id": "0l1m2n3o-4p5q-4r6s-7t8u-9v0w1x2y3z4a", "text": "NaN" }
+      ]
+    }
+  ]
+}
