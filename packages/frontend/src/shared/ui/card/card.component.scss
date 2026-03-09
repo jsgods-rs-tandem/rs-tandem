@@ -18,13 +18,7 @@
     min-height: var(--card-header-min-height, auto);
   }
 
-  &__img {
-    align-self: stretch;
-    aspect-ratio: 1/1;
-    height: 168px;
-  }
-
-  &__main {
+  &__body {
     flex-grow: 1;
     margin: var(--spacing-x2) 0;
     hyphens: auto;

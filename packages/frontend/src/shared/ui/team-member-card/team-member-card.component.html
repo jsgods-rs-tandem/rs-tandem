@@ -1,0 +1,21 @@
+<article class="team-card" [class.team-card_rotate]="isRotate()">
+  <header class="team-card__header">
+    <img [src]="avatarUrl()" [alt]="`${name()} avatar`" class="team-card__avatar" />
+  </header>
+
+  <div class="team-card__body">
+    <h3 class="text team-card__name">{{ name() }}</h3>
+  </div>
+
+  <footer class="team-card__footer">
+    <app-button
+      class="team-card_link"
+      version="ghost"
+      iconColor="brand"
+      [icon]="iconName()"
+      [text]="linkText() || githubLogin() || ''"
+      [href]="displayHref()"
+      [external]="true"
+    />
+  </footer>
+</article>
