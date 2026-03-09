@@ -1,6 +1,6 @@
 .category-card {
   padding: var(--spacing-x6);
-  border: 1px solid var(--secondary-color);
+  border: 2px solid var(--secondary-color);
   border-radius: var(--radius-md);
 
   &__header {
@@ -10,7 +10,7 @@
   }
 
   &__heading {
-    word-break: break-all;
+    overflow-wrap: break-word;
   }
 
   &__progress {

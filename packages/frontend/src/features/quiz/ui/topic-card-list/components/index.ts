@@ -1,1 +1,1 @@
-export { TopicCardComponent } from './topic-card/topic-card.component';
+export { TopicCardComponent } from './topic-card';
