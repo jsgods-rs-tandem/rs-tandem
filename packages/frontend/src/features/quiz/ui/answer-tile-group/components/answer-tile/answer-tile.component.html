@@ -1,0 +1,19 @@
+@let statusValue = status();
+
+<label
+  class="button answer-tile"
+  [class.answer-tile_success]="statusValue === 'success'"
+  [class.answer-tile_error]="statusValue === 'error'"
+>
+  <input
+    class="answer-tile__input"
+    type="radio"
+    [name]="name()"
+    [value]="value()"
+    [checked]="checked()"
+    [disabled]="disabled()"
+    (input)="onInput()"
+  />
+
+  <ng-content />
+</label>

@@ -39,7 +39,7 @@
                 "output": "@/assets/icons"
               }
             ],
-            "styles": ["src/assets/styles/index.scss"],
+            "styles": ["src/assets/styles/index.scss", "prismjs/themes/prism.css"],
             "polyfills": ["@angular/localize/init"]
           },
           "configurations": {

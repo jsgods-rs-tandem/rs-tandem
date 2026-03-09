@@ -1,0 +1,45 @@
+@let questionValue = question()!;
+
+<section class="quiz-page">
+  <header class="quiz-page__header">
+    <h2 class="h2">{{ name }}</h2>
+
+    <app-countdown-timer
+      [resetKey]="questionValue.id"
+      [isRunning]="!isAnswerSubmitted"
+      (expired)="onTimeExpired()"
+    />
+  </header>
+
+  <div class="quiz-page__body">
+    <form class="quiz-page__form" [formGroup]="quizForm" novalidate (ngSubmit)="onSubmit()">
+      <h3 class="h3 quiz-page__question">
+        Question {{ questionValue.step | number: '2.0-0' }} of&nbsp;{{
+          questionsCount | number: '2.0-0'
+        }}
+      </h3>
+
+      <app-answer-tile-group
+        class="quiz-page__answer-tile-group"
+        formControlName="answer"
+        [id]="questionValue.id"
+        [question]="questionValue.question"
+        [codeSnippet]="questionValue.codeSnippet"
+        [answers]="questionValue.answers | shuffle"
+        [answerResult]="answerResult()"
+        [answerComment]="comment()"
+      />
+
+      @if (error) {
+        <span class="quiz-page__error">{{ error }}</span>
+      }
+
+      <app-button
+        class="quiz-page__submit-button"
+        type="submit"
+        [disabled]="quizForm.touched && quizForm.invalid"
+        >{{ submitButtonText() }}</app-button
+      >
+    </form>
+  </div>
+</section>

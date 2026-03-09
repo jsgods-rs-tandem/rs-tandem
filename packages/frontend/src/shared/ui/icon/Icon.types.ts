@@ -1,18 +1,19 @@
 type IconName =
   | 'ai'
   | 'arrow-up'
+  | 'close'
   | 'code'
   | 'cube'
-  | 'language'
   | 'github'
-  | 'minus'
-  | 'plus'
-  | 'sun'
-  | 'moon'
-  | 'close'
+  | 'home'
+  | 'info-outline'
+  | 'language'
   | 'login'
   | 'logout'
-  | 'home';
+  | 'minus'
+  | 'moon'
+  | 'plus'
+  | 'sun';
 type IconSize = 'm' | 'l';
 type IconColor = 'neutral' | 'brand' | 'secondary';
 
