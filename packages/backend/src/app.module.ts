@@ -7,6 +7,7 @@ import { UsersModule } from './users/users.module.js';
 import { AuthModule } from './auth/auth.module.js';
 import { ProfilesModule } from './profiles/profiles.module.js';
 import { AiModule } from './ai/ai.module.js';
+import { QuizModule } from './quiz/quiz.module.js';
 
 @Module({
   imports: [
@@ -16,6 +17,7 @@ import { AiModule } from './ai/ai.module.js';
     AuthModule,
     ProfilesModule,
     AiModule,
+    QuizModule,
   ],
   controllers: [AppController],
   providers: [AppService],
