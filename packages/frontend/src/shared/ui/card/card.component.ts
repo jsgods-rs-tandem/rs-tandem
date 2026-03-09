@@ -8,8 +8,6 @@ import { Component, contentChild, ElementRef, input } from '@angular/core';
 })
 export class CardComponent {
   title = input<string>();
-  imageSrc = input<string>();
-  imageAlt = input<string>('');
   footerExists = contentChild<ElementRef>('footerContent');
   footerPosition = input<'start' | 'end'>('start');
 }
