@@ -1,21 +1,26 @@
+@let memberName = name();
+@let link = linkUrl();
+
 <article class="team-card" [class.team-card_rotate]="isRotate()">
   <header class="team-card__header">
-    <img [src]="avatarUrl()" [alt]="`${name()} avatar`" class="team-card__avatar" />
+    <img [src]="avatarUrl()" alt="{{ memberName }} avatar" class="team-card__avatar" />
   </header>
 
   <div class="team-card__body">
-    <h3 class="text team-card__name">{{ name() }}</h3>
+    <h3 class="text">{{ memberName }}</h3>
   </div>
-
-  <footer class="team-card__footer">
-    <app-button
-      class="team-card_link"
-      version="ghost"
-      iconColor="brand"
-      [icon]="iconName()"
-      [text]="linkText() || githubLogin() || ''"
-      [href]="displayHref()"
-      [external]="true"
-    />
-  </footer>
+  @if (link) {
+    <footer class="team-card__footer">
+      <app-button
+        class="team-card_link"
+        version="ghost"
+        iconColor="brand"
+        [icon]="icon()"
+        [text]="linkText() ?? ''"
+        [href]="link"
+        [external]="true"
+        ariaLabel="Link for {{ memberName }}"
+      />
+    </footer>
+  }
 </article>
