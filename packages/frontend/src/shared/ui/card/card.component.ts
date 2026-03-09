@@ -1,4 +1,5 @@
-import { Component, contentChild, ElementRef, input } from '@angular/core';
+import { Component, contentChild, input } from '@angular/core';
+import { CardFooterDirective } from './card-footer.directive';
 
 @Component({
   selector: 'app-card',
@@ -8,6 +9,6 @@ import { Component, contentChild, ElementRef, input } from '@angular/core';
 })
 export class CardComponent {
   title = input<string>();
-  footerExists = contentChild<ElementRef>('footerContent');
+  footerExists = contentChild(CardFooterDirective);
   footerPosition = input<'start' | 'end'>('start');
 }
