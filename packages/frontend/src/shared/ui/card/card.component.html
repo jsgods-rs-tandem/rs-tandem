@@ -1,20 +1,22 @@
 <article class="card">
-  @if (title() || imageSrc()) {
-    <div class="card__header">
-      @if (title()) {
-        <h3 class="h3">{{ title() }}</h3>
+  @let titleValue = title();
+  @let imageValue = imageSrc();
+  @if (titleValue || imageValue) {
+    <header class="card__header">
+      @if (titleValue) {
+        <h3 class="h3">{{ titleValue }}</h3>
       }
-      @if (imageSrc()) {
-        <img [src]="imageSrc()" [alt]="imageAlt()" class="card__img" />
+      @if (imageValue) {
+        <img [src]="imageValue" [alt]="imageAlt()" class="card__img" />
       }
-    </div>
+    </header>
   }
   <div class="card__main">
     <ng-content></ng-content>
   </div>
   @if (footerExists()) {
-    <div [class]="footerClasses()">
+    <footer class="card__footer card__footer_{{ footerPosition() }}">
       <ng-content select="[card-footer]"></ng-content>
-    </div>
+    </footer>
   }
 </article>
