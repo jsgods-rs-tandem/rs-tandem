@@ -1,4 +1,5 @@
-import { Component, computed, contentChild, ElementRef, input } from '@angular/core';
+import { Component, contentChild, input } from '@angular/core';
+import { CardFooterDirective } from './card-footer.directive';
 
 @Component({
   selector: 'app-card',
@@ -8,14 +9,6 @@ import { Component, computed, contentChild, ElementRef, input } from '@angular/c
 })
 export class CardComponent {
   title = input<string>();
-  imageSrc = input<string>();
-  imageAlt = input<string>('');
-  isFooterPositionStart = input<boolean>(true);
-  footerExists = contentChild<ElementRef>('footerContent');
-  footerClasses = computed(() => {
-    return [
-      'card__footer',
-      this.isFooterPositionStart() ? 'card__footer_start' : 'card__footer_end',
-    ].join(' ');
-  });
+  footerExists = contentChild(CardFooterDirective);
+  footerPosition = input<'start' | 'end'>('start');
 }
