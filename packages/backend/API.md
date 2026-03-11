@@ -224,6 +224,143 @@ Authorization: Bearer <токен>
 
 ---
 
+### GET `/quiz/categories`
+
+Получить список категорий викторины с прогрессом пользователя. Требует токен. Поддерживает заголовок `Accept-Language` (`en` или `ru`).
+
+**Ответ `200`:**
+
+```json
+{
+  "categories": [
+    {
+      "id": "uuid",
+      "name": "JavaScript Basics",
+      "description": "Fundamental JS concepts",
+      "topicsCount": 5,
+      "topicsCompleteCount": 2,
+      "progress": 0.4
+    }
+  ]
+}
+```
+
+---
+
+### GET `/quiz/categories/:id`
+
+Получить категорию с её топиками. Требует токен. Поддерживает заголовок `Accept-Language`.
+
+**Ответ `200`:**
+
+```json
+{
+  "id": "uuid",
+  "name": "JavaScript Basics",
+  "description": "Fundamental JS concepts",
+  "topics": [
+    {
+      "id": "uuid",
+      "name": "Variables",
+      "description": "let, const, var",
+      "questionsCount": 10,
+      "score": 85,
+      "inProgress": false
+    }
+  ],
+  "topicsCount": 5,
+  "topicsCompleteCount": 2,
+  "progress": 0.4
+}
+```
+
+---
+
+### GET `/quiz/topics/:id`
+
+Получить топик со всеми вопросами (для отображения в UI). Требует токен. Поддерживает заголовок `Accept-Language`.
+
+**Ответ `200`:**
+
+```json
+{
+  "id": "uuid",
+  "name": "Variables",
+  "description": "let, const, var",
+  "category": "JavaScript Basics",
+  "questions": [
+    {
+      "id": "uuid",
+      "name": "What is the difference between let and var?",
+      "codeSnippet": "let x = 1; var y = 2;",
+      "answers": [
+        { "id": "uuid1", "text": "Scope" },
+        { "id": "uuid2", "text": "Hoisting" }
+      ]
+    }
+  ],
+  "questionsCount": 1,
+  "step": 0
+}
+```
+
+---
+
+### POST `/quiz/topics/:id/start`
+
+Начать прохождение топика. Создаёт новую попытку или возвращает текущую незавершённую. Требует токен.
+
+**Ответ `201`:**
+
+```json
+{
+  "step": 0
+}
+```
+
+---
+
+### PUT `/quiz/topics/:topicId/questions/:questionId`
+
+Отправить ответ на вопрос и перейти к следующему шагу. Требует токен. Поддерживает заголовок `Accept-Language` (для получения объяснения на нужном языке).
+
+**Тело запроса:**
+
+```json
+{
+  "answerId": "uuid",
+  "isTimeUp": false
+}
+```
+
+**Ответ `200`:**
+
+```json
+{
+  "isCorrect": true,
+  "explanation": "Detailed explanation of the answer..."
+}
+```
+
+---
+
+### GET `/quiz/results/:topicId`
+
+Получить результаты последней завершённой попытки по топику. Требует токен.
+
+**Ответ `200`:**
+
+```json
+{
+  "results": {
+    "score": 85,
+    "links": ["https://developer.mozilla.org/..."]
+  }
+}
+```
+
+---
+
 ### GET `/health`
 
 Проверка что сервер живой.
