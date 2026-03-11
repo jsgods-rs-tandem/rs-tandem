@@ -1,11 +1,6 @@
-.quiz-page {
-  &__header {
-    display: flex;
-    gap: var(--spacing-x4);
-    align-items: center;
-    justify-content: space-between;
-  }
+@use 'assets/styles/mixins' as mix;
 
+.quiz-page {
   &__body {
     display: flex;
     flex-direction: column;
@@ -20,12 +15,22 @@
     display: flex;
     flex-direction: column;
 
-    width: 100%;
-    max-width: 712px;
-    margin: var(--spacing-x10) auto;
+    margin-block-start: var(--spacing-x10);
     padding: var(--spacing-x10) var(--spacing-x13);
     border: 2px solid var(--secondary-color);
     border-radius: var(--radius-md);
+
+    @include mix.media('s') {
+      padding: var(--spacing-x6);
+    }
+  }
+
+  &__timer {
+    margin-inline-start: auto;
+
+    @include mix.media('s') {
+      margin-inline: auto;
+    }
   }
 
   &__answer-tile-group {

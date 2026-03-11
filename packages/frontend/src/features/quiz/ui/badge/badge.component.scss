@@ -7,6 +7,16 @@
     padding: var(--spacing-x1) var(--spacing-x2);
     border-radius: var(--radius-sm);
 
+    &:focus {
+      outline: none;
+    }
+
+    &:focus-visible {
+      border-radius: var(--radius-sm);
+      outline: var(--button-border);
+      outline-offset: 2px;
+    }
+
     // TODO: think on color variables
     &_senior {
       background-color: gold;

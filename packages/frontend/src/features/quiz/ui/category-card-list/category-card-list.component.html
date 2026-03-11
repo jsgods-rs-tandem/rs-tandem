@@ -4,6 +4,7 @@
   @for (listItem of list; track listItem.id) {
     <li>
       <app-category-card
+        [id]="listItem.id"
         [heading]="listItem.name"
         [description]="listItem.description"
         [topicsCount]="listItem.topicsCount"

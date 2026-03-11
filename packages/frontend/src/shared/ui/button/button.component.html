@@ -17,6 +17,7 @@
     [target]="external() ? '_blank' : '_self'"
     [attr.rel]="external() ? 'noopener noreferrer' : null"
     [attr.aria-label]="displayAriaLabel()"
+    [aria-current]="ariaCurrent()"
   >
     <span class="button__wrapper button__wrapper_icon-{{ iconPosition() }}">
       <ng-container *ngTemplateOutlet="content"></ng-container>
@@ -28,6 +29,7 @@
     [fragment]="fragment() ?? ''"
     [class]="classes()"
     [attr.aria-label]="displayAriaLabel()"
+    [aria-current]="ariaCurrent()"
   >
     <span class="button__wrapper button__wrapper_icon-{{ iconPosition() }}">
       <ng-container *ngTemplateOutlet="content"></ng-container>
@@ -41,6 +43,7 @@
     [disabled]="disabled() || isLoading"
     [attr.aria-label]="displayAriaLabel()"
     [attr.aria-busy]="isLoading ? 'true' : null"
+    [aria-current]="ariaCurrent()"
   >
     <span class="button__wrapper button__wrapper_icon-{{ iconPosition() }}">
       <ng-container *ngTemplateOutlet="content"></ng-container>

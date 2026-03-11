@@ -5,6 +5,7 @@ import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angula
 import { ShufflePipe } from '@/core/pipes';
 
 import { ButtonComponent } from '@/shared/ui';
+import { LayoutComponent } from '../layout';
 import {
   AnswerTileGroupComponent,
   CountdownTimerComponent,
@@ -25,6 +26,7 @@ import quiz from '../../data/basic-js-functions-quiz.json';
     ButtonComponent,
     CountdownTimerComponent,
     DecimalPipe,
+    LayoutComponent,
     ReactiveFormsModule,
     ShufflePipe,
   ],
@@ -42,26 +44,40 @@ export class QuizPageComponent {
   readonly questionsCount = quiz.questionsCount;
   readonly question = computed(() => quiz.questions.at(this.questionCount()));
   readonly comment = signal('');
+  readonly isAnswerSubmitted = signal(false);
+  readonly isQuizComplete = signal(false);
 
   error = '';
-  isAnswerSubmitted = false;
   answerResult = signal<AnswerStatus | undefined>(undefined);
 
-  readonly submitButtonText = signal(computeSubmitButtonText(this.isAnswerSubmitted));
+  readonly submitButtonText = computed(() =>
+    computeSubmitButtonText(this.isAnswerSubmitted(), this.isQuizComplete()),
+  );
+  readonly resultsLink = computed<string | undefined>(() =>
+    this.isQuizComplete() ? 'results' : undefined,
+  );
 
   onTimeExpired() {
     this.quizForm.markAllAsTouched();
     this.error = errorAnswers.timeExpired;
-    this.isAnswerSubmitted = true;
+    this.isAnswerSubmitted.set(true);
     this.quizForm.controls.answer.disable();
-    this.submitButtonText.set(computeSubmitButtonText(this.isAnswerSubmitted));
+    this._checkQuizCompletion();
   }
 
   onSubmit() {
-    if (this.isAnswerSubmitted) {
+    if (this.isAnswerSubmitted()) {
       this._onNextQuestionSubmit();
     } else {
       this._onAnswerSubmit();
+    }
+  }
+
+  private _checkQuizCompletion() {
+    const isLastQuestion = this.questionCount() === this.questionsCount - 1;
+
+    if (isLastQuestion && this.isAnswerSubmitted()) {
+      this.isQuizComplete.set(true);
     }
   }
 
@@ -74,7 +90,7 @@ export class QuizPageComponent {
     }
 
     this.error = '';
-    this.isAnswerSubmitted = true;
+    this.isAnswerSubmitted.set(true);
 
     if (this.quizForm.value.answer === this.question()?.correctAnswerId) {
       this.comment.set(successAnswers[getRandomArrayIndex(successAnswers)] ?? 'Great Job!');
@@ -85,15 +101,14 @@ export class QuizPageComponent {
     }
 
     this.quizForm.controls.answer.disable();
-    this.submitButtonText.set(computeSubmitButtonText(this.isAnswerSubmitted));
+    this._checkQuizCompletion();
   }
 
   private _onNextQuestionSubmit() {
     this.questionCount.update((value) => value + 1);
     this.error = '';
     this.quizForm.reset();
-    this.isAnswerSubmitted = false;
-    this.submitButtonText.set(computeSubmitButtonText(this.isAnswerSubmitted));
+    this.isAnswerSubmitted.set(false);
     this.comment.set('');
     this.answerResult.set(undefined);
     this.quizForm.controls.answer.enable();

@@ -11,6 +11,7 @@ import { ProgressComponent } from '../../../progress/progress.component';
   standalone: true,
 })
 export class CategoryCardComponent {
+  readonly id = input.required<string>();
   readonly heading = input.required<string>();
   readonly description = input.required<string>();
   readonly topicsCount = input.required<number>();

@@ -13,6 +13,7 @@ import { computeQuestionsCount } from './topic-card.utilities';
   standalone: true,
 })
 export class TopicCardComponent {
+  readonly id = input.required<string>();
   readonly questionsCount = input.required<number>();
 
   readonly heading = input.required<string>();

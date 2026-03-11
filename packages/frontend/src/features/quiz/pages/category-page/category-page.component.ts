@@ -1,12 +1,13 @@
 import { Component } from '@angular/core';
 
+import { LayoutComponent } from '../layout';
 import { ProgressComponent, TopicCardListComponent } from '../../ui';
 
 import category from '../../data/category.json';
 
 @Component({
   selector: 'app-category-page',
-  imports: [ProgressComponent, TopicCardListComponent],
+  imports: [LayoutComponent, ProgressComponent, TopicCardListComponent],
   templateUrl: './category-page.component.html',
   styleUrl: './category-page.component.scss',
   standalone: true,

@@ -1,26 +1,14 @@
 @use 'assets/styles/mixins' as mix;
 
 .results-page {
-  isolation: isolate;
-  position: relative;
-
-  width: 100%;
-  margin: var(--spacing-x10) auto 0;
-  padding: var(--spacing-x10) var(--spacing-x13);
-  border: 2px solid var(--secondary-color);
-  border-radius: var(--radius-md);
-
-  &__header {
-    text-align: center;
-  }
-
   &__heading {
-    white-space: pre-wrap;
+    text-align: center;
   }
 
   &__subheading {
     margin-block-start: var(--spacing-x3);
     font-weight: 400;
+    text-align: center;
   }
 
   &__progress {
@@ -33,7 +21,17 @@
   }
 
   &__body {
-    margin-block-start: var(--spacing-x8);
+    display: flex;
+    flex-direction: column;
+
+    margin-block-start: var(--spacing-x10);
+    padding: var(--spacing-x10) var(--spacing-x13);
+    border: 2px solid var(--secondary-color);
+    border-radius: var(--radius-md);
+  }
+
+  &__recommendations {
+    margin-block-start: var(--spacing-x7);
   }
 
   &__reading-list {
@@ -51,12 +49,14 @@
       .button {
         text-transform: none;
       }
+
+      .button__text {
+        overflow-wrap: anywhere;
+      }
     }
   }
 
-  &__footer {
-    display: flex;
-    justify-content: center;
-    margin-block-start: var(--spacing-x8);
+  &__retry-button {
+    margin: var(--spacing-x8) auto 0;
   }
 }

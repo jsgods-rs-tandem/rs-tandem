@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { provideRouter } from '@angular/router';
 
 import { TopicCardComponent } from './topic-card.component';
 
@@ -9,10 +10,12 @@ describe('TopicCardComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [TopicCardComponent],
+      providers: [provideRouter([])],
     }).compileComponents();
 
     fixture = TestBed.createComponent(TopicCardComponent);
     component = fixture.componentInstance;
+    fixture.componentRef.setInput('id', 'topic-1');
     fixture.componentRef.setInput('heading', 'Introduction');
     fixture.componentRef.setInput(
       'description',

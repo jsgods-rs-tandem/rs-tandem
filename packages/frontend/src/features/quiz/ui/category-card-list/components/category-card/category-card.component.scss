@@ -1,3 +1,5 @@
+@use 'assets/styles/mixins' as mix;
+
 .category-card {
   padding: var(--spacing-x6);
   border: 2px solid var(--secondary-color);
@@ -7,6 +9,10 @@
     display: flex;
     gap: var(--spacing-x3);
     justify-content: space-between;
+
+    @include mix.media('s') {
+      flex-direction: column;
+    }
   }
 
   &__heading {
