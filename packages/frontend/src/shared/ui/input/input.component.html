@@ -1,7 +1,4 @@
-<div
-  class="input-wrapper"
-  [ngClass]="{ 'is-error': hasError() || errorText(), 'is-disabled': disabled() }"
->
+<div class="input-wrapper" [ngClass]="{ 'is-error': hasError(), 'is-disabled': disabled() }">
   @if (label()) {
     <label [for]="inputId()" class="input-label" [class.is-disabled]="disabled()">
       {{ label() }}
@@ -14,18 +11,21 @@
 
   <input
     class="input-element"
+    [value]="value"
     [id]="inputId()"
-    [name]="name() || inputId()"
-    [attr.name]="name() || inputId()"
+    [name]="computedName()"
     [type]="targetType()"
     [placeholder]="placeholder()"
     [disabled]="disabled()"
-    [(ngModel)]="value"
     [autocomplete]="autoComplete()"
     [required]="required()"
+    (input)="onInputChange($event)"
+    (blur)="onTouched()"
   />
 
-  @if (errorText()) {
-    <span class="input-error-text">{{ errorText() }}</span>
-  }
+  <div class="input-error-wrapper">
+    @if (hasError()) {
+      <span class="input-error-text">{{ errorText() }}</span>
+    }
+  </div>
 </div>

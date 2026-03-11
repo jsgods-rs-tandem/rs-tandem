@@ -1,0 +1,39 @@
+@use 'assets/styles/mixins.scss' as m;
+
+:host {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+}
+
+.auth-page {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  &__heading {
+    margin-bottom: var(--spacing-x10);
+  }
+
+  &__switch {
+    margin-top: var(--spacing-x10);
+
+    @include m.media('xs') {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+
+  &__switch-link {
+    color: var(--accent-color);
+    text-decoration: none;
+
+    &:hover {
+      cursor: pointer;
+      text-decoration: underline;
+    }
+  }
+}

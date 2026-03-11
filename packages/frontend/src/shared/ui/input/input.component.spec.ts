@@ -6,12 +6,13 @@ import { FormsModule } from '@angular/forms';
 
 @Component({
   standalone: true,
-  imports: [InputComponent],
+  imports: [InputComponent, FormsModule],
   template: `
     <app-input
-      [(value)]="value"
+      [(ngModel)]="value"
       [label]="label()"
       [errorText]="error()"
+      [hasError]="hasError()"
       [name]="name()"
       [autoComplete]="autoComplete()"
       [required]="required()"
@@ -22,6 +23,7 @@ class TestComponent {
   value = signal('initial text');
   label = signal('Test Label');
   error = signal('');
+  hasError = signal(false);
   name = signal('testEmail');
   autoComplete = signal('email');
   required = signal(false);
@@ -68,6 +70,7 @@ describe('InputComponent', () => {
 
     it('should render when error is set', () => {
       component.error.set('Required field');
+      component.hasError.set(true);
       fixture.detectChanges();
 
       const errorElement = element.querySelector('.input-error-text')!;
@@ -107,12 +110,15 @@ describe('InputComponent', () => {
   });
 
   describe('Model Binding', () => {
-    it('should update value when input changes', () => {
+    it('should update value when input changes', async () => {
+      fixture.detectChanges();
+      await fixture.whenStable();
       expect(inputElement.value).toBe('initial text');
 
       inputElement.value = 'new text from user';
       inputElement.dispatchEvent(new Event('input'));
       fixture.detectChanges();
+      await fixture.whenStable();
 
       expect(component.value()).toBe('new text from user');
     });

@@ -79,8 +79,11 @@
   }
 }
 
+.input-error-wrapper {
+  height: 20px;
+}
+
 .input-error-text {
-  margin-top: var(--spacing-x1);
   font-size: fn.to-rem(12px);
   font-weight: var(--fw-medium);
   color: var(--error-color);
