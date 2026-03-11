@@ -2,6 +2,7 @@ import { Component, computed } from '@angular/core';
 import { DecimalPipe } from '@angular/common';
 
 import { ButtonComponent } from '@/shared/ui';
+import { LayoutComponent } from '../layout';
 
 import { countProgressPercentage, computeRewardLevel } from '../../utilities';
 
@@ -11,7 +12,7 @@ import mock from '../../data/results.json';
 
 @Component({
   selector: 'app-results-page',
-  imports: [ButtonComponent, DecimalPipe],
+  imports: [ButtonComponent, DecimalPipe, LayoutComponent],
   templateUrl: './results-page.component.html',
   styleUrl: './results-page.component.scss',
   standalone: true,

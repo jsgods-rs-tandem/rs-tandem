@@ -117,6 +117,7 @@ export default defineConfig([
     extends: [...angular.configs.tsRecommended],
     processor: angular.processInlineTemplates,
     rules: {
+      '@typescript-eslint/no-extraneous-class': ['error', { allowWithDecorator: true }],
       '@angular-eslint/component-selector': [
         'error',
         { type: 'element', prefix: 'app', style: 'kebab-case' },

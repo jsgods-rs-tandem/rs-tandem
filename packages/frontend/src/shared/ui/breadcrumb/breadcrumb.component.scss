@@ -1,0 +1,39 @@
+@use 'assets/styles/placeholders';
+@use 'assets/styles/mixins' as mix;
+
+.breadcrumb {
+  &_hidden {
+    @extend %hidden;
+  }
+
+  &__list {
+    display: flex;
+  }
+
+  &__list-item {
+    &:not(:first-child) {
+      &::before {
+        content: '';
+
+        transform: rotate(15deg);
+
+        display: inline-block;
+
+        height: 0.8em;
+        margin-inline: var(--spacing-x2);
+        border-right: 0.1em solid currentcolor;
+      }
+    }
+  }
+
+  &__last {
+    ::ng-deep {
+      .button {
+        cursor: text;
+        font-weight: var(--fw-medium);
+        opacity: initial;
+        filter: initial;
+      }
+    }
+  }
+}

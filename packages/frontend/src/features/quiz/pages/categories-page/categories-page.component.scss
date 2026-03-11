@@ -4,6 +4,8 @@
     gap: var(--spacing-x4);
     align-items: end;
     justify-content: space-between;
+
+    text-transform: capitalize;
   }
 
   &__category-card-list {

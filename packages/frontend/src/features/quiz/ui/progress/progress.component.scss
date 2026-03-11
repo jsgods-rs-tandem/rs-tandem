@@ -19,6 +19,16 @@
   &__button {
     display: inline-flex;
     width: 100%;
+
+    &:focus {
+      outline: none;
+    }
+
+    &:focus-visible {
+      border-radius: var(--radius-sm);
+      outline: var(--button-border);
+      outline-offset: 2px;
+    }
   }
 
   &__bar {
