@@ -6,7 +6,8 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test --no-watch"
+    "test": "ng test --no-watch",
+    "test:ui:coverage": "ng test --ui --coverage"
   },
   "private": true,
   "packageManager": "npm@10.9.2",
@@ -28,6 +29,8 @@
     "@angular/build": "^21.1.4",
     "@angular/cli": "^21.1.4",
     "@angular/compiler-cli": "^21.1.0",
+    "@vitest/coverage-v8": "^4.1.0",
+    "@vitest/ui": "^4.1.0",
     "jsdom": "^27.1.0",
     "stylelint": "^17.3.0",
     "stylelint-config-clean-order": "^8.0.1",
