@@ -86,15 +86,16 @@ The applications will be available at: \
 
 #### Useful Commands:
 
-| Command                  | Description                                       |
-| :----------------------- | :------------------------------------------------ |
-| `npm run start:frontend` | Starts only the Frontend application              |
-| `npm run start:backend`  | Starts only the Backend application               |
-| `npm run build`          | Builds all workspaces (Frontend & Backend)        |
-| `npm run typecheck`      | Runs TypeScript type checking across all packages |
-| `npm run lint`           | Runs ESLint for all packages                      |
-| `npm run format`         | Formats code using Prettier                       |
-| `npm test`               | Runs tests (currently placeholders)               |
+| Command                    | Description                                          |
+| :------------------------- | :--------------------------------------------------- |
+| `npm run start:frontend`   | Starts only the Frontend application                 |
+| `npm run start:backend`    | Starts only the Backend application                  |
+| `npm run build`            | Builds all workspaces (Frontend & Backend)           |
+| `npm run typecheck`        | Runs TypeScript type checking across all packages    |
+| `npm run lint`             | Runs ESLint for all packages                         |
+| `npm run format`           | Formats code using Prettier                          |
+| `npm test`                 | Runs tests (currently placeholders)                  |
+| `npm run test:frontend:ui` | Runs frontend tests with Vitest UI and code coverage |
 
 ---
 
