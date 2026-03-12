@@ -16,6 +16,7 @@
     "start": "concurrently \"npm:start:frontend\" \"npm:start:backend\"",
     "build": "npm run build --ws --if-present",
     "test": "npm run test --ws --if-present",
+    "test:frontend:ui": "npm run test:ui:coverage -w @rs-tandem/frontend",
     "lint": "eslint . --max-warnings 0",
     "lint:fix": "eslint . --fix",
     "format": "prettier --write .",
