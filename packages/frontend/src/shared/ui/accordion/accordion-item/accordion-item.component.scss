@@ -16,7 +16,7 @@ $line-height: 3px;
 
   &__title {
     text-align: left;
-    @include m.transition(color, var(--transition-duration-basic), var(--transition-easing-func));
+    @include m.transition(color);
   }
 
   &__header {
@@ -30,8 +30,11 @@ $line-height: 3px;
     text-align: left;
 
     @include m.hover {
-      .accordion-item__icon span {
-        background: var(--accent-color);
+      .accordion-item__icon {
+        &_first,
+        &_second {
+          background-color: var(--accent-color);
+        }
       }
 
       .accordion-item__title {
@@ -56,7 +59,8 @@ $line-height: 3px;
     width: $icon-size;
     height: $icon-size;
 
-    span {
+    &_first,
+    &_second {
       position: absolute;
       top: 50%;
       left: 0;
@@ -67,48 +71,34 @@ $line-height: 3px;
       width: 100%;
       height: $line-height;
 
-      background: var(--secondary-color);
-      @include m.transition(
-        (transform, background),
-        var(--transition-duration-basic),
-        var(--transition-easing-func)
-      );
-
-      &:nth-child(1) {
-        transform: rotate(90deg);
-      }
-
-      &:nth-child(2) {
-        transform: rotate(0deg);
-      }
+      background-color: var(--secondary-color);
+      @include m.transition((transform, background));
     }
 
-    &.is-open span {
-      &:nth-child(1) {
-        transform: rotate(0deg);
-      }
+    &_first {
+      transform: rotate(90deg);
+    }
+
+    &_second {
+      transform: rotate(0deg);
+    }
+
+    &.is-open &_first {
+      transform: rotate(0deg);
     }
   }
 
   &__content-wrapper {
     overflow: hidden;
     display: grid;
-    @include m.transition(
-      grid-template-rows,
-      var(--transition-duration-basic),
-      var(--transition-easing-func)
-    );
+    @include m.transition(grid-template-rows);
   }
 
   &__content {
     min-height: 0;
     visibility: hidden;
     opacity: 0;
-    @include m.transition(
-      (opacity, visibility),
-      var(--transition-duration-basic),
-      var(--transition-easing-func)
-    );
+    @include m.transition((opacity, visibility));
   }
 
   &__text {

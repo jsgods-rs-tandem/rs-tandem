@@ -10,13 +10,13 @@
       [attr.aria-expanded]="isOpen()"
       [attr.aria-controls]="contentId"
     >
-      <div class="accordion-item__title-container">
+      <span class="accordion-item__title-container">
         <span class="h3 accordion-item__title">{{ title() }}</span>
-        <div class="accordion-item__icon" [class.is-open]="isOpen()">
-          <span></span>
-          <span></span>
-        </div>
-      </div>
+        <span class="accordion-item__icon" [class.is-open]="isOpen()">
+          <span class="accordion-item__icon_first"></span>
+          <span class="accordion-item__icon_second"></span>
+        </span>
+      </span>
     </app-button>
   </h3>
 
