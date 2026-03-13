@@ -1,9 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, inject, input, type OnInit } from '@angular/core';
 
 import { LayoutComponent } from '../layout';
 import { ProgressComponent, TopicCardListComponent } from '../../ui';
 
-import category from '../../data/category.json';
+import { QuizService } from '../../services';
 
 @Component({
   selector: 'app-category-page',
@@ -12,11 +12,11 @@ import category from '../../data/category.json';
   styleUrl: './category-page.component.scss',
   standalone: true,
 })
-export class CategoryPageComponent {
-  // mocks
-  readonly heading = category.category;
-  readonly topics = category.topics;
-  readonly topicsCount = category.topicsCount;
-  readonly topicsCompleteCount = category.topicsCompleteCount;
-  readonly topicsProgress = category.progress;
+export class CategoryPageComponent implements OnInit {
+  readonly quizService = inject(QuizService);
+  readonly categoryId = input.required<string>();
+
+  ngOnInit(): void {
+    this.quizService.getCategory(this.categoryId());
+  }
 }

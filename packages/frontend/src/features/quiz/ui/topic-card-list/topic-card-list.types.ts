@@ -3,7 +3,8 @@ interface TopicCardListItem {
   name: string;
   description: string;
   questionsCount: number;
-  score?: number;
+  score: number | null;
+  inProgress: boolean;
 }
 
 export type { TopicCardListItem };

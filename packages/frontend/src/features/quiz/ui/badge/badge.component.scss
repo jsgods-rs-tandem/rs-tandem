@@ -3,9 +3,14 @@
 }
 
 .badge {
+  display: inline-flex;
+  font-family: inherit;
+  color: currentcolor;
+
   &__button {
     padding: var(--spacing-x1) var(--spacing-x2);
     border-radius: var(--radius-sm);
+    text-transform: capitalize;
 
     &:focus {
       outline: none;
@@ -18,6 +23,10 @@
     }
 
     // TODO: think on color variables
+    &_in-progress {
+      background-color: lightblue;
+    }
+
     &_senior {
       background-color: gold;
     }

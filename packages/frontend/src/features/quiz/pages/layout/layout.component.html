@@ -2,6 +2,11 @@
   <app-breadcrumb />
 
   <section class="layout__section">
-    <ng-content />
+    @if (loading()) {
+      <!-- TODO: temporary -->
+      Loading...
+    } @else {
+      <ng-content />
+    }
   </section>
 </div>

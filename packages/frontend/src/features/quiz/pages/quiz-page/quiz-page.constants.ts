@@ -11,5 +11,6 @@ export const successAnswers = [
 
 export const errorAnswers = {
   required: 'Please select an answer',
+  requiredQuestionId: 'Question id is missing',
   timeExpired: 'Time for an answer has expired',
 } as const;
