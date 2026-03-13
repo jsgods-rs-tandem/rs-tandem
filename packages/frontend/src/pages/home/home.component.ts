@@ -4,10 +4,11 @@ import { ScrollSpyService } from '@/shared/services/scroll-spy.service';
 import { AboutComponent } from './components/about/about.component';
 import { ModulesComponent } from './components/modules/modules.component';
 import { FaqComponent } from './components/faq/faq.component';
+import { TeamComponent } from './components/team/team.component';
 
 @Component({
   selector: 'app-home',
-  imports: [HeroComponent, AboutComponent, ModulesComponent, FaqComponent],
+  imports: [HeroComponent, AboutComponent, ModulesComponent, FaqComponent, TeamComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
 })
