@@ -27,8 +27,8 @@
     role="region"
     [style.grid-template-rows]="isOpen() ? '1fr' : '0fr'"
   >
-    <div class="accordion-item__content text">
-      <ng-content></ng-content>
+    <div class="accordion-item__content">
+      <p class="text accordion-item__text">{{ description() }}</p>
     </div>
   </div>
 </div>

@@ -109,10 +109,10 @@ $line-height: 3px;
       var(--transition-duration-basic),
       var(--transition-easing-func)
     );
+  }
 
-    ::ng-deep p {
-      padding: 0 var(--spacing-x2) var(--spacing-x5);
-    }
+  &__text {
+    padding: 0 var(--spacing-x2) var(--spacing-x5);
   }
 
   &.is-open &__content {

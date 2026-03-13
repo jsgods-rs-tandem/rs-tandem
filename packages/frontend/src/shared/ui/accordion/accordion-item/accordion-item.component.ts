@@ -10,6 +10,7 @@ import { ButtonComponent } from '../../button/button.component';
 })
 export class AccordionItemComponent {
   title = input.required<string>();
+  description = input.required<string>();
   isOpen = model<boolean>(false);
 
   private readonly instanceId = crypto.randomUUID();
