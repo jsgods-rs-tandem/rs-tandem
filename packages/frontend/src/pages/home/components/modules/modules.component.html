@@ -1,6 +1,12 @@
 <section class="modules">
   <h2 class="h2">{{ title }}</h2>
-  <div class="modules__wrapper"></div>
+  <div class="modules__wrapper">
+    @for (module of modules; track module.text) {
+      <app-card [title]="module.title">
+        <p class="text">{{ module.text }}</p>
+      </app-card>
+    }
+  </div>
   <app-button
     class="modules__button"
     link="/login"
