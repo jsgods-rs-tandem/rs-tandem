@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
+import { AccordionComponent, AccordionItemComponent } from '@/shared/ui/accordion';
 
 @Component({
   selector: 'app-faq',
-  imports: [],
+  imports: [AccordionComponent, AccordionItemComponent],
   templateUrl: './faq.component.html',
   styleUrl: './faq.component.scss',
 })
@@ -16,11 +17,13 @@ export class FaqComponent {
     },
     {
       question: 'Q: What is the main feature of the platform?',
-      answer: 'A: TBC',
+      answer:
+        'A: We use gamification. Instead of dryly reading documentation, you solve interactive exercises that simulate real interview tasks, making routine preparation engaging.',
     },
     {
-      question: 'Q: TBC',
-      answer: 'A: TBC',
+      question: 'Q: How does the learning process work?',
+      answer:
+        'A: You decide how you want to learn: through interactive quizzes to check your skills or AI-powered chat for deep theoretical exploration. By opting for a quiz, you choose a topic, complete a series of practical tasks, and get a comprehensive summary of your progress and recommendations at the end.',
     },
   ] as const;
 }
