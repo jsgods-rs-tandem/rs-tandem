@@ -7,7 +7,7 @@
 
   width: fit-content;
   height: 100%;
-  padding: var(--spacing-x5) var(--spacing-x4);
+  padding: var(--spacing-x3) var(--spacing-x4);
   border: var(--card-border);
   border-radius: var(--radius-sm);
 
@@ -38,6 +38,7 @@
       font-size: fn.to-rem(14px);
       font-weight: var(--fw-regular);
       line-height: 1.4;
+      text-transform: lowercase;
     }
   }
 }

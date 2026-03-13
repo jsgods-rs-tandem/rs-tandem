@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
-import { ButtonComponent } from '@/shared/ui';
+import { ButtonComponent, CardComponent } from '@/shared/ui';
 
 @Component({
   selector: 'app-modules',
-  imports: [ButtonComponent],
+  imports: [ButtonComponent, CardComponent],
   templateUrl: './modules.component.html',
   styleUrl: './modules.component.scss',
 })

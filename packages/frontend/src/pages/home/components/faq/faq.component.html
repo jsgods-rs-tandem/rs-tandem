@@ -1,4 +1,14 @@
 <section class="faq">
   <h2 class="h2">{{ title }}</h2>
-  <div class="faq__accordion"></div>
+  <div class="faq__accordion">
+    <app-accordion [multi]="false">
+      @for (element of faq; track element.answer; let isFirst = $first) {
+        <app-accordion-item
+          [title]="element.question"
+          [isOpen]="isFirst"
+          [description]="element.answer"
+        />
+      }
+    </app-accordion>
+  </div>
 </section>

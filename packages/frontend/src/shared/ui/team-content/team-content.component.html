@@ -1,0 +1,11 @@
+<div class="team-members__wrapper">
+  @for (member of teamMembers; track member.name) {
+    <app-team-member-card
+      [name]="member.name"
+      [avatarUrl]="member.avatarUrl"
+      [linkText]="member.linkText"
+      [linkUrl]="member.linkUrl"
+      [isRotate]="member.isRotate ?? false"
+    />
+  }
+</div>
