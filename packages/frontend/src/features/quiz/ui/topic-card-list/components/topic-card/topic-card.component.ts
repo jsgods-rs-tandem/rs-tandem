@@ -19,5 +19,6 @@ export class TopicCardComponent {
   readonly heading = input.required<string>();
   readonly subheading = computed(() => computeQuestionsCount(this.questionsCount()));
   readonly description = input.required<string>();
-  readonly score = input<number>();
+  readonly score = input<number | null>();
+  readonly status = input<ReturnType<BadgeComponent['status']>>();
 }

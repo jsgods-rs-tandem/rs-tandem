@@ -1,47 +1,51 @@
-@let questionValue = question()!;
+@let topic = quizService.topic();
+@let question = quizService.currentQuestion();
+@let step = quizService.step();
 
-<app-layout>
-  <header>
-    <h2 class="h2">{{ name }}</h2>
-  </header>
+<app-layout [loading]="quizService.loading().topic">
+  @if (topic && question) {
+    <header>
+      <h1 class="h2">{{ topic.name }}</h1>
+    </header>
 
-  <div class="quiz-page__body">
-    <form class="quiz-page__form" [formGroup]="quizForm" novalidate (ngSubmit)="onSubmit()">
-      <app-countdown-timer
-        class="quiz-page__timer"
-        [resetKey]="questionValue.id"
-        [isRunning]="!isAnswerSubmitted()"
-        (expired)="onTimeExpired()"
-      />
+    <div class="quiz-page__body">
+      <form class="quiz-page__form" [formGroup]="quizForm" novalidate (ngSubmit)="onSubmit()">
+        <app-countdown-timer
+          class="quiz-page__timer"
+          [resetKey]="topic.id"
+          [isRunning]="!isAnswerSubmitted()"
+          (expired)="onTimeExpired()"
+        />
 
-      <h3 class="h3 quiz-page__question">
-        Question {{ questionValue.step | number: '2.0-0' }} of&nbsp;{{
-          questionsCount | number: '2.0-0'
-        }}
-      </h3>
+        <h2 class="h3 quiz-page__question">
+          Question {{ step + 1 | number: '2.0-0' }} of&nbsp;{{
+            topic.questionsCount | number: '2.0-0'
+          }}
+        </h2>
 
-      <app-answer-tile-group
-        class="quiz-page__answer-tile-group"
-        formControlName="answer"
-        [id]="questionValue.id"
-        [question]="questionValue.question"
-        [codeSnippet]="questionValue.codeSnippet"
-        [answers]="questionValue.answers | shuffle"
-        [answerResult]="answerResult()"
-        [answerComment]="comment()"
-      />
+        <app-answer-tile-group
+          class="quiz-page__answer-tile-group"
+          formControlName="answer"
+          [id]="topic.id"
+          [question]="question.name"
+          [codeSnippet]="question.codeSnippet"
+          [answers]="question.answers | shuffle"
+          [answerResult]="answerResult()"
+          [answerComment]="comment()"
+        />
 
-      @if (error) {
-        <span class="quiz-page__error">{{ error }}</span>
-      }
+        @if (error) {
+          <span class="quiz-page__error">{{ error }}</span>
+        }
 
-      <app-button
-        class="quiz-page__submit-button"
-        type="submit"
-        [link]="resultsLink()"
-        [disabled]="quizForm.touched && quizForm.invalid"
-        >{{ submitButtonText() }}</app-button
-      >
-    </form>
-  </div>
+        <app-button
+          class="quiz-page__submit-button"
+          type="submit"
+          [link]="resultsLink()"
+          [disabled]="quizForm.touched && quizForm.invalid"
+          >{{ submitButtonText() }}</app-button
+        >
+      </form>
+    </div>
+  }
 </app-layout>

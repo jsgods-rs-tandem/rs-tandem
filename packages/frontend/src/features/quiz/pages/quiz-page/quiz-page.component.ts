@@ -1,8 +1,8 @@
-import { Component, computed, signal } from '@angular/core';
+import { Component, computed, effect, inject, input, signal, type OnInit } from '@angular/core';
 import { DecimalPipe } from '@angular/common';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 
-import { ShufflePipe } from '@/core/pipes';
+import { ShufflePipe } from '@/shared/pipes';
 
 import { ButtonComponent } from '@/shared/ui';
 import { LayoutComponent } from '../layout';
@@ -13,11 +13,11 @@ import {
   type AnswerStatus,
 } from '../../ui';
 
+import { QuizService } from '../../services';
+
 import { computeSubmitButtonText, getRandomArrayIndex } from './quiz-page.utilities';
 
 import { successAnswers, errorAnswers } from './quiz-page.constants';
-
-import quiz from '../../data/basic-js-functions-quiz.json';
 
 @Component({
   selector: 'app-quiz-page',
@@ -34,15 +34,15 @@ import quiz from '../../data/basic-js-functions-quiz.json';
   styleUrl: './quiz-page.component.scss',
   standalone: true,
 })
-export class QuizPageComponent {
+export class QuizPageComponent implements OnInit {
+  readonly quizService = inject(QuizService);
+  readonly categoryId = input.required<string>();
+  readonly topicId = input.required<string>();
+
   quizForm = new FormGroup({
     answer: new FormControl('', [(control) => Validators.required(control)]),
   });
 
-  readonly name = quiz.name;
-  readonly questionCount = signal(0);
-  readonly questionsCount = quiz.questionsCount;
-  readonly question = computed(() => quiz.questions.at(this.questionCount()));
   readonly comment = signal('');
   readonly isAnswerSubmitted = signal(false);
   readonly isQuizComplete = signal(false);
@@ -57,12 +57,49 @@ export class QuizPageComponent {
     this.isQuizComplete() ? 'results' : undefined,
   );
 
+  constructor() {
+    effect(() => {
+      const answer = this.quizService.answer();
+
+      if (!answer) {
+        return;
+      }
+
+      if (answer.isCorrect) {
+        this.comment.set(successAnswers[getRandomArrayIndex(successAnswers)] ?? 'Great Job!');
+        this.answerResult.set(ANSWER_STATUS.success);
+      } else {
+        this.comment.set(answer.explanation ?? '');
+        this.answerResult.set(ANSWER_STATUS.error);
+      }
+
+      this.quizForm.controls.answer.disable();
+      this._checkQuizCompletion();
+    });
+  }
+
+  ngOnInit(): void {
+    const topicId = this.topicId();
+
+    this.quizService.getTopic(topicId);
+    this.quizService.startTopic(topicId);
+  }
+
   onTimeExpired() {
+    const questionId = this.quizService.currentQuestion()?.id;
+
+    if (!questionId) {
+      this.error = errorAnswers.requiredQuestionId;
+      return;
+    }
+
     this.quizForm.markAllAsTouched();
     this.error = errorAnswers.timeExpired;
     this.isAnswerSubmitted.set(true);
-    this.quizForm.controls.answer.disable();
-    this._checkQuizCompletion();
+    this.quizService.answerQuestion(this.topicId(), questionId, {
+      answerId: '',
+      isTimeUp: true,
+    });
   }
 
   onSubmit() {
@@ -74,7 +111,13 @@ export class QuizPageComponent {
   }
 
   private _checkQuizCompletion() {
-    const isLastQuestion = this.questionCount() === this.questionsCount - 1;
+    const topic = this.quizService.topic();
+
+    if (!topic) {
+      return;
+    }
+
+    const isLastQuestion = this.quizService.step() === topic.questionsCount - 1;
 
     if (isLastQuestion && this.isAnswerSubmitted()) {
       this.isQuizComplete.set(true);
@@ -89,23 +132,24 @@ export class QuizPageComponent {
       return;
     }
 
+    const questionId = this.quizService.currentQuestion()?.id;
+
+    if (!questionId) {
+      this.error = errorAnswers.requiredQuestionId;
+      return;
+    }
+
     this.error = '';
     this.isAnswerSubmitted.set(true);
 
-    if (this.quizForm.value.answer === this.question()?.correctAnswerId) {
-      this.comment.set(successAnswers[getRandomArrayIndex(successAnswers)] ?? 'Great Job!');
-      this.answerResult.set(ANSWER_STATUS.success);
-    } else {
-      this.comment.set(this.question()?.explanation ?? '');
-      this.answerResult.set(ANSWER_STATUS.error);
-    }
-
-    this.quizForm.controls.answer.disable();
-    this._checkQuizCompletion();
+    this.quizService.answerQuestion(this.topicId(), questionId, {
+      answerId: this.quizForm.controls.answer.value ?? '',
+      isTimeUp: false,
+    });
   }
 
   private _onNextQuestionSubmit() {
-    this.questionCount.update((value) => value + 1);
+    this.quizService.setNextStep();
     this.error = '';
     this.quizForm.reset();
     this.isAnswerSubmitted.set(false);

@@ -8,18 +8,14 @@ import {
   CategoryPageComponent,
   QuizPageComponent,
   ResultsPageComponent,
-} from '@/features/quiz/pages';
-
-import {
   categoryBreadcrumbResolver,
   topicBreadcrumbResolver,
-} from './resolvers/breadcrumb.resolvers';
+} from '@/features/quiz';
 
 export const routes: Routes = [
+  { path: '', component: HomeComponent },
   { path: 'sign-in', component: SignInComponent },
   { path: 'sign-up', component: SignUpComponent },
-  { path: '', component: HomeComponent },
-
   {
     path: 'quiz',
     data: { breadcrumb: 'Quiz' },
@@ -30,7 +26,7 @@ export const routes: Routes = [
         component: CategoriesPageComponent,
       },
       {
-        path: ':id',
+        path: ':categoryId',
         resolve: { breadcrumb: categoryBreadcrumbResolver },
         children: [
           {
@@ -39,7 +35,7 @@ export const routes: Routes = [
             component: CategoryPageComponent,
           },
           {
-            path: 'topic/:id',
+            path: 'topic/:topicId',
             resolve: { breadcrumb: topicBreadcrumbResolver },
             children: [
               {
