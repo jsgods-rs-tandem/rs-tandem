@@ -1,0 +1,34 @@
+<div class="accordion-item" [class.is-open]="isOpen()">
+  <h3 class="accordion-item__title-wrapper">
+    <app-button
+      #headerBtn
+      [id]="headerId"
+      type="button"
+      version="ghost"
+      class="accordion-item__header"
+      (click)="toggle()"
+      [attr.aria-expanded]="isOpen()"
+      [attr.aria-controls]="contentId"
+    >
+      <span class="accordion-item__title-container">
+        <span class="h3 accordion-item__title">{{ title() }}</span>
+        <span class="accordion-item__icon" [class.is-open]="isOpen()">
+          <span class="accordion-item__icon_first"></span>
+          <span class="accordion-item__icon_second"></span>
+        </span>
+      </span>
+    </app-button>
+  </h3>
+
+  <div
+    [id]="contentId"
+    [attr.aria-labelledby]="headerId"
+    class="accordion-item__content-wrapper"
+    role="region"
+    [style.grid-template-rows]="isOpen() ? '1fr' : '0fr'"
+  >
+    <div class="accordion-item__content">
+      <p class="text accordion-item__text">{{ description() }}</p>
+    </div>
+  </div>
+</div>

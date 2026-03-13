@@ -1,0 +1,112 @@
+@use 'assets/styles/mixins' as m;
+
+$accordion-max-width: 714px;
+$icon-size: 24px;
+$line-height: 3px;
+
+:host {
+  display: block;
+  width: 100%;
+}
+
+.accordion-item {
+  width: 100%;
+  max-width: $accordion-max-width;
+  border-bottom: 1px solid var(--secondary-color-light, var(--secondary-color));
+
+  &__title {
+    text-align: left;
+    @include m.transition(color);
+  }
+
+  &__header {
+    cursor: pointer;
+
+    display: block;
+
+    width: 100%;
+    padding: 0;
+
+    text-align: left;
+
+    @include m.hover {
+      .accordion-item__icon {
+        &_first,
+        &_second {
+          background-color: var(--accent-color);
+        }
+      }
+
+      .accordion-item__title {
+        color: var(--accent-color);
+      }
+    }
+  }
+
+  &__title-container {
+    display: flex;
+    flex: 1;
+    align-items: center;
+    justify-content: space-between;
+
+    width: 100%;
+    padding: var(--spacing-x4) 0 var(--spacing-x5);
+  }
+
+  &__icon {
+    position: relative;
+    flex-shrink: 0;
+    width: $icon-size;
+    height: $icon-size;
+
+    &_first,
+    &_second {
+      position: absolute;
+      top: 50%;
+      left: 0;
+      transform: translateY(-50%) rotate(0deg);
+
+      display: block;
+
+      width: 100%;
+      height: $line-height;
+
+      background-color: var(--secondary-color);
+      @include m.transition((transform, background));
+    }
+
+    &_first {
+      transform: rotate(90deg);
+    }
+
+    &_second {
+      transform: rotate(0deg);
+    }
+
+    &.is-open &_first {
+      transform: rotate(0deg);
+    }
+  }
+
+  &__content-wrapper {
+    overflow: hidden;
+    display: grid;
+    @include m.transition(grid-template-rows);
+  }
+
+  &__content {
+    min-height: 0;
+    visibility: hidden;
+    opacity: 0;
+    @include m.transition((opacity, visibility));
+  }
+
+  &__text {
+    padding: 0 var(--spacing-x2) var(--spacing-x5);
+  }
+
+  &.is-open &__content {
+    visibility: visible;
+    opacity: 1;
+  }
+}
