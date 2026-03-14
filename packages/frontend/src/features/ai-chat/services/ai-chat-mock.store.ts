@@ -1,7 +1,6 @@
 import { Injectable, signal, computed } from '@angular/core';
-import { IMessage, IStreamMessage } from '../models/llm-message-model';
+import { IMessage } from '../models/llm-message-model';
 import { OllamaService } from './ollama-service';
-import { isAsyncIterable } from '@/core/guards/is-async-iterable';
 import { ChatStatus } from '../models/ai-chat-status';
 
 @Injectable({
@@ -9,7 +8,7 @@ import { ChatStatus } from '../models/ai-chat-status';
 })
 export class AiChatMockStore {
   private llm = new OllamaService();
-  private _messages = signal<(IMessage | IStreamMessage)[]>([]);
+  private _messages = signal<IMessage[]>([]);
   private _status = signal<ChatStatus>('default');
 
   readonly messages = this._messages.asReadonly();
@@ -32,10 +31,10 @@ export class AiChatMockStore {
     this.updateStatus('pending');
     const response = await this.llm.sendPrompt([message], 'gemma3:1b');
 
-    if (isAsyncIterable(response)) {
-      const message: IStreamMessage = { role: 'assistant', content: response };
-
-      this._messages.update((array) => [...array, message]);
+    if (typeof response === 'string') {
+      const assistantMessage: IMessage = { role: 'assistant', content: response };
+      this._messages.update((array) => [...array, assistantMessage]);
+      this.updateStatus('default');
     } else {
       this.updateStatus('error');
     }

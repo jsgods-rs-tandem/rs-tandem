@@ -1,5 +1,3 @@
-import { ChatResponse } from 'ollama';
-
 type Role = 'user' | 'assistant' | 'system';
 
 export interface IMessage {
@@ -7,9 +5,10 @@ export interface IMessage {
   content: string;
 }
 
-export interface IStreamMessage {
-  role: 'assistant';
-  content: AsyncIterable<ChatResponse>;
+export interface ILlmStreamChunk {
+  message: {
+    content: string;
+  };
 }
 
 export interface IErrorResponse {

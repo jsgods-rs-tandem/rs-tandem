@@ -1,14 +1,14 @@
 import { ChatStatus } from '@/features/ai-chat/models/ai-chat-status';
+import type { ILlmStreamChunk } from '@/features/ai-chat/models/llm-message-model';
 import { Directive, ElementRef, OnDestroy, inject, input, OnInit, output } from '@angular/core';
 import DOMPurify from 'dompurify';
-import { ChatResponse } from 'ollama';
 import * as smd from 'streaming-markdown';
 
 @Directive({
   selector: '[appMarkdown]',
 })
 export class MarkdownDirective implements OnDestroy, OnInit {
-  readonly markdown = input.required<AsyncIterable<ChatResponse> | string>({
+  readonly markdown = input.required<AsyncIterable<ILlmStreamChunk> | string>({
     alias: 'appMarkdown',
   });
   private readonly el = inject<ElementRef<HTMLElement>>(ElementRef);
@@ -30,7 +30,7 @@ export class MarkdownDirective implements OnDestroy, OnInit {
     this.end();
   }
 
-  private async writeStream(mdStream: AsyncIterable<ChatResponse>) {
+  private async writeStream(mdStream: AsyncIterable<ILlmStreamChunk>) {
     try {
       this.MDStatusChangeEvent.emit('typing');
       for await (const part of mdStream) {
