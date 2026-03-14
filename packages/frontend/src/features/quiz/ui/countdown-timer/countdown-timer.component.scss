@@ -1,0 +1,7 @@
+.countdown-timer {
+  &__time {
+    &_error {
+      color: var(--error-color);
+    }
+  }
+}

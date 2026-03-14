@@ -1,0 +1,10 @@
+<app-layout [loading]="quizService.loading().categories">
+  <header class="categories-page__header">
+    <h1 class="h2">Quiz</h1>
+  </header>
+
+  <app-category-card-list
+    class="categories-page__category-card-list"
+    [categories]="quizService.categories()"
+  />
+</app-layout>

@@ -1,0 +1,11 @@
+<div class="layout">
+  <app-breadcrumb />
+
+  <section class="layout__section">
+    @if (loading()) {
+      <app-spin class="layout__spin" size="large" theme="light" />
+    } @else {
+      <ng-content />
+    }
+  </section>
+</div>

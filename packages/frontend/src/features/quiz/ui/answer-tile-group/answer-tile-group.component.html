@@ -1,0 +1,34 @@
+@let questionId = id();
+@let code = codeSnippet();
+@let list = answers();
+@let answerResultValue = answerResult();
+@let answerCommentValue = answerComment();
+
+<div role="radiogroup" [aria-labelledby]="questionId">
+  <h3 [id]="questionId" class="h3">{{ question() }}</h3>
+
+  @if (code) {
+    <app-code-snippet class="answer-tile-group__code-snippet" [code]="code" />
+  }
+
+  @if (answerCommentValue) {
+    <app-alert class="answer-tile-group__alert">{{ answerCommentValue }}</app-alert>
+  }
+
+  <div class="answer-tile-group__body">
+    @for (answer of list; track answer.id) {
+      @let checked = answer.id === checkedId;
+
+      <app-answer-tile
+        class="answer-tile-group__answer"
+        [name]="questionId"
+        [value]="answer.id"
+        [status]="checked ? answerResultValue : undefined"
+        [checked]="checked"
+        [disabled]="disabled"
+        (valueEvent)="onInput($event)"
+        >{{ answer.text }}</app-answer-tile
+      >
+    }
+  </div>
+</div>

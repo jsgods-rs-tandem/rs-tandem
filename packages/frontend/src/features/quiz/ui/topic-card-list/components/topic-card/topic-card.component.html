@@ -1,0 +1,35 @@
+@let progressScore = score();
+@let hasProgressScore = typeof progressScore === 'number';
+@let progressStatus = status();
+
+<article class="topic-card">
+  <header class="topic-card__header">
+    <h2 class="h3 topic-card__heading">{{ heading() }}</h2>
+
+    <p class="topic-card__subheading">{{ subheading() }}</p>
+
+    @if (progressStatus || hasProgressScore) {
+      <ul class="topic-card__badges">
+        @if (progressStatus) {
+          <li>
+            <app-badge [status]="progressStatus" />
+          </li>
+        }
+
+        @if (hasProgressScore) {
+          <li>
+            <app-badge [score]="progressScore" />
+          </li>
+        }
+      </ul>
+    }
+  </header>
+
+  <div class="topic-card__body">
+    <p>{{ description() }}</p>
+  </div>
+
+  <footer class="topic-card__footer">
+    <app-button [link]="'topic/' + id()" [isSmallButton]="true">Start topic</app-button>
+  </footer>
+</article>

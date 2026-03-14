@@ -1,0 +1,33 @@
+.topic-card {
+  padding: var(--spacing-x6);
+  border: 2px solid var(--secondary-color);
+  border-radius: var(--radius-md);
+
+  &__header {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    gap: var(--spacing-x1) var(--spacing-x3);
+    justify-content: space-between;
+  }
+
+  &__heading {
+    overflow-wrap: break-word;
+  }
+
+  &__subheading {
+    grid-column: 1 / 2;
+  }
+
+  &__badges {
+    display: flex;
+    grid-column: 2 / 3;
+    grid-row: 1 / 2;
+    flex-wrap: wrap;
+    gap: var(--spacing-x2);
+  }
+
+  &__body,
+  &__footer {
+    margin-block-start: var(--spacing-x2);
+  }
+}
