@@ -5,6 +5,8 @@ import { AuthPageComponent } from '@/shared/ui/auth-page/auth-page.component';
 import { InputComponent } from '@/shared/ui/input/input.component';
 import { ButtonComponent } from '@/shared/ui';
 import { AuthService } from '@/core/services/auth.service';
+import { UserStore } from '@/core/store/user.store';
+import { switchMap } from 'rxjs';
 
 @Component({
   selector: 'app-sign-in',
@@ -16,6 +18,7 @@ import { AuthService } from '@/core/services/auth.service';
 export class SignInComponent {
   private authService = inject(AuthService);
   private router = inject(Router);
+  private userStore = inject(UserStore);
 
   signInForm = new FormGroup({
     email: new FormControl('', [Validators.required, Validators.email]),
@@ -39,8 +42,10 @@ export class SignInComponent {
         email: formValue.email,
         password: formValue.password,
       })
+      .pipe(switchMap(() => this.authService.getMe()))
       .subscribe({
-        next: () => {
+        next: (user) => {
+          this.userStore.setUser(user);
           void this.router.navigate(['/']);
         },
         error: (error) => {

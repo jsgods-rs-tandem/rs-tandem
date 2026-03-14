@@ -39,4 +39,8 @@ export class AuthService {
   isAuthenticated(): boolean {
     return !!this.getToken();
   }
+
+  getMe(): Observable<UserDto> {
+    return this.http.get<UserDto>(`${environment.apiUrl}/auth/me`);
+  }
 }
