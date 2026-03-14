@@ -1,0 +1,94 @@
+@use 'assets/styles/placeholders';
+
+:host {
+  display: inline-flex;
+  flex-shrink: 0;
+  height: fit-content;
+}
+
+.spin {
+  position: relative;
+
+  display: inline-flex;
+
+  aspect-ratio: 1;
+  border-style: solid;
+  border-width: 2px;
+  border-radius: 50%;
+
+  animation: rotation 1s linear infinite;
+
+  &::after {
+    @extend %position-center;
+    content: '';
+    aspect-ratio: 1;
+    border: 2px solid transparent;
+    border-radius: 50%;
+  }
+
+  @keyframes rotation {
+    0% {
+      transform: rotate(0deg);
+    }
+
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
+  &_size {
+    &_large {
+      width: 32px;
+
+      &::after {
+        width: 26px;
+      }
+    }
+
+    &_medium {
+      width: 24px;
+
+      &::after {
+        width: 16px;
+      }
+    }
+
+    &_small {
+      width: 16px;
+
+      &::after {
+        width: 10px;
+      }
+    }
+  }
+
+  &_theme {
+    &_dark {
+      border-color: var(--primary-color);
+
+      &::after {
+        border-bottom-color: var(--accent-color);
+      }
+    }
+
+    &_light {
+      border-color: var(--secondary-color);
+
+      &::after {
+        border-bottom-color: var(--accent-color);
+      }
+    }
+
+    &_button {
+      border-color: var(--primary-color);
+
+      &::after {
+        border-bottom-color: var(--accent-color-button-spin);
+      }
+    }
+  }
+
+  &__text {
+    @extend %visually-hidden;
+  }
+}
