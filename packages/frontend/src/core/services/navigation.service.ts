@@ -11,9 +11,9 @@ export class NavService {
   ];
 
   private readonly authLinks: NavLink[] = [
+    { label: 'Profile', path: '/profile', isAnchor: false },
     { label: 'Library', path: '/library', isAnchor: false },
     { label: 'Dashboard', path: '/dashboard', isAnchor: false },
-    { label: 'Profile', path: '/profile', isAnchor: false },
   ];
 
   links = signal<NavLink[]>(this.guestLinks);
