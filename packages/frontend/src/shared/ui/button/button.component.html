@@ -1,3 +1,5 @@
+@let isLoading = loading();
+
 <ng-template #content>
   @if (icon()) {
     <app-icon [name]="icon()!" size="m" class="button__icon" [color]="iconColor()" />
@@ -16,7 +18,9 @@
     [attr.rel]="external() ? 'noopener noreferrer' : null"
     [attr.aria-label]="displayAriaLabel()"
   >
-    <ng-container *ngTemplateOutlet="content"></ng-container>
+    <span class="button__wrapper button__wrapper_icon-{{ iconPosition() }}">
+      <ng-container *ngTemplateOutlet="content"></ng-container>
+    </span>
   </a>
 } @else if (link() && !disabled()) {
   <a
@@ -25,15 +29,23 @@
     [class]="classes()"
     [attr.aria-label]="displayAriaLabel()"
   >
-    <ng-container *ngTemplateOutlet="content"></ng-container>
+    <span class="button__wrapper button__wrapper_icon-{{ iconPosition() }}">
+      <ng-container *ngTemplateOutlet="content"></ng-container>
+    </span>
   </a>
 } @else {
   <button
     [type]="type()"
     [class]="classes()"
-    [disabled]="disabled()"
+    [class.button_loading]="isLoading"
+    [disabled]="disabled() || isLoading"
     [attr.aria-label]="displayAriaLabel()"
+    [attr.aria-busy]="isLoading ? 'true' : null"
   >
-    <ng-container *ngTemplateOutlet="content"></ng-container>
+    <span class="button__wrapper button__wrapper_icon-{{ iconPosition() }}">
+      <ng-container *ngTemplateOutlet="content"></ng-container>
+    </span>
+
+    <app-spin class="button__spin" theme="button" />
   </button>
 }

@@ -5,10 +5,11 @@ import { RouterLink } from '@angular/router';
 import { ButtonVersion } from './button.types';
 import { IconColor, IconName } from '../icon/Icon.types';
 import { NgTemplateOutlet } from '@angular/common';
+import { SpinComponent } from '../spin';
 
 @Component({
   selector: 'app-button',
-  imports: [NgTemplateOutlet, IconComponent, RouterLink],
+  imports: [NgTemplateOutlet, IconComponent, RouterLink, SpinComponent],
   templateUrl: './button.component.html',
   styleUrl: './button.component.scss',
 })
@@ -29,14 +30,10 @@ export class ButtonComponent {
   disabled = input<boolean>(false);
   ariaLabel = input<string>('');
   isSmallButton = input<boolean>(false);
+  loading = input<boolean>(false);
   displayAriaLabel = computed(() => this.ariaLabel() || this.text());
   classes = computed(() => {
-    return [
-      'button',
-      `button_${this.version()}`,
-      `button_icon-${this.iconPosition()}`,
-      this.isSmallButton() ? 'button_size_s' : null,
-    ]
+    return ['button', `button_${this.version()}`, this.isSmallButton() ? 'button_size_s' : null]
       .filter(Boolean)
       .join(' ');
   });
