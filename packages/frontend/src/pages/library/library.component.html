@@ -1,0 +1,21 @@
+<section class="library">
+  <h1 class="h2">Library</h1>
+
+  <ul class="library__list">
+    @for (feature of features; track $index) {
+      <li class="library__list-item">
+        <app-card [title]="feature.heading" footerPosition="end"
+          >{{ feature.description }}
+          <app-button
+            icon="arrow-up"
+            iconPosition="end"
+            [link]="feature.href"
+            [isSmallButton]="true"
+            appCardFooter
+            >Explore</app-button
+          >
+        </app-card>
+      </li>
+    }
+  </ul>
+</section>
