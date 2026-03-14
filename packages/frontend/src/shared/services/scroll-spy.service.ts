@@ -1,11 +1,10 @@
 import { DestroyRef, inject, Injectable, PLATFORM_ID, signal } from '@angular/core';
-import { isPlatformBrowser } from '@angular/common';
-import { WINDOW } from '@/shared/tokens/window.token';
+import { isPlatformBrowser, DOCUMENT } from '@angular/common';
 
 @Injectable({ providedIn: 'root' })
 export class ScrollSpyService {
   private platformId = inject(PLATFORM_ID);
-  private window = inject(WINDOW);
+  private window = inject(DOCUMENT).defaultView;
   private destroyRef = inject(DestroyRef);
 
   private observer: IntersectionObserver | null = null;
@@ -20,7 +19,7 @@ export class ScrollSpyService {
   }
 
   spy(elements: HTMLElement[]): void {
-    if (!isPlatformBrowser(this.platformId)) return;
+    if (!isPlatformBrowser(this.platformId) || !this.window) return;
     this.cleanup();
 
     this.observer = new this.window.IntersectionObserver(
@@ -44,14 +43,14 @@ export class ScrollSpyService {
   }
 
   setAnchorManually(id: string) {
-    if (!isPlatformBrowser(this.platformId)) return;
+    if (!isPlatformBrowser(this.platformId) || !this.window) return;
 
     this.isAnchorLocked = true;
     this.activeAnchor.set(id);
 
     const onScrollEnd = () => {
       this.isAnchorLocked = false;
-      this.window.removeEventListener('scrollend', onScrollEnd);
+      this.window?.removeEventListener('scrollend', onScrollEnd);
     };
 
     this.window.addEventListener('scrollend', onScrollEnd);
