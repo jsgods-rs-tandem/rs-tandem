@@ -13,7 +13,7 @@
       <form class="quiz-page__form" [formGroup]="quizForm" novalidate (ngSubmit)="onSubmit()">
         <app-countdown-timer
           class="quiz-page__timer"
-          [resetKey]="topic.id"
+          [resetKey]="question.id"
           [isRunning]="!isAnswerSubmitted()"
           (expired)="onTimeExpired()"
         />
