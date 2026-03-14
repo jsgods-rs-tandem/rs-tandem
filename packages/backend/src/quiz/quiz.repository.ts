@@ -183,15 +183,15 @@ export class QuizRepository {
          COUNT(CASE WHEN latest.completed_at IS NOT NULL THEN 1 END)::INT AS topics_complete_count,
          CASE
            WHEN COUNT(qt.id) = 0 THEN 0
-           ELSE COUNT(CASE WHEN latest.completed_at IS NOT NULL THEN 1 END)::FLOAT / COUNT(qt.id)
+           ELSE ROUND(COUNT(CASE WHEN latest.completed_at IS NOT NULL THEN 1 END)::FLOAT / COUNT(qt.id) * 100)::INT
          END AS progress
        FROM quiz_categories qc
        LEFT JOIN quiz_topics qt ON qt.category_id = qc.id
        LEFT JOIN LATERAL (
          SELECT completed_at
          FROM user_quiz_attempts
-         WHERE user_id = $1 AND topic_id = qt.id
-         ORDER BY created_at DESC
+         WHERE user_id = $1 AND topic_id = qt.id AND completed_at IS NOT NULL
+         ORDER BY completed_at DESC
          LIMIT 1
        ) latest ON true
        GROUP BY qc.id, qc.name_en, qc.name_ru, qc.description_en, qc.description_ru
@@ -269,7 +269,7 @@ export class QuizRepository {
     const topics = topicsResult.rows.map((row) => toTopicSummary(row));
     const topicsCount = topics.length;
     const topicsCompleteCount = topics.filter((topic) => topic.score !== null).length;
-    const progress = topicsCount === 0 ? 0 : topicsCompleteCount / topicsCount;
+    const progress = topicsCount === 0 ? 0 : Math.round((topicsCompleteCount / topicsCount) * 100);
 
     return {
       id: catRow.id,
