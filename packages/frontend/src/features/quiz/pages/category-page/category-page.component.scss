@@ -1,5 +1,11 @@
 @use 'assets/styles/mixins' as mix;
 
+:host {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
 .category-page {
   &__header {
     display: flex;

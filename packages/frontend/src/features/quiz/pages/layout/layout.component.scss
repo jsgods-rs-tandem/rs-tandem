@@ -1,7 +1,21 @@
+:host,
+.layout {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
 .layout {
   margin-block: var(--spacing-x13);
 
   &__section {
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
     margin-block-start: var(--spacing-x1);
+  }
+
+  &__spin {
+    margin: auto;
   }
 }

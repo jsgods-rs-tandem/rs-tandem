@@ -1,8 +1,9 @@
 @let topic = quizService.topic();
 @let question = quizService.currentQuestion();
 @let step = quizService.step();
+@let loading = quizService.loading();
 
-<app-layout [loading]="quizService.loading().topic">
+<app-layout [loading]="loading.topic">
   @if (topic && question) {
     <header>
       <h1 class="h2">{{ topic.name }}</h1>
@@ -42,6 +43,7 @@
           class="quiz-page__submit-button"
           type="submit"
           [link]="resultsLink()"
+          [loading]="loading.answer"
           [disabled]="quizForm.touched && quizForm.invalid"
           >{{ submitButtonText() }}</app-button
         >

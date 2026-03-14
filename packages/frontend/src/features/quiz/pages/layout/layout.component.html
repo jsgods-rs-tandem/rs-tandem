@@ -3,8 +3,7 @@
 
   <section class="layout__section">
     @if (loading()) {
-      <!-- TODO: temporary -->
-      Loading...
+      <app-spin class="layout__spin" size="large" theme="light" />
     } @else {
       <ng-content />
     }

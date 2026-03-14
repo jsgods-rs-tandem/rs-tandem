@@ -54,7 +54,6 @@ export class QuizService {
       answer: null,
       results: null,
     },
-    // preparations for showing pending state of a page or button
     loading: {
       categories: false,
       category: false,
@@ -63,6 +62,7 @@ export class QuizService {
       answer: false,
       results: false,
     },
+    // preparations for showing error state of a page or button
     error: {
       categories: '',
       category: '',

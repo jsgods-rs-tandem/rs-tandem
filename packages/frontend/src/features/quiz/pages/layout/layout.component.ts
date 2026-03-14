@@ -1,10 +1,10 @@
 import { Component, input } from '@angular/core';
 
-import { BreadcrumbComponent } from '@/shared/ui';
+import { BreadcrumbComponent, SpinComponent } from '@/shared/ui';
 
 @Component({
   selector: 'app-layout',
-  imports: [BreadcrumbComponent],
+  imports: [BreadcrumbComponent, SpinComponent],
   templateUrl: './layout.component.html',
   styleUrl: './layout.component.scss',
 })
