@@ -5,6 +5,7 @@ import { AuthPageComponent } from '@/shared/ui/auth-page/auth-page.component';
 import { InputComponent } from '@/shared/ui/input/input.component';
 import { ButtonComponent } from '@/shared/ui';
 import { AuthService } from '@/core/services/auth.service';
+import { UserStore } from '@/core/store/user.store';
 
 @Component({
   selector: 'app-sign-up',
@@ -16,6 +17,7 @@ import { AuthService } from '@/core/services/auth.service';
 export class SignUpComponent {
   private authService = inject(AuthService);
   private router = inject(Router);
+  private userStore = inject(UserStore);
 
   signUpForm = new FormGroup({
     username: new FormControl('', [Validators.required, Validators.minLength(3)]),
@@ -42,7 +44,8 @@ export class SignUpComponent {
         password: formValue.password,
       })
       .subscribe({
-        next: () => {
+        next: (user) => {
+          this.userStore.setUser(user);
           void this.router.navigate(['/sign-in']);
         },
         error: (error) => {

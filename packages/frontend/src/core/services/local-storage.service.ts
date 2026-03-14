@@ -1,8 +1,5 @@
 import { Injectable } from '@angular/core';
 
-@Injectable({
-  providedIn: 'root',
-})
 @Injectable({ providedIn: 'root' })
 export class LocalStorageService {
   getItem(key: string): string | null {
