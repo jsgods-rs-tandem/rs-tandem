@@ -1,14 +1,18 @@
-<app-layout>
-  <header class="category-page__header">
-    <h2 class="h2">{{ heading }}</h2>
+@let category = quizService.category();
 
-    <app-progress
-      class="category-page__progress"
-      [valueNow]="topicsCompleteCount"
-      [valueMax]="topicsCount"
-      [valueProgress]="topicsProgress"
-    />
-  </header>
+<app-layout [loading]="quizService.loading().category">
+  @if (category) {
+    <header class="category-page__header">
+      <h1 class="h2">{{ category.name }}</h1>
 
-  <app-topic-card-list class="category-page__topic-card-list" [topics]="topics" />
+      <app-progress
+        class="category-page__progress"
+        [valueNow]="category.topicsCompleteCount"
+        [valueMax]="category.topicsCount"
+        [valueProgress]="category.progress"
+      />
+    </header>
+
+    <app-topic-card-list class="category-page__topic-card-list" [topics]="category.topics" />
+  }
 </app-layout>

@@ -30,7 +30,10 @@
     ::ng-deep {
       .button {
         cursor: text;
+        user-select: text;
+
         font-weight: var(--fw-medium);
+
         opacity: initial;
         filter: initial;
       }

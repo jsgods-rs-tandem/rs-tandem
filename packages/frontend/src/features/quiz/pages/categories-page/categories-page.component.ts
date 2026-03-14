@@ -1,9 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, inject, type OnInit } from '@angular/core';
 
 import { LayoutComponent } from '../layout';
 import { CategoryCardListComponent } from '../../ui';
 
-import list from '../../data/categories.json';
+import { QuizService } from '../../services';
 
 @Component({
   selector: 'app-categories-page',
@@ -12,6 +12,10 @@ import list from '../../data/categories.json';
   styleUrl: './categories-page.component.scss',
   standalone: true,
 })
-export class CategoriesPageComponent {
-  readonly categories = list.categories;
+export class CategoriesPageComponent implements OnInit {
+  readonly quizService = inject(QuizService);
+
+  ngOnInit(): void {
+    this.quizService.getCategories();
+  }
 }

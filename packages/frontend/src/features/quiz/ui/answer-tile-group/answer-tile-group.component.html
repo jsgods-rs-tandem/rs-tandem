@@ -5,7 +5,7 @@
 @let answerCommentValue = answerComment();
 
 <div role="radiogroup" [aria-labelledby]="questionId">
-  <h4 [id]="questionId" class="h3">{{ question() }}</h4>
+  <h3 [id]="questionId" class="h3">{{ question() }}</h3>
 
   @if (code) {
     <app-code-snippet class="answer-tile-group__code-snippet" [code]="code" />

@@ -1,13 +1,27 @@
-@let s = score();
+@let progressScore = score();
+@let hasProgressScore = typeof progressScore === 'number';
+@let progressStatus = status();
 
 <article class="topic-card">
   <header class="topic-card__header">
-    <h3 class="h3 topic-card__heading">{{ heading() }}</h3>
+    <h2 class="h3 topic-card__heading">{{ heading() }}</h2>
 
     <p class="topic-card__subheading">{{ subheading() }}</p>
 
-    @if (typeof s === 'number') {
-      <app-badge class="topic-card__score" [score]="s" />
+    @if (progressStatus || hasProgressScore) {
+      <ul class="topic-card__badges">
+        @if (progressStatus) {
+          <li>
+            <app-badge [status]="progressStatus" />
+          </li>
+        }
+
+        @if (hasProgressScore) {
+          <li>
+            <app-badge [score]="progressScore" />
+          </li>
+        }
+      </ul>
     }
   </header>
 

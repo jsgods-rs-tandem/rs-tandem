@@ -18,10 +18,12 @@
     grid-column: 1 / 2;
   }
 
-  &__score {
+  &__badges {
+    display: flex;
     grid-column: 2 / 3;
     grid-row: 1 / 2;
-    height: fit-content;
+    flex-wrap: wrap;
+    gap: var(--spacing-x2);
   }
 
   &__body,
