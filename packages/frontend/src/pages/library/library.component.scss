@@ -1,0 +1,20 @@
+@use 'assets/styles/mixins' as mix;
+
+.library {
+  margin-block-start: var(--spacing-x13);
+
+  &__list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 28px;
+    margin-block-start: var(--spacing-x10);
+  }
+
+  &__list-item {
+    max-width: 458px;
+
+    @include mix.media('s') {
+      max-width: 100%;
+    }
+  }
+}
