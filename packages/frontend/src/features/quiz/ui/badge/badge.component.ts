@@ -21,7 +21,7 @@ export class BadgeComponent {
   readonly level = computed(() => {
     const s = this.score();
 
-    return s ? computeRewardLevel(s) : null;
+    return typeof s === 'number' ? computeRewardLevel(s) : null;
   });
   readonly progressStatus = computed(() => computeProgressStatus(this.status() ?? ''));
 }
