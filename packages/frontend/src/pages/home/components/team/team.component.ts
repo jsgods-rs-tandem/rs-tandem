@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
-import { TeamContentComponent } from '@/shared/ui';
+import { TeamBoardComponent } from '@/shared/ui';
 
 @Component({
   selector: 'app-team',
-  imports: [TeamContentComponent],
+  imports: [TeamBoardComponent],
   templateUrl: './team.component.html',
   styleUrl: './team.component.scss',
 })

@@ -1,13 +1,13 @@
 import { Component } from '@angular/core';
 import { TeamMemberCardComponent } from '../team-member-card/team-member-card.component';
-import { TEAM_MEMBERS } from './team-content.config';
+import { TEAM_MEMBERS } from './team-board.config';
 
 @Component({
-  selector: 'app-team-content',
+  selector: 'app-team-board',
   imports: [TeamMemberCardComponent],
-  templateUrl: './team-content.component.html',
-  styleUrl: './team-content.component.scss',
+  templateUrl: './team-board.component.html',
+  styleUrl: './team-board.component.scss',
 })
-export class TeamContentComponent {
+export class TeamBoardComponent {
   protected readonly teamMembers = TEAM_MEMBERS;
 }
