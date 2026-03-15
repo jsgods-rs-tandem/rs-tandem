@@ -1,3 +1,4 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { inject } from '@angular/core';
 import { EMPTY, catchError, tap } from 'rxjs';
 import { AuthService } from '../services/auth.service';
@@ -15,8 +16,10 @@ export function initializeAuth() {
     tap((user) => {
       authStore.setUser(user);
     }),
-    catchError(() => {
-      authService.logout();
+    catchError((error) => {
+      if (error instanceof HttpErrorResponse && error.status === 401) {
+        authService.clearAuthData();
+      }
       return EMPTY;
     }),
   );

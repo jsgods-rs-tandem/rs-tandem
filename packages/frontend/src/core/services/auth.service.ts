@@ -4,6 +4,7 @@ import { Observable, tap } from 'rxjs';
 import { LoginDto, RegisterDto, AuthResponseDto, UserDto } from '@rs-tandem/shared';
 import { LocalStorageService } from './local-storage.service';
 import { environment } from '@/environments/environment';
+import { AuthStore } from '../store/auth.store';
 
 @Injectable({
   providedIn: 'root',
@@ -11,6 +12,7 @@ import { environment } from '@/environments/environment';
 export class AuthService {
   private http = inject(HttpClient);
   private localStorageService = inject(LocalStorageService);
+  private authStore = inject(AuthStore);
 
   private readonly TOKEN_KEY = 'auth_token';
 
@@ -28,8 +30,13 @@ export class AuthService {
     );
   }
 
-  logout(): void {
+  clearAuthData(): void {
     this.localStorageService.removeItem(this.TOKEN_KEY);
+    this.authStore.clearUser();
+  }
+
+  logout(): void {
+    this.clearAuthData();
   }
 
   getToken(): string | null {
