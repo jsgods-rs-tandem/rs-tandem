@@ -1,6 +1,7 @@
 @let category = quizService.category();
+@let loading = quizService.loading();
 
-<app-layout [loading]="quizService.loading().category">
+<app-layout [loading]="loading.category || loading.topic">
   @if (category) {
     <header class="category-page__header">
       <h1 class="h2">{{ category.name }}</h1>
