@@ -33,7 +33,11 @@
         </ul>
       </div>
 
-      <app-button class="results-page__retry-button" link="..">Re-explore topic</app-button>
+      <div class="results-page__buttons">
+        <app-button [link]="`${ROUTE_PATHS.quiz}/${categoryId()}`">See other topics</app-button>
+
+        <app-button link="..">Re-explore topic</app-button>
+      </div>
     </div>
   }
 </app-layout>
