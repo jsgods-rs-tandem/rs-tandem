@@ -7,6 +7,9 @@ import { HEADER_ACTIONS } from './header.config';
 import { MobileMenuComponent } from './components/mobile-menu/mobile-menu.component';
 import { NgTemplateOutlet } from '@angular/common';
 import { ThemeService } from '@/core/services/theme.service';
+import { Router } from '@angular/router';
+import { AuthService } from '@/core/services/auth.service';
+import { ROUTE_PATHS } from '@/core/constants';
 
 @Component({
   selector: 'app-header',
@@ -24,6 +27,8 @@ import { ThemeService } from '@/core/services/theme.service';
 })
 export class HeaderComponent {
   private themeService = inject(ThemeService);
+  private authService = inject(AuthService);
+  private router = inject(Router);
   mode = input<HeaderMode>('login');
   isMenuOpen = input(false);
   isDarkTheme = computed(() => this.themeService.theme() === 'dark');
@@ -45,5 +50,10 @@ export class HeaderComponent {
 
   toggleTheme(): void {
     this.themeService.toggleTheme();
+  }
+
+  handleLogout() {
+    this.authService.logout();
+    void this.router.navigate([ROUTE_PATHS.home]);
   }
 }

@@ -42,6 +42,6 @@
     [link]="config.link"
     version="primary"
     [isSmallButton]="true"
-    (click)="config.emitLogout ? logoutClick.emit() : null"
+    (click)="config.emitLogout ? handleLogout() : null"
   />
 </ng-template>
