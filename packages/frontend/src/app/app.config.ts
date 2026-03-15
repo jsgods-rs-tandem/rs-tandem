@@ -1,8 +1,9 @@
-import { ApplicationConfig } from '@angular/core';
+import { ApplicationConfig, provideAppInitializer } from '@angular/core';
 import { provideRouter, withInMemoryScrolling, withComponentInputBinding } from '@angular/router';
 import { provideHttpClient, withInterceptors } from '@angular/common/http';
 import { routes } from './app.routes';
 import { authInterceptor } from '@/core/interceptors/auth.interceptor';
+import { initializeAuth } from '@/core/initializers/auth.initializer';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -15,5 +16,6 @@ export const appConfig: ApplicationConfig = {
       withComponentInputBinding(),
     ),
     provideHttpClient(withInterceptors([authInterceptor])),
+    provideAppInitializer(initializeAuth),
   ],
 };

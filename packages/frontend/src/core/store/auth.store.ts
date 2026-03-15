@@ -7,15 +7,15 @@ interface AuthState {
   error: string | null;
 }
 
-const INITIAL_STATE: AuthState = {
+const createInitialState = (): AuthState => ({
   user: null,
   isLoading: false,
   error: null,
-};
+});
 
 @Injectable({ providedIn: 'root' })
 export class AuthStore {
-  private readonly _state = signal<AuthState>(INITIAL_STATE);
+  private readonly _state = signal<AuthState>(createInitialState());
 
   readonly user = computed<UserDto | null>(() => {
     const user = this._state().user;
@@ -30,11 +30,11 @@ export class AuthStore {
   readonly error = computed(() => this._state().error);
 
   setUser(user: UserDto): void {
-    this._state.set({ user: user, isLoading: false, error: null });
+    this._state.set({ user, isLoading: false, error: null });
   }
 
   clearUser(): void {
-    this._state.set(INITIAL_STATE);
+    this._state.set(createInitialState());
   }
 
   setLoading(isLoading: boolean): void {
