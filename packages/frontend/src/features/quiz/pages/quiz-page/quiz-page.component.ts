@@ -17,6 +17,7 @@ import { QuizService } from '../../services';
 
 import { computeSubmitButtonText, getRandomArrayIndex } from './quiz-page.utilities';
 
+import { ROUTES } from '@/core/constants';
 import { successAnswers, errorAnswers } from './quiz-page.constants';
 
 @Component({
@@ -54,7 +55,7 @@ export class QuizPageComponent implements OnInit {
     computeSubmitButtonText(this.isAnswerSubmitted(), this.isQuizComplete()),
   );
   readonly resultsLink = computed<string | undefined>(() =>
-    this.isQuizComplete() ? 'results' : undefined,
+    this.isQuizComplete() ? ROUTES.quizResults : undefined,
   );
 
   constructor() {
