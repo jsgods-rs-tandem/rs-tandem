@@ -9,19 +9,18 @@ export const authGuard: CanActivateFn = (route) => {
   const router = inject(Router);
 
   const authService = inject(AuthService);
-  const isAuthenticated = authService.isAuthenticated();
 
   const { routeConfig } = route;
 
-  if (!routeConfig) {
+  if (routeConfig === null) {
     return false;
   }
 
   const { path } = routeConfig;
+  const isAuthenticated = authService.isAuthenticated();
 
   if (ROUTES.home === path || ROUTES.signIn === path || ROUTES.signUp === path) {
     if (isAuthenticated) {
-      // While developing redirect in library. In future - profile?
       const libraryPath = router.parseUrl(ROUTE_PATHS.library);
 
       return new RedirectCommand(libraryPath);
@@ -30,5 +29,7 @@ export const authGuard: CanActivateFn = (route) => {
     return true;
   }
 
-  return isAuthenticated;
+  const homePath = router.parseUrl(ROUTE_PATHS.home);
+
+  return isAuthenticated ? true : new RedirectCommand(homePath);
 };
