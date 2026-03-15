@@ -1,7 +1,7 @@
 <app-auth-page
   heading="Sign In"
   switchText="Don’t have an account?"
-  switchRoute="/sign-up"
+  [switchRoute]="ROUTE_PATHS.signUp"
   switchLinkText="Sign Up"
 >
   <form [formGroup]="signInForm" (ngSubmit)="onSubmit()">

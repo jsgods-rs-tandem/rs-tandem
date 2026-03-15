@@ -4,6 +4,7 @@ import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { filter } from 'rxjs';
 import { NavService } from './navigation.service';
 import { HeaderMode } from '../components/header/header.types';
+import { ROUTE_PATHS } from '@/core/constants';
 
 @Injectable({ providedIn: 'root' })
 export class LayoutService {
@@ -22,10 +23,10 @@ export class LayoutService {
       .subscribe((event) => {
         const urlWithoutQuery = event.urlAfterRedirects.split('?')[0] ?? '';
         const url = urlWithoutQuery.split('#')[0] ?? '';
-        if (url === '/sign-in' || url === '/sign-up') {
+        if (url === ROUTE_PATHS.signIn || url === ROUTE_PATHS.signUp) {
           this.headerMode.set('home');
           this.showSidebar.set(false);
-        } else if (url === '/') {
+        } else if (url === ROUTE_PATHS.home) {
           this.headerMode.set('login');
           this.showSidebar.set(true);
           this.navService.setGuestLinks();
