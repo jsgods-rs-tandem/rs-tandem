@@ -1,0 +1,29 @@
+{
+  "category": {
+    "name": { "en": "Git & Collaboration", "ru": "Git и командная работа" },
+    "description": {
+      "en": "Version control with Git and collaborative development workflows using GitHub",
+      "ru": "Контроль версий с Git и рабочие процессы командной разработки с использованием GitHub"
+    }
+  },
+  "topics": [
+    {
+      "name": { "en": "Git Basics", "ru": "Основы Git" },
+      "description": {
+        "en": "Core Git concepts: commits, branches, merging, and history management",
+        "ru": "Основные концепции Git: коммиты, ветки, слияние и управление историей"
+      },
+      "links": [],
+      "questions": []
+    },
+    {
+      "name": { "en": "Git & GitHub Advanced", "ru": "Git и GitHub: продвинутый уровень" },
+      "description": {
+        "en": "Advanced Git techniques: rebasing, cherry-picking, hooks, and GitHub workflows",
+        "ru": "Продвинутые техники Git: rebase, cherry-pick, хуки и рабочие процессы GitHub"
+      },
+      "links": [],
+      "questions": []
+    }
+  ]
+}

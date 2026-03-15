@@ -1,0 +1,74 @@
+{
+  "category": {
+    "name": { "en": "Web Accessibility", "ru": "Доступность веб-приложений" },
+    "description": {
+      "en": "Building inclusive web experiences: WCAG standards, ARIA, semantic HTML, keyboard navigation, and assistive technologies",
+      "ru": "Создание инклюзивных веб-приложений: стандарты WCAG, ARIA, семантический HTML, клавиатурная навигация и вспомогательные технологии"
+    }
+  },
+  "topics": [
+    {
+      "name": { "en": "WCAG & Accessibility Fundamentals", "ru": "WCAG и основы доступности" },
+      "description": {
+        "en": "Web Content Accessibility Guidelines (WCAG): levels A/AA/AAA, the four principles (POUR), and legal context",
+        "ru": "Руководство по доступности веб-контента (WCAG): уровни A/AA/AAA, четыре принципа (POUR) и правовой контекст"
+      },
+      "links": [],
+      "questions": []
+    },
+    {
+      "name": { "en": "Semantic HTML & Accessibility", "ru": "Семантический HTML и доступность" },
+      "description": {
+        "en": "Using correct HTML elements to convey meaning, landmark regions, headings hierarchy, and accessible forms",
+        "ru": "Использование правильных HTML-элементов для передачи смысла, регионы-ориентиры, иерархия заголовков и доступные формы"
+      },
+      "links": [],
+      "questions": []
+    },
+    {
+      "name": { "en": "ARIA", "ru": "ARIA" },
+      "description": {
+        "en": "WAI-ARIA roles, states, and properties — when to use ARIA and the first rule: don't use ARIA if native HTML suffices",
+        "ru": "WAI-ARIA роли, состояния и свойства — когда применять ARIA и первое правило: не использовать ARIA, если хватает нативного HTML"
+      },
+      "links": [],
+      "questions": []
+    },
+    {
+      "name": {
+        "en": "Keyboard Navigation & Focus Management",
+        "ru": "Клавиатурная навигация и управление фокусом"
+      },
+      "description": {
+        "en": "Tab order, focus trapping in modals, skip links, focusable elements, and visible focus indicators",
+        "ru": "Порядок табуляции, захват фокуса в модальных окнах, ссылки-пропуски, фокусируемые элементы и видимые индикаторы фокуса"
+      },
+      "links": [],
+      "questions": []
+    },
+    {
+      "name": {
+        "en": "Screen Readers & Assistive Technologies",
+        "ru": "Скринридеры и вспомогательные технологии"
+      },
+      "description": {
+        "en": "How screen readers work, live regions, accessible names and descriptions, and testing with assistive tools",
+        "ru": "Как работают скринридеры, live-регионы, доступные имена и описания, тестирование со вспомогательными инструментами"
+      },
+      "links": [],
+      "questions": []
+    },
+    {
+      "name": {
+        "en": "Color, Contrast & Visual Accessibility",
+        "ru": "Цвет, контрастность и визуальная доступность"
+      },
+      "description": {
+        "en": "Contrast ratios, color blindness considerations, text sizing, motion sensitivity, and accessible color palettes",
+        "ru": "Коэффициенты контрастности, учёт цветовой слепоты, размер текста, чувствительность к движению и доступные цветовые палитры"
+      },
+      "links": [],
+      "questions": []
+    }
+  ]
+}

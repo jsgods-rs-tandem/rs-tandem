@@ -1,0 +1,89 @@
+{
+  "category": {
+    "name": { "en": "HTML & CSS", "ru": "HTML и CSS" },
+    "description": {
+      "en": "Core web technologies: HTML structure, CSS styling, responsive design, and modern layout systems",
+      "ru": "Основные веб-технологии: структура HTML, стили CSS, адаптивный дизайн и современные системы вёрстки"
+    }
+  },
+  "topics": [
+    {
+      "name": { "en": "HTML Basics", "ru": "Основы HTML" },
+      "description": {
+        "en": "Fundamental HTML concepts: document structure, semantic elements, and accessibility",
+        "ru": "Основы HTML: структура документа, семантические элементы и доступность"
+      },
+      "links": [],
+      "questions": []
+    },
+    {
+      "name": { "en": "CSS Basics", "ru": "Основы CSS" },
+      "description": {
+        "en": "Core CSS concepts: selectors, the cascade, specificity, and the box model",
+        "ru": "Основы CSS: селекторы, каскад, специфичность и блочная модель"
+      },
+      "links": [],
+      "questions": []
+    },
+    {
+      "name": {
+        "en": "Responsive Web Design & Media Queries",
+        "ru": "Адаптивный дизайн и медиазапросы"
+      },
+      "description": {
+        "en": "Building layouts that adapt to different screen sizes using media queries and responsive techniques",
+        "ru": "Создание адаптивных макетов с использованием медиазапросов и техник отзывчивого дизайна"
+      },
+      "links": [],
+      "questions": []
+    },
+    {
+      "name": { "en": "CSS Grid Layout", "ru": "CSS Grid" },
+      "description": {
+        "en": "Two-dimensional layout system using CSS Grid for complex page structures",
+        "ru": "Двумерная система вёрстки с помощью CSS Grid для сложных структур страниц"
+      },
+      "links": [],
+      "questions": []
+    },
+    {
+      "name": { "en": "Flexbox & Positioning", "ru": "Flexbox и позиционирование" },
+      "description": {
+        "en": "One-dimensional layout control with Flexbox and CSS positioning properties",
+        "ru": "Одномерное управление макетом с помощью Flexbox и свойств позиционирования CSS"
+      },
+      "links": [],
+      "questions": []
+    },
+    {
+      "name": { "en": "HTML Forms & Validation", "ru": "HTML-формы и валидация" },
+      "description": {
+        "en": "Building accessible HTML forms with native validation and input types",
+        "ru": "Создание доступных HTML-форм с нативной валидацией и типами полей ввода"
+      },
+      "links": [],
+      "questions": []
+    },
+    {
+      "name": { "en": "CSS Preprocessors: Sass", "ru": "CSS-препроцессоры: Sass" },
+      "description": {
+        "en": "Extending CSS with variables, nesting, mixins, and functions using Sass",
+        "ru": "Расширение CSS с помощью переменных, вложенности, миксинов и функций через Sass"
+      },
+      "links": [],
+      "questions": []
+    },
+    {
+      "name": {
+        "en": "CSS Modules & Modern CSS Features",
+        "ru": "CSS-модули и современные возможности CSS"
+      },
+      "description": {
+        "en": "Scoped CSS with CSS Modules and modern features like custom properties and container queries",
+        "ru": "Изолированные стили через CSS Modules и современные возможности: кастомные свойства и контейнерные запросы"
+      },
+      "links": [],
+      "questions": []
+    }
+  ]
+}

@@ -1,0 +1,59 @@
+{
+  "category": {
+    "name": { "en": "JavaScript Core", "ru": "Ядро JavaScript" },
+    "description": {
+      "en": "Core JavaScript language: types, expressions, functions, scope, closures, and modern ECMAScript features",
+      "ru": "Основы языка JavaScript: типы, выражения, функции, область видимости, замыкания и возможности современного ECMAScript"
+    }
+  },
+  "topics": [
+    {
+      "name": { "en": "JS Basics", "ru": "Основы JavaScript" },
+      "description": {
+        "en": "Variable declarations, hoisting, the Temporal Dead Zone, Object.is, and polyfills",
+        "ru": "Объявление переменных, поднятие (hoisting), временная мёртвая зона, Object.is и полифилы"
+      },
+      "links": [],
+      "questions": []
+    },
+    {
+      "name": { "en": "JS Types", "ru": "Типы данных в JavaScript" },
+      "description": {
+        "en": "Primitive and reference types, type coercion, and built-in array and object methods",
+        "ru": "Примитивные и ссылочные типы, приведение типов, встроенные методы массивов и объектов"
+      },
+      "links": [],
+      "questions": []
+    },
+    {
+      "name": { "en": "Functions & Scope", "ru": "Функции и область видимости" },
+      "description": {
+        "en": "Function types, scope, closures, lexical environments, and the `this` keyword with call/apply/bind",
+        "ru": "Виды функций, область видимости, замыкания, лексическое окружение и ключевое слово `this` с call/apply/bind"
+      },
+      "links": [],
+      "questions": []
+    },
+    {
+      "name": { "en": "JavaScript Evolution", "ru": "Эволюция JavaScript" },
+      "description": {
+        "en": "Modern ECMAScript features: spread/rest, destructuring, Set/Map/WeakSet/WeakMap, modules, and dynamic imports",
+        "ru": "Современные возможности ECMAScript: spread/rest, деструктуризация, Set/Map/WeakSet/WeakMap, модули и динамические импорты"
+      },
+      "links": [],
+      "questions": []
+    },
+    {
+      "name": {
+        "en": "Async Programming & Error Handling",
+        "ru": "Асинхронное программирование и обработка ошибок"
+      },
+      "description": {
+        "en": "Promises, async/await, Promise.all/race/allSettled, error handling with try/catch, and custom errors",
+        "ru": "Promise, async/await, Promise.all/race/allSettled, обработка ошибок с try/catch и пользовательские ошибки"
+      },
+      "links": [],
+      "questions": []
+    }
+  ]
+}

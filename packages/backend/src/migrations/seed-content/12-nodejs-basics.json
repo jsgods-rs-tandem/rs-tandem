@@ -1,0 +1,68 @@
+{
+  "category": {
+    "name": { "en": "Node.js Basics", "ru": "Основы Node.js" },
+    "description": {
+      "en": "Server-side JavaScript with Node.js: runtime, core modules, streams, file system, and building HTTP servers",
+      "ru": "JavaScript на стороне сервера с Node.js: рантайм, встроенные модули, потоки, файловая система и создание HTTP-серверов"
+    }
+  },
+  "topics": [
+    {
+      "name": { "en": "Node.js Runtime & Event Loop", "ru": "Рантайм Node.js и цикл событий" },
+      "description": {
+        "en": "How Node.js executes code: the V8 engine, libuv, event loop phases, and differences from the browser",
+        "ru": "Как Node.js выполняет код: движок V8, libuv, фазы цикла событий и отличия от браузерного окружения"
+      },
+      "links": [],
+      "questions": []
+    },
+    {
+      "name": { "en": "Core Modules: fs, path, os", "ru": "Встроенные модули: fs, path, os" },
+      "description": {
+        "en": "Working with the file system (fs), path manipulation, and OS information using Node's built-in modules",
+        "ru": "Работа с файловой системой (fs), манипуляции с путями и информация об ОС через встроенные модули Node.js"
+      },
+      "links": [],
+      "questions": []
+    },
+    {
+      "name": { "en": "Streams & Buffers", "ru": "Потоки и буферы" },
+      "description": {
+        "en": "Readable, Writable, Duplex, and Transform streams, backpressure, and working with binary data via Buffer",
+        "ru": "Readable, Writable, Duplex и Transform потоки, обратное давление (backpressure) и работа с бинарными данными через Buffer"
+      },
+      "links": [],
+      "questions": []
+    },
+    {
+      "name": { "en": "HTTP Server & Express", "ru": "HTTP-сервер и Express" },
+      "description": {
+        "en": "Building HTTP servers with the `http` module, routing, middleware pattern, and REST APIs with Express",
+        "ru": "Создание HTTP-серверов через модуль `http`, маршрутизация, паттерн middleware и REST API с Express"
+      },
+      "links": [],
+      "questions": []
+    },
+    {
+      "name": {
+        "en": "Event Emitter & Node.js Patterns",
+        "ru": "Event Emitter и паттерны Node.js"
+      },
+      "description": {
+        "en": "The EventEmitter class, custom events, error handling in Node.js, and common patterns like callback conventions",
+        "ru": "Класс EventEmitter, пользовательские события, обработка ошибок в Node.js и распространённые паттерны, например соглашения по коллбэкам"
+      },
+      "links": [],
+      "questions": []
+    },
+    {
+      "name": { "en": "npm & Package Management", "ru": "npm и управление пакетами" },
+      "description": {
+        "en": "npm CLI, package.json, semantic versioning, lockfiles, scripts, and workspace basics",
+        "ru": "npm CLI, package.json, семантическое версионирование, lockfile, скрипты и основы workspaces"
+      },
+      "links": [],
+      "questions": []
+    }
+  ]
+}

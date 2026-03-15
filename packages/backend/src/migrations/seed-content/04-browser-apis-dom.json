@@ -1,0 +1,74 @@
+{
+  "category": {
+    "name": { "en": "Browser APIs & DOM", "ru": "Браузерные API и DOM" },
+    "description": {
+      "en": "Browser platform: DOM manipulation, events, storage, the event loop, and browser APIs",
+      "ru": "Платформа браузера: манипуляции с DOM, события, хранилище, цикл событий и браузерные API"
+    }
+  },
+  "topics": [
+    {
+      "name": { "en": "DOM API", "ru": "DOM API" },
+      "description": {
+        "en": "The Document Object Model: querying, creating, and modifying elements programmatically",
+        "ru": "Document Object Model: поиск, создание и изменение элементов программным способом"
+      },
+      "links": [],
+      "questions": []
+    },
+    {
+      "name": { "en": "DOM Events", "ru": "События DOM" },
+      "description": {
+        "en": "Event types, propagation phases (capture/bubble), delegation, timers, and preventing default behavior",
+        "ru": "Типы событий, фазы распространения (захват/всплытие), делегирование, таймеры и предотвращение действий по умолчанию"
+      },
+      "links": [],
+      "questions": []
+    },
+    {
+      "name": { "en": "Canvas API", "ru": "Canvas API" },
+      "description": {
+        "en": "Drawing 2D graphics, animations, and image manipulation using the HTML Canvas API",
+        "ru": "Рисование 2D-графики, анимаций и работа с изображениями через HTML Canvas API"
+      },
+      "links": [],
+      "questions": []
+    },
+    {
+      "name": { "en": "Chrome DevTools", "ru": "Chrome DevTools" },
+      "description": {
+        "en": "Using Chrome DevTools for debugging, performance profiling, and network inspection",
+        "ru": "Использование Chrome DevTools для отладки, профилирования производительности и анализа сети"
+      },
+      "links": [],
+      "questions": []
+    },
+    {
+      "name": { "en": "Web Storage", "ru": "Web Storage" },
+      "description": {
+        "en": "Client-side storage: localStorage, sessionStorage, and cookies — differences and use cases",
+        "ru": "Хранилище на стороне клиента: localStorage, sessionStorage и cookies — отличия и случаи применения"
+      },
+      "links": [],
+      "questions": []
+    },
+    {
+      "name": { "en": "Event Loop & Animation", "ru": "Цикл событий и анимация" },
+      "description": {
+        "en": "The JavaScript event loop, call stack, task queues, microtasks, and requestAnimationFrame",
+        "ru": "Цикл событий JavaScript, стек вызовов, очереди задач, микрозадачи и requestAnimationFrame"
+      },
+      "links": [],
+      "questions": []
+    },
+    {
+      "name": { "en": "WebSockets", "ru": "WebSockets" },
+      "description": {
+        "en": "Full-duplex browser-server communication using the WebSocket protocol",
+        "ru": "Полнодуплексная коммуникация между браузером и сервером с использованием протокола WebSocket"
+      },
+      "links": [],
+      "questions": []
+    }
+  ]
+}

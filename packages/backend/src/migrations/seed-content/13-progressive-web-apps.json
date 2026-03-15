@@ -1,0 +1,62 @@
+{
+  "category": {
+    "name": { "en": "Progressive Web Apps", "ru": "Прогрессивные веб-приложения" },
+    "description": {
+      "en": "Building installable, offline-capable web apps with Service Workers, caching strategies, and the Web App Manifest",
+      "ru": "Создание устанавливаемых, работающих офлайн веб-приложений с помощью Service Workers, стратегий кэширования и Web App Manifest"
+    }
+  },
+  "topics": [
+    {
+      "name": { "en": "PWA Fundamentals", "ru": "Основы PWA" },
+      "description": {
+        "en": "What makes an app a PWA: installability, reliability, capability, and the PWA checklist",
+        "ru": "Что делает приложение PWA: устанавливаемость, надёжность, расширенные возможности и чеклист PWA"
+      },
+      "links": [],
+      "questions": []
+    },
+    {
+      "name": { "en": "Service Workers", "ru": "Service Workers" },
+      "description": {
+        "en": "Service Worker lifecycle (install, activate, fetch), scope, and how they intercept network requests",
+        "ru": "Жизненный цикл Service Worker (install, activate, fetch), область действия и перехват сетевых запросов"
+      },
+      "links": [],
+      "questions": []
+    },
+    {
+      "name": { "en": "Caching Strategies", "ru": "Стратегии кэширования" },
+      "description": {
+        "en": "Cache-first, network-first, stale-while-revalidate, and cache-only strategies using the Cache API",
+        "ru": "Стратегии cache-first, network-first, stale-while-revalidate и cache-only с использованием Cache API"
+      },
+      "links": [],
+      "questions": []
+    },
+    {
+      "name": {
+        "en": "Web App Manifest & Installability",
+        "ru": "Web App Manifest и устанавливаемость"
+      },
+      "description": {
+        "en": "Manifest properties (name, icons, display, start_url), the beforeinstallprompt event, and home screen installation",
+        "ru": "Свойства манифеста (name, icons, display, start_url), событие beforeinstallprompt и установка на главный экран"
+      },
+      "links": [],
+      "questions": []
+    },
+    {
+      "name": {
+        "en": "Offline-first & Background Sync",
+        "ru": "Offline-first и фоновая синхронизация"
+      },
+      "description": {
+        "en": "Designing for offline-first, Background Sync API, and handling connectivity changes gracefully",
+        "ru": "Проектирование в стиле offline-first, Background Sync API и корректная обработка изменений сетевого подключения"
+      },
+      "links": [],
+      "questions": []
+    }
+  ]
+}

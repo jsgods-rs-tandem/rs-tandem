@@ -1,0 +1,59 @@
+{
+  "category": {
+    "name": { "en": "Performance & Optimization", "ru": "Производительность и оптимизация" },
+    "description": {
+      "en": "Web performance fundamentals: Core Web Vitals, rendering optimization, bundle size, lazy loading, and profiling",
+      "ru": "Основы веб-производительности: Core Web Vitals, оптимизация рендеринга, размер бандла, ленивая загрузка и профилирование"
+    }
+  },
+  "topics": [
+    {
+      "name": { "en": "Core Web Vitals", "ru": "Core Web Vitals" },
+      "description": {
+        "en": "LCP, FID/INP, CLS — Google's user-centric performance metrics, their thresholds, and how to measure them",
+        "ru": "LCP, FID/INP, CLS — пользориентированные метрики производительности Google, их пороговые значения и методы измерения"
+      },
+      "links": [],
+      "questions": []
+    },
+    {
+      "name": { "en": "Rendering Performance", "ru": "Производительность рендеринга" },
+      "description": {
+        "en": "Avoiding layout thrashing, GPU compositing, will-change, reducing reflows/repaints, and the RAIL model",
+        "ru": "Предотвращение layout thrashing, GPU-компоновка, will-change, сокращение reflow/repaint и модель RAIL"
+      },
+      "links": [],
+      "questions": []
+    },
+    {
+      "name": { "en": "Asset & Bundle Optimization", "ru": "Оптимизация ассетов и бандла" },
+      "description": {
+        "en": "Code splitting, tree-shaking, minification, compression (gzip/brotli), image optimization, and caching strategies",
+        "ru": "Разделение кода, tree-shaking, минификация, сжатие (gzip/brotli), оптимизация изображений и стратегии кэширования"
+      },
+      "links": [],
+      "questions": []
+    },
+    {
+      "name": { "en": "Lazy Loading & Code Splitting", "ru": "Ленивая загрузка и разделение кода" },
+      "description": {
+        "en": "Dynamic imports, route-based splitting, lazy loading images and components, and the Intersection Observer API",
+        "ru": "Динамические импорты, разделение по маршрутам, ленивая загрузка изображений и компонентов, Intersection Observer API"
+      },
+      "links": [],
+      "questions": []
+    },
+    {
+      "name": {
+        "en": "Performance Profiling & Auditing",
+        "ru": "Профилирование и аудит производительности"
+      },
+      "description": {
+        "en": "Using Lighthouse, Chrome DevTools Performance panel, Web Vitals library, and performance budgets",
+        "ru": "Использование Lighthouse, панели Performance в Chrome DevTools, библиотеки Web Vitals и бюджетов производительности"
+      },
+      "links": [],
+      "questions": []
+    }
+  ]
+}

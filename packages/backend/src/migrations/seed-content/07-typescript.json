@@ -1,0 +1,29 @@
+{
+  "category": {
+    "name": { "en": "TypeScript", "ru": "TypeScript" },
+    "description": {
+      "en": "Static typing for JavaScript: basic types, interfaces, generics, utility types, and type guards",
+      "ru": "Статическая типизация для JavaScript: базовые типы, интерфейсы, дженерики, утилитарные типы и type guards"
+    }
+  },
+  "topics": [
+    {
+      "name": { "en": "TypeScript Basics", "ru": "Основы TypeScript" },
+      "description": {
+        "en": "Basic types, enums, interfaces vs type aliases, optional/readonly properties, and function types",
+        "ru": "Базовые типы, перечисления, interface vs type, необязательные и readonly свойства, типы функций"
+      },
+      "links": [],
+      "questions": []
+    },
+    {
+      "name": { "en": "TypeScript Advanced", "ru": "TypeScript: продвинутый уровень" },
+      "description": {
+        "en": "Generics, utility types (Partial, Record, Pick, Omit), type guards, declaration merging, and module system",
+        "ru": "Дженерики, утилитарные типы (Partial, Record, Pick, Omit), type guards, слияние объявлений и модульная система"
+      },
+      "links": [],
+      "questions": []
+    }
+  ]
+}

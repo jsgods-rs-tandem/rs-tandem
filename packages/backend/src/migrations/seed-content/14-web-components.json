@@ -1,0 +1,50 @@
+{
+  "category": {
+    "name": { "en": "Web Components", "ru": "Веб-компоненты" },
+    "description": {
+      "en": "Native browser component model: Custom Elements, Shadow DOM, HTML Templates, and slots",
+      "ru": "Нативная компонентная модель браузера: Custom Elements, Shadow DOM, HTML Templates и слоты"
+    }
+  },
+  "topics": [
+    {
+      "name": { "en": "Custom Elements", "ru": "Пользовательские элементы" },
+      "description": {
+        "en": "Defining and registering custom HTML elements, lifecycle callbacks (connectedCallback, disconnectedCallback, attributeChangedCallback), and observed attributes",
+        "ru": "Определение и регистрация пользовательских HTML-элементов, коллбэки жизненного цикла (connectedCallback, disconnectedCallback, attributeChangedCallback) и наблюдаемые атрибуты"
+      },
+      "links": [],
+      "questions": []
+    },
+    {
+      "name": { "en": "Shadow DOM", "ru": "Shadow DOM" },
+      "description": {
+        "en": "Encapsulated DOM trees, open vs closed shadow roots, CSS scoping, and how styles cross the shadow boundary",
+        "ru": "Инкапсулированные DOM-деревья, открытый и закрытый shadow root, изоляция CSS и пересечение границ shadow DOM стилями"
+      },
+      "links": [],
+      "questions": []
+    },
+    {
+      "name": { "en": "HTML Templates & Slots", "ru": "HTML Templates и слоты" },
+      "description": {
+        "en": "The `<template>` element for inert markup, `<slot>` for content projection, and named slots",
+        "ru": "Элемент `<template>` для инертной разметки, `<slot>` для проецирования контента и именованные слоты"
+      },
+      "links": [],
+      "questions": []
+    },
+    {
+      "name": {
+        "en": "Web Components & Frameworks Interop",
+        "ru": "Совместимость веб-компонентов с фреймворками"
+      },
+      "description": {
+        "en": "Using Web Components inside Angular/React, event handling across boundaries, and when to choose Web Components over framework components",
+        "ru": "Использование веб-компонентов внутри Angular/React, обработка событий через границы и когда выбирать веб-компоненты вместо компонентов фреймворка"
+      },
+      "links": [],
+      "questions": []
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "category": {
+    "name": { "en": "Web Platform & Networking", "ru": "Веб-платформа и сети" },
+    "description": {
+      "en": "Internet fundamentals, HTTP, client-server interaction, REST, web security, and how browsers work",
+      "ru": "Основы интернета, HTTP, взаимодействие клиента и сервера, REST, веб-безопасность и принцип работы браузеров"
+    }
+  },
+  "topics": [
+    {
+      "name": { "en": "Internet Fundamentals", "ru": "Основы интернета" },
+      "description": {
+        "en": "How the internet works: DNS, TCP/IP, HTTP vs HTTPS, and status codes",
+        "ru": "Как работает интернет: DNS, TCP/IP, HTTP vs HTTPS и коды состояния"
+      },
+      "links": [],
+      "questions": []
+    },
+    {
+      "name": { "en": "Client–Server Interaction", "ru": "Взаимодействие клиента и сервера" },
+      "description": {
+        "en": "Network requests in the browser: Fetch API, XMLHttpRequest, CORS, and the same-origin policy",
+        "ru": "Сетевые запросы в браузере: Fetch API, XMLHttpRequest, CORS и политика одного источника"
+      },
+      "links": [],
+      "questions": []
+    },
+    {
+      "name": { "en": "RESTful API Style", "ru": "REST API" },
+      "description": {
+        "en": "REST constraints, HTTP methods, idempotency, statelessness, and resource design",
+        "ru": "Ограничения REST, HTTP-методы, идемпотентность, отсутствие состояния и проектирование ресурсов"
+      },
+      "links": [],
+      "questions": []
+    },
+    {
+      "name": { "en": "Web Security", "ru": "Веб-безопасность" },
+      "description": {
+        "en": "CORS, XSS, OWASP Top 10, authentication mechanisms (JWT, OAuth)",
+        "ru": "CORS, XSS, OWASP Top 10, механизмы аутентификации (JWT, OAuth)"
+      },
+      "links": [],
+      "questions": []
+    },
+    {
+      "name": { "en": "How Browsers Work", "ru": "Как работают браузеры" },
+      "description": {
+        "en": "Critical rendering path, parsing, DOM/CSSOM construction, reflow, repaint, and page lifecycle events",
+        "ru": "Критический путь рендеринга, парсинг, построение DOM/CSSOM, reflow, repaint и события жизненного цикла страницы"
+      },
+      "links": [],
+      "questions": []
+    }
+  ]
+}

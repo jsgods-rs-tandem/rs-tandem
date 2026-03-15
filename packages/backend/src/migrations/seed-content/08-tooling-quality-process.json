@@ -1,0 +1,65 @@
+{
+  "category": {
+    "name": { "en": "Tooling, Quality & Process", "ru": "Инструменты, качество и процессы" },
+    "description": {
+      "en": "Developer tooling, code quality practices, testing, CI/CD and agile methodologies",
+      "ru": "Инструменты разработчика, практики качества кода, тестирование, CI/CD и Agile-методологии"
+    }
+  },
+  "topics": [
+    {
+      "name": { "en": "Linters, Formatters & Husky", "ru": "Линтеры, форматтеры и Husky" },
+      "description": {
+        "en": "ESLint, Prettier, and enforcing code standards with Git hooks via Husky and lint-staged",
+        "ru": "ESLint, Prettier и обеспечение стандартов кода с помощью Git-хуков через Husky и lint-staged"
+      },
+      "links": [],
+      "questions": []
+    },
+    {
+      "name": { "en": "Code Review", "ru": "Code Review" },
+      "description": {
+        "en": "Best practices for giving and receiving code review feedback in a collaborative team",
+        "ru": "Лучшие практики проведения и получения обратной связи в процессе code review в команде"
+      },
+      "links": [],
+      "questions": []
+    },
+    {
+      "name": { "en": "Clean Code", "ru": "Чистый код" },
+      "description": {
+        "en": "Writing readable, maintainable code: naming, functions, comments, and refactoring principles",
+        "ru": "Написание читаемого, поддерживаемого кода: именование, функции, комментарии и принципы рефакторинга"
+      },
+      "links": [],
+      "questions": []
+    },
+    {
+      "name": { "en": "Testing", "ru": "Тестирование" },
+      "description": {
+        "en": "Test pyramid, unit/integration/E2E tests, TDD, BDD, and performance testing concepts",
+        "ru": "Пирамида тестирования, модульные/интеграционные/E2E тесты, TDD, BDD и концепции нагрузочного тестирования"
+      },
+      "links": [],
+      "questions": []
+    },
+    {
+      "name": { "en": "CI/CD", "ru": "CI/CD" },
+      "description": {
+        "en": "Continuous integration and continuous delivery pipelines, automation, and deployment strategies",
+        "ru": "Конвейеры непрерывной интеграции и доставки, автоматизация и стратегии развёртывания"
+      },
+      "links": [],
+      "questions": []
+    },
+    {
+      "name": { "en": "Scrum & Kanban", "ru": "Scrum и Kanban" },
+      "description": {
+        "en": "Agile, Scrum sprints and ceremonies, Kanban flow with WIP limits, and Waterfall comparison",
+        "ru": "Agile, спринты и церемонии Scrum, поток Kanban с WIP-лимитами и сравнение с Waterfall"
+      },
+      "links": [],
+      "questions": []
+    }
+  ]
+}
