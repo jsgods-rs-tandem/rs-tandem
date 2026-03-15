@@ -1,28 +1,36 @@
 import { Injectable, computed, signal } from '@angular/core';
 import { UserDto } from '@rs-tandem/shared';
 
-interface UserState {
-  data: UserDto | null;
+interface AuthState {
+  user: UserDto | null;
   isLoading: boolean;
   error: string | null;
 }
 
-const INITIAL_STATE: UserState = {
-  data: null,
+const INITIAL_STATE: AuthState = {
+  user: null,
   isLoading: false,
   error: null,
 };
 
 @Injectable({ providedIn: 'root' })
-export class UserStore {
-  private readonly _state = signal<UserState>(INITIAL_STATE);
+export class AuthStore {
+  private readonly _state = signal<AuthState>(INITIAL_STATE);
 
-  readonly user = computed(() => this._state().data);
+  readonly user = computed<UserDto | null>(() => {
+    const user = this._state().user;
+
+    return user ? { ...user } : null;
+  });
+
+  readonly name = computed(() => this._state().user?.displayName ?? null);
+  readonly email = computed(() => this._state().user?.email ?? null);
+
   readonly isLoading = computed(() => this._state().isLoading);
   readonly error = computed(() => this._state().error);
 
   setUser(user: UserDto): void {
-    this._state.set({ data: user, isLoading: false, error: null });
+    this._state.set({ user: user, isLoading: false, error: null });
   }
 
   clearUser(): void {
