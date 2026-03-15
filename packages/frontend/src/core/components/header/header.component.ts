@@ -47,6 +47,10 @@ export class HeaderComponent {
   languageAriaLabel = computed(() =>
     this.isEngLanguage() ? 'Switch to Russian language' : 'Switch to English language',
   );
+  // change ROUTE_PATHS.library to ROUTE_PATHS.dashboard when available
+  readonly logoLink = computed(() =>
+    this.authService.isAuthenticated() ? ROUTE_PATHS.library : ROUTE_PATHS.home,
+  );
 
   toggleTheme(): void {
     this.themeService.toggleTheme();
