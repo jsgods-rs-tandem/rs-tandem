@@ -7,6 +7,7 @@ import { ButtonComponent } from '@/shared/ui';
 import { AuthService } from '@/core/services/auth.service';
 import { AuthStore } from '@/core/store/auth.store';
 import { switchMap } from 'rxjs';
+import { ROUTE_PATHS } from '@/core/constants';
 
 @Component({
   selector: 'app-sign-in',
@@ -19,6 +20,8 @@ export class SignInComponent {
   private authService = inject(AuthService);
   private router = inject(Router);
   private authStore = inject(AuthStore);
+
+  readonly ROUTE_PATHS = ROUTE_PATHS;
 
   signInForm = new FormGroup({
     email: new FormControl('', [Validators.required, Validators.email]),
@@ -46,7 +49,7 @@ export class SignInComponent {
       .subscribe({
         next: (user) => {
           this.authStore.setUser(user);
-          void this.router.navigate(['/']);
+          void this.router.navigate([ROUTE_PATHS.home]);
         },
         error: (error) => {
           console.error('Login failed', error);

@@ -6,6 +6,7 @@ import { InputComponent } from '@/shared/ui/input/input.component';
 import { ButtonComponent } from '@/shared/ui';
 import { AuthService } from '@/core/services/auth.service';
 import { AuthStore } from '@/core/store/auth.store';
+import { ROUTE_PATHS } from '@/core/constants';
 
 @Component({
   selector: 'app-sign-up',
@@ -18,6 +19,8 @@ export class SignUpComponent {
   private authService = inject(AuthService);
   private router = inject(Router);
   private authStore = inject(AuthStore);
+
+  readonly ROUTE_PATHS = ROUTE_PATHS;
 
   signUpForm = new FormGroup({
     username: new FormControl('', [Validators.required, Validators.minLength(3)]),
@@ -46,7 +49,7 @@ export class SignUpComponent {
       .subscribe({
         next: (user) => {
           this.authStore.setUser(user);
-          void this.router.navigate(['/sign-in']);
+          void this.router.navigate([ROUTE_PATHS.signIn]);
         },
         error: (error) => {
           console.error('Registration failed', error);
