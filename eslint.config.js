@@ -16,6 +16,7 @@ export default defineConfig([
       '**/out-tsc/**',
       '**/.angular/**',
       '**/.cache/**',
+      '**/.idea/**',
       '**/tmp/**',
       'package-lock.json',
       'eslint.config.js',

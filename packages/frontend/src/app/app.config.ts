@@ -1,4 +1,4 @@
-import { ApplicationConfig } from '@angular/core';
+import { ApplicationConfig, provideAppInitializer } from '@angular/core';
 import {
   provideRouter,
   withInMemoryScrolling,
@@ -8,6 +8,7 @@ import {
 import { provideHttpClient, withInterceptors } from '@angular/common/http';
 import { routes } from './app.routes';
 import { authInterceptor } from '@/core/interceptors/auth.interceptor';
+import { initializeAuth } from '@/core/initializers/auth.initializer';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -21,5 +22,6 @@ export const appConfig: ApplicationConfig = {
       withHashLocation(),
     ),
     provideHttpClient(withInterceptors([authInterceptor])),
+    provideAppInitializer(initializeAuth),
   ],
 };

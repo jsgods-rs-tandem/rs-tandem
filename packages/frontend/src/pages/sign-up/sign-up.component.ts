@@ -5,6 +5,7 @@ import { AuthPageComponent } from '@/shared/ui/auth-page/auth-page.component';
 import { InputComponent } from '@/shared/ui/input/input.component';
 import { ButtonComponent } from '@/shared/ui';
 import { AuthService } from '@/core/services/auth.service';
+import { AuthStore } from '@/core/store/auth.store';
 import { ROUTE_PATHS } from '@/core/constants';
 
 @Component({
@@ -17,6 +18,7 @@ import { ROUTE_PATHS } from '@/core/constants';
 export class SignUpComponent {
   private authService = inject(AuthService);
   private router = inject(Router);
+  private authStore = inject(AuthStore);
 
   readonly ROUTE_PATHS = ROUTE_PATHS;
 
@@ -45,7 +47,8 @@ export class SignUpComponent {
         password: formValue.password,
       })
       .subscribe({
-        next: () => {
+        next: (user) => {
+          this.authStore.setUser(user);
           void this.router.navigate([ROUTE_PATHS.signIn]);
         },
         error: (error) => {
