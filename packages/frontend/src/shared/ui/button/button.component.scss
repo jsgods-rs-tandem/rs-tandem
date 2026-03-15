@@ -11,12 +11,9 @@
 }
 
 .button {
-  cursor: pointer;
+  $this: &;
 
   display: inline-flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
 
   width: 100%;
   height: 100%;
@@ -24,31 +21,34 @@
 
   text-transform: capitalize;
 
-  @include m.transition(
-    (background-color, transform, box-shadow, border-color, opacity),
-    var(--transition-duration-basic),
-    var(--transition-easing-func)
-  );
-
-  &_icon-end {
-    flex-direction: row-reverse;
-  }
+  @include m.transition((background-color, transform, box-shadow, border-color, opacity));
 
   ::ng-deep .icon {
-    @include m.transition(color, var(--transition-duration-basic), var(--transition-easing-func));
+    @include m.transition(color);
+  }
+
+  &__wrapper {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+
+    &_icon-end {
+      flex-direction: row-reverse;
+    }
   }
 
   &__text {
-    @include m.transition(
-      (border-color, color),
-      var(--transition-duration-basic),
-      var(--transition-easing-func)
-    );
+    @include m.transition((border-color, color));
     border-bottom: 1px solid transparent;
   }
 
+  &__spin {
+    @extend %position-center;
+    display: none;
+  }
+
   &_primary {
-    gap: var(--spacing-x2);
     padding: var(--spacing-x4) var(--spacing-x5);
     color: var(--primary-color);
     background-color: var(--btn-bg-color);
@@ -68,13 +68,20 @@
       outline: var(--button-border);
       outline-offset: 0;
     }
+
+    #{$this}__wrapper {
+      gap: var(--spacing-x2);
+    }
   }
 
   &_ghost,
   &_ghost_brand {
-    gap: var(--spacing-x1);
     padding: var(--spacing-x1);
     color: var(--secondary-color);
+
+    #{$this}__wrapper {
+      gap: var(--spacing-x1);
+    }
 
     @include m.hover {
       ::ng-deep .icon {
@@ -102,6 +109,22 @@
     text-decoration: none;
     opacity: 0.4;
     filter: saturate(0.1);
+  }
+
+  &_loading {
+    &#{&} {
+      position: relative;
+      opacity: initial;
+      filter: initial;
+
+      #{$this}__wrapper {
+        @extend %hidden;
+      }
+
+      #{$this}__spin {
+        display: inline-flex;
+      }
+    }
   }
 
   &_size {

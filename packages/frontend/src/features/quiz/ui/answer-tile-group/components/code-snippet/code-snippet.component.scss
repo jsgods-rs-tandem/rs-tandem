@@ -1,0 +1,19 @@
+:host {
+  display: block;
+}
+
+.code-snippet {
+  margin: 0;
+  border: 2px solid var(--secondary-color);
+  border-radius: var(--radius-sm);
+
+  &:focus {
+    outline: none;
+  }
+
+  &:focus-visible {
+    border-radius: var(--radius-sm);
+    outline: var(--button-border);
+    outline-offset: 2px;
+  }
+}

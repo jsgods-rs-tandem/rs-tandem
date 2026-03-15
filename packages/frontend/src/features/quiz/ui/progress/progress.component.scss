@@ -1,0 +1,81 @@
+@keyframes progress-active {
+  0% {
+    transform: translateX(-100%) scaleX(0);
+    opacity: 0.1;
+  }
+
+  20% {
+    transform: translateX(-100%) scaleX(0);
+    opacity: 0.5;
+  }
+
+  100% {
+    transform: translateX(0) scaleX(1);
+    opacity: 0;
+  }
+}
+
+.progress {
+  &__button {
+    display: inline-flex;
+    width: 100%;
+    font-family: inherit;
+    color: currentcolor;
+
+    &:focus {
+      outline: none;
+    }
+
+    &:focus-visible {
+      border-radius: var(--radius-sm);
+      outline: var(--button-border);
+      outline-offset: 2px;
+    }
+  }
+
+  &__bar {
+    display: flex;
+    gap: var(--spacing-x2);
+    align-items: center;
+    width: 100%;
+  }
+
+  &__rail {
+    position: relative;
+
+    overflow: hidden;
+    flex-grow: 1;
+
+    height: 12px;
+    border-radius: var(--radius-md);
+
+    background-color: lightgray;
+  }
+
+  &__track {
+    position: absolute;
+    inset-block-start: 0;
+    inset-inline-start: 0;
+
+    height: 100%;
+    border-radius: inherit;
+
+    background-color: var(--success-color);
+
+    &::before {
+      content: '';
+
+      position: absolute;
+      inset: 0;
+
+      width: 100%;
+      height: 100%;
+      border-radius: inherit;
+
+      opacity: 0;
+      background-color: var(--backdrop-color);
+
+      animation: progress-active 2.4s ease-in-out infinite;
+    }
+  }
+}

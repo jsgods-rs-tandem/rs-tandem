@@ -1,0 +1,38 @@
+.popover {
+  position: absolute;
+  inset: auto;
+  inset-block-end: anchor(top);
+  inset-inline-start: anchor(center);
+  transform: translate(-50%, calc(-1 * var(--spacing-x2)));
+
+  inline-size: max-content;
+  max-inline-size: 300px;
+  padding: 0 0 10px;
+  border: none;
+
+  background: transparent;
+
+  &__content {
+    position: relative;
+
+    padding: var(--spacing-x1) var(--spacing-x2);
+    border-radius: var(--radius-xs);
+
+    color: var(--primary-color);
+
+    background-color: rgb(var(--secondary-color-rgb), 0.8);
+
+    &::before {
+      content: '';
+
+      position: absolute;
+      inset-block-start: 100%;
+      inset-inline-start: 50%;
+      transform: translateX(-50%);
+
+      border-block-start: 10px solid rgb(var(--secondary-color-rgb), 0.8);
+      border-inline-start: 11px solid transparent;
+      border-inline-end: 11px solid transparent;
+    }
+  }
+}

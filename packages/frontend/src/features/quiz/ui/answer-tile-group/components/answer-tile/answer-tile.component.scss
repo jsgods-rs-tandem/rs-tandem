@@ -1,0 +1,69 @@
+@use 'assets/styles/placeholders';
+@use 'assets/styles/mixins' as mix;
+
+:host {
+  display: inline-flex;
+  width: 100%;
+}
+
+.answer-tile {
+  $this: &;
+  cursor: pointer;
+  user-select: none;
+
+  position: relative;
+
+  display: inline-flex;
+
+  width: 100%;
+  max-width: 60%;
+  margin-inline: auto;
+  padding: var(--spacing-x6) var(--spacing-x8);
+  border-radius: var(--radius-md);
+
+  color: var(--primary-color);
+  overflow-wrap: break-word;
+
+  background-color: var(--secondary-color);
+  @include mix.transition((background-color));
+
+  &:has(input:enabled) {
+    @include mix.hover {
+      background-color: var(--accent-color);
+    }
+  }
+
+  &:has(input:focus-visible) {
+    outline: var(--button-border);
+    outline-offset: 0;
+  }
+
+  &:has(input:checked:enabled) {
+    pointer-events: none;
+    background-color: var(--accent-color);
+  }
+
+  &:has(input:disabled) {
+    cursor: not-allowed;
+  }
+
+  &_success {
+    &#{&} {
+      &#{&} {
+        background-color: var(--success-color);
+      }
+    }
+  }
+
+  &_error {
+    &#{&} {
+      &#{&} {
+        background-color: var(--error-color);
+      }
+    }
+  }
+
+  &__input {
+    @extend %visually-hidden;
+  }
+}
