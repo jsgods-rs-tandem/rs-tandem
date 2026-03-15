@@ -2,6 +2,9 @@ import { HomeComponent } from '@/pages/home/home.component';
 import { Routes } from '@angular/router';
 import { SignInComponent } from '@/pages/sign-in/sign-in.component';
 import { SignUpComponent } from '@/pages/sign-up/sign-up.component';
+import { LibraryComponent } from '@/pages/library';
+// import { AiChatComponent } from '@/features';
+import { ROUTES } from '@/core/constants';
 
 import {
   CategoriesPageComponent,
@@ -12,13 +15,18 @@ import {
   topicBreadcrumbResolver,
 } from '@/features/quiz';
 
+import { authGuard } from '@/core/guards';
+
 export const routes: Routes = [
-  { path: '', component: HomeComponent },
-  { path: 'sign-in', component: SignInComponent },
-  { path: 'sign-up', component: SignUpComponent },
+  { path: ROUTES.home, component: HomeComponent, canActivate: [authGuard] },
+  { path: ROUTES.signIn, component: SignInComponent, canActivate: [authGuard] },
+  { path: ROUTES.signUp, component: SignUpComponent, canActivate: [authGuard] },
+  { path: ROUTES.library, component: LibraryComponent, canActivate: [authGuard] },
+  // { path: ROUTES.aiChat, component: AiChatComponent },
   {
-    path: 'quiz',
+    path: ROUTES.quiz,
     data: { breadcrumb: 'Quiz' },
+    canActivate: [authGuard],
     children: [
       {
         path: '',
@@ -26,7 +34,7 @@ export const routes: Routes = [
         component: CategoriesPageComponent,
       },
       {
-        path: ':categoryId',
+        path: ROUTES.quizCategory,
         resolve: { breadcrumb: categoryBreadcrumbResolver },
         children: [
           {
@@ -35,7 +43,7 @@ export const routes: Routes = [
             component: CategoryPageComponent,
           },
           {
-            path: 'topic/:topicId',
+            path: ROUTES.quizTopic,
             resolve: { breadcrumb: topicBreadcrumbResolver },
             children: [
               {
@@ -44,7 +52,7 @@ export const routes: Routes = [
                 component: QuizPageComponent,
               },
               {
-                path: 'results',
+                path: ROUTES.quizResults,
                 data: { breadcrumb: 'Results' },
                 component: ResultsPageComponent,
               },
@@ -54,5 +62,5 @@ export const routes: Routes = [
       },
     ],
   },
-  { path: '**', redirectTo: '' },
+  { path: ROUTES.notFound, redirectTo: '' },
 ];

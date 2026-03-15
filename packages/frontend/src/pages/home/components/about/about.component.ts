@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { ButtonComponent } from '@/shared/ui';
+import { ROUTE_PATHS } from '@/core/constants';
 
 @Component({
   selector: 'app-about',
@@ -8,6 +9,7 @@ import { ButtonComponent } from '@/shared/ui';
   styleUrl: './about.component.scss',
 })
 export class AboutComponent {
+  readonly ROUTE_PATHS = ROUTE_PATHS;
   readonly title = 'About';
   readonly highlightBrand = 'RS-Tandem';
   readonly firstParagraph =

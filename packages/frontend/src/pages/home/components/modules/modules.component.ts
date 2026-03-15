@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { ButtonComponent } from '@/shared/ui';
+import { ROUTE_PATHS } from '@/core/constants';
 
 @Component({
   selector: 'app-modules',
@@ -8,6 +9,7 @@ import { ButtonComponent } from '@/shared/ui';
   styleUrl: './modules.component.scss',
 })
 export class ModulesComponent {
+  readonly ROUTE_PATHS = ROUTE_PATHS;
   readonly title = 'Modules';
   readonly modules = [
     {

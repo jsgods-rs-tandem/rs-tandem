@@ -1,5 +1,6 @@
 import { Injectable, signal } from '@angular/core';
 import { NavLink } from '../components/navigation/navigation.types';
+import { ROUTE_PATHS } from '@/core/constants';
 
 @Injectable({ providedIn: 'root' })
 export class NavService {
@@ -11,9 +12,9 @@ export class NavService {
   ];
 
   private readonly authLinks: NavLink[] = [
-    { label: 'Library', path: '/library', isAnchor: false },
-    { label: 'Dashboard', path: '/dashboard', isAnchor: false },
-    { label: 'Profile', path: '/profile', isAnchor: false },
+    { label: 'Profile', path: ROUTE_PATHS.profile, isAnchor: false },
+    { label: 'Library', path: ROUTE_PATHS.library, isAnchor: false },
+    { label: 'Dashboard', path: ROUTE_PATHS.dashboard, isAnchor: false },
   ];
 
   links = signal<NavLink[]>(this.guestLinks);

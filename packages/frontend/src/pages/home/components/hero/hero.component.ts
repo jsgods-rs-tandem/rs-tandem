@@ -1,5 +1,6 @@
 import { IconComponent, ButtonComponent } from '@/shared/ui';
 import { Component } from '@angular/core';
+import { ROUTE_PATHS } from '@/core/constants';
 
 @Component({
   selector: 'app-hero',
@@ -8,6 +9,7 @@ import { Component } from '@angular/core';
   styleUrl: './hero.component.scss',
 })
 export class HeroComponent {
+  readonly ROUTE_PATHS = ROUTE_PATHS;
   readonly title = 'Tech \n Interview';
   readonly subtitle = 'Crush Your Next';
   readonly features = [

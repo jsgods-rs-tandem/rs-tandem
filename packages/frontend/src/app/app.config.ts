@@ -1,5 +1,10 @@
 import { ApplicationConfig } from '@angular/core';
-import { provideRouter, withInMemoryScrolling, withComponentInputBinding } from '@angular/router';
+import {
+  provideRouter,
+  withInMemoryScrolling,
+  withComponentInputBinding,
+  withHashLocation,
+} from '@angular/router';
 import { provideHttpClient, withInterceptors } from '@angular/common/http';
 import { routes } from './app.routes';
 import { authInterceptor } from '@/core/interceptors/auth.interceptor';
@@ -13,6 +18,7 @@ export const appConfig: ApplicationConfig = {
         scrollPositionRestoration: 'enabled',
       }),
       withComponentInputBinding(),
+      withHashLocation(),
     ),
     provideHttpClient(withInterceptors([authInterceptor])),
   ],
