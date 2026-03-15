@@ -1,4 +1,5 @@
 @use 'assets/styles/functions' as fn;
+@use 'assets/styles/mixins' as m;
 
 .team-card {
   display: flex;
@@ -16,12 +17,19 @@
   &_rotate {
     transform: rotate(-11.201deg);
     margin-left: var(--spacing-x2);
+    @include m.media('s') {
+      margin-top: var(--spacing-x1);
+      margin-left: var(--spacing-x1);
+    }
   }
 
   &__avatar {
     align-self: stretch;
     aspect-ratio: 1/1;
     height: 168px;
+    @include m.media('s') {
+      height: 180px;
+    }
   }
 
   &__body {
@@ -35,7 +43,7 @@
     display: inline-flex;
 
     ::ng-deep .button__text {
-      font-size: fn.to-rem(14px);
+      font-size: fn.fluid(12px, 14px);
       font-weight: var(--fw-regular);
       line-height: 1.4;
       text-transform: lowercase;

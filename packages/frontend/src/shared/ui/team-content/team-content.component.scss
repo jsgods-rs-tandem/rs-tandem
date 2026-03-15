@@ -1,5 +1,11 @@
+@use 'assets/styles/mixins' as m;
+
 .team-members__wrapper {
   display: flex;
   flex-flow: row wrap;
   gap: var(--spacing-x4) var(--spacing-x8);
+
+  @include m.media('s') {
+    justify-content: center;
+  }
 }
