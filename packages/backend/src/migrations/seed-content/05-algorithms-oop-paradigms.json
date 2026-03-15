@@ -14,7 +14,374 @@
         "ru": "Базовые алгоритмы, анализ сложности (Big O) и распространённые структуры данных"
       },
       "links": [],
-      "questions": []
+      "questions": [
+        {
+          "sortOrder": 1,
+          "name": {
+            "en": "What is the time complexity of accessing an element by index in an array?",
+            "ru": "Какова временная сложность доступа к элементу массива по индексу?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "Array index access is O(1) — constant time — because arrays store elements in contiguous memory and the element address is computed directly as `base + index * elementSize`.",
+            "ru": "Доступ по индексу — O(1), то есть константное время, поскольку элементы массива хранятся в непрерывной области памяти, а адрес вычисляется как `base + index * elementSize`."
+          },
+          "answers": [
+            { "text": { "en": "O(log n)", "ru": "O(log n)" }, "isCorrect": false },
+            { "text": { "en": "O(1)", "ru": "O(1)" }, "isCorrect": true },
+            { "text": { "en": "O(n)", "ru": "O(n)" }, "isCorrect": false },
+            { "text": { "en": "O(n log n)", "ru": "O(n log n)" }, "isCorrect": false }
+          ]
+        },
+        {
+          "sortOrder": 2,
+          "name": {
+            "en": "Which data structure follows the LIFO (Last In, First Out) principle?",
+            "ru": "Какая структура данных следует принципу LIFO (последним пришёл — первым вышел)?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "A stack follows LIFO: the last element pushed is the first to be popped. Common uses include call stacks, undo history, and expression parsing.",
+            "ru": "Стек следует принципу LIFO: последний добавленный элемент извлекается первым. Применяется в стеках вызовов, истории отмены и разборе выражений."
+          },
+          "answers": [
+            { "text": { "en": "Queue", "ru": "Очередь" }, "isCorrect": false },
+            { "text": { "en": "Stack", "ru": "Стек" }, "isCorrect": true },
+            { "text": { "en": "Linked list", "ru": "Связный список" }, "isCorrect": false },
+            { "text": { "en": "Heap", "ru": "Куча" }, "isCorrect": false }
+          ]
+        },
+        {
+          "sortOrder": 3,
+          "name": {
+            "en": "What is the worst-case time complexity of bubble sort?",
+            "ru": "Какова временная сложность пузырьковой сортировки в худшем случае?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "Bubble sort compares adjacent elements and swaps them if out of order, requiring up to n passes over n elements — giving O(n²) worst-case complexity.",
+            "ru": "Пузырьковая сортировка сравнивает соседние элементы и меняет их местами, выполняя до n проходов по n элементам — отсюда сложность O(n²) в худшем случае."
+          },
+          "answers": [
+            { "text": { "en": "O(n)", "ru": "O(n)" }, "isCorrect": false },
+            { "text": { "en": "O(n log n)", "ru": "O(n log n)" }, "isCorrect": false },
+            { "text": { "en": "O(n²)", "ru": "O(n²)" }, "isCorrect": true },
+            { "text": { "en": "O(log n)", "ru": "O(log n)" }, "isCorrect": false }
+          ]
+        },
+        {
+          "sortOrder": 4,
+          "name": {
+            "en": "Which data structure uses key-value pairs for O(1) average-case lookup?",
+            "ru": "Какая структура данных использует пары ключ-значение для поиска за O(1) в среднем случае?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "A hash map (hash table) maps keys to values via a hash function, enabling O(1) average-case insertions, deletions, and lookups. In JavaScript this is the `Map` object or a plain object.",
+            "ru": "Хеш-таблица сопоставляет ключи значениям через хеш-функцию, обеспечивая O(1) в среднем для вставки, удаления и поиска. В JavaScript это `Map` или обычный объект."
+          },
+          "answers": [
+            { "text": { "en": "Linked list", "ru": "Связный список" }, "isCorrect": false },
+            {
+              "text": { "en": "Binary search tree", "ru": "Двоичное дерево поиска" },
+              "isCorrect": false
+            },
+            { "text": { "en": "Hash map", "ru": "Хеш-таблица" }, "isCorrect": true },
+            { "text": { "en": "Stack", "ru": "Стек" }, "isCorrect": false }
+          ]
+        },
+        {
+          "sortOrder": 5,
+          "name": {
+            "en": "What does Big O notation describe?",
+            "ru": "Что описывает нотация Big O?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "Big O notation describes the upper bound of an algorithm's growth rate — how its runtime or space requirements scale with input size n in the worst case.",
+            "ru": "Нотация Big O описывает верхнюю границу скорости роста алгоритма — как его время работы или использование памяти масштабируется с размером входных данных n в худшем случае."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "The exact number of operations an algorithm performs",
+                "ru": "Точное количество операций, выполняемых алгоритмом"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "The best-case runtime of an algorithm",
+                "ru": "Время выполнения алгоритма в лучшем случае"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "The upper bound of an algorithm's growth rate relative to input size",
+                "ru": "Верхняя граница скорости роста алгоритма относительно размера входных данных"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "The memory usage of an algorithm in bytes",
+                "ru": "Использование памяти алгоритмом в байтах"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 6,
+          "name": {
+            "en": "What is the time complexity of binary search on a sorted array?",
+            "ru": "Какова временная сложность бинарного поиска в отсортированном массиве?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "Binary search halves the search space on every iteration, so it takes at most log₂(n) steps to find an element or confirm its absence — O(log n).",
+            "ru": "Бинарный поиск вдвое уменьшает пространство поиска на каждой итерации, поэтому для нахождения элемента требуется не более log₂(n) шагов — O(log n)."
+          },
+          "answers": [
+            { "text": { "en": "O(n)", "ru": "O(n)" }, "isCorrect": false },
+            { "text": { "en": "O(log n)", "ru": "O(log n)" }, "isCorrect": true },
+            { "text": { "en": "O(1)", "ru": "O(1)" }, "isCorrect": false },
+            { "text": { "en": "O(n²)", "ru": "O(n²)" }, "isCorrect": false }
+          ]
+        },
+        {
+          "sortOrder": 7,
+          "name": {
+            "en": "Which traversal algorithm uses a queue internally?",
+            "ru": "Какой алгоритм обхода использует очередь внутри себя?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "Breadth-First Search (BFS) uses a queue to explore nodes level by level. Depth-First Search (DFS) uses a stack (or recursion).",
+            "ru": "Поиск в ширину (BFS) использует очередь для обхода узлов уровень за уровнем. Поиск в глубину (DFS) использует стек (или рекурсию)."
+          },
+          "answers": [
+            {
+              "text": { "en": "Depth-First Search (DFS)", "ru": "Поиск в глубину (DFS)" },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "Breadth-First Search (BFS)", "ru": "Поиск в ширину (BFS)" },
+              "isCorrect": true
+            },
+            {
+              "text": { "en": "Dijkstra's algorithm", "ru": "Алгоритм Дейкстры" },
+              "isCorrect": false
+            },
+            { "text": { "en": "Binary search", "ru": "Бинарный поиск" }, "isCorrect": false }
+          ]
+        },
+        {
+          "sortOrder": 8,
+          "name": {
+            "en": "What property distinguishes a min-heap from a max-heap?",
+            "ru": "Чем минимальная куча отличается от максимальной?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "In a min-heap every parent node is less than or equal to its children, so the minimum element is always at the root. In a max-heap every parent is greater than or equal to its children.",
+            "ru": "В минимальной куче каждый родительский узел меньше или равен своим потомкам, поэтому минимальный элемент всегда находится в корне. В максимальной куче каждый родитель больше или равен потомкам."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "In a min-heap the root holds the maximum value",
+                "ru": "В минимальной куче корень содержит максимальное значение"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "In a min-heap every parent is less than or equal to its children",
+                "ru": "В минимальной куче каждый родитель меньше или равен своим потомкам"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "Min-heaps are always implemented as arrays; max-heaps as trees",
+                "ru": "Минимальные кучи всегда реализуются как массивы, а максимальные — как деревья"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Min-heaps only support insertion, not deletion",
+                "ru": "Минимальные кучи поддерживают только вставку, но не удаление"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 9,
+          "name": {
+            "en": "What is the average time complexity of quicksort?",
+            "ru": "Какова средняя временная сложность быстрой сортировки?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "Quicksort's average case is O(n log n) when pivots split the array roughly in half. Its worst case is O(n²) when the pivot is always the smallest or largest element (e.g., already-sorted input with a naive pivot selection).",
+            "ru": "Средняя сложность быстрой сортировки — O(n log n), когда опорный элемент делит массив примерно пополам. Худший случай — O(n²), когда опорный элемент всегда наименьший или наибольший."
+          },
+          "answers": [
+            { "text": { "en": "O(n²)", "ru": "O(n²)" }, "isCorrect": false },
+            { "text": { "en": "O(n log n)", "ru": "O(n log n)" }, "isCorrect": true },
+            { "text": { "en": "O(n)", "ru": "O(n)" }, "isCorrect": false },
+            { "text": { "en": "O(log n)", "ru": "O(log n)" }, "isCorrect": false }
+          ]
+        },
+        {
+          "sortOrder": 10,
+          "name": {
+            "en": "What algorithm technique solves problems by breaking them into overlapping subproblems and storing results?",
+            "ru": "Какая алгоритмическая техника решает задачи, разбивая их на перекрывающиеся подзадачи и сохраняя результаты?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "Dynamic programming (DP) solves complex problems by breaking them into overlapping subproblems, solving each once, and storing the results (memoization or tabulation) to avoid redundant computation.",
+            "ru": "Динамическое программирование (DP) решает сложные задачи, разбивая их на перекрывающиеся подзадачи, решая каждую один раз и сохраняя результаты (мемоизация или табуляция) для избежания повторных вычислений."
+          },
+          "answers": [
+            { "text": { "en": "Greedy algorithm", "ru": "Жадный алгоритм" }, "isCorrect": false },
+            {
+              "text": { "en": "Divide and conquer", "ru": "Разделяй и властвуй" },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "Dynamic programming", "ru": "Динамическое программирование" },
+              "isCorrect": true
+            },
+            { "text": { "en": "Backtracking", "ru": "Метод с возвратом" }, "isCorrect": false }
+          ]
+        },
+        {
+          "sortOrder": 11,
+          "name": {
+            "en": "What is the space complexity of merge sort?",
+            "ru": "Какова пространственная сложность сортировки слиянием?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "Merge sort requires O(n) auxiliary space to hold the temporary merged arrays, in addition to the O(log n) recursion stack depth.",
+            "ru": "Сортировка слиянием требует O(n) дополнительной памяти для временных массивов плюс O(log n) для стека рекурсии."
+          },
+          "answers": [
+            { "text": { "en": "O(1)", "ru": "O(1)" }, "isCorrect": false },
+            { "text": { "en": "O(log n)", "ru": "O(log n)" }, "isCorrect": false },
+            { "text": { "en": "O(n)", "ru": "O(n)" }, "isCorrect": true },
+            { "text": { "en": "O(n²)", "ru": "O(n²)" }, "isCorrect": false }
+          ]
+        },
+        {
+          "sortOrder": 12,
+          "name": {
+            "en": "In a singly linked list, what is the time complexity of inserting a node at the head?",
+            "ru": "Какова временная сложность вставки узла в начало односвязного списка?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "Inserting at the head of a singly linked list is O(1): just create a new node, point its `next` to the current head, and update the head reference — no traversal required.",
+            "ru": "Вставка в начало односвязного списка — O(1): создаётся новый узел, его `next` указывает на текущую голову, после чего обновляется ссылка на голову — обход не требуется."
+          },
+          "answers": [
+            { "text": { "en": "O(n)", "ru": "O(n)" }, "isCorrect": false },
+            { "text": { "en": "O(log n)", "ru": "O(log n)" }, "isCorrect": false },
+            { "text": { "en": "O(1)", "ru": "O(1)" }, "isCorrect": true },
+            { "text": { "en": "O(n²)", "ru": "O(n²)" }, "isCorrect": false }
+          ]
+        },
+        {
+          "sortOrder": 13,
+          "name": {
+            "en": "What graph algorithm finds the shortest path in a weighted graph with non-negative edges?",
+            "ru": "Какой алгоритм на графах находит кратчайший путь во взвешенном графе с неотрицательными рёбрами?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "Dijkstra's algorithm uses a priority queue to greedily extend the shortest known path, guaranteeing the minimum-cost path for graphs with non-negative edge weights.",
+            "ru": "Алгоритм Дейкстры использует приоритетную очередь для жадного расширения кратчайшего известного пути, гарантируя минимальную стоимость для графов с неотрицательными весами рёбер."
+          },
+          "answers": [
+            { "text": { "en": "Bellman-Ford", "ru": "Беллман-Форд" }, "isCorrect": false },
+            {
+              "text": { "en": "Dijkstra's algorithm", "ru": "Алгоритм Дейкстры" },
+              "isCorrect": true
+            },
+            { "text": { "en": "Floyd-Warshall", "ru": "Флойд-Уоршелл" }, "isCorrect": false },
+            {
+              "text": { "en": "Kruskal's algorithm", "ru": "Алгоритм Крускала" },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 14,
+          "name": {
+            "en": "What is the key invariant of a binary search tree (BST)?",
+            "ru": "Каков ключевой инвариант двоичного дерева поиска (BST)?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "In a BST every node's left subtree contains only nodes with keys less than the node's key, and every right subtree contains only nodes with keys greater than the node's key. This invariant enables O(log n) average-case search.",
+            "ru": "В BST левое поддерево каждого узла содержит только узлы с ключами меньше ключа данного узла, а правое — только узлы с большими ключами. Этот инвариант обеспечивает поиск за O(log n) в среднем."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "Every node has exactly two children",
+                "ru": "Каждый узел имеет ровно двух потомков"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Left subtree values are less than the node; right subtree values are greater",
+                "ru": "Значения в левом поддереве меньше узла; значения в правом — больше"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "The tree is always perfectly balanced",
+                "ru": "Дерево всегда идеально сбалансировано"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Duplicate keys are stored in the left subtree",
+                "ru": "Дублирующиеся ключи хранятся в левом поддереве"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 15,
+          "name": {
+            "en": "Which sorting algorithm has O(n) best-case time and is efficient for nearly-sorted data?",
+            "ru": "Какой алгоритм сортировки имеет O(n) в лучшем случае и эффективен для почти отсортированных данных?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "Insertion sort scans from left to right and inserts each element into its correct position among the already-sorted left portion. For nearly-sorted data each element moves very little, yielding O(n) best-case performance.",
+            "ru": "Сортировка вставками проходит слева направо и вставляет каждый элемент на правильное место среди уже отсортированной левой части. Для почти отсортированных данных каждый элемент перемещается незначительно, обеспечивая O(n) в лучшем случае."
+          },
+          "answers": [
+            { "text": { "en": "Quicksort", "ru": "Быстрая сортировка" }, "isCorrect": false },
+            { "text": { "en": "Merge sort", "ru": "Сортировка слиянием" }, "isCorrect": false },
+            { "text": { "en": "Insertion sort", "ru": "Сортировка вставками" }, "isCorrect": true },
+            { "text": { "en": "Heap sort", "ru": "Пирамидальная сортировка" }, "isCorrect": false }
+          ]
+        }
+      ]
     },
     {
       "name": { "en": "Classes & Prototypes / OOP", "ru": "Классы, прототипы и ООП" },
@@ -23,7 +390,473 @@
         "ru": "Цепочка прототипов, синтаксис классов ES6, функции-конструкторы, наследование, публичные/приватные члены и принципы ООП"
       },
       "links": [],
-      "questions": []
+      "questions": [
+        {
+          "sortOrder": 1,
+          "name": {
+            "en": "What does the `prototype` property on a constructor function point to?",
+            "ru": "На что указывает свойство `prototype` функции-конструктора?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "The `prototype` property of a constructor function is an object that becomes the `[[Prototype]]` of all instances created with `new`. Methods placed on `Constructor.prototype` are shared across all instances.",
+            "ru": "Свойство `prototype` функции-конструктора — это объект, который становится `[[Prototype]]` всех экземпляров, созданных с помощью `new`. Методы, помещённые на `Constructor.prototype`, разделяются между всеми экземплярами."
+          },
+          "answers": [
+            {
+              "text": { "en": "The constructor function itself", "ru": "Саму функцию-конструктор" },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "The object that becomes the `[[Prototype]]` of instances created with `new`",
+                "ru": "Объект, который становится `[[Prototype]]` экземпляров, созданных через `new`"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": { "en": "The parent class", "ru": "Родительский класс" },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "The `Object` global", "ru": "Глобальный объект `Object`" },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 2,
+          "name": {
+            "en": "What are the four core principles of OOP?",
+            "ru": "Каковы четыре основных принципа ООП?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "The four pillars of OOP are encapsulation (bundling data and methods), abstraction (hiding implementation details), inheritance (deriving new classes from existing ones), and polymorphism (objects of different types responding to the same interface).",
+            "ru": "Четыре столпа ООП: инкапсуляция (объединение данных и методов), абстракция (скрытие деталей реализации), наследование (создание новых классов на основе существующих) и полиморфизм (объекты разных типов реагируют на один интерфейс)."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "Recursion, iteration, abstraction, modularity",
+                "ru": "Рекурсия, итерация, абстракция, модульность"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Encapsulation, abstraction, inheritance, polymorphism",
+                "ru": "Инкапсуляция, абстракция, наследование, полиморфизм"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "Classes, objects, methods, properties",
+                "ru": "Классы, объекты, методы, свойства"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Composition, delegation, mixins, prototypes",
+                "ru": "Композиция, делегирование, миксины, прототипы"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 3,
+          "name": {
+            "en": "What happens when a property is not found on an object during property lookup?",
+            "ru": "Что происходит, когда свойство не найдено на объекте при его поиске?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "JavaScript walks up the prototype chain — checking `[[Prototype]]` of the object, then `[[Prototype]]` of that, and so on — until the property is found or the chain ends at `null` (top of the chain), at which point `undefined` is returned.",
+            "ru": "JavaScript проходит по цепочке прототипов — проверяет `[[Prototype]]` объекта, затем `[[Prototype]]` этого объекта и так далее — пока свойство не будет найдено или цепочка не закончится `null`, после чего возвращается `undefined`."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "An error is immediately thrown",
+                "ru": "Немедленно выбрасывается ошибка"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "The engine searches up the prototype chain until the property is found or `null` is reached",
+                "ru": "Движок проходит по цепочке прототипов до тех пор, пока свойство не найдено или не достигнут `null`"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "The property is created automatically with value `undefined`",
+                "ru": "Свойство автоматически создаётся со значением `undefined`"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "The search stops at the direct parent class only",
+                "ru": "Поиск останавливается только на прямом родительском классе"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 4,
+          "name": {
+            "en": "What keyword must be called in a subclass constructor before accessing `this`?",
+            "ru": "Какое ключевое слово должно быть вызвано в конструкторе подкласса до обращения к `this`?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "`super()` must be called before any reference to `this` in a derived class constructor. It invokes the parent class constructor and initializes the `this` object for the subclass.",
+            "ru": "`super()` должен быть вызван до любого обращения к `this` в конструкторе производного класса. Он вызывает конструктор родительского класса и инициализирует объект `this` для подкласса."
+          },
+          "answers": [
+            { "text": { "en": "`parent()`", "ru": "`parent()`" }, "isCorrect": false },
+            { "text": { "en": "`super()`", "ru": "`super()`" }, "isCorrect": true },
+            { "text": { "en": "`base()`", "ru": "`base()`" }, "isCorrect": false },
+            { "text": { "en": "`init()`", "ru": "`init()`" }, "isCorrect": false }
+          ]
+        },
+        {
+          "sortOrder": 5,
+          "name": {
+            "en": "How do you declare a truly private field in an ES2022 class?",
+            "ru": "Как объявить по-настоящему приватное поле в классе ES2022?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "The `#` prefix declares a private class field (ES2022). It is inaccessible outside the class body — not even via bracket notation — and throws a `SyntaxError` if accessed externally.",
+            "ru": "Префикс `#` объявляет приватное поле класса (ES2022). Оно недоступно за пределами тела класса — даже через скобочную нотацию — и при внешнем обращении выбрасывается `SyntaxError`."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "Use the `private` keyword: `private name`",
+                "ru": "Использовать ключевое слово `private`: `private name`"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Prefix the field with `#`: `#name`",
+                "ru": "Добавить к полю префикс `#`: `#name`"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "Prefix the field with `_`: `_name`",
+                "ru": "Добавить к полю префикс `_`: `_name`"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Wrap it in a closure inside the constructor",
+                "ru": "Обернуть его в замыкание внутри конструктора"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 6,
+          "name": {
+            "en": "What does `Object.create(proto)` do?",
+            "ru": "Что делает `Object.create(proto)`?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "`Object.create(proto)` creates a new object whose `[[Prototype]]` is set to `proto`. It is the most direct way to set up prototypal inheritance without using constructor functions or `class` syntax.",
+            "ru": "`Object.create(proto)` создаёт новый объект, у которого `[[Prototype]]` установлен в `proto`. Это наиболее прямой способ настроить прототипное наследование без функций-конструкторов или синтаксиса `class`."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "Copies all own properties from `proto` to a new object",
+                "ru": "Копирует все собственные свойства из `proto` в новый объект"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Creates a new object with `[[Prototype]]` set to `proto`",
+                "ru": "Создаёт новый объект с `[[Prototype]]`, установленным в `proto`"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "Freezes `proto` and returns a clone",
+                "ru": "Замораживает `proto` и возвращает его клон"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Creates a deep copy of `proto`",
+                "ru": "Создаёт глубокую копию `proto`"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 7,
+          "name": {
+            "en": "What is the difference between classical inheritance and prototypal inheritance?",
+            "ru": "В чём разница между классическим и прототипным наследованием?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "Classical inheritance (e.g., Java, C++) copies behaviour from a class blueprint into instances at creation time. Prototypal inheritance (JavaScript) links objects directly at runtime via the `[[Prototype]]` chain — behaviour is looked up dynamically, not copied.",
+            "ru": "Классическое наследование (например, Java, C++) копирует поведение из шаблона класса в экземпляры при создании. Прототипное наследование (JavaScript) связывает объекты напрямую во время выполнения через цепочку `[[Prototype]]` — поведение ищется динамически, а не копируется."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "They are identical; ES6 `class` makes JavaScript's model the same as Java's",
+                "ru": "Они одинаковы; ES6 `class` делает модель JavaScript такой же, как у Java"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Classical inheritance copies behaviour into instances; prototypal inheritance links objects via the prototype chain",
+                "ru": "Классическое наследование копирует поведение в экземпляры; прототипное — связывает объекты через цепочку прототипов"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "Prototypal inheritance only works in ES5, not in modern JavaScript",
+                "ru": "Прототипное наследование работает только в ES5, а не в современном JavaScript"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Classical inheritance supports multiple inheritance; prototypal does not",
+                "ru": "Классическое наследование поддерживает множественное наследование; прототипное — нет"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 8,
+          "name": {
+            "en": "What does the `instanceof` operator check?",
+            "ru": "Что проверяет оператор `instanceof`?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "`instanceof` traverses the `[[Prototype]]` chain of the left-hand operand looking for `Constructor.prototype`. It returns `true` if found, `false` otherwise — it does NOT check the actual constructor function that created the object.",
+            "ru": "`instanceof` проходит по цепочке `[[Prototype]]` левого операнда в поисках `Constructor.prototype`. Возвращает `true`, если найдено, иначе `false` — он НЕ проверяет фактическую функцию-конструктор, создавшую объект."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "Whether an object was created by a specific constructor function call",
+                "ru": "Был ли объект создан конкретным вызовом функции-конструктора"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Whether `Constructor.prototype` exists anywhere in the object's prototype chain",
+                "ru": "Присутствует ли `Constructor.prototype` в цепочке прототипов объекта"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "Whether the object has a property named `constructor`",
+                "ru": "Есть ли у объекта свойство с именем `constructor`"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Whether the object's type matches a primitive type",
+                "ru": "Соответствует ли тип объекта примитивному типу"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 9,
+          "name": { "en": "What is encapsulation in OOP?", "ru": "Что такое инкапсуляция в ООП?" },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "Encapsulation bundles data (fields) and the methods that operate on that data into a single unit (class/object), restricting direct access to the internal state from outside code. This protects the object's integrity.",
+            "ru": "Инкапсуляция объединяет данные (поля) и методы, работающие с этими данными, в единое целое (класс/объект), ограничивая прямой доступ к внутреннему состоянию извне. Это защищает целостность объекта."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "The ability of a class to inherit methods from another class",
+                "ru": "Способность класса наследовать методы другого класса"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Bundling data and methods into a single unit and restricting external access to internal state",
+                "ru": "Объединение данных и методов в единое целое с ограничением внешнего доступа к внутреннему состоянию"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "Defining multiple methods with the same name",
+                "ru": "Определение нескольких методов с одинаковым именем"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Hiding the implementation of an algorithm behind a simple interface",
+                "ru": "Скрытие реализации алгоритма за простым интерфейсом"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 10,
+          "name": {
+            "en": "Which ES6 `class` feature allows a method to be called on the class itself rather than on instances?",
+            "ru": "Какая возможность ES6 `class` позволяет вызывать метод на самом классе, а не на экземплярах?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "Static methods (declared with the `static` keyword) belong to the class constructor itself, not to instances. They are called as `ClassName.method()` and do not have access to instance properties via `this`.",
+            "ru": "Статические методы (объявляются с ключевым словом `static`) принадлежат самому конструктору класса, а не экземплярам. Вызываются как `ClassName.method()` и не имеют доступа к свойствам экземпляра через `this`."
+          },
+          "answers": [
+            {
+              "text": { "en": "Abstract methods", "ru": "Абстрактные методы" },
+              "isCorrect": false
+            },
+            { "text": { "en": "Static methods", "ru": "Статические методы" }, "isCorrect": true },
+            { "text": { "en": "Private methods", "ru": "Приватные методы" }, "isCorrect": false },
+            { "text": { "en": "Getter methods", "ru": "Методы-геттеры" }, "isCorrect": false }
+          ]
+        },
+        {
+          "sortOrder": 11,
+          "name": {
+            "en": "What is polymorphism in the context of JavaScript classes?",
+            "ru": "Что такое полиморфизм в контексте классов JavaScript?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "Polymorphism allows objects of different classes to be treated through the same interface. In JavaScript this commonly manifests as method overriding — a subclass provides its own implementation of a method defined in the parent class.",
+            "ru": "Полиморфизм позволяет объектам разных классов обрабатываться через один интерфейс. В JavaScript это чаще всего проявляется как переопределение методов — подкласс предоставляет собственную реализацию метода, определённого в родительском классе."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "The ability to create multiple instances of the same class",
+                "ru": "Способность создавать несколько экземпляров одного класса"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Objects of different classes responding to the same interface, often via method overriding",
+                "ru": "Объекты разных классов, реагирующие на один интерфейс, часто через переопределение методов"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "A class that inherits from more than one parent",
+                "ru": "Класс, наследующий от более чем одного родителя"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Defining a method that accepts different numbers of arguments",
+                "ru": "Определение метода, принимающего разное количество аргументов"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 12,
+          "name": {
+            "en": "What is the output of `typeof class Foo {}`?",
+            "ru": "Каков результат `typeof class Foo {}`?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "ES6 `class` declarations are syntactic sugar over constructor functions. The `typeof` operator returns `'function'` for class expressions and declarations, because classes are ultimately functions.",
+            "ru": "Объявления ES6 `class` — это синтаксический сахар над функциями-конструкторами. Оператор `typeof` возвращает `'function'` для выражений и объявлений классов, поскольку классы по сути являются функциями."
+          },
+          "answers": [
+            { "text": { "en": "'class'", "ru": "'class'" }, "isCorrect": false },
+            { "text": { "en": "'object'", "ru": "'object'" }, "isCorrect": false },
+            { "text": { "en": "'function'", "ru": "'function'" }, "isCorrect": true },
+            { "text": { "en": "'undefined'", "ru": "'undefined'" }, "isCorrect": false }
+          ]
+        },
+        {
+          "sortOrder": 13,
+          "name": {
+            "en": "What problem does the mixin pattern solve in JavaScript?",
+            "ru": "Какую проблему решает паттерн миксин в JavaScript?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "JavaScript classes support single inheritance only. Mixins are a pattern for composing behaviour from multiple sources by copying methods onto a class's prototype, simulating multiple inheritance without formal language support.",
+            "ru": "Классы JavaScript поддерживают только единственное наследование. Миксины — это паттерн для объединения поведения из нескольких источников путём копирования методов на прототип класса, имитируя множественное наследование без формальной поддержки языка."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "Adding private fields to a class without the `#` syntax",
+                "ru": "Добавление приватных полей в класс без синтаксиса `#`"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Composing behaviour from multiple sources when single inheritance is insufficient",
+                "ru": "Объединение поведения из нескольких источников, когда единственного наследования недостаточно"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "Automatically serialising class instances to JSON",
+                "ru": "Автоматическая сериализация экземпляров классов в JSON"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Preventing a class from being extended",
+                "ru": "Предотвращение расширения класса"
+              },
+              "isCorrect": false
+            }
+          ]
+        }
+      ]
     },
     {
       "name": { "en": "Functional Programming", "ru": "Функциональное программирование" },
@@ -32,7 +865,467 @@
         "ru": "Чистые функции, иммутабельность, каррирование, частичное применение, IIFE и избегание callback hell"
       },
       "links": [],
-      "questions": []
+      "questions": [
+        {
+          "sortOrder": 1,
+          "name": { "en": "What is a pure function?", "ru": "Что такое чистая функция?" },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "A pure function always returns the same output for the same input and produces no side effects (no mutations of external state, no I/O, no random values). Pure functions are predictable and easy to test.",
+            "ru": "Чистая функция всегда возвращает одинаковый результат для одних и тех же входных данных и не производит побочных эффектов (нет мутаций внешнего состояния, нет ввода-вывода, нет случайных значений). Чистые функции предсказуемы и легко тестируются."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "A function that does not use arrow syntax",
+                "ru": "Функция, которая не использует синтаксис стрелки"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "A function that always returns the same output for the same input and has no side effects",
+                "ru": "Функция, которая всегда возвращает одинаковый результат для одинаковых входных данных и не имеет побочных эффектов"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "A function declared with the `function` keyword instead of `const`",
+                "ru": "Функция, объявленная с ключевым словом `function` вместо `const`"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "A function that returns a primitive value",
+                "ru": "Функция, возвращающая примитивное значение"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 2,
+          "name": {
+            "en": "What does immutability mean in functional programming?",
+            "ru": "Что означает иммутабельность в функциональном программировании?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "Immutability means that data cannot be changed after it is created. Instead of modifying an existing value, you create a new value. This prevents unexpected side effects and makes state changes explicit and traceable.",
+            "ru": "Иммутабельность означает, что данные нельзя изменить после создания. Вместо изменения существующего значения создаётся новое. Это предотвращает неожиданные побочные эффекты и делает изменения состояния явными и отслеживаемыми."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "Variables declared with `const` can never be reassigned",
+                "ru": "Переменные, объявленные с `const`, никогда не могут быть переназначены"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Data is not changed after creation; new values are produced instead of mutating existing ones",
+                "ru": "Данные не изменяются после создания; вместо мутации существующих создаются новые значения"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "Objects are frozen with `Object.freeze()` in all cases",
+                "ru": "Объекты замораживаются с помощью `Object.freeze()` во всех случаях"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Functions cannot modify their arguments",
+                "ru": "Функции не могут изменять свои аргументы"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 3,
+          "name": { "en": "What is currying?", "ru": "Что такое каррирование?" },
+          "codeSnippet": "// Curried add\nconst add = (a) => (b) => a + b;\nconst add5 = add(5);\nconsole.log(add5(3)); // 8",
+          "explanation": {
+            "en": "Currying transforms a function that takes multiple arguments into a sequence of functions each taking a single argument. `add(5)` returns a new function `add5` that adds 5 to whatever argument it receives.",
+            "ru": "Каррирование преобразует функцию с несколькими аргументами в последовательность функций, каждая из которых принимает один аргумент. `add(5)` возвращает новую функцию `add5`, которая прибавляет 5 к любому переданному аргументу."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "Calling a function with more arguments than it declares",
+                "ru": "Вызов функции с большим количеством аргументов, чем она объявляет"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Transforming a multi-argument function into a chain of single-argument functions",
+                "ru": "Преобразование функции с несколькими аргументами в цепочку функций с одним аргументом"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "Pre-filling some arguments of a function while keeping the original signature",
+                "ru": "Предварительное заполнение некоторых аргументов функции с сохранением исходной сигнатуры"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Converting a synchronous function into an asynchronous one",
+                "ru": "Преобразование синхронной функции в асинхронную"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 4,
+          "name": {
+            "en": "What is an IIFE and what is its main use case?",
+            "ru": "Что такое IIFE и для чего он используется?"
+          },
+          "codeSnippet": "(function() {\n  const secret = 42;\n  console.log(secret);\n})();",
+          "explanation": {
+            "en": "An IIFE (Immediately Invoked Function Expression) is a function defined and executed in the same expression. Its primary use is to create a private scope, preventing variables from leaking into the surrounding (often global) scope.",
+            "ru": "IIFE (Immediately Invoked Function Expression, немедленно вызываемое функциональное выражение) — это функция, которая определяется и вызывается в одном и том же выражении. Основное применение — создание приватной области видимости для предотвращения утечки переменных во внешнюю (часто глобальную) область."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "A function that is imported immediately from another module",
+                "ru": "Функция, которая немедленно импортируется из другого модуля"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "A function defined and executed immediately to create a private scope",
+                "ru": "Функция, которая определяется и вызывается немедленно для создания приватной области видимости"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "A function that always returns a Promise",
+                "ru": "Функция, которая всегда возвращает Promise"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "An arrow function assigned to a variable",
+                "ru": "Стрелочная функция, присвоенная переменной"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 5,
+          "name": {
+            "en": "Which `Array` method returns a new array with elements transformed by a callback without mutating the original?",
+            "ru": "Какой метод `Array` возвращает новый массив с элементами, преобразованными коллбэком, не мутируя исходный?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "`Array.prototype.map()` applies a callback to each element and returns a new array of the results. The original array is not mutated, making it a core functional programming tool in JavaScript.",
+            "ru": "`Array.prototype.map()` применяет коллбэк к каждому элементу и возвращает новый массив результатов. Исходный массив не мутируется, что делает его ключевым инструментом функционального программирования в JavaScript."
+          },
+          "answers": [
+            { "text": { "en": "`forEach`", "ru": "`forEach`" }, "isCorrect": false },
+            { "text": { "en": "`map`", "ru": "`map`" }, "isCorrect": true },
+            { "text": { "en": "`splice`", "ru": "`splice`" }, "isCorrect": false },
+            { "text": { "en": "`push`", "ru": "`push`" }, "isCorrect": false }
+          ]
+        },
+        {
+          "sortOrder": 6,
+          "name": { "en": "What is function composition?", "ru": "Что такое композиция функций?" },
+          "codeSnippet": "const compose = (f, g) => (x) => f(g(x));\nconst double = (x) => x * 2;\nconst inc = (x) => x + 1;\nconst doubleThenInc = compose(inc, double);\nconsole.log(doubleThenInc(3)); // 7",
+          "explanation": {
+            "en": "Function composition combines two or more functions so the output of one becomes the input of the next. `compose(f, g)(x)` is equivalent to `f(g(x))` — `g` runs first, then `f` receives its result.",
+            "ru": "Композиция функций объединяет две или более функций так, что выход одной становится входом следующей. `compose(f, g)(x)` эквивалентно `f(g(x))` — сначала выполняется `g`, затем `f` получает её результат."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "Defining multiple functions inside a single module",
+                "ru": "Определение нескольких функций внутри одного модуля"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Combining functions so the output of one becomes the input of the next",
+                "ru": "Объединение функций так, что выход одной становится входом следующей"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "Calling several functions with the same arguments at once",
+                "ru": "Вызов нескольких функций с одними и теми же аргументами одновременно"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Memoising the result of a pure function",
+                "ru": "Мемоизация результата чистой функции"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 7,
+          "name": { "en": "What is partial application?", "ru": "Что такое частичное применение?" },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "Partial application fixes one or more arguments of a function, returning a new function that requires fewer arguments. Unlike currying (which always produces unary functions), partial application can fix any number of arguments at once.",
+            "ru": "Частичное применение фиксирует один или несколько аргументов функции, возвращая новую функцию с меньшим числом аргументов. В отличие от каррирования (которое всегда создаёт унарные функции), частичное применение может фиксировать любое количество аргументов сразу."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "Calling a function with fewer arguments than it expects, which always throws an error",
+                "ru": "Вызов функции с меньшим количеством аргументов, что всегда вызывает ошибку"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Fixing some arguments of a function upfront, returning a new function with fewer required arguments",
+                "ru": "Фиксация некоторых аргументов функции заранее с возвратом новой функции с меньшим числом требуемых аргументов"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "Transforming a multi-argument function into a chain of single-argument functions",
+                "ru": "Преобразование функции с несколькими аргументами в цепочку функций с одним аргументом"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Applying a function to only the first element of an array",
+                "ru": "Применение функции только к первому элементу массива"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 8,
+          "name": {
+            "en": "What is a higher-order function?",
+            "ru": "Что такое функция высшего порядка?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "A higher-order function either accepts a function as an argument or returns a function as its result (or both). Examples in JavaScript include `map`, `filter`, `reduce`, and `setTimeout`.",
+            "ru": "Функция высшего порядка либо принимает функцию в качестве аргумента, либо возвращает функцию в качестве результата (или и то, и другое). Примеры в JavaScript: `map`, `filter`, `reduce`, `setTimeout`."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "A function with more than 10 lines of code",
+                "ru": "Функция с более чем 10 строками кода"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "A function that takes a function as an argument or returns a function",
+                "ru": "Функция, которая принимает функцию в качестве аргумента или возвращает функцию"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "A function defined inside a class",
+                "ru": "Функция, определённая внутри класса"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "An async function that returns a Promise",
+                "ru": "Асинхронная функция, возвращающая Promise"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 9,
+          "name": {
+            "en": "What technique avoids callback hell by flattening nested asynchronous callbacks?",
+            "ru": "Какая техника позволяет избежать callback hell, выравнивая вложенные асинхронные коллбэки?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "Promises (and `async`/`await` built on top of them) replace deeply nested callbacks with a chainable `.then()` / `.catch()` API or sequential-looking `await` expressions, eliminating the pyramid of doom.",
+            "ru": "Промисы (и `async`/`await` на их основе) заменяют глубоко вложенные коллбэки цепочкой `.then()` / `.catch()` или последовательными выражениями `await`, устраняя «пирамиду обречённости»."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "Using `setTimeout` with a delay of 0",
+                "ru": "Использование `setTimeout` с задержкой 0"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "Promises and `async`/`await`", "ru": "Промисы и `async`/`await`" },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "Converting callbacks to synchronous functions using `Atomics.wait`",
+                "ru": "Преобразование коллбэков в синхронные функции с помощью `Atomics.wait`"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Using global variables to share state between callbacks",
+                "ru": "Использование глобальных переменных для обмена состоянием между коллбэками"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 10,
+          "name": {
+            "en": "What does `Array.prototype.reduce` do?",
+            "ru": "Что делает `Array.prototype.reduce`?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "`reduce` iterates over an array and accumulates a single output value by calling a reducer function with the accumulator and each element. It can produce any type of result — number, string, object, array — making it one of the most versatile functional programming tools.",
+            "ru": "`reduce` проходит по массиву и накапливает одно выходное значение, вызывая функцию-редьюсер с аккумулятором и каждым элементом. Может возвращать любой тип результата — число, строку, объект, массив — что делает его одним из наиболее универсальных инструментов функционального программирования."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "Filters elements that satisfy a predicate and returns them in a new array",
+                "ru": "Фильтрует элементы, удовлетворяющие предикату, и возвращает их в новом массиве"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Accumulates all elements into a single output value using a reducer function",
+                "ru": "Накапливает все элементы в одно выходное значение с помощью функции-редьюсера"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "Returns the first element that matches a condition",
+                "ru": "Возвращает первый элемент, соответствующий условию"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Flattens a nested array by one level",
+                "ru": "Выравнивает вложенный массив на один уровень"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 11,
+          "name": { "en": "What is memoization?", "ru": "Что такое мемоизация?" },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "Memoization is an optimisation technique that caches the results of expensive function calls. When the function is called again with the same arguments, the cached result is returned instead of recomputing. It is only safe for pure functions.",
+            "ru": "Мемоизация — это техника оптимизации, кэширующая результаты дорогостоящих вызовов функций. При повторном вызове с теми же аргументами возвращается кэшированный результат без повторного вычисления. Безопасна только для чистых функций."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "Storing function definitions in a lookup table for faster parsing",
+                "ru": "Хранение определений функций в таблице поиска для более быстрого разбора"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Caching the results of a function call so repeated calls with the same arguments skip recomputation",
+                "ru": "Кэширование результатов вызова функции, чтобы повторные вызовы с теми же аргументами пропускали перевычисление"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "Logging every function call to memory for debugging",
+                "ru": "Запись каждого вызова функции в память для отладки"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Serialising function state to `localStorage`",
+                "ru": "Сериализация состояния функции в `localStorage`"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 12,
+          "name": { "en": "What is a closure?", "ru": "Что такое замыкание?" },
+          "codeSnippet": "function makeCounter() {\n  let count = 0;\n  return () => ++count;\n}\nconst counter = makeCounter();\nconsole.log(counter()); // 1\nconsole.log(counter()); // 2",
+          "explanation": {
+            "en": "A closure is a function that retains a reference to its enclosing lexical scope even after the outer function has returned. Here the inner arrow function keeps access to `count` from `makeCounter`'s scope.",
+            "ru": "Замыкание — это функция, которая сохраняет ссылку на окружающую лексическую область видимости даже после того, как внешняя функция вернулась. Здесь внутренняя стрелочная функция сохраняет доступ к `count` из области видимости `makeCounter`."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "A function that is immediately invoked after declaration",
+                "ru": "Функция, которая немедленно вызывается после объявления"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "A function that retains access to its outer lexical scope after that scope has closed",
+                "ru": "Функция, которая сохраняет доступ к внешней лексической области видимости после её закрытия"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "A function that has no return value",
+                "ru": "Функция без возвращаемого значения"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "A function that wraps an async operation",
+                "ru": "Функция, обёртывающая асинхронную операцию"
+              },
+              "isCorrect": false
+            }
+          ]
+        }
+      ]
     },
     {
       "name": { "en": "Design Patterns", "ru": "Паттерны проектирования" },
@@ -41,7 +1334,536 @@
         "ru": "Принципы KISS, DRY, YAGNI, SOLID и порождающие, структурные и поведенческие паттерны проектирования"
       },
       "links": [],
-      "questions": []
+      "questions": [
+        {
+          "sortOrder": 1,
+          "name": {
+            "en": "What does the SOLID acronym stand for?",
+            "ru": "Что означает аббревиатура SOLID?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "SOLID is: Single Responsibility, Open/Closed, Liskov Substitution, Interface Segregation, Dependency Inversion. These five principles guide maintainable object-oriented design.",
+            "ru": "SOLID расшифровывается как: Single Responsibility (единственная ответственность), Open/Closed (открытость/закрытость), Liskov Substitution (подстановка Лисков), Interface Segregation (разделение интерфейса), Dependency Inversion (инверсия зависимостей). Эти пять принципов направляют сопровождаемое объектно-ориентированное проектирование."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "Simple, Observable, Lazy, Isolated, Declarative",
+                "ru": "Simple, Observable, Lazy, Isolated, Declarative"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Single Responsibility, Open/Closed, Liskov Substitution, Interface Segregation, Dependency Inversion",
+                "ru": "Single Responsibility, Open/Closed, Liskov Substitution, Interface Segregation, Dependency Inversion"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "Scalable, Object-oriented, Lightweight, Idiomatic, Decoupled",
+                "ru": "Scalable, Object-oriented, Lightweight, Idiomatic, Decoupled"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Strict, Optimised, Linked, Inherited, Dynamic",
+                "ru": "Strict, Optimised, Linked, Inherited, Dynamic"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 2,
+          "name": {
+            "en": "What does the Singleton pattern ensure?",
+            "ru": "Что гарантирует паттерн Одиночка (Singleton)?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "The Singleton pattern ensures a class has only one instance and provides a global access point to it. It is commonly used for configuration managers, logger instances, or database connection pools.",
+            "ru": "Паттерн Одиночка гарантирует, что у класса существует только один экземпляр, и предоставляет глобальную точку доступа к нему. Часто используется для менеджеров конфигурации, логгеров или пулов соединений с базой данных."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "A class can be instantiated at most twice",
+                "ru": "Класс может быть создан не более двух раз"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "A class has only one instance with a global access point",
+                "ru": "У класса существует только один экземпляр с глобальной точкой доступа"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "An object cannot be modified after creation",
+                "ru": "Объект нельзя изменить после создания"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "A class cannot be extended by subclasses",
+                "ru": "Класс нельзя расширить подклассами"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 3,
+          "name": {
+            "en": "Which principle is violated when a class has too many unrelated responsibilities?",
+            "ru": "Какой принцип нарушается, когда у класса слишком много несвязанных обязанностей?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "The Single Responsibility Principle (SRP) states that a class should have only one reason to change — meaning it should be responsible for only one part of the functionality. Mixing unrelated concerns violates SRP.",
+            "ru": "Принцип единственной ответственности (SRP) гласит, что у класса должна быть только одна причина для изменения — то есть он должен отвечать только за одну часть функциональности. Смешивание несвязанных обязанностей нарушает SRP."
+          },
+          "answers": [
+            {
+              "text": { "en": "Open/Closed Principle", "ru": "Принцип открытости/закрытости" },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Single Responsibility Principle",
+                "ru": "Принцип единственной ответственности"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "Dependency Inversion Principle",
+                "ru": "Принцип инверсии зависимостей"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Interface Segregation Principle",
+                "ru": "Принцип разделения интерфейса"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 4,
+          "name": {
+            "en": "What does the Observer pattern define?",
+            "ru": "Что определяет паттерн Наблюдатель (Observer)?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "The Observer pattern defines a one-to-many dependency between objects so that when one object (the subject/observable) changes state, all its dependents (observers/subscribers) are notified and updated automatically.",
+            "ru": "Паттерн Наблюдатель определяет зависимость один-ко-многим между объектами, так что при изменении состояния одного объекта (субъекта/наблюдаемого) все зависящие от него объекты (наблюдатели/подписчики) уведомляются и обновляются автоматически."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "A pattern where one object controls the creation of another",
+                "ru": "Паттерн, при котором один объект управляет созданием другого"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "A one-to-many dependency where state changes in one object automatically notify dependents",
+                "ru": "Зависимость один-ко-многим, при которой изменения состояния в одном объекте автоматически уведомляют зависящие объекты"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "A pattern that wraps an object to add new behaviour without subclassing",
+                "ru": "Паттерн, который оборачивает объект для добавления нового поведения без создания подкласса"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "A pattern that converts the interface of a class into another interface clients expect",
+                "ru": "Паттерн, преобразующий интерфейс класса в другой интерфейс, ожидаемый клиентами"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 5,
+          "name": { "en": "What does the DRY principle mean?", "ru": "Что означает принцип DRY?" },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "DRY — Don't Repeat Yourself — states that every piece of knowledge or logic should have a single, unambiguous representation in a system. Duplication increases maintenance burden and the risk of inconsistencies.",
+            "ru": "DRY — Don't Repeat Yourself (не повторяйся) — гласит, что каждый фрагмент знания или логики должен иметь единственное, однозначное представление в системе. Дублирование увеличивает затраты на сопровождение и риск несоответствий."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "Delete Redundant Yields — eliminate generator functions",
+                "ru": "Delete Redundant Yields — устранить функции-генераторы"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Don't Repeat Yourself — every piece of knowledge should have a single representation",
+                "ru": "Don't Repeat Yourself — каждый фрагмент знания должен иметь единственное представление"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "Declare Resources Yourself — avoid external libraries",
+                "ru": "Declare Resources Yourself — избегать внешних библиотек"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Design, Review, Yield — a three-step code review process",
+                "ru": "Design, Review, Yield — трёхэтапный процесс проверки кода"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 6,
+          "name": {
+            "en": "What is the Factory pattern used for?",
+            "ru": "Для чего используется паттерн Фабрика?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "The Factory pattern defines an interface for creating objects but lets subclasses or a factory function decide which class to instantiate. It decouples object creation from the code that uses the objects.",
+            "ru": "Паттерн Фабрика определяет интерфейс для создания объектов, но позволяет подклассам или фабричной функции решать, какой класс создавать. Он отделяет создание объектов от кода, использующего эти объекты."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "To ensure only one instance of a class exists",
+                "ru": "Чтобы гарантировать существование только одного экземпляра класса"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "To encapsulate object creation, decoupling it from the code that uses the objects",
+                "ru": "Чтобы инкапсулировать создание объектов, отделяя его от кода, использующего эти объекты"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "To add new behaviour to objects at runtime without modifying their class",
+                "ru": "Чтобы добавлять новое поведение объектам во время выполнения без изменения их класса"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "To convert one interface into another",
+                "ru": "Чтобы преобразовать один интерфейс в другой"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 7,
+          "name": {
+            "en": "What does the Decorator pattern do?",
+            "ru": "Что делает паттерн Декоратор?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "The Decorator pattern attaches additional responsibilities to an object dynamically by wrapping it in decorator objects that implement the same interface. It is an alternative to subclassing for extending functionality.",
+            "ru": "Паттерн Декоратор динамически добавляет дополнительные обязанности объекту, оборачивая его в объекты-декораторы, реализующие тот же интерфейс. Это альтернатива подклассам для расширения функциональности."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "Creates a simplified interface for a complex subsystem",
+                "ru": "Создаёт упрощённый интерфейс для сложной подсистемы"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Dynamically adds responsibilities to an object by wrapping it in decorator objects",
+                "ru": "Динамически добавляет обязанности объекту, оборачивая его в объекты-декораторы"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "Provides a surrogate or placeholder for another object",
+                "ru": "Предоставляет суррогат или заменитель для другого объекта"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Allows incompatible interfaces to work together",
+                "ru": "Позволяет несовместимым интерфейсам работать вместе"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 8,
+          "name": {
+            "en": "What does the Open/Closed Principle state?",
+            "ru": "Что гласит принцип открытости/закрытости?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "The Open/Closed Principle (OCP) states that software entities should be open for extension but closed for modification. New behaviour should be added by extending rather than changing existing code, preventing regression.",
+            "ru": "Принцип открытости/закрытости (OCP) гласит, что программные сущности должны быть открыты для расширения, но закрыты для модификации. Новое поведение следует добавлять путём расширения, а не изменения существующего кода, что предотвращает регрессии."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "All class members should be public",
+                "ru": "Все члены класса должны быть публичными"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Software entities should be open for extension but closed for modification",
+                "ru": "Программные сущности должны быть открыты для расширения, но закрыты для модификации"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "A module should export all its internal functions",
+                "ru": "Модуль должен экспортировать все свои внутренние функции"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Classes should be opened (instantiated) before they can be used",
+                "ru": "Классы должны быть открыты (созданы) перед использованием"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 9,
+          "name": { "en": "What is the Strategy pattern?", "ru": "Что такое паттерн Стратегия?" },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "The Strategy pattern defines a family of algorithms, encapsulates each one, and makes them interchangeable. It lets the algorithm vary independently from clients that use it, enabling runtime selection of behaviour.",
+            "ru": "Паттерн Стратегия определяет семейство алгоритмов, инкапсулирует каждый из них и делает их взаимозаменяемыми. Это позволяет алгоритму изменяться независимо от клиентов, которые его используют, обеспечивая выбор поведения во время выполнения."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "A pattern that ensures only one instance of an algorithm object exists",
+                "ru": "Паттерн, гарантирующий существование только одного экземпляра объекта алгоритма"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "A pattern that defines a family of interchangeable algorithms and lets the algorithm vary independently from its clients",
+                "ru": "Паттерн, определяющий семейство взаимозаменяемых алгоритмов и позволяющий алгоритму изменяться независимо от клиентов"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "A pattern that stores a sequence of operations to be executed later",
+                "ru": "Паттерн, хранящий последовательность операций для последующего выполнения"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "A pattern that provides a step-by-step guide to constructing a complex object",
+                "ru": "Паттерн, предоставляющий пошаговое руководство по построению сложного объекта"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 10,
+          "name": { "en": "What is the Facade pattern?", "ru": "Что такое паттерн Фасад?" },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "The Facade pattern provides a simplified interface to a complex subsystem. It hides internal complexity and dependencies, making the subsystem easier to use without exposing its internals.",
+            "ru": "Паттерн Фасад предоставляет упрощённый интерфейс для сложной подсистемы. Он скрывает внутреннюю сложность и зависимости, делая подсистему более простой в использовании без раскрытия её внутреннего устройства."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "Converts the interface of a class into another interface clients expect",
+                "ru": "Преобразует интерфейс класса в другой интерфейс, ожидаемый клиентами"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Provides a simplified interface to a complex subsystem",
+                "ru": "Предоставляет упрощённый интерфейс для сложной подсистемы"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "Adds responsibilities to individual objects without affecting others",
+                "ru": "Добавляет обязанности отдельным объектам, не затрагивая другие"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Shares common state among many fine-grained objects",
+                "ru": "Разделяет общее состояние между множеством мелкозернистых объектов"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 11,
+          "name": {
+            "en": "What does the Dependency Inversion Principle say about dependencies?",
+            "ru": "Что говорит принцип инверсии зависимостей о зависимостях?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "DIP states: (1) high-level modules should not depend on low-level modules — both should depend on abstractions; (2) abstractions should not depend on details — details should depend on abstractions. This decouples layers of a system.",
+            "ru": "DIP гласит: (1) высокоуровневые модули не должны зависеть от низкоуровневых — оба должны зависеть от абстракций; (2) абстракции не должны зависеть от деталей — детали должны зависеть от абстракций. Это разделяет слои системы."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "High-level modules should directly import low-level modules for efficiency",
+                "ru": "Высокоуровневые модули должны напрямую импортировать низкоуровневые для эффективности"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Both high-level and low-level modules should depend on abstractions, not on each other's concrete implementations",
+                "ru": "Как высокоуровневые, так и низкоуровневые модули должны зависеть от абстракций, а не от конкретных реализаций друг друга"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "Dependencies should be injected via constructor arguments only",
+                "ru": "Зависимости должны передаваться только через аргументы конструктора"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Modules should have no dependencies at all",
+                "ru": "Модули не должны иметь никаких зависимостей"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 12,
+          "name": { "en": "What is the Command pattern?", "ru": "Что такое паттерн Команда?" },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "The Command pattern encapsulates a request as an object, allowing you to parameterise clients with different requests, queue or log requests, and support undoable operations. The invoker does not know the concrete receiver.",
+            "ru": "Паттерн Команда инкапсулирует запрос как объект, позволяя параметризовать клиентов различными запросами, ставить их в очередь, логировать и поддерживать отменяемые операции. Отправитель не знает конкретного получателя."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "Encapsulates a request as an object, enabling queuing, logging, and undo operations",
+                "ru": "Инкапсулирует запрос как объект, обеспечивая постановку в очередь, логирование и операции отмены"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "Defines a simplified API for executing terminal commands in Node.js",
+                "ru": "Определяет упрощённый API для выполнения команд терминала в Node.js"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Coordinates communication between multiple objects without them knowing each other",
+                "ru": "Координирует коммуникацию между несколькими объектами без их взаимного знания"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Allows an object to change its behaviour when its internal state changes",
+                "ru": "Позволяет объекту изменять своё поведение при изменении внутреннего состояния"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 13,
+          "name": { "en": "What is the Proxy pattern?", "ru": "Что такое паттерн Прокси?" },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "The Proxy pattern provides a surrogate or placeholder object that controls access to another object. Use cases include lazy initialisation, access control, logging, and caching. JavaScript's built-in `Proxy` object implements this pattern.",
+            "ru": "Паттерн Прокси предоставляет суррогатный или замещающий объект, контролирующий доступ к другому объекту. Применяется для ленивой инициализации, контроля доступа, логирования и кэширования. Встроенный объект JavaScript `Proxy` реализует этот паттерн."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "Provides a simplified interface to a complex subsystem",
+                "ru": "Предоставляет упрощённый интерфейс для сложной подсистемы"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Provides a surrogate object that controls access to another object",
+                "ru": "Предоставляет суррогатный объект, контролирующий доступ к другому объекту"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "Converts one interface into another",
+                "ru": "Преобразует один интерфейс в другой"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Ensures a class has only one instance",
+                "ru": "Гарантирует наличие у класса только одного экземпляра"
+              },
+              "isCorrect": false
+            }
+          ]
+        }
+      ]
     },
     {
       "name": { "en": "Reactive Programming", "ru": "Реактивное программирование" },
@@ -50,7 +1872,506 @@
         "ru": "Наблюдаемые объекты (Observable), потоки данных и парадигма реактивного программирования с RxJS"
       },
       "links": [],
-      "questions": []
+      "questions": [
+        {
+          "sortOrder": 1,
+          "name": { "en": "What is an Observable in RxJS?", "ru": "Что такое Observable в RxJS?" },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "An Observable is a lazy data producer that emits a stream of values over time. It does nothing until subscribed to. It can emit zero or more values (`next`), optionally complete (`complete`), or emit an error (`error`).",
+            "ru": "Observable — это ленивый производитель данных, генерирующий поток значений во времени. Он ничего не делает до тех пор, пока на него не подписались. Может генерировать ноль или более значений (`next`), завершиться (`complete`) или выдать ошибку (`error`)."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "A resolved Promise that holds a single value",
+                "ru": "Разрешённый Promise, содержащий единственное значение"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "A lazy data producer that emits a stream of values over time when subscribed to",
+                "ru": "Ленивый производитель данных, генерирующий поток значений во времени после подписки"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "An event emitter that stores past events for replay",
+                "ru": "Эмиттер событий, хранящий прошлые события для повторного воспроизведения"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "A synchronous iterator over a fixed collection",
+                "ru": "Синхронный итератор по фиксированной коллекции"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 2,
+          "name": {
+            "en": "What is the difference between a cold and a hot Observable?",
+            "ru": "В чём разница между холодным и горячим Observable?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "A cold Observable starts producing data only when subscribed to and each subscriber gets its own independent execution. A hot Observable produces data regardless of subscriptions and all subscribers share the same execution (e.g., mouse events, WebSocket messages).",
+            "ru": "Холодный Observable начинает производить данные только при подписке, и каждый подписчик получает независимое выполнение. Горячий Observable производит данные независимо от подписок, и все подписчики разделяют одно выполнение (например, события мыши, сообщения WebSocket)."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "Cold Observables use async scheduling; hot Observables are synchronous",
+                "ru": "Холодные Observable используют асинхронное планирование; горячие — синхронные"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Cold Observables start producing per subscriber; hot Observables produce independently and share execution",
+                "ru": "Холодные Observable начинают производить данные для каждого подписчика; горячие производят независимо и разделяют выполнение"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "Hot Observables complete immediately; cold Observables never complete",
+                "ru": "Горячие Observable завершаются немедленно; холодные никогда не завершаются"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "There is no practical difference — the terms are interchangeable",
+                "ru": "Нет практической разницы — термины взаимозаменяемы"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 3,
+          "name": {
+            "en": "What does the `map` operator do in RxJS?",
+            "ru": "Что делает оператор `map` в RxJS?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "The `map` operator applies a projection function to each value emitted by the source Observable and re-emits the transformed values. It is the Observable equivalent of `Array.prototype.map`.",
+            "ru": "Оператор `map` применяет функцию проекции к каждому значению, испущенному исходным Observable, и повторно испускает преобразованные значения. Это Observable-эквивалент `Array.prototype.map`."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "Filters out values that do not satisfy a predicate",
+                "ru": "Отфильтровывает значения, не удовлетворяющие предикату"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Applies a projection function to each emitted value and re-emits the transformed value",
+                "ru": "Применяет функцию проекции к каждому испущенному значению и повторно испускает преобразованное значение"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "Merges multiple Observables into one",
+                "ru": "Объединяет несколько Observable в одно"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Delays each emitted value by a specified duration",
+                "ru": "Задерживает каждое испускаемое значение на указанный промежуток времени"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 4,
+          "name": {
+            "en": "What is the purpose of `switchMap` in RxJS?",
+            "ru": "Какова цель `switchMap` в RxJS?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "`switchMap` maps each source value to an inner Observable, subscribes to it, and — crucially — cancels the previous inner Observable when a new source value arrives. This makes it ideal for cancellable operations like HTTP search requests.",
+            "ru": "`switchMap` отображает каждое значение источника во внутренний Observable, подписывается на него и — что важно — отменяет предыдущий внутренний Observable при поступлении нового значения источника. Это делает его идеальным для отменяемых операций, например, HTTP-запросов поиска."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "Maps to an inner Observable and waits for all previous inner Observables to complete",
+                "ru": "Отображает во внутренний Observable и ждёт завершения всех предыдущих внутренних Observable"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Maps to an inner Observable and cancels the previous inner Observable when a new source value arrives",
+                "ru": "Отображает во внутренний Observable и отменяет предыдущий при поступлении нового значения источника"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "Switches the scheduler used for a source Observable",
+                "ru": "Переключает планировщик, используемый для исходного Observable"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Maps values to a constant and discards the original values",
+                "ru": "Отображает значения в константу и отбрасывает исходные значения"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 5,
+          "name": {
+            "en": "What happens if you forget to unsubscribe from an Observable?",
+            "ru": "Что произойдёт, если забыть отписаться от Observable?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "Forgetting to unsubscribe causes a memory leak: the subscription keeps the Observable execution and all captured references alive indefinitely. In Angular, this commonly happens with long-lived Observables in components that are destroyed.",
+            "ru": "Если забыть отписаться, возникает утечка памяти: подписка сохраняет выполнение Observable и все захваченные ссылки бесконечно долго. В Angular это часто происходит с долгоживущими Observable в компонентах, которые уничтожаются."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "The Observable automatically completes after 30 seconds",
+                "ru": "Observable автоматически завершается через 30 секунд"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "A memory leak occurs because the subscription and captured references stay alive indefinitely",
+                "ru": "Возникает утечка памяти, поскольку подписка и захваченные ссылки остаются активными бесконечно долго"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "An error is thrown the next time a value is emitted",
+                "ru": "При следующем испускании значения выбрасывается ошибка"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Nothing — the garbage collector handles Observable cleanup automatically",
+                "ru": "Ничего — сборщик мусора автоматически очищает Observable"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 6,
+          "name": { "en": "What is a Subject in RxJS?", "ru": "Что такое Subject в RxJS?" },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "A Subject is both an Observable and an Observer. It can multicast to multiple subscribers and allows values to be pushed imperatively via `subject.next(value)`. Common variants are `BehaviorSubject`, `ReplaySubject`, and `AsyncSubject`.",
+            "ru": "Subject — это одновременно Observable и Observer. Он может вещать нескольким подписчикам и позволяет императивно передавать значения через `subject.next(value)`. Распространённые варианты: `BehaviorSubject`, `ReplaySubject` и `AsyncSubject`."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "A read-only Observable that wraps a Promise",
+                "ru": "Observable только для чтения, оборачивающий Promise"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Both an Observable and an Observer that can multicast to multiple subscribers",
+                "ru": "Одновременно Observable и Observer, способный вещать нескольким подписчикам"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "An operator that subjects values to a transformation pipeline",
+                "ru": "Оператор, подвергающий значения конвейеру преобразований"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "A scheduler that subjects tasks to a specific execution context",
+                "ru": "Планировщик, помещающий задачи в определённый контекст выполнения"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 7,
+          "name": {
+            "en": "What does the `debounceTime` operator do?",
+            "ru": "Что делает оператор `debounceTime`?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "`debounceTime(ms)` delays emitted values and drops them if another value arrives within the specified duration. It is widely used for search-as-you-type scenarios to avoid making an HTTP request on every keystroke.",
+            "ru": "`debounceTime(ms)` задерживает испускаемые значения и отбрасывает их, если в течение указанного времени поступает другое значение. Широко используется в сценариях поиска по мере ввода, чтобы не делать HTTP-запрос при каждом нажатии клавиши."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "Emits a value immediately and then ignores further values for a specified duration",
+                "ru": "Немедленно испускает значение, а затем игнорирует последующие значения в течение указанного времени"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Delays emitted values and drops them if another value arrives within the specified duration",
+                "ru": "Задерживает испускаемые значения и отбрасывает их, если в течение указанного времени поступает другое значение"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "Adds a fixed delay before every emitted value regardless of the timing of other values",
+                "ru": "Добавляет фиксированную задержку перед каждым испускаемым значением независимо от времени других значений"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Buffers all values until the Observable completes, then emits them at once",
+                "ru": "Буферизует все значения до завершения Observable, затем испускает их все сразу"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 8,
+          "name": {
+            "en": "What is the difference between `mergeMap` and `concatMap`?",
+            "ru": "В чём разница между `mergeMap` и `concatMap`?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "`mergeMap` subscribes to inner Observables concurrently (no ordering guarantee). `concatMap` queues inner Observables and subscribes to the next one only after the previous completes, preserving order but potentially creating a backlog.",
+            "ru": "`mergeMap` подписывается на внутренние Observable параллельно (без гарантии порядка). `concatMap` ставит внутренние Observable в очередь и подписывается на следующий только после завершения предыдущего, сохраняя порядок, но потенциально создавая задержку."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "`mergeMap` cancels previous inner Observables; `concatMap` does not",
+                "ru": "`mergeMap` отменяет предыдущие внутренние Observable; `concatMap` — нет"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "`mergeMap` subscribes to inner Observables concurrently; `concatMap` subscribes sequentially after each completes",
+                "ru": "`mergeMap` подписывается на внутренние Observable параллельно; `concatMap` — последовательно, после завершения каждого"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "`concatMap` cancels previous inner Observables; `mergeMap` does not",
+                "ru": "`concatMap` отменяет предыдущие внутренние Observable; `mergeMap` — нет"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "They are identical except `concatMap` works only with Promises",
+                "ru": "Они идентичны, за исключением того, что `concatMap` работает только с Promise"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 9,
+          "name": {
+            "en": "What does `BehaviorSubject` emit to a new subscriber?",
+            "ru": "Что испускает `BehaviorSubject` новому подписчику?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "A `BehaviorSubject` requires an initial value and always emits the most recent value to any new subscriber immediately upon subscription. This makes it suitable for storing and sharing state (e.g., current user, theme).",
+            "ru": "`BehaviorSubject` требует начального значения и всегда немедленно испускает самое последнее значение любому новому подписчику при подписке. Это делает его подходящим для хранения и разделения состояния (например, текущего пользователя, темы)."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "Nothing — the subscriber waits for the next emitted value",
+                "ru": "Ничего — подписчик ждёт следующего испускаемого значения"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "The most recent value (or the initial value if none has been emitted yet)",
+                "ru": "Самое последнее значение (или начальное значение, если ещё ничего не было испущено)"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "All past values since creation",
+                "ru": "Все прошлые значения с момента создания"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Only the completion notification",
+                "ru": "Только уведомление о завершении"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 10,
+          "name": {
+            "en": "What does the `takeUntil` operator do?",
+            "ru": "Что делает оператор `takeUntil`?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "`takeUntil(notifier$)` automatically completes the source Observable (and unsubscribes) when the notifier Observable emits. In Angular it is commonly used with a `Subject` that emits in `ngOnDestroy` to prevent memory leaks.",
+            "ru": "`takeUntil(notifier$)` автоматически завершает исходный Observable (и отписывается от него), когда испускает notifier Observable. В Angular часто используется с `Subject`, испускающим в `ngOnDestroy`, для предотвращения утечек памяти."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "Takes values from the source only while a condition is true",
+                "ru": "Берёт значения из источника только пока условие истинно"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Completes the source Observable when a notifier Observable emits",
+                "ru": "Завершает исходный Observable, когда испускает notifier Observable"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "Takes the first N values and then errors",
+                "ru": "Берёт первые N значений, после чего выдаёт ошибку"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Delays the source Observable until a notifier emits",
+                "ru": "Задерживает исходный Observable до тех пор, пока не испустит notifier"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 11,
+          "name": {
+            "en": "What is the `pipe` function in RxJS used for?",
+            "ru": "Для чего используется функция `pipe` в RxJS?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "`pipe` composes a sequence of operators that are applied to the source Observable from left to right. Instead of chaining operators directly on the Observable prototype, `pipe` enables tree-shaking and cleaner composition.",
+            "ru": "`pipe` составляет последовательность операторов, применяемых к исходному Observable слева направо. Вместо прямой цепочки операторов на прототипе Observable, `pipe` обеспечивает tree-shaking и более чистую композицию."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "Creates a new Observable from a list of synchronous values",
+                "ru": "Создаёт новый Observable из списка синхронных значений"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Composes a sequence of operators applied left-to-right to the source Observable",
+                "ru": "Составляет последовательность операторов, применяемых слева направо к исходному Observable"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "Subscribes to the Observable and returns a Subscription",
+                "ru": "Подписывается на Observable и возвращает Subscription"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Converts an Observable into a Promise",
+                "ru": "Преобразует Observable в Promise"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 12,
+          "name": {
+            "en": "What is backpressure in the context of reactive streams?",
+            "ru": "Что такое противодавление (backpressure) в контексте реактивных потоков?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "Backpressure occurs when a producer emits values faster than the consumer can process them. Strategies to handle it include buffering, dropping values, or using operators like `throttleTime`, `debounceTime`, `bufferTime`, or `sample`.",
+            "ru": "Противодавление возникает, когда производитель испускает значения быстрее, чем потребитель успевает их обрабатывать. Стратегии обработки включают буферизацию, отбрасывание значений или использование операторов `throttleTime`, `debounceTime`, `bufferTime` или `sample`."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "The force applied to close a network connection",
+                "ru": "Усилие, применяемое для закрытия сетевого соединения"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "A situation where a producer emits values faster than the consumer can process them",
+                "ru": "Ситуация, когда производитель испускает значения быстрее, чем потребитель успевает их обрабатывать"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "An error thrown when a Subject has no subscribers",
+                "ru": "Ошибка, выбрасываемая когда у Subject нет подписчиков"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "The process of retrying a failed Observable",
+                "ru": "Процесс повторной попытки выполнения упавшего Observable"
+              },
+              "isCorrect": false
+            }
+          ]
+        }
+      ]
     }
   ]
 }

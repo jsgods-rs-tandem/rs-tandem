@@ -14,7 +14,458 @@
         "ru": "LCP, FID/INP, CLS — пользориентированные метрики производительности Google, их пороговые значения и методы измерения"
       },
       "links": [],
-      "questions": []
+      "questions": [
+        {
+          "sortOrder": 1,
+          "name": { "en": "What does LCP stand for?", "ru": "Что означает аббревиатура LCP?" },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "LCP stands for Largest Contentful Paint. It measures the time from when a page starts loading to when the largest image or text block visible within the viewport is rendered.",
+            "ru": "LCP расшифровывается как Largest Contentful Paint. Метрика измеряет время от начала загрузки страницы до момента отрисовки наибольшего изображения или текстового блока в области просмотра."
+          },
+          "answers": [
+            {
+              "text": { "en": "Last Contentful Paint", "ru": "Last Contentful Paint" },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "Largest Contentful Paint", "ru": "Largest Contentful Paint" },
+              "isCorrect": true
+            },
+            {
+              "text": { "en": "Longest Contentful Paint", "ru": "Longest Contentful Paint" },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "Layout Contentful Paint", "ru": "Layout Contentful Paint" },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 2,
+          "name": {
+            "en": "What is the \"good\" threshold for LCP?",
+            "ru": "Каков «хороший» порог для LCP?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "Google considers LCP \"good\" when it occurs within 2.5 seconds of the page starting to load. Values between 2.5s and 4s need improvement, and above 4s is considered poor.",
+            "ru": "Google считает LCP «хорошим», если он происходит в течение 2,5 секунд с начала загрузки страницы. Значения от 2,5 до 4 секунд требуют улучшения, а выше 4 секунд считается плохим."
+          },
+          "answers": [
+            { "text": { "en": "1 second", "ru": "1 секунда" }, "isCorrect": false },
+            { "text": { "en": "2.5 seconds", "ru": "2,5 секунды" }, "isCorrect": true },
+            { "text": { "en": "4 seconds", "ru": "4 секунды" }, "isCorrect": false },
+            { "text": { "en": "3 seconds", "ru": "3 секунды" }, "isCorrect": false }
+          ]
+        },
+        {
+          "sortOrder": 3,
+          "name": { "en": "What does CLS measure?", "ru": "Что измеряет CLS?" },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "CLS (Cumulative Layout Shift) measures visual stability. It quantifies how much visible page content unexpectedly shifts during the loading phase. A good CLS score is 0.1 or less.",
+            "ru": "CLS (Cumulative Layout Shift) измеряет визуальную стабильность. Метрика количественно оценивает, насколько неожиданно смещается видимый контент страницы в процессе загрузки. Хороший показатель CLS — 0,1 или меньше."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "The time to load CSS stylesheets",
+                "ru": "Время загрузки CSS-стилей"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "How much visible content unexpectedly shifts during loading",
+                "ru": "Насколько видимый контент неожиданно смещается при загрузке"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "The number of layout reflows triggered by JavaScript",
+                "ru": "Количество перерасчётов компоновки, вызванных JavaScript"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "The cumulative size of all layout-related resources",
+                "ru": "Совокупный размер всех ресурсов, связанных с компоновкой"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 4,
+          "name": {
+            "en": "What replaced FID (First Input Delay) as a Core Web Vital?",
+            "ru": "Какая метрика заменила FID (First Input Delay) в составе Core Web Vitals?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "INP (Interaction to Next Paint) replaced FID in March 2024. Unlike FID which only measured the delay of the first interaction, INP measures the latency of all interactions throughout the page's lifetime.",
+            "ru": "INP (Interaction to Next Paint) заменил FID в марте 2024 года. В отличие от FID, измерявшего задержку только первого взаимодействия, INP измеряет задержку всех взаимодействий на протяжении всего жизненного цикла страницы."
+          },
+          "answers": [
+            {
+              "text": { "en": "TTI (Time to Interactive)", "ru": "TTI (Time to Interactive)" },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "TBT (Total Blocking Time)", "ru": "TBT (Total Blocking Time)" },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "INP (Interaction to Next Paint)",
+                "ru": "INP (Interaction to Next Paint)"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "FCP (First Contentful Paint)",
+                "ru": "FCP (First Contentful Paint)"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 5,
+          "name": {
+            "en": "What is the \"good\" threshold for CLS?",
+            "ru": "Каков «хороший» порог для CLS?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "A CLS score of 0.1 or less is considered good. Scores between 0.1 and 0.25 need improvement, and scores above 0.25 are considered poor.",
+            "ru": "CLS 0,1 или меньше считается хорошим показателем. Значения от 0,1 до 0,25 требуют улучшения, а выше 0,25 — плохие."
+          },
+          "answers": [
+            { "text": { "en": "0.05 or less", "ru": "0,05 или меньше" }, "isCorrect": false },
+            { "text": { "en": "0.1 or less", "ru": "0,1 или меньше" }, "isCorrect": true },
+            { "text": { "en": "0.25 or less", "ru": "0,25 или меньше" }, "isCorrect": false },
+            { "text": { "en": "0.5 or less", "ru": "0,5 или меньше" }, "isCorrect": false }
+          ]
+        },
+        {
+          "sortOrder": 6,
+          "name": {
+            "en": "Which HTML elements can be the LCP candidate?",
+            "ru": "Какие HTML-элементы могут быть кандидатом на LCP?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "LCP candidates include `<img>`, `<image>` inside SVG, `<video>` (using poster image), elements with a CSS `background-image`, and block-level elements containing text nodes. Inline `<svg>` elements and `<canvas>` are not considered.",
+            "ru": "Кандидатами на LCP являются `<img>`, `<image>` внутри SVG, `<video>` (с использованием постера), элементы с CSS `background-image` и блочные элементы, содержащие текстовые узлы. Встроенные `<svg>` и `<canvas>` не учитываются."
+          },
+          "answers": [
+            {
+              "text": { "en": "Only `<img>` elements", "ru": "Только элементы `<img>`" },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "`<img>`, `<video>` poster, CSS background images, and block-level text elements",
+                "ru": "`<img>`, постер `<video>`, CSS фоновые изображения и блочные текстовые элементы"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": { "en": "Any visible DOM element", "ru": "Любой видимый DOM-элемент" },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "`<img>` and `<canvas>` elements only",
+                "ru": "Только элементы `<img>` и `<canvas>`"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 7,
+          "name": {
+            "en": "Which attribute helps improve LCP for the hero image?",
+            "ru": "Какой атрибут помогает улучшить LCP для главного изображения?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "Adding `fetchpriority=\"high\"` to the hero `<img>` tells the browser to prioritize fetching that image early, which significantly improves LCP. It is more specific than `<link rel=\"preload\">` and works directly on the element.",
+            "ru": "Добавление `fetchpriority=\"high\"` к главному `<img>` сообщает браузеру о необходимости приоритетно загрузить это изображение, что значительно улучшает LCP. Этот атрибут более точен, чем `<link rel=\"preload\">`, и работает непосредственно на элементе."
+          },
+          "answers": [
+            {
+              "text": { "en": "`loading=\"eager\"`", "ru": "`loading=\"eager\"`" },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "`fetchpriority=\"high\"`", "ru": "`fetchpriority=\"high\"`" },
+              "isCorrect": true
+            },
+            {
+              "text": { "en": "`importance=\"high\"`", "ru": "`importance=\"high\"`" },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "`preload=\"true\"`", "ru": "`preload=\"true\"`" },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 8,
+          "name": { "en": "What does INP measure?", "ru": "Что измеряет INP?" },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "INP (Interaction to Next Paint) measures the time from a user interaction (click, tap, key press) to the moment the browser paints the next frame in response. A good INP is 200ms or less.",
+            "ru": "INP (Interaction to Next Paint) измеряет время от пользовательского взаимодействия (клик, касание, нажатие клавиши) до момента, когда браузер отрисовывает следующий кадр в ответ на него. Хороший INP — 200 мс или меньше."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "Time from navigation start to the first user input being processed",
+                "ru": "Время от начала навигации до обработки первого пользовательского ввода"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Time from a user interaction to the next browser paint in response",
+                "ru": "Время от пользовательского взаимодействия до следующей отрисовки браузера в ответ на него"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "Total number of interactions on a page per session",
+                "ru": "Общее количество взаимодействий на странице за сессию"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "The delay before the first interaction can be processed",
+                "ru": "Задержка перед обработкой первого взаимодействия"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 9,
+          "name": {
+            "en": "Which tool provides a field data report for Core Web Vitals based on real users?",
+            "ru": "Какой инструмент предоставляет отчёт по Core Web Vitals на основе реальных пользователей?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "Chrome User Experience Report (CrUX) provides field data collected from real Chrome users. It powers the Core Web Vitals report in Google Search Console and PageSpeed Insights. Lighthouse and WebPageTest provide lab data, not field data.",
+            "ru": "Chrome User Experience Report (CrUX) предоставляет полевые данные, собранные от реальных пользователей Chrome. Он питает отчёт Core Web Vitals в Google Search Console и PageSpeed Insights. Lighthouse и WebPageTest дают лабораторные данные, а не полевые."
+          },
+          "answers": [
+            { "text": { "en": "Lighthouse", "ru": "Lighthouse" }, "isCorrect": false },
+            {
+              "text": {
+                "en": "Chrome User Experience Report (CrUX)",
+                "ru": "Chrome User Experience Report (CrUX)"
+              },
+              "isCorrect": true
+            },
+            { "text": { "en": "WebPageTest", "ru": "WebPageTest" }, "isCorrect": false },
+            {
+              "text": {
+                "en": "Chrome DevTools Performance panel",
+                "ru": "Панель Performance в Chrome DevTools"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 10,
+          "name": {
+            "en": "A common cause of poor CLS is images without explicit dimensions. Why?",
+            "ru": "Частой причиной низкого CLS являются изображения без явно указанных размеров. Почему?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "When images lack `width` and `height` attributes (or equivalent CSS), the browser cannot reserve space before the image loads. When the image finally loads, it pushes content down, causing a layout shift that contributes to a poor CLS score.",
+            "ru": "Когда у изображений отсутствуют атрибуты `width` и `height` (или эквивалентный CSS), браузер не может зарезервировать место до загрузки изображения. После загрузки изображение сдвигает контент вниз, вызывая смещение макета и ухудшая CLS."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "The browser downloads them in lower priority, increasing LCP",
+                "ru": "Браузер загружает их с низким приоритетом, увеличивая LCP"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "The browser cannot reserve space before loading, so content shifts when the image appears",
+                "ru": "Браузер не может зарезервировать место до загрузки, поэтому контент смещается при появлении изображения"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "The browser will always load them synchronously, blocking the main thread",
+                "ru": "Браузер всегда загружает их синхронно, блокируя основной поток"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Images without dimensions are ignored by the layout engine",
+                "ru": "Изображения без размеров игнорируются движком компоновки"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 11,
+          "name": {
+            "en": "What is the \"good\" threshold for INP?",
+            "ru": "Каков «хороший» порог для INP?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "An INP of 200ms or less is considered good. Values between 200ms and 500ms need improvement, and values above 500ms are considered poor.",
+            "ru": "INP 200 мс или меньше считается хорошим. Значения от 200 до 500 мс требуют улучшения, а выше 500 мс — плохие."
+          },
+          "answers": [
+            { "text": { "en": "100ms or less", "ru": "100 мс или меньше" }, "isCorrect": false },
+            { "text": { "en": "200ms or less", "ru": "200 мс или меньше" }, "isCorrect": true },
+            { "text": { "en": "300ms or less", "ru": "300 мс или меньше" }, "isCorrect": false },
+            { "text": { "en": "500ms or less", "ru": "500 мс или меньше" }, "isCorrect": false }
+          ]
+        },
+        {
+          "sortOrder": 12,
+          "name": {
+            "en": "Which `<link>` type can help improve LCP by fetching a resource early?",
+            "ru": "Какой тип `<link>` может помочь улучшить LCP за счёт ранней загрузки ресурса?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "`<link rel=\"preload\">` instructs the browser to discover and fetch a resource early in the page lifecycle, before it is requested by normal parsing. This is particularly effective for LCP images or fonts that are loaded via CSS.",
+            "ru": "`<link rel=\"preload\">` указывает браузеру обнаружить и загрузить ресурс на раннем этапе жизненного цикла страницы, до того как он будет запрошен при обычном разборе. Это особенно эффективно для LCP-изображений или шрифтов, загружаемых через CSS."
+          },
+          "answers": [
+            {
+              "text": { "en": "`<link rel=\"prefetch\">`", "ru": "`<link rel=\"prefetch\">`" },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "`<link rel=\"preload\">`", "ru": "`<link rel=\"preload\">`" },
+              "isCorrect": true
+            },
+            {
+              "text": { "en": "`<link rel=\"preconnect\">`", "ru": "`<link rel=\"preconnect\">`" },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "`<link rel=\"dns-prefetch\">`",
+                "ru": "`<link rel=\"dns-prefetch\">`"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 13,
+          "name": {
+            "en": "Core Web Vitals are measured at the 75th percentile of page loads. What does this mean?",
+            "ru": "Core Web Vitals измеряются на 75-м процентиле загрузок страниц. Что это означает?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "Using the 75th percentile means that 75% of page loads must meet the threshold. This ensures a good experience for most users rather than just the median or best-case user.",
+            "ru": "Использование 75-го процентиля означает, что 75% загрузок страниц должны соответствовать пороговому значению. Это гарантирует хороший опыт для большинства пользователей, а не только для медианного или наилучшего случая."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "Only the slowest 25% of loads are measured",
+                "ru": "Измеряются только 25% самых медленных загрузок"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "75% of all page loads must meet the threshold for the score to be considered \"good\"",
+                "ru": "75% всех загрузок страниц должны соответствовать порогу, чтобы оценка считалась «хорошей»"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "The metric is only reported for 75% of users",
+                "ru": "Метрика отображается только для 75% пользователей"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Metrics are averaged over 75 page loads",
+                "ru": "Метрики усредняются по 75 загрузкам страниц"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 14,
+          "name": {
+            "en": "Which of the following is NOT a Core Web Vital as of 2024?",
+            "ru": "Что из перечисленного НЕ является Core Web Vital по состоянию на 2024 год?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "FCP (First Contentful Paint) is an important diagnostic metric but is not a Core Web Vital. The three Core Web Vitals are LCP, INP (which replaced FID in March 2024), and CLS.",
+            "ru": "FCP (First Contentful Paint) — важная диагностическая метрика, но не Core Web Vital. Трёх Core Web Vitals: LCP, INP (заменил FID в марте 2024 года) и CLS."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "LCP (Largest Contentful Paint)",
+                "ru": "LCP (Largest Contentful Paint)"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "FCP (First Contentful Paint)",
+                "ru": "FCP (First Contentful Paint)"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "INP (Interaction to Next Paint)",
+                "ru": "INP (Interaction to Next Paint)"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "CLS (Cumulative Layout Shift)",
+                "ru": "CLS (Cumulative Layout Shift)"
+              },
+              "isCorrect": false
+            }
+          ]
+        }
+      ]
     },
     {
       "name": { "en": "Rendering Performance", "ru": "Производительность рендеринга" },
@@ -23,7 +474,476 @@
         "ru": "Предотвращение layout thrashing, GPU-компоновка, will-change, сокращение reflow/repaint и модель RAIL"
       },
       "links": [],
-      "questions": []
+      "questions": [
+        {
+          "sortOrder": 1,
+          "name": { "en": "What is \"layout thrashing\"?", "ru": "Что такое «layout thrashing»?" },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "Layout thrashing (also called forced synchronous layouts) occurs when JavaScript repeatedly reads layout properties (like `offsetHeight`) and then writes to the DOM in a loop, forcing the browser to recalculate layout many times per frame instead of batching the work.",
+            "ru": "Layout thrashing (принудительные синхронные компоновки) возникает, когда JavaScript в цикле поочерёдно читает свойства компоновки (например, `offsetHeight`) и записывает данные в DOM, заставляя браузер пересчитывать компоновку несколько раз за кадр вместо пакетной обработки."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "A technique for batching DOM reads and writes together",
+                "ru": "Техника объединения операций чтения и записи в DOM"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Repeatedly reading layout properties and then writing to the DOM, forcing many layout recalculations per frame",
+                "ru": "Поочерёдное чтение свойств компоновки и запись в DOM, вызывающее многократный пересчёт компоновки за кадр"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "A browser crash caused by too many CSS transitions running simultaneously",
+                "ru": "Сбой браузера, вызванный одновременным выполнением слишком большого количества CSS-переходов"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "An excessive number of paint operations per second",
+                "ru": "Чрезмерное количество операций отрисовки в секунду"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 2,
+          "name": {
+            "en": "What does the RAIL model stand for?",
+            "ru": "Что означает аббревиатура RAIL?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "RAIL stands for Response, Animation, Idle, Load — a user-centric performance model defined by Google. Each phase has its own time budget: Response < 100ms, Animation < 16ms per frame, Idle tasks < 50ms, Load < 1s for critical content.",
+            "ru": "RAIL расшифровывается как Response (Отклик), Animation (Анимация), Idle (Простой), Load (Загрузка) — пользориентированная модель производительности, разработанная Google. Каждая фаза имеет собственный бюджет времени: отклик < 100 мс, анимация < 16 мс за кадр, задачи в простое < 50 мс, загрузка < 1 с для критического контента."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "Render, Animate, Interact, Load",
+                "ru": "Render, Animate, Interact, Load"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Response, Animation, Idle, Load",
+                "ru": "Response, Animation, Idle, Load"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "Repaint, Align, Interact, Layout",
+                "ru": "Repaint, Align, Interact, Layout"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Request, Asset, Idle, Layout",
+                "ru": "Request, Asset, Idle, Layout"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 3,
+          "name": {
+            "en": "Which CSS properties can be animated on the compositor thread without triggering layout or paint?",
+            "ru": "Какие CSS-свойства можно анимировать в потоке компоновщика без запуска компоновки или отрисовки?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "`transform` and `opacity` are the two properties that can be animated purely on the compositor thread (GPU), bypassing layout and paint steps entirely. This results in smooth 60fps animations without blocking the main thread.",
+            "ru": "`transform` и `opacity` — два свойства, которые можно анимировать исключительно в потоке компоновщика (GPU), полностью минуя этапы компоновки и отрисовки. Это обеспечивает плавные анимации с 60 кадрами в секунду без блокировки основного потока."
+          },
+          "answers": [
+            {
+              "text": { "en": "`width` and `height`", "ru": "`width` и `height`" },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "`transform` and `opacity`", "ru": "`transform` и `opacity`" },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "`color` and `background-color`",
+                "ru": "`color` и `background-color`"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "`margin` and `padding`", "ru": "`margin` и `padding`" },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 4,
+          "name": {
+            "en": "What is the purpose of the `will-change` CSS property?",
+            "ru": "Каково назначение CSS-свойства `will-change`?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "`will-change` hints to the browser that an element will be animated or transformed, allowing it to promote the element to its own compositor layer in advance. This can improve animation performance but consumes extra memory, so it should be used sparingly.",
+            "ru": "`will-change` подсказывает браузеру, что элемент будет анимирован или трансформирован, позволяя заранее перенести его на отдельный слой компоновщика. Это может улучшить производительность анимации, но потребляет дополнительную память, поэтому использовать его следует умеренно."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "It prevents a CSS property from being changed by JavaScript",
+                "ru": "Оно предотвращает изменение CSS-свойства с помощью JavaScript"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "It hints the browser to promote an element to its own compositor layer before an animation starts",
+                "ru": "Оно подсказывает браузеру перенести элемент на отдельный слой компоновщика до начала анимации"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "It disables CSS transitions for the specified property",
+                "ru": "Оно отключает CSS-переходы для указанного свойства"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "It schedules a style recalculation at the next frame",
+                "ru": "Оно планирует пересчёт стилей на следующем кадре"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 5,
+          "name": {
+            "en": "What triggers a browser \"reflow\" (layout recalculation)?",
+            "ru": "Что вызывает «reflow» (пересчёт компоновки) в браузере?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "A reflow is triggered when the browser must recalculate element geometry. Common causes include: reading `offsetWidth`/`offsetHeight`/`scrollTop`, adding/removing DOM elements, changing CSS properties that affect geometry (width, height, margin, padding, font-size), and resizing the viewport.",
+            "ru": "Reflow запускается, когда браузер должен пересчитать геометрию элементов. Распространённые причины: чтение `offsetWidth`/`offsetHeight`/`scrollTop`, добавление/удаление DOM-элементов, изменение CSS-свойств, влияющих на геометрию (ширина, высота, отступы, размер шрифта), и изменение размера области просмотра."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "Changing the `color` property of an element",
+                "ru": "Изменение свойства `color` элемента"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Reading `offsetWidth` after a DOM write in the same frame",
+                "ru": "Чтение `offsetWidth` после записи в DOM в том же кадре"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "Applying a CSS `opacity` transition",
+                "ru": "Применение CSS-перехода `opacity`"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Using `requestAnimationFrame` for DOM updates",
+                "ru": "Использование `requestAnimationFrame` для обновления DOM"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 6,
+          "name": {
+            "en": "How does `requestAnimationFrame` help with rendering performance?",
+            "ru": "Как `requestAnimationFrame` помогает с производительностью рендеринга?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "`requestAnimationFrame` schedules a callback right before the browser's next paint, ensuring animations are synchronized with the browser's refresh rate. This avoids dropped frames caused by running animation code at arbitrary intervals (as with `setTimeout`).",
+            "ru": "`requestAnimationFrame` планирует обратный вызов непосредственно перед следующей отрисовкой браузера, синхронизируя анимации с частотой обновления браузера. Это позволяет избежать пропущенных кадров, которые возникают при запуске кода анимации через произвольные интервалы (`setTimeout`)."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "It runs JavaScript on the GPU thread to avoid blocking the main thread",
+                "ru": "Оно запускает JavaScript в потоке GPU, чтобы не блокировать основной поток"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "It schedules animation callbacks before the browser's next paint, syncing with the refresh rate",
+                "ru": "Оно планирует обратные вызовы анимации перед следующей отрисовкой браузера, синхронизируясь с частотой обновления"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "It batches all DOM reads into a single microtask",
+                "ru": "Оно объединяет все операции чтения DOM в одну микрозадачу"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "It prevents the browser from painting more than 30 frames per second",
+                "ru": "Оно предотвращает отрисовку более 30 кадров в секунду"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 7,
+          "name": {
+            "en": "What is a \"long task\" in the context of browser performance?",
+            "ru": "Что такое «long task» в контексте производительности браузера?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "A long task is any main-thread task that blocks the browser for more than 50ms. During a long task, the browser cannot respond to user input or render frames, causing jank. The Long Tasks API can be used to observe them.",
+            "ru": "Long task — это любая задача основного потока, блокирующая браузер более чем на 50 мс. В течение long task браузер не может реагировать на ввод пользователя или отрисовывать кадры, вызывая задержки. Для их наблюдения можно использовать Long Tasks API."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "Any JavaScript function that runs for more than 1 second",
+                "ru": "Любая функция JavaScript, выполняющаяся более 1 секунды"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Any main-thread task that blocks the browser for more than 50ms",
+                "ru": "Любая задача основного потока, блокирующая браузер более чем на 50 мс"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "A network request that takes more than 50ms to complete",
+                "ru": "Сетевой запрос, выполнение которого занимает более 50 мс"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "A CSS animation running for more than 50 frames",
+                "ru": "CSS-анимация, выполняющаяся более 50 кадров"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 8,
+          "name": {
+            "en": "What is \"paint\" in the browser rendering pipeline?",
+            "ru": "Что такое «paint» (отрисовка) в конвейере рендеринга браузера?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "Paint is the step where the browser fills in the pixels for each element — colors, borders, shadows, text, etc. It happens after layout (which determines element geometry). Paint is cheaper than layout but more expensive than compositing.",
+            "ru": "Paint — этап, на котором браузер заполняет пиксели каждого элемента: цвета, рамки, тени, текст и т.д. Он происходит после компоновки (определяющей геометрию элементов). Отрисовка дешевле компоновки, но дороже композиции."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "Calculating the position and size of every element on the page",
+                "ru": "Вычисление положения и размера каждого элемента на странице"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Filling in pixels — colors, borders, shadows, text — after layout",
+                "ru": "Заполнение пикселей — цветов, рамок, теней, текста — после компоновки"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "Moving compositor layers on the GPU without CPU involvement",
+                "ru": "Перемещение слоёв компоновщика на GPU без участия CPU"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Parsing and applying CSS rules to DOM elements",
+                "ru": "Разбор и применение правил CSS к DOM-элементам"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 9,
+          "name": {
+            "en": "Which technique avoids layout thrashing when reading and writing DOM properties in a loop?",
+            "ru": "Какой приём позволяет избежать layout thrashing при чтении и записи DOM-свойств в цикле?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "Batching all DOM reads together first, then performing all DOM writes, avoids interleaving reads and writes that cause forced synchronous layouts. Libraries like FastDOM automate this pattern.",
+            "ru": "Объединение всех операций чтения DOM в одну группу, а затем всех операций записи позволяет избежать перемежения чтений и записей, вызывающего принудительные синхронные компоновки. Библиотеки вроде FastDOM автоматизируют этот паттерн."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "Using `setTimeout` with 0ms delay between reads and writes",
+                "ru": "Использование `setTimeout` с задержкой 0 мс между операциями чтения и записи"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Batching all DOM reads first, then performing all DOM writes",
+                "ru": "Сначала объединение всех операций чтения DOM, затем выполнение всех операций записи"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "Wrapping all DOM operations in a `Promise`",
+                "ru": "Оборачивание всех DOM-операций в `Promise`"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Using `document.createDocumentFragment()` for all reads",
+                "ru": "Использование `document.createDocumentFragment()` для всех операций чтения"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 10,
+          "name": {
+            "en": "The `contain: layout` CSS property tells the browser that:",
+            "ru": "CSS-свойство `contain: layout` сообщает браузеру, что:"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "`contain: layout` establishes a layout containment boundary, meaning that the element's layout is independent from the rest of the page. The browser can skip layout recalculations for this subtree when unrelated parts of the page change, improving rendering performance.",
+            "ru": "`contain: layout` устанавливает границу изоляции компоновки, означая, что компоновка элемента независима от остальной части страницы. Браузер может пропускать пересчёт компоновки для этого поддерева при изменении несвязанных частей страницы, улучшая производительность рендеринга."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "All child elements use `position: absolute` by default",
+                "ru": "Все дочерние элементы используют `position: absolute` по умолчанию"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "The element's layout is isolated from the rest of the page, enabling layout skip optimizations",
+                "ru": "Компоновка элемента изолирована от остальной части страницы, что позволяет браузеру пропускать пересчёт"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "The element will always be rendered on its own compositor layer",
+                "ru": "Элемент всегда будет отрисовываться на отдельном слое компоновщика"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "CSS transitions on this element are disabled",
+                "ru": "CSS-переходы на этом элементе отключены"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 11,
+          "name": {
+            "en": "What problem can `will-change: transform` on every element cause?",
+            "ru": "Какую проблему может вызвать `will-change: transform` на каждом элементе?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "Applying `will-change` to many elements forces the browser to create many compositor layers and upload them to GPU memory. This consumes large amounts of GPU memory and can actually degrade performance instead of improving it.",
+            "ru": "Применение `will-change` ко многим элементам заставляет браузер создавать множество слоёв компоновщика и загружать их в память GPU. Это потребляет большой объём памяти GPU и может фактически ухудшить производительность вместо её улучшения."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "It disables GPU acceleration for those elements",
+                "ru": "Оно отключает аппаратное ускорение для этих элементов"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Excessive GPU memory usage due to too many compositor layers being created",
+                "ru": "Чрезмерное использование памяти GPU из-за создания слишком большого количества слоёв компоновщика"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "CSS transforms stop working on those elements",
+                "ru": "CSS-трансформации перестают работать на этих элементах"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "The browser throttles animations to 30fps on those elements",
+                "ru": "Браузер ограничивает анимации до 30 кадров в секунду на этих элементах"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 12,
+          "name": {
+            "en": "In the RAIL model, what is the target budget for responding to user input?",
+            "ru": "В модели RAIL каков целевой бюджет для реакции на ввод пользователя?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "The RAIL model sets a 100ms budget for responding to user input. If response takes longer than 100ms, users perceive the app as slow or unresponsive. Within those 100ms, the browser also needs time to render, so JavaScript should finish in under 50ms.",
+            "ru": "Модель RAIL устанавливает бюджет в 100 мс для реакции на ввод пользователя. Если ответ занимает более 100 мс, пользователи воспринимают приложение как медленное или неотзывчивое. В рамках этих 100 мс браузеру также нужно время для рендеринга, поэтому JavaScript должен завершаться менее чем за 50 мс."
+          },
+          "answers": [
+            { "text": { "en": "16ms", "ru": "16 мс" }, "isCorrect": false },
+            { "text": { "en": "100ms", "ru": "100 мс" }, "isCorrect": true },
+            { "text": { "en": "200ms", "ru": "200 мс" }, "isCorrect": false },
+            { "text": { "en": "50ms", "ru": "50 мс" }, "isCorrect": false }
+          ]
+        }
+      ]
     },
     {
       "name": { "en": "Asset & Bundle Optimization", "ru": "Оптимизация ассетов и бандла" },
@@ -32,7 +952,440 @@
         "ru": "Разделение кода, tree-shaking, минификация, сжатие (gzip/brotli), оптимизация изображений и стратегии кэширования"
       },
       "links": [],
-      "questions": []
+      "questions": [
+        {
+          "sortOrder": 1,
+          "name": { "en": "What is \"tree-shaking\"?", "ru": "Что такое «tree-shaking»?" },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "Tree-shaking is a dead code elimination technique used by bundlers (like Webpack and Rollup) to remove unused exports from the final bundle. It works by statically analyzing ES module `import`/`export` statements to determine which code is never used.",
+            "ru": "Tree-shaking — техника удаления мёртвого кода, используемая сборщиками (например, Webpack и Rollup) для исключения неиспользуемых экспортов из финального бандла. Она работает путём статического анализа операторов `import`/`export` ES-модулей для определения неиспользуемого кода."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "A technique for organizing module imports in a tree structure",
+                "ru": "Техника организации импортов модулей в древовидную структуру"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Dead code elimination by removing unused exports from the final bundle",
+                "ru": "Удаление мёртвого кода путём исключения неиспользуемых экспортов из финального бандла"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "Recursively deleting node_modules directories",
+                "ru": "Рекурсивное удаление директорий node_modules"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Compressing assets using a tree-based compression algorithm",
+                "ru": "Сжатие ассетов с использованием алгоритма сжатия на основе дерева"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 2,
+          "name": {
+            "en": "What HTTP header is used to enable long-term caching of static assets with content hashing?",
+            "ru": "Какой HTTP-заголовок используется для долгосрочного кэширования статических ассетов с хэшем содержимого?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "`Cache-Control: max-age=31536000, immutable` tells browsers and CDNs to cache the file for one year and that it will never change. This works safely when filenames include a content hash (e.g., `main.abc123.js`), because a new file name is generated when content changes.",
+            "ru": "`Cache-Control: max-age=31536000, immutable` сообщает браузерам и CDN кэшировать файл на один год и что он никогда не изменится. Это безопасно работает, когда имена файлов содержат хэш содержимого (например, `main.abc123.js`), потому что при изменении содержимого генерируется новое имя файла."
+          },
+          "answers": [
+            { "text": { "en": "`Expires: max`", "ru": "`Expires: max`" }, "isCorrect": false },
+            {
+              "text": {
+                "en": "`Cache-Control: max-age=31536000, immutable`",
+                "ru": "`Cache-Control: max-age=31536000, immutable`"
+              },
+              "isCorrect": true
+            },
+            { "text": { "en": "`ETag: strong`", "ru": "`ETag: strong`" }, "isCorrect": false },
+            { "text": { "en": "`Pragma: cache`", "ru": "`Pragma: cache`" }, "isCorrect": false }
+          ]
+        },
+        {
+          "sortOrder": 3,
+          "name": {
+            "en": "Which compression algorithm generally produces smaller files than gzip?",
+            "ru": "Какой алгоритм сжатия, как правило, производит файлы меньшего размера, чем gzip?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "Brotli generally achieves 15–25% better compression ratios than gzip for web assets. It is supported by all modern browsers and is widely available on CDNs and web servers. gzip is more universally supported but produces larger files.",
+            "ru": "Brotli, как правило, достигает на 15–25% лучшего коэффициента сжатия по сравнению с gzip для веб-ассетов. Он поддерживается всеми современными браузерами и широко доступен на CDN и веб-серверах. gzip имеет более универсальную поддержку, но производит файлы большего размера."
+          },
+          "answers": [
+            { "text": { "en": "Deflate", "ru": "Deflate" }, "isCorrect": false },
+            { "text": { "en": "Brotli", "ru": "Brotli" }, "isCorrect": true },
+            { "text": { "en": "LZ4", "ru": "LZ4" }, "isCorrect": false },
+            { "text": { "en": "LZMA", "ru": "LZMA" }, "isCorrect": false }
+          ]
+        },
+        {
+          "sortOrder": 4,
+          "name": {
+            "en": "What is the difference between `<link rel=\"preload\">` and `<link rel=\"prefetch\">`?",
+            "ru": "В чём разница между `<link rel=\"preload\">` и `<link rel=\"prefetch\">`?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "`preload` tells the browser to fetch a resource that will be needed for the current page with high priority. `prefetch` requests resources needed for future navigations at low priority, using spare bandwidth during idle time.",
+            "ru": "`preload` указывает браузеру с высоким приоритетом загрузить ресурс, необходимый для текущей страницы. `prefetch` запрашивает ресурсы, нужные для будущих переходов, с низким приоритетом, используя свободную пропускную способность в простое."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "`preload` is for scripts only; `prefetch` works with all resource types",
+                "ru": "`preload` только для скриптов; `prefetch` работает со всеми типами ресурсов"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "`preload` fetches current-page resources at high priority; `prefetch` fetches future-page resources at low priority",
+                "ru": "`preload` загружает ресурсы текущей страницы с высоким приоритетом; `prefetch` загружает ресурсы будущих страниц с низким приоритетом"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "Both do the same thing; `prefetch` is the older API",
+                "ru": "Оба делают одно и то же; `prefetch` — более старый API"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "`prefetch` only works with JavaScript files",
+                "ru": "`prefetch` работает только с JavaScript-файлами"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 5,
+          "name": {
+            "en": "What image format offers lossless and lossy compression, transparency, and is well-supported in modern browsers?",
+            "ru": "Какой формат изображений предлагает сжатие без потерь и с потерями, прозрачность и хорошо поддерживается в современных браузерах?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "WebP supports both lossless and lossy compression, transparency (alpha channel), and animation. It typically produces files 25–35% smaller than equivalent JPEG/PNG images. All modern browsers support WebP.",
+            "ru": "WebP поддерживает как сжатие без потерь, так и с потерями, прозрачность (альфа-канал) и анимацию. Как правило, файлы WebP на 25–35% меньше эквивалентных JPEG/PNG. Все современные браузеры поддерживают WebP."
+          },
+          "answers": [
+            { "text": { "en": "AVIF", "ru": "AVIF" }, "isCorrect": false },
+            { "text": { "en": "WebP", "ru": "WebP" }, "isCorrect": true },
+            { "text": { "en": "HEIC", "ru": "HEIC" }, "isCorrect": false },
+            { "text": { "en": "SVG", "ru": "SVG" }, "isCorrect": false }
+          ]
+        },
+        {
+          "sortOrder": 6,
+          "name": { "en": "What is \"code splitting\"?", "ru": "Что такое «code splitting»?" },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "Code splitting is a technique where the application bundle is divided into smaller chunks that can be loaded on demand or in parallel. This reduces the initial bundle size and speeds up the first load. Common strategies include route-based and component-based splitting.",
+            "ru": "Code splitting — техника, при которой бандл приложения делится на более мелкие фрагменты, которые можно загружать по требованию или параллельно. Это уменьшает начальный размер бандла и ускоряет первую загрузку. Распространённые стратегии включают разделение по маршрутам и по компонентам."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "Splitting a JavaScript file into multiple files for easier reading",
+                "ru": "Разделение JavaScript-файла на несколько файлов для удобства чтения"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Dividing the application bundle into smaller chunks loaded on demand",
+                "ru": "Разделение бандла приложения на более мелкие фрагменты, загружаемые по требованию"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "Separating CSS from JavaScript during the build process",
+                "ru": "Отделение CSS от JavaScript в процессе сборки"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Splitting a monorepo into multiple packages",
+                "ru": "Разделение монорепозитория на несколько пакетов"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 7,
+          "name": {
+            "en": "Why does tree-shaking require ES modules (`import`/`export`) rather than CommonJS (`require`)?",
+            "ru": "Почему tree-shaking требует ES-модулей (`import`/`export`), а не CommonJS (`require`)?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "ES module `import`/`export` statements are static — they can be analyzed at build time without executing the code. CommonJS `require()` is dynamic, meaning the bundler cannot determine at build time which exports are used, making static dead-code elimination impossible.",
+            "ru": "Операторы `import`/`export` ES-модулей статичны — их можно анализировать во время сборки без выполнения кода. CommonJS `require()` является динамическим, поэтому сборщик не может определить во время сборки, какие экспорты используются, что делает статическое удаление мёртвого кода невозможным."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "ES modules are faster to parse at runtime",
+                "ru": "ES-модули быстрее разбираются во время выполнения"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "ES module imports are static and analyzable at build time, unlike dynamic CommonJS `require()`",
+                "ru": "Импорты ES-модулей статичны и поддаются анализу во время сборки, в отличие от динамического CommonJS `require()`"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "CommonJS is deprecated and not supported by modern bundlers",
+                "ru": "CommonJS устарел и не поддерживается современными сборщиками"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "ES modules run in strict mode, which enables tree-shaking",
+                "ru": "ES-модули работают в строгом режиме, что обеспечивает tree-shaking"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 8,
+          "name": {
+            "en": "What does the `Cache-Control: no-cache` directive mean?",
+            "ru": "Что означает директива `Cache-Control: no-cache`?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "`no-cache` does NOT mean the browser won't cache the response. It means the browser must revalidate with the server before using the cached copy. If the server responds with `304 Not Modified`, the cached version is used. `no-store` is the directive that prevents caching entirely.",
+            "ru": "`no-cache` НЕ означает, что браузер не будет кэшировать ответ. Это означает, что браузер должен повторно проверить актуальность на сервере перед использованием кэшированной копии. Если сервер отвечает `304 Not Modified`, используется кэшированная версия. Директива `no-store` полностью предотвращает кэширование."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "The browser will not cache the response at all",
+                "ru": "Браузер вообще не будет кэшировать ответ"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "The browser must revalidate with the server before using the cached copy",
+                "ru": "Браузер должен повторно проверить актуальность на сервере перед использованием кэшированной копии"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "The response is cached but only in memory, not on disk",
+                "ru": "Ответ кэшируется только в памяти, но не на диске"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "CDNs are not allowed to cache the response, but browsers can",
+                "ru": "CDN не могут кэшировать ответ, но браузеры могут"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 9,
+          "name": {
+            "en": "What is the purpose of the `<picture>` element with multiple `<source>` children?",
+            "ru": "Каково назначение элемента `<picture>` с несколькими дочерними `<source>`?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "The `<picture>` element allows the browser to choose the most appropriate image format and size based on the device, viewport, and supported formats. For example, it can serve AVIF to browsers that support it, WebP as a fallback, and JPEG as a last resort.",
+            "ru": "Элемент `<picture>` позволяет браузеру выбрать наиболее подходящий формат и размер изображения в зависимости от устройства, области просмотра и поддерживаемых форматов. Например, он может отдавать AVIF браузерам, которые его поддерживают, WebP как запасной вариант и JPEG в крайнем случае."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "To display multiple images side by side in a grid layout",
+                "ru": "Для отображения нескольких изображений рядом в сеточном макете"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "To let the browser choose the best image format or size based on device capabilities",
+                "ru": "Чтобы браузер мог выбрать лучший формат или размер изображения в зависимости от возможностей устройства"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "To lazy-load images by default without JavaScript",
+                "ru": "Для ленивой загрузки изображений по умолчанию без JavaScript"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "To apply different CSS filters to the same image",
+                "ru": "Для применения разных CSS-фильтров к одному изображению"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 10,
+          "name": {
+            "en": "What is the main benefit of content hashing in bundle filenames (e.g., `main.a1b2c3.js`)?",
+            "ru": "В чём основное преимущество хэша содержимого в именах файлов бандла (например, `main.a1b2c3.js`)?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "Content hashing ensures that when the file content changes, the filename also changes, so browsers and CDNs will fetch the new file instead of serving the stale cached version. This enables safe long-term caching with `Cache-Control: max-age=31536000, immutable`.",
+            "ru": "Хэш содержимого гарантирует, что при изменении содержимого файла также изменяется его имя, поэтому браузеры и CDN будут загружать новый файл, а не отдавать устаревшую кэшированную версию. Это обеспечивает безопасное долгосрочное кэширование с `Cache-Control: max-age=31536000, immutable`."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "It prevents bots from guessing internal file names",
+                "ru": "Оно предотвращает угадывание ботами внутренних имён файлов"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Filename changes when content changes, enabling safe long-term caching without stale responses",
+                "ru": "Имя файла меняется при изменении содержимого, обеспечивая безопасное долгосрочное кэширование без устаревших ответов"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "It compresses the file using a hashing algorithm",
+                "ru": "Оно сжимает файл с помощью алгоритма хэширования"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "It allows multiple versions of the same file to coexist",
+                "ru": "Оно позволяет нескольким версиям одного файла сосуществовать"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 11,
+          "name": {
+            "en": "A library is marked as having side effects in `package.json`. How does this affect tree-shaking?",
+            "ru": "Библиотека помечена как имеющая побочные эффекты в `package.json`. Как это влияет на tree-shaking?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "The `\"sideEffects\"` field in `package.json` tells bundlers which files have side effects (e.g., polyfills that modify globals). If a file is not listed and `sideEffects: false` is set, bundlers can safely tree-shake its unused exports. If a file is listed as having side effects, bundlers will always include it even if no explicit import is used.",
+            "ru": "Поле `\"sideEffects\"` в `package.json` сообщает сборщикам, какие файлы имеют побочные эффекты (например, полифилы, модифицирующие глобальные переменные). Если файл не указан и установлено `sideEffects: false`, сборщики могут безопасно удалять его неиспользуемые экспорты. Если файл указан как имеющий побочные эффекты, сборщики всегда включают его, даже если нет явного импорта."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "Bundlers will refuse to include the library in the bundle",
+                "ru": "Сборщики откажутся включать библиотеку в бандл"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Bundlers will always include the library's files, even if none of their exports are imported",
+                "ru": "Сборщики всегда будут включать файлы библиотеки, даже если ни один из её экспортов не импортирован"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "Tree-shaking is disabled globally for the entire project",
+                "ru": "Tree-shaking отключается глобально для всего проекта"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "The library is automatically code-split into a separate chunk",
+                "ru": "Библиотека автоматически выносится в отдельный фрагмент"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 12,
+          "name": {
+            "en": "What does the `srcset` attribute on an `<img>` element do?",
+            "ru": "Что делает атрибут `srcset` на элементе `<img>`?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "`srcset` provides the browser with a list of candidate images at different resolutions or sizes. The browser then picks the most appropriate one based on the device's pixel density and the element's rendered size, avoiding unnecessarily large image downloads on small screens.",
+            "ru": "`srcset` предоставляет браузеру список изображений-кандидатов с разным разрешением или размером. Браузер выбирает наиболее подходящее изображение в зависимости от плотности пикселей устройства и отрисованного размера элемента, избегая лишней загрузки больших изображений на маленьких экранах."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "It specifies a fallback image source if the main `src` fails to load",
+                "ru": "Оно задаёт резервный источник изображения, если основной `src` не загружается"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "It provides a list of image candidates at different sizes so the browser picks the best one for the device",
+                "ru": "Оно предоставляет список изображений-кандидатов разных размеров, чтобы браузер выбрал наиболее подходящее для устройства"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "It sets the image dimensions in the browser's layout engine",
+                "ru": "Оно задаёт размеры изображения в движке компоновки браузера"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "It lazy-loads multiple images simultaneously",
+                "ru": "Оно одновременно лениво загружает несколько изображений"
+              },
+              "isCorrect": false
+            }
+          ]
+        }
+      ]
     },
     {
       "name": { "en": "Lazy Loading & Code Splitting", "ru": "Ленивая загрузка и разделение кода" },
@@ -41,7 +1394,419 @@
         "ru": "Динамические импорты, разделение по маршрутам, ленивая загрузка изображений и компонентов, Intersection Observer API"
       },
       "links": [],
-      "questions": []
+      "questions": [
+        {
+          "sortOrder": 1,
+          "name": {
+            "en": "What HTML attribute enables native lazy loading of images?",
+            "ru": "Какой HTML-атрибут включает нативную ленивую загрузку изображений?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "The `loading=\"lazy\"` attribute tells the browser to defer loading an image until it is close to the viewport. This is a native browser feature that does not require any JavaScript.",
+            "ru": "Атрибут `loading=\"lazy\"` указывает браузеру отложить загрузку изображения до момента, когда оно приближается к области просмотра. Это нативная функция браузера, не требующая JavaScript."
+          },
+          "answers": [
+            { "text": { "en": "`defer=\"true\"`", "ru": "`defer=\"true\"`" }, "isCorrect": false },
+            {
+              "text": { "en": "`loading=\"lazy\"`", "ru": "`loading=\"lazy\"`" },
+              "isCorrect": true
+            },
+            {
+              "text": { "en": "`lazyload=\"on\"`", "ru": "`lazyload=\"on\"`" },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "`fetchpriority=\"low\"`", "ru": "`fetchpriority=\"low\"`" },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 2,
+          "name": {
+            "en": "What JavaScript feature enables dynamic code splitting at the module level?",
+            "ru": "Какая функция JavaScript обеспечивает динамическое разделение кода на уровне модулей?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "Dynamic `import()` — a function-like expression — loads a module asynchronously and returns a Promise. Bundlers like Webpack and Vite detect `import()` calls and automatically create separate chunks for the dynamically imported modules.",
+            "ru": "Динамический `import()` — функциеподобное выражение — загружает модуль асинхронно и возвращает Promise. Сборщики, такие как Webpack и Vite, обнаруживают вызовы `import()` и автоматически создают отдельные фрагменты для динамически импортируемых модулей."
+          },
+          "answers": [
+            {
+              "text": { "en": "`require.async()`", "ru": "`require.async()`" },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Dynamic `import()` expression",
+                "ru": "Динамическое выражение `import()`"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "`fetch()` with a script URL",
+                "ru": "`fetch()` с URL-адресом скрипта"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "`<script type=\"module\" defer>`",
+                "ru": "`<script type=\"module\" defer>`"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 3,
+          "name": {
+            "en": "What is the Intersection Observer API primarily used for in performance optimization?",
+            "ru": "Для чего в первую очередь используется Intersection Observer API при оптимизации производительности?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "The Intersection Observer API allows you to asynchronously observe when an element enters or exits the viewport. It is commonly used to implement lazy loading of images, infinite scrolling, and triggering animations when elements become visible — all without expensive scroll event listeners.",
+            "ru": "Intersection Observer API позволяет асинхронно отслеживать момент, когда элемент входит в область просмотра или выходит из неё. Он широко используется для реализации ленивой загрузки изображений, бесконечной прокрутки и запуска анимаций при появлении элементов — всё это без дорогостоящих обработчиков событий прокрутки."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "To measure the exact pixel position of an element on the page",
+                "ru": "Для измерения точного положения элемента на странице в пикселях"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "To asynchronously detect when elements enter or exit the viewport, enabling lazy loading without scroll listeners",
+                "ru": "Для асинхронного обнаружения момента, когда элементы входят в область просмотра или выходят из неё, обеспечивая ленивую загрузку без обработчиков прокрутки"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "To synchronously observe CSS property changes on an element",
+                "ru": "Для синхронного отслеживания изменений CSS-свойств элемента"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "To observe DOM mutations within a specific subtree",
+                "ru": "Для отслеживания мутаций DOM в конкретном поддереве"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 4,
+          "name": {
+            "en": "What does `loading=\"lazy\"` NOT apply to by the HTML spec?",
+            "ru": "К чему `loading=\"lazy\"` НЕ применяется согласно спецификации HTML?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "The `loading=\"lazy\"` attribute works on `<img>` and `<iframe>` elements. It does not apply natively to CSS `background-image` or `<video>` elements. Background images and videos require JavaScript-based lazy loading solutions.",
+            "ru": "Атрибут `loading=\"lazy\"` работает на элементах `<img>` и `<iframe>`. Он не применяется нативно к CSS `background-image` или элементам `<video>`. Фоновые изображения и видео требуют JavaScript-решений для ленивой загрузки."
+          },
+          "answers": [
+            { "text": { "en": "`<img>` elements", "ru": "Элементы `<img>`" }, "isCorrect": false },
+            {
+              "text": { "en": "`<iframe>` elements", "ru": "Элементы `<iframe>`" },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "CSS `background-image` properties",
+                "ru": "CSS-свойства `background-image`"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "Both `<img>` and `<iframe>` elements",
+                "ru": "Элементы `<img>` и `<iframe>`"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 5,
+          "name": {
+            "en": "In React, how do you lazy-load a component?",
+            "ru": "Как лениво загрузить компонент в React?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "`React.lazy()` accepts a function that calls `import()` and returns a component that can be rendered inside a `<Suspense>` boundary. The component's code is only downloaded when it is first rendered.",
+            "ru": "`React.lazy()` принимает функцию, вызывающую `import()`, и возвращает компонент, который можно отрисовывать внутри границы `<Suspense>`. Код компонента загружается только при первой его отрисовке."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "Using the `defer` prop on the component",
+                "ru": "Использование пропа `defer` на компоненте"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Using `React.lazy()` with a dynamic `import()` wrapped in `<Suspense>`",
+                "ru": "Использование `React.lazy()` с динамическим `import()` внутри `<Suspense>`"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "Exporting the component with `export lazy`",
+                "ru": "Экспорт компонента с помощью `export lazy`"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Wrapping the component in `React.memo()`",
+                "ru": "Оборачивание компонента в `React.memo()`"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 6,
+          "name": {
+            "en": "What is \"route-based code splitting\"?",
+            "ru": "Что такое «разделение кода на основе маршрутов»?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "Route-based code splitting means that the JavaScript code for each route (page) is bundled into a separate chunk and only loaded when the user navigates to that route. This significantly reduces the initial bundle size since users only download code for the current page.",
+            "ru": "Разделение кода по маршрутам означает, что JavaScript-код каждого маршрута (страницы) упаковывается в отдельный фрагмент и загружается только при переходе пользователя на этот маршрут. Это значительно уменьшает начальный размер бандла, так как пользователи загружают только код текущей страницы."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "Splitting the router configuration into separate files",
+                "ru": "Разделение конфигурации роутера на отдельные файлы"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Bundling each route's JavaScript into separate chunks loaded on navigation",
+                "ru": "Упаковка JavaScript каждого маршрута в отдельные фрагменты, загружаемые при переходе"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "Serving different bundles based on the user's role",
+                "ru": "Отдача разных бандлов в зависимости от роли пользователя"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Pre-loading all routes at startup to avoid delays later",
+                "ru": "Предварительная загрузка всех маршрутов при запуске для предотвращения задержек позже"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 7,
+          "name": {
+            "en": "What is the potential downside of lazy loading too aggressively?",
+            "ru": "В чём потенциальный недостаток слишком агрессивной ленивой загрузки?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "Lazy loading defers resource downloads, but if applied too aggressively (including critical above-the-fold content), it can delay rendering of important content, leading to a worse LCP and user experience. Resources needed immediately should always be eagerly loaded.",
+            "ru": "Ленивая загрузка откладывает загрузку ресурсов, но при слишком агрессивном применении (включая критичный контент выше сгиба) она может задержать отрисовку важного контента, ухудшая LCP и пользовательский опыт. Ресурсы, нужные немедленно, всегда должны загружаться жадно."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "It increases the total amount of JavaScript executed",
+                "ru": "Она увеличивает общий объём выполняемого JavaScript"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Critical above-the-fold content may load late, worsening LCP and initial user experience",
+                "ru": "Критичный контент выше сгиба может загрузиться поздно, ухудшая LCP и начальный пользовательский опыт"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "The browser will refuse to lazy-load more than 10 resources per page",
+                "ru": "Браузер откажется лениво загружать более 10 ресурсов на странице"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Lazy loading prevents browser caching from working correctly",
+                "ru": "Ленивая загрузка мешает правильной работе кэширования браузера"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 8,
+          "name": {
+            "en": "What option in Webpack is used to control the name of a dynamically imported chunk?",
+            "ru": "Какой параметр в Webpack используется для управления именем динамически импортируемого фрагмента?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "Webpack magic comments — such as `/* webpackChunkName: \"my-chunk\" */` — can be added inside a dynamic `import()` call to assign a specific name to the generated chunk. This makes the output files more readable and predictable.",
+            "ru": "Магические комментарии Webpack — например, `/* webpackChunkName: \"my-chunk\" */` — можно добавлять внутри динамического вызова `import()` для присвоения конкретного имени генерируемому фрагменту. Это делает выходные файлы более читаемыми и предсказуемыми."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "The `chunkFilename` option in the output configuration",
+                "ru": "Параметр `chunkFilename` в конфигурации output"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "A `/* webpackChunkName: \"...\" */` magic comment inside the `import()` call",
+                "ru": "Магический комментарий `/* webpackChunkName: \"...\" */` внутри вызова `import()`"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "The `name` property on the dynamic import object",
+                "ru": "Свойство `name` объекта динамического импорта"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "The `splitChunks.name` plugin configuration",
+                "ru": "Конфигурация плагина `splitChunks.name`"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 9,
+          "name": {
+            "en": "Which `<script>` attribute defers execution until after the HTML is fully parsed, without blocking parsing?",
+            "ru": "Какой атрибут `<script>` откладывает выполнение до полного разбора HTML без блокировки разбора?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "`defer` downloads the script in parallel with HTML parsing and executes it after the DOM is fully parsed, maintaining script order. `async` also downloads in parallel but executes as soon as it downloads, potentially out of order and before parsing completes.",
+            "ru": "`defer` загружает скрипт параллельно с разбором HTML и выполняет его после полного разбора DOM, сохраняя порядок скриптов. `async` также загружает параллельно, но выполняет сразу после загрузки, потенциально не по порядку и до завершения разбора."
+          },
+          "answers": [
+            { "text": { "en": "`async`", "ru": "`async`" }, "isCorrect": false },
+            { "text": { "en": "`defer`", "ru": "`defer`" }, "isCorrect": true },
+            { "text": { "en": "`nomodule`", "ru": "`nomodule`" }, "isCorrect": false },
+            { "text": { "en": "`type=\"module\"`", "ru": "`type=\"module\"`" }, "isCorrect": false }
+          ]
+        },
+        {
+          "sortOrder": 10,
+          "name": {
+            "en": "What is the `rootMargin` option in `IntersectionObserver` used for?",
+            "ru": "Для чего используется параметр `rootMargin` в `IntersectionObserver`?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "`rootMargin` extends or shrinks the root element's bounding box used for intersection calculations. A positive `rootMargin` (e.g., `\"200px\"`) triggers the observer callback before the element actually enters the viewport, allowing assets to start loading earlier.",
+            "ru": "`rootMargin` расширяет или сужает ограничивающий прямоугольник корневого элемента, используемый для вычисления пересечений. Положительный `rootMargin` (например, `\"200px\"`) вызывает обратный вызов наблюдателя до того, как элемент фактически входит в область просмотра, позволяя начать загрузку ресурсов раньше."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "It sets the CSS margin on the root element being observed",
+                "ru": "Оно задаёт CSS-отступ на наблюдаемом корневом элементе"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "It extends or shrinks the intersection root's bounding box, allowing early triggering before the element enters the viewport",
+                "ru": "Оно расширяет или сужает ограничивающий прямоугольник корня пересечения, позволяя срабатывать до входа элемента в область просмотра"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "It limits the observer to elements within a specific margin of the document",
+                "ru": "Оно ограничивает наблюдатель элементами в пределах определённого отступа документа"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "It specifies the minimum visible area required to trigger the callback",
+                "ru": "Оно указывает минимальную видимую площадь, необходимую для срабатывания обратного вызова"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 11,
+          "name": {
+            "en": "What is a potential issue when lazy loading the LCP image?",
+            "ru": "Какая потенциальная проблема возникает при ленивой загрузке LCP-изображения?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "Lazy loading defers fetching until the element is near the viewport. If applied to the LCP image (typically the hero image), it significantly delays when the browser starts fetching it, leading to a much worse LCP score. The LCP image should always be eagerly loaded with `fetchpriority=\"high\"`.",
+            "ru": "Ленивая загрузка откладывает загрузку до момента, когда элемент приближается к области просмотра. Если она применяется к LCP-изображению (как правило, главному изображению-герою), это значительно задерживает начало загрузки браузером, что приводит к значительно худшему показателю LCP. LCP-изображение всегда должно загружаться жадно с `fetchpriority=\"high\"`."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "Lazy loading images is not supported for `<img>` elements, only `<iframe>`",
+                "ru": "Ленивая загрузка изображений не поддерживается для элементов `<img>`, только для `<iframe>`"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "The browser delays fetching the LCP image, significantly worsening the LCP score",
+                "ru": "Браузер задерживает загрузку LCP-изображения, значительно ухудшая показатель LCP"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "Lazy loading causes the LCP image to load twice",
+                "ru": "Ленивая загрузка приводит к двойной загрузке LCP-изображения"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Lazy loading prevents the image from being indexed by search engines",
+                "ru": "Ленивая загрузка предотвращает индексирование изображения поисковыми системами"
+              },
+              "isCorrect": false
+            }
+          ]
+        }
+      ]
     },
     {
       "name": {
@@ -53,7 +1818,491 @@
         "ru": "Использование Lighthouse, панели Performance в Chrome DevTools, библиотеки Web Vitals и бюджетов производительности"
       },
       "links": [],
-      "questions": []
+      "questions": [
+        {
+          "sortOrder": 1,
+          "name": { "en": "What is Lighthouse?", "ru": "Что такое Lighthouse?" },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "Lighthouse is an open-source automated auditing tool built into Chrome DevTools. It analyzes web pages for performance, accessibility, best practices, SEO, and PWA compliance, generating a report with scores and actionable recommendations.",
+            "ru": "Lighthouse — это инструмент автоматического аудита с открытым исходным кодом, встроенный в Chrome DevTools. Он анализирует веб-страницы на предмет производительности, доступности, лучших практик, SEO и соответствия PWA, генерируя отчёт с оценками и рекомендациями."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "A JavaScript bundler focused on performance",
+                "ru": "Сборщик JavaScript, ориентированный на производительность"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "An automated auditing tool that scores pages on performance, accessibility, SEO, and more",
+                "ru": "Инструмент автоматического аудита, оценивающий страницы по производительности, доступности, SEO и другим параметрам"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "A browser extension for measuring Core Web Vitals in real time",
+                "ru": "Расширение браузера для измерения Core Web Vitals в реальном времени"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "A CDN service that automatically optimizes assets",
+                "ru": "CDN-сервис, автоматически оптимизирующий ассеты"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 2,
+          "name": {
+            "en": "What is the difference between \"lab data\" and \"field data\" in web performance?",
+            "ru": "В чём разница между «лабораторными данными» и «полевыми данными» в веб-производительности?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "Lab data is collected in a controlled environment using simulated devices and network conditions (e.g., Lighthouse, WebPageTest). Field data (also called Real User Monitoring, RUM) is collected from actual users in the wild (e.g., CrUX, Google Analytics). Lab data is reproducible but may not reflect real-world conditions.",
+            "ru": "Лабораторные данные собираются в контролируемой среде с использованием симулированных устройств и сетевых условий (например, Lighthouse, WebPageTest). Полевые данные (также называемые Real User Monitoring, RUM) собираются от реальных пользователей в реальных условиях (например, CrUX, Google Analytics). Лабораторные данные воспроизводимы, но могут не отражать реальные условия."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "Lab data uses JavaScript, field data uses CSS profiling",
+                "ru": "Лабораторные данные используют JavaScript, полевые — профилирование CSS"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Lab data is from controlled simulations; field data is from real users in real conditions",
+                "ru": "Лабораторные данные получены из контролируемых симуляций; полевые данные — от реальных пользователей в реальных условиях"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "Lab data is more accurate than field data for Core Web Vitals",
+                "ru": "Лабораторные данные точнее полевых для Core Web Vitals"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Field data is collected by running Lighthouse in CI pipelines",
+                "ru": "Полевые данные собираются путём запуска Lighthouse в CI-пайплайнах"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 3,
+          "name": {
+            "en": "What does the \"flame chart\" in Chrome DevTools Performance panel show?",
+            "ru": "Что показывает «пламенная диаграмма» (flame chart) в панели Performance Chrome DevTools?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "The flame chart visualizes the call stack over time. Each horizontal bar represents a function call, and its width represents how long it ran. Nested calls appear below their callers. It allows you to identify long-running functions and understand the execution timeline.",
+            "ru": "Пламенная диаграмма визуализирует стек вызовов во времени. Каждая горизонтальная полоса представляет вызов функции, а её ширина — время выполнения. Вложенные вызовы отображаются ниже своих вызывающих функций. Она позволяет выявлять долго выполняемые функции и понимать временную шкалу выполнения."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "A chart showing CPU temperature over time during profiling",
+                "ru": "Диаграмма, показывающая температуру CPU во время профилирования"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "The call stack over time, showing which functions ran and how long they took",
+                "ru": "Стек вызовов во времени, показывающий, какие функции выполнялись и сколько времени они заняли"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "A waterfall chart of all network requests during page load",
+                "ru": "Каскадная диаграмма всех сетевых запросов при загрузке страницы"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "A heat map of layout shift events on the page",
+                "ru": "Тепловая карта событий смещения макета на странице"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 4,
+          "name": {
+            "en": "What does the `web-vitals` JavaScript library provide?",
+            "ru": "Что предоставляет JavaScript-библиотека `web-vitals`?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "The `web-vitals` library (maintained by Google) provides simple functions to measure LCP, INP, CLS, FCP, and TTFB from real user sessions. Each function accepts a callback that receives the metric's value, allowing you to report them to your analytics backend.",
+            "ru": "Библиотека `web-vitals` (поддерживаемая Google) предоставляет простые функции для измерения LCP, INP, CLS, FCP и TTFB из реальных пользовательских сессий. Каждая функция принимает обратный вызов, получающий значение метрики, что позволяет отправлять их в аналитический бэкенд."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "A server-side framework for running Lighthouse audits automatically",
+                "ru": "Серверный фреймворк для автоматического запуска аудитов Lighthouse"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Functions to measure real-user Core Web Vitals and report them to analytics",
+                "ru": "Функции для измерения Core Web Vitals реальных пользователей и отправки их в аналитику"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "A polyfill that adds Core Web Vitals support to older browsers",
+                "ru": "Полифил, добавляющий поддержку Core Web Vitals в старые браузеры"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "A CLI tool for auditing performance of backend APIs",
+                "ru": "CLI-инструмент для аудита производительности бэкенд-API"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 5,
+          "name": {
+            "en": "What is a \"performance budget\"?",
+            "ru": "Что такое «бюджет производительности»?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "A performance budget is a set of limits on performance metrics (e.g., total bundle size < 200KB, LCP < 2.5s, Lighthouse score > 90). It is enforced during CI/CD so that new changes cannot degrade performance beyond the defined thresholds.",
+            "ru": "Бюджет производительности — это набор ограничений на метрики производительности (например, общий размер бандла < 200 КБ, LCP < 2,5 с, оценка Lighthouse > 90). Он применяется в CI/CD, чтобы новые изменения не могли ухудшить производительность сверх установленных порогов."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "The financial cost allocated for cloud infrastructure to host the application",
+                "ru": "Финансовые затраты, выделенные на облачную инфраструктуру для размещения приложения"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "A set of limits on performance metrics enforced in CI/CD to prevent regressions",
+                "ru": "Набор ограничений на метрики производительности, применяемых в CI/CD для предотвращения регрессий"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "The maximum number of network requests allowed per page load",
+                "ru": "Максимальное количество сетевых запросов, допустимое при загрузке страницы"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "A browser setting that limits JavaScript execution time",
+                "ru": "Настройка браузера, ограничивающая время выполнения JavaScript"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 6,
+          "name": {
+            "en": "When would you use CPU throttling in Chrome DevTools?",
+            "ru": "Когда следует использовать троттлинг CPU в Chrome DevTools?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "CPU throttling in DevTools simulates slower devices (e.g., a 4x slowdown simulates a mid-range mobile phone). It helps developers identify performance bottlenecks that only manifest on lower-powered devices, making profiling results more representative of the average user's experience.",
+            "ru": "Троттлинг CPU в DevTools имитирует более медленные устройства (например, замедление в 4 раза имитирует среднебюджетный мобильный телефон). Он помогает разработчикам выявлять узкие места производительности, проявляющиеся только на маломощных устройствах, делая результаты профилирования более репрезентативными для среднего пользователя."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "To reduce battery consumption during development",
+                "ru": "Для снижения потребления батареи во время разработки"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "To simulate slower devices and find performance issues that only appear on low-end hardware",
+                "ru": "Для имитации более медленных устройств и выявления проблем производительности, проявляющихся только на слабом оборудовании"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "To test how the app behaves when the CPU overheats",
+                "ru": "Для тестирования поведения приложения при перегреве CPU"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "To limit the number of JavaScript worker threads",
+                "ru": "Для ограничения количества JavaScript-потоков воркеров"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 7,
+          "name": {
+            "en": "What does TBT (Total Blocking Time) measure?",
+            "ru": "Что измеряет TBT (Total Blocking Time)?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "TBT measures the total time the main thread was blocked (by long tasks exceeding 50ms) between FCP and TTI. Each long task contributes (taskDuration - 50ms) to TBT. It is a lab metric strongly correlated with INP.",
+            "ru": "TBT измеряет суммарное время блокировки основного потока (долгими задачами, превышающими 50 мс) между FCP и TTI. Каждая долгая задача вносит вклад (длительность задачи - 50 мс) в TBT. Это лабораторная метрика, тесно коррелирующая с INP."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "The total time the page was invisible to the user due to a white screen",
+                "ru": "Суммарное время, в течение которого страница была невидима для пользователя из-за белого экрана"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "The total main-thread blocking time from long tasks (>50ms each) between FCP and TTI",
+                "ru": "Суммарное время блокировки основного потока долгими задачами (>50 мс каждая) между FCP и TTI"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "The time from the first byte received to the page becoming interactive",
+                "ru": "Время от получения первого байта до того момента, когда страница становится интерактивной"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "The total time all network requests took to complete",
+                "ru": "Суммарное время выполнения всех сетевых запросов"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 8,
+          "name": {
+            "en": "Which Chrome DevTools panel shows a waterfall of all network requests with their timing details?",
+            "ru": "Какая панель Chrome DevTools отображает каскадную диаграмму всех сетевых запросов с деталями их времени?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "The Network panel in Chrome DevTools displays all network requests as a waterfall, showing timing breakdowns (DNS, connection, TTFB, content download) for each request. It helps identify slow resources and understand the loading sequence.",
+            "ru": "Панель Network в Chrome DevTools отображает все сетевые запросы в виде каскадной диаграммы, показывая разбивку времени (DNS, соединение, TTFB, загрузка контента) для каждого запроса. Она помогает выявлять медленные ресурсы и понимать последовательность загрузки."
+          },
+          "answers": [
+            {
+              "text": { "en": "Performance panel", "ru": "Панель Performance" },
+              "isCorrect": false
+            },
+            { "text": { "en": "Network panel", "ru": "Панель Network" }, "isCorrect": true },
+            { "text": { "en": "Sources panel", "ru": "Панель Sources" }, "isCorrect": false },
+            {
+              "text": { "en": "Application panel", "ru": "Панель Application" },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 9,
+          "name": {
+            "en": "What does TTFB (Time to First Byte) measure?",
+            "ru": "Что измеряет TTFB (Time to First Byte)?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "TTFB measures the time from the browser making an HTTP request to the moment it receives the first byte of the response. It reflects server response time plus network latency. A good TTFB is under 800ms.",
+            "ru": "TTFB измеряет время от момента отправки браузером HTTP-запроса до получения первого байта ответа. Оно отражает время ответа сервера плюс сетевую задержку. Хороший TTFB — менее 800 мс."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "Time from page navigation start to when the first DOM element is painted",
+                "ru": "Время от начала навигации по странице до отрисовки первого DOM-элемента"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Time from the browser making an HTTP request to receiving the first byte of the response",
+                "ru": "Время от отправки браузером HTTP-запроса до получения первого байта ответа"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "Time from DNS resolution to TCP connection establishment",
+                "ru": "Время от разрешения DNS до установления TCP-соединения"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Time from page load to when the first user interaction is recorded",
+                "ru": "Время от загрузки страницы до записи первого пользовательского взаимодействия"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 10,
+          "name": {
+            "en": "What does the `PerformanceObserver` API allow you to do?",
+            "ru": "Что позволяет делать API `PerformanceObserver`?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "`PerformanceObserver` lets you subscribe to performance timeline entries (like `paint`, `largest-contentful-paint`, `layout-shift`, `longtask`) as they occur, without polling. It is the underlying API used by the `web-vitals` library.",
+            "ru": "`PerformanceObserver` позволяет подписаться на записи временной шкалы производительности (например, `paint`, `largest-contentful-paint`, `layout-shift`, `longtask`) по мере их возникновения, без необходимости опроса. Это базовый API, используемый библиотекой `web-vitals`."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "Observe changes to the DOM structure and attributes",
+                "ru": "Наблюдать за изменениями структуры и атрибутов DOM"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Subscribe to browser performance timeline entries as they occur, without polling",
+                "ru": "Подписываться на записи временной шкалы производительности браузера по мере их возникновения без опроса"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "Monitor CPU and memory usage of the page in real time",
+                "ru": "Отслеживать использование CPU и памяти страницей в реальном времени"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Intercept and modify network requests before they are sent",
+                "ru": "Перехватывать и изменять сетевые запросы перед их отправкой"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 11,
+          "name": {
+            "en": "Lighthouse runs in \"simulated throttling\" mode by default. What does this mean?",
+            "ru": "Lighthouse по умолчанию работает в режиме «симулированного троттлинга». Что это означает?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "Simulated throttling means Lighthouse does not actually slow down the network or CPU during the recording. Instead, it captures a trace at full speed and then mathematically models how the page would have loaded under throttled conditions. This makes audits faster and more reproducible.",
+            "ru": "Симулированный троттлинг означает, что Lighthouse фактически не замедляет сеть или CPU во время записи. Вместо этого он захватывает трассировку на полной скорости, а затем математически моделирует, как страница загружалась бы в условиях троттлинга. Это делает аудиты быстрее и воспроизводимее."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "Lighthouse physically limits network bandwidth during the audit",
+                "ru": "Lighthouse физически ограничивает пропускную способность сети во время аудита"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Lighthouse records a trace at full speed and models throttled performance mathematically",
+                "ru": "Lighthouse записывает трассировку на полной скорости и математически моделирует производительность при троттлинге"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "The browser's JavaScript engine is paused between tasks to simulate throttling",
+                "ru": "JavaScript-движок браузера приостанавливается между задачами для имитации троттлинга"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Lighthouse only measures metrics that are unaffected by network conditions",
+                "ru": "Lighthouse измеряет только метрики, не зависящие от сетевых условий"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 12,
+          "name": {
+            "en": "What `navigation.sendBeacon()` is typically used for in performance monitoring?",
+            "ru": "Для чего `navigator.sendBeacon()` обычно используется в мониторинге производительности?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "`navigator.sendBeacon()` sends a small HTTP POST request asynchronously without blocking the page unload. It is used to reliably send analytics and performance data (like Web Vitals metrics) to a server when the user leaves the page, where a regular `fetch` call might be cancelled.",
+            "ru": "`navigator.sendBeacon()` отправляет небольшой HTTP POST-запрос асинхронно без блокировки выгрузки страницы. Он используется для надёжной отправки аналитических данных и данных о производительности (например, метрик Web Vitals) на сервер при уходе пользователя со страницы, когда обычный вызов `fetch` может быть отменён."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "To preload the next page's resources before navigation",
+                "ru": "Для предварительной загрузки ресурсов следующей страницы перед навигацией"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "To reliably send analytics or performance data on page unload without blocking navigation",
+                "ru": "Для надёжной отправки аналитических данных или данных производительности при выгрузке страницы без блокировки навигации"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "To stream large payloads to the server in chunks",
+                "ru": "Для потоковой передачи больших данных на сервер частями"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "To broadcast messages between browser tabs",
+                "ru": "Для передачи сообщений между вкладками браузера"
+              },
+              "isCorrect": false
+            }
+          ]
+        }
+      ]
     }
   ]
 }

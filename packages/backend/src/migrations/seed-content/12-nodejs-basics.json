@@ -14,7 +14,374 @@
         "ru": "Как Node.js выполняет код: движок V8, libuv, фазы цикла событий и отличия от браузерного окружения"
       },
       "links": [],
-      "questions": []
+      "questions": [
+        {
+          "sortOrder": 1,
+          "name": {
+            "en": "What JavaScript engine does Node.js use to execute code?",
+            "ru": "Какой движок JavaScript использует Node.js для выполнения кода?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "Node.js uses the V8 engine, the same engine that powers Google Chrome. V8 compiles JavaScript to native machine code for fast execution.",
+            "ru": "Node.js использует движок V8 — тот же движок, что используется в Google Chrome. V8 компилирует JavaScript в нативный машинный код для быстрого выполнения."
+          },
+          "answers": [
+            { "text": { "en": "SpiderMonkey", "ru": "SpiderMonkey" }, "isCorrect": false },
+            { "text": { "en": "V8", "ru": "V8" }, "isCorrect": true },
+            { "text": { "en": "JavaScriptCore", "ru": "JavaScriptCore" }, "isCorrect": false },
+            { "text": { "en": "Chakra", "ru": "Chakra" }, "isCorrect": false }
+          ]
+        },
+        {
+          "sortOrder": 2,
+          "name": {
+            "en": "What is libuv's primary role in Node.js?",
+            "ru": "Какова основная роль libuv в Node.js?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "libuv is a C library that provides Node.js with the event loop, asynchronous I/O, thread pool, and cross-platform support for operating system operations.",
+            "ru": "libuv — это библиотека на C, которая предоставляет Node.js цикл событий, асинхронный ввод-вывод, пул потоков и кросс-платформенную поддержку операций операционной системы."
+          },
+          "answers": [
+            {
+              "text": { "en": "Parsing JavaScript syntax", "ru": "Разбор синтаксиса JavaScript" },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Providing the event loop and async I/O",
+                "ru": "Обеспечение цикла событий и асинхронного ввода-вывода"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": { "en": "Managing npm packages", "ru": "Управление пакетами npm" },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Compiling TypeScript to JavaScript",
+                "ru": "Компиляция TypeScript в JavaScript"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 3,
+          "name": {
+            "en": "Node.js is single-threaded. How does it handle concurrent I/O operations?",
+            "ru": "Node.js однопоточен. Как он обрабатывает конкурентные операции ввода-вывода?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "Node.js uses a non-blocking, event-driven model. I/O operations are offloaded to the operating system or libuv's thread pool, and callbacks are queued in the event loop when they complete.",
+            "ru": "Node.js использует неблокирующую модель, управляемую событиями. Операции ввода-вывода передаются операционной системе или пулу потоков libuv, а коллбэки добавляются в очередь цикла событий после завершения."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "By spawning a new thread for each I/O operation",
+                "ru": "Порождая новый поток для каждой операции ввода-вывода"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "By using non-blocking I/O and the event loop",
+                "ru": "Используя неблокирующий ввод-вывод и цикл событий"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "By blocking the main thread until each operation finishes",
+                "ru": "Блокируя главный поток до завершения каждой операции"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "By forking a child process for each request",
+                "ru": "Создавая дочерний процесс для каждого запроса"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 4,
+          "name": {
+            "en": "Which phase of the event loop executes `setTimeout` callbacks?",
+            "ru": "На какой фазе цикла событий выполняются коллбэки `setTimeout`?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "The timers phase is the first phase of the event loop. It executes callbacks scheduled by `setTimeout` and `setInterval` whose threshold has elapsed.",
+            "ru": "Фаза таймеров — первая фаза цикла событий. В ней выполняются коллбэки, запланированные через `setTimeout` и `setInterval`, у которых истёк порог ожидания."
+          },
+          "answers": [
+            { "text": { "en": "poll", "ru": "poll" }, "isCorrect": false },
+            { "text": { "en": "timers", "ru": "timers" }, "isCorrect": true },
+            { "text": { "en": "check", "ru": "check" }, "isCorrect": false },
+            { "text": { "en": "close callbacks", "ru": "close callbacks" }, "isCorrect": false }
+          ]
+        },
+        {
+          "sortOrder": 5,
+          "name": {
+            "en": "Which phase of the event loop executes `setImmediate` callbacks?",
+            "ru": "На какой фазе цикла событий выполняются коллбэки `setImmediate`?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "`setImmediate` callbacks run in the check phase, which comes after the poll phase. This means `setImmediate` always runs after I/O callbacks in the current iteration.",
+            "ru": "Коллбэки `setImmediate` выполняются в фазе check, которая следует после фазы poll. Это означает, что `setImmediate` всегда выполняется после I/O-коллбэков в текущей итерации."
+          },
+          "answers": [
+            { "text": { "en": "timers", "ru": "timers" }, "isCorrect": false },
+            { "text": { "en": "poll", "ru": "poll" }, "isCorrect": false },
+            { "text": { "en": "check", "ru": "check" }, "isCorrect": true },
+            { "text": { "en": "pending callbacks", "ru": "pending callbacks" }, "isCorrect": false }
+          ]
+        },
+        {
+          "sortOrder": 6,
+          "name": {
+            "en": "What does `process.nextTick` do in Node.js?",
+            "ru": "Что делает `process.nextTick` в Node.js?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "`process.nextTick` queues a callback to run before the event loop moves to the next phase, after the current operation completes. It fires before any I/O events or timers, even before `Promise` microtasks in older Node.js versions.",
+            "ru": "`process.nextTick` ставит коллбэк в очередь для выполнения до того, как цикл событий перейдёт к следующей фазе, сразу после завершения текущей операции. Он срабатывает до любых I/O-событий или таймеров."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "Schedules a callback to run in the next event loop iteration",
+                "ru": "Планирует выполнение коллбэка в следующей итерации цикла событий"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Queues a callback to run before the next event loop phase begins",
+                "ru": "Ставит коллбэк в очередь для выполнения до начала следующей фазы цикла событий"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "Runs a callback asynchronously using the thread pool",
+                "ru": "Выполняет коллбэк асинхронно с использованием пула потоков"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Terminates the current Node.js process",
+                "ru": "Завершает текущий процесс Node.js"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 7,
+          "name": {
+            "en": "What is the output order of this code?",
+            "ru": "В каком порядке будет выведен результат этого кода?"
+          },
+          "codeSnippet": "setTimeout(() => console.log('timeout'), 0);\nPromise.resolve().then(() => console.log('promise'));\nconsole.log('sync');",
+          "explanation": {
+            "en": "Synchronous code runs first ('sync'), then microtasks (Promise callbacks) run before the event loop moves to the next phase ('promise'), and finally the timer fires ('timeout').",
+            "ru": "Сначала выполняется синхронный код ('sync'), затем микрозадачи (Promise-коллбэки) выполняются до перехода цикла событий к следующей фазе ('promise'), и в конце срабатывает таймер ('timeout')."
+          },
+          "answers": [
+            {
+              "text": { "en": "timeout, promise, sync", "ru": "timeout, promise, sync" },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "sync, timeout, promise", "ru": "sync, timeout, promise" },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "sync, promise, timeout", "ru": "sync, promise, timeout" },
+              "isCorrect": true
+            },
+            {
+              "text": { "en": "promise, sync, timeout", "ru": "promise, sync, timeout" },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 8,
+          "name": {
+            "en": "What is the default size of libuv's thread pool in Node.js?",
+            "ru": "Какой размер пула потоков libuv по умолчанию в Node.js?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "libuv's thread pool has 4 threads by default. This can be increased up to 1024 via the `UV_THREADPOOL_SIZE` environment variable. The thread pool is used for file system operations, DNS lookups, and crypto.",
+            "ru": "По умолчанию пул потоков libuv содержит 4 потока. Его можно увеличить до 1024 через переменную окружения `UV_THREADPOOL_SIZE`. Пул потоков используется для операций с файловой системой, DNS-запросов и криптографии."
+          },
+          "answers": [
+            { "text": { "en": "1", "ru": "1" }, "isCorrect": false },
+            { "text": { "en": "4", "ru": "4" }, "isCorrect": true },
+            { "text": { "en": "16", "ru": "16" }, "isCorrect": false },
+            { "text": { "en": "128", "ru": "128" }, "isCorrect": false }
+          ]
+        },
+        {
+          "sortOrder": 9,
+          "name": {
+            "en": "Which global object in Node.js is equivalent to `window` in the browser?",
+            "ru": "Какой глобальный объект в Node.js эквивалентен `window` в браузере?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "In Node.js, the global object is `global`. Unlike the browser's `window`, `global` properties are accessible without a prefix, but there is no DOM or browser-specific API.",
+            "ru": "В Node.js глобальным объектом является `global`. В отличие от браузерного `window`, свойства `global` доступны без префикса, но DOM и браузерные API отсутствуют."
+          },
+          "answers": [
+            { "text": { "en": "window", "ru": "window" }, "isCorrect": false },
+            { "text": { "en": "global", "ru": "global" }, "isCorrect": true },
+            { "text": { "en": "process", "ru": "process" }, "isCorrect": false },
+            { "text": { "en": "self", "ru": "self" }, "isCorrect": false }
+          ]
+        },
+        {
+          "sortOrder": 10,
+          "name": {
+            "en": "What does the `poll` phase of the event loop do?",
+            "ru": "Что делает фаза `poll` цикла событий?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "The poll phase retrieves new I/O events and executes I/O-related callbacks. If there are no timers scheduled, the event loop may block here waiting for new events.",
+            "ru": "Фаза poll получает новые события ввода-вывода и выполняет I/O-коллбэки. Если таймеры не запланированы, цикл событий может заблокироваться здесь в ожидании новых событий."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "Executes `setTimeout` callbacks",
+                "ru": "Выполняет коллбэки `setTimeout`"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Retrieves new I/O events and executes I/O callbacks",
+                "ru": "Получает новые I/O-события и выполняет I/O-коллбэки"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "Runs `setImmediate` callbacks",
+                "ru": "Запускает коллбэки `setImmediate`"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Closes all active handles and requests",
+                "ru": "Закрывает все активные дескрипторы и запросы"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 11,
+          "name": {
+            "en": "What happens when you call a CPU-intensive function synchronously in Node.js?",
+            "ru": "Что происходит при синхронном вызове CPU-интенсивной функции в Node.js?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "Because Node.js runs JavaScript on a single thread, a long synchronous operation blocks the event loop, preventing any other callbacks (including I/O) from being processed until it completes.",
+            "ru": "Поскольку Node.js выполняет JavaScript в одном потоке, длительная синхронная операция блокирует цикл событий, не позволяя обработать другие коллбэки (включая I/O) до её завершения."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "Node.js offloads it to the thread pool automatically",
+                "ru": "Node.js автоматически передаёт её в пул потоков"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "It blocks the event loop, stalling all other operations",
+                "ru": "Она блокирует цикл событий, останавливая все остальные операции"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "It runs in parallel on another core via V8",
+                "ru": "Она выполняется параллельно на другом ядре через V8"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Node.js throws a timeout error automatically",
+                "ru": "Node.js автоматически выбрасывает ошибку таймаута"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 12,
+          "name": {
+            "en": "What is the correct way to run CPU-intensive work without blocking the event loop?",
+            "ru": "Как правильно запускать CPU-интенсивные задачи, не блокируя цикл событий?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "Worker threads (`worker_threads` module) allow running JavaScript in separate threads. Child processes (`child_process`) are another option. Both approaches keep the main event loop free.",
+            "ru": "Worker threads (модуль `worker_threads`) позволяют выполнять JavaScript в отдельных потоках. Дочерние процессы (`child_process`) — ещё один вариант. Оба подхода освобождают главный цикл событий."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "Use `async/await` to wrap the computation",
+                "ru": "Обернуть вычисление в `async/await`"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Use Worker Threads or Child Processes",
+                "ru": "Использовать Worker Threads или дочерние процессы"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "Increase the thread pool size with `UV_THREADPOOL_SIZE`",
+                "ru": "Увеличить размер пула потоков через `UV_THREADPOOL_SIZE`"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Use `setImmediate` to defer the computation",
+                "ru": "Использовать `setImmediate` для отсрочки вычисления"
+              },
+              "isCorrect": false
+            }
+          ]
+        }
+      ]
     },
     {
       "name": { "en": "Core Modules: fs, path, os", "ru": "Встроенные модули: fs, path, os" },
@@ -23,7 +390,314 @@
         "ru": "Работа с файловой системой (fs), манипуляции с путями и информация об ОС через встроенные модули Node.js"
       },
       "links": [],
-      "questions": []
+      "questions": [
+        {
+          "sortOrder": 1,
+          "name": {
+            "en": "Which method reads a file asynchronously and returns its content via a callback?",
+            "ru": "Какой метод читает файл асинхронно и возвращает его содержимое через коллбэк?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "`fs.readFile` reads the entire file asynchronously and calls the callback with `(err, data)`. Use `fs.readFileSync` for the synchronous version.",
+            "ru": "`fs.readFile` читает весь файл асинхронно и вызывает коллбэк с `(err, data)`. Для синхронной версии используется `fs.readFileSync`."
+          },
+          "answers": [
+            { "text": { "en": "`fs.open`", "ru": "`fs.open`" }, "isCorrect": false },
+            { "text": { "en": "`fs.readFile`", "ru": "`fs.readFile`" }, "isCorrect": true },
+            { "text": { "en": "`fs.read`", "ru": "`fs.read`" }, "isCorrect": false },
+            { "text": { "en": "`fs.get`", "ru": "`fs.get`" }, "isCorrect": false }
+          ]
+        },
+        {
+          "sortOrder": 2,
+          "name": {
+            "en": "What does `fs.readFile` return when no encoding is specified?",
+            "ru": "Что возвращает `fs.readFile`, если кодировка не указана?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "When no encoding is specified, `fs.readFile` returns a `Buffer` object containing the raw binary data of the file. Pass `'utf8'` as the second argument to get a string.",
+            "ru": "Если кодировка не указана, `fs.readFile` возвращает объект `Buffer` с необработанными бинарными данными файла. Передайте `'utf8'` вторым аргументом, чтобы получить строку."
+          },
+          "answers": [
+            {
+              "text": { "en": "A UTF-8 string", "ru": "Строку в кодировке UTF-8" },
+              "isCorrect": false
+            },
+            { "text": { "en": "A `Buffer` object", "ru": "Объект `Buffer`" }, "isCorrect": true },
+            { "text": { "en": "A `ReadStream`", "ru": "`ReadStream`" }, "isCorrect": false },
+            { "text": { "en": "An `ArrayBuffer`", "ru": "`ArrayBuffer`" }, "isCorrect": false }
+          ]
+        },
+        {
+          "sortOrder": 3,
+          "name": {
+            "en": "What is the purpose of `path.join()`?",
+            "ru": "Каково назначение `path.join()`?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "`path.join()` joins path segments using the platform-specific separator and normalizes the resulting path (resolving `.` and `..` segments). It is cross-platform safe.",
+            "ru": "`path.join()` соединяет сегменты пути с использованием разделителя, специфичного для платформы, и нормализует результирующий путь (разрешая сегменты `.` и `..`). Метод кросс-платформенный."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "Resolves a path relative to the current working directory",
+                "ru": "Разрешает путь относительно текущего рабочего каталога"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Joins path segments with the platform separator and normalizes the path",
+                "ru": "Соединяет сегменты пути с платформенным разделителем и нормализует путь"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "Returns the extension of a file path",
+                "ru": "Возвращает расширение пути к файлу"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Checks whether a path is absolute",
+                "ru": "Проверяет, является ли путь абсолютным"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 4,
+          "name": {
+            "en": "What does `path.resolve()` return?",
+            "ru": "Что возвращает `path.resolve()`?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "`path.resolve()` processes arguments from right to left, prepending each until an absolute path is constructed. If no absolute path is formed, the current working directory is prepended.",
+            "ru": "`path.resolve()` обрабатывает аргументы справа налево, добавляя каждый, пока не будет построен абсолютный путь. Если абсолютный путь не сформирован, добавляется текущий рабочий каталог."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "A relative path from the project root",
+                "ru": "Относительный путь от корня проекта"
+              },
+              "isCorrect": false
+            },
+            { "text": { "en": "An absolute path", "ru": "Абсолютный путь" }, "isCorrect": true },
+            {
+              "text": {
+                "en": "The directory name of the given path",
+                "ru": "Имя каталога для указанного пути"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "The file extension of the given path",
+                "ru": "Расширение файла для указанного пути"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 5,
+          "name": {
+            "en": "What is `__dirname` in Node.js?",
+            "ru": "Что такое `__dirname` в Node.js?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "`__dirname` is a module-scoped variable that contains the absolute path of the directory containing the current module file. It is not available in ES modules.",
+            "ru": "`__dirname` — переменная уровня модуля, содержащая абсолютный путь к каталогу, в котором находится текущий файл модуля. Недоступна в ES-модулях."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "The current working directory of the Node.js process",
+                "ru": "Текущий рабочий каталог процесса Node.js"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "The absolute path of the directory containing the current module",
+                "ru": "Абсолютный путь к каталогу, содержащему текущий модуль"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "The root directory of the file system",
+                "ru": "Корневой каталог файловой системы"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "The directory listed in `package.json` `main` field",
+                "ru": "Каталог, указанный в поле `main` файла `package.json`"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 6,
+          "name": {
+            "en": "Which `os` module method returns the platform's end-of-line character sequence?",
+            "ru": "Какой метод модуля `os` возвращает символ конца строки для данной платформы?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "`os.EOL` is a string constant (`'\\n'` on POSIX, `'\\r\\n'` on Windows). It is a property, not a method, but it provides the correct line ending for the current OS.",
+            "ru": "`os.EOL` — строковая константа (`'\\n'` на POSIX, `'\\r\\n'` на Windows). Это свойство, а не метод, но оно предоставляет правильный символ конца строки для текущей ОС."
+          },
+          "answers": [
+            { "text": { "en": "`os.newline()`", "ru": "`os.newline()`" }, "isCorrect": false },
+            { "text": { "en": "`os.EOL`", "ru": "`os.EOL`" }, "isCorrect": true },
+            { "text": { "en": "`os.lineEnd()`", "ru": "`os.lineEnd()`" }, "isCorrect": false },
+            { "text": { "en": "`os.endl`", "ru": "`os.endl`" }, "isCorrect": false }
+          ]
+        },
+        {
+          "sortOrder": 7,
+          "name": {
+            "en": "How do you watch a file for changes using the `fs` module?",
+            "ru": "Как следить за изменениями файла с помощью модуля `fs`?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "`fs.watch` watches for changes to a file or directory and fires a callback when a change event occurs. `fs.watchFile` uses polling and is less efficient. `fs.watch` uses OS-native events and is preferred.",
+            "ru": "`fs.watch` отслеживает изменения файла или каталога и вызывает коллбэк при возникновении события изменения. `fs.watchFile` использует опрос и менее эффективен. `fs.watch` предпочтительнее."
+          },
+          "answers": [
+            { "text": { "en": "`fs.listen()`", "ru": "`fs.listen()`" }, "isCorrect": false },
+            { "text": { "en": "`fs.watch()`", "ru": "`fs.watch()`" }, "isCorrect": true },
+            { "text": { "en": "`fs.subscribe()`", "ru": "`fs.subscribe()`" }, "isCorrect": false },
+            { "text": { "en": "`fs.monitor()`", "ru": "`fs.monitor()`" }, "isCorrect": false }
+          ]
+        },
+        {
+          "sortOrder": 8,
+          "name": {
+            "en": "What does `fs.promises.readFile` return?",
+            "ru": "Что возвращает `fs.promises.readFile`?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "`fs.promises.readFile` is the promise-based version of `fs.readFile`. It returns a `Promise` that resolves with the file contents, allowing use of `async/await` without callbacks.",
+            "ru": "`fs.promises.readFile` — Promise-версия `fs.readFile`. Возвращает `Promise`, который разрешается с содержимым файла, что позволяет использовать `async/await` без коллбэков."
+          },
+          "answers": [
+            { "text": { "en": "A `ReadStream`", "ru": "`ReadStream`" }, "isCorrect": false },
+            {
+              "text": {
+                "en": "A `Promise` that resolves with the file contents",
+                "ru": "`Promise`, который разрешается с содержимым файла"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": { "en": "A `Buffer` synchronously", "ru": "`Buffer` синхронно" },
+              "isCorrect": false
+            },
+            { "text": { "en": "An `Observable`", "ru": "`Observable`" }, "isCorrect": false }
+          ]
+        },
+        {
+          "sortOrder": 9,
+          "name": {
+            "en": "What does `path.extname('/home/user/file.txt')` return?",
+            "ru": "Что вернёт `path.extname('/home/user/file.txt')`?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "`path.extname` returns the extension of the path, including the dot. For `file.txt` it returns `'.txt'`. For a file without an extension it returns an empty string.",
+            "ru": "`path.extname` возвращает расширение пути, включая точку. Для `file.txt` возвращает `'.txt'`. Для файла без расширения возвращает пустую строку."
+          },
+          "answers": [
+            { "text": { "en": "`'txt'`", "ru": "`'txt'`" }, "isCorrect": false },
+            { "text": { "en": "`'.txt'`", "ru": "`'.txt'`" }, "isCorrect": true },
+            { "text": { "en": "`'file.txt'`", "ru": "`'file.txt'`" }, "isCorrect": false },
+            { "text": { "en": "`'/home/user'`", "ru": "`'/home/user'`" }, "isCorrect": false }
+          ]
+        },
+        {
+          "sortOrder": 10,
+          "name": {
+            "en": "How do you get the total memory of the system using the `os` module?",
+            "ru": "Как получить общий объём памяти системы с помощью модуля `os`?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "`os.totalmem()` returns the total amount of system memory in bytes. `os.freemem()` returns the amount of free memory. Both are useful for monitoring system resources.",
+            "ru": "`os.totalmem()` возвращает общий объём системной памяти в байтах. `os.freemem()` возвращает объём свободной памяти. Оба метода полезны для мониторинга системных ресурсов."
+          },
+          "answers": [
+            { "text": { "en": "`os.memory()`", "ru": "`os.memory()`" }, "isCorrect": false },
+            { "text": { "en": "`os.totalmem()`", "ru": "`os.totalmem()`" }, "isCorrect": true },
+            { "text": { "en": "`os.ram()`", "ru": "`os.ram()`" }, "isCorrect": false },
+            {
+              "text": {
+                "en": "`process.memoryUsage().total`",
+                "ru": "`process.memoryUsage().total`"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 11,
+          "name": {
+            "en": "What is the difference between `fs.rename` and `fs.copyFile`?",
+            "ru": "В чём разница между `fs.rename` и `fs.copyFile`?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "`fs.rename` moves or renames a file (the original is removed). `fs.copyFile` copies a file to a new destination, keeping the original file intact.",
+            "ru": "`fs.rename` перемещает или переименовывает файл (оригинал удаляется). `fs.copyFile` копирует файл в новое место назначения, оставляя оригинал нетронутым."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "They are aliases for the same operation",
+                "ru": "Они являются псевдонимами одной операции"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "`fs.rename` moves the file; `fs.copyFile` duplicates it",
+                "ru": "`fs.rename` перемещает файл; `fs.copyFile` дублирует его"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "`fs.copyFile` moves the file; `fs.rename` duplicates it",
+                "ru": "`fs.copyFile` перемещает файл; `fs.rename` дублирует его"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "`fs.rename` works only on directories",
+                "ru": "`fs.rename` работает только с каталогами"
+              },
+              "isCorrect": false
+            }
+          ]
+        }
+      ]
     },
     {
       "name": { "en": "Streams & Buffers", "ru": "Потоки и буферы" },
@@ -32,7 +706,413 @@
         "ru": "Readable, Writable, Duplex и Transform потоки, обратное давление (backpressure) и работа с бинарными данными через Buffer"
       },
       "links": [],
-      "questions": []
+      "questions": [
+        {
+          "sortOrder": 1,
+          "name": {
+            "en": "What are the four types of streams in Node.js?",
+            "ru": "Каковы четыре типа потоков в Node.js?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "Node.js has Readable (data source), Writable (data destination), Duplex (both readable and writable), and Transform (duplex that modifies data as it passes through) streams.",
+            "ru": "В Node.js есть потоки: Readable (источник данных), Writable (приёмник данных), Duplex (одновременно readable и writable) и Transform (duplex, модифицирующий данные при прохождении)."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "Read, Write, Pipe, Transform",
+                "ru": "Read, Write, Pipe, Transform"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Readable, Writable, Duplex, Transform",
+                "ru": "Readable, Writable, Duplex, Transform"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "Input, Output, Bidirectional, Filter",
+                "ru": "Input, Output, Bidirectional, Filter"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Readable, Writable, Async, Sync",
+                "ru": "Readable, Writable, Async, Sync"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 2,
+          "name": {
+            "en": "What is backpressure in Node.js streams?",
+            "ru": "Что такое backpressure (обратное давление) в потоках Node.js?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "Backpressure occurs when a writable stream cannot process data as fast as it is being written. The `write()` method returns `false` to signal the producer to pause, and the `drain` event signals when writing can resume.",
+            "ru": "Backpressure возникает, когда writable-поток не успевает обрабатывать данные с той скоростью, с которой они записываются. Метод `write()` возвращает `false`, сигнализируя производителю приостановиться; событие `drain` сигнализирует о возможности возобновить запись."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "An error thrown when a stream buffer overflows",
+                "ru": "Ошибка, выбрасываемая при переполнении буфера потока"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "A signal mechanism for slowing data production when a consumer is overwhelmed",
+                "ru": "Механизм сигнализации для замедления производства данных, когда потребитель перегружен"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "The process of piping a stream backwards",
+                "ru": "Процесс перенаправления потока в обратном направлении"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Memory pressure caused by too many open streams",
+                "ru": "Давление на память из-за слишком большого количества открытых потоков"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 3,
+          "name": { "en": "What does the `pipe()` method do?", "ru": "Что делает метод `pipe()`?" },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "`pipe()` connects a Readable stream to a Writable stream, automatically handling backpressure. Data flows from the source to the destination without manual buffering.",
+            "ru": "`pipe()` соединяет Readable-поток с Writable-потоком, автоматически управляя backpressure. Данные перетекают из источника в приёмник без ручной буферизации."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "Reads all data from a stream into memory at once",
+                "ru": "Читает все данные из потока в память за один раз"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Connects a Readable to a Writable, automatically managing flow",
+                "ru": "Соединяет Readable с Writable, автоматически управляя потоком данных"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "Creates a new Transform stream",
+                "ru": "Создаёт новый Transform-поток"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Pauses a stream temporarily",
+                "ru": "Временно приостанавливает поток"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 4,
+          "name": { "en": "What is a `Buffer` in Node.js?", "ru": "Что такое `Buffer` в Node.js?" },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "A `Buffer` is a fixed-size chunk of memory allocated outside the V8 heap, used to represent raw binary data. Buffers are essential for working with streams, file I/O, and network protocols.",
+            "ru": "`Buffer` — фрагмент памяти фиксированного размера, выделенный за пределами кучи V8, используемый для представления необработанных бинарных данных. Буферы необходимы для работы с потоками, файловым вводом-выводом и сетевыми протоколами."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "A JavaScript array used to hold binary data",
+                "ru": "Массив JavaScript для хранения бинарных данных"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "A fixed-size region of raw binary memory outside the V8 heap",
+                "ru": "Область необработанной бинарной памяти фиксированного размера за пределами кучи V8"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "A cache layer in front of a stream",
+                "ru": "Слой кэша перед потоком"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "A queue for storing pending I/O callbacks",
+                "ru": "Очередь для хранения ожидающих I/O-коллбэков"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 5,
+          "name": {
+            "en": "How do you create a `Buffer` from a string in modern Node.js?",
+            "ru": "Как создать `Buffer` из строки в современном Node.js?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "`Buffer.from(string, encoding)` is the safe way to create a Buffer from a string. The deprecated `new Buffer()` constructor was removed because it had security issues with uninitialized memory.",
+            "ru": "`Buffer.from(string, encoding)` — безопасный способ создать Buffer из строки. Устаревший конструктор `new Buffer()` был удалён из-за проблем безопасности с неинициализированной памятью."
+          },
+          "answers": [
+            {
+              "text": { "en": "`new Buffer(string)`", "ru": "`new Buffer(string)`" },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "`Buffer.from(string)`", "ru": "`Buffer.from(string)`" },
+              "isCorrect": true
+            },
+            {
+              "text": { "en": "`Buffer.create(string)`", "ru": "`Buffer.create(string)`" },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "`Buffer.allocFrom(string)`", "ru": "`Buffer.allocFrom(string)`" },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 6,
+          "name": {
+            "en": "What does `stream.pipe()` return?",
+            "ru": "Что возвращает `stream.pipe()`?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "`pipe()` returns the destination stream, which enables chaining. For example, `readable.pipe(transform).pipe(writable)` passes data through a transform before writing.",
+            "ru": "`pipe()` возвращает поток назначения, что позволяет цепочку вызовов. Например, `readable.pipe(transform).pipe(writable)` пропускает данные через transform перед записью."
+          },
+          "answers": [
+            {
+              "text": { "en": "The source Readable stream", "ru": "Исходный Readable-поток" },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "The destination Writable stream",
+                "ru": "Writable-поток назначения"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "A Promise that resolves when piping is complete",
+                "ru": "Promise, который разрешается по завершении pipe"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "Nothing (`undefined`)", "ru": "Ничего (`undefined`)" },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 7,
+          "name": {
+            "en": "Which event signals that a Readable stream has no more data to provide?",
+            "ru": "Какое событие сигнализирует о том, что Readable-поток не имеет больше данных для выдачи?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "The `end` event is emitted when there is no more data to be consumed from the Readable stream. This is distinct from the `finish` event, which is emitted on Writable streams.",
+            "ru": "Событие `end` генерируется, когда в Readable-потоке больше нет данных для потребления. Это отличается от события `finish`, которое генерируется на Writable-потоках."
+          },
+          "answers": [
+            { "text": { "en": "`finish`", "ru": "`finish`" }, "isCorrect": false },
+            { "text": { "en": "`end`", "ru": "`end`" }, "isCorrect": true },
+            { "text": { "en": "`close`", "ru": "`close`" }, "isCorrect": false },
+            { "text": { "en": "`complete`", "ru": "`complete`" }, "isCorrect": false }
+          ]
+        },
+        {
+          "sortOrder": 8,
+          "name": {
+            "en": "What is the purpose of `Buffer.alloc(size)`?",
+            "ru": "Каково назначение `Buffer.alloc(size)`?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "`Buffer.alloc(size)` creates a new Buffer of the specified size, initialized with zeros. Use `Buffer.allocUnsafe(size)` if performance is critical and you will fill the buffer before reading.",
+            "ru": "`Buffer.alloc(size)` создаёт новый Buffer указанного размера, инициализированный нулями. Используйте `Buffer.allocUnsafe(size)`, если критична производительность и вы заполните буфер перед чтением."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "Creates a Buffer filled with random data",
+                "ru": "Создаёт Buffer, заполненный случайными данными"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Creates a zero-initialized Buffer of the given size",
+                "ru": "Создаёт Buffer заданного размера, инициализированный нулями"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "Resizes an existing Buffer",
+                "ru": "Изменяет размер существующего Buffer"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Allocates memory on the V8 heap for binary data",
+                "ru": "Выделяет память в куче V8 для бинарных данных"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 9,
+          "name": {
+            "en": "What is a Transform stream used for?",
+            "ru": "Для чего используется Transform-поток?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "A Transform stream is a Duplex stream where the output is computed from the input. Common uses include compression (zlib), encryption, and encoding conversion (e.g., base64).",
+            "ru": "Transform-поток — это Duplex-поток, в котором выход вычисляется из входа. Типичное использование: сжатие (zlib), шифрование, конвертация кодировки (например, base64)."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "Reading data from a file in chunks",
+                "ru": "Чтение данных из файла по частям"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Modifying data as it passes from readable side to writable side",
+                "ru": "Изменение данных по мере их прохождения от readable-стороны к writable-стороне"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "Storing data temporarily in memory",
+                "ru": "Временное хранение данных в памяти"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Broadcasting data to multiple writable streams",
+                "ru": "Широковещательная передача данных нескольким Writable-потокам"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 10,
+          "name": {
+            "en": "What does `stream.pipeline()` provide over `stream.pipe()`?",
+            "ru": "Что даёт `stream.pipeline()` по сравнению с `stream.pipe()`?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "`stream.pipeline()` automatically destroys all streams in the pipeline and propagates errors if any stream emits an error or closes unexpectedly. `pipe()` does not handle errors across streams, leading to potential memory leaks.",
+            "ru": "`stream.pipeline()` автоматически уничтожает все потоки в конвейере и распространяет ошибки, если любой поток генерирует ошибку или неожиданно закрывается. `pipe()` не обрабатывает ошибки между потоками, что может привести к утечкам памяти."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "Better performance through native bindings",
+                "ru": "Лучшая производительность за счёт нативных привязок"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Automatic error propagation and stream cleanup",
+                "ru": "Автоматическое распространение ошибок и очистка потоков"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "Support for async iterators instead of events",
+                "ru": "Поддержка асинхронных итераторов вместо событий"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "The ability to pipe to multiple destinations simultaneously",
+                "ru": "Возможность одновременного pipe к нескольким приёмникам"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 11,
+          "name": {
+            "en": "In object mode streams, what can chunks be?",
+            "ru": "Что могут представлять собой chunk-и в потоках в объектном режиме (object mode)?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "By default, streams operate on `Buffer` or `string` chunks. In object mode (`objectMode: true`), chunks can be any JavaScript value except `null`, including plain objects, arrays, or numbers.",
+            "ru": "По умолчанию потоки работают с chunk-ами типа `Buffer` или `string`. В объектном режиме (`objectMode: true`) chunk-и могут быть любым значением JavaScript, кроме `null`, включая обычные объекты, массивы или числа."
+          },
+          "answers": [
+            {
+              "text": { "en": "Only `Buffer` instances", "ru": "Только экземпляры `Buffer`" },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Any JavaScript value except `null`",
+                "ru": "Любое значение JavaScript, кроме `null`"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": { "en": "Only strings or `Buffer`", "ru": "Только строки или `Buffer`" },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "Only plain objects", "ru": "Только простые объекты" },
+              "isCorrect": false
+            }
+          ]
+        }
+      ]
     },
     {
       "name": { "en": "HTTP Server & Express", "ru": "HTTP-сервер и Express" },
@@ -41,7 +1121,416 @@
         "ru": "Создание HTTP-серверов через модуль `http`, маршрутизация, паттерн middleware и REST API с Express"
       },
       "links": [],
-      "questions": []
+      "questions": [
+        {
+          "sortOrder": 1,
+          "name": {
+            "en": "How do you create a basic HTTP server using Node.js built-in modules?",
+            "ru": "Как создать базовый HTTP-сервер с помощью встроенных модулей Node.js?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "`http.createServer(callback)` creates an HTTP server. The callback receives `(req, res)` objects. Call `server.listen(port)` to start accepting connections.",
+            "ru": "`http.createServer(callback)` создаёт HTTP-сервер. Коллбэк получает объекты `(req, res)`. Вызовите `server.listen(port)`, чтобы начать принимать подключения."
+          },
+          "answers": [
+            {
+              "text": { "en": "`http.connect(callback)`", "ru": "`http.connect(callback)`" },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "`http.createServer(callback)`",
+                "ru": "`http.createServer(callback)`"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "`http.listen(port, callback)`",
+                "ru": "`http.listen(port, callback)`"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "`http.startServer(callback)`",
+                "ru": "`http.startServer(callback)`"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 2,
+          "name": {
+            "en": "What is Express middleware?",
+            "ru": "Что такое промежуточное ПО (middleware) в Express?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "Middleware is a function with the signature `(req, res, next)` that has access to the request and response objects. Calling `next()` passes control to the next middleware in the stack.",
+            "ru": "Middleware — функция с сигнатурой `(req, res, next)`, имеющая доступ к объектам запроса и ответа. Вызов `next()` передаёт управление следующему middleware в стеке."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "A function that sends the HTTP response",
+                "ru": "Функция, отправляющая HTTP-ответ"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "A function `(req, res, next)` that processes a request in a pipeline",
+                "ru": "Функция `(req, res, next)`, обрабатывающая запрос в конвейере"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "A configuration object for Express routes",
+                "ru": "Объект конфигурации для маршрутов Express"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "An npm package that extends Express functionality",
+                "ru": "npm-пакет, расширяющий функциональность Express"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 3,
+          "name": {
+            "en": "How do you send a JSON response in Express?",
+            "ru": "Как отправить JSON-ответ в Express?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "`res.json(object)` serializes the object to JSON, sets the `Content-Type` header to `application/json`, and sends the response. It is equivalent to calling `res.send(JSON.stringify(object))` with the correct header.",
+            "ru": "`res.json(object)` сериализует объект в JSON, устанавливает заголовок `Content-Type` в `application/json` и отправляет ответ. Это эквивалентно вызову `res.send(JSON.stringify(object))` с правильным заголовком."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "`res.send(JSON.stringify(object))` only",
+                "ru": "Только `res.send(JSON.stringify(object))`"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "`res.json(object)`", "ru": "`res.json(object)`" },
+              "isCorrect": true
+            },
+            {
+              "text": { "en": "`res.write(object)`", "ru": "`res.write(object)`" },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "`res.sendJSON(object)`", "ru": "`res.sendJSON(object)`" },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 4,
+          "name": {
+            "en": "How do you read URL parameters in Express?",
+            "ru": "Как читать параметры URL в Express?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "Route parameters defined with `:paramName` are available via `req.params.paramName`. For example, a route `/users/:id` makes the user's id accessible as `req.params.id`.",
+            "ru": "Параметры маршрута, определённые через `:paramName`, доступны через `req.params.paramName`. Например, маршрут `/users/:id` делает id пользователя доступным как `req.params.id`."
+          },
+          "answers": [
+            { "text": { "en": "`req.query`", "ru": "`req.query`" }, "isCorrect": false },
+            { "text": { "en": "`req.params`", "ru": "`req.params`" }, "isCorrect": true },
+            { "text": { "en": "`req.body`", "ru": "`req.body`" }, "isCorrect": false },
+            { "text": { "en": "`req.headers`", "ru": "`req.headers`" }, "isCorrect": false }
+          ]
+        },
+        {
+          "sortOrder": 5,
+          "name": {
+            "en": "What does the `express.json()` middleware do?",
+            "ru": "Что делает middleware `express.json()`?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "`express.json()` is a built-in middleware that parses incoming requests with a JSON payload and populates `req.body` with the parsed object. Without it, `req.body` is `undefined` for JSON requests.",
+            "ru": "`express.json()` — встроенный middleware, который разбирает входящие запросы с JSON-телом и заполняет `req.body` разобранным объектом. Без него `req.body` будет `undefined` для JSON-запросов."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "Converts response objects to JSON automatically",
+                "ru": "Автоматически конвертирует объекты ответа в JSON"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Parses JSON request bodies and populates `req.body`",
+                "ru": "Разбирает JSON-тело запроса и заполняет `req.body`"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "Sets the `Content-Type` response header to JSON",
+                "ru": "Устанавливает заголовок ответа `Content-Type` в JSON"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Validates that all routes return valid JSON",
+                "ru": "Проверяет, что все маршруты возвращают корректный JSON"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 6,
+          "name": {
+            "en": "What is the purpose of `app.use()` in Express?",
+            "ru": "Каково назначение `app.use()` в Express?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "`app.use()` mounts middleware or a router at a given path (defaulting to `/`). Unlike route methods, it matches any HTTP method and any URL that starts with the specified path.",
+            "ru": "`app.use()` монтирует middleware или роутер по указанному пути (по умолчанию `/`). В отличие от методов маршрутизации, он совпадает с любым HTTP-методом и любым URL, начинающимся с указанного пути."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "Registers a GET route handler",
+                "ru": "Регистрирует обработчик GET-маршрута"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Mounts middleware or a router for any HTTP method",
+                "ru": "Монтирует middleware или роутер для любого HTTP-метода"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "Sends a static file as a response",
+                "ru": "Отправляет статический файл в качестве ответа"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Defines error-handling logic only",
+                "ru": "Определяет только логику обработки ошибок"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 7,
+          "name": {
+            "en": "What signature must an Express error-handling middleware have?",
+            "ru": "Какую сигнатуру должен иметь middleware обработки ошибок в Express?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "Error-handling middleware must have exactly four parameters: `(err, req, res, next)`. The extra `err` parameter tells Express to route errors to this middleware when `next(err)` is called.",
+            "ru": "Middleware обработки ошибок должен иметь ровно четыре параметра: `(err, req, res, next)`. Лишний параметр `err` сообщает Express, что нужно направлять ошибки в этот middleware при вызове `next(err)`."
+          },
+          "answers": [
+            {
+              "text": { "en": "`(req, res, next)`", "ru": "`(req, res, next)`" },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "`(err, req, res, next)`", "ru": "`(err, req, res, next)`" },
+              "isCorrect": true
+            },
+            {
+              "text": { "en": "`(error, response)`", "ru": "`(error, response)`" },
+              "isCorrect": false
+            },
+            { "text": { "en": "`(req, res, err)`", "ru": "`(req, res, err)`" }, "isCorrect": false }
+          ]
+        },
+        {
+          "sortOrder": 8,
+          "name": {
+            "en": "How do you set an HTTP status code in an Express response?",
+            "ru": "Как установить HTTP-статус-код в ответе Express?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "`res.status(code)` sets the HTTP status code. It returns the response object for chaining: `res.status(404).json({ message: 'Not found' })`.",
+            "ru": "`res.status(code)` устанавливает HTTP-статус-код. Возвращает объект ответа для цепочки вызовов: `res.status(404).json({ message: 'Not found' })`."
+          },
+          "answers": [
+            {
+              "text": { "en": "`res.setStatus(code)`", "ru": "`res.setStatus(code)`" },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "`res.status(code)`", "ru": "`res.status(code)`" },
+              "isCorrect": true
+            },
+            { "text": { "en": "`res.code(code)`", "ru": "`res.code(code)`" }, "isCorrect": false },
+            {
+              "text": { "en": "`res.statusCode = code`", "ru": "`res.statusCode = code`" },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 9,
+          "name": {
+            "en": "What is the role of `express.Router()`?",
+            "ru": "Какова роль `express.Router()`?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "`express.Router()` creates a mini Express application (a modular route handler) that can define routes and middleware independently. Routers are mounted onto the main app with `app.use()`.",
+            "ru": "`express.Router()` создаёт мини-приложение Express (модульный обработчик маршрутов), которое может независимо определять маршруты и middleware. Роутеры монтируются в основное приложение через `app.use()`."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "Provides client-side routing for single-page applications",
+                "ru": "Обеспечивает клиентскую маршрутизацию для одностраничных приложений"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Creates a modular, mountable route handler",
+                "ru": "Создаёт модульный, монтируемый обработчик маршрутов"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "Automatically generates REST routes from a model",
+                "ru": "Автоматически генерирует REST-маршруты из модели"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Validates incoming request parameters",
+                "ru": "Проверяет параметры входящих запросов"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 10,
+          "name": {
+            "en": "What does `req.query` contain in Express?",
+            "ru": "Что содержит `req.query` в Express?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "`req.query` contains the parsed query string parameters as an object. For a request to `/search?term=js&page=2`, `req.query` is `{ term: 'js', page: '2' }`. Values are always strings unless a custom query parser is used.",
+            "ru": "`req.query` содержит разобранные параметры строки запроса в виде объекта. Для запроса к `/search?term=js&page=2`, `req.query` будет `{ term: 'js', page: '2' }`. Значения всегда строки, если не используется собственный парсер."
+          },
+          "answers": [
+            {
+              "text": { "en": "The parsed request body", "ru": "Разобранное тело запроса" },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Parsed query string parameters from the URL",
+                "ru": "Разобранные параметры строки запроса из URL"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "Route parameters defined with `:param`",
+                "ru": "Параметры маршрута, определённые через `:param`"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "HTTP request headers", "ru": "HTTP-заголовки запроса" },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 11,
+          "name": {
+            "en": "In a plain Node.js HTTP server, how do you read the request body?",
+            "ru": "Как читать тело запроса в обычном HTTP-сервере Node.js?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "The `req` object is a Readable stream. You listen to `data` events to collect chunks and the `end` event to process the complete body. This is what body-parser libraries do internally.",
+            "ru": "Объект `req` является Readable-потоком. Нужно слушать события `data` для сбора chunk-ов и событие `end` для обработки полного тела. Это то, что делают библиотеки типа body-parser внутри."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "Access `req.body` directly",
+                "ru": "Обратиться к `req.body` напрямую"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Listen to `data` events and collect chunks until `end`",
+                "ru": "Слушать события `data` и собирать chunk-и до события `end`"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "Call `req.read()` to get the full body",
+                "ru": "Вызвать `req.read()`, чтобы получить полное тело"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Use `req.json()` to parse the body",
+                "ru": "Использовать `req.json()` для разбора тела"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 12,
+          "name": {
+            "en": "What HTTP status code should a successful resource creation return?",
+            "ru": "Какой HTTP-статус-код должно возвращать успешное создание ресурса?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "A `201 Created` status code indicates that the request succeeded and a new resource was created. The response should include the created resource or a `Location` header pointing to it.",
+            "ru": "Статус-код `201 Created` означает, что запрос выполнен успешно и создан новый ресурс. Ответ должен содержать созданный ресурс или заголовок `Location`, указывающий на него."
+          },
+          "answers": [
+            { "text": { "en": "200 OK", "ru": "200 OK" }, "isCorrect": false },
+            { "text": { "en": "201 Created", "ru": "201 Created" }, "isCorrect": true },
+            { "text": { "en": "204 No Content", "ru": "204 No Content" }, "isCorrect": false },
+            { "text": { "en": "202 Accepted", "ru": "202 Accepted" }, "isCorrect": false }
+          ]
+        }
+      ]
     },
     {
       "name": {
@@ -53,7 +1542,431 @@
         "ru": "Класс EventEmitter, пользовательские события, обработка ошибок в Node.js и распространённые паттерны, например соглашения по коллбэкам"
       },
       "links": [],
-      "questions": []
+      "questions": [
+        {
+          "sortOrder": 1,
+          "name": {
+            "en": "How do you import the `EventEmitter` class in Node.js?",
+            "ru": "Как импортировать класс `EventEmitter` в Node.js?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "`EventEmitter` is exported from the built-in `events` module. Use `const { EventEmitter } = require('events')` in CommonJS or `import { EventEmitter } from 'events'` in ES modules.",
+            "ru": "`EventEmitter` экспортируется из встроенного модуля `events`. Используйте `const { EventEmitter } = require('events')` в CommonJS или `import { EventEmitter } from 'events'` в ES-модулях."
+          },
+          "answers": [
+            {
+              "text": { "en": "`require('event-emitter')`", "ru": "`require('event-emitter')`" },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "`require('events')`", "ru": "`require('events')`" },
+              "isCorrect": true
+            },
+            {
+              "text": { "en": "`require('emitter')`", "ru": "`require('emitter')`" },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "`require('node:emitter')`", "ru": "`require('node:emitter')`" },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 2,
+          "name": {
+            "en": "What is the difference between `emitter.on()` and `emitter.once()`?",
+            "ru": "В чём разница между `emitter.on()` и `emitter.once()`?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "`emitter.on()` registers a listener that fires every time the event is emitted. `emitter.once()` registers a one-time listener that is automatically removed after the event fires once.",
+            "ru": "`emitter.on()` регистрирует слушатель, который срабатывает каждый раз при генерации события. `emitter.once()` регистрирует одноразовый слушатель, который автоматически удаляется после первого срабатывания."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "`on()` is synchronous; `once()` is asynchronous",
+                "ru": "`on()` синхронный; `once()` асинхронный"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "`on()` fires every time; `once()` fires only the first time",
+                "ru": "`on()` срабатывает каждый раз; `once()` срабатывает только в первый раз"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "`once()` waits for the previous event to complete",
+                "ru": "`once()` ожидает завершения предыдущего события"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "They are identical in behavior",
+                "ru": "Они идентичны по поведению"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 3,
+          "name": {
+            "en": "How do you emit a custom event with data using `EventEmitter`?",
+            "ru": "Как сгенерировать пользовательское событие с данными через `EventEmitter`?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "`emitter.emit(eventName, ...args)` triggers all listeners for the named event, passing any additional arguments as parameters to those listeners.",
+            "ru": "`emitter.emit(eventName, ...args)` вызывает всех слушателей для указанного события, передавая дополнительные аргументы в качестве параметров этим слушателям."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "`emitter.trigger(eventName, data)`",
+                "ru": "`emitter.trigger(eventName, data)`"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "`emitter.emit(eventName, data)`",
+                "ru": "`emitter.emit(eventName, data)`"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "`emitter.dispatch(eventName, data)`",
+                "ru": "`emitter.dispatch(eventName, data)`"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "`emitter.fire(eventName, data)`",
+                "ru": "`emitter.fire(eventName, data)`"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 4,
+          "name": {
+            "en": "What is the Node.js error-first callback convention?",
+            "ru": "Что такое соглашение об error-first коллбэках в Node.js?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "In error-first callbacks, the first argument is reserved for an error object (or `null` if there is no error), and subsequent arguments hold the successful result. This convention (`callback(err, result)`) is the standard in Node.js core APIs.",
+            "ru": "В error-first коллбэках первый аргумент зарезервирован для объекта ошибки (или `null`, если ошибки нет), а последующие аргументы содержат результат успешного выполнения. Это соглашение (`callback(err, result)`) является стандартом в основных API Node.js."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "The callback receives the result first, then an error if one occurred",
+                "ru": "Коллбэк получает результат первым, затем ошибку, если она возникла"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "The callback's first argument is the error (or `null`), followed by the result",
+                "ru": "Первый аргумент коллбэка — ошибка (или `null`), за которой следует результат"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "Errors are always thrown, never passed to callbacks",
+                "ru": "Ошибки всегда бросаются, а не передаются в коллбэки"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Callbacks receive only the error, never the result",
+                "ru": "Коллбэки получают только ошибку, но не результат"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 5,
+          "name": {
+            "en": "What is the special event name that `EventEmitter` uses for errors?",
+            "ru": "Какое специальное имя события использует `EventEmitter` для ошибок?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "If an `EventEmitter` emits an `'error'` event and there is no listener for it, Node.js throws the error and crashes the process. Always attach an `'error'` listener to prevent this.",
+            "ru": "Если `EventEmitter` генерирует событие `'error'` и слушатель для него не зарегистрирован, Node.js бросает ошибку и завершает процесс. Всегда добавляйте слушатель `'error'`, чтобы избежать этого."
+          },
+          "answers": [
+            { "text": { "en": "`'exception'`", "ru": "`'exception'`" }, "isCorrect": false },
+            { "text": { "en": "`'error'`", "ru": "`'error'`" }, "isCorrect": true },
+            { "text": { "en": "`'fail'`", "ru": "`'fail'`" }, "isCorrect": false },
+            { "text": { "en": "`'uncaught'`", "ru": "`'uncaught'`" }, "isCorrect": false }
+          ]
+        },
+        {
+          "sortOrder": 6,
+          "name": {
+            "en": "How do you remove a specific event listener with `EventEmitter`?",
+            "ru": "Как удалить конкретный обработчик события в `EventEmitter`?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "`emitter.removeListener(eventName, listenerFn)` (or its alias `emitter.off()`) removes the specified listener function from the event. The listener reference must match the one added with `on()` or `once()`.",
+            "ru": "`emitter.removeListener(eventName, listenerFn)` (или его псевдоним `emitter.off()`) удаляет указанную функцию-слушатель из события. Ссылка на слушатель должна совпадать с той, что была добавлена через `on()` или `once()`."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "`emitter.delete(eventName, fn)`",
+                "ru": "`emitter.delete(eventName, fn)`"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "`emitter.removeListener(eventName, fn)` or `emitter.off(eventName, fn)`",
+                "ru": "`emitter.removeListener(eventName, fn)` или `emitter.off(eventName, fn)`"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "`emitter.unsubscribe(eventName)`",
+                "ru": "`emitter.unsubscribe(eventName)`"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "`emitter.detach(eventName, fn)`",
+                "ru": "`emitter.detach(eventName, fn)`"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 7,
+          "name": {
+            "en": "What does `emitter.setMaxListeners(n)` do?",
+            "ru": "Что делает `emitter.setMaxListeners(n)`?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "Node.js prints a warning when more than 10 listeners are added for a single event (to detect potential memory leaks). `setMaxListeners(n)` changes this threshold for a specific emitter instance.",
+            "ru": "Node.js выводит предупреждение, когда для одного события зарегистрировано более 10 слушателей (для обнаружения потенциальных утечек памяти). `setMaxListeners(n)` изменяет этот порог для конкретного экземпляра emitter."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "Limits the number of events that can be emitted per second",
+                "ru": "Ограничивает количество событий, которые можно генерировать в секунду"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Changes the warning threshold for the number of listeners per event",
+                "ru": "Изменяет порог предупреждения для количества слушателей на событие"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "Removes all listeners beyond the given count",
+                "ru": "Удаляет всех слушателей, превышающих указанное количество"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Sets the priority for event processing",
+                "ru": "Устанавливает приоритет обработки событий"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 8,
+          "name": {
+            "en": "How can you inherit from `EventEmitter` in a custom class?",
+            "ru": "Как унаследовать от `EventEmitter` в пользовательском классе?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "Use ES6 class inheritance: `class MyClass extends EventEmitter`. Call `super()` in the constructor. Instances of `MyClass` will have all `EventEmitter` methods like `on`, `emit`, and `off`.",
+            "ru": "Используйте наследование классов ES6: `class MyClass extends EventEmitter`. Вызовите `super()` в конструкторе. Экземпляры `MyClass` будут иметь все методы `EventEmitter`: `on`, `emit`, `off` и другие."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "`Object.assign(MyClass.prototype, EventEmitter.prototype)`",
+                "ru": "`Object.assign(MyClass.prototype, EventEmitter.prototype)`"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "`class MyClass extends EventEmitter {}`",
+                "ru": "`class MyClass extends EventEmitter {}`"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "`MyClass.prototype = new EventEmitter()`",
+                "ru": "`MyClass.prototype = new EventEmitter()`"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "`EventEmitter.mixin(MyClass)`",
+                "ru": "`EventEmitter.mixin(MyClass)`"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 9,
+          "name": {
+            "en": "What happens to an unhandled `Promise` rejection in modern Node.js (v15+)?",
+            "ru": "Что происходит с необработанным отклонением `Promise` в современных версиях Node.js (v15+)?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "Since Node.js v15, an unhandled promise rejection terminates the process with a non-zero exit code. In earlier versions, it only emitted a warning. Use `process.on('unhandledRejection', handler)` to handle it globally.",
+            "ru": "Начиная с Node.js v15, необработанное отклонение Promise завершает процесс с ненулевым кодом выхода. В более ранних версиях это только выдавало предупреждение. Используйте `process.on('unhandledRejection', handler)` для глобальной обработки."
+          },
+          "answers": [
+            {
+              "text": { "en": "It is silently ignored", "ru": "Оно молча игнорируется" },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "The process crashes with a non-zero exit code",
+                "ru": "Процесс завершается с ненулевым кодом выхода"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "A warning is printed but execution continues",
+                "ru": "Выводится предупреждение, но выполнение продолжается"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "The promise is automatically retried",
+                "ru": "Promise автоматически повторяется"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 10,
+          "name": {
+            "en": "What is the purpose of `process.on('uncaughtException', handler)`?",
+            "ru": "Каково назначение `process.on('uncaughtException', handler)`?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "`uncaughtException` fires when a thrown error is not caught by any try-catch. It is a last-resort handler — you should log the error and exit the process gracefully, not continue running.",
+            "ru": "`uncaughtException` срабатывает, когда выброшенная ошибка не перехвачена ни одним блоком try-catch. Это обработчик последней инстанции — следует записать ошибку в лог и корректно завершить процесс, а не продолжать работу."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "Catches synchronous errors in all modules automatically",
+                "ru": "Автоматически перехватывает синхронные ошибки во всех модулях"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Provides a last-resort handler for errors not caught by try-catch",
+                "ru": "Предоставляет обработчик последней инстанции для ошибок, не перехваченных try-catch"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "Prevents the process from ever crashing",
+                "ru": "Предотвращает завершение процесса в любом случае"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Handles errors thrown inside async callbacks only",
+                "ru": "Обрабатывает только ошибки, выброшенные внутри асинхронных коллбэков"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 11,
+          "name": {
+            "en": "What does `util.promisify()` do?",
+            "ru": "Что делает `util.promisify()`?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "`util.promisify` takes a function that follows the Node.js error-first callback style and returns a new function that returns a Promise. This allows using `async/await` with older callback-based APIs.",
+            "ru": "`util.promisify` принимает функцию, следующую стилю error-first коллбэков Node.js, и возвращает новую функцию, которая возвращает Promise. Это позволяет использовать `async/await` со старыми API на основе коллбэков."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "Converts a Promise-returning function into a callback-based one",
+                "ru": "Конвертирует функцию, возвращающую Promise, в функцию на основе коллбэков"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Wraps a callback-based function to return a Promise",
+                "ru": "Оборачивает функцию на основе коллбэков для возврата Promise"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "Makes a synchronous function asynchronous via `setTimeout`",
+                "ru": "Делает синхронную функцию асинхронной через `setTimeout`"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Adds error handling to any function automatically",
+                "ru": "Автоматически добавляет обработку ошибок к любой функции"
+              },
+              "isCorrect": false
+            }
+          ]
+        }
+      ]
     },
     {
       "name": { "en": "npm & Package Management", "ru": "npm и управление пакетами" },
@@ -62,7 +1975,455 @@
         "ru": "npm CLI, package.json, семантическое версионирование, lockfile, скрипты и основы workspaces"
       },
       "links": [],
-      "questions": []
+      "questions": [
+        {
+          "sortOrder": 1,
+          "name": {
+            "en": "What does `npm install --save-dev` do?",
+            "ru": "Что делает `npm install --save-dev`?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "`--save-dev` (or `-D`) adds the package to `devDependencies` in `package.json`. Dev dependencies are needed for development and testing but are not required in production.",
+            "ru": "`--save-dev` (или `-D`) добавляет пакет в `devDependencies` в `package.json`. Dev-зависимости нужны для разработки и тестирования, но не требуются в продакшене."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "Installs the package globally",
+                "ru": "Устанавливает пакет глобально"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Adds the package to `devDependencies`",
+                "ru": "Добавляет пакет в `devDependencies`"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "Installs the package without updating `package.json`",
+                "ru": "Устанавливает пакет без обновления `package.json`"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Adds the package to `peerDependencies`",
+                "ru": "Добавляет пакет в `peerDependencies`"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 2,
+          "name": {
+            "en": "What does the `^` prefix in a version like `^1.2.3` mean in semantic versioning?",
+            "ru": "Что означает префикс `^` в версии `^1.2.3` при семантическом версионировании?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "The caret `^` allows updates to versions compatible with the specified version. For `^1.2.3`, it permits `>=1.2.3 <2.0.0` — minor and patch updates are allowed but not major version changes.",
+            "ru": "Знак `^` допускает обновления до версий, совместимых с указанной. Для `^1.2.3` допустимы версии `>=1.2.3 <2.0.0` — обновления minor и patch разрешены, но не major-версии."
+          },
+          "answers": [
+            {
+              "text": { "en": "Exact version only", "ru": "Только точная версия" },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Compatible minor and patch updates, no major changes",
+                "ru": "Совместимые обновления minor и patch, без изменений major-версии"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "Any version greater than or equal",
+                "ru": "Любая версия, большая или равная"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Only patch updates are allowed",
+                "ru": "Допускаются только patch-обновления"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 3,
+          "name": {
+            "en": "What is the purpose of `package-lock.json`?",
+            "ru": "Каково назначение `package-lock.json`?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "`package-lock.json` records the exact version and integrity hash of every installed package (including transitive dependencies). This ensures reproducible installs across all machines and environments.",
+            "ru": "`package-lock.json` фиксирует точную версию и хэш целостности каждого установленного пакета (включая транзитивные зависимости). Это обеспечивает воспроизводимые установки на всех машинах и в окружениях."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "Lists packages that should be excluded from the install",
+                "ru": "Перечисляет пакеты, которые следует исключить из установки"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Records the exact resolved versions of all installed dependencies",
+                "ru": "Фиксирует точные разрешённые версии всех установленных зависимостей"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "Stores the npm authentication token",
+                "ru": "Хранит токен аутентификации npm"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Defines which files are published to the npm registry",
+                "ru": "Определяет, какие файлы публикуются в реестре npm"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 4,
+          "name": {
+            "en": "What is semantic versioning (semver)?",
+            "ru": "Что такое семантическое версионирование (semver)?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "Semver uses the format `MAJOR.MINOR.PATCH`. MAJOR increments for breaking changes, MINOR for new backwards-compatible features, PATCH for backwards-compatible bug fixes.",
+            "ru": "Semver использует формат `MAJOR.MINOR.PATCH`. MAJOR увеличивается при несовместимых изменениях, MINOR — при новых обратно-совместимых функциях, PATCH — при обратно-совместимых исправлениях ошибок."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "A versioning system based on the date of release",
+                "ru": "Система версионирования на основе даты выпуска"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "A versioning convention using MAJOR.MINOR.PATCH to convey change impact",
+                "ru": "Соглашение о версионировании в формате MAJOR.MINOR.PATCH для передачи масштаба изменений"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "A system where each number in the version indicates the sprint number",
+                "ru": "Система, где каждое число в версии обозначает номер спринта"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "npm's internal versioning algorithm for resolving conflicts",
+                "ru": "Внутренний алгоритм npm для разрешения конфликтов версий"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 5,
+          "name": {
+            "en": "How do you run a script named `build` defined in `package.json`?",
+            "ru": "Как запустить скрипт с именем `build`, определённый в `package.json`?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "`npm run build` executes the `build` script from the `scripts` field in `package.json`. For built-in scripts like `test` and `start`, the `run` keyword can be omitted.",
+            "ru": "`npm run build` выполняет скрипт `build` из поля `scripts` в `package.json`. Для встроенных скриптов, таких как `test` и `start`, ключевое слово `run` можно опустить."
+          },
+          "answers": [
+            { "text": { "en": "`npm build`", "ru": "`npm build`" }, "isCorrect": false },
+            { "text": { "en": "`npm run build`", "ru": "`npm run build`" }, "isCorrect": true },
+            { "text": { "en": "`npm exec build`", "ru": "`npm exec build`" }, "isCorrect": false },
+            { "text": { "en": "`npm start build`", "ru": "`npm start build`" }, "isCorrect": false }
+          ]
+        },
+        {
+          "sortOrder": 6,
+          "name": {
+            "en": "What does `npm ci` do differently from `npm install`?",
+            "ru": "Чем `npm ci` отличается от `npm install`?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "`npm ci` installs from `package-lock.json` exactly, deletes `node_modules` first, and fails if `package.json` and the lockfile are out of sync. It is faster and more reliable in CI environments.",
+            "ru": "`npm ci` устанавливает пакеты строго по `package-lock.json`, сначала удаляет `node_modules` и завершается с ошибкой, если `package.json` и lockfile рассинхронизированы. Быстрее и надёжнее в CI-окружениях."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "`npm ci` skips devDependencies by default",
+                "ru": "`npm ci` по умолчанию пропускает devDependencies"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "`npm ci` installs exact versions from the lockfile and fails if it is out of sync",
+                "ru": "`npm ci` устанавливает точные версии из lockfile и завершается ошибкой при рассинхронизации"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "`npm ci` only installs packages listed under `devDependencies`",
+                "ru": "`npm ci` устанавливает только пакеты из `devDependencies`"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "`npm ci` runs all scripts after installation",
+                "ru": "`npm ci` запускает все скрипты после установки"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 7,
+          "name": {
+            "en": "What does the `~` prefix in `~1.2.3` allow?",
+            "ru": "Что допускает префикс `~` в версии `~1.2.3`?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "The tilde `~` allows only patch-level changes. `~1.2.3` resolves to `>=1.2.3 <1.3.0`. It is more restrictive than `^`, which allows minor updates.",
+            "ru": "Тильда `~` допускает только patch-изменения. `~1.2.3` разрешается в `>=1.2.3 <1.3.0`. Это более строго, чем `^`, который допускает обновления minor-версии."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "Any version in the same major range",
+                "ru": "Любую версию в том же major-диапазоне"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Only patch-level updates within the same minor version",
+                "ru": "Только patch-обновления в пределах той же minor-версии"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "Any version greater than or equal to the specified one",
+                "ru": "Любую версию, большую или равную указанной"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "The exact version only", "ru": "Только точную версию" },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 8,
+          "name": {
+            "en": "What is the `peerDependencies` field in `package.json` used for?",
+            "ru": "Для чего используется поле `peerDependencies` в `package.json`?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "`peerDependencies` declares packages that the consuming application must provide. Common for plugins and libraries (e.g., a React component library declaring `react` as a peer dep to avoid bundling React twice).",
+            "ru": "`peerDependencies` объявляет пакеты, которые должно предоставить потребляющее приложение. Часто используется для плагинов и библиотек (например, библиотека React-компонентов объявляет `react` как peer dep, чтобы не включать React дважды)."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "Dependencies installed automatically along with the package",
+                "ru": "Зависимости, автоматически устанавливаемые вместе с пакетом"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Dependencies the host application must provide for the package to work",
+                "ru": "Зависимости, которые должно предоставить хост-приложение для работы пакета"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "Optional packages that enhance functionality if present",
+                "ru": "Опциональные пакеты, улучшающие функциональность при наличии"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Packages only installed when running tests",
+                "ru": "Пакеты, устанавливаемые только при запуске тестов"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 9,
+          "name": {
+            "en": "What is an npm workspace?",
+            "ru": "Что такое npm workspace (рабочее пространство npm)?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "npm Workspaces allow managing multiple packages within a single repository (monorepo). Packages listed in the `workspaces` field of the root `package.json` share a single `node_modules` and can reference each other locally.",
+            "ru": "npm Workspaces позволяют управлять несколькими пакетами в одном репозитории (монорепо). Пакеты, перечисленные в поле `workspaces` корневого `package.json`, совместно используют одну директорию `node_modules` и могут ссылаться друг на друга локально."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "A private npm registry for an organization",
+                "ru": "Приватный реестр npm для организации"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "A monorepo feature for managing multiple packages with a shared `node_modules`",
+                "ru": "Функция монорепо для управления несколькими пакетами с общим `node_modules`"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "A sandbox environment for testing packages before publishing",
+                "ru": "Изолированная среда для тестирования пакетов перед публикацией"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "A feature for running npm scripts in parallel",
+                "ru": "Функция для параллельного запуска npm-скриптов"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 10,
+          "name": { "en": "What does `npx` do?", "ru": "Что делает `npx`?" },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "`npx` executes a binary from a locally installed package or, if not found locally, downloads and runs it temporarily without permanently installing it. This avoids polluting global npm packages.",
+            "ru": "`npx` выполняет бинарный файл из локально установленного пакета или, если он не найден локально, загружает и запускает его временно без постоянной установки. Это позволяет не засорять глобальные npm-пакеты."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "Installs a package globally and runs it",
+                "ru": "Устанавливает пакет глобально и запускает его"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Executes a package binary, downloading it temporarily if needed",
+                "ru": "Выполняет бинарный файл пакета, временно загружая его при необходимости"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "Publishes the current package to the npm registry",
+                "ru": "Публикует текущий пакет в реестре npm"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Runs all scripts in `package.json` in sequence",
+                "ru": "Последовательно запускает все скрипты в `package.json`"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 11,
+          "name": {
+            "en": "What is the `engines` field in `package.json` used for?",
+            "ru": "Для чего используется поле `engines` в `package.json`?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "The `engines` field specifies the versions of Node.js (and npm) that the package is compatible with. If `--engine-strict` is set, npm will refuse to install the package if the engine requirement is not met.",
+            "ru": "Поле `engines` указывает версии Node.js (и npm), с которыми совместим пакет. Если установлен флаг `--engine-strict`, npm откажется устанавливать пакет, если требование к движку не выполнено."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "Lists the template engines used by the application (e.g., Pug, EJS)",
+                "ru": "Перечисляет шаблонизаторы, используемые приложением (например, Pug, EJS)"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Specifies the compatible Node.js and npm version ranges",
+                "ru": "Указывает совместимые диапазоны версий Node.js и npm"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "Defines which JavaScript engine (V8, SpiderMonkey) is required",
+                "ru": "Определяет, какой движок JavaScript (V8, SpiderMonkey) требуется"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Controls which npm scripts run on specific operating systems",
+                "ru": "Управляет тем, какие npm-скрипты запускаются на конкретных операционных системах"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 12,
+          "name": {
+            "en": "What command checks for known vulnerabilities in installed packages?",
+            "ru": "Какая команда проверяет наличие известных уязвимостей в установленных пакетах?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "`npm audit` scans `package-lock.json` against the npm security advisory database and reports known vulnerabilities. `npm audit fix` automatically upgrades vulnerable packages where possible.",
+            "ru": "`npm audit` сканирует `package-lock.json` по базе данных безопасности npm и сообщает о известных уязвимостях. `npm audit fix` автоматически обновляет уязвимые пакеты там, где это возможно."
+          },
+          "answers": [
+            { "text": { "en": "`npm check`", "ru": "`npm check`" }, "isCorrect": false },
+            { "text": { "en": "`npm audit`", "ru": "`npm audit`" }, "isCorrect": true },
+            { "text": { "en": "`npm scan`", "ru": "`npm scan`" }, "isCorrect": false },
+            { "text": { "en": "`npm security`", "ru": "`npm security`" }, "isCorrect": false }
+          ]
+        }
+      ]
     }
   ]
 }

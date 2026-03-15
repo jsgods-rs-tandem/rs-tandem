@@ -14,7 +14,572 @@
         "ru": "Определение и регистрация пользовательских HTML-элементов, коллбэки жизненного цикла (connectedCallback, disconnectedCallback, attributeChangedCallback) и наблюдаемые атрибуты"
       },
       "links": [],
-      "questions": []
+      "questions": [
+        {
+          "sortOrder": 1,
+          "name": {
+            "en": "Which method is used to register a custom element in the browser?",
+            "ru": "Какой метод используется для регистрации пользовательского элемента в браузере?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "`customElements.define(name, constructor)` registers a custom element with a given tag name and class constructor. The tag name must contain a hyphen to avoid conflicts with built-in HTML elements.",
+            "ru": "`customElements.define(name, constructor)` регистрирует пользовательский элемент с заданным именем тега и конструктором класса. Имя тега должно содержать дефис, чтобы избежать конфликтов со встроенными HTML-элементами."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "`document.registerElement()`",
+                "ru": "`document.registerElement()`"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "`customElements.define()`", "ru": "`customElements.define()`" },
+              "isCorrect": true
+            },
+            {
+              "text": { "en": "`HTMLElement.register()`", "ru": "`HTMLElement.register()`" },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "`window.defineElement()`", "ru": "`window.defineElement()`" },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 2,
+          "name": {
+            "en": "What naming rule must a custom element tag name follow?",
+            "ru": "Какому правилу именования должно следовать имя тега пользовательского элемента?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "Custom element tag names must contain at least one hyphen (e.g., `my-button`). This ensures they never clash with current or future standard HTML elements, which never contain hyphens.",
+            "ru": "Имена тегов пользовательских элементов должны содержать хотя бы один дефис (например, `my-button`). Это гарантирует, что они никогда не будут конфликтовать с текущими или будущими стандартными HTML-элементами, которые никогда не содержат дефисов."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "It must start with an uppercase letter",
+                "ru": "Оно должно начинаться с заглавной буквы"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "It must contain at least one hyphen",
+                "ru": "Оно должно содержать хотя бы один дефис"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "It must end with `-element`",
+                "ru": "Оно должно заканчиваться на `-element`"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "It must be all lowercase with no special characters",
+                "ru": "Оно должно быть полностью строчным без специальных символов"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 3,
+          "name": {
+            "en": "Which lifecycle callback is invoked when a custom element is added to the document?",
+            "ru": "Какой коллбэк жизненного цикла вызывается при добавлении пользовательского элемента в документ?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "`connectedCallback` is called each time the element is inserted into the DOM. It is the right place to set up event listeners, fetch data, or render content.",
+            "ru": "`connectedCallback` вызывается каждый раз, когда элемент вставляется в DOM. Это правильное место для настройки обработчиков событий, получения данных или отрисовки контента."
+          },
+          "answers": [
+            {
+              "text": { "en": "`mountedCallback`", "ru": "`mountedCallback`" },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "`attachedCallback`", "ru": "`attachedCallback`" },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "`connectedCallback`", "ru": "`connectedCallback`" },
+              "isCorrect": true
+            },
+            {
+              "text": { "en": "`insertedCallback`", "ru": "`insertedCallback`" },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 4,
+          "name": {
+            "en": "Which lifecycle callback is called when a custom element is removed from the document?",
+            "ru": "Какой коллбэк жизненного цикла вызывается при удалении пользовательского элемента из документа?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "`disconnectedCallback` is invoked whenever the element is removed from the DOM. It is the correct place to clean up event listeners, cancel timers, or abort network requests.",
+            "ru": "`disconnectedCallback` вызывается при удалении элемента из DOM. Это правильное место для очистки обработчиков событий, отмены таймеров или прерывания сетевых запросов."
+          },
+          "answers": [
+            {
+              "text": { "en": "`destroyedCallback`", "ru": "`destroyedCallback`" },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "`disconnectedCallback`", "ru": "`disconnectedCallback`" },
+              "isCorrect": true
+            },
+            {
+              "text": { "en": "`detachedCallback`", "ru": "`detachedCallback`" },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "`removedCallback`", "ru": "`removedCallback`" },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 5,
+          "name": {
+            "en": "How do you declare which attributes a custom element should observe for changes?",
+            "ru": "Как объявить, за какими атрибутами пользовательский элемент должен следить?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "You define a static getter `observedAttributes` that returns an array of attribute names. Only those listed attributes will trigger `attributeChangedCallback` when they change.",
+            "ru": "Вы определяете статический геттер `observedAttributes`, который возвращает массив имён атрибутов. Только перечисленные атрибуты будут вызывать `attributeChangedCallback` при изменении."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "Define an instance property `watchedAttributes` as an array",
+                "ru": "Определить свойство экземпляра `watchedAttributes` как массив"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Pass an options object with `attributes` array to `customElements.define()`",
+                "ru": "Передать объект опций с массивом `attributes` в `customElements.define()`"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Define a static getter `observedAttributes` returning an array of attribute names",
+                "ru": "Определить статический геттер `observedAttributes`, возвращающий массив имён атрибутов"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "Override `setAttribute()` on the element prototype",
+                "ru": "Переопределить `setAttribute()` в прототипе элемента"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 6,
+          "name": {
+            "en": "What arguments does `attributeChangedCallback` receive?",
+            "ru": "Какие аргументы получает `attributeChangedCallback`?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "`attributeChangedCallback(name, oldValue, newValue)` is called with the attribute name, its previous value, and its new value. When an attribute is first set, `oldValue` is `null`; when removed, `newValue` is `null`.",
+            "ru": "`attributeChangedCallback(name, oldValue, newValue)` вызывается с именем атрибута, его предыдущим значением и новым значением. При первой установке атрибута `oldValue` равно `null`; при удалении `newValue` равно `null`."
+          },
+          "answers": [
+            {
+              "text": { "en": "`(name, newValue)`", "ru": "`(name, newValue)`" },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "`(event)`", "ru": "`(event)`" },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "`(name, oldValue, newValue)`",
+                "ru": "`(name, oldValue, newValue)`"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": { "en": "`(oldValue, newValue)`", "ru": "`(oldValue, newValue)`" },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 7,
+          "name": {
+            "en": "What does `customElements.get('my-tag')` return if the element is not yet registered?",
+            "ru": "Что возвращает `customElements.get('my-tag')`, если элемент ещё не зарегистрирован?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "`customElements.get()` returns `undefined` when no element with that tag name has been defined. You can use this to avoid double-registration errors.",
+            "ru": "`customElements.get()` возвращает `undefined`, если ни один элемент с таким именем тега не был определён. Это можно использовать для предотвращения ошибок двойной регистрации."
+          },
+          "answers": [
+            {
+              "text": { "en": "`null`", "ru": "`null`" },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "`false`", "ru": "`false`" },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "`undefined`", "ru": "`undefined`" },
+              "isCorrect": true
+            },
+            {
+              "text": { "en": "It throws a `NotFoundError`", "ru": "Выбрасывает `NotFoundError`" },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 8,
+          "name": {
+            "en": "Which class must a custom element's constructor extend?",
+            "ru": "Какой класс должен расширять конструктор пользовательского элемента?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "Autonomous custom elements must extend `HTMLElement`. Customized built-in elements can extend specific subclasses like `HTMLButtonElement`, but autonomous ones always extend `HTMLElement` directly.",
+            "ru": "Автономные пользовательские элементы должны расширять `HTMLElement`. Настраиваемые встроенные элементы могут расширять конкретные подклассы, например `HTMLButtonElement`, но автономные всегда расширяют `HTMLElement` напрямую."
+          },
+          "answers": [
+            {
+              "text": { "en": "`Element`", "ru": "`Element`" },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "`HTMLElement`", "ru": "`HTMLElement`" },
+              "isCorrect": true
+            },
+            {
+              "text": { "en": "`Node`", "ru": "`Node`" },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "`WebComponent`", "ru": "`WebComponent`" },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 9,
+          "name": {
+            "en": "What is the difference between an autonomous custom element and a customized built-in element?",
+            "ru": "В чём разница между автономным пользовательским элементом и настраиваемым встроенным элементом?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "An autonomous custom element (e.g., `<my-button>`) extends `HTMLElement` and is a brand-new tag. A customized built-in element extends an existing element like `HTMLButtonElement` and is used with the `is` attribute: `<button is=\"my-button\">`.",
+            "ru": "Автономный пользовательский элемент (например, `<my-button>`) расширяет `HTMLElement` и является новым тегом. Настраиваемый встроенный элемент расширяет существующий элемент, например `HTMLButtonElement`, и используется с атрибутом `is`: `<button is=\"my-button\">`."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "Autonomous elements can only exist inside a shadow root; customized built-ins can exist anywhere",
+                "ru": "Автономные элементы могут существовать только внутри shadow root; настраиваемые встроенные — везде"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Autonomous elements are new tags extending `HTMLElement`; customized built-ins extend existing HTML element classes and use the `is` attribute",
+                "ru": "Автономные элементы — это новые теги, расширяющие `HTMLElement`; настраиваемые встроенные расширяют существующие классы HTML-элементов и используют атрибут `is`"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "Autonomous elements do not support lifecycle callbacks; customized built-ins do",
+                "ru": "Автономные элементы не поддерживают коллбэки жизненного цикла; настраиваемые встроенные — поддерживают"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "There is no functional difference; the distinction is only stylistic",
+                "ru": "Функциональной разницы нет; различие носит лишь стилистический характер"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 10,
+          "name": {
+            "en": "What does `customElements.whenDefined('my-element')` return?",
+            "ru": "Что возвращает `customElements.whenDefined('my-element')`?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "`customElements.whenDefined()` returns a `Promise` that resolves with the element's constructor once the element is defined. It is useful to defer logic that depends on a not-yet-registered element.",
+            "ru": "`customElements.whenDefined()` возвращает `Promise`, который разрешается конструктором элемента после его регистрации. Это полезно для откладывания логики, зависящей от ещё незарегистрированного элемента."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "A `boolean` indicating whether the element is defined",
+                "ru": "Значение `boolean`, указывающее, определён ли элемент"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "The element's constructor synchronously, or `null` if not yet defined",
+                "ru": "Конструктор элемента синхронно, или `null`, если ещё не определён"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "A `Promise` that resolves when the element is registered",
+                "ru": "`Promise`, который разрешается при регистрации элемента"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "An `EventTarget` that emits a `defined` event",
+                "ru": "`EventTarget`, генерирующий событие `defined`"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 11,
+          "name": {
+            "en": "When is `adoptedCallback` invoked on a custom element?",
+            "ru": "Когда вызывается `adoptedCallback` у пользовательского элемента?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "`adoptedCallback` is triggered when the element is moved to a new document using `document.adoptNode()`. It is rarely needed but useful when working with `<iframe>` documents or `Document` fragments.",
+            "ru": "`adoptedCallback` вызывается, когда элемент перемещается в новый документ с помощью `document.adoptNode()`. Он редко нужен, но полезен при работе с документами `<iframe>` или фрагментами `Document`."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "When the element is inserted into a shadow root",
+                "ru": "Когда элемент вставляется в shadow root"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "When the element's attributes are all fully resolved",
+                "ru": "Когда все атрибуты элемента полностью разрешены"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "When the element is moved to a different `Document` via `document.adoptNode()`",
+                "ru": "Когда элемент перемещается в другой `Document` через `document.adoptNode()`"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "When the element is cloned with `cloneNode(true)`",
+                "ru": "Когда элемент клонируется с помощью `cloneNode(true)`"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 12,
+          "name": {
+            "en": "Why should DOM manipulation generally not happen inside the custom element's `constructor`?",
+            "ru": "Почему манипуляции с DOM, как правило, не должны происходить внутри конструктора пользовательского элемента?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "The spec forbids reading or modifying attributes and children in the constructor because the element may not yet be connected to the document. DOM work should be deferred to `connectedCallback`, where the element is guaranteed to be in the DOM.",
+            "ru": "Спецификация запрещает чтение или изменение атрибутов и дочерних элементов в конструкторе, поскольку элемент может ещё не быть подключён к документу. Работу с DOM следует откладывать до `connectedCallback`, где элемент гарантированно находится в DOM."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "The constructor runs in a worker thread and has no DOM access",
+                "ru": "Конструктор выполняется в потоке воркера и не имеет доступа к DOM"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "The spec forbids reading/modifying attributes or children in the constructor because the element may not yet be connected",
+                "ru": "Спецификация запрещает чтение/изменение атрибутов или дочерних элементов в конструкторе, поскольку элемент может ещё не быть подключён"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "The constructor is called before `customElements.define()` runs",
+                "ru": "Конструктор вызывается до выполнения `customElements.define()`"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "DOM methods are asynchronous and cannot be used in synchronous constructors",
+                "ru": "Методы DOM являются асинхронными и не могут использоваться в синхронных конструкторах"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 13,
+          "name": {
+            "en": "What happens if you call `customElements.define()` with the same tag name twice?",
+            "ru": "Что произойдёт, если вызвать `customElements.define()` с одним и тем же именем тега дважды?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "Calling `customElements.define()` with an already-registered tag name throws a `NotSupportedError` (a `DOMException`). To guard against this, you can check `!customElements.get('my-tag')` before registering.",
+            "ru": "Вызов `customElements.define()` с уже зарегистрированным именем тега выбрасывает `NotSupportedError` (`DOMException`). Чтобы защититься от этого, можно проверить `!customElements.get('my-tag')` перед регистрацией."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "The second definition silently overrides the first",
+                "ru": "Второе определение молча переопределяет первое"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "It is ignored and a warning is printed to the console",
+                "ru": "Вызов игнорируется, и в консоль выводится предупреждение"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "A `NotSupportedError` DOMException is thrown",
+                "ru": "Выбрасывается `NotSupportedError` — `DOMException`"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "Both constructors are merged into a single element definition",
+                "ru": "Оба конструктора объединяются в одно определение элемента"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 14,
+          "name": {
+            "en": "What is the upgrade process for custom elements?",
+            "ru": "Что такое процесс обновления (upgrade) пользовательских элементов?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "When the browser encounters a custom element tag before its class is registered (e.g., parsed from HTML), it treats it as an `HTMLElement`. Once `customElements.define()` is called, the browser upgrades all existing instances: it re-runs the constructor and lifecycle callbacks. `customElements.upgrade(node)` forces immediate upgrade.",
+            "ru": "Когда браузер встречает тег пользовательского элемента до регистрации его класса (например, разобранного из HTML), он обрабатывает его как `HTMLElement`. После вызова `customElements.define()` браузер обновляет все существующие экземпляры: повторно запускает конструктор и коллбэки жизненного цикла. `customElements.upgrade(node)` принудительно выполняет немедленное обновление."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "Existing elements matching the tag name are destroyed and re-created from scratch",
+                "ru": "Существующие элементы с таким именем тега уничтожаются и создаются заново"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Existing unregistered elements are transformed into proper custom element instances once `define()` is called",
+                "ru": "Существующие незарегистрированные элементы преобразуются в полноценные экземпляры пользовательского элемента после вызова `define()`"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "The page is reloaded to apply the new element definition",
+                "ru": "Страница перезагружается для применения нового определения элемента"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Upgrade only applies to elements created after `define()` is called",
+                "ru": "Обновление применяется только к элементам, созданным после вызова `define()`"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 15,
+          "name": {
+            "en": "How can a custom element dispatch a custom event that bubbles across the shadow DOM boundary?",
+            "ru": "Как пользовательский элемент может отправить событие, которое всплывает через границу Shadow DOM?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "To make a `CustomEvent` cross the shadow boundary, you must set both `bubbles: true` and `composed: true`. Without `composed: true`, the event stops at the shadow root and never reaches the outer document.",
+            "ru": "Чтобы `CustomEvent` пересёк границу shadow DOM, необходимо установить оба флага: `bubbles: true` и `composed: true`. Без `composed: true` событие останавливается на shadow root и никогда не достигает внешнего документа."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "Use `dispatchEvent(new Event('my-event', { bubbles: true }))`",
+                "ru": "Использовать `dispatchEvent(new Event('my-event', { bubbles: true }))`"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Use `dispatchEvent(new CustomEvent('my-event', { bubbles: true, composed: true }))`",
+                "ru": "Использовать `dispatchEvent(new CustomEvent('my-event', { bubbles: true, composed: true }))`"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "Use `window.emit('my-event', detail)`",
+                "ru": "Использовать `window.emit('my-event', detail)`"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Shadow DOM events always bubble to the document automatically",
+                "ru": "События Shadow DOM всегда автоматически всплывают до документа"
+              },
+              "isCorrect": false
+            }
+          ]
+        }
+      ]
     },
     {
       "name": { "en": "Shadow DOM", "ru": "Shadow DOM" },
@@ -23,7 +588,515 @@
         "ru": "Инкапсулированные DOM-деревья, открытый и закрытый shadow root, изоляция CSS и пересечение границ shadow DOM стилями"
       },
       "links": [],
-      "questions": []
+      "questions": [
+        {
+          "sortOrder": 1,
+          "name": {
+            "en": "How do you attach a shadow root to a custom element?",
+            "ru": "Как прикрепить shadow root к пользовательскому элементу?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "`this.attachShadow({ mode: 'open' })` (or `'closed'`) creates a shadow root on the host element and returns it. The method is available on any element that supports shadow DOM.",
+            "ru": "`this.attachShadow({ mode: 'open' })` (или `'closed'`) создаёт shadow root на элементе-хосте и возвращает его. Метод доступен на любом элементе, поддерживающем Shadow DOM."
+          },
+          "answers": [
+            {
+              "text": { "en": "`this.createShadowRoot()`", "ru": "`this.createShadowRoot()`" },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "`this.shadow = new ShadowRoot()`",
+                "ru": "`this.shadow = new ShadowRoot()`"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "`this.attachShadow({ mode: 'open' })`",
+                "ru": "`this.attachShadow({ mode: 'open' })`"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "`document.attachShadow(this)`",
+                "ru": "`document.attachShadow(this)`"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 2,
+          "name": {
+            "en": "What is the difference between `mode: 'open'` and `mode: 'closed'` when creating a shadow root?",
+            "ru": "В чём разница между `mode: 'open'` и `mode: 'closed'` при создании shadow root?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "With `mode: 'open'`, external JavaScript can access the shadow root via `element.shadowRoot`. With `mode: 'closed'`, `element.shadowRoot` returns `null`, preventing external scripts from querying the internal DOM (though this is not a true security boundary).",
+            "ru": "При `mode: 'open'` внешний JavaScript может получить доступ к shadow root через `element.shadowRoot`. При `mode: 'closed'` свойство `element.shadowRoot` возвращает `null`, не позволяя внешним скриптам запрашивать внутренний DOM (хотя это не является настоящей границей безопасности)."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "`open` allows CSS to style shadow internals; `closed` blocks all CSS",
+                "ru": "`open` позволяет CSS стилизовать внутренние элементы shadow DOM; `closed` блокирует весь CSS"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "`open` makes `element.shadowRoot` accessible; `closed` makes it return `null`",
+                "ru": "`open` делает `element.shadowRoot` доступным; `closed` возвращает `null`"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "`open` renders children in the light DOM; `closed` hides them completely",
+                "ru": "`open` отображает дочерние элементы в light DOM; `closed` скрывает их полностью"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "`open` supports slots; `closed` does not",
+                "ru": "`open` поддерживает слоты; `closed` — нет"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 3,
+          "name": {
+            "en": "Do global CSS rules from the main document apply inside a shadow root?",
+            "ru": "Применяются ли глобальные CSS-правила из основного документа внутри shadow root?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "No. Shadow DOM provides CSS encapsulation: styles defined outside the shadow root do not affect elements inside it, and styles inside the shadow root do not leak out. Only inheritable CSS properties (e.g., `color`, `font`) cascade in from the host.",
+            "ru": "Нет. Shadow DOM обеспечивает CSS-инкапсуляцию: стили, определённые за пределами shadow root, не влияют на элементы внутри него, а стили внутри shadow root не выходят наружу. Только наследуемые CSS-свойства (например, `color`, `font`) каскадируются с хоста."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "Yes, all CSS rules from the main document apply inside every shadow root",
+                "ru": "Да, все CSS-правила из основного документа применяются внутри каждого shadow root"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "No, shadow DOM encapsulates styles; only inheritable properties cascade in from the host",
+                "ru": "Нет, Shadow DOM инкапсулирует стили; только наследуемые свойства каскадируются с хоста"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "Only `id`-based CSS selectors penetrate the shadow boundary",
+                "ru": "Только CSS-селекторы на основе `id` проникают через границу shadow DOM"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Global styles apply when `mode: 'open'` is used, but not for `mode: 'closed'`",
+                "ru": "Глобальные стили применяются при `mode: 'open'`, но не при `mode: 'closed'`"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 4,
+          "name": {
+            "en": "Which CSS pseudo-class is used to style the shadow host element from within the shadow root?",
+            "ru": "Какой CSS-псевдокласс используется для стилизации элемента-хоста shadow DOM изнутри shadow root?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "`:host` selects the shadow host element from inside the shadow root. You can also use `:host(selector)` to conditionally style the host when it matches a given selector.",
+            "ru": "`:host` выбирает элемент-хост shadow DOM изнутри shadow root. Также можно использовать `:host(selector)` для условной стилизации хоста, когда он соответствует заданному селектору."
+          },
+          "answers": [
+            {
+              "text": { "en": "`:root`", "ru": "`:root`" },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "`:shadow-host`", "ru": "`:shadow-host`" },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "`:host`", "ru": "`:host`" },
+              "isCorrect": true
+            },
+            {
+              "text": { "en": "`:outer`", "ru": "`:outer`" },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 5,
+          "name": {
+            "en": "What CSS feature allows a component author to expose styling hooks that consumers can set from outside the shadow root?",
+            "ru": "Какая функция CSS позволяет разработчику компонента предоставлять хуки для стилизации, которые потребители могут устанавливать снаружи shadow root?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "CSS custom properties (variables) inherit across shadow boundaries. A component can use `var(--my-color, defaultValue)` inside the shadow root, and consumers can set `--my-color` on the host or any ancestor to theme the component.",
+            "ru": "Пользовательские свойства CSS (переменные) наследуются через границы shadow DOM. Компонент может использовать `var(--my-color, defaultValue)` внутри shadow root, а потребители могут задать `--my-color` на хосте или любом предке для темизации компонента."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "CSS `@layer` blocks that pierce shadow boundaries",
+                "ru": "CSS-блоки `@layer`, проникающие через границы shadow DOM"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "The `::shadow` pseudo-element combinator",
+                "ru": "Псевдоэлементный комбинатор `::shadow`"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "CSS custom properties (variables) which inherit across shadow boundaries",
+                "ru": "Пользовательские свойства CSS (переменные), наследуемые через границы shadow DOM"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "The `!important` flag overrides shadow encapsulation",
+                "ru": "Флаг `!important` переопределяет инкапсуляцию shadow DOM"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 6,
+          "name": {
+            "en": "What does the `::slotted()` pseudo-element target?",
+            "ru": "На что нацелен псевдоэлемент `::slotted()`?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "`::slotted(selector)` inside a shadow root matches light-DOM elements that have been distributed into a `<slot>`. Only top-level slotted children can be targeted (not their descendants).",
+            "ru": "`::slotted(selector)` внутри shadow root соответствует элементам light DOM, распределённым в `<slot>`. Можно нацеливаться только на непосредственных дочерних элементов слота (не на их потомков)."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "Elements inside the shadow root that contain a `slot` attribute",
+                "ru": "Элементы внутри shadow root, содержащие атрибут `slot`"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Light-DOM children projected into a `<slot>` element",
+                "ru": "Дочерние элементы light DOM, спроецированные в элемент `<slot>`"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "The default content of a `<slot>` when no children are provided",
+                "ru": "Содержимое по умолчанию элемента `<slot>`, когда дочерние элементы не предоставлены"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "All children of the shadow host regardless of slot assignment",
+                "ru": "Все дочерние элементы хоста shadow DOM вне зависимости от назначения слота"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 7,
+          "name": {
+            "en": "What does `element.shadowRoot` return when the shadow root was created with `mode: 'closed'`?",
+            "ru": "Что возвращает `element.shadowRoot`, когда shadow root был создан с `mode: 'closed'`?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "`element.shadowRoot` returns `null` for closed shadow roots. The reference to the shadow root is only accessible if you store it explicitly when calling `attachShadow({ mode: 'closed' })`.",
+            "ru": "`element.shadowRoot` возвращает `null` для закрытых shadow root. Ссылка на shadow root доступна только в том случае, если вы явно сохранили её при вызове `attachShadow({ mode: 'closed' })`."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "The shadow root object with restricted access",
+                "ru": "Объект shadow root с ограниченным доступом"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "`undefined`", "ru": "`undefined`" },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "`null`", "ru": "`null`" },
+              "isCorrect": true
+            },
+            {
+              "text": { "en": "It throws an `AccessError`", "ru": "Выбрасывает `AccessError`" },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 8,
+          "name": {
+            "en": "Which CSS selector targets a shadow host only when it contains a specific slotted child?",
+            "ru": "Какой CSS-селектор нацеливается на хост shadow DOM только тогда, когда он содержит определённый дочерний элемент в слоте?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "`:host-context(selector)` matches the shadow host when it or any of its ancestors matches `selector`. This lets a component adapt to its surrounding context — for example, applying a dark theme when placed inside a `.dark-theme` container.",
+            "ru": "`:host-context(selector)` соответствует хосту shadow DOM, когда сам хост или один из его предков соответствует `selector`. Это позволяет компоненту адаптироваться к окружающему контексту — например, применять тёмную тему, если он размещён внутри контейнера с классом `.dark-theme`."
+          },
+          "answers": [
+            {
+              "text": { "en": "`:host-context(selector)`", "ru": "`:host-context(selector)`" },
+              "isCorrect": true
+            },
+            {
+              "text": { "en": "`:host:has(selector)`", "ru": "`:host:has(selector)`" },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "`:host > selector`", "ru": "`:host > selector`" },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "`::slotted(selector)`", "ru": "`::slotted(selector)`" },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 9,
+          "name": {
+            "en": "What is the Declarative Shadow DOM and how is it enabled?",
+            "ru": "Что такое декларативный Shadow DOM и как он включается?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "Declarative Shadow DOM lets you attach a shadow root directly in HTML using `<template shadowrootmode=\"open\">` inside the host element. This enables server-side rendering of shadow-DOM components without JavaScript.",
+            "ru": "Декларативный Shadow DOM позволяет прикрепить shadow root прямо в HTML с помощью `<template shadowrootmode=\"open\">` внутри элемента-хоста. Это обеспечивает серверную отрисовку компонентов с Shadow DOM без JavaScript."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "By calling `attachShadow()` from a `<script>` tag inside the host element",
+                "ru": "Вызовом `attachShadow()` из тега `<script>` внутри элемента-хоста"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "By setting `shadowdom=\"open\"` attribute on any HTML element",
+                "ru": "Установкой атрибута `shadowdom=\"open\"` на любой HTML-элемент"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Using `<template shadowrootmode=\"open\">` inside the host element in HTML markup",
+                "ru": "Использованием `<template shadowrootmode=\"open\">` внутри элемента-хоста в HTML-разметке"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "By importing `declarative-shadow-dom` polyfill via `<script type=\"module\">`",
+                "ru": "Импортом полифила `declarative-shadow-dom` через `<script type=\"module\">`"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 10,
+          "name": {
+            "en": "Which method returns the composed (flattened) list of nodes assigned to a `<slot>` at runtime?",
+            "ru": "Какой метод возвращает составной (уплощённый) список узлов, назначенных `<slot>` во время выполнения?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "`slot.assignedNodes({ flatten: true })` returns all nodes currently distributed into the slot, recursively flattening nested slots. Without `flatten: true`, only direct assignees are returned.",
+            "ru": "`slot.assignedNodes({ flatten: true })` возвращает все узлы, текущее распределённые в слоте, рекурсивно уплощая вложенные слоты. Без `flatten: true` возвращаются только прямые назначенные узлы."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "`slot.getDistributedNodes()`",
+                "ru": "`slot.getDistributedNodes()`"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "`slot.children`", "ru": "`slot.children`" },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "`slot.assignedNodes({ flatten: true })`",
+                "ru": "`slot.assignedNodes({ flatten: true })`"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "`shadowRoot.getSlotContent(slot)`",
+                "ru": "`shadowRoot.getSlotContent(slot)`"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 11,
+          "name": {
+            "en": "How can you add styles to a shadow root in a performant, reusable way using modern APIs?",
+            "ru": "Как можно добавить стили в shadow root производительным и повторно используемым способом с помощью современных API?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "The `CSSStyleSheet` API (Constructable Stylesheets) allows you to create a stylesheet once and share it across multiple shadow roots via `shadowRoot.adoptedStyleSheets = [sheet]`. This avoids duplicating `<style>` tags across many instances.",
+            "ru": "API `CSSStyleSheet` (конструируемые таблицы стилей) позволяет создать таблицу стилей один раз и совместно использовать её в нескольких shadow root через `shadowRoot.adoptedStyleSheets = [sheet]`. Это позволяет избежать дублирования тегов `<style>` в множестве экземпляров."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "Inject a `<link rel=\"stylesheet\">` inside each shadow root",
+                "ru": "Вставить `<link rel=\"stylesheet\">` внутрь каждого shadow root"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Use `adoptedStyleSheets` with a `CSSStyleSheet` instance shared across shadow roots",
+                "ru": "Использовать `adoptedStyleSheets` с экземпляром `CSSStyleSheet`, общим для нескольких shadow root"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "Apply styles using inline `style` attributes on every shadow DOM element",
+                "ru": "Применять стили с помощью атрибутов `style` на каждом элементе shadow DOM"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Use `shadowRoot.innerHTML` to inject a `<style>` block on each render",
+                "ru": "Использовать `shadowRoot.innerHTML` для вставки блока `<style>` при каждой отрисовке"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 12,
+          "name": {
+            "en": "What happens to event `target` retargeting when an event from inside a shadow root reaches the outer document?",
+            "ru": "Что происходит с перенацеливанием `target` события, когда событие из shadow root достигает внешнего документа?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "The browser retargets the event: outside listeners see the shadow host as `event.target` rather than the internal element that originally dispatched the event. This preserves the encapsulation of the shadow DOM's internal structure.",
+            "ru": "Браузер перенацеливает событие: внешние обработчики видят хост shadow DOM в качестве `event.target`, а не внутренний элемент, который изначально отправил событие. Это сохраняет инкапсуляцию внутренней структуры shadow DOM."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "The event is cloned with the internal element preserved as `target`",
+                "ru": "Событие клонируется с сохранением внутреннего элемента в качестве `target`"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "The shadow host becomes `event.target` for listeners outside the shadow boundary",
+                "ru": "Хост shadow DOM становится `event.target` для обработчиков снаружи границы shadow DOM"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "The event is cancelled and cannot be observed outside the shadow root",
+                "ru": "Событие отменяется и не может быть наблюдаемо снаружи shadow root"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "`event.target` is always `document.body` for events that cross the shadow boundary",
+                "ru": "`event.target` всегда равен `document.body` для событий, пересекающих границу shadow DOM"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 13,
+          "name": {
+            "en": "Which `Element` method allows you to find which element inside a shadow root is responsible for a given point on the screen?",
+            "ru": "Какой метод `Element` позволяет найти элемент внутри shadow root, ответственный за заданную точку на экране?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "`shadowRoot.elementFromPoint(x, y)` (or `elementsFromPoint`) queries inside the shadow tree, bypassing the retargeting that `document.elementFromPoint()` applies. This gives you the actual internal element at those coordinates.",
+            "ru": "`shadowRoot.elementFromPoint(x, y)` (или `elementsFromPoint`) выполняет запрос внутри shadow-дерева, обходя перенацеливание, применяемое `document.elementFromPoint()`. Это даёт вам фактический внутренний элемент в этих координатах."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "`document.elementFromPoint(x, y)` automatically looks inside shadow roots",
+                "ru": "`document.elementFromPoint(x, y)` автоматически заглядывает внутрь shadow root"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "`shadowRoot.elementFromPoint(x, y)` bypasses event retargeting and finds the actual internal element",
+                "ru": "`shadowRoot.elementFromPoint(x, y)` обходит перенацеливание событий и находит фактический внутренний элемент"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "`element.getInternalNodeAt(x, y)` is the correct API",
+                "ru": "`element.getInternalNodeAt(x, y)` — корректный API"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "There is no way to query inside a shadow root by coordinates",
+                "ru": "Нет способа выполнить запрос внутри shadow root по координатам"
+              },
+              "isCorrect": false
+            }
+          ]
+        }
+      ]
     },
     {
       "name": { "en": "HTML Templates & Slots", "ru": "HTML Templates и слоты" },
@@ -32,7 +1105,500 @@
         "ru": "Элемент `<template>` для инертной разметки, `<slot>` для проецирования контента и именованные слоты"
       },
       "links": [],
-      "questions": []
+      "questions": [
+        {
+          "sortOrder": 1,
+          "name": {
+            "en": "What is special about the `<template>` element's content?",
+            "ru": "Что особенного в содержимом элемента `<template>`?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "Content inside `<template>` is parsed but inert: scripts do not run, images do not load, and the markup is not rendered. It is stored in a `DocumentFragment` accessible via `template.content`, ready to be cloned and inserted into the DOM when needed.",
+            "ru": "Содержимое внутри `<template>` разбирается, но является инертным: скрипты не выполняются, изображения не загружаются, а разметка не отображается. Оно хранится в `DocumentFragment`, доступном через `template.content`, готовом к клонированию и вставке в DOM при необходимости."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "It is rendered immediately but hidden with `display: none`",
+                "ru": "Оно отображается немедленно, но скрыто с помощью `display: none`"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "It is parsed but inert — scripts do not run, images do not load, and it is not rendered until cloned",
+                "ru": "Оно разбирается, но является инертным — скрипты не выполняются, изображения не загружаются, и оно не отображается до клонирования"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "It is ignored by the HTML parser and treated as a comment",
+                "ru": "HTML-парсер игнорирует его и обрабатывает как комментарий"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "It is stored as a string in the `innerHTML` of a hidden `<div>`",
+                "ru": "Оно хранится как строка в `innerHTML` скрытого `<div>`"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 2,
+          "name": {
+            "en": "How do you clone and use the content of a `<template>` element?",
+            "ru": "Как клонировать и использовать содержимое элемента `<template>`?"
+          },
+          "codeSnippet": "const template = document.querySelector('#my-template');\nconst clone = template.content.cloneNode(true);\ndocument.body.appendChild(clone);",
+          "explanation": {
+            "en": "`template.content` returns the `DocumentFragment` holding the template's inert markup. Calling `.cloneNode(true)` performs a deep clone, which you can then insert into the document. The original template remains unchanged and can be reused.",
+            "ru": "`template.content` возвращает `DocumentFragment`, хранящий инертную разметку шаблона. Вызов `.cloneNode(true)` выполняет глубокое клонирование, которое затем можно вставить в документ. Исходный шаблон остаётся неизменным и может быть использован повторно."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "Set `template.hidden = false` to make it visible",
+                "ru": "Установить `template.hidden = false` для его отображения"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Use `document.importNode(template)` to move it into the document",
+                "ru": "Использовать `document.importNode(template)` для перемещения в документ"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Call `template.content.cloneNode(true)` and append the clone to the DOM",
+                "ru": "Вызвать `template.content.cloneNode(true)` и добавить клон в DOM"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "Set `template.innerHTML` to an empty string to activate it",
+                "ru": "Установить `template.innerHTML` в пустую строку для его активации"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 3,
+          "name": {
+            "en": "What is the purpose of the `<slot>` element in Web Components?",
+            "ru": "Какова цель элемента `<slot>` в веб-компонентах?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "`<slot>` is a placeholder inside a shadow root that accepts light-DOM children passed by the component's consumer. It enables content projection — similar to Angular's `ng-content` or React's `children` prop — without moving the actual nodes.",
+            "ru": "`<slot>` — это заполнитель внутри shadow root, принимающий дочерние элементы light DOM, переданные потребителем компонента. Он обеспечивает проецирование контента — аналогично `ng-content` в Angular или пропсу `children` в React — без перемещения реальных узлов."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "To define a named section of the shadow DOM that can be styled from the outside",
+                "ru": "Определить именованный раздел shadow DOM, который можно стилизовать снаружи"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "To project light-DOM children into specific positions inside the shadow root",
+                "ru": "Спроецировать дочерние элементы light DOM в определённые позиции внутри shadow root"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "To create a delayed-loading section of the page",
+                "ru": "Создать раздел страницы с отложенной загрузкой"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "To reserve memory for future DOM nodes",
+                "ru": "Зарезервировать память для будущих DOM-узлов"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 4,
+          "name": {
+            "en": "How do you assign light-DOM content to a named slot?",
+            "ru": "Как назначить содержимое light DOM именованному слоту?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "Add `slot=\"slotName\"` to the light-DOM child element. Inside the shadow root, a `<slot name=\"slotName\">` receives that element. Children without a `slot` attribute go to the default (unnamed) slot.",
+            "ru": "Добавьте `slot=\"slotName\"` к дочернему элементу light DOM. Внутри shadow root элемент `<slot name=\"slotName\">` принимает этот элемент. Дочерние элементы без атрибута `slot` попадают в слот по умолчанию (безымянный)."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "Add `slot-target=\"slotName\"` to the child element",
+                "ru": "Добавить `slot-target=\"slotName\"` к дочернему элементу"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Add `slot=\"slotName\"` attribute to the light-DOM child element",
+                "ru": "Добавить атрибут `slot=\"slotName\"` к дочернему элементу light DOM"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "Call `slot.assign(childElement)` in JavaScript",
+                "ru": "Вызвать `slot.assign(childElement)` в JavaScript"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Set the child's `id` to match the slot's `name`",
+                "ru": "Установить `id` дочернего элемента равным `name` слота"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 5,
+          "name": {
+            "en": "What is rendered when no light-DOM content is provided for a `<slot>`?",
+            "ru": "Что отображается, когда для `<slot>` не предоставлено содержимое light DOM?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "If a slot receives no assigned nodes, its fallback content — anything placed between `<slot>` and `</slot>` — is displayed instead. If there is no fallback content and no assigned nodes, nothing is rendered.",
+            "ru": "Если слот не получает назначенных узлов, вместо них отображается резервное содержимое — всё, что находится между `<slot>` и `</slot>`. Если нет ни резервного содержимого, ни назначенных узлов, ничего не отображается."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "An error is thrown because slots must always have content",
+                "ru": "Выбрасывается ошибка, поскольку слоты всегда должны иметь содержимое"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "The slot is replaced by a `<span>` placeholder",
+                "ru": "Слот заменяется заполнителем `<span>`"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "The slot's fallback content (placed between the slot tags) is shown",
+                "ru": "Отображается резервное содержимое слота (расположенное между тегами slot)"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "The shadow root is hidden entirely",
+                "ru": "Shadow root полностью скрывается"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 6,
+          "name": {
+            "en": "Which event fires on a `<slot>` element when its assigned nodes change?",
+            "ru": "Какое событие возникает на элементе `<slot>` при изменении назначенных ему узлов?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "The `slotchange` event fires on a `<slot>` element whenever the nodes assigned to it are added or removed. You can listen with `slot.addEventListener('slotchange', handler)` to react to dynamic content changes.",
+            "ru": "Событие `slotchange` возникает на элементе `<slot>` каждый раз, когда назначенные ему узлы добавляются или удаляются. Вы можете слушать его с помощью `slot.addEventListener('slotchange', handler)` для реакции на динамические изменения контента."
+          },
+          "answers": [
+            {
+              "text": { "en": "`contentchange`", "ru": "`contentchange`" },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "`slotchange`", "ru": "`slotchange`" },
+              "isCorrect": true
+            },
+            {
+              "text": { "en": "`assignmentchange`", "ru": "`assignmentchange`" },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "`childrenchange`", "ru": "`childrenchange`" },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 7,
+          "name": {
+            "en": "Can a `<template>` element be nested inside another `<template>` element?",
+            "ru": "Может ли элемент `<template>` быть вложен в другой элемент `<template>`?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "Yes. A `<template>` can be nested inside another `<template>`. Inner templates are also inert — their content is not activated when the outer template is cloned. You need to explicitly clone the inner template's content as well.",
+            "ru": "Да. `<template>` может быть вложен в другой `<template>`. Внутренние шаблоны также инертны — их содержимое не активируется при клонировании внешнего шаблона. Необходимо явно клонировать содержимое внутреннего шаблона тоже."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "No, nested templates are invalid HTML and are removed by the parser",
+                "ru": "Нет, вложенные шаблоны являются недопустимым HTML и удаляются парсером"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Yes, and the inner template's content is activated automatically when the outer template is cloned",
+                "ru": "Да, и содержимое внутреннего шаблона активируется автоматически при клонировании внешнего"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Yes, and the inner template remains inert until explicitly cloned",
+                "ru": "Да, и внутренний шаблон остаётся инертным до явного клонирования"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "Yes, but only if the outer template has a `shadowrootmode` attribute",
+                "ru": "Да, но только если у внешнего шаблона есть атрибут `shadowrootmode`"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 8,
+          "name": {
+            "en": "What does `element.assignedSlot` return?",
+            "ru": "Что возвращает `element.assignedSlot`?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "`element.assignedSlot` returns the `<slot>` element inside a shadow root to which the given light-DOM element has been distributed. If the element is not slotted, it returns `null`.",
+            "ru": "`element.assignedSlot` возвращает элемент `<slot>` внутри shadow root, в который был распределён данный элемент light DOM. Если элемент не распределён в слот, возвращает `null`."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "The slot's `name` attribute as a string",
+                "ru": "Атрибут `name` слота в виде строки"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "The `<slot>` element this node is assigned to, or `null` if not slotted",
+                "ru": "Элемент `<slot>`, которому назначен данный узел, или `null`, если он не в слоте"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "The shadow root containing the slot",
+                "ru": "Shadow root, содержащий слот"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "An array of all slots in the document",
+                "ru": "Массив всех слотов в документе"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 9,
+          "name": {
+            "en": "Can you use `<template>` elements outside of Web Components?",
+            "ru": "Можно ли использовать элементы `<template>` вне веб-компонентов?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "Yes. `<template>` is a standard HTML element and can be used anywhere to hold inert markup for later use. It is useful for client-side templating, reducing repetition, and deferring rendering of complex structures.",
+            "ru": "Да. `<template>` — это стандартный HTML-элемент, который можно использовать везде для хранения инертной разметки для последующего использования. Он полезен для клиентских шаблонов, сокращения повторений и отложенной отрисовки сложных структур."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "No, `<template>` is only valid inside a custom element definition",
+                "ru": "Нет, `<template>` допустим только внутри определения пользовательского элемента"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Yes, `<template>` is a standard HTML element usable anywhere to hold inert markup",
+                "ru": "Да, `<template>` — это стандартный HTML-элемент, используемый везде для хранения инертной разметки"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "No, browsers only parse `<template>` inside a shadow root",
+                "ru": "Нет, браузеры разбирают `<template>` только внутри shadow root"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Yes, but only if the page uses a `<!DOCTYPE html5>` declaration",
+                "ru": "Да, но только если страница использует объявление `<!DOCTYPE html5>`"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 10,
+          "name": {
+            "en": "What is the `part` attribute and how is it used for styling?",
+            "ru": "Что такое атрибут `part` и как он используется для стилизации?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "The `part` attribute on a shadow-DOM element marks it as an exposed styling hook. External CSS can target it using the `::part(partName)` pseudo-element, letting consumers style internal elements without needing access to the shadow DOM.",
+            "ru": "Атрибут `part` на элементе shadow DOM помечает его как открытый хук для стилизации. Внешний CSS может нацеливаться на него с помощью псевдоэлемента `::part(partName)`, позволяя потребителям стилизовать внутренние элементы без доступа к shadow DOM."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "It identifies elements that are exported to the light DOM when the component renders",
+                "ru": "Оно идентифицирует элементы, экспортируемые в light DOM при отрисовке компонента"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "It marks shadow-DOM elements as styling hooks, targetable externally via `::part()`",
+                "ru": "Оно помечает элементы shadow DOM как хуки для стилизации, доступные снаружи через `::part()`"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "It is a performance hint telling the browser to pre-render that element",
+                "ru": "Это подсказка производительности, сообщающая браузеру о предварительной отрисовке этого элемента"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "It specifies which slot the element should be assigned to",
+                "ru": "Оно указывает, в какой слот должен быть назначен элемент"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 11,
+          "name": {
+            "en": "How does Manual Slot Assignment (via `slot.assign()`) differ from the default attribute-based slotting?",
+            "ru": "Чем ручное назначение слотов (через `slot.assign()`) отличается от слотирования на основе атрибутов по умолчанию?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "Manual slot assignment (`shadowRoot.slotAssignment = 'manual'` + `slot.assign(...nodes)`) lets you imperatively control which nodes appear in a slot without the host's children needing a `slot` attribute. The shadow root must be created with `slotAssignment: 'manual'` to use this mode.",
+            "ru": "Ручное назначение слотов (`shadowRoot.slotAssignment = 'manual'` + `slot.assign(...nodes)`) позволяет программно управлять тем, какие узлы появляются в слоте, без необходимости атрибута `slot` у дочерних элементов хоста. Shadow root должен быть создан с `slotAssignment: 'manual'` для использования этого режима."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "There is no difference; `slot.assign()` is just an alias for setting the `slot` attribute",
+                "ru": "Разницы нет; `slot.assign()` — лишь псевдоним для установки атрибута `slot`"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Manual assignment imperatively controls slot content without requiring `slot` attributes on host children",
+                "ru": "Ручное назначение программно управляет содержимым слота без необходимости атрибутов `slot` у дочерних элементов хоста"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "Manual assignment only works with closed shadow roots",
+                "ru": "Ручное назначение работает только с закрытыми shadow root"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "`slot.assign()` moves the nodes into the shadow DOM, while the attribute leaves them in the light DOM",
+                "ru": "`slot.assign()` перемещает узлы в shadow DOM, тогда как атрибут оставляет их в light DOM"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 12,
+          "name": {
+            "en": "Where does `<template>` content live before it is cloned?",
+            "ru": "Где находится содержимое `<template>` до его клонирования?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "The content of a `<template>` element lives in a `DocumentFragment` accessible via the `template.content` property. The fragment is owned by the template and its nodes are not part of the active document tree.",
+            "ru": "Содержимое элемента `<template>` находится в `DocumentFragment`, доступном через свойство `template.content`. Фрагмент принадлежит шаблону, а его узлы не являются частью активного дерева документа."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "In a hidden `<div>` appended to `document.head`",
+                "ru": "В скрытом `<div>`, добавленном в `document.head`"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "In the browser's internal memory as a string",
+                "ru": "В внутренней памяти браузера в виде строки"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "In a `DocumentFragment` accessible via `template.content`",
+                "ru": "В `DocumentFragment`, доступном через `template.content`"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "In a separate `Document` object created for each template",
+                "ru": "В отдельном объекте `Document`, созданном для каждого шаблона"
+              },
+              "isCorrect": false
+            }
+          ]
+        }
+      ]
     },
     {
       "name": {
@@ -44,7 +1610,512 @@
         "ru": "Использование веб-компонентов внутри Angular/React, обработка событий через границы и когда выбирать веб-компоненты вместо компонентов фреймворка"
       },
       "links": [],
-      "questions": []
+      "questions": [
+        {
+          "sortOrder": 1,
+          "name": {
+            "en": "What Angular configuration is required to use a Web Component (custom element) inside an Angular template without compiler errors?",
+            "ru": "Какая конфигурация Angular необходима для использования веб-компонента (пользовательского элемента) внутри шаблона Angular без ошибок компилятора?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "You must add `CUSTOM_ELEMENTS_SCHEMA` to the `schemas` array of the `@NgModule` (or the `schemas` field in a standalone component's decorator). This tells the Angular compiler to accept unknown element tags instead of raising an error.",
+            "ru": "Необходимо добавить `CUSTOM_ELEMENTS_SCHEMA` в массив `schemas` декоратора `@NgModule` (или поле `schemas` декоратора автономного компонента). Это сообщает компилятору Angular принимать неизвестные теги элементов вместо выдачи ошибки."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "Import the custom element class in `app.module.ts`",
+                "ru": "Импортировать класс пользовательского элемента в `app.module.ts`"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Add `CUSTOM_ELEMENTS_SCHEMA` to the `schemas` array in the module or component",
+                "ru": "Добавить `CUSTOM_ELEMENTS_SCHEMA` в массив `schemas` в модуле или компоненте"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "Register the element with Angular's `ElementRegistry` service",
+                "ru": "Зарегистрировать элемент в сервисе `ElementRegistry` Angular"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "No configuration is needed; Angular accepts all custom tags by default",
+                "ru": "Конфигурация не нужна; Angular по умолчанию принимает все пользовательские теги"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 2,
+          "name": {
+            "en": "How does React typically handle custom events dispatched by a Web Component?",
+            "ru": "Как React обычно обрабатывает пользовательские события, отправляемые веб-компонентом?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "React's synthetic event system does not recognise custom event names declared via `CustomEvent`. To handle them you must use a `ref` on the custom element and call `addEventListener` directly in `useEffect` (or `componentDidMount`).",
+            "ru": "Синтетическая система событий React не распознаёт имена пользовательских событий, объявленных через `CustomEvent`. Для их обработки необходимо использовать `ref` на пользовательском элементе и вызывать `addEventListener` напрямую в `useEffect` (или `componentDidMount`)."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "React automatically maps custom event names to `onEventName` props",
+                "ru": "React автоматически сопоставляет имена пользовательских событий с пропсами `onEventName`"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "You must use a `ref` and attach a native `addEventListener` in `useEffect`",
+                "ru": "Необходимо использовать `ref` и прикрепить нативный `addEventListener` в `useEffect`"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "Custom events from Web Components bubble up to React's root event listener automatically",
+                "ru": "Пользовательские события от веб-компонентов автоматически всплывают до корневого обработчика событий React"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "React blocks all events originating inside a shadow root",
+                "ru": "React блокирует все события, исходящие из shadow root"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 3,
+          "name": {
+            "en": "What is `@angular/elements` used for?",
+            "ru": "Для чего используется `@angular/elements`?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "`@angular/elements` provides `createCustomElement()`, which wraps an Angular component as a standard Custom Element. The resulting element can then be registered with `customElements.define()` and used anywhere — including in non-Angular pages.",
+            "ru": "`@angular/elements` предоставляет `createCustomElement()`, который оборачивает Angular-компонент как стандартный пользовательский элемент. Полученный элемент можно затем зарегистрировать с помощью `customElements.define()` и использовать в любом месте — включая страницы, не использующие Angular."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "To allow Angular to consume Web Components built by other frameworks",
+                "ru": "Чтобы Angular мог использовать веб-компоненты, созданные другими фреймворками"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "To polyfill the Custom Elements API in older browsers",
+                "ru": "Для полифилла API пользовательских элементов в старых браузерах"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "To wrap Angular components as standard Custom Elements that can run anywhere",
+                "ru": "Для оборачивания Angular-компонентов в стандартные пользовательские элементы, которые можно использовать где угодно"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "To compile Angular templates into Shadow DOM-compatible HTML",
+                "ru": "Для компиляции Angular-шаблонов в HTML, совместимый с Shadow DOM"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 4,
+          "name": {
+            "en": "Why might React fail to pass complex data (objects, arrays) to a Web Component via JSX attributes?",
+            "ru": "Почему React может не передавать сложные данные (объекты, массивы) веб-компоненту через атрибуты JSX?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "React serialises JSX attribute values to strings when setting HTML attributes (just as the browser does for standard attributes). Objects and arrays become `[object Object]`. The workaround is to set properties directly via a `ref` in a `useEffect`, since DOM properties accept any JavaScript value.",
+            "ru": "React сериализует значения атрибутов JSX в строки при установке HTML-атрибутов (как это делает браузер для стандартных атрибутов). Объекты и массивы становятся `[object Object]`. Обходной путь — устанавливать свойства напрямую через `ref` в `useEffect`, поскольку DOM-свойства принимают любые значения JavaScript."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "React serialises non-primitive values to strings, so objects become `[object Object]`; use a `ref` to set DOM properties directly",
+                "ru": "React сериализует непримитивные значения в строки, поэтому объекты становятся `[object Object]`; используйте `ref` для прямой установки DOM-свойств"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "Web Components only accept string attributes by specification",
+                "ru": "Веб-компоненты принимают только строковые атрибуты по спецификации"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "React wraps all attribute values in JSON.stringify automatically",
+                "ru": "React автоматически оборачивает все значения атрибутов в JSON.stringify"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Shadow DOM blocks property access from React's virtual DOM",
+                "ru": "Shadow DOM блокирует доступ к свойствам из виртуального DOM React"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 5,
+          "name": {
+            "en": "When should you prefer Web Components over framework-specific components?",
+            "ru": "Когда следует предпочесть веб-компоненты компонентам, специфичным для фреймворка?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "Web Components are best when you need a framework-agnostic UI primitive that can be shared across different applications or tech stacks (e.g., a design system, micro-frontend elements, embeddable widgets). They are less suitable when you need SSR, complex state management, or tight integration with a single framework's ecosystem.",
+            "ru": "Веб-компоненты лучше всего подходят, когда нужен независимый от фреймворка UI-примитив, который можно использовать в разных приложениях или технологических стеках (например, система дизайна, элементы микрофронтенда, встраиваемые виджеты). Они менее подходят, когда требуется SSR, сложное управление состоянием или тесная интеграция с экосистемой одного фреймворка."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "Always — Web Components are strictly superior to framework components in every case",
+                "ru": "Всегда — веб-компоненты строго превосходят компоненты фреймворков в любом случае"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "When building framework-agnostic UI primitives shared across different stacks (e.g., design systems, micro-frontends)",
+                "ru": "При создании независимых от фреймворка UI-примитивов, используемых в разных стеках (например, системы дизайна, микрофронтенды)"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "Only when SSR is not required and the project has no build step",
+                "ru": "Только когда SSR не требуется и в проекте нет этапа сборки"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "When performance is critical, because Web Components have zero runtime overhead",
+                "ru": "Когда критична производительность, поскольку веб-компоненты имеют нулевые накладные расходы во время выполнения"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 6,
+          "name": {
+            "en": "How does Vue handle Web Components by default when it encounters an unknown element tag?",
+            "ru": "Как Vue обрабатывает веб-компоненты по умолчанию, когда встречает неизвестный тег элемента?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "Vue 3 treats an unknown tag as a native HTML element (passing it through without error) if you configure `compilerOptions.isCustomElement` to return `true` for those tag names. Without this, Vue may warn about unknown components.",
+            "ru": "Vue 3 обрабатывает неизвестный тег как нативный HTML-элемент (передавая его без ошибки), если вы настраиваете `compilerOptions.isCustomElement` так, чтобы он возвращал `true` для этих имён тегов. Без этой настройки Vue может предупреждать о неизвестных компонентах."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "Vue throws a compilation error and cannot be used with Web Components",
+                "ru": "Vue выдаёт ошибку компиляции и не может использоваться с веб-компонентами"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Vue warns about unknown components unless you configure `compilerOptions.isCustomElement`",
+                "ru": "Vue предупреждает о неизвестных компонентах, если не настроить `compilerOptions.isCustomElement`"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "Vue automatically detects custom elements by the hyphen in the tag name with no extra configuration",
+                "ru": "Vue автоматически определяет пользовательские элементы по дефису в имени тега без дополнительной настройки"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Vue renders unknown tags as empty `<div>` elements",
+                "ru": "Vue отображает неизвестные теги как пустые элементы `<div>`"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 7,
+          "name": {
+            "en": "What challenge does server-side rendering (SSR) present for Web Components?",
+            "ru": "Какую проблему представляет серверный рендеринг (SSR) для веб-компонентов?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "The Custom Elements and Shadow DOM APIs are browser-only and not available in Node.js. Traditional SSR cannot render shadow trees. Declarative Shadow DOM (using `<template shadowrootmode>`) partially addresses this by embedding shadow roots in static HTML, but full SSR support still requires polyfills or careful architecture.",
+            "ru": "API пользовательских элементов и Shadow DOM являются браузерными и недоступны в Node.js. Традиционный SSR не может отображать shadow-деревья. Декларативный Shadow DOM (с использованием `<template shadowrootmode>`) частично решает эту проблему, встраивая shadow root в статический HTML, но полная поддержка SSR по-прежнему требует полифилов или тщательной архитектуры."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "There is no challenge; Web Components render identically on the server and in the browser",
+                "ru": "Никакой проблемы нет; веб-компоненты одинаково отображаются на сервере и в браузере"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Shadow DOM and Custom Elements APIs are browser-only, so SSR cannot render shadow trees without polyfills or Declarative Shadow DOM",
+                "ru": "API Shadow DOM и Custom Elements являются браузерными, поэтому SSR не может отображать shadow-деревья без полифилов или декларативного Shadow DOM"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "SSR strips all Web Component tags from the HTML response",
+                "ru": "SSR удаляет все теги веб-компонентов из HTML-ответа"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Web Components with closed shadow roots cannot be hydrated on the client",
+                "ru": "Веб-компоненты с закрытыми shadow root не могут быть гидратированы на клиенте"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 8,
+          "name": {
+            "en": "What is the recommended way to pass data from an Angular component to a child Web Component in the template?",
+            "ru": "Какой рекомендуемый способ передачи данных от Angular-компонента к дочернему веб-компоненту в шаблоне?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "Use Angular property binding syntax `[propertyName]=\"value\"` to set DOM properties on the custom element. For string values, attribute binding `attr.attributeName` also works. Avoid passing objects via attribute bindings since they will be stringified.",
+            "ru": "Используйте синтаксис привязки свойств Angular `[propertyName]=\"value\"` для установки DOM-свойств на пользовательском элементе. Для строковых значений также работает привязка атрибутов `attr.attributeName`. Избегайте передачи объектов через привязки атрибутов, поскольку они будут сериализованы в строку."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "Only via `@Input()` decorator on the Angular side",
+                "ru": "Только через декоратор `@Input()` на стороне Angular"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Use Angular property binding `[propertyName]=\"value\"` to set DOM properties on the custom element",
+                "ru": "Использовать привязку свойств Angular `[propertyName]=\"value\"` для установки DOM-свойств на пользовательском элементе"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "Register the custom element as an Angular service and inject it",
+                "ru": "Зарегистрировать пользовательский элемент как Angular-сервис и внедрить его"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Use `[attr.customData]=\"JSON.stringify(value)\"` for all data types",
+                "ru": "Использовать `[attr.customData]=\"JSON.stringify(value)\"` для всех типов данных"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 9,
+          "name": {
+            "en": "What library approach does the Stencil.js project take, and what is its main output?",
+            "ru": "Какой подход использует библиотека Stencil.js и каков её основной результат?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "Stencil.js is a compiler that takes TSX component code and produces standard Web Components (Custom Elements). Its output is framework-agnostic and works in any browser or framework. It also generates optional framework-specific wrappers (Angular, React, Vue) for better DX.",
+            "ru": "Stencil.js — это компилятор, который принимает код компонентов TSX и производит стандартные веб-компоненты (Custom Elements). Его вывод не зависит от фреймворка и работает в любом браузере или фреймворке. Также генерируются опциональные обёртки для конкретных фреймворков (Angular, React, Vue) для улучшения DX."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "Stencil is a runtime UI library similar to React but without a virtual DOM",
+                "ru": "Stencil — это runtime-библиотека UI, похожая на React, но без виртуального DOM"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Stencil is a compiler that outputs standard Web Components from TSX component code",
+                "ru": "Stencil — это компилятор, который создаёт стандартные веб-компоненты из кода компонентов TSX"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "Stencil generates CSS-in-JS for styling Web Components",
+                "ru": "Stencil генерирует CSS-in-JS для стилизации веб-компонентов"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Stencil is Angular's internal tool for compiling components to Custom Elements",
+                "ru": "Stencil — это внутренний инструмент Angular для компиляции компонентов в Custom Elements"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 10,
+          "name": {
+            "en": "Why is form participation a known challenge for custom elements used inside `<form>` elements?",
+            "ru": "Почему участие в форме является известной проблемой для пользовательских элементов, используемых внутри элементов `<form>`?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "By default, autonomous custom elements are not form-associated and their values are not submitted with the form. To opt in, the class must set `static formAssociated = true` and use `ElementInternals` (via `attachInternals()`) to set the element's value and participate in constraint validation.",
+            "ru": "По умолчанию автономные пользовательские элементы не связаны с формой и их значения не отправляются вместе с формой. Чтобы включить эту возможность, класс должен установить `static formAssociated = true` и использовать `ElementInternals` (через `attachInternals()`) для установки значения элемента и участия в валидации ограничений."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "Custom elements cannot be placed inside `<form>` tags by the HTML spec",
+                "ru": "Пользовательские элементы не могут размещаться внутри тегов `<form>` согласно спецификации HTML"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Custom elements are form-associated by default but require the `name` attribute to submit",
+                "ru": "Пользовательские элементы по умолчанию связаны с формой, но для отправки требуют атрибута `name`"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Autonomous custom elements are not form-associated by default; opt-in requires `static formAssociated = true` and `ElementInternals`",
+                "ru": "Автономные пользовательские элементы по умолчанию не связаны с формой; для включения требуется `static formAssociated = true` и `ElementInternals`"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "Shadow DOM prevents form data from being serialised by the browser",
+                "ru": "Shadow DOM препятствует сериализации данных формы браузером"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 11,
+          "name": {
+            "en": "In a micro-frontend architecture, what is the main advantage of exposing UI as Web Components?",
+            "ru": "В архитектуре микрофронтенда каково основное преимущество предоставления UI в виде веб-компонентов?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "Web Components provide a framework-neutral contract: a micro-frontend team can build their feature with any framework (or no framework) and expose it as a custom element. The shell application consumes it like any native HTML element without knowing the internal implementation details.",
+            "ru": "Веб-компоненты предоставляют нейтральный для фреймворка контракт: команда микрофронтенда может создать свою функцию с любым фреймворком (или без него) и предоставить её как пользовательский элемент. Оболочка приложения использует его как любой нативный HTML-элемент, не зная внутренних деталей реализации."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "They enable shared state between micro-frontends without an event bus",
+                "ru": "Они обеспечивают общее состояние между микрофронтендами без шины событий"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "They guarantee that each micro-frontend loads in a separate browser thread",
+                "ru": "Они гарантируют загрузку каждого микрофронтенда в отдельном потоке браузера"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "They provide a framework-neutral contract so each team can use any technology internally",
+                "ru": "Они предоставляют нейтральный для фреймворка контракт, позволяя каждой команде использовать любую технологию внутри"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "They automatically split JavaScript bundles at the shadow DOM boundary",
+                "ru": "Они автоматически разделяют JavaScript-бандлы на границе shadow DOM"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 12,
+          "name": {
+            "en": "How does React 19 improve interoperability with Web Components compared to earlier React versions?",
+            "ru": "Как React 19 улучшает совместимость с веб-компонентами по сравнению с более ранними версиями React?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "React 19 adds first-class Web Component support: it correctly sets DOM properties (not just HTML attributes) for non-string values passed to custom elements, and it properly forwards custom events without requiring manual `addEventListener` in a `ref`. This closes the major interop gap that existed in React 17/18.",
+            "ru": "React 19 добавляет первоклассную поддержку веб-компонентов: он корректно устанавливает DOM-свойства (не только HTML-атрибуты) для нестроковых значений, передаваемых пользовательским элементам, и правильно обрабатывает пользовательские события без необходимости ручного `addEventListener` в `ref`. Это устраняет главный пробел в совместимости, существовавший в React 17/18."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "React 19 compiles JSX directly to Web Component definitions",
+                "ru": "React 19 компилирует JSX напрямую в определения веб-компонентов"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "React 19 sets DOM properties (not just attributes) for non-string values and forwards custom events natively",
+                "ru": "React 19 устанавливает DOM-свойства (не только атрибуты) для нестроковых значений и нативно обрабатывает пользовательские события"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "React 19 embeds a full Web Components polyfill in its runtime",
+                "ru": "React 19 встраивает полный полифил веб-компонентов в свой runtime"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "React 19 converts Web Components into React components at build time",
+                "ru": "React 19 преобразует веб-компоненты в React-компоненты во время сборки"
+              },
+              "isCorrect": false
+            }
+          ]
+        }
+      ]
     }
   ]
 }

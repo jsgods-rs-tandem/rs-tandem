@@ -14,7 +14,416 @@
         "ru": "Объявление переменных, поднятие (hoisting), временная мёртвая зона, Object.is и полифилы"
       },
       "links": [],
-      "questions": []
+      "questions": [
+        {
+          "sortOrder": 1,
+          "name": {
+            "en": "Which keyword declares a block-scoped variable that can be reassigned?",
+            "ru": "Какое ключевое слово объявляет переменную с блочной областью видимости, которую можно переприсвоить?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "`let` declares a block-scoped variable. Unlike `var` it does not leak out of blocks, and unlike `const` its binding can be reassigned.",
+            "ru": "`let` объявляет переменную с блочной областью видимости. В отличие от `var` она не выходит за пределы блока, а в отличие от `const` её привязку можно переприсвоить."
+          },
+          "answers": [
+            { "text": { "en": "`var`", "ru": "`var`" }, "isCorrect": false },
+            { "text": { "en": "`let`", "ru": "`let`" }, "isCorrect": true },
+            { "text": { "en": "`const`", "ru": "`const`" }, "isCorrect": false },
+            { "text": { "en": "`static`", "ru": "`static`" }, "isCorrect": false }
+          ]
+        },
+        {
+          "sortOrder": 2,
+          "name": {
+            "en": "What value does accessing a `var` variable before its declaration return?",
+            "ru": "Какое значение возвращает обращение к переменной `var` до её объявления?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "`var` declarations are hoisted and initialised with `undefined`. The declaration is moved to the top of the function scope, but not the assignment.",
+            "ru": "Объявления `var` поднимаются (hoisting) и инициализируются значением `undefined`. Объявление перемещается в начало области видимости функции, но не присваивание."
+          },
+          "answers": [
+            { "text": { "en": "`null`", "ru": "`null`" }, "isCorrect": false },
+            { "text": { "en": "`undefined`", "ru": "`undefined`" }, "isCorrect": true },
+            {
+              "text": {
+                "en": "A `ReferenceError` is thrown",
+                "ru": "Выбрасывается `ReferenceError`"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "A `SyntaxError` is thrown", "ru": "Выбрасывается `SyntaxError`" },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 3,
+          "name": {
+            "en": "What happens when you access a `let` variable before its declaration in the same block?",
+            "ru": "Что происходит при обращении к переменной `let` до её объявления в том же блоке?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "`let` (and `const`) are hoisted but not initialised. The period between the start of the block and the declaration is called the Temporal Dead Zone (TDZ). Any access in the TDZ throws a `ReferenceError`.",
+            "ru": "`let` (и `const`) поднимаются, но не инициализируются. Период между началом блока и объявлением называется Временной мёртвой зоной (TDZ). Любое обращение в TDZ вызывает `ReferenceError`."
+          },
+          "answers": [
+            {
+              "text": { "en": "`undefined` is returned", "ru": "Возвращается `undefined`" },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "`null` is returned", "ru": "Возвращается `null`" },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "A `ReferenceError` is thrown (Temporal Dead Zone)",
+                "ru": "Выбрасывается `ReferenceError` (Временная мёртвая зона)"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": { "en": "A `TypeError` is thrown", "ru": "Выбрасывается `TypeError`" },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 4,
+          "name": {
+            "en": "Which of the following correctly describes the difference between `var` and `let` scoping?",
+            "ru": "Какое из утверждений корректно описывает разницу в областях видимости `var` и `let`?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "`var` is function-scoped (or global if declared outside a function), whereas `let` is block-scoped — it is confined to the nearest enclosing `{}` block.",
+            "ru": "`var` имеет функциональную область видимости (или глобальную, если объявлена вне функции), тогда как `let` имеет блочную область видимости — ограничена ближайшим блоком `{}`."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "`var` is block-scoped; `let` is function-scoped",
+                "ru": "`var` имеет блочную область видимости; `let` — функциональную"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Both are block-scoped",
+                "ru": "Обе имеют блочную область видимости"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "`var` is function-scoped; `let` is block-scoped",
+                "ru": "`var` имеет функциональную область видимости; `let` — блочную"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "Both are function-scoped",
+                "ru": "Обе имеют функциональную область видимости"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 5,
+          "name": {
+            "en": "What does `Object.is(NaN, NaN)` return?",
+            "ru": "Что возвращает `Object.is(NaN, NaN)`?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "`Object.is` uses the SameValue algorithm. Unlike `===`, it considers `NaN` equal to itself and distinguishes `+0` from `-0`.",
+            "ru": "`Object.is` использует алгоритм SameValue. В отличие от `===`, он считает `NaN` равным самому себе и различает `+0` и `-0`."
+          },
+          "answers": [
+            { "text": { "en": "`false`", "ru": "`false`" }, "isCorrect": false },
+            { "text": { "en": "`true`", "ru": "`true`" }, "isCorrect": true },
+            { "text": { "en": "`NaN`", "ru": "`NaN`" }, "isCorrect": false },
+            { "text": { "en": "`undefined`", "ru": "`undefined`" }, "isCorrect": false }
+          ]
+        },
+        {
+          "sortOrder": 6,
+          "name": {
+            "en": "What is the main purpose of a polyfill?",
+            "ru": "В чём основная цель полифила?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "A polyfill is code that implements a feature natively absent in an environment, allowing newer APIs to be used in older browsers or runtimes.",
+            "ru": "Полифил — это код, реализующий функциональность, которая отсутствует в данной среде, позволяя использовать новые API в старых браузерах или окружениях."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "To transpile modern syntax to ES5",
+                "ru": "Транспилировать современный синтаксис в ES5"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "To implement missing native APIs in older environments",
+                "ru": "Реализовать отсутствующие нативные API в старых средах"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "To minify JavaScript bundle size",
+                "ru": "Уменьшить размер JavaScript-бандла"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "To lint code for style issues",
+                "ru": "Проверять код на стилистические ошибки"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 7,
+          "name": {
+            "en": "What does `Object.is(+0, -0)` return?",
+            "ru": "Что возвращает `Object.is(+0, -0)`?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "`Object.is` distinguishes `+0` from `-0` and returns `false`, whereas `+0 === -0` returns `true`.",
+            "ru": "`Object.is` различает `+0` и `-0` и возвращает `false`, тогда как `+0 === -0` возвращает `true`."
+          },
+          "answers": [
+            { "text": { "en": "`true`", "ru": "`true`" }, "isCorrect": false },
+            { "text": { "en": "`false`", "ru": "`false`" }, "isCorrect": true },
+            { "text": { "en": "`0`", "ru": "`0`" }, "isCorrect": false },
+            { "text": { "en": "`NaN`", "ru": "`NaN`" }, "isCorrect": false }
+          ]
+        },
+        {
+          "sortOrder": 8,
+          "name": {
+            "en": "Which statement about `const` is correct?",
+            "ru": "Какое утверждение о `const` является верным?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "`const` prevents reassignment of the binding, but if the value is an object or array, its properties/elements can still be mutated.",
+            "ru": "`const` запрещает переприсвоение привязки, но если значение является объектом или массивом, его свойства и элементы по-прежнему можно изменять."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "`const` makes the value deeply immutable",
+                "ru": "`const` делает значение глубоко неизменяемым"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "`const` prevents binding reassignment but allows mutation of the value",
+                "ru": "`const` запрещает переприсвоение привязки, но допускает изменение значения"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "`const` is function-scoped like `var`",
+                "ru": "`const` имеет функциональную область видимости, как `var`"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "`const` variables are hoisted with their value",
+                "ru": "Переменные `const` поднимаются вместе со своим значением"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 9,
+          "name": {
+            "en": "What is hoisting in JavaScript?",
+            "ru": "Что такое поднятие (hoisting) в JavaScript?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "Hoisting is the engine behaviour of moving declarations to the top of their scope during the compilation phase, before code executes.",
+            "ru": "Поднятие (hoisting) — это поведение движка JavaScript, при котором объявления перемещаются в начало своей области видимости на этапе компиляции, до выполнения кода."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "Copying variable values to the global scope",
+                "ru": "Копирование значений переменных в глобальную область видимости"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Moving declarations to the top of their scope before execution",
+                "ru": "Перемещение объявлений в начало области видимости до выполнения кода"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "Executing functions asynchronously",
+                "ru": "Выполнение функций асинхронно"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Automatically converting types during assignment",
+                "ru": "Автоматическое преобразование типов при присваивании"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 10,
+          "name": {
+            "en": "Consider the code below. What is logged?",
+            "ru": "Рассмотрите приведённый код. Что будет выведено?"
+          },
+          "codeSnippet": "console.log(x);\nvar x = 5;",
+          "explanation": {
+            "en": "The `var x` declaration is hoisted and initialised to `undefined` before the `console.log` runs. The assignment `x = 5` is not hoisted.",
+            "ru": "Объявление `var x` поднимается и инициализируется значением `undefined` до выполнения `console.log`. Присваивание `x = 5` не поднимается."
+          },
+          "answers": [
+            { "text": { "en": "`5`", "ru": "`5`" }, "isCorrect": false },
+            { "text": { "en": "`undefined`", "ru": "`undefined`" }, "isCorrect": true },
+            {
+              "text": {
+                "en": "A `ReferenceError` is thrown",
+                "ru": "Выбрасывается `ReferenceError`"
+              },
+              "isCorrect": false
+            },
+            { "text": { "en": "`null`", "ru": "`null`" }, "isCorrect": false }
+          ]
+        },
+        {
+          "sortOrder": 11,
+          "name": {
+            "en": "Which of these variables is subject to the Temporal Dead Zone?",
+            "ru": "Какая из этих переменных подвержена Временной мёртвой зоне?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "Both `let` and `const` have a Temporal Dead Zone — the period from the start of a block until the declaration is evaluated. `var` does not have a TDZ.",
+            "ru": "Как `let`, так и `const` имеют Временную мёртвую зону — период от начала блока до вычисления объявления. У `var` TDZ отсутствует."
+          },
+          "answers": [
+            { "text": { "en": "Only `var`", "ru": "Только `var`" }, "isCorrect": false },
+            { "text": { "en": "Only `let`", "ru": "Только `let`" }, "isCorrect": false },
+            {
+              "text": { "en": "Both `let` and `const`", "ru": "Как `let`, так и `const`" },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "None — all variables are fully initialised before execution",
+                "ru": "Ни одна — все переменные полностью инициализируются до выполнения"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 12,
+          "name": {
+            "en": "What does `typeof undeclaredVariable` return?",
+            "ru": "Что возвращает `typeof undeclaredVariable`?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "`typeof` is unique in that it does not throw a `ReferenceError` for undeclared identifiers — it returns the string `'undefined'`.",
+            "ru": "`typeof` уникален тем, что не выбрасывает `ReferenceError` для необъявленных идентификаторов — он возвращает строку `'undefined'`."
+          },
+          "answers": [
+            {
+              "text": { "en": "Throws a `ReferenceError`", "ru": "Выбрасывает `ReferenceError`" },
+              "isCorrect": false
+            },
+            { "text": { "en": "`'undefined'`", "ru": "`'undefined'`" }, "isCorrect": true },
+            { "text": { "en": "`null`", "ru": "`null`" }, "isCorrect": false },
+            { "text": { "en": "`'null'`", "ru": "`'null'`" }, "isCorrect": false }
+          ]
+        },
+        {
+          "sortOrder": 13,
+          "name": {
+            "en": "What is the difference between `==` and `===` in JavaScript?",
+            "ru": "В чём разница между `==` и `===` в JavaScript?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "`==` performs abstract equality with type coercion, while `===` (strict equality) compares both value and type without coercion.",
+            "ru": "`==` выполняет абстрактное сравнение с приведением типов, тогда как `===` (строгое равенство) сравнивает и значение, и тип без приведения."
+          },
+          "answers": [
+            { "text": { "en": "There is no difference", "ru": "Разницы нет" }, "isCorrect": false },
+            {
+              "text": {
+                "en": "`==` coerces types; `===` does not",
+                "ru": "`==` приводит типы; `===` — нет"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "`===` coerces types; `==` does not",
+                "ru": "`===` приводит типы; `==` — нет"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "`===` works only for primitives",
+                "ru": "`===` работает только для примитивов"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 14,
+          "name": {
+            "en": "Which global variable holds the result of the last expression in the browser console?",
+            "ru": "Какая глобальная переменная хранит результат последнего выражения в консоли браузера?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "In browser DevTools, `$_` stores the value of the most recently evaluated expression, which is useful for quick ad-hoc computations.",
+            "ru": "В DevTools браузера `$_` хранит значение последнего вычисленного выражения, что удобно для быстрых ad-hoc вычислений."
+          },
+          "answers": [
+            { "text": { "en": "`$$`", "ru": "`$$`" }, "isCorrect": false },
+            { "text": { "en": "`$_`", "ru": "`$_`" }, "isCorrect": true },
+            { "text": { "en": "`_result`", "ru": "`_result`" }, "isCorrect": false },
+            { "text": { "en": "`lastResult`", "ru": "`lastResult`" }, "isCorrect": false }
+          ]
+        }
+      ]
     },
     {
       "name": { "en": "JS Types", "ru": "Типы данных в JavaScript" },
@@ -23,7 +432,383 @@
         "ru": "Примитивные и ссылочные типы, приведение типов, встроенные методы массивов и объектов"
       },
       "links": [],
-      "questions": []
+      "questions": [
+        {
+          "sortOrder": 1,
+          "name": {
+            "en": "How many primitive types exist in JavaScript (as of ES2020+)?",
+            "ru": "Сколько примитивных типов существует в JavaScript (начиная с ES2020+)?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "JavaScript has 7 primitive types: `undefined`, `null`, `boolean`, `number`, `bigint`, `string`, and `symbol`.",
+            "ru": "В JavaScript есть 7 примитивных типов: `undefined`, `null`, `boolean`, `number`, `bigint`, `string` и `symbol`."
+          },
+          "answers": [
+            { "text": { "en": "5", "ru": "5" }, "isCorrect": false },
+            { "text": { "en": "6", "ru": "6" }, "isCorrect": false },
+            { "text": { "en": "7", "ru": "7" }, "isCorrect": true },
+            { "text": { "en": "8", "ru": "8" }, "isCorrect": false }
+          ]
+        },
+        {
+          "sortOrder": 2,
+          "name": {
+            "en": "What does `typeof null` return?",
+            "ru": "Что возвращает `typeof null`?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "`typeof null` returns `'object'`. This is a historical bug in JavaScript that has never been fixed to maintain backward compatibility.",
+            "ru": "`typeof null` возвращает `'object'`. Это историческая ошибка в JavaScript, которая так и не была исправлена ради обратной совместимости."
+          },
+          "answers": [
+            { "text": { "en": "`'null'`", "ru": "`'null'`" }, "isCorrect": false },
+            { "text": { "en": "`'undefined'`", "ru": "`'undefined'`" }, "isCorrect": false },
+            { "text": { "en": "`'object'`", "ru": "`'object'`" }, "isCorrect": true },
+            { "text": { "en": "`'primitive'`", "ru": "`'primitive'`" }, "isCorrect": false }
+          ]
+        },
+        {
+          "sortOrder": 3,
+          "name": {
+            "en": "What is the result of `[] + []` in JavaScript?",
+            "ru": "Каков результат `[] + []` в JavaScript?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "Each array is coerced to an empty string, so `[] + []` produces `''` (an empty string). Arrays are converted via `toString()` before concatenation.",
+            "ru": "Каждый массив приводится к пустой строке, поэтому `[] + []` даёт `''` (пустую строку). Массивы преобразуются через `toString()` перед конкатенацией."
+          },
+          "answers": [
+            { "text": { "en": "`0`", "ru": "`0`" }, "isCorrect": false },
+            { "text": { "en": "`[]`", "ru": "`[]`" }, "isCorrect": false },
+            {
+              "text": { "en": "`''` (empty string)", "ru": "`''` (пустая строка)" },
+              "isCorrect": true
+            },
+            { "text": { "en": "`NaN`", "ru": "`NaN`" }, "isCorrect": false }
+          ]
+        },
+        {
+          "sortOrder": 4,
+          "name": {
+            "en": "What does `Array.isArray([])` return?",
+            "ru": "Что возвращает `Array.isArray([])`?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "`Array.isArray` reliably checks whether a value is an array, returning `true` for `[]`. It works correctly across different iframes unlike `instanceof Array`.",
+            "ru": "`Array.isArray` надёжно проверяет, является ли значение массивом, возвращая `true` для `[]`. Он корректно работает в разных iframe в отличие от `instanceof Array`."
+          },
+          "answers": [
+            { "text": { "en": "`false`", "ru": "`false`" }, "isCorrect": false },
+            { "text": { "en": "`'array'`", "ru": "`'array'`" }, "isCorrect": false },
+            { "text": { "en": "`true`", "ru": "`true`" }, "isCorrect": true },
+            { "text": { "en": "`undefined`", "ru": "`undefined`" }, "isCorrect": false }
+          ]
+        },
+        {
+          "sortOrder": 5,
+          "name": {
+            "en": "Which method creates a shallow copy of an array with elements transformed by a callback?",
+            "ru": "Какой метод создаёт поверхностную копию массива с элементами, преобразованными с помощью коллбэка?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "`Array.prototype.map` returns a new array of the same length with each element replaced by the return value of the callback. It does not mutate the original.",
+            "ru": "`Array.prototype.map` возвращает новый массив той же длины, в котором каждый элемент заменён возвращаемым значением коллбэка. Оригинальный массив не изменяется."
+          },
+          "answers": [
+            { "text": { "en": "`forEach`", "ru": "`forEach`" }, "isCorrect": false },
+            { "text": { "en": "`map`", "ru": "`map`" }, "isCorrect": true },
+            { "text": { "en": "`filter`", "ru": "`filter`" }, "isCorrect": false },
+            { "text": { "en": "`reduce`", "ru": "`reduce`" }, "isCorrect": false }
+          ]
+        },
+        {
+          "sortOrder": 6,
+          "name": {
+            "en": "What does `'5' - 3` evaluate to?",
+            "ru": "Чему равно `'5' - 3`?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "The `-` operator has no string variant, so JavaScript coerces `'5'` to the number `5`, yielding `5 - 3 = 2`.",
+            "ru": "Оператор `-` не имеет строковой формы, поэтому JavaScript приводит `'5'` к числу `5`, результат: `5 - 3 = 2`."
+          },
+          "answers": [
+            { "text": { "en": "`'53'`", "ru": "`'53'`" }, "isCorrect": false },
+            { "text": { "en": "`NaN`", "ru": "`NaN`" }, "isCorrect": false },
+            { "text": { "en": "`2`", "ru": "`2`" }, "isCorrect": true },
+            { "text": { "en": "`'5-3'`", "ru": "`'5-3'`" }, "isCorrect": false }
+          ]
+        },
+        {
+          "sortOrder": 7,
+          "name": {
+            "en": "What is the difference between a primitive and a reference type in JavaScript?",
+            "ru": "В чём разница между примитивным и ссылочным типом в JavaScript?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "Primitives are copied by value — each variable holds its own copy. Objects and arrays are reference types: variables store a reference (pointer) to the same memory location.",
+            "ru": "Примитивы копируются по значению — каждая переменная хранит собственную копию. Объекты и массивы являются ссылочными типами: переменные хранят ссылку (указатель) на одно место в памяти."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "Primitives are stored on the heap; objects are on the stack",
+                "ru": "Примитивы хранятся в куче; объекты — в стеке"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Primitives are copied by value; reference types share the same memory location via a pointer",
+                "ru": "Примитивы копируются по значению; ссылочные типы используют один адрес памяти через указатель"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "Primitives and reference types behave identically during assignment",
+                "ru": "Примитивы и ссылочные типы ведут себя одинаково при присваивании"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Reference types are immutable; primitives are mutable",
+                "ru": "Ссылочные типы неизменяемы; примитивы изменяемы"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 8,
+          "name": {
+            "en": "Which `Array` method returns a new array containing only elements that pass a test?",
+            "ru": "Какой метод `Array` возвращает новый массив, содержащий только элементы, прошедшие проверку?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "`filter` returns a new array with all elements for which the callback returns a truthy value. It does not mutate the original array.",
+            "ru": "`filter` возвращает новый массив со всеми элементами, для которых коллбэк вернул истинное значение. Оригинальный массив не изменяется."
+          },
+          "answers": [
+            { "text": { "en": "`find`", "ru": "`find`" }, "isCorrect": false },
+            { "text": { "en": "`some`", "ru": "`some`" }, "isCorrect": false },
+            { "text": { "en": "`filter`", "ru": "`filter`" }, "isCorrect": true },
+            { "text": { "en": "`map`", "ru": "`map`" }, "isCorrect": false }
+          ]
+        },
+        {
+          "sortOrder": 9,
+          "name": {
+            "en": "What does `Number('')` evaluate to?",
+            "ru": "Чему равно `Number('')`?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "Converting an empty string to a number gives `0`. The same is true for whitespace-only strings. Only non-numeric strings (like `'abc'`) produce `NaN`.",
+            "ru": "Преобразование пустой строки в число даёт `0`. То же самое справедливо для строк, состоящих только из пробелов. Только нечисловые строки (например, `'abc'`) дают `NaN`."
+          },
+          "answers": [
+            { "text": { "en": "`NaN`", "ru": "`NaN`" }, "isCorrect": false },
+            { "text": { "en": "`null`", "ru": "`null`" }, "isCorrect": false },
+            { "text": { "en": "`0`", "ru": "`0`" }, "isCorrect": true },
+            { "text": { "en": "`undefined`", "ru": "`undefined`" }, "isCorrect": false }
+          ]
+        },
+        {
+          "sortOrder": 10,
+          "name": {
+            "en": "What does `Object.keys()` return?",
+            "ru": "Что возвращает `Object.keys()`?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "`Object.keys(obj)` returns an array of strings representing the object's own enumerable property names (keys).",
+            "ru": "`Object.keys(obj)` возвращает массив строк, представляющих собственные перечисляемые имена свойств (ключи) объекта."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "An array of the object's own enumerable property values",
+                "ru": "Массив собственных перечисляемых значений свойств объекта"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "An array of the object's own enumerable property names",
+                "ru": "Массив собственных перечисляемых имён свойств объекта"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "An array of `[key, value]` pairs",
+                "ru": "Массив пар `[ключ, значение]`"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "The prototype chain of the object",
+                "ru": "Цепочка прототипов объекта"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 11,
+          "name": {
+            "en": "What is the result of `null == undefined`?",
+            "ru": "Каков результат `null == undefined`?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "According to the Abstract Equality Comparison algorithm, `null` and `undefined` are only loosely equal to each other and to nothing else.",
+            "ru": "Согласно алгоритму абстрактного сравнения на равенство, `null` и `undefined` нестрого равны только друг другу и ничему больше."
+          },
+          "answers": [
+            { "text": { "en": "`false`", "ru": "`false`" }, "isCorrect": false },
+            { "text": { "en": "`true`", "ru": "`true`" }, "isCorrect": true },
+            { "text": { "en": "`NaN`", "ru": "`NaN`" }, "isCorrect": false },
+            {
+              "text": { "en": "A `TypeError` is thrown", "ru": "Выбрасывается `TypeError`" },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 12,
+          "name": {
+            "en": "What does `[1, [2, [3]]].flat(Infinity)` return?",
+            "ru": "Что возвращает `[1, [2, [3]]].flat(Infinity)`?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "`Array.prototype.flat` flattens nested arrays. Passing `Infinity` as the depth argument recursively flattens all levels, producing `[1, 2, 3]`.",
+            "ru": "`Array.prototype.flat` сглаживает вложенные массивы. Передача `Infinity` в качестве глубины рекурсивно сглаживает все уровни, получая `[1, 2, 3]`."
+          },
+          "answers": [
+            { "text": { "en": "`[1, [2, [3]]]`", "ru": "`[1, [2, [3]]]`" }, "isCorrect": false },
+            { "text": { "en": "`[1, 2, [3]]`", "ru": "`[1, 2, [3]]`" }, "isCorrect": false },
+            { "text": { "en": "`[1, 2, 3]`", "ru": "`[1, 2, 3]`" }, "isCorrect": true },
+            { "text": { "en": "`6`", "ru": "`6`" }, "isCorrect": false }
+          ]
+        },
+        {
+          "sortOrder": 13,
+          "name": {
+            "en": "How does JavaScript store `BigInt` values differently from regular `Number`?",
+            "ru": "Как JavaScript хранит значения `BigInt` иначе, чем обычный `Number`?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "`Number` uses IEEE 754 double-precision (64-bit) floating point and can safely represent integers only up to `2^53 - 1`. `BigInt` can represent arbitrary-precision integers without that limitation.",
+            "ru": "`Number` использует 64-битное число с плавающей точкой двойной точности (IEEE 754) и может безопасно представлять целые числа лишь до `2^53 - 1`. `BigInt` позволяет представлять целые числа произвольной точности без этого ограничения."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "`BigInt` uses 128-bit floating point",
+                "ru": "`BigInt` использует 128-битное число с плавающей точкой"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "`BigInt` represents arbitrary-precision integers, unlike IEEE 754 `Number`",
+                "ru": "`BigInt` представляет целые числа произвольной точности, в отличие от `Number` по IEEE 754"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "`BigInt` is just an alias for `Number` with a larger cap",
+                "ru": "`BigInt` — это просто псевдоним `Number` с большим ограничением"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "`BigInt` values are stored as strings internally",
+                "ru": "Значения `BigInt` хранятся внутри как строки"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 14,
+          "name": {
+            "en": "What does `Array.prototype.reduce` return if the array is empty and no initial value is provided?",
+            "ru": "Что возвращает `Array.prototype.reduce`, если массив пуст и начальное значение не указано?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "Calling `reduce` on an empty array without an initial value throws a `TypeError` because there is no element to use as the initial accumulator.",
+            "ru": "Вызов `reduce` на пустом массиве без начального значения выбрасывает `TypeError`, потому что нет элемента для использования в качестве начального аккумулятора."
+          },
+          "answers": [
+            { "text": { "en": "`undefined`", "ru": "`undefined`" }, "isCorrect": false },
+            { "text": { "en": "`null`", "ru": "`null`" }, "isCorrect": false },
+            {
+              "text": { "en": "A `TypeError` is thrown", "ru": "Выбрасывается `TypeError`" },
+              "isCorrect": true
+            },
+            { "text": { "en": "`0`", "ru": "`0`" }, "isCorrect": false }
+          ]
+        },
+        {
+          "sortOrder": 15,
+          "name": {
+            "en": "Which statement correctly describes the `Symbol` primitive type?",
+            "ru": "Какое утверждение корректно описывает примитивный тип `Symbol`?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "Every `Symbol()` call produces a unique, immutable value. Symbols are often used as unique property keys to avoid name collisions. They are not auto-converted to strings.",
+            "ru": "Каждый вызов `Symbol()` создаёт уникальное неизменяемое значение. Символы часто используются как уникальные ключи свойств, чтобы избежать конфликтов имён. Они не преобразуются в строки автоматически."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "Symbols are strings guaranteed to be unique",
+                "ru": "Символы — это строки, гарантированно уникальные"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Each `Symbol()` call produces a guaranteed unique, immutable primitive",
+                "ru": "Каждый вызов `Symbol()` создаёт гарантированно уникальный, неизменяемый примитив"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "Symbols can be coerced to strings with `+`",
+                "ru": "Символы можно привести к строке с помощью `+`"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Two `Symbol('x')` calls produce the same value",
+                "ru": "Два вызова `Symbol('x')` создают одно и то же значение"
+              },
+              "isCorrect": false
+            }
+          ]
+        }
+      ]
     },
     {
       "name": { "en": "Functions & Scope", "ru": "Функции и область видимости" },
@@ -32,7 +817,524 @@
         "ru": "Виды функций, область видимости, замыкания, лексическое окружение и ключевое слово `this` с call/apply/bind"
       },
       "links": [],
-      "questions": []
+      "questions": [
+        {
+          "sortOrder": 1,
+          "name": {
+            "en": "What is a closure in JavaScript?",
+            "ru": "Что такое замыкание в JavaScript?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "A closure is a function that retains access to its outer (enclosing) lexical environment even after the outer function has returned.",
+            "ru": "Замыкание — это функция, которая сохраняет доступ к своей внешней (окружающей) лексической среде даже после того, как внешняя функция завершила выполнение."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "A function that runs only once",
+                "ru": "Функция, которая выполняется только один раз"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "A function that retains access to its enclosing scope after that scope has returned",
+                "ru": "Функция, сохраняющая доступ к замыкающей области видимости после её завершения"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": { "en": "A function without parameters", "ru": "Функция без параметров" },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "A function defined inside an object literal",
+                "ru": "Функция, определённая внутри литерала объекта"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 2,
+          "name": {
+            "en": "What is the key difference between a function declaration and a function expression?",
+            "ru": "В чём ключевое различие между объявлением функции и функциональным выражением?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "Function declarations are fully hoisted (both declaration and definition), so they can be called before they appear in the source. Function expressions are only hoisted as the variable declaration (to `undefined` for `var`, or TDZ for `let`/`const`).",
+            "ru": "Объявления функций полностью поднимаются (и объявление, и определение), поэтому их можно вызвать до появления в коде. Функциональные выражения поднимаются только как объявление переменной (значение `undefined` для `var` или TDZ для `let`/`const`)."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "Function expressions are faster than declarations",
+                "ru": "Функциональные выражения быстрее объявлений"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Function declarations are fully hoisted; function expressions are not",
+                "ru": "Объявления функций полностью поднимаются; функциональные выражения — нет"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "Function expressions support recursion; declarations do not",
+                "ru": "Функциональные выражения поддерживают рекурсию; объявления — нет"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "There is no practical difference",
+                "ru": "Практической разницы нет"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 3,
+          "name": {
+            "en": "What does `this` refer to inside a regular function called in strict mode without an explicit receiver?",
+            "ru": "На что указывает `this` внутри обычной функции, вызванной в строгом режиме без явного получателя?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "In strict mode, `this` inside a regular function that is called without a receiver is `undefined`. In sloppy mode it would be the global object.",
+            "ru": "В строгом режиме `this` внутри обычной функции, вызванной без получателя, равно `undefined`. В нестрогом режиме это был бы глобальный объект."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "The global object (`window` in browsers)",
+                "ru": "Глобальный объект (`window` в браузерах)"
+              },
+              "isCorrect": false
+            },
+            { "text": { "en": "`undefined`", "ru": "`undefined`" }, "isCorrect": true },
+            { "text": { "en": "`null`", "ru": "`null`" }, "isCorrect": false },
+            { "text": { "en": "The function itself", "ru": "Сама функция" }, "isCorrect": false }
+          ]
+        },
+        {
+          "sortOrder": 4,
+          "name": {
+            "en": "How does an arrow function handle `this` differently from a regular function?",
+            "ru": "Как стрелочная функция обрабатывает `this` иначе, чем обычная функция?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "Arrow functions do not have their own `this` binding. They inherit `this` from the surrounding lexical scope at the time of definition, which makes them unsuitable as methods or constructors.",
+            "ru": "Стрелочные функции не имеют собственной привязки `this`. Они наследуют `this` из окружающей лексической области видимости на момент определения, поэтому они не подходят в качестве методов или конструкторов."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "Arrow functions always bind `this` to the global object",
+                "ru": "Стрелочные функции всегда привязывают `this` к глобальному объекту"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Arrow functions inherit `this` from their enclosing lexical scope",
+                "ru": "Стрелочные функции наследуют `this` из окружающей лексической области видимости"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "Arrow functions bind `this` dynamically just like regular functions",
+                "ru": "Стрелочные функции привязывают `this` динамически, как и обычные функции"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Arrow functions set `this` to `undefined` in all cases",
+                "ru": "Стрелочные функции всегда устанавливают `this` в `undefined`"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 5,
+          "name": {
+            "en": "What does `Function.prototype.bind` return?",
+            "ru": "Что возвращает `Function.prototype.bind`?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "`bind` returns a new function with a permanently bound `this` value (and optional pre-filled arguments). It does not immediately call the function.",
+            "ru": "`bind` возвращает новую функцию с постоянно привязанным значением `this` (и необязательными предзаполненными аргументами). Он не вызывает функцию немедленно."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "The result of calling the function with the specified `this`",
+                "ru": "Результат вызова функции с указанным `this`"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "A new function with a permanently bound `this`",
+                "ru": "Новую функцию с постоянно привязанным `this`"
+              },
+              "isCorrect": true
+            },
+            { "text": { "en": "`undefined`", "ru": "`undefined`" }, "isCorrect": false },
+            {
+              "text": {
+                "en": "A promise that resolves with the function's return value",
+                "ru": "Promise, который разрешается с возвращаемым значением функции"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 6,
+          "name": {
+            "en": "What is the difference between `call` and `apply` when invoking a function?",
+            "ru": "В чём разница между `call` и `apply` при вызове функции?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "Both `call` and `apply` invoke the function immediately with a specific `this`. The difference is argument passing: `call` takes arguments individually (`fn.call(ctx, a, b)`), while `apply` takes them as an array (`fn.apply(ctx, [a, b])`).",
+            "ru": "И `call`, и `apply` немедленно вызывают функцию с конкретным `this`. Разница в передаче аргументов: `call` принимает аргументы по отдельности (`fn.call(ctx, a, b)`), а `apply` — в виде массива (`fn.apply(ctx, [a, b])`)."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "`call` is asynchronous; `apply` is synchronous",
+                "ru": "`call` асинхронный; `apply` — синхронный"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "`call` passes arguments individually; `apply` passes them as an array",
+                "ru": "`call` передаёт аргументы по отдельности; `apply` — в виде массива"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "`apply` returns a bound function; `call` invokes immediately",
+                "ru": "`apply` возвращает привязанную функцию; `call` вызывает немедленно"
+              },
+              "isCorrect": false
+            },
+            { "text": { "en": "There is no difference", "ru": "Разницы нет" }, "isCorrect": false }
+          ]
+        },
+        {
+          "sortOrder": 7,
+          "name": {
+            "en": "What does the output of the following code illustrate?",
+            "ru": "Что иллюстрирует вывод следующего кода?"
+          },
+          "codeSnippet": "function makeCounter() {\n  let count = 0;\n  return function() {\n    return ++count;\n  };\n}\nconst counter = makeCounter();\nconsole.log(counter()); // 1\nconsole.log(counter()); // 2",
+          "explanation": {
+            "en": "The inner function forms a closure over `count`. Even after `makeCounter` returns, `count` persists in the inner function's lexical environment, incrementing with each call.",
+            "ru": "Внутренняя функция образует замыкание над `count`. Даже после завершения `makeCounter`, `count` сохраняется в лексическом окружении внутренней функции, увеличиваясь при каждом вызове."
+          },
+          "answers": [
+            { "text": { "en": "Function hoisting", "ru": "Поднятие функций" }, "isCorrect": false },
+            {
+              "text": {
+                "en": "Closure — the inner function retains access to `count` across calls",
+                "ru": "Замыкание — внутренняя функция сохраняет доступ к `count` между вызовами"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": { "en": "Prototype inheritance", "ru": "Прототипное наследование" },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "Event loop behaviour", "ru": "Поведение цикла событий" },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 8,
+          "name": {
+            "en": "What is the scope chain in JavaScript?",
+            "ru": "Что такое цепочка областей видимости в JavaScript?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "When a variable is referenced, the engine looks in the current scope first, then in successive outer (enclosing) scopes up to the global scope. This sequence of lookups is the scope chain.",
+            "ru": "Когда происходит обращение к переменной, движок сначала ищет её в текущей области видимости, затем в последовательно внешних (замыкающих) областях вплоть до глобальной. Эта последовательность поисков называется цепочкой областей видимости."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "The list of all functions defined in a module",
+                "ru": "Список всех функций, определённых в модуле"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "The sequence of nested lexical environments the engine traverses to resolve a variable",
+                "ru": "Последовательность вложенных лексических окружений, которую движок проходит для разрешения переменной"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "The prototype chain of an object",
+                "ru": "Цепочка прототипов объекта"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "The call stack at runtime",
+                "ru": "Стек вызовов во время выполнения"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 9,
+          "name": {
+            "en": "What does an IIFE (Immediately Invoked Function Expression) accomplish?",
+            "ru": "Что достигается с помощью IIFE (немедленно вызываемого функционального выражения)?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "An IIFE executes immediately upon definition and creates its own scope, preventing variable pollution of the surrounding or global scope.",
+            "ru": "IIFE выполняется немедленно после определения и создаёт собственную область видимости, предотвращая загрязнение переменными окружающей или глобальной области видимости."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "It schedules a function to run on the next tick",
+                "ru": "Она планирует выполнение функции на следующем тике"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "It executes immediately and isolates its own scope",
+                "ru": "Она выполняется немедленно и изолирует собственную область видимости"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "It prevents the function from being garbage-collected",
+                "ru": "Она предотвращает сборку мусора для функции"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "It makes the function available globally",
+                "ru": "Она делает функцию доступной глобально"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 10,
+          "name": {
+            "en": "Can you use `new` with an arrow function?",
+            "ru": "Можно ли использовать `new` со стрелочной функцией?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "Arrow functions cannot be used as constructors. They lack a `[[Construct]]` internal method and do not have a `prototype` property, so calling `new` on them throws a `TypeError`.",
+            "ru": "Стрелочные функции не могут использоваться в качестве конструкторов. У них отсутствует внутренний метод `[[Construct]]` и свойство `prototype`, поэтому вызов `new` для них выбрасывает `TypeError`."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "Yes, arrow functions behave identically to regular functions with `new`",
+                "ru": "Да, стрелочные функции ведут себя идентично обычным функциям с `new`"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "No — calling `new` on an arrow function throws a `TypeError`",
+                "ru": "Нет — вызов `new` для стрелочной функции выбрасывает `TypeError`"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "Yes, but the created object will not have a prototype",
+                "ru": "Да, но созданный объект не будет иметь прототипа"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Yes, but `this` inside the constructor will be `undefined`",
+                "ru": "Да, но `this` внутри конструктора будет `undefined`"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 11,
+          "name": {
+            "en": "What is a pure function?",
+            "ru": "Что такое чистая функция?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "A pure function always returns the same output for the same input and produces no side effects (does not mutate external state, perform I/O, etc.).",
+            "ru": "Чистая функция всегда возвращает одинаковый результат для одинаковых входных данных и не производит побочных эффектов (не изменяет внешнее состояние, не выполняет ввод-вывод и т.д.)."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "A function that returns `undefined`",
+                "ru": "Функция, возвращающая `undefined`"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "A function with no parameters", "ru": "Функция без параметров" },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "A function that always returns the same output for the same input and has no side effects",
+                "ru": "Функция, всегда возвращающая одинаковый результат для одинаковых входных данных и не имеющая побочных эффектов"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "A function declared with the `pure` keyword",
+                "ru": "Функция, объявленная с ключевым словом `pure`"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 12,
+          "name": {
+            "en": "What happens to variables declared with `var` inside a function?",
+            "ru": "Что происходит с переменными, объявленными с `var` внутри функции?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "`var` inside a function is function-scoped — it is not accessible outside the function. It is hoisted to the top of the function, but its value is `undefined` until the assignment.",
+            "ru": "`var` внутри функции имеет функциональную область видимости — снаружи функции она недоступна. Она поднимается в начало функции, но её значение равно `undefined` до присваивания."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "They become global variables",
+                "ru": "Они становятся глобальными переменными"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "They are scoped to the function and hoisted within it",
+                "ru": "Они ограничены функцией и поднимаются в её пределах"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "They are block-scoped like `let`",
+                "ru": "Они имеют блочную область видимости, как `let`"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "They throw an error if accessed before declaration inside the function",
+                "ru": "Они выбрасывают ошибку при обращении до объявления внутри функции"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 13,
+          "name": {
+            "en": "What is currying in JavaScript?",
+            "ru": "Что такое каррирование в JavaScript?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "Currying transforms a function that takes multiple arguments into a sequence of functions, each taking a single argument. It relies on closures to capture earlier arguments.",
+            "ru": "Каррирование преобразует функцию, принимающую несколько аргументов, в последовательность функций, каждая из которых принимает один аргумент. Оно опирается на замыкания для сохранения ранее переданных аргументов."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "Calling a function with `curry()` to make it asynchronous",
+                "ru": "Вызов функции с `curry()`, чтобы сделать её асинхронной"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Transforming a multi-argument function into a chain of single-argument functions",
+                "ru": "Преобразование многоаргументной функции в цепочку одноаргументных функций"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "Memoising a function's return values",
+                "ru": "Запоминание возвращаемых значений функции"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Defining a function inside another function",
+                "ru": "Определение функции внутри другой функции"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 14,
+          "name": {
+            "en": "Consider the code below. What does `counter()` log on the third call?",
+            "ru": "Рассмотрите приведённый код. Что выведет `counter()` при третьем вызове?"
+          },
+          "codeSnippet": "const counter = (() => {\n  let n = 0;\n  return () => ++n;\n})();\ncounter(); // 1\ncounter(); // 2\nconsole.log(counter());",
+          "explanation": {
+            "en": "The IIFE initialises `n = 0` once. Each call increments `n` before returning. After two calls `n` is `2`; the third call returns `3`.",
+            "ru": "IIFE инициализирует `n = 0` один раз. Каждый вызов увеличивает `n` перед возвратом. После двух вызовов `n` равно `2`; третий вызов возвращает `3`."
+          },
+          "answers": [
+            { "text": { "en": "`1`", "ru": "`1`" }, "isCorrect": false },
+            { "text": { "en": "`2`", "ru": "`2`" }, "isCorrect": false },
+            { "text": { "en": "`3`", "ru": "`3`" }, "isCorrect": true },
+            { "text": { "en": "`0`", "ru": "`0`" }, "isCorrect": false }
+          ]
+        }
+      ]
     },
     {
       "name": { "en": "JavaScript Evolution", "ru": "Эволюция JavaScript" },
@@ -41,7 +1343,461 @@
         "ru": "Современные возможности ECMAScript: spread/rest, деструктуризация, Set/Map/WeakSet/WeakMap, модули и динамические импорты"
       },
       "links": [],
-      "questions": []
+      "questions": [
+        {
+          "sortOrder": 1,
+          "name": {
+            "en": "What does the spread operator (`...`) do when used with an array?",
+            "ru": "Что делает оператор spread (`...`) при использовании с массивом?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "The spread operator expands an iterable (e.g., an array) into individual elements, which can be used in function calls, array literals, or object literals.",
+            "ru": "Оператор spread разворачивает итерируемый объект (например, массив) в отдельные элементы, которые можно использовать в вызовах функций, литералах массивов или литералах объектов."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "Creates a deep copy of the array",
+                "ru": "Создаёт глубокую копию массива"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Expands the array into individual elements",
+                "ru": "Разворачивает массив в отдельные элементы"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "Merges two arrays by mutating the first one",
+                "ru": "Объединяет два массива, изменяя первый"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "Converts an array to a `Set`", "ru": "Преобразует массив в `Set`" },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 2,
+          "name": {
+            "en": "What does the rest parameter (`...args`) collect?",
+            "ru": "Что собирает параметр rest (`...args`)?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "The rest parameter collects all remaining arguments passed to a function into a real `Array`. It must be the last parameter in the function signature.",
+            "ru": "Параметр rest собирает все оставшиеся аргументы, переданные функции, в настоящий `Array`. Он должен быть последним параметром в сигнатуре функции."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "The first argument passed to the function",
+                "ru": "Первый аргумент, переданный функции"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "All remaining arguments into a real array",
+                "ru": "Все оставшиеся аргументы в настоящий массив"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "Arguments converted to an object",
+                "ru": "Аргументы, преобразованные в объект"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "The `arguments` object", "ru": "Объект `arguments`" },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 3,
+          "name": {
+            "en": "What is the key difference between `Set` and a regular array?",
+            "ru": "В чём ключевое отличие `Set` от обычного массива?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "A `Set` only stores unique values — adding a duplicate silently has no effect. Arrays can contain duplicates and are index-based, while `Set` membership checks are O(1).",
+            "ru": "`Set` хранит только уникальные значения — добавление дубликата безмолвно игнорируется. Массивы могут содержать дубликаты и индексируются, тогда как проверка членства в `Set` выполняется за O(1)."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "`Set` preserves insertion order but allows duplicates",
+                "ru": "`Set` сохраняет порядок вставки, но допускает дубликаты"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "`Set` stores only unique values; duplicates are ignored",
+                "ru": "`Set` хранит только уникальные значения; дубликаты игнорируются"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "`Set` is ordered by value, not insertion order",
+                "ru": "`Set` упорядочен по значению, а не по порядку вставки"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "`Set` can only store primitive values",
+                "ru": "`Set` может хранить только примитивные значения"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 4,
+          "name": {
+            "en": "What is the main advantage of `Map` over a plain object for key–value storage?",
+            "ru": "В чём главное преимущество `Map` перед обычным объектом для хранения пар ключ-значение?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "`Map` allows keys of any type (objects, functions, primitives), maintains insertion order, and has a reliable `.size` property. Plain objects coerce keys to strings and inherit prototype keys.",
+            "ru": "`Map` позволяет использовать ключи любого типа (объекты, функции, примитивы), сохраняет порядок вставки и имеет надёжное свойство `.size`. Обычные объекты приводят ключи к строкам и наследуют ключи прототипа."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "`Map` is faster for all operations than plain objects",
+                "ru": "`Map` быстрее обычных объектов во всех операциях"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "`Map` supports keys of any type and maintains insertion order reliably",
+                "ru": "`Map` поддерживает ключи любого типа и надёжно сохраняет порядок вставки"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "`Map` automatically serialises to JSON",
+                "ru": "`Map` автоматически сериализуется в JSON"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "`Map` is the only way to store string keys",
+                "ru": "`Map` — единственный способ хранить строковые ключи"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 5,
+          "name": {
+            "en": "What does array destructuring allow you to do?",
+            "ru": "Что позволяет делать деструктуризация массива?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "Array destructuring lets you unpack values from an array into distinct variables using a concise syntax, matching elements by position.",
+            "ru": "Деструктуризация массива позволяет распаковывать значения из массива в отдельные переменные с помощью краткого синтаксиса, сопоставляя элементы по позиции."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "Mutate the original array in-place",
+                "ru": "Изменять исходный массив на месте"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Unpack array values into distinct variables by position",
+                "ru": "Распаковывать значения массива в отдельные переменные по позиции"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "Convert an array into an object",
+                "ru": "Преобразовывать массив в объект"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Sort the array elements automatically",
+                "ru": "Автоматически сортировать элементы массива"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 6,
+          "name": {
+            "en": "What distinguishes `WeakMap` from `Map`?",
+            "ru": "Чем `WeakMap` отличается от `Map`?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "`WeakMap` keys must be objects (or registered symbols) and are held weakly — they can be garbage-collected if no other references exist. `WeakMap` is not iterable and has no `size`.",
+            "ru": "Ключи `WeakMap` должны быть объектами (или зарегистрированными символами) и удерживаются слабо — они могут быть удалены сборщиком мусора, если других ссылок не осталось. `WeakMap` не является итерируемым и не имеет свойства `size`."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "`WeakMap` allows primitive keys",
+                "ru": "`WeakMap` допускает примитивные ключи"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "`WeakMap` holds keys weakly, is not iterable, and has no `size`",
+                "ru": "`WeakMap` удерживает ключи слабо, не является итерируемым и не имеет `size`"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "`WeakMap` is faster than `Map` for all use cases",
+                "ru": "`WeakMap` быстрее `Map` во всех случаях использования"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "`WeakMap` is a deprecated alias for `Map`",
+                "ru": "`WeakMap` — устаревший псевдоним `Map`"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 7,
+          "name": {
+            "en": "What keyword is used to export a single value as the default export of an ES module?",
+            "ru": "Какое ключевое слово используется для экспорта единственного значения в качестве экспорта по умолчанию ES-модуля?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "`export default` exports a single value from a module. It can be imported with any name using `import foo from './module'`.",
+            "ru": "`export default` экспортирует единственное значение из модуля. Его можно импортировать под любым именем с помощью `import foo from './module'`."
+          },
+          "answers": [
+            { "text": { "en": "`module.exports`", "ru": "`module.exports`" }, "isCorrect": false },
+            { "text": { "en": "`export default`", "ru": "`export default`" }, "isCorrect": true },
+            { "text": { "en": "`export main`", "ru": "`export main`" }, "isCorrect": false },
+            { "text": { "en": "`exports.default`", "ru": "`exports.default`" }, "isCorrect": false }
+          ]
+        },
+        {
+          "sortOrder": 8,
+          "name": {
+            "en": "What does dynamic import (`import()`) return?",
+            "ru": "Что возвращает динамический импорт (`import()`)?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "`import()` is a function-like expression that returns a `Promise` which resolves to the module namespace object. It enables code splitting and lazy loading.",
+            "ru": "`import()` — это функциеподобное выражение, возвращающее `Promise`, который разрешается в объект пространства имён модуля. Оно обеспечивает разделение кода и ленивую загрузку."
+          },
+          "answers": [
+            {
+              "text": { "en": "The module object synchronously", "ru": "Объект модуля синхронно" },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "A `Promise` that resolves to the module namespace object",
+                "ru": "`Promise`, который разрешается в объект пространства имён модуля"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "A `require`-compatible object",
+                "ru": "Объект, совместимый с `require`"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "`undefined` if the module is already loaded",
+                "ru": "`undefined`, если модуль уже загружен"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 9,
+          "name": {
+            "en": "What does the optional chaining operator (`?.`) do?",
+            "ru": "Что делает оператор опциональной цепочки (`?.`)?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "`?.` short-circuits and returns `undefined` if the left-hand side is `null` or `undefined`, instead of throwing a `TypeError`. It is safe for deeply nested property access.",
+            "ru": "`?.` выполняет короткое замыкание и возвращает `undefined`, если левая часть равна `null` или `undefined`, вместо того чтобы выбрасывать `TypeError`. Он безопасен для доступа к глубоко вложенным свойствам."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "Throws a `TypeError` if the property does not exist",
+                "ru": "Выбрасывает `TypeError`, если свойство не существует"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Returns `undefined` instead of throwing when the left side is `null` or `undefined`",
+                "ru": "Возвращает `undefined` вместо выброса ошибки, когда левая часть равна `null` или `undefined`"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "Coerces `null` to an empty object before accessing the property",
+                "ru": "Приводит `null` к пустому объекту перед доступом к свойству"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Converts the result to a boolean",
+                "ru": "Преобразует результат в булево значение"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 10,
+          "name": {
+            "en": "What does the nullish coalescing operator (`??`) return?",
+            "ru": "Что возвращает оператор нулевого слияния (`??`)?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "`??` returns the right-hand side only when the left-hand side is `null` or `undefined`. Unlike `||`, it does not fall back for other falsy values like `0` or `''`.",
+            "ru": "`??` возвращает правую часть только тогда, когда левая часть равна `null` или `undefined`. В отличие от `||`, он не использует запасной вариант для других ложных значений, таких как `0` или `''`."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "The right side if the left side is any falsy value",
+                "ru": "Правую часть, если левая часть является любым ложным значением"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "The right side only if the left side is `null` or `undefined`",
+                "ru": "Правую часть только если левая часть равна `null` или `undefined`"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "Always returns a boolean",
+                "ru": "Всегда возвращает булево значение"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "The left side if it is defined, otherwise `null`",
+                "ru": "Левую часть, если она определена, иначе `null`"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 11,
+          "name": {
+            "en": "What is the output of the following destructuring assignment?",
+            "ru": "Каков результат следующего деструктурирующего присваивания?"
+          },
+          "codeSnippet": "const { a, b = 10 } = { a: 1 };\nconsole.log(a, b);",
+          "explanation": {
+            "en": "`a` is destructured as `1`. `b` is absent in the source object, so the default value `10` is used. The output is `1 10`.",
+            "ru": "`a` деструктурируется как `1`. `b` отсутствует в исходном объекте, поэтому используется значение по умолчанию `10`. Вывод: `1 10`."
+          },
+          "answers": [
+            { "text": { "en": "`1 undefined`", "ru": "`1 undefined`" }, "isCorrect": false },
+            { "text": { "en": "`1 10`", "ru": "`1 10`" }, "isCorrect": true },
+            { "text": { "en": "`undefined 10`", "ru": "`undefined 10`" }, "isCorrect": false },
+            {
+              "text": {
+                "en": "A `ReferenceError` is thrown",
+                "ru": "Выбрасывается `ReferenceError`"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 12,
+          "name": {
+            "en": "How do ES modules (`import`/`export`) differ from CommonJS (`require`/`module.exports`)?",
+            "ru": "Чем ES-модули (`import`/`export`) отличаются от CommonJS (`require`/`module.exports`)?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "ES modules are statically analysable (imports are resolved at parse time, enabling tree-shaking), they are always in strict mode, and they use live bindings. CommonJS loads synchronously at runtime.",
+            "ru": "ES-модули поддаются статическому анализу (импорты разрешаются во время разбора, что обеспечивает tree-shaking), всегда находятся в строгом режиме и используют живые привязки. CommonJS загружается синхронно во время выполнения."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "ES modules are synchronous; CommonJS is asynchronous",
+                "ru": "ES-модули синхронны; CommonJS — асинхронен"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "ES modules are statically analysed at parse time; CommonJS is resolved at runtime",
+                "ru": "ES-модули анализируются статически во время разбора; CommonJS разрешается во время выполнения"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "CommonJS supports tree-shaking; ES modules do not",
+                "ru": "CommonJS поддерживает tree-shaking; ES-модули — нет"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "There is no difference in modern Node.js",
+                "ru": "В современном Node.js разницы нет"
+              },
+              "isCorrect": false
+            }
+          ]
+        }
+      ]
     },
     {
       "name": {
@@ -53,7 +1809,623 @@
         "ru": "Promise, async/await, Promise.all/race/allSettled, обработка ошибок с try/catch и пользовательские ошибки"
       },
       "links": [],
-      "questions": []
+      "questions": [
+        {
+          "sortOrder": 1,
+          "name": {
+            "en": "What are the three states a `Promise` can be in?",
+            "ru": "В каких трёх состояниях может находиться `Promise`?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "A `Promise` is in one of three states: `pending` (initial state), `fulfilled` (the operation succeeded), or `rejected` (the operation failed). Transitions are one-way.",
+            "ru": "`Promise` находится в одном из трёх состояний: `pending` (начальное состояние), `fulfilled` (операция выполнена успешно) или `rejected` (операция завершилась ошибкой). Переходы однонаправлены."
+          },
+          "answers": [
+            {
+              "text": { "en": "loading, done, failed", "ru": "loading, done, failed" },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "pending, fulfilled, rejected",
+                "ru": "pending, fulfilled, rejected"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": { "en": "pending, resolved, errored", "ru": "pending, resolved, errored" },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "waiting, completed, thrown", "ru": "waiting, completed, thrown" },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 2,
+          "name": {
+            "en": "What does `Promise.all` do when one of the input promises rejects?",
+            "ru": "Что делает `Promise.all`, когда один из входных Promise отклоняется?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "`Promise.all` immediately rejects with the reason of the first rejected promise (fail-fast behaviour). The other promises continue to run but their results are ignored.",
+            "ru": "`Promise.all` немедленно отклоняется с причиной первого отклонённого Promise (поведение «быстрого отказа»). Остальные Promise продолжают выполняться, но их результаты игнорируются."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "It waits for all promises to settle before rejecting",
+                "ru": "Он ждёт завершения всех Promise перед отклонением"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "It immediately rejects with the first rejection reason",
+                "ru": "Он немедленно отклоняется с причиной первого отклонения"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "It fulfils with `null` for the rejected promise's slot",
+                "ru": "Он выполняется с `null` для слота отклонённого Promise"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "It retries the rejected promise automatically",
+                "ru": "Он автоматически повторяет отклонённый Promise"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 3,
+          "name": {
+            "en": "What does `Promise.allSettled` return?",
+            "ru": "Что возвращает `Promise.allSettled`?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "`Promise.allSettled` waits for all promises to settle (regardless of outcome) and returns an array of objects with `{ status: 'fulfilled', value }` or `{ status: 'rejected', reason }` for each.",
+            "ru": "`Promise.allSettled` ждёт завершения всех Promise (независимо от результата) и возвращает массив объектов `{ status: 'fulfilled', value }` или `{ status: 'rejected', reason }` для каждого."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "A single boolean indicating if all promises fulfilled",
+                "ru": "Одно булево значение, указывающее, выполнились ли все Promise"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "An array of outcome descriptors for every promise, regardless of rejection",
+                "ru": "Массив дескрипторов результата для каждого Promise, независимо от отклонения"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "Only the fulfilled values, filtering out rejections",
+                "ru": "Только выполненные значения, отфильтровывая отклонения"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "The first settled promise's value",
+                "ru": "Значение первого завершённого Promise"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 4,
+          "name": {
+            "en": "What does `async` before a function declaration ensure?",
+            "ru": "Что гарантирует `async` перед объявлением функции?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "An `async` function always returns a `Promise`. If the function returns a non-Promise value, it is automatically wrapped in `Promise.resolve`. Thrown errors become rejected promises.",
+            "ru": "Функция `async` всегда возвращает `Promise`. Если функция возвращает не-Promise значение, оно автоматически оборачивается в `Promise.resolve`. Выброшенные ошибки становятся отклонёнными Promise."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "The function runs in a separate thread",
+                "ru": "Функция выполняется в отдельном потоке"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "The function always returns a `Promise`, wrapping non-Promise return values",
+                "ru": "Функция всегда возвращает `Promise`, оборачивая не-Promise возвращаемые значения"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "The function is memoised automatically",
+                "ru": "Функция автоматически запоминается (мемоизируется)"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "The function can only be called once",
+                "ru": "Функция может быть вызвана только один раз"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 5,
+          "name": {
+            "en": "Where can the `await` keyword be used?",
+            "ru": "Где можно использовать ключевое слово `await`?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "`await` can only be used inside an `async` function (or at the top level of an ES module). Using it outside throws a `SyntaxError`.",
+            "ru": "`await` можно использовать только внутри функции `async` (или на верхнем уровне ES-модуля). Использование вне этих контекстов вызывает `SyntaxError`."
+          },
+          "answers": [
+            {
+              "text": { "en": "Anywhere in the code", "ru": "В любом месте кода" },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Only inside an `async` function or at the top level of an ES module",
+                "ru": "Только внутри функции `async` или на верхнем уровне ES-модуля"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": { "en": "Only inside a `try` block", "ru": "Только внутри блока `try`" },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Only inside generator functions",
+                "ru": "Только внутри функций-генераторов"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 6,
+          "name": {
+            "en": "How do you catch errors thrown inside an `async` function?",
+            "ru": "Как перехватить ошибки, выброшенные внутри функции `async`?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "You can use `try/catch` inside the `async` function itself, or chain `.catch()` on the returned `Promise`. Both approaches handle rejection/thrown errors.",
+            "ru": "Можно использовать `try/catch` непосредственно внутри функции `async` или добавить `.catch()` к возвращаемому `Promise`. Оба подхода обрабатывают отклонение/выброшенные ошибки."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "Errors from `async` functions cannot be caught",
+                "ru": "Ошибки из функций `async` не могут быть перехвачены"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Using `try/catch` inside the function or `.catch()` on the returned promise",
+                "ru": "С помощью `try/catch` внутри функции или `.catch()` на возвращаемом Promise"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "Only using a global `window.onerror` handler",
+                "ru": "Только с помощью глобального обработчика `window.onerror`"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Using `Promise.catch()` as a static method",
+                "ru": "С помощью `Promise.catch()` как статического метода"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 7,
+          "name": {
+            "en": "What does `Promise.race` resolve/reject with?",
+            "ru": "С чем `Promise.race` разрешается/отклоняется?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "`Promise.race` settles as soon as the first input promise settles — it adopts that promise's fulfilment value or rejection reason.",
+            "ru": "`Promise.race` завершается, как только первый входной Promise завершается — он принимает значение его выполнения или причину отклонения."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "The value of the last promise to settle",
+                "ru": "Значение последнего завершившегося Promise"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "The value or reason of the first promise to settle",
+                "ru": "Значение или причина первого завершившегося Promise"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "An array of all settled values",
+                "ru": "Массив всех завершённых значений"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Always rejects if any promise rejects",
+                "ru": "Всегда отклоняется, если любой Promise отклоняется"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 8,
+          "name": {
+            "en": "What is the purpose of the `finally` block in a `try/catch/finally` statement?",
+            "ru": "Какова цель блока `finally` в конструкции `try/catch/finally`?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "The `finally` block always executes after `try` (and `catch` if present), regardless of whether an exception was thrown. It is typically used for cleanup operations.",
+            "ru": "Блок `finally` всегда выполняется после `try` (и `catch`, если он присутствует), независимо от того, было ли выброшено исключение. Обычно используется для операций очистки."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "It only runs if no error was thrown",
+                "ru": "Он выполняется только если ошибка не была выброшена"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "It always executes regardless of whether an error was thrown",
+                "ru": "Он всегда выполняется независимо от того, была ли выброшена ошибка"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "It runs only when the caught error is rethrown",
+                "ru": "Он выполняется только когда пойманная ошибка перевыбрасывается"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "It is executed asynchronously after the function returns",
+                "ru": "Он выполняется асинхронно после возврата функции"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 9,
+          "name": {
+            "en": "How do you create a custom error class in modern JavaScript?",
+            "ru": "Как создать пользовательский класс ошибки в современном JavaScript?"
+          },
+          "codeSnippet": "class ValidationError extends Error {\n  constructor(message) {\n    super(message);\n    this.name = 'ValidationError';\n  }\n}",
+          "explanation": {
+            "en": "Extend the built-in `Error` class using `class MyError extends Error`. Call `super(message)` and set `this.name` so that `instanceof` checks and stack traces work correctly.",
+            "ru": "Расширьте встроенный класс `Error` с помощью `class MyError extends Error`. Вызовите `super(message)` и задайте `this.name`, чтобы проверки `instanceof` и трассировки стека работали корректно."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "Use `function MyError(message) { this.message = message; }`",
+                "ru": "Используйте `function MyError(message) { this.message = message; }`"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Extend the built-in `Error` class with `class MyError extends Error`",
+                "ru": "Расширьте встроенный класс `Error` с помощью `class MyError extends Error`"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "Use `Object.create(Error)` and add a `message` property",
+                "ru": "Используйте `Object.create(Error)` и добавьте свойство `message`"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Throw a plain object with a `message` key",
+                "ru": "Выбросьте обычный объект с ключом `message`"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 10,
+          "name": {
+            "en": "What is the microtask queue and how does it relate to Promises?",
+            "ru": "Что такое очередь микрозадач и как она связана с Promise?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "Promise callbacks (`.then`, `.catch`, `.finally`) are queued as microtasks. The microtask queue is drained entirely after each task in the event loop, before the next task or rendering, giving Promises priority over `setTimeout` callbacks.",
+            "ru": "Обратные вызовы Promise (`.then`, `.catch`, `.finally`) помещаются в очередь микрозадач. Очередь микрозадач полностью опустошается после каждой задачи в цикле событий, до следующей задачи или рендеринга, что даёт Promise приоритет перед коллбэками `setTimeout`."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "The microtask queue is the same as the main task queue",
+                "ru": "Очередь микрозадач — это то же самое, что и основная очередь задач"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Promise callbacks are queued as microtasks, processed after each task before the next one",
+                "ru": "Обратные вызовы Promise помещаются в очередь микрозадач и обрабатываются после каждой задачи перед следующей"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "Promise callbacks are processed after all `setTimeout` callbacks",
+                "ru": "Обратные вызовы Promise обрабатываются после всех коллбэков `setTimeout`"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Microtasks run in a separate thread from the event loop",
+                "ru": "Микрозадачи выполняются в отдельном потоке от цикла событий"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 11,
+          "name": {
+            "en": "What does `Promise.any` return?",
+            "ru": "Что возвращает `Promise.any`?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "`Promise.any` fulfils with the value of the first fulfilled promise. It only rejects (with an `AggregateError`) if all input promises are rejected.",
+            "ru": "`Promise.any` выполняется со значением первого выполненного Promise. Он отклоняется (с `AggregateError`) только если все входные Promise отклонены."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "The value of the first promise to settle (fulfilled or rejected)",
+                "ru": "Значение первого завершившегося Promise (выполненного или отклонённого)"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "The value of the first fulfilled promise; rejects only if all reject",
+                "ru": "Значение первого выполненного Promise; отклоняется только если все отклонены"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "An array of all fulfilled values",
+                "ru": "Массив всех выполненных значений"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "The last fulfilled promise's value",
+                "ru": "Значение последнего выполненного Promise"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 12,
+          "name": {
+            "en": "What happens if you `throw` inside a `.then()` callback?",
+            "ru": "Что происходит при `throw` внутри коллбэка `.then()`?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "Throwing inside a `.then()` callback causes the resulting promise to be rejected with the thrown value. The next `.catch()` in the chain will handle it.",
+            "ru": "Выброс исключения внутри коллбэка `.then()` приводит к тому, что результирующий Promise отклоняется с выброшенным значением. Следующий `.catch()` в цепочке его обработает."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "The error propagates as an uncaught exception immediately",
+                "ru": "Ошибка немедленно распространяется как неперехваченное исключение"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "The resulting promise is rejected with the thrown value",
+                "ru": "Результирующий Promise отклоняется с выброшенным значением"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "The `.then()` callback is silently retried",
+                "ru": "Коллбэк `.then()` молча перезапускается"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "The error is swallowed and the chain continues with `undefined`",
+                "ru": "Ошибка игнорируется, и цепочка продолжается с `undefined`"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 13,
+          "name": {
+            "en": "Consider the code below. What is logged?",
+            "ru": "Рассмотрите приведённый код. Что будет выведено?"
+          },
+          "codeSnippet": "console.log('start');\nsetTimeout(() => console.log('timeout'), 0);\nPromise.resolve().then(() => console.log('promise'));\nconsole.log('end');",
+          "explanation": {
+            "en": "Synchronous code runs first (`start`, then `end`). The resolved promise's `.then` is a microtask — it runs before the `setTimeout` callback (a macrotask). Order: `start`, `end`, `promise`, `timeout`.",
+            "ru": "Синхронный код выполняется первым (`start`, затем `end`). `.then` выполненного Promise является микрозадачей — он выполняется до коллбэка `setTimeout` (макрозадачи). Порядок: `start`, `end`, `promise`, `timeout`."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "`start`, `timeout`, `promise`, `end`",
+                "ru": "`start`, `timeout`, `promise`, `end`"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "`start`, `end`, `promise`, `timeout`",
+                "ru": "`start`, `end`, `promise`, `timeout`"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "`start`, `end`, `timeout`, `promise`",
+                "ru": "`start`, `end`, `timeout`, `promise`"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "`start`, `promise`, `end`, `timeout`",
+                "ru": "`start`, `promise`, `end`, `timeout`"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 14,
+          "name": {
+            "en": "What is the purpose of `async`/`await` syntax compared to raw `Promise` chains?",
+            "ru": "Какова цель синтаксиса `async`/`await` по сравнению с цепочками `Promise`?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "`async`/`await` is syntactic sugar over Promises that makes asynchronous code look and flow like synchronous code, improving readability and making error handling with `try/catch` straightforward.",
+            "ru": "`async`/`await` — это синтаксический сахар над Promise, который делает асинхронный код похожим на синхронный по виду и потоку выполнения, улучшая читаемость и упрощая обработку ошибок с помощью `try/catch`."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "It makes async code run faster by parallelising all operations",
+                "ru": "Он ускоряет асинхронный код, распараллеливая все операции"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "It provides syntactic sugar that makes async code read like synchronous code",
+                "ru": "Он обеспечивает синтаксический сахар, который делает асинхронный код похожим на синхронный"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "It replaces the need for the event loop",
+                "ru": "Он заменяет необходимость в цикле событий"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "It is only useful for HTTP requests",
+                "ru": "Он полезен только для HTTP-запросов"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 15,
+          "name": {
+            "en": "What does `instanceof Error` return for a custom class that extends `Error`?",
+            "ru": "Что возвращает `instanceof Error` для пользовательского класса, расширяющего `Error`?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "Because `ValidationError extends Error`, instances of `ValidationError` pass both `instanceof ValidationError` and `instanceof Error` checks due to prototype chain inheritance.",
+            "ru": "Поскольку `ValidationError extends Error`, экземпляры `ValidationError` проходят проверки как `instanceof ValidationError`, так и `instanceof Error` благодаря наследованию по цепочке прототипов."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "`false` — only `instanceof ValidationError` returns `true`",
+                "ru": "`false` — только `instanceof ValidationError` возвращает `true`"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "`true` — instances of the subclass also pass `instanceof Error`",
+                "ru": "`true` — экземпляры подкласса также проходят `instanceof Error`"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "It depends on whether `super()` was called",
+                "ru": "Зависит от того, был ли вызван `super()`"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "A `TypeError` is thrown when using `instanceof` with custom errors",
+                "ru": "При использовании `instanceof` с пользовательскими ошибками выбрасывается `TypeError`"
+              },
+              "isCorrect": false
+            }
+          ]
+        }
+      ]
     }
   ]
 }
