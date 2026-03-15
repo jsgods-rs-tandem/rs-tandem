@@ -38,4 +38,23 @@ describe('ChatForm', () => {
       }
     }
   });
+
+  it('should send message on Enter key press without Shift and clear textarea', () => {
+    vi.spyOn(component.sendMessageEvent, 'emit');
+    if (fixture.nativeElement instanceof HTMLElement) {
+      const textarea = fixture.nativeElement.querySelector('textarea');
+      if (textarea) {
+        textarea.value = 'Hello, AI!';
+        textarea.dispatchEvent(new Event('input'));
+        fixture.detectChanges();
+
+        const keyboardEvent = new KeyboardEvent('keydown', { key: 'Enter' });
+        textarea.dispatchEvent(keyboardEvent);
+        fixture.detectChanges();
+
+        expect(component.sendMessageEvent.emit).toHaveBeenCalledWith('Hello, AI!');
+        expect(textarea.value).toBe('');
+      }
+    }
+  });
 });
