@@ -1,10 +1,16 @@
 import { Injectable, inject, signal } from '@angular/core';
-import { Router, NavigationEnd } from '@angular/router';
+import { Router, NavigationEnd, Data } from '@angular/router';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { filter } from 'rxjs';
 import { NavService } from './navigation.service';
 import { HeaderMode } from '../components/header/header.types';
-import { ROUTE_PATHS } from '@/core/constants';
+import { isLayoutConfig } from '../guards';
+
+export interface LayoutConfig {
+  mode: HeaderMode;
+  sidebar: boolean;
+  auth: boolean;
+}
 
 @Injectable({ providedIn: 'root' })
 export class LayoutService {
@@ -20,20 +26,23 @@ export class LayoutService {
         filter((event): event is NavigationEnd => event instanceof NavigationEnd),
         takeUntilDestroyed(),
       )
-      .subscribe((event) => {
-        const urlWithoutQuery = event.urlAfterRedirects.split('?')[0] ?? '';
-        const url = urlWithoutQuery.split('#')[0] ?? '';
-        if (url === ROUTE_PATHS.signIn || url === ROUTE_PATHS.signUp) {
+      .subscribe(() => {
+        let route = this.router.routerState.root;
+        while (route.firstChild) {
+          route = route.firstChild;
+        }
+
+        const data: Data = route.snapshot.data;
+        const layoutConfig: unknown = data.layout;
+
+        if (isLayoutConfig(layoutConfig)) {
+          this.headerMode.set(layoutConfig.mode);
+          this.showSidebar.set(layoutConfig.sidebar);
+          this.navService.setAuthState(layoutConfig.auth);
+        } else {
           this.headerMode.set('home');
           this.showSidebar.set(false);
-        } else if (url === ROUTE_PATHS.home) {
-          this.headerMode.set('login');
-          this.showSidebar.set(true);
-          this.navService.setGuestLinks();
-        } else {
-          this.headerMode.set('logout');
-          this.showSidebar.set(true);
-          this.navService.setAuthenticatedLinks();
+          this.navService.setAuthState(false);
         }
       });
   }

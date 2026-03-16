@@ -22,4 +22,5 @@ export const ROUTE_PATHS = {
   aiChat: `/${ROUTES.aiChat}`,
   quiz: `/${ROUTES.quiz}`,
   dashboard: `/${ROUTES.dashboard}`,
+  notFound: `/${ROUTES.notFound}`,
 } as const;
