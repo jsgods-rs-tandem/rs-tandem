@@ -1348,7 +1348,7 @@
         "en": "KISS, DRY, YAGNI, SOLID principles, and creational, structural, and behavioral design patterns",
         "ru": "Принципы KISS, DRY, YAGNI, SOLID и порождающие, структурные и поведенческие паттерны проектирования"
       },
-      "links": [],
+      "links": ["https://javascript.info/design-patterns", "https://en.wikipedia.org/wiki/SOLID"],
       "questions": [
         {
           "sortOrder": 1,
@@ -1886,7 +1886,7 @@
         "en": "Observables, streams, and the reactive programming paradigm with RxJS",
         "ru": "Наблюдаемые объекты (Observable), потоки данных и парадигма реактивного программирования с RxJS"
       },
-      "links": [],
+      "links": ["https://rxjs.dev/", "https://javascript.info/async-iterators-generators"],
       "questions": [
         {
           "sortOrder": 1,

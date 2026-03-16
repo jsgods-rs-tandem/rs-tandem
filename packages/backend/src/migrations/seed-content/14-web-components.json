@@ -13,7 +13,10 @@
         "en": "Defining and registering custom HTML elements, lifecycle callbacks (connectedCallback, disconnectedCallback, attributeChangedCallback), and observed attributes",
         "ru": "Определение и регистрация пользовательских HTML-элементов, коллбэки жизненного цикла (connectedCallback, disconnectedCallback, attributeChangedCallback) и наблюдаемые атрибуты"
       },
-      "links": [],
+      "links": [
+        "https://developer.mozilla.org/en-US/docs/Web/API/Web_Components/Using_custom_elements",
+        "https://web.dev/explore/custom-elements"
+      ],
       "questions": [
         {
           "sortOrder": 1,
@@ -584,10 +587,13 @@
     {
       "name": { "en": "Shadow DOM", "ru": "Shadow DOM" },
       "description": {
-        "en": "Encapsulated DOM trees, open vs closed shadow roots, CSS scoping, and how styles cross the shadow boundary",
-        "ru": "Инкапсулированные DOM-деревья, открытый и закрытый shadow root, изоляция CSS и пересечение границ shadow DOM стилями"
+        "en": "Encapsulated DOM trees, shadow root, style isolation, and composition with slots",
+        "ru": "Инкапсулированные DOM-деревья, shadow root, изоляция стилей и композиция через слоты"
       },
-      "links": [],
+      "links": [
+        "https://developer.mozilla.org/en-US/docs/Web/API/Web_Components/Using_shadow_DOM",
+        "https://web.dev/explore/shadow-dom"
+      ],
       "questions": [
         {
           "sortOrder": 1,
@@ -1104,7 +1110,10 @@
         "en": "The `<template>` element for inert markup, `<slot>` for content projection, and named slots",
         "ru": "Элемент `<template>` для инертной разметки, `<slot>` для проецирования контента и именованные слоты"
       },
-      "links": [],
+      "links": [
+        "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/template",
+        "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/slot"
+      ],
       "questions": [
         {
           "sortOrder": 1,
@@ -1609,7 +1618,10 @@
         "en": "Using Web Components inside Angular/React, event handling across boundaries, and when to choose Web Components over framework components",
         "ru": "Использование веб-компонентов внутри Angular/React, обработка событий через границы и когда выбирать веб-компоненты вместо компонентов фреймворка"
       },
-      "links": [],
+      "links": [
+        "https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_HTML_imports",
+        "https://custom-elements-everywhere.com/"
+      ],
       "questions": [
         {
           "sortOrder": 1,

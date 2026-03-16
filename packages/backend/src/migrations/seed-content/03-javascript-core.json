@@ -1357,7 +1357,10 @@
         "en": "Modern ECMAScript features: spread/rest, destructuring, Set/Map/WeakSet/WeakMap, modules, and dynamic imports",
         "ru": "Современные возможности ECMAScript: spread/rest, деструктуризация, Set/Map/WeakSet/WeakMap, модули и динамические импорты"
       },
-      "links": [],
+      "links": [
+        "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules",
+        "https://javascript.info/spread-rest"
+      ],
       "questions": [
         {
           "sortOrder": 1,
@@ -1823,7 +1826,10 @@
         "en": "Promises, async/await, Promise.all/race/allSettled, error handling with try/catch, and custom errors",
         "ru": "Promise, async/await, Promise.all/race/allSettled, обработка ошибок с try/catch и пользовательские ошибки"
       },
-      "links": [],
+      "links": [
+        "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Using_promises",
+        "https://javascript.info/async"
+      ],
       "questions": [
         {
           "sortOrder": 1,

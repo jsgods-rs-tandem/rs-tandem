@@ -13,7 +13,11 @@
         "en": "How Node.js executes code: the V8 engine, libuv, event loop phases, and differences from the browser",
         "ru": "Как Node.js выполняет код: движок V8, libuv, фазы цикла событий и отличия от браузерного окружения"
       },
-      "links": [],
+      "links": [
+        "https://nodejs.org/api/",
+        "https://nodejs.org/en/docs/guides/event-loop-timers-and-nexttick/",
+        "https://nodejs.org/api/events.html"
+      ],
       "questions": [
         {
           "sortOrder": 1,
@@ -389,7 +393,11 @@
         "en": "Working with the file system (fs), path manipulation, and OS information using Node's built-in modules",
         "ru": "Работа с файловой системой (fs), манипуляции с путями и информация об ОС через встроенные модули Node.js"
       },
-      "links": [],
+      "links": [
+        "https://nodejs.org/api/fs.html",
+        "https://nodejs.org/api/path.html",
+        "https://nodejs.org/api/os.html"
+      ],
       "questions": [
         {
           "sortOrder": 1,
@@ -705,7 +713,7 @@
         "en": "Readable, Writable, Duplex, and Transform streams, backpressure, and working with binary data via Buffer",
         "ru": "Readable, Writable, Duplex и Transform потоки, обратное давление (backpressure) и работа с бинарными данными через Buffer"
       },
-      "links": [],
+      "links": ["https://nodejs.org/api/stream.html", "https://nodejs.org/api/buffer.html"],
       "questions": [
         {
           "sortOrder": 1,
@@ -1120,7 +1128,11 @@
         "en": "Building HTTP servers with the `http` module, routing, middleware pattern, and REST APIs with Express",
         "ru": "Создание HTTP-серверов через модуль `http`, маршрутизация, паттерн middleware и REST API с Express"
       },
-      "links": [],
+      "links": [
+        "https://nodejs.org/api/http.html",
+        "https://expressjs.com/",
+        "https://expressjs.com/en/guide/"
+      ],
       "questions": [
         {
           "sortOrder": 1,
@@ -1541,7 +1553,7 @@
         "en": "The EventEmitter class, custom events, error handling in Node.js, and common patterns like callback conventions",
         "ru": "Класс EventEmitter, пользовательские события, обработка ошибок в Node.js и распространённые паттерны, например соглашения по коллбэкам"
       },
-      "links": [],
+      "links": ["https://nodejs.org/api/events.html", "https://nodejs.org/api/errors.html"],
       "questions": [
         {
           "sortOrder": 1,
@@ -1974,7 +1986,7 @@
         "en": "npm CLI, package.json, semantic versioning, lockfiles, scripts, and workspace basics",
         "ru": "npm CLI, package.json, семантическое версионирование, lockfile, скрипты и основы workspaces"
       },
-      "links": [],
+      "links": ["https://docs.npmjs.com/", "https://nodejs.org/api/modules.html"],
       "questions": [
         {
           "sortOrder": 1,

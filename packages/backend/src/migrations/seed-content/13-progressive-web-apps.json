@@ -13,7 +13,10 @@
         "en": "What makes an app a PWA: installability, reliability, capability, and the PWA checklist",
         "ru": "Что делает приложение PWA: устанавливаемость, надёжность, расширенные возможности и чеклист PWA"
       },
-      "links": [],
+      "links": [
+        "https://web.dev/explore/progressive-web-apps",
+        "https://developer.mozilla.org/en-US/docs/Web/Progressive_web_apps"
+      ],
       "questions": [
         {
           "sortOrder": 1,
@@ -488,10 +491,13 @@
     {
       "name": { "en": "Service Workers", "ru": "Service Workers" },
       "description": {
-        "en": "Service Worker lifecycle (install, activate, fetch), scope, and how they intercept network requests",
-        "ru": "Жизненный цикл Service Worker (install, activate, fetch), область действия и перехват сетевых запросов"
+        "en": "Service Worker lifecycle, registration, the fetch event, and intercepting network requests",
+        "ru": "Жизненный цикл Service Worker, регистрация, событие fetch и перехват сетевых запросов"
       },
-      "links": [],
+      "links": [
+        "https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API/Using_Service_Workers",
+        "https://web.dev/learn/pwa/service-workers"
+      ],
       "questions": [
         {
           "sortOrder": 1,
@@ -1002,7 +1008,10 @@
         "en": "Cache-first, network-first, stale-while-revalidate, and cache-only strategies using the Cache API",
         "ru": "Стратегии cache-first, network-first, stale-while-revalidate и cache-only с использованием Cache API"
       },
-      "links": [],
+      "links": [
+        "https://web.dev/learn/pwa/caching",
+        "https://developer.mozilla.org/en-US/docs/Web/API/Cache"
+      ],
       "questions": [
         {
           "sortOrder": 1,
@@ -1480,7 +1489,10 @@
         "en": "Manifest properties (name, icons, display, start_url), the beforeinstallprompt event, and home screen installation",
         "ru": "Свойства манифеста (name, icons, display, start_url), событие beforeinstallprompt и установка на главный экран"
       },
-      "links": [],
+      "links": [
+        "https://web.dev/learn/pwa/web-app-manifest",
+        "https://developer.mozilla.org/en-US/docs/Web/Manifest"
+      ],
       "questions": [
         {
           "sortOrder": 1,
@@ -1925,7 +1937,10 @@
         "en": "Designing for offline-first, Background Sync API, and handling connectivity changes gracefully",
         "ru": "Проектирование в стиле offline-first, Background Sync API и корректная обработка изменений сетевого подключения"
       },
-      "links": [],
+      "links": [
+        "https://web.dev/learn/pwa/offline",
+        "https://developer.mozilla.org/en-US/docs/Web/API/Background_Sync_API"
+      ],
       "questions": [
         {
           "sortOrder": 1,

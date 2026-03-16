@@ -446,7 +446,12 @@
         "en": "Webpack concepts: entry, output, loaders, plugins, code splitting, and configuration",
         "ru": "Концепции Webpack: entry, output, загрузчики (loaders), плагины, разделение кода и конфигурация"
       },
-      "links": [],
+      "links": [
+        "https://webpack.js.org/concepts/",
+        "https://webpack.js.org/guides/getting-started/",
+        "https://webpack.js.org/configuration/",
+        "https://webpack.js.org/guides/code-splitting/"
+      ],
       "questions": [
         {
           "sortOrder": 1,
@@ -942,7 +947,12 @@
         "en": "Vite's dev server (ESM-native), esbuild, Rollup, and how modern tools differ from Webpack",
         "ru": "Dev-сервер Vite (нативный ESM), esbuild, Rollup и отличия современных инструментов от Webpack"
       },
-      "links": [],
+      "links": [
+        "https://vite.dev/guide/",
+        "https://vite.dev/guide/why",
+        "https://vite.dev/config/",
+        "https://rollupjs.org/"
+      ],
       "questions": [
         {
           "sortOrder": 1,
@@ -1318,7 +1328,11 @@
         "en": "How tree-shaking works with ES Modules, side effects, and writing tree-shakeable libraries",
         "ru": "Принцип работы tree-shaking с ES Modules, побочные эффекты и написание tree-shakeable библиотек"
       },
-      "links": [],
+      "links": [
+        "https://webpack.js.org/guides/tree-shaking/",
+        "https://rollupjs.org/",
+        "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules"
+      ],
       "questions": [
         {
           "sortOrder": 1,
@@ -1790,7 +1804,12 @@
         "en": "Babel, SWC, TypeScript compilation, browserslist targets, and the difference between transpiling and polyfilling",
         "ru": "Babel, SWC, компиляция TypeScript, browserslist-таргеты и разница между транспиляцией и полифилингом"
       },
-      "links": [],
+      "links": [
+        "https://babeljs.io/docs/",
+        "https://babeljs.io/docs/presets",
+        "https://github.com/zloirock/core-js",
+        "https://github.com/browserslist/browserslist"
+      ],
       "questions": [
         {
           "sortOrder": 1,
