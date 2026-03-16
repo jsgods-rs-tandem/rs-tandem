@@ -31,8 +31,7 @@ export const TEAM_MEMBERS = [
   },
   {
     name: 'The RS School',
-    avatarUrl:
-      'https://images.ctfassets.net/12phxmr4hjo6/2ziARKIG2yuGHOE4ktedfp/e4eca8003d20ae1e9249e31fdfb7aa15/mentors-wanted.webp',
+    avatarUrl: '/assets/images/rss-team.svg',
     linkText: 'RS school',
     linkUrl: 'https://rs.school/',
     isRotate: true,
