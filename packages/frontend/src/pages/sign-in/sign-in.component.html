@@ -10,6 +10,7 @@
       targetType="email"
       formControlName="email"
       label="Email"
+      placeholder="Enter your email"
       [hasError]="signInForm.controls.email.touched && signInForm.controls.email.invalid"
       [errorText]="getErrorText('email')"
     />
@@ -19,6 +20,7 @@
       targetType="password"
       formControlName="password"
       label="Password"
+      placeholder="Enter your password"
       [hasError]="signInForm.controls.password.touched && signInForm.controls.password.invalid"
       [errorText]="getErrorText('password')"
     />
