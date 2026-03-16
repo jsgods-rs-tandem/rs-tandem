@@ -8,6 +8,7 @@ import { QuizService } from '../../services';
 
 import { computeRewardLevel } from '../../utilities';
 
+import { ROUTE_PATHS } from '@/core/constants';
 import { REWARD_PRAISE } from '../../constants';
 
 @Component({
@@ -20,7 +21,10 @@ import { REWARD_PRAISE } from '../../constants';
 export class ResultsPageComponent implements OnInit {
   readonly quizService = inject(QuizService);
 
+  readonly categoryId = input.required<string>();
   readonly topicId = input.required<string>();
+
+  readonly ROUTE_PATHS = ROUTE_PATHS;
 
   ngOnInit(): void {
     this.quizService.getResults(this.topicId());

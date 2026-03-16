@@ -62,7 +62,13 @@
     }
   }
 
-  &__retry-button {
+  &__buttons {
+    display: flex;
+    gap: var(--spacing-x4);
     margin: var(--spacing-x8) auto 0;
+
+    @include mix.media('s') {
+      flex-direction: column;
+    }
   }
 }

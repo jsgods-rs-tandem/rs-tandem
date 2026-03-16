@@ -33,6 +33,7 @@ describe('ResultsPageComponent', () => {
 
     fixture = TestBed.createComponent(ResultsPageComponent);
     component = fixture.componentInstance;
+    fixture.componentRef.setInput('categoryId', 'test-category-id');
     fixture.componentRef.setInput('topicId', 'test-topic-id');
     fixture.detectChanges();
     await fixture.whenStable();
