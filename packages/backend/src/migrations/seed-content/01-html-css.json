@@ -18,7 +18,296 @@
         "https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Structuring_content",
         "https://www.w3schools.com/html/html_intro.asp"
       ],
-      "questions": []
+      "questions": [
+        {
+          "sortOrder": 1,
+          "name": {
+            "en": "Which HTML element represents the main content area of a document?",
+            "ru": "Какой HTML-элемент представляет основную область содержимого документа?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "The `<main>` element represents the main content of a document. There should be only one `<main>` element per page, and it should not be nested within other semantic elements like `<article>` or `<aside>`.",
+            "ru": "Элемент `<main>` представляет основное содержимое документа. На странице должен быть только один элемент `<main>`, и он не должен быть вложен в другие семантические элементы, такие как `<article>` или `<aside>`."
+          },
+          "answers": [
+            { "text": { "en": "<main>", "ru": "<main>" }, "isCorrect": true },
+            { "text": { "en": "<section>", "ru": "<section>" }, "isCorrect": false },
+            { "text": { "en": "<div>", "ru": "<div>" }, "isCorrect": false },
+            { "text": { "en": "<body>", "ru": "<body>" }, "isCorrect": false }
+          ]
+        },
+        {
+          "sortOrder": 2,
+          "name": {
+            "en": "What is the correct semantic element for a self-contained composition that could be distributed independently?",
+            "ru": "Какой семантический элемент используется для независимо распространяемого самодостаточного содержимого?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "The `<article>` element represents self-contained content that could be distributed independently, such as a blog post, news story, or forum post.",
+            "ru": "Элемент `<article>` представляет самодостаточное содержимое, которое может распространяться независимо, например, статью в блоге, новость или сообщение на форуме."
+          },
+          "answers": [
+            { "text": { "en": "<article>", "ru": "<article>" }, "isCorrect": true },
+            { "text": { "en": "<section>", "ru": "<section>" }, "isCorrect": false },
+            { "text": { "en": "<aside>", "ru": "<aside>" }, "isCorrect": false },
+            { "text": { "en": "<div>", "ru": "<div>" }, "isCorrect": false }
+          ]
+        },
+        {
+          "sortOrder": 3,
+          "name": {
+            "en": "Which attribute is used to provide an alternative text description for an image?",
+            "ru": "Какой атрибут используется для предоставления альтернативного текстового описания изображения?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "The `alt` attribute provides alternative text for an image. Screen readers use it to describe images to visually impaired users, and it displays when images fail to load.",
+            "ru": "Атрибут `alt` предоставляет альтернативный текст для изображения. Скринридеры используют его для описания изображений незрячим пользователям, и он отображается при ошибке загрузки изображения."
+          },
+          "answers": [
+            { "text": { "en": "alt", "ru": "alt" }, "isCorrect": true },
+            { "text": { "en": "title", "ru": "title" }, "isCorrect": false },
+            { "text": { "en": "src", "ru": "src" }, "isCorrect": false },
+            { "text": { "en": "description", "ru": "description" }, "isCorrect": false }
+          ]
+        },
+        {
+          "sortOrder": 4,
+          "name": {
+            "en": "Which element is used to define navigation links?",
+            "ru": "Какой элемент используется для определения навигационных ссылок?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "The `<nav>` element represents a section of navigation links. It's intended for major navigation blocks, not all groups of links on a page.",
+            "ru": "Элемент `<nav>` представляет раздел навигационных ссылок. Он предназначен для основных блоков навигации, а не для всех групп ссылок на странице."
+          },
+          "answers": [
+            { "text": { "en": "<nav>", "ru": "<nav>" }, "isCorrect": true },
+            { "text": { "en": "<menu>", "ru": "<menu>" }, "isCorrect": false },
+            { "text": { "en": "<navigation>", "ru": "<navigation>" }, "isCorrect": false },
+            { "text": { "en": "<links>", "ru": "<links>" }, "isCorrect": false }
+          ]
+        },
+        {
+          "sortOrder": 5,
+          "name": {
+            "en": "What does the doctype declaration do in HTML?",
+            "ru": "Что делает объявление doctype в HTML?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "The doctype tells the browser which version of HTML the document is written in. Modern HTML5 documents use `<!DOCTYPE html>`. Without it, browsers may enter quirks mode.",
+            "ru": "Doctype сообщает браузеру, в какой версии HTML написан документ. Современные документы HTML5 используют `<!DOCTYPE html>`. Без него браузеры могут перейти в режим совместимости."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "Declares the HTML version for the browser",
+                "ru": "Объявляет версию HTML для браузера"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": { "en": "Links an external CSS file", "ru": "Связывает внешний CSS-файл" },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Defines the document's title",
+                "ru": "Определяет заголовок документа"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "Creates a new HTML element", "ru": "Создаёт новый HTML-элемент" },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 6,
+          "name": {
+            "en": "Which HTML element is used to represent the result of a calculation?",
+            "ru": "Какой HTML-элемент используется для представления результата вычисления?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "The `<output>` element represents the result of a calculation or user action. It's particularly useful in forms with calculations.",
+            "ru": "Элемент `<output>` представляет результат вычисления или действия пользователя. Он особенно полезен в формах с вычислениями."
+          },
+          "answers": [
+            { "text": { "en": "<output>", "ru": "<output>" }, "isCorrect": true },
+            { "text": { "en": "<result>", "ru": "<result>" }, "isCorrect": false },
+            { "text": { "en": "<calc>", "ru": "<calc>" }, "isCorrect": false },
+            { "text": { "en": "<summary>", "ru": "<summary>" }, "isCorrect": false }
+          ]
+        },
+        {
+          "sortOrder": 7,
+          "name": {
+            "en": "Which attribute makes an element focusable and accessible via keyboard?",
+            "ru": "Какой атрибут делает элемент фокусируемым и доступным через клавиатуру?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "The `tabindex` attribute controls whether an element can be focused via keyboard navigation. `tabindex=\"0\"` makes non-interactive elements focusable.",
+            "ru": "Атрибут `tabindex` управляет возможностью фокусировки элемента через клавиатуру. `tabindex=\"0\"` делает неинтерактивные элементы фокусируемыми."
+          },
+          "answers": [
+            { "text": { "en": "tabindex", "ru": "tabindex" }, "isCorrect": true },
+            { "text": { "en": "focusable", "ru": "focusable" }, "isCorrect": false },
+            { "text": { "en": "keyboard", "ru": "keyboard" }, "isCorrect": false },
+            { "text": { "en": "accesskey", "ru": "accesskey" }, "isCorrect": false }
+          ]
+        },
+        {
+          "sortOrder": 8,
+          "name": {
+            "en": "What is the purpose of the `<head>` element?",
+            "ru": "Какова цель элемента `<head>`?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "The `<head>` element contains machine-readable information (metadata) about the document, including title, styles, scripts, and meta tags.",
+            "ru": "Элемент `<head>` содержит машиночитаемую информацию (метаданные) о документе, включая заголовок, стили, скрипты и мета-теги."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "Contains metadata about the document",
+                "ru": "Содержит метаданные о документе"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": { "en": "Displays the main content", "ru": "Отображает основное содержимое" },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "Creates a navigation menu", "ru": "Создаёт навигационное меню" },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Defines a footer section",
+                "ru": "Определяет раздел нижнего колонтитула"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 9,
+          "name": {
+            "en": "Which element should be used for sidebars related to main content?",
+            "ru": "Какой элемент следует использовать для боковых панелей, связанных с основным содержимым?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "The `<aside>` element represents content tangentially related to the main content, such as sidebars, pull quotes, or advertising.",
+            "ru": "Элемент `<aside>` представляет содержимое, косвенно связанное с основным содержимым, например, боковые панели, цитаты или рекламу."
+          },
+          "answers": [
+            { "text": { "en": "<aside>", "ru": "<aside>" }, "isCorrect": true },
+            { "text": { "en": "<sidebar>", "ru": "<sidebar>" }, "isCorrect": false },
+            { "text": { "en": "<side>", "ru": "<side>" }, "isCorrect": false },
+            { "text": { "en": "<extra>", "ru": "<extra>" }, "isCorrect": false }
+          ]
+        },
+        {
+          "sortOrder": 10,
+          "name": {
+            "en": "What is the correct way to create a hyperlink that opens in a new tab?",
+            "ru": "Какой правильный способ создать гиперссылку, которая открывается в новой вкладке?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "The `target=\"_blank\"` attribute opens the linked document in a new tab or window. It's recommended to also add `rel=\"noopener noreferrer\"` for security.",
+            "ru": "Атрибут `target=\"_blank\"` открывает связанный документ в новой вкладке или окне. Также рекомендуется добавить `rel=\"noopener noreferrer\"` для безопасности."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "<a href=\"url\" target=\"_blank\">",
+                "ru": "<a href=\"url\" target=\"_blank\">"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": { "en": "<a href=\"url\" newtab>", "ru": "<a href=\"url\" newtab>" },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "<a href=\"url\" open=\"new\">",
+                "ru": "<a href=\"url\" open=\"new\">"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "<a href=\"url\" rel=\"new\">",
+                "ru": "<a href=\"url\" rel=\"new\">"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 11,
+          "name": {
+            "en": "Which HTML5 element is used to mark up a date or time?",
+            "ru": "Какой HTML5-элемент используется для разметки даты или времени?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "The `<time>` element represents a specific time or date. The `datetime` attribute provides a machine-readable format for browsers and search engines.",
+            "ru": "Элемент `<time>` представляет конкретное время или дату. Атрибут `datetime` предоставляет машиночитаемый формат для браузеров и поисковых систем."
+          },
+          "answers": [
+            { "text": { "en": "<time>", "ru": "<time>" }, "isCorrect": true },
+            { "text": { "en": "<date>", "ru": "<date>" }, "isCorrect": false },
+            { "text": { "en": "<datetime>", "ru": "<datetime>" }, "isCorrect": false },
+            { "text": { "en": "<moment>", "ru": "<moment>" }, "isCorrect": false }
+          ]
+        },
+        {
+          "sortOrder": 12,
+          "name": {
+            "en": "What does the `lang` attribute on the `<html>` element specify?",
+            "ru": "Что определяет атрибут `lang` на элементе `<html>`?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "The `lang` attribute declares the primary language of the document. This helps screen readers use the correct pronunciation and search engines understand the content language.",
+            "ru": "Атрибут `lang` объявляет основной язык документа. Это помогает скринридерам использовать правильное произношение, а поисковым системам — понимать язык содержимого."
+          },
+          "answers": [
+            {
+              "text": { "en": "The document's primary language", "ru": "Основной язык документа" },
+              "isCorrect": true
+            },
+            {
+              "text": { "en": "The coding character set", "ru": "Кодировку символов" },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "The default text direction",
+                "ru": "Направление текста по умолчанию"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "The document's title language", "ru": "Язык заголовка документа" },
+              "isCorrect": false
+            }
+          ]
+        }
+      ]
     },
     {
       "name": { "en": "CSS Basics", "ru": "Основы CSS" },
@@ -30,6 +319,287 @@
         "https://developer.mozilla.org/en-US/docs/Learn/CSS/First_steps",
         "https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Styling_basics",
         "https://www.w3schools.com/css/css_intro.asp"
+      ],
+      "questions": [
+        {
+          "sortOrder": 1,
+          "name": {
+            "en": "Which CSS selector has the highest specificity?",
+            "ru": "Какой CSS-селектор имеет наивысшую специфичность?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "Inline styles (`style=\"\"`) have the highest specificity, followed by IDs, classes/attributes/pseudo-classes, and finally elements/pseudo-elements.",
+            "ru": "Инлайновые стили (`style=\"\"`) имеют наивысшую специфичность, затем идут ID, классы/атрибуты/псевдоклассы, и наконец элементы/псевдоэлементы."
+          },
+          "answers": [
+            { "text": { "en": "Inline style", "ru": "Инлайновый стиль" }, "isCorrect": true },
+            { "text": { "en": "#id selector", "ru": "Селектор по #id" }, "isCorrect": false },
+            { "text": { "en": ".class selector", "ru": "Селектор по .class" }, "isCorrect": false },
+            {
+              "text": { "en": "element selector", "ru": "Селектор по элементу" },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 2,
+          "name": {
+            "en": "In the CSS box model, which property is NOT part of the content area?",
+            "ru": "Какое свойство НЕ входит в состав контентной области в блочной модели CSS?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "The CSS box model consists of: content, padding, border, and margin. The `width` and `height` properties apply to the content area only.",
+            "ru": "Блочная модель CSS состоит из: контента, padding, border и margin. Свойства `width` и `height` применяются только к контентной области."
+          },
+          "answers": [
+            { "text": { "en": "margin", "ru": "margin" }, "isCorrect": true },
+            { "text": { "en": "width", "ru": "width" }, "isCorrect": false },
+            { "text": { "en": "padding", "ru": "padding" }, "isCorrect": false },
+            { "text": { "en": "height", "ru": "height" }, "isCorrect": false }
+          ]
+        },
+        {
+          "sortOrder": 3,
+          "name": {
+            "en": "What does the `*` (universal) selector in CSS match?",
+            "ru": "Что соответствует универсальный селектор `*` в CSS?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "The universal selector `*` matches any element in the document. It's commonly used for resetting default styles.",
+            "ru": "Универсальный селектор `*` соответствует любому элементу в документе. Он часто используется для сброса стилей по умолчанию."
+          },
+          "answers": [
+            { "text": { "en": "All elements", "ru": "Все элементы" }, "isCorrect": true },
+            {
+              "text": { "en": "Only div elements", "ru": "Только элементы div" },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "Elements with class", "ru": "Элементы с классом" },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "First child elements", "ru": "Дочерние элементы первого уровня" },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 4,
+          "name": {
+            "en": "Which CSS property controls the space between the element's border and its content?",
+            "ru": "Какое CSS-свойство управляет пространством между границей элемента и его содержимым?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "`padding` is the space between the element's border and its content. `margin` is the space outside the border between the element and neighboring elements.",
+            "ru": "`padding` — это пространство между границей элемента и его содержимым. `margin` — это пространство снаружи границы между элементом и соседними элементами."
+          },
+          "answers": [
+            { "text": { "en": "padding", "ru": "padding" }, "isCorrect": true },
+            { "text": { "en": "margin", "ru": "margin" }, "isCorrect": false },
+            { "text": { "en": "spacing", "ru": "spacing" }, "isCorrect": false },
+            { "text": { "en": "border-spacing", "ru": "border-spacing" }, "isCorrect": false }
+          ]
+        },
+        {
+          "sortOrder": 5,
+          "name": {
+            "en": "What is the default value of the `position` property?",
+            "ru": "Каково значение по умолчанию для свойства `position`?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "The default value of `position` is `static`. Elements with `position: static` are positioned according to the normal document flow.",
+            "ru": "Значение по умолчанию для `position` — `static`. Элементы с `position: static` позиционируются согласно обычному потоку документа."
+          },
+          "answers": [
+            { "text": { "en": "static", "ru": "static" }, "isCorrect": true },
+            { "text": { "en": "relative", "ru": "relative" }, "isCorrect": false },
+            { "text": { "en": "absolute", "ru": "absolute" }, "isCorrect": false },
+            { "text": { "en": "fixed", "ru": "fixed" }, "isCorrect": false }
+          ]
+        },
+        {
+          "sortOrder": 6,
+          "name": {
+            "en": "Which selector targets an element with both 'active' and 'primary' classes?",
+            "ru": "Какой селектор выбирает элемент с обоими классами 'active' и 'primary'?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "Using two class selectors without a space (`.active.primary`) targets elements that have BOTH classes. A space would create a descendant selector.",
+            "ru": "Использование двух селекторов классов без пробела (`.active.primary`) выбирает элементы с ОБОИМИ классами. Пробел создал бы селектор потомка."
+          },
+          "answers": [
+            { "text": { "en": ".active.primary", "ru": ".active.primary" }, "isCorrect": true },
+            { "text": { "en": ".active .primary", "ru": ".active .primary" }, "isCorrect": false },
+            {
+              "text": { "en": ".active, .primary", "ru": ".active, .primary" },
+              "isCorrect": false
+            },
+            { "text": { "en": "#active.primary", "ru": "#active.primary" }, "isCorrect": false }
+          ]
+        },
+        {
+          "sortOrder": 7,
+          "name": {
+            "en": "What does `!important` do in CSS?",
+            "ru": "Что делает `!important` в CSS?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "`!important` gives a CSS declaration the highest priority, overriding normal specificity rules. It should be used sparingly as it makes styles hard to maintain.",
+            "ru": "`!important` даёт CSS-объявлению наивысший приоритет, переопределяя обычные правила специфичности. Его следует использовать редко, так как он усложняет поддержку стилей."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "Overrides normal specificity rules",
+                "ru": "Переопределяет обычные правила специфичности"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "Makes the selector more specific",
+                "ru": "Делает селектор более специфичным"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "Adds a new CSS rule", "ru": "Добавляет новое CSS-правило" },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "Creates a comment", "ru": "Создаёт комментарий" },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 8,
+          "name": {
+            "en": "Which pseudo-class targets an element that is the first child of its parent?",
+            "ru": "Какой псевдокласс выбирает элемент, который является первым дочерним элементом своего родителя?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "`:first-child` matches an element that is the first child of its parent. `:first-of-type` matches the first element of its type among siblings.",
+            "ru": "`:first-child` соответствует элементу, который является первым дочерним элементом своего родителя. `:first-of-type` соответствует первому элементу своего типа среди соседей."
+          },
+          "answers": [
+            { "text": { "en": ":first-child", "ru": ":first-child" }, "isCorrect": true },
+            { "text": { "en": ":first-of-type", "ru": ":first-of-type" }, "isCorrect": false },
+            { "text": { "en": ":first-element", "ru": ":first-element" }, "isCorrect": false },
+            { "text": { "en": ":before", "ru": ":before" }, "isCorrect": false }
+          ]
+        },
+        {
+          "sortOrder": 9,
+          "name": {
+            "en": "What is the difference between `display: none` and `visibility: hidden`?",
+            "ru": "В чём разница между `display: none` и `visibility: hidden`?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "`display: none` removes the element from the layout entirely. `visibility: hidden` hides the element but preserves its space in the layout.",
+            "ru": "`display: none` полностью удаляет элемент из макета. `visibility: hidden` скрывает элемент, но сохраняет его пространство в макете."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "none removes element from layout; hidden preserves space",
+                "ru": "none удаляет элемент из макета; hidden сохраняет пространство"
+              },
+              "isCorrect": true
+            },
+            { "text": { "en": "They are identical", "ru": "Они идентичны" }, "isCorrect": false },
+            {
+              "text": {
+                "en": "hidden removes element; none preserves space",
+                "ru": "hidden удаляет элемент; none сохраняет пространство"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Both hide but keep space",
+                "ru": "Оба скрывают, но сохраняют пространство"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 10,
+          "name": {
+            "en": "Which property is used to change the text color of an element?",
+            "ru": "Какое свойство используется для изменения цвета текста элемента?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "The `color` property sets the foreground color of an element's text content. The `background-color` property sets the background color.",
+            "ru": "Свойство `color` устанавливает цвет текстового содержимого элемента. Свойство `background-color` устанавливает цвет фона."
+          },
+          "answers": [
+            { "text": { "en": "color", "ru": "color" }, "isCorrect": true },
+            { "text": { "en": "text-color", "ru": "text-color" }, "isCorrect": false },
+            { "text": { "en": "font-color", "ru": "font-color" }, "isCorrect": false },
+            { "text": { "en": "foreground-color", "ru": "foreground-color" }, "isCorrect": false }
+          ]
+        },
+        {
+          "sortOrder": 11,
+          "name": {
+            "en": "What is the CSS cascade?",
+            "ru": "Что такое каскад в CSS?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "The cascade is how CSS resolves conflicts when multiple rules apply to an element. It considers importance, specificity, and source order.",
+            "ru": "Каскад — это то, как CSS разрешает конфликты, когда несколько правил применяются к элементу. Он учитывает важность, специфичность и порядок в коде."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "Process of resolving conflicting style rules",
+                "ru": "Процесс разрешения конфликтующих стилевых правил"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": { "en": "A type of CSS selector", "ru": "Тип CSS-селектора" },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "A CSS animation technique", "ru": "Техника анимации CSS" },
+              "isCorrect": false
+            },
+            { "text": { "en": "A layout system", "ru": "Система вёрстки" }, "isCorrect": false }
+          ]
+        },
+        {
+          "sortOrder": 12,
+          "name": {
+            "en": "Which unit is relative to the font-size of the root element?",
+            "ru": "Какая единица измерения относительна к размеру шрифта корневого элемента?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "The `rem` unit is relative to the font-size of the root element (`<html>`). The `em` unit is relative to the font-size of the current element.",
+            "ru": "Единица `rem` относительна к размеру шрифта корневого элемента (`<html>`). Единица `em` относительна к размеру шрифта текущего элемента."
+          },
+          "answers": [
+            { "text": { "en": "rem", "ru": "rem" }, "isCorrect": true },
+            { "text": { "en": "em", "ru": "em" }, "isCorrect": false },
+            { "text": { "en": "px", "ru": "px" }, "isCorrect": false },
+            { "text": { "en": "%", "ru": "%" }, "isCorrect": false }
+          ]
+        }
       ]
     },
     {
@@ -45,7 +615,338 @@
         "https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Responsive_Design",
         "https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/CSS_layout/Media_queries"
       ],
-      "questions": []
+      "questions": [
+        {
+          "sortOrder": 1,
+          "name": {
+            "en": "What is the correct syntax for a media query that applies styles on screens wider than 768px?",
+            "ru": "Какой синтаксис медиазапроса применяет стили для экранов шире 768px?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "The `@media (min-width: 768px)` query applies styles when the viewport is at least 768px wide. `min-width` uses mobile-first approach.",
+            "ru": "Запрос `@media (min-width: 768px)` применяет стили, когда viewport составляет минимум 768px. `min-width` использует подход mobile-first."
+          },
+          "answers": [
+            {
+              "text": { "en": "@media (min-width: 768px)", "ru": "@media (min-width: 768px)" },
+              "isCorrect": true
+            },
+            {
+              "text": { "en": "@media (max-width: 768px)", "ru": "@media (max-width: 768px)" },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "@media screen > 768px", "ru": "@media screen > 768px" },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "@media width: 768px", "ru": "@media width: 768px" },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 2,
+          "name": {
+            "en": "Which meta tag is essential for responsive web design?",
+            "ru": "Какой meta-тег необходим для адаптивного веб-дизайна?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "The viewport meta tag `<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">` controls the viewport dimensions and scaling on mobile devices.",
+            "ru": "Мета-тег viewport `<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">` управляет размерами и масштабом viewport на мобильных устройствах."
+          },
+          "answers": [
+            { "text": { "en": "viewport", "ru": "viewport" }, "isCorrect": true },
+            { "text": { "en": "responsive", "ru": "responsive" }, "isCorrect": false },
+            { "text": { "en": "mobile", "ru": "mobile" }, "isCorrect": false },
+            { "text": { "en": "device", "ru": "device" }, "isCorrect": false }
+          ]
+        },
+        {
+          "sortOrder": 3,
+          "name": {
+            "en": "What does the `1vw` unit represent?",
+            "ru": "Что представляет единица измерения `1vw`?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "`1vw` equals 1% of the viewport width. `1vh` equals 1% of the viewport height. These units scale with the viewport size.",
+            "ru": "`1vw` равен 1% ширины viewport. `1vh` равен 1% высоты viewport. Эти единицы масштабируются с размером viewport."
+          },
+          "answers": [
+            {
+              "text": { "en": "1% of viewport width", "ru": "1% ширины viewport" },
+              "isCorrect": true
+            },
+            {
+              "text": { "en": "1% of viewport height", "ru": "1% высоты viewport" },
+              "isCorrect": false
+            },
+            { "text": { "en": "1 pixel", "ru": "1 пиксель" }, "isCorrect": false },
+            {
+              "text": { "en": "1% of element width", "ru": "1% ширины элемента" },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 4,
+          "name": {
+            "en": "Which media feature targets devices in landscape orientation?",
+            "ru": "Какая медиа-функция определяет устройства в альбомной ориентации?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "The `orientation` media feature can be `portrait` (height > width) or `landscape` (width > height). Use `@media (orientation: landscape)` for landscape mode.",
+            "ru": "Медиа-функция `orientation` может быть `portrait` (высота > ширина) или `landscape` (ширина > высота). Используйте `@media (orientation: landscape)` для альбомной ориентации."
+          },
+          "answers": [
+            {
+              "text": { "en": "orientation: landscape", "ru": "orientation: landscape" },
+              "isCorrect": true
+            },
+            {
+              "text": { "en": "orientation: horizontal", "ru": "orientation: horizontal" },
+              "isCorrect": false
+            },
+            { "text": { "en": "mode: landscape", "ru": "mode: landscape" }, "isCorrect": false },
+            { "text": { "en": "aspect: landscape", "ru": "aspect: landscape" }, "isCorrect": false }
+          ]
+        },
+        {
+          "sortOrder": 5,
+          "name": {
+            "en": "What is the mobile-first approach in responsive design?",
+            "ru": "Что такое подход mobile-first в адаптивном дизайне?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "Mobile-first means writing base styles for mobile devices first, then using `min-width` media queries to add styles for larger screens. This ensures optimal performance on mobile.",
+            "ru": "Mobile-first означает сначала написать базовые стили для мобильных устройств, затем использовать медиазапросы `min-width` для добавления стилей для больших экранов. Это обеспечивает лучшую производительность на мобильных."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "Design for mobile first, then enhance for larger screens",
+                "ru": "Сначала дизайн для мобильных, затем улучшение для больших экранов"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "Only design for mobile devices",
+                "ru": "Проектировать только для мобильных устройств"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Design desktop first, then adapt to mobile",
+                "ru": "Сначала дизайн для десктопа, затем адаптация для мобильных"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Create separate mobile and desktop sites",
+                "ru": "Создавать отдельные сайты для мобильных и десктопа"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 6,
+          "name": {
+            "en": "Which CSS property makes images responsive by scaling them to fit their container?",
+            "ru": "Какое CSS-свойство делает изображения адаптивными, масштабируя их по размеру контейнера?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "`max-width: 100%` ensures images never exceed their container's width while maintaining their aspect ratio. `height: auto` maintains the original aspect ratio.",
+            "ru": "`max-width: 100%` гарантирует, что изображения никогда не превысят ширину контейнера, сохраняя пропорции. `height: auto` сохраняет исходные пропорции."
+          },
+          "answers": [
+            { "text": { "en": "max-width: 100%", "ru": "max-width: 100%" }, "isCorrect": true },
+            { "text": { "en": "width: 100%", "ru": "width: 100%" }, "isCorrect": false },
+            { "text": { "en": "responsive: true", "ru": "responsive: true" }, "isCorrect": false },
+            { "text": { "en": "scale: fit", "ru": "scale: fit" }, "isCorrect": false }
+          ]
+        },
+        {
+          "sortOrder": 7,
+          "name": {
+            "en": "What is the purpose of the `aspect-ratio` media feature?",
+            "ru": "Какова цель медиа-функции `aspect-ratio`?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "The `aspect-ratio` feature tests the viewport's aspect ratio. Use `@media (aspect-ratio: 16/9)` to target widescreen displays.",
+            "ru": "Функция `aspect-ratio` проверяет соотношение сторон viewport. Используйте `@media (aspect-ratio: 16/9)` для широкоэкранных дисплеев."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "Tests the viewport's width-to-height ratio",
+                "ru": "Проверяет соотношение ширины и высоты viewport"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "Sets the element's aspect ratio",
+                "ru": "Устанавливает соотношение сторон элемента"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "Changes the page layout", "ru": "Изменяет макет страницы" },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "Creates a video player", "ru": "Создаёт видеоплеер" },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 8,
+          "name": {
+            "en": "Which breakpoint prefix is commonly used for tablets in Bootstrap?",
+            "ru": "Какой префикс breakpoint commonly используется для планшетов в Bootstrap?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "Bootstrap uses: xs (<576px), sm (≥576px), md (≥768px), lg (≥992px), xl (≥1200px), xxl (≥1400px). Tablets typically use md or lg.",
+            "ru": "Bootstrap использует: xs (<576px), sm (≥576px), md (≥768px), lg (≥992px), xl (≥1200px), xxl (≥1400px). Планшеты обычно используют md или lg."
+          },
+          "answers": [
+            { "text": { "en": "md", "ru": "md" }, "isCorrect": true },
+            { "text": { "en": "xs", "ru": "xs" }, "isCorrect": false },
+            { "text": { "en": "xl", "ru": "xl" }, "isCorrect": false },
+            { "text": { "en": "xxl", "ru": "xxl" }, "isCorrect": false }
+          ]
+        },
+        {
+          "sortOrder": 9,
+          "name": {
+            "en": "What does `@media print` target?",
+            "ru": "На что направлен `@media print`?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "@media print targets printed media and print preview mode. Use it to style documents for printing, hiding interactive elements and adjusting layouts.",
+            "ru": "@media print направлен на печатные носители и режим предпросмотра печати. Используйте его для стилизации документов при печати, скрывая интерактивные элементы и настраивая макеты."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "Print preview and printed documents",
+                "ru": "Предпросмотр печати и напечатанные документы"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": { "en": "All screen devices", "ru": "Все экранные устройства" },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "Mobile phones only", "ru": "Только мобильные телефоны" },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "Television screens", "ru": "Телевизионные экраны" },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 10,
+          "name": {
+            "en": "Which technique allows elements to automatically adjust to available space?",
+            "ru": "Какая техника позволяет элементам автоматически подстраиваться под доступное пространство?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "Fluid layouts use relative units (%, vw, vh) and flexible properties (flexbox, grid) to adapt to different screen sizes without fixed breakpoints.",
+            "ru": "Резиновые макеты используют относительные единицы (%, vw, vh) и гибкие свойства (flexbox, grid) для адаптации к разным размерам экрана без фиксированных breakpoints."
+          },
+          "answers": [
+            {
+              "text": { "en": "Fluid/flexible layouts", "ru": "Резиновые/гибкие макеты" },
+              "isCorrect": true
+            },
+            {
+              "text": { "en": "Fixed pixel layouts", "ru": "Фиксированные пиксельные макеты" },
+              "isCorrect": false
+            },
+            { "text": { "en": "Static layouts", "ru": "Статические макеты" }, "isCorrect": false },
+            {
+              "text": { "en": "Absolute positioning", "ru": "Абсолютное позиционирование" },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 11,
+          "name": {
+            "en": "What is the difference between `min-device-width` and `min-width`?",
+            "ru": "В чём разница между `min-device-width` и `min-width`?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "`min-width` checks the viewport width (browser window), while `min-device-width` checks the device's physical screen width. Use viewport-based for modern responsive design.",
+            "ru": "`min-width` проверяет ширину viewport (окна браузера), а `min-device-width` проверяет физическую ширину экрана устройства. Используйте viewport-based для современного адаптивного дизайна."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "viewport vs physical screen width",
+                "ru": "viewport vs физическая ширина экрана"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": { "en": "mobile vs desktop", "ru": "мобильные vs десктоп" },
+              "isCorrect": false
+            },
+            { "text": { "en": "They are the same", "ru": "Они одинаковы" }, "isCorrect": false },
+            {
+              "text": { "en": "portrait vs landscape", "ru": "портретная vs альбомная" },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 12,
+          "name": {
+            "en": "Which CSS feature enables conditional CSS rules based on container size?",
+            "ru": "Какая CSS-функция позволяет использовать условные CSS-правила на основе размера контейнера?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "Container queries (`@container`) allow you to style elements based on their parent container's size, not the viewport. Use `container-type` to define a container.",
+            "ru": "Контейнерные запросы (`@container`) позволяют стилизовать элементы на основе размера их родительского контейнера, а не viewport. Используйте `container-type` для определения контейнера."
+          },
+          "answers": [
+            {
+              "text": { "en": "Container queries", "ru": "Контейнерные запросы" },
+              "isCorrect": true
+            },
+            { "text": { "en": "Element queries", "ru": "Элементные запросы" }, "isCorrect": false },
+            {
+              "text": { "en": "Parent selectors", "ru": "Родительские селекторы" },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "Context media queries", "ru": "Контекстные медиазапросы" },
+              "isCorrect": false
+            }
+          ]
+        }
+      ]
     },
     {
       "name": { "en": "CSS Grid Layout", "ru": "CSS Grid" },
@@ -57,7 +958,311 @@
         "https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_grid_layout",
         "https://cssgridgarden.com/"
       ],
-      "questions": []
+      "questions": [
+        {
+          "sortOrder": 1,
+          "name": {
+            "en": "Which property defines a grid container?",
+            "ru": "Какое свойство определяет grid-контейнер?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "Setting `display: grid` or `display: inline-grid` on an element turns it into a grid container, enabling all grid layout features.",
+            "ru": "Установка `display: grid` или `display: inline-grid` на элементе превращает его в grid-контейнер, включая все возможности grid-вёрстки."
+          },
+          "answers": [
+            { "text": { "en": "display: grid", "ru": "display: grid" }, "isCorrect": true },
+            { "text": { "en": "grid: container", "ru": "grid: container" }, "isCorrect": false },
+            { "text": { "en": "layout: grid", "ru": "layout: grid" }, "isCorrect": false },
+            { "text": { "en": "position: grid", "ru": "position: grid" }, "isCorrect": false }
+          ]
+        },
+        {
+          "sortOrder": 2,
+          "name": {
+            "en": "What does `grid-template-columns: 1fr 2fr 1fr` create?",
+            "ru": "Что создаёт `grid-template-columns: 1fr 2fr 1fr`?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "The `fr` unit represents a fraction of available space. This creates three columns where the middle column is twice as wide as the outer columns.",
+            "ru": "Единица `fr` представляет долю доступного пространства. Это создаёт три колонки, где средняя колонка в два раза шире крайних."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "Three columns with 1:2:1 ratio",
+                "ru": "Три колонки с соотношением 1:2:1"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": { "en": "Three equal columns", "ru": "Три равные колонки" },
+              "isCorrect": false
+            },
+            { "text": { "en": "Two columns", "ru": "Две колонки" }, "isCorrect": false },
+            { "text": { "en": "A single column", "ru": "Одну колонку" }, "isCorrect": false }
+          ]
+        },
+        {
+          "sortOrder": 3,
+          "name": {
+            "en": "Which property spans an item across multiple grid cells horizontally?",
+            "ru": "Какое свойство растягивает элемент на несколько grid-ячеек по горизонтали?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "`grid-column` is a shorthand for `grid-column-start` and `grid-column-end`. Use `span` keyword: `grid-column: span 2` to span 2 columns.",
+            "ru": "`grid-column` — это сокращение для `grid-column-start` и `grid-column-end`. Используйте ключевое слово `span`: `grid-column: span 2` для растягивания на 2 колонки."
+          },
+          "answers": [
+            { "text": { "en": "grid-column", "ru": "grid-column" }, "isCorrect": true },
+            { "text": { "en": "grid-row", "ru": "grid-row" }, "isCorrect": false },
+            { "text": { "en": "column-span", "ru": "column-span" }, "isCorrect": false },
+            { "text": { "en": "colspan", "ru": "colspan" }, "isCorrect": false }
+          ]
+        },
+        {
+          "sortOrder": 4,
+          "name": {
+            "en": "What is the purpose of `gap` property in CSS Grid?",
+            "ru": "Какова цель свойства `gap` в CSS Grid?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "The `gap` property (or `grid-gap`) sets the space between grid rows and columns. It's shorthand for `row-gap` and `column-gap`.",
+            "ru": "Свойство `gap` (или `grid-gap`) устанавливает пространство между строками и колонками grid. Это сокращение для `row-gap` и `column-gap`."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "Space between grid cells",
+                "ru": "Пространство между ячейками grid"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": { "en": "Container padding", "ru": "Отступы контейнера" },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "Element margins", "ru": "Внешние отступы элементов" },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "Border around grid", "ru": "Граница вокруг grid" },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 5,
+          "name": {
+            "en": "Which grid area can be used to place items in a named grid area?",
+            "ru": "Какое grid-свойство используется для размещения элементов в именованной grid-области?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "The `grid-area` property assigns an item to a named area defined in `grid-template-areas`. It can also specify row/column start and end positions.",
+            "ru": "Свойство `grid-area` назначает элемент в именованную область, определённую в `grid-template-areas`. Оно также может указывать начальную и конечную позиции строк/колонок."
+          },
+          "answers": [
+            { "text": { "en": "grid-area", "ru": "grid-area" }, "isCorrect": true },
+            { "text": { "en": "grid-place", "ru": "grid-place" }, "isCorrect": false },
+            { "text": { "en": "grid-location", "ru": "grid-location" }, "isCorrect": false },
+            { "text": { "en": "grid-position", "ru": "grid-position" }, "isCorrect": false }
+          ]
+        },
+        {
+          "sortOrder": 6,
+          "name": {
+            "en": "What does `minmax(200px, 1fr)` do in grid-template-columns?",
+            "ru": "Что делает `minmax(200px, 1fr)` в grid-template-columns?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "`minmax(200px, 1fr)` creates a column that is at least 200px wide but can grow to fill available space. The item won't shrink below 200px.",
+            "ru": "`minmax(200px, 1fr)` создаёт колонку шириной минимум 200px, но может увеличиваться для заполнения доступного пространства. Элемент не сожмётся меньше 200px."
+          },
+          "answers": [
+            {
+              "text": { "en": "Minimum 200px, maximum 1fr", "ru": "Минимум 200px, максимум 1fr" },
+              "isCorrect": true
+            },
+            {
+              "text": { "en": "Exactly 200px or 1fr", "ru": "Ровно 200px или 1fr" },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "Fixed 200px width", "ru": "Фиксированная ширина 200px" },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "Maximum 200px width", "ru": "Максимальная ширина 200px" },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 7,
+          "name": {
+            "en": "Which keyword makes grid items auto-place in the next available cell?",
+            "ru": "Какое ключевое слово заставляет grid-элементы автоматически размещаться в следующей доступной ячейке?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "The default `grid-auto-flow: row` places items row by row. Use `grid-auto-flow: column` to fill column by column, or `dense` to fill gaps.",
+            "ru": "По умолчанию `grid-auto-flow: row` размещает элементы по строкам. Используйте `grid-auto-flow: column` для заполнения по колонкам или `dense` для заполнения пробелов."
+          },
+          "answers": [
+            {
+              "text": { "en": "auto (default behavior)", "ru": "auto (поведение по умолчанию)" },
+              "isCorrect": true
+            },
+            { "text": { "en": "fill", "ru": "fill" }, "isCorrect": false },
+            { "text": { "en": "next", "ru": "next" }, "isCorrect": false },
+            { "text": { "en": "auto-fill", "ru": "auto-fill" }, "isCorrect": false }
+          ]
+        },
+        {
+          "sortOrder": 8,
+          "name": {
+            "en": "What is the difference between `auto-fill` and `auto-fit` in grid?",
+            "ru": "В чём разница между `auto-fill` и `auto-fit` в grid?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "`auto-fill` creates empty columns if there's space; `auto-fit` collapses empty columns and stretches items to fill available space.",
+            "ru": "`auto-fill` создаёт пустые колонки при наличии пространства; `auto-fit` схлопывает пустые колонки и растягивает элементы для заполнения пространства."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "fit collapses empty tracks; fill keeps them",
+                "ru": "fit схлопывает пустые треки; fill сохраняет их"
+              },
+              "isCorrect": true
+            },
+            { "text": { "en": "They are identical", "ru": "Они идентичны" }, "isCorrect": false },
+            {
+              "text": {
+                "en": "fill is for rows; fit is for columns",
+                "ru": "fill для строк; fit для колонок"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "fit requires more items", "ru": "fit требует больше элементов" },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 9,
+          "name": {
+            "en": "Which property aligns grid items along the row axis?",
+            "ru": "Какое свойство выравнивает grid-элементы по оси строки?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "`align-items` aligns items along the block axis (vertical in horizontal writing mode). `justify-items` aligns along the inline axis (horizontal).",
+            "ru": "`align-items` выравнивает элементы по блочной оси (вертикально в горизонтальном режиме написания). `justify-items` выравнивает по инлайн-оси (горизонтально)."
+          },
+          "answers": [
+            { "text": { "en": "align-items", "ru": "align-items" }, "isCorrect": true },
+            { "text": { "en": "justify-items", "ru": "justify-items" }, "isCorrect": false },
+            { "text": { "en": "align-content", "ru": "align-content" }, "isCorrect": false },
+            { "text": { "en": "justify-content", "ru": "justify-content" }, "isCorrect": false }
+          ]
+        },
+        {
+          "sortOrder": 10,
+          "name": {
+            "en": "What does `grid-column: 1 / -1` specify?",
+            "ru": "Что означает `grid-column: 1 / -1`?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "`grid-column: 1 / -1` spans from the first grid line to the last, making the item span the entire row (in horizontal grids).",
+            "ru": "`grid-column: 1 / -1` простирается от первой grid-линии до последней, заставляя элемент занимать всю строку (в горизонтальных grid)."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "Span from first to last column line",
+                "ru": "От первой до последней колонки"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": { "en": "Start at column 1 only", "ru": "Только начать с колонки 1" },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "End at column 1", "ru": "Закончить на колонке 1" },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "Center the item", "ru": "Центрировать элемент" },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 11,
+          "name": {
+            "en": "Which CSS Grid feature allows implicit rows to be created automatically?",
+            "ru": "Какая функция CSS Grid автоматически создаёт неявные строки?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "`grid-auto-rows` sets the size of implicitly created rows. When items overflow the explicit grid, new rows/columns are created automatically.",
+            "ru": "`grid-auto-rows` устанавливает размер неявно созданных строк. Когда элементы выходят за пределы явного grid, новые строки/колонки создаются автоматически."
+          },
+          "answers": [
+            { "text": { "en": "grid-auto-rows", "ru": "grid-auto-rows" }, "isCorrect": true },
+            {
+              "text": { "en": "grid-implicit-rows", "ru": "grid-implicit-rows" },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "grid-template-rows", "ru": "grid-template-rows" },
+              "isCorrect": false
+            },
+            { "text": { "en": "grid-auto-flow", "ru": "grid-auto-flow" }, "isCorrect": false }
+          ]
+        },
+        {
+          "sortOrder": 12,
+          "name": {
+            "en": "What is a subgrid in CSS Grid?",
+            "ru": "Что такое subgrid в CSS Grid?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "Subgrid (`grid-template-rows/columns: subgrid`) allows nested grids to inherit track sizes from the parent grid, enabling alignment across containers.",
+            "ru": "Subgrid (`grid-template-rows/columns: subgrid`) позволяет вложенным grid наследовать размеры треков от родительского grid, обеспечивая выравнивание через контейнеры."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "Inherits parent grid track sizes for alignment",
+                "ru": "Наследует размеры треков родительского grid для выравнивания"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": { "en": "A smaller grid element", "ru": "Меньший элемент grid" },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "A grid inside a grid cell", "ru": "Grid внутри ячейки grid" },
+              "isCorrect": false
+            },
+            { "text": { "en": "A hidden grid", "ru": "Скрытый grid" }, "isCorrect": false }
+          ]
+        }
+      ]
     },
     {
       "name": { "en": "Flexbox & Positioning", "ru": "Flexbox и позиционирование" },
@@ -69,7 +1274,347 @@
         "https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_flexible_box_layout/Basic_concepts_of_flexbox",
         "https://flexboxfroggy.com/"
       ],
-      "questions": []
+      "questions": [
+        {
+          "sortOrder": 1,
+          "name": {
+            "en": "What does `display: flex` create?",
+            "ru": "Что создаёт `display: flex`?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "`display: flex` creates a flex container. Children become flex items and are laid out along the main axis (horizontal by default).",
+            "ru": "`display: flex` создаёт flex-контейнер. Дочерние элементы становятся flex-элементами и располагаются вдоль главной оси (по умолчанию горизонтально)."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "A flex container for one-dimensional layout",
+                "ru": "Flex-контейнер для одномерной вёрстки"
+              },
+              "isCorrect": true
+            },
+            { "text": { "en": "A grid container", "ru": "Grid-контейнер" }, "isCorrect": false },
+            {
+              "text": { "en": "An inline flex container", "ru": "Инлайн flex-контейнер" },
+              "isCorrect": false
+            },
+            { "text": { "en": "A block element", "ru": "Блочный элемент" }, "isCorrect": false }
+          ]
+        },
+        {
+          "sortOrder": 2,
+          "name": {
+            "en": "Which property aligns flex items along the main axis?",
+            "ru": "Какое свойство выравнивает flex-элементы вдоль главной оси?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "`justify-content` aligns items along the main axis (horizontal by default). Use `align-items` for the cross axis (vertical).",
+            "ru": "`justify-content` выравнивает элементы вдоль главной оси (по умолчанию горизонтально). Используйте `align-items` для поперечной оси (вертикально)."
+          },
+          "answers": [
+            { "text": { "en": "justify-content", "ru": "justify-content" }, "isCorrect": true },
+            { "text": { "en": "align-items", "ru": "align-items" }, "isCorrect": false },
+            { "text": { "en": "align-content", "ru": "align-content" }, "isCorrect": false },
+            { "text": { "en": "flex-align", "ru": "flex-align" }, "isCorrect": false }
+          ]
+        },
+        {
+          "sortOrder": 3,
+          "name": {
+            "en": "What does `flex: 1` do to a flex item?",
+            "ru": "Что делает `flex: 1` с flex-элементом?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "`flex: 1` is shorthand for `flex: 1 1 0%`, meaning the item can grow and shrink equally with other items, with a base size of 0.",
+            "ru": "`flex: 1` — это сокращение для `flex: 1 1 0%`, означающее, что элемент может одинаково расти и сжиматься с другими элементами, с базовым размером 0."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "Grow equally to fill available space",
+                "ru": "Равномерно расти для заполнения пространства"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": { "en": "Fixed width of 1 unit", "ru": "Фиксированная ширина в 1 единицу" },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "Shrink to minimum size", "ru": "Сжиматься до минимума" },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "Always stay 1px wide", "ru": "Всегда оставаться 1px шириной" },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 4,
+          "name": {
+            "en": "What is the default value of flex-direction?",
+            "ru": "Каково значение по умолчанию для flex-direction?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "The default `flex-direction` is `row`, which places items horizontally from left to right (in LTR languages).",
+            "ru": "По умолчанию `flex-direction` — `row`, который размещает элементы горизонтально слева направо (в языках с LTR)."
+          },
+          "answers": [
+            { "text": { "en": "row", "ru": "row" }, "isCorrect": true },
+            { "text": { "en": "column", "ru": "column" }, "isCorrect": false },
+            { "text": { "en": "row-reverse", "ru": "row-reverse" }, "isCorrect": false },
+            { "text": { "en": "column-reverse", "ru": "column-reverse" }, "isCorrect": false }
+          ]
+        },
+        {
+          "sortOrder": 5,
+          "name": {
+            "en": "What does `position: absolute` do?",
+            "ru": "Что делает `position: absolute`?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "`position: absolute` removes the element from normal flow and positions it relative to the nearest positioned ancestor (or viewport if none).",
+            "ru": "`position: absolute` удаляет элемент из обычного потока и позиционирует его относительно ближайшего позиционированного предка (или viewport, если его нет)."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "Positions relative to nearest positioned ancestor",
+                "ru": "Позиционирует относительно ближайшего позиционированного предка"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "Positions relative to viewport only",
+                "ru": "Позиционирует только относительно viewport"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "Positions in normal flow", "ru": "Позиционирует в обычном потоке" },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "Centers the element", "ru": "Центрирует элемент" },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 6,
+          "name": {
+            "en": "Which value of position keeps an element in normal flow but allows offset?",
+            "ru": "Какое значение position сохраняет элемент в нормальном потоке, но позволяет смещение?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "`position: relative` keeps the element in normal flow but allows offset using `top`, `right`, `bottom`, `left` properties. Other elements act as if it's in original position.",
+            "ru": "`position: relative` сохраняет элемент в нормальном потоке, но позволяет смещение с помощью свойств `top`, `right`, `bottom`, `left`. Другие элементы ведут себя так, будто он в исходной позиции."
+          },
+          "answers": [
+            { "text": { "en": "relative", "ru": "relative" }, "isCorrect": true },
+            { "text": { "en": "absolute", "ru": "absolute" }, "isCorrect": false },
+            { "text": { "en": "fixed", "ru": "fixed" }, "isCorrect": false },
+            { "text": { "en": "sticky", "ru": "sticky" }, "isCorrect": false }
+          ]
+        },
+        {
+          "sortOrder": 7,
+          "name": {
+            "en": "What does `flex-wrap: wrap` do?",
+            "ru": "Что делает `flex-wrap: wrap`?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "`flex-wrap: wrap` allows flex items to wrap onto multiple lines when they exceed the container width. Without it, items will shrink or overflow.",
+            "ru": "`flex-wrap: wrap` позволяет flex-элементам переноситься на несколько строк, когда они превышают ширину контейнера. Без него элементы будут сжиматься или переполняться."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "Items wrap to new lines when needed",
+                "ru": "Элементы переносятся на новые строки при необходимости"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "Items stay on one line always",
+                "ru": "Элементы всегда остаются на одной строке"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Items rotate when wrapping",
+                "ru": "Элементы поворачиваются при переносе"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "Creates a flex column", "ru": "Создаёт flex-колонку" },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 8,
+          "name": {
+            "en": "What does `position: fixed` position relative to?",
+            "ru": "Относительно чего позиционируется `position: fixed`?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "`position: fixed` positions the element relative to the viewport. It stays in place when the page is scrolled and is removed from normal flow.",
+            "ru": "`position: fixed` позиционирует элемент относительно viewport. Он остаётся на месте при прокрутке страницы и удалён из нормального потока."
+          },
+          "answers": [
+            { "text": { "en": "The viewport", "ru": "Viewport" }, "isCorrect": true },
+            {
+              "text": {
+                "en": "The nearest positioned ancestor",
+                "ru": "Ближайший позиционированный предок"
+              },
+              "isCorrect": false
+            },
+            { "text": { "en": "The document body", "ru": "Тело документа" }, "isCorrect": false },
+            {
+              "text": { "en": "The parent element", "ru": "Родительский элемент" },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 9,
+          "name": {
+            "en": "Which flex property controls the order of items?",
+            "ru": "Какое flex-свойство управляет порядком элементов?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "The `order` property controls the visual order of flex items. Items default to `order: 0`. Negative values come first, positive values come after.",
+            "ru": "Свойство `order` управляет визуальным порядком flex-элементов. По умолчанию `order: 0`. Отрицательные значения идут первыми, положительные — после."
+          },
+          "answers": [
+            { "text": { "en": "order", "ru": "order" }, "isCorrect": true },
+            { "text": { "en": "flex-order", "ru": "flex-order" }, "isCorrect": false },
+            { "text": { "en": "sort", "ru": "sort" }, "isCorrect": false },
+            { "text": { "en": "position", "ru": "position" }, "isCorrect": false }
+          ]
+        },
+        {
+          "sortOrder": 10,
+          "name": {
+            "en": "What is `align-self` used for?",
+            "ru": "Для чего используется `align-self`?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "`align-self` overrides the container's `align-items` for a specific flex item. It aligns the item along the cross axis.",
+            "ru": "`align-self` переопределяет `align-items` контейнера для конкретного flex-элемента. Он выравнивает элемент вдоль поперечной оси."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "Override alignment for a single item",
+                "ru": "Переопределить выравнивание для одного элемента"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": { "en": "Align all items", "ru": "Выровнять все элементы" },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "Set flex direction", "ru": "Установить направление flex" },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Create a self-sizing element",
+                "ru": "Создать самонастраивающийся элемент"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 11,
+          "name": {
+            "en": "What does `margin: auto` do in a flex container with horizontal layout?",
+            "ru": "Что делает `margin: auto` в flex-контейнере с горизонтальным расположением?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "In flexbox, `margin: auto` absorbs all available space in that direction, centering the element if there's space on both sides.",
+            "ru": "В flexbox `margin: auto` поглощает всё доступное пространство в этом направлении, центрируя элемент, если есть пространство с обеих сторон."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "Centers the element horizontally",
+                "ru": "Центрирует элемент по горизонтали"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "Adds space around element",
+                "ru": "Добавляет пространство вокруг элемента"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "Removes all margins", "ru": "Удаляет все отступы" },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "Does nothing in flexbox", "ru": "Ничего не делает в flexbox" },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 12,
+          "name": {
+            "en": "What does `position: sticky` do?",
+            "ru": "Что делает `position: sticky`?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "`position: sticky` toggles between `relative` and `fixed` based on scroll position. It sticks to a position when the user scrolls past it.",
+            "ru": "`position: sticky` переключается между `relative` и `fixed` в зависимости от позиции прокрутки. Элемент \"прилипает\" к позиции, когда пользователь прокручивает мимо."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "Sticks to position during scroll",
+                "ru": "Прилипает к позиции при прокрутке"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": { "en": "Fixed to viewport always", "ru": "Всегда фиксирован к viewport" },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "Relative to parent only", "ru": "Относительно только родителя" },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "Creates a floating effect", "ru": "Создаёт плавающий эффект" },
+              "isCorrect": false
+            }
+          ]
+        }
+      ]
     },
     {
       "name": { "en": "HTML Forms & Validation", "ru": "HTML-формы и валидация" },
@@ -81,7 +1626,287 @@
         "https://developer.mozilla.org/en-US/docs/Learn_web_development/Extensions/Forms",
         "https://developer.mozilla.org/en-US/docs/Learn_web_development/Extensions/Forms/Form_validation"
       ],
-      "questions": []
+      "questions": [
+        {
+          "sortOrder": 1,
+          "name": {
+            "en": "Which attribute makes an input field required?",
+            "ru": "Какой атрибут делает поле ввода обязательным?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "The `required` attribute prevents form submission if the field is empty. The browser will show a validation error.",
+            "ru": "Атрибут `required` предотвращает отправку формы, если поле пустое. Браузер покажет ошибку валидации."
+          },
+          "answers": [
+            { "text": { "en": "required", "ru": "required" }, "isCorrect": true },
+            { "text": { "en": "mandatory", "ru": "mandatory" }, "isCorrect": false },
+            { "text": { "en": "necessary", "ru": "necessary" }, "isCorrect": false },
+            { "text": { "en": "must", "ru": "must" }, "isCorrect": false }
+          ]
+        },
+        {
+          "sortOrder": 2,
+          "name": {
+            "en": "Which input type validates email format automatically?",
+            "ru": "Какой тип ввода автоматически проверяет формат email?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "The `type=\"email\"` input provides built-in email validation. The browser checks for valid email format before submission.",
+            "ru": "Ввод `type=\"email\"` предоставляет встроенную валидацию email. Браузер проверяет правильность формата email перед отправкой."
+          },
+          "answers": [
+            { "text": { "en": "type=\"email\"", "ru": "type=\"email\"" }, "isCorrect": true },
+            { "text": { "en": "type=\"mail\"", "ru": "type=\"mail\"" }, "isCorrect": false },
+            { "text": { "en": "type=\"e-mail\"", "ru": "type=\"e-mail\"" }, "isCorrect": false },
+            { "text": { "en": "type=\"address\"", "ru": "type=\"address\"" }, "isCorrect": false }
+          ]
+        },
+        {
+          "sortOrder": 3,
+          "name": {
+            "en": "What does the `pattern` attribute do?",
+            "ru": "Что делает атрибут `pattern`?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "The `pattern` attribute specifies a regular expression that the input's value must match for validation.",
+            "ru": "Атрибут `pattern` задаёт регулярное выражение, которому должно соответствовать значение ввода для валидации."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "Validates input against a regex",
+                "ru": "Проверяет ввод по регулярному выражению"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": { "en": "Changes input type", "ru": "Изменяет тип ввода" },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "Formats the input value", "ru": "Форматирует значение ввода" },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Creates a pattern in the background",
+                "ru": "Создаёт паттерн на фоне"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 4,
+          "name": {
+            "en": "Which element groups related form controls?",
+            "ru": "Какой элемент группирует связанные элементы формы?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "The `<fieldset>` element groups several controls and labels together. The `<legend>` element provides a caption for the fieldset.",
+            "ru": "Элемент `<fieldset>` группирует несколько элементов управления и меток вместе. Элемент `<legend>` предоставляет заголовок для fieldset."
+          },
+          "answers": [
+            { "text": { "en": "<fieldset>", "ru": "<fieldset>" }, "isCorrect": true },
+            { "text": { "en": "<group>", "ru": "<group>" }, "isCorrect": false },
+            { "text": { "en": "<formgroup>", "ru": "<formgroup>" }, "isCorrect": false },
+            { "text": { "en": "<section>", "ru": "<section>" }, "isCorrect": false }
+          ]
+        },
+        {
+          "sortOrder": 5,
+          "name": {
+            "en": "What does `autocomplete` attribute control?",
+            "ru": "Что управляет атрибутом `autocomplete`?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "The `autocomplete` attribute tells the browser whether to enable autofill for the field. Values like `name`, `email`, `tel` help browsers provide appropriate suggestions.",
+            "ru": "Атрибут `autocomplete` сообщает браузеру, нужно ли включать автозаполнение для поля. Значения типа `name`, `email`, `tel` помогают браузерам предлагать подходящие варианты."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "Browser autofill suggestions",
+                "ru": "Подсказки автозаполнения браузера"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": { "en": "Form submission method", "ru": "Метод отправки формы" },
+              "isCorrect": false
+            },
+            { "text": { "en": "Input validation", "ru": "Валидация ввода" }, "isCorrect": false },
+            { "text": { "en": "Field visibility", "ru": "Видимость поля" }, "isCorrect": false }
+          ]
+        },
+        {
+          "sortOrder": 6,
+          "name": {
+            "en": "Which input type creates a slider control?",
+            "ru": "Какой тип ввода создаёт ползунок?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "The `type=\"range\"` input creates a slider control. Use `min`, `max`, and `step` attributes to define the range and increment values.",
+            "ru": "Ввод `type=\"range\"` создаёт ползунок. Используйте атрибуты `min`, `max` и `step` для определения диапазона и значений шага."
+          },
+          "answers": [
+            { "text": { "en": "type=\"range\"", "ru": "type=\"range\"" }, "isCorrect": true },
+            { "text": { "en": "type=\"slider\"", "ru": "type=\"slider\"" }, "isCorrect": false },
+            { "text": { "en": "type=\"seek\"", "ru": "type=\"seek\"" }, "isCorrect": false },
+            { "text": { "en": "type=\"drag\"", "ru": "type=\"drag\"" }, "isCorrect": false }
+          ]
+        },
+        {
+          "sortOrder": 7,
+          "name": {
+            "en": "What is the purpose of the `for` attribute on a label?",
+            "ru": "Какова цель атрибута `for` на label?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "The `for` attribute associates a label with a form control. Clicking the label focuses or toggles the associated input.",
+            "ru": "Атрибут `for` связывает метку с элементом управления формы. Клик по метке фокусирует или переключает связанный ввод."
+          },
+          "answers": [
+            {
+              "text": { "en": "Associates label with input", "ru": "Связывает метку с вводом" },
+              "isCorrect": true
+            },
+            {
+              "text": { "en": "Specifies input format", "ru": "Указывает формат ввода" },
+              "isCorrect": false
+            },
+            { "text": { "en": "Creates a reference", "ru": "Создаёт ссылку" }, "isCorrect": false },
+            {
+              "text": { "en": "Defines label styling", "ru": "Определяет стиль метки" },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 8,
+          "name": {
+            "en": "Which input type is used for color picker?",
+            "ru": "Какой тип ввода используется для выбора цвета?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "The `type=\"color\"` input provides a color picker interface. It returns a hex color code as the value.",
+            "ru": "Ввод `type=\"color\"` предоставляет интерфейс выбора цвета. Он возвращает hex-код цода как значение."
+          },
+          "answers": [
+            { "text": { "en": "type=\"color\"", "ru": "type=\"color\"" }, "isCorrect": true },
+            { "text": { "en": "type=\"pick\"", "ru": "type=\"pick\"" }, "isCorrect": false },
+            { "text": { "en": "type=\"hue\"", "ru": "type=\"hue\"" }, "isCorrect": false },
+            { "text": { "en": "type=\"rgb\"", "ru": "type=\"rgb\"" }, "isCorrect": false }
+          ]
+        },
+        {
+          "sortOrder": 9,
+          "name": {
+            "en": "What does the `novalidate` attribute do?",
+            "ru": "Что делает атрибут `novalidate`?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "The `novalidate` attribute on a form disables HTML5 built-in validation, allowing custom validation via JavaScript.",
+            "ru": "Атрибут `novalidate` на форме отключает встроенную валидацию HTML5, позволяя использовать собственную валидацию через JavaScript."
+          },
+          "answers": [
+            {
+              "text": { "en": "Disables browser validation", "ru": "Отключает валидацию браузера" },
+              "isCorrect": true
+            },
+            {
+              "text": { "en": "Makes all fields required", "ru": "Делает все поля обязательными" },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Enables custom validation only",
+                "ru": "Включает только пользовательскую валидацию"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "Creates a validation UI", "ru": "Создаёт UI валидации" },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 10,
+          "name": {
+            "en": "Which element is the proper way to create a multiline text input?",
+            "ru": "Какой элемент является правильным способом создания многострочного текстового ввода?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "The `<textarea>` element creates a multiline text input. Use `rows` and `cols` attributes or CSS to control its size.",
+            "ru": "Элемент `<textarea>` создаёт многострочный текстовый ввод. Используйте атрибуты `rows` и `cols` или CSS для управления размером."
+          },
+          "answers": [
+            { "text": { "en": "<textarea>", "ru": "<textarea>" }, "isCorrect": true },
+            {
+              "text": { "en": "<input type=\"multiline\">", "ru": "<input type=\"multiline\">" },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "<input type=\"text\"> with multiple",
+                "ru": "<input type=\"text\"> с multiple"
+              },
+              "isCorrect": false
+            },
+            { "text": { "en": "<text>", "ru": "<text>" }, "isCorrect": false }
+          ]
+        },
+        {
+          "sortOrder": 11,
+          "name": {
+            "en": "What is the correct way to set a minimum value for number input?",
+            "ru": "Какой правильный способ установить минимальное значение для числового ввода?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "The `min` attribute sets the minimum value for number, range, date, and other numeric inputs. Use `max` for the maximum value.",
+            "ru": "Атрибут `min` устанавливает минимальное значение для number, range, даты и других числовых вводов. Используйте `max` для максимального значения."
+          },
+          "answers": [
+            { "text": { "en": "min=\"value\"", "ru": "min=\"value\"" }, "isCorrect": true },
+            {
+              "text": { "en": "minimum=\"value\"", "ru": "minimum=\"value\"" },
+              "isCorrect": false
+            },
+            { "text": { "en": "lowest=\"value\"", "ru": "lowest=\"value\"" }, "isCorrect": false },
+            { "text": { "en": "floor=\"value\"", "ru": "floor=\"value\"" }, "isCorrect": false }
+          ]
+        },
+        {
+          "sortOrder": 12,
+          "name": {
+            "en": "Which attribute provides a hint for expected input?",
+            "ru": "Какой атрибут подсказывает ожидаемый ввод?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "The `placeholder` attribute provides a hint that describes the expected value. It disappears when the user starts typing.",
+            "ru": "Атрибут `placeholder` предоставляет подсказку, описывающую ожидаемое значение. Она исчезает, когда пользователь начинает вводить текст."
+          },
+          "answers": [
+            { "text": { "en": "placeholder", "ru": "placeholder" }, "isCorrect": true },
+            { "text": { "en": "hint", "ru": "hint" }, "isCorrect": false },
+            { "text": { "en": "example", "ru": "example" }, "isCorrect": false },
+            { "text": { "en": "guide", "ru": "guide" }, "isCorrect": false }
+          ]
+        }
+      ]
     },
     {
       "name": { "en": "CSS Preprocessors: Sass", "ru": "CSS-препроцессоры: Sass" },
@@ -90,7 +1915,332 @@
         "ru": "Расширение CSS с помощью переменных, вложенности, миксинов и функций через Sass"
       },
       "links": ["https://sass-lang.com/guide", "https://www.w3schools.com/sass/sass_intro.asp"],
-      "questions": []
+      "questions": [
+        {
+          "sortOrder": 1,
+          "name": {
+            "en": "Which symbol declares a variable in Sass?",
+            "ru": "Какой символ объявляет переменную в Sass?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "Sass uses `$` to declare variables. For example: `$primary-color: #333;` stores a color value that can be reused.",
+            "ru": "Sass использует `$` для объявления переменных. Например: `$primary-color: #333;` сохраняет значение цвета для повторного использования."
+          },
+          "answers": [
+            { "text": { "en": "$", "ru": "$" }, "isCorrect": true },
+            { "text": { "en": "@", "ru": "@" }, "isCorrect": false },
+            { "text": { "en": "var", "ru": "var" }, "isCorrect": false },
+            { "text": { "en": "#", "ru": "#" }, "isCorrect": false }
+          ]
+        },
+        {
+          "sortOrder": 2,
+          "name": {
+            "en": "What is nesting in Sass?",
+            "ru": "Что такое вложенность в Sass?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "Nesting allows you to write child selectors inside parent selectors, mirroring the HTML structure. It makes code more readable but should not be overused.",
+            "ru": "Вложенность позволяет писать дочерние селекторы внутри родительских, отражая структуру HTML. Это делает код более читаемым, но не стоит злоупотреблять."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "Writing selectors inside other selectors",
+                "ru": "Написание селекторов внутри других селекторов"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": { "en": "Creating multiple files", "ru": "Создание нескольких файлов" },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Defining multiple variables",
+                "ru": "Определение нескольких переменных"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "Compiling CSS files", "ru": "Компиляция CSS-файлов" },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 3,
+          "name": {
+            "en": "What does a mixin do in Sass?",
+            "ru": "Что делает миксин в Sass?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "A mixin is a reusable block of styles that can be included in other selectors using `@include`. You can pass arguments for dynamic styling.",
+            "ru": "Миксин — это переиспользуемый блок стилей, который можно включить в другие селекторы с помощью `@include`. Можно передавать аргументы для динамической стилизации."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "Reusable style blocks with optional arguments",
+                "ru": "Переиспользуемые блоки стилей с опциональными аргументами"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": { "en": "A way to import files", "ru": "Способ импорта файлов" },
+              "isCorrect": false
+            },
+            { "text": { "en": "A loop construct", "ru": "Конструкция цикла" }, "isCorrect": false },
+            { "text": { "en": "A variable type", "ru": "Тип переменной" }, "isCorrect": false }
+          ]
+        },
+        {
+          "sortOrder": 4,
+          "name": {
+            "en": "Which directive imports another Sass file?",
+            "ru": "Какая директива импортирует другой Sass-файл?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "The `@import` directive imports other Sass files. Partials (files starting with `_`) contain reusable code and are imported without the underscore.",
+            "ru": "Директива `@import` импортирует другие Sass-файлы. Partials (файлы с `_`) содержат переиспользуемый код и импортируются без подчёркивания."
+          },
+          "answers": [
+            { "text": { "en": "@import", "ru": "@import" }, "isCorrect": true },
+            { "text": { "en": "@include", "ru": "@include" }, "isCorrect": false },
+            { "text": { "en": "@use", "ru": "@use" }, "isCorrect": false },
+            { "text": { "en": "@require", "ru": "@require" }, "isCorrect": false }
+          ]
+        },
+        {
+          "sortOrder": 5,
+          "name": {
+            "en": "What is the SCSS syntax?",
+            "ru": "Что такое синтаксис SCSS?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "SCSS (Sassy CSS) is a syntax extension of CSS that uses curly braces and semicolons, similar to regular CSS but with additional Sass features.",
+            "ru": "SCSS (Sassy CSS) — это синтаксическое расширение CSS, использующее фигурные скобки и точки с запятой, похожее на обычный CSS, но с дополнительными возможностями Sass."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "CSS-like syntax with curly braces",
+                "ru": "CSS-подобный синтаксис с фигурными скобками"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": { "en": "Indentation-based syntax", "ru": "Синтаксис на основе отступов" },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "JavaScript syntax", "ru": "Синтаксис JavaScript" },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "HTML-like syntax", "ru": "Синтаксис, похожий на HTML" },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 6,
+          "name": {
+            "en": "What does the `&` parent selector do in Sass?",
+            "ru": "Что делает родительский селектор `&` в Sass?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "The `&` references the parent selector. It's useful for pseudo-classes, modifier classes, and nested conditions without repeating the parent.",
+            "ru": "`&` ссылается на родительский селектор. Это полезно для псевдоклассов, модификаторов и вложенных условий без повторения родителя."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "References the parent selector",
+                "ru": "Ссылается на родительский селектор"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": { "en": "Creates a new selector", "ru": "Создаёт новый селектор" },
+              "isCorrect": false
+            },
+            { "text": { "en": "Ends a block", "ru": "Завершает блок" }, "isCorrect": false },
+            {
+              "text": { "en": "Declares a variable", "ru": "Объявляет переменную" },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 7,
+          "name": {
+            "en": "What is a partial in Sass?",
+            "ru": "Что такое partial в Sass?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "A partial is a Sass file named with an underscore (e.g., `_variables.scss`) that contains reusable code meant to be imported, not compiled separately.",
+            "ru": "Partial — это Sass-файл с именем через подчёркивание (например, `_variables.scss`), который содержит переиспользуемый код для импорта, а не отдельной компиляции."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "File with _ prefix for reusable code",
+                "ru": "Файл с _ префиксом для переиспользуемого кода"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": { "en": "A compiled CSS file", "ru": "Скомпилированный CSS-файл" },
+              "isCorrect": false
+            },
+            { "text": { "en": "A function in Sass", "ru": "Функция в Sass" }, "isCorrect": false },
+            {
+              "text": { "en": "A mixin without arguments", "ru": "Миксин без аргументов" },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 8,
+          "name": {
+            "en": "Which control directive creates styles conditionally?",
+            "ru": "Какая управляющая директива создаёт стили условно?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "The `@if` directive conditionally includes styles. Use `@else if` and `@else` for alternative conditions. Use `@for`, `@each`, `@while` for loops.",
+            "ru": "Директива `@if` условно включает стили. Используйте `@else if` и `@else` для альтернативных условий. Используйте `@for`, `@each`, `@while` для циклов."
+          },
+          "answers": [
+            { "text": { "en": "@if", "ru": "@if" }, "isCorrect": true },
+            { "text": { "en": "@when", "ru": "@when" }, "isCorrect": false },
+            { "text": { "en": "@case", "ru": "@case" }, "isCorrect": false },
+            { "text": { "en": "@check", "ru": "@check" }, "isCorrect": false }
+          ]
+        },
+        {
+          "sortOrder": 9,
+          "name": {
+            "en": "How do you use a mixin with arguments?",
+            "ru": "Как использовать миксин с аргументами?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "Define a mixin with parameters: `@mixin border-radius($radius) { ... }`. Include it with arguments: `@include border-radius(5px);`.",
+            "ru": "Определите миксин с параметрами: `@mixin border-radius($radius) { ... }`. Включите его с аргументами: `@include border-radius(5px);`."
+          },
+          "answers": [
+            {
+              "text": { "en": "@include mixin-name(arg)", "ru": "@include mixin-name(arg)" },
+              "isCorrect": true
+            },
+            {
+              "text": { "en": "@use mixin-name(arg)", "ru": "@use mixin-name(arg)" },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "@apply mixin-name(arg)", "ru": "@apply mixin-name(arg)" },
+              "isCorrect": false
+            },
+            { "text": { "en": "mixin-name(arg)", "ru": "mixin-name(arg)" }, "isCorrect": false }
+          ]
+        },
+        {
+          "sortOrder": 10,
+          "name": {
+            "en": "What is the purpose of the @extend directive?",
+            "ru": "Какова цель директивы @extend?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "`@extend` allows one selector to inherit the styles of another. It promotes code reuse but can create complex selector chains.",
+            "ru": "`@extend` позволяет одному селектору наследовать стили другого. Это способствует переиспользованию кода, но может создавать сложные цепочки селекторов."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "Inherit styles from another selector",
+                "ru": "Наследовать стили от другого селектора"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": { "en": "Import external styles", "ru": "Импортировать внешние стили" },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Override existing styles",
+                "ru": "Переопределить существующие стили"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "Create a new selector", "ru": "Создать новый селектор" },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 11,
+          "name": {
+            "en": "Which built-in Sass function manipulates colors?",
+            "ru": "Какая встроенная функция Sass манипулирует цветами?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "Sass provides color functions like `lighten()`, `darken()`, `mix()`, `rgba()`. For example: `lighten($color, 20%)` makes a color lighter.",
+            "ru": "Sass предоставляет функции для работы с цветом: `lighten()`, `darken()`, `mix()`, `rgba()`. Например: `lighten($color, 20%)` осветляет цвет."
+          },
+          "answers": [
+            {
+              "text": { "en": "lighten(), darken(), mix()", "ru": "lighten(), darken(), mix()" },
+              "isCorrect": true
+            },
+            { "text": { "en": "upper(), lower()", "ru": "upper(), lower()" }, "isCorrect": false },
+            { "text": { "en": "round(), floor()", "ru": "round(), floor()" }, "isCorrect": false },
+            { "text": { "en": "trim(), split()", "ru": "trim(), split()" }, "isCorrect": false }
+          ]
+        },
+        {
+          "sortOrder": 12,
+          "name": {
+            "en": "What is the difference between .sass and .scss file extensions?",
+            "ru": "В чём разница между расширениями .sass и .scss?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": ".scss uses CSS-like syntax with braces and semicolons. .sass uses indentation-based syntax without braces. SCSS is the modern default.",
+            "ru": ".scss использует CSS-подобный синтаксис с фигурными скобками и точками с запятой. .sass использует синтаксис на основе отступов без скобок. SCSS — современный стандарт."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "Braces vs indentation syntax",
+                "ru": "Синтаксис со скобками vs на отступах"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": { "en": "Compiled vs source", "ru": "Компилированный vs исходный" },
+              "isCorrect": false
+            },
+            { "text": { "en": "Windows vs Mac", "ru": "Windows vs Mac" }, "isCorrect": false },
+            {
+              "text": { "en": "New vs old version", "ru": "Новая vs старая версия" },
+              "isCorrect": false
+            }
+          ]
+        }
+      ]
     },
     {
       "name": {
@@ -105,7 +2255,389 @@
         "https://css-tricks.com/css-modules/",
         "https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Cascading_variables"
       ],
-      "questions": []
+      "questions": [
+        {
+          "sortOrder": 1,
+          "name": {
+            "en": "What is the main benefit of CSS Modules?",
+            "ru": "Какова главная выгода CSS Modules?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "CSS Modules provide scoped styles by default, preventing style conflicts between components. Each class gets a unique generated name.",
+            "ru": "CSS Modules по умолчанию предоставляют изолированные стили, предотвращая конфликты стилей между компонентами. Каждый класс получает уникальное сгенерированное имя."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "Scoped styles that prevent conflicts",
+                "ru": "Изолированные стили, предотвращающие конфликты"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": { "en": "Faster page loading", "ru": "Более быстрая загрузка страницы" },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Automatic vendor prefixes",
+                "ru": "Автоматические вендорные префиксы"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "Server-side rendering", "ru": "Рендеринг на стороне сервера" },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 2,
+          "name": {
+            "en": "How are CSS custom properties (variables) defined?",
+            "ru": "Как определяются кастомные CSS-свойства (переменные)?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "CSS custom properties are defined with `--` prefix: `:root { --primary: #333; }`. They're accessed using `var(--primary)`.",
+            "ru": "Кастомные CSS-свойства определяются с префиксом `--`: `:root { --primary: #333; }`. Доступ к ним через `var(--primary)`."
+          },
+          "answers": [
+            { "text": { "en": "--property-name", "ru": "--property-name" }, "isCorrect": true },
+            { "text": { "en": "$property-name", "ru": "$property-name" }, "isCorrect": false },
+            { "text": { "en": "@property-name", "ru": "@property-name" }, "isCorrect": false },
+            { "text": { "en": "*property-name", "ru": "*property-name" }, "isCorrect": false }
+          ]
+        },
+        {
+          "sortOrder": 3,
+          "name": {
+            "en": "What does container querying enable?",
+            "ru": "Что позволяет контейнерное запросование?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "Container queries (`@container`) style elements based on their parent container's size, not the viewport. Use `container-type` to define a container.",
+            "ru": "Контейнерные запросы (`@container`) стилизуют элементы на основе размера их родительского контейнера, а не viewport. Используйте `container-type` для определения контейнера."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "Style elements based on parent container size",
+                "ru": "Стилизовать элементы на основе размера родительского контейнера"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": { "en": "Query external containers", "ru": "Запрашивать внешние контейнеры" },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "Create new DOM containers", "ru": "Создавать новые DOM-контейнеры" },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Load containers asynchronously",
+                "ru": "Асинхронно загружать контейнеры"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 4,
+          "name": {
+            "en": "Which CSS property creates a query container?",
+            "ru": "Какое CSS-свойство создаёт контейнер для запросов?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "The `container-type` property establishes a query container. Values: `inline-size` (width), `size` (width and height), or `normal` (none).",
+            "ru": "Свойство `container-type` создаёт контейнер для запросов. Значения: `inline-size` (ширина), `size` (ширина и высота), или `normal` (нет)."
+          },
+          "answers": [
+            { "text": { "en": "container-type", "ru": "container-type" }, "isCorrect": true },
+            { "text": { "en": "query-container", "ru": "query-container" }, "isCorrect": false },
+            { "text": { "en": "container-query", "ru": "container-query" }, "isCorrect": false },
+            {
+              "text": { "en": "establish-container", "ru": "establish-container" },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 5,
+          "name": {
+            "en": "What is the :is() pseudo-class used for?",
+            "ru": "Для чего используется псевдокласс :is()?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": ":is() matches any element that matches any selector in the list. `:is(h1, h2, h3)` matches h1, h2, or h3. It simplifies group selectors.",
+            "ru": ":is() соответствует любому элементу, соответствующему любому селектору в списке. `:is(h1, h2, h3)` соответствует h1, h2 или h3. Это упрощает групповые селекторы."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "Match multiple selectors in one rule",
+                "ru": "Соответствовать нескольким селекторам в одном правиле"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": { "en": "Check if element is visible", "ru": "Проверить, виден ли элемент" },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "Select the last element", "ru": "Выбрать последний элемент" },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "Create a new element type", "ru": "Создать новый тип элемента" },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 6,
+          "name": {
+            "en": "What does the :where() selector do differently from :is()?",
+            "ru": "Чем селектор :where() отличается от :is()?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": ":where() has zero specificity, while :is() takes the specificity of its most specific selector. :where() styles always apply without specificity conflicts.",
+            "ru": ":where() имеет нулевую специфичность, тогда как :is() берёт специфичность своего наиболее специфичного селектора. Стили :where() всегда применяются без конфликтов специфичности."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "Zero specificity vs inherited specificity",
+                "ru": "Нулевая специфичность vs унаследованная специфичность"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": { "en": "Matches fewer elements", "ru": "Соответствует меньше элементам" },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "Only works with classes", "ru": "Работает только с классами" },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "Creates scoped styles", "ru": "Создаёт изолированные стили" },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 7,
+          "name": {
+            "en": "What is the purpose of the @property rule?",
+            "ru": "Какова цель правила @property?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "@property registers custom properties with type, initial value, and inheritance. This enables animations and proper syntax checking for CSS variables.",
+            "ru": "@property регистрирует кастомные свойства с типом, начальным значением и наследованием. Это включает анимации и правильную проверку синтаксиса для CSS-переменных."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "Register custom properties with types",
+                "ru": "Регистрировать кастомные свойства с типами"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": { "en": "Create new CSS elements", "ru": "Создавать новые CSS-элементы" },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "Define keyframe animations", "ru": "Определять анимации keyframes" },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Import external stylesheets",
+                "ru": "Импортировать внешние таблицы стилей"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 8,
+          "name": {
+            "en": "What does CSS nesting allow you to do?",
+            "ru": "Что позволяет делать вложенность CSS?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "CSS nesting (native, not just Sass) allows nesting selectors inside other selectors, similar to Sass. Use `&` to reference the parent selector.",
+            "ru": "Вложенность CSS (нативная, не только в Sass) позволяет вкладывать селекторы внутрь других селекторов. Используйте `&` для ссылки на родительский селектор."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "Nest selectors inside other selectors",
+                "ru": "Вкладывать селекторы внутрь других селекторов"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": { "en": "Create new HTML elements", "ru": "Создавать новые HTML-элементы" },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Import CSS files into each other",
+                "ru": "Импортировать CSS-файлы друг в друга"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Define CSS variables globally",
+                "ru": "Определять глобальные CSS-переменные"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 9,
+          "name": {
+            "en": "What is the cascade layer (@layer) used for?",
+            "ru": "Для чего используется каскадный слой (@layer)?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "@layer creates explicit cascade layers, controlling style precedence. Styles in layers come before unlayered styles, and layer order determines precedence.",
+            "ru": "@layer создаёт явные каскадные слои, контролируя приоритет стилей. Стили в слоях идут перед беслоевыми, а порядок слоёв определяет приоритет."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "Explicit cascade control for style precedence",
+                "ru": "Явный контроль каскада для приоритета стилей"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "Layer styles on top of each other",
+                "ru": "Наслаивать стили друг на друга"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "Create 3D effects", "ru": "Создавать 3D-эффекты" },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "Add background layers", "ru": "Добавлять фоновые слои" },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 10,
+          "name": {
+            "en": "Which selector targets elements without a specific class?",
+            "ru": "Какой селектор выбирает элементы без определённого класса?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "The `:not(.class)` selector targets elements that don't have the specified class. More generally, `:not()` accepts any valid selector.",
+            "ru": "Селектор `:not(.class)` выбирает элементы без указанного класса. В общем случае `:not()` принимает любой допустимый селектор."
+          },
+          "answers": [
+            { "text": { "en": ":not(.class)", "ru": ":not(.class)" }, "isCorrect": true },
+            { "text": { "en": ":without(.class)", "ru": ":without(.class)" }, "isCorrect": false },
+            { "text": { "en": ":except(.class)", "ru": ":except(.class)" }, "isCorrect": false },
+            { "text": { "en": ":none(.class)", "ru": ":none(.class)" }, "isCorrect": false }
+          ]
+        },
+        {
+          "sortOrder": 11,
+          "name": {
+            "en": "What does the :has() selector do?",
+            "ru": "Что делает селектор :has()?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": ":has() is a parent/descendant selector. `div:has(.child)` selects divs that contain elements with class child. It's called the \"parent selector\".",
+            "ru": ":has() — это селектор родителя/потомка. `div:has(.child)` выбирает div, содержащие элементы с классом child. Его называют \"родительским селектором\"."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "Select parent elements containing a child",
+                "ru": "Выбирать родительские элементы, содержащие потомка"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "Check if element has a class",
+                "ru": "Проверить, есть ли у элемента класс"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "Create new CSS classes", "ru": "Создавать новые CSS-классы" },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "Hide elements conditionally", "ru": "Условно скрывать элементы" },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 12,
+          "name": {
+            "en": "What is the logical properties approach in modern CSS?",
+            "ru": "Каков подход логических свойств в современном CSS?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "Logical properties use flow-relative directions (inline/start/end) instead of physical directions (left/right/top/bottom), supporting both LTR and RTL languages.",
+            "ru": "Логические свойства используют направления относительно потока (inline/start/end) вместо физических направлений (left/right/top/bottom), поддерживая языки LTR и RTL."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "Use inline/start/end instead of left/right/top/bottom",
+                "ru": "Использовать inline/start/end вместо left/right/top/bottom"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "Use only left/right/top/bottom",
+                "ru": "Использовать только left/right/top/bottom"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "Remove all CSS properties", "ru": "Удалить все CSS-свойства" },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Create new CSS keywords",
+                "ru": "Создавать новые CSS-ключевые слова"
+              },
+              "isCorrect": false
+            }
+          ]
+        }
+      ]
     }
   ]
 }
