@@ -1,0 +1,3198 @@
+{
+  "category": {
+    "name": { "en": "Browser APIs & DOM", "ru": "Браузерные API и DOM" },
+    "description": {
+      "en": "Browser platform: DOM manipulation, events, storage, the event loop, and browser APIs",
+      "ru": "Платформа браузера: манипуляции с DOM, события, хранилище, цикл событий и браузерные API"
+    }
+  },
+  "topics": [
+    {
+      "name": { "en": "DOM API", "ru": "DOM API" },
+      "description": {
+        "en": "The Document Object Model: querying, creating, and modifying elements programmatically",
+        "ru": "Document Object Model: поиск, создание и изменение элементов программным способом"
+      },
+      "links": [
+        "https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model",
+        "https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Scripting/DOM_scripting"
+      ],
+      "questions": [
+        {
+          "sortOrder": 1,
+          "name": {
+            "en": "Which method selects a single element by ID?",
+            "ru": "Какой метод выбирает один элемент по ID?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "`document.getElementById()` returns the element with the specified ID, or `null` if not found.",
+            "ru": "`document.getElementById()` возвращает элемент с указанным ID или `null`, если не найден."
+          },
+          "answers": [
+            {
+              "text": { "en": "document.querySelector()", "ru": "document.querySelector()" },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "document.getElementById()", "ru": "document.getElementById()" },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "document.getElementsByClassName()",
+                "ru": "document.getElementsByClassName()"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "document.findElement()", "ru": "document.findElement()" },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 2,
+          "name": {
+            "en": "What does `document.querySelectorAll()` return?",
+            "ru": "Что возвращает `document.querySelectorAll()`?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "`querySelectorAll()` returns a static NodeList of all elements matching the CSS selector.",
+            "ru": "`querySelectorAll()` возвращает статический NodeList всех элементов, соответствующих CSS-селектору."
+          },
+          "answers": [
+            { "text": { "en": "An HTMLCollection", "ru": "HTMLCollection" }, "isCorrect": false },
+            {
+              "text": { "en": "A static NodeList", "ru": "Статический NodeList" },
+              "isCorrect": true
+            },
+            { "text": { "en": "An array", "ru": "Массив" }, "isCorrect": false },
+            { "text": { "en": "A live NodeList", "ru": "Живой NodeList" }, "isCorrect": false }
+          ]
+        },
+        {
+          "sortOrder": 3,
+          "name": {
+            "en": "How do you create a new div element?",
+            "ru": "Как создать новый элемент div?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "`document.createElement('div')` creates a new element of the specified tag type.",
+            "ru": "`document.createElement('div')` создаёт новый элемент указанного типа тега."
+          },
+          "answers": [
+            {
+              "text": { "en": "document.newElement('div')", "ru": "document.newElement('div')" },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "document.createElement('div')",
+                "ru": "document.createElement('div')"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": { "en": "document.addElement('div')", "ru": "document.addElement('div')" },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "document.makeElement('div')", "ru": "document.makeElement('div')" },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 4,
+          "name": {
+            "en": "Which property sets the text content of an element?",
+            "ru": "Какое свойство устанавливает текстовое содержимое элемента?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "`textContent` sets or returns the text content of a node and its descendants.",
+            "ru": "`textContent` устанавливает или возвращает текстовое содержимое узла и его потомков."
+          },
+          "answers": [
+            { "text": { "en": "innerText", "ru": "innerText" }, "isCorrect": false },
+            { "text": { "en": "textContent", "ru": "textContent" }, "isCorrect": true },
+            { "text": { "en": "innerHTML", "ru": "innerHTML" }, "isCorrect": false },
+            { "text": { "en": "nodeValue", "ru": "nodeValue" }, "isCorrect": false }
+          ]
+        },
+        {
+          "sortOrder": 5,
+          "name": {
+            "en": "What is the difference between innerHTML and textContent?",
+            "ru": "В чём разница между innerHTML и textContent?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "`innerHTML` parses HTML, while `textContent` treats content as plain text (safer against XSS).",
+            "ru": "`innerHTML` парсит HTML, а `textContent` обрабатывает содержимое как простой текст (безопаснее от XSS)."
+          },
+          "answers": [
+            {
+              "text": { "en": "innerHTML is faster", "ru": "innerHTML быстрее" },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "innerHTML parses HTML, textContent treats as plain text",
+                "ru": "innerHTML парсит HTML, textContent обрабатывает как простой текст"
+              },
+              "isCorrect": true
+            },
+            { "text": { "en": "They are identical", "ru": "Они идентичны" }, "isCorrect": false },
+            {
+              "text": { "en": "textContent is deprecated", "ru": "textContent устарел" },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 6,
+          "name": {
+            "en": "How do you append a child element?",
+            "ru": "Как добавить дочерний элемент?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "`appendChild()` adds a node to the end of the list of children of a specified parent node.",
+            "ru": "`appendChild()` добавляет узел в конец списка дочерних элементов указанного родительского узла."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "parentElement.addChild(child)",
+                "ru": "parentElement.addChild(child)"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "parentElement.appendChild(child)",
+                "ru": "parentElement.appendChild(child)"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": { "en": "parentElement.insert(child)", "ru": "parentElement.insert(child)" },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "parentElement.add(child)", "ru": "parentElement.add(child)" },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 7,
+          "name": {
+            "en": "Which method inserts an element before another?",
+            "ru": "Какой метод вставляет элемент перед другим?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "`insertBefore(newNode, referenceNode)` inserts a node before the reference node.",
+            "ru": "`insertBefore(newNode, referenceNode)` вставляет узел перед опорным узлом."
+          },
+          "answers": [
+            { "text": { "en": "insertAfter()", "ru": "insertAfter()" }, "isCorrect": false },
+            { "text": { "en": "insertBefore()", "ru": "insertBefore()" }, "isCorrect": true },
+            { "text": { "en": "prepend()", "ru": "prepend()" }, "isCorrect": false },
+            { "text": { "en": "before()", "ru": "before()" }, "isCorrect": false }
+          ]
+        },
+        {
+          "sortOrder": 8,
+          "name": {
+            "en": "How do you remove an element from the DOM?",
+            "ru": "Как удалить элемент из DOM?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "`element.remove()` removes the element from the DOM. Alternatively, `parent.removeChild(child)` can be used.",
+            "ru": "`element.remove()` удаляет элемент из DOM. Также можно использовать `parent.removeChild(child)`."
+          },
+          "answers": [
+            { "text": { "en": "element.delete()", "ru": "element.delete()" }, "isCorrect": false },
+            { "text": { "en": "element.remove()", "ru": "element.remove()" }, "isCorrect": true },
+            {
+              "text": { "en": "element.destroy()", "ru": "element.destroy()" },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "element.removeNode()", "ru": "element.removeNode()" },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 9,
+          "name": {
+            "en": "What does `classList` provide?",
+            "ru": "Что предоставляет `classList`?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "`classList` provides methods to manipulate an element's class attributes: add, remove, toggle, contains.",
+            "ru": "`classList` предоставляет методы для управления атрибутами класса элемента: add, remove, toggle, contains."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "Access to all CSS properties",
+                "ru": "Доступ ко всем CSS-свойствам"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Methods to manipulate classes",
+                "ru": "Методы для управления классами"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "Access to the element's parent",
+                "ru": "Доступ к родителю элемента"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "Access to inline styles", "ru": "Доступ к inline-стилям" },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 10,
+          "name": {
+            "en": "How do you check if an element has a specific class?",
+            "ru": "Как проверить, есть ли у элемента определённый класс?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "`element.classList.contains('className')` returns true if the element has the specified class.",
+            "ru": "`element.classList.contains('className')` возвращает true, если элемент имеет указанный класс."
+          },
+          "answers": [
+            {
+              "text": { "en": "element.hasClass()", "ru": "element.hasClass()" },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "element.classList.contains()",
+                "ru": "element.classList.contains()"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": { "en": "element.checkClass()", "ru": "element.checkClass()" },
+              "isCorrect": false
+            },
+            { "text": { "en": "element.inClass()", "ru": "element.inClass()" }, "isCorrect": false }
+          ]
+        },
+        {
+          "sortOrder": 11,
+          "name": {
+            "en": "What is the difference between getElementsByClassName and querySelectorAll?",
+            "ru": "В чём разница между getElementsByClassName и querySelectorAll?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "`getElementsByClassName` returns a live HTMLCollection, while `querySelectorAll` returns a static NodeList.",
+            "ru": "`getElementsByClassName` возвращает живой HTMLCollection, а `querySelectorAll` возвращает статический NodeList."
+          },
+          "answers": [
+            { "text": { "en": "They are identical", "ru": "Они идентичны" }, "isCorrect": false },
+            {
+              "text": {
+                "en": "One is live, the other is static",
+                "ru": "Один живой, другой статический"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "getElementsByClassName is faster",
+                "ru": "getElementsByClassName быстрее"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "querySelectorAll only works with IDs",
+                "ru": "querySelectorAll работает только с ID"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 12,
+          "name": {
+            "en": "What does element.cloneNode() do?",
+            "ru": "Что делает element.cloneNode()?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "`cloneNode(deep)` creates a copy of the node. If `deep` is true, it clones all descendants.",
+            "ru": "`cloneNode(deep)` создаёт копию узла. Если `deep` true, клонируются все потомки."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "Creates a reference to the element",
+                "ru": "Создаёт ссылку на элемент"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Creates a copy of the node, optionally with descendants",
+                "ru": "Создаёт копию узла, опционально с потомками"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": { "en": "Deletes the element", "ru": "Удаляет элемент" },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Moves the element to a new parent",
+                "ru": "Перемещает элемент к новому родителю"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 13,
+          "name": {
+            "en": "How do you get the parent element of a node?",
+            "ru": "Как получить родительский элемент узла?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "`node.parentElement` returns the parent element, or `null` if the node has no element parent.",
+            "ru": "`node.parentElement` возвращает родительский элемент или `null`, если у узла нет родительского элемента."
+          },
+          "answers": [
+            { "text": { "en": "node.parent", "ru": "node.parent" }, "isCorrect": false },
+            {
+              "text": { "en": "node.parentElement", "ru": "node.parentElement" },
+              "isCorrect": true
+            },
+            { "text": { "en": "node.parentNode", "ru": "node.parentNode" }, "isCorrect": false },
+            { "text": { "en": "node.root", "ru": "node.root" }, "isCorrect": false }
+          ]
+        },
+        {
+          "sortOrder": 14,
+          "name": {
+            "en": "What is the difference between parentElement and parentNode?",
+            "ru": "В чём разница между parentElement и parentNode?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "`parentElement` returns an element, `parentNode` can return any node (including text nodes).",
+            "ru": "`parentElement` возвращает элемент, `parentNode` может вернуть любой узел (включая текстовые)."
+          },
+          "answers": [
+            { "text": { "en": "They are identical", "ru": "Они идентичны" }, "isCorrect": false },
+            {
+              "text": {
+                "en": "parentElement returns element, parentNode can return any node",
+                "ru": "parentElement возвращает элемент, parentNode может вернуть любой узел"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": { "en": "parentNode is faster", "ru": "parentNode быстрее" },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "parentElement is deprecated", "ru": "parentElement устарел" },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 15,
+          "name": {
+            "en": "Which property gives access to the first child element?",
+            "ru": "Какое свойство даёт доступ к первому дочернему элементу?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "`firstElementChild` returns the first child element, ignoring text/comment nodes.",
+            "ru": "`firstElementChild` возвращает первый дочерний элемент, игнорируя текстовые узлы и комментарии."
+          },
+          "answers": [
+            { "text": { "en": "firstChild", "ru": "firstChild" }, "isCorrect": false },
+            { "text": { "en": "firstElementChild", "ru": "firstElementChild" }, "isCorrect": true },
+            { "text": { "en": "children[0]", "ru": "children[0]" }, "isCorrect": false },
+            { "text": { "en": "childNodes[0]", "ru": "childNodes[0]" }, "isCorrect": false }
+          ]
+        },
+        {
+          "sortOrder": 16,
+          "name": {
+            "en": "How do you set a data attribute on an element?",
+            "ru": "Как установить атрибут data на элементе?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "`element.dataset.propertyName = value` or `element.setAttribute('data-name', value)` sets a data attribute.",
+            "ru": "`element.dataset.propertyName = value` или `element.setAttribute('data-name', value)` устанавливает data-атрибут."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "element.data-property = value",
+                "ru": "element.data-property = value"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "element.dataset.propertyName = value",
+                "ru": "element.dataset.propertyName = value"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "element['data-property'] = value",
+                "ru": "element['data-property'] = value"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "element.setData('property', value)",
+                "ru": "element.setData('property', value)"
+              },
+              "isCorrect": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": { "en": "DOM Events", "ru": "События DOM" },
+      "description": {
+        "en": "Event types, propagation phases (capture/bubble), delegation, timers, and preventing default behavior",
+        "ru": "Типы событий, фазы распространения (захват/всплытие), делегирование, таймеры и предотвращение действий по умолчанию"
+      },
+      "links": [
+        "https://developer.mozilla.org/en-US/docs/Web/API/Event",
+        "https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Scripting/Events"
+      ],
+      "questions": [
+        {
+          "sortOrder": 1,
+          "name": {
+            "en": "What are the three phases of event propagation?",
+            "ru": "Какие три фазы распространения событий?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "The three phases are: capture (down the tree), target (at the element), and bubble (up the tree).",
+            "ru": "Три фазы: захват (вниз по дереву), цель (на элементе) и всплытие (вверх по дереву)."
+          },
+          "answers": [
+            {
+              "text": { "en": "Start, middle, end", "ru": "Начало, середина, конец" },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "Capture, target, bubble", "ru": "Захват, цель, всплытие" },
+              "isCorrect": true
+            },
+            {
+              "text": { "en": "Init, fire, complete", "ru": "Инициация, запуск, завершение" },
+              "isCorrect": false
+            },
+            { "text": { "en": "Down, at, up", "ru": "Вниз, на, вверх" }, "isCorrect": false }
+          ]
+        },
+        {
+          "sortOrder": 2,
+          "name": {
+            "en": "How do you add an event listener?",
+            "ru": "Как добавить обработчик событий?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "`element.addEventListener(event, handler, options)` adds an event listener to the element.",
+            "ru": "`element.addEventListener(event, handler, options)` добавляет обработчик событий к элементу."
+          },
+          "answers": [
+            {
+              "text": { "en": "element.on(event, handler)", "ru": "element.on(event, handler)" },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "element.addEventListener(event, handler)",
+                "ru": "element.addEventListener(event, handler)"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "element.listen(event, handler)",
+                "ru": "element.listen(event, handler)"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "element.bind(event, handler)",
+                "ru": "element.bind(event, handler)"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 3,
+          "name": {
+            "en": "What does event.stopPropagation() do?",
+            "ru": "Что делает event.stopPropagation()?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "`stopPropagation()` prevents the event from propagating to ancestor or descendant elements.",
+            "ru": "`stopPropagation()` предотвращает распространение события к предкам или потомкам."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "Stops the default action",
+                "ru": "Останавливает действие по умолчанию"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Prevents propagation to other elements",
+                "ru": "Предотвращает распространение к другим элементам"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": { "en": "Removes the event listener", "ru": "Удаляет обработчик событий" },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "Cancels the event entirely", "ru": "Полностью отменяет событие" },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 4,
+          "name": {
+            "en": "What does event.preventDefault() do?",
+            "ru": "Что делает event.preventDefault()?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "`preventDefault()` cancels the default action associated with the event (e.g., link navigation).",
+            "ru": "`preventDefault()` отменяет действие по умолчанию, связанное со событием (например, переход по ссылке)."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "Stops event propagation",
+                "ru": "Останавливает распространение события"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Cancels the default browser action",
+                "ru": "Отменяет действие браузера по умолчанию"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": { "en": "Removes the event listener", "ru": "Удаляет обработчик событий" },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Prevents event from firing",
+                "ru": "Предотвращает срабатывание события"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 5,
+          "name": { "en": "What is event delegation?", "ru": "Что такое делегирование событий?" },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "Event delegation attaches a single listener to a parent to handle events from children via bubbling.",
+            "ru": "Делегирование событий добавляет один обработчик на родителя для обработки событий от потомков через всплытие."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "Moving events between elements",
+                "ru": "Перемещение событий между элементами"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Using parent to handle children's events",
+                "ru": "Использование родителя для обработки событий потомков"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "Spreading events to multiple handlers",
+                "ru": "Распространение событий на несколько обработчиков"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Creating events programmatically",
+                "ru": "Создание событий программно"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 6,
+          "name": {
+            "en": "What is the difference between capture and bubble phases?",
+            "ru": "В чём разница между фазами захвата и всплытия?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "Capture goes from root down to target; bubble goes from target up to root.",
+            "ru": "Захват идёт от корня к цели; всплытие идёт от цели к корню."
+          },
+          "answers": [
+            { "text": { "en": "They are the same", "ru": "Они одинаковы" }, "isCorrect": false },
+            {
+              "text": {
+                "en": "Capture goes down the tree, bubble goes up",
+                "ru": "Захват идёт вниз по дереву, всплытие идёт вверх"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "Capture is only for form events",
+                "ru": "Захват только для событий формы"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "Bubble is only for clicks", "ru": "Всплытие только для кликов" },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 7,
+          "name": {
+            "en": "How do you listen in the capture phase?",
+            "ru": "Как слушать в фазе захвата?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "Pass `true` or `{ capture: true }` as the third argument to addEventListener.",
+            "ru": "Передайте `true` или `{ capture: true }` третьим аргументом в addEventListener."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "Add 'capture' to the event name",
+                "ru": "Добавить 'capture' к имени события"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Pass true as third argument",
+                "ru": "Передать true третьим аргументом"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "Use addEventListenerCapture()",
+                "ru": "Использовать addEventListenerCapture()"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Set element.capture = true",
+                "ru": "Установить element.capture = true"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 8,
+          "name": { "en": "What is the target of an event?", "ru": "Что такое target события?" },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "`event.target` is the element that originally triggered the event.",
+            "ru": "`event.target` — это элемент, который изначально вызвал событие."
+          },
+          "answers": [
+            {
+              "text": { "en": "The element with the listener", "ru": "Элемент с обработчиком" },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "The element that triggered the event",
+                "ru": "Элемент, который вызвал событие"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": { "en": "The document root", "ru": "Корневой элемент документа" },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "The parent of the source element",
+                "ru": "Родитель исходного элемента"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 9,
+          "name": { "en": "What is currentTarget?", "ru": "Что такое currentTarget?" },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "`event.currentTarget` is the element the event listener is attached to.",
+            "ru": "`event.currentTarget` — это элемент, к которому прикреплён обработчик событий."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "The element that triggered the event",
+                "ru": "Элемент, который вызвал событие"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "The element with the listener", "ru": "Элемент с обработчиком" },
+              "isCorrect": true
+            },
+            { "text": { "en": "The document", "ru": "Документ" }, "isCorrect": false },
+            { "text": { "en": "The window", "ru": "Окно" }, "isCorrect": false }
+          ]
+        },
+        {
+          "sortOrder": 10,
+          "name": {
+            "en": "How do you remove an event listener?",
+            "ru": "Как удалить обработчик событий?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "`element.removeEventListener(event, handler, options)` removes the event listener.",
+            "ru": "`element.removeEventListener(event, handler, options)` удаляет обработчик событий."
+          },
+          "answers": [
+            {
+              "text": { "en": "element.off(event, handler)", "ru": "element.off(event, handler)" },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "element.removeEventListener(event, handler)",
+                "ru": "element.removeEventListener(event, handler)"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "element.unlisten(event, handler)",
+                "ru": "element.unlisten(event, handler)"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "element.deleteListener(event, handler)",
+                "ru": "element.deleteListener(event, handler)"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 11,
+          "name": { "en": "What does setTimeout return?", "ru": "Что возвращает setTimeout?" },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "`setTimeout` returns a numeric timeout ID that can be used to cancel with clearTimeout.",
+            "ru": "`setTimeout` возвращает числовой ID таймаута, который можно использовать для отмены через clearTimeout."
+          },
+          "answers": [
+            { "text": { "en": "A boolean", "ru": "Булево значение" }, "isCorrect": false },
+            { "text": { "en": "A numeric ID", "ru": "Числовой ID" }, "isCorrect": true },
+            { "text": { "en": "undefined", "ru": "undefined" }, "isCorrect": false },
+            { "text": { "en": "A promise", "ru": "Промис" }, "isCorrect": false }
+          ]
+        },
+        {
+          "sortOrder": 12,
+          "name": { "en": "How do you cancel a setTimeout?", "ru": "Как отменить setTimeout?" },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "`clearTimeout(timeoutId)` cancels a pending setTimeout call.",
+            "ru": "`clearTimeout(timeoutId)` отменяет ожидающий вызов setTimeout."
+          },
+          "answers": [
+            {
+              "text": { "en": "deleteTimeout(timeoutId)", "ru": "deleteTimeout(timeoutId)" },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "clearTimeout(timeoutId)", "ru": "clearTimeout(timeoutId)" },
+              "isCorrect": true
+            },
+            {
+              "text": { "en": "cancelTimeout(timeoutId)", "ru": "cancelTimeout(timeoutId)" },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "stopTimeout(timeoutId)", "ru": "stopTimeout(timeoutId)" },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 13,
+          "name": {
+            "en": "What is the difference between setTimeout and setInterval?",
+            "ru": "В чём разница между setTimeout и setInterval?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "`setTimeout` runs once after delay; `setInterval` runs repeatedly at the specified interval.",
+            "ru": "`setTimeout` выполняется один раз после задержки; `setInterval` выполняется повторно с указанным интервалом."
+          },
+          "answers": [
+            { "text": { "en": "They are the same", "ru": "Они одинаковы" }, "isCorrect": false },
+            {
+              "text": {
+                "en": "One runs once, the other repeats",
+                "ru": "Один выполняется один раз, другой повторяется"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": { "en": "setInterval is more accurate", "ru": "setInterval точнее" },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "setTimeout is deprecated", "ru": "setTimeout устарел" },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 14,
+          "name": {
+            "en": "What happens if you pass 0ms to setTimeout?",
+            "ru": "Что произойдёт, если передать 0 мс в setTimeout?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "The callback runs after the current execution stack finishes (minimum ~4ms in browsers).",
+            "ru": "Обратный вызов выполняется после завершения текущего стека выполнения (минимум ~4мс в браузерах)."
+          },
+          "answers": [
+            {
+              "text": { "en": "It runs immediately", "ru": "Выполняется немедленно" },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "It runs after the current stack",
+                "ru": "Выполняется после текущего стека"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": { "en": "It doesn't run at all", "ru": "Вообще не выполняется" },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "It throws an error", "ru": "Выбрасывает ошибку" },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 15,
+          "name": {
+            "en": "Which event fires when an element loses focus?",
+            "ru": "Какое событие возникает, когда элемент теряет фокус?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "`blur` fires when an element loses focus (doesn't bubble). `focusout` is the bubbling version.",
+            "ru": "`blur` возникает, когда элемент теряет фокус (не всплывает). `focusout` — всплывающая версия."
+          },
+          "answers": [
+            { "text": { "en": "focusout", "ru": "focusout" }, "isCorrect": false },
+            { "text": { "en": "blur", "ru": "blur" }, "isCorrect": true },
+            { "text": { "en": "unfocus", "ru": "unfocus" }, "isCorrect": false },
+            { "text": { "en": "leave", "ru": "leave" }, "isCorrect": false }
+          ]
+        },
+        {
+          "sortOrder": 16,
+          "name": {
+            "en": "Which event fires when an input value changes?",
+            "ru": "Какое событие возникает при изменении значения input?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "`input` fires immediately on every change; `change` fires on blur after value changed.",
+            "ru": "`input` срабатывает немедленно при каждом изменении; `change` срабатывает на blur после изменения значения."
+          },
+          "answers": [
+            { "text": { "en": "change", "ru": "change" }, "isCorrect": false },
+            { "text": { "en": "input", "ru": "input" }, "isCorrect": true },
+            { "text": { "en": "modify", "ru": "modify" }, "isCorrect": false },
+            { "text": { "en": "update", "ru": "update" }, "isCorrect": false }
+          ]
+        },
+        {
+          "sortOrder": 17,
+          "name": {
+            "en": "What does event.stopImmediatePropagation() do?",
+            "ru": "Что делает event.stopImmediatePropagation()?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "Stops propagation and prevents other listeners on the same element from firing.",
+            "ru": "Останавливает распространение и предотвращает срабатывание других обработчиков на том же элементе."
+          },
+          "answers": [
+            {
+              "text": { "en": "Same as stopPropagation", "ru": "То же, что и stopPropagation" },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Stops propagation and other listeners on element",
+                "ru": "Останавливает распространение и другие обработчики на элементе"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "Only stops default action",
+                "ru": "Только останавливает действие по умолчанию"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "Removes the event listener", "ru": "Удаляет обработчик событий" },
+              "isCorrect": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": { "en": "Canvas API", "ru": "Canvas API" },
+      "description": {
+        "en": "Drawing 2D graphics, animations, and image manipulation using the HTML Canvas API",
+        "ru": "Рисование 2D-графики, анимаций и работа с изображениями через HTML Canvas API"
+      },
+      "links": ["https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API"],
+      "questions": [
+        {
+          "sortOrder": 1,
+          "name": {
+            "en": "How do you get a 2D drawing context from a canvas?",
+            "ru": "Как получить 2D контекст рисования с canvas?"
+          },
+          "codeSnippet": "const canvas = document.querySelector('canvas');\nconst ctx = canvas.getContext('2d');",
+          "explanation": {
+            "en": "`canvas.getContext('2d')` returns a 2D rendering context for drawing.",
+            "ru": "`canvas.getContext('2d')` возвращает 2D контекст отрисовки для рисования."
+          },
+          "answers": [
+            {
+              "text": { "en": "canvas.context('2d')", "ru": "canvas.context('2d')" },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "canvas.getContext('2d')", "ru": "canvas.getContext('2d')" },
+              "isCorrect": true
+            },
+            { "text": { "en": "canvas.ctx", "ru": "canvas.ctx" }, "isCorrect": false },
+            {
+              "text": { "en": "canvas.createContext()", "ru": "canvas.createContext()" },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 2,
+          "name": { "en": "How do you draw a rectangle?", "ru": "Как нарисовать прямоугольник?" },
+          "codeSnippet": "ctx.fillRect(x, y, width, height);",
+          "explanation": {
+            "en": "`fillRect(x, y, width, height)` draws a filled rectangle at the specified position.",
+            "ru": "`fillRect(x, y, width, height)` рисует залитый прямоугольник в указанной позиции."
+          },
+          "answers": [
+            {
+              "text": { "en": "ctx.rect(x, y, w, h)", "ru": "ctx.rect(x, y, w, h)" },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "ctx.fillRect(x, y, w, h)", "ru": "ctx.fillRect(x, y, w, h)" },
+              "isCorrect": true
+            },
+            {
+              "text": { "en": "ctx.drawRect(x, y, w, h)", "ru": "ctx.drawRect(x, y, w, h)" },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "ctx.paintRect(x, y, w, h)", "ru": "ctx.paintRect(x, y, w, h)" },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 3,
+          "name": { "en": "How do you draw a line?", "ru": "Как нарисовать линию?" },
+          "codeSnippet": "ctx.beginPath();\nctx.moveTo(x1, y1);\nctx.lineTo(x2, y2);\nctx.stroke();",
+          "explanation": {
+            "en": "Use `beginPath()`, `moveTo(start)`, `lineTo(end)`, and `stroke()` to draw a line.",
+            "ru": "Используйте `beginPath()`, `moveTo(начало)`, `lineTo(конец)` и `stroke()` для рисования линии."
+          },
+          "answers": [
+            {
+              "text": { "en": "ctx.line(x1, y1, x2, y2)", "ru": "ctx.line(x1, y1, x2, y2)" },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "beginPath, moveTo, lineTo, stroke",
+                "ru": "beginPath, moveTo, lineTo, stroke"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "ctx.drawLine(x1, y1, x2, y2)",
+                "ru": "ctx.drawLine(x1, y1, x2, y2)"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "ctx.connect(x1, y1, x2, y2)", "ru": "ctx.connect(x1, y1, x2, y2)" },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 4,
+          "name": { "en": "How do you draw a circle?", "ru": "Как нарисовать круг?" },
+          "codeSnippet": "ctx.arc(x, y, radius, startAngle, endAngle);",
+          "explanation": {
+            "en": "`arc(x, y, radius, startAngle, endAngle)` draws an arc/circle. Use `2 * Math.PI` for a full circle.",
+            "ru": "`arc(x, y, radius, startAngle, endAngle)` рисует дугу/круг. Используйте `2 * Math.PI` для полного круга."
+          },
+          "answers": [
+            {
+              "text": { "en": "ctx.circle(x, y, radius)", "ru": "ctx.circle(x, y, radius)" },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "ctx.arc(x, y, radius, 0, Math.PI * 2)",
+                "ru": "ctx.arc(x, y, radius, 0, Math.PI * 2)"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "ctx.drawCircle(x, y, radius)",
+                "ru": "ctx.drawCircle(x, y, radius)"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "ctx.ellipse(x, y, radius)", "ru": "ctx.ellipse(x, y, radius)" },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 5,
+          "name": { "en": "How do you set the fill color?", "ru": "Как установить цвет заливки?" },
+          "codeSnippet": "ctx.fillStyle = 'red';",
+          "explanation": {
+            "en": "`fillStyle` property sets the color for filled shapes.",
+            "ru": "Свойство `fillStyle` устанавливает цвет для залитых фигур."
+          },
+          "answers": [
+            {
+              "text": { "en": "ctx.color = 'red'", "ru": "ctx.color = 'red'" },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "ctx.fillStyle = 'red'", "ru": "ctx.fillStyle = 'red'" },
+              "isCorrect": true
+            },
+            {
+              "text": { "en": "ctx.fillColor = 'red'", "ru": "ctx.fillColor = 'red'" },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "ctx.setFill('red')", "ru": "ctx.setFill('red')" },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 6,
+          "name": {
+            "en": "How do you clear the entire canvas?",
+            "ru": "Как очистить весь canvas?"
+          },
+          "codeSnippet": "ctx.clearRect(0, 0, canvas.width, canvas.height);",
+          "explanation": {
+            "en": "`clearRect(x, y, width, height)` clears the specified rectangular area.",
+            "ru": "`clearRect(x, y, width, height)` очищает указанную прямоугольную область."
+          },
+          "answers": [
+            { "text": { "en": "ctx.erase()", "ru": "ctx.erase()" }, "isCorrect": false },
+            {
+              "text": {
+                "en": "ctx.clearRect(0, 0, width, height)",
+                "ru": "ctx.clearRect(0, 0, width, height)"
+              },
+              "isCorrect": true
+            },
+            { "text": { "en": "ctx.clean()", "ru": "ctx.clean()" }, "isCorrect": false },
+            { "text": { "en": "canvas.clear()", "ru": "canvas.clear()" }, "isCorrect": false }
+          ]
+        },
+        {
+          "sortOrder": 7,
+          "name": {
+            "en": "How do you draw an image on canvas?",
+            "ru": "Как нарисовать изображение на canvas?"
+          },
+          "codeSnippet": "ctx.drawImage(img, x, y);",
+          "explanation": {
+            "en": "`drawImage(image, x, y)` draws an image at the specified coordinates.",
+            "ru": "`drawImage(image, x, y)` рисует изображение в указанных координатах."
+          },
+          "answers": [
+            {
+              "text": { "en": "ctx.paintImage(img, x, y)", "ru": "ctx.paintImage(img, x, y)" },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "ctx.drawImage(img, x, y)", "ru": "ctx.drawImage(img, x, y)" },
+              "isCorrect": true
+            },
+            {
+              "text": { "en": "ctx.renderImage(img, x, y)", "ru": "ctx.renderImage(img, x, y)" },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "ctx.image(img, x, y)", "ru": "ctx.image(img, x, y)" },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 8,
+          "name": { "en": "What does beginPath() do?", "ru": "Что делает beginPath()?" },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "`beginPath()` starts a new path, discarding any previous path.",
+            "ru": "`beginPath()` начинает новый путь, отбрасывая любой предыдущий путь."
+          },
+          "answers": [
+            {
+              "text": { "en": "Closes the current path", "ru": "Закрывает текущий путь" },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "Starts a new path", "ru": "Начинает новый путь" },
+              "isCorrect": true
+            },
+            {
+              "text": { "en": "Fills the current path", "ru": "Заполняет текущий путь" },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "Strokes the current path", "ru": "Обводит текущий путь" },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 9,
+          "name": {
+            "en": "How do you create a gradient fill?",
+            "ru": "Как создать градиентную заливку?"
+          },
+          "codeSnippet": "const gradient = ctx.createLinearGradient(x1, y1, x2, y2);\ngradient.addColorStop(0, 'red');\ngradient.addColorStop(1, 'blue');\nctx.fillStyle = gradient;",
+          "explanation": {
+            "en": "`createLinearGradient(x1, y1, x2, y2)` creates a linear gradient between two points.",
+            "ru": "`createLinearGradient(x1, y1, x2, y2)` создаёт линейный градиент между двумя точками."
+          },
+          "answers": [
+            {
+              "text": { "en": "ctx.createGradient()", "ru": "ctx.createGradient()" },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "ctx.createLinearGradient(x1, y1, x2, y2)",
+                "ru": "ctx.createLinearGradient(x1, y1, x2, y2)"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": { "en": "ctx.newGradient()", "ru": "ctx.newGradient()" },
+              "isCorrect": false
+            },
+            { "text": { "en": "ctx.gradient()", "ru": "ctx.gradient()" }, "isCorrect": false }
+          ]
+        },
+        {
+          "sortOrder": 10,
+          "name": {
+            "en": "How do you rotate the canvas context?",
+            "ru": "Как повернуть контекст canvas?"
+          },
+          "codeSnippet": "ctx.translate(x, y);\nctx.rotate(angle);\n// draw at new origin\nctx.translate(-x, -y);",
+          "explanation": {
+            "en": "`rotate(angle)` rotates the context around the origin. Use `translate` first to rotate around a point.",
+            "ru": "`rotate(angle)` поворачивает контекст вокруг начала координат. Сначала используйте `translate` для поворота вокруг точки."
+          },
+          "answers": [
+            { "text": { "en": "ctx.spin(angle)", "ru": "ctx.spin(angle)" }, "isCorrect": false },
+            { "text": { "en": "ctx.rotate(angle)", "ru": "ctx.rotate(angle)" }, "isCorrect": true },
+            { "text": { "en": "ctx.turn(angle)", "ru": "ctx.turn(angle)" }, "isCorrect": false },
+            { "text": { "en": "ctx.roll(angle)", "ru": "ctx.roll(angle)" }, "isCorrect": false }
+          ]
+        },
+        {
+          "sortOrder": 11,
+          "name": {
+            "en": "What is the purpose of save() and restore()?",
+            "ru": "Какова цель save() и restore()?"
+          },
+          "codeSnippet": "ctx.save();\nctx.translate(100, 100);\n// draw stuff\nctx.restore(); // restores original state",
+          "explanation": {
+            "en": "`save()` pushes current state to stack; `restore()` pops it back, reverting transformations.",
+            "ru": "`save()` помещает текущее состояние в стек; `restore()` извлекает его, отменяя преобразования."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "They save/load images",
+                "ru": "Они сохраняют/загружают изображения"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "They save/restore canvas state",
+                "ru": "Они сохраняют/восстанавливают состояние canvas"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": { "en": "They save/load to file", "ru": "Они сохраняют/загружают в файл" },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "They enable undo/redo", "ru": "Они включают отмену/повтор" },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 12,
+          "name": {
+            "en": "How do you draw text on canvas?",
+            "ru": "Как нарисовать текст на canvas?"
+          },
+          "codeSnippet": "ctx.font = '24px Arial';\nctx.fillText('Hello', x, y);",
+          "explanation": {
+            "en": "`fillText(text, x, y)` draws filled text at the specified position.",
+            "ru": "`fillText(text, x, y)` рисует залитый текст в указанной позиции."
+          },
+          "answers": [
+            {
+              "text": { "en": "ctx.write('Hello', x, y)", "ru": "ctx.write('Hello', x, y)" },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "ctx.fillText('Hello', x, y)", "ru": "ctx.fillText('Hello', x, y)" },
+              "isCorrect": true
+            },
+            {
+              "text": { "en": "ctx.text('Hello', x, y)", "ru": "ctx.text('Hello', x, y)" },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "ctx.drawText('Hello', x, y)", "ru": "ctx.drawText('Hello', x, y)" },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 13,
+          "name": { "en": "What does globalAlpha control?", "ru": "Что контролирует globalAlpha?" },
+          "codeSnippet": "ctx.globalAlpha = 0.5; // 50% opacity",
+          "explanation": {
+            "en": "`globalAlpha` sets the opacity (0-1) for all drawing operations.",
+            "ru": "`globalAlpha` устанавливает прозрачность (0-1) для всех операций рисования."
+          },
+          "answers": [
+            { "text": { "en": "Image quality", "ru": "Качество изображения" }, "isCorrect": false },
+            {
+              "text": { "en": "Drawing opacity", "ru": "Прозрачность рисования" },
+              "isCorrect": true
+            },
+            { "text": { "en": "Line thickness", "ru": "Толщина линии" }, "isCorrect": false },
+            { "text": { "en": "Animation speed", "ru": "Скорость анимации" }, "isCorrect": false }
+          ]
+        },
+        {
+          "sortOrder": 14,
+          "name": {
+            "en": "How do you draw an image scaled?",
+            "ru": "Как нарисовать изображение с масштабированием?"
+          },
+          "codeSnippet": "ctx.drawImage(img, x, y, width, height);",
+          "explanation": {
+            "en": "`drawImage(img, x, y, w, h)` draws an image scaled to the specified dimensions.",
+            "ru": "`drawImage(img, x, y, w, h)` рисует изображение с масштабом до указанных размеров."
+          },
+          "answers": [
+            {
+              "text": { "en": "ctx.drawImage(img, x, y)", "ru": "ctx.drawImage(img, x, y)" },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "ctx.drawImage(img, x, y, w, h)",
+                "ru": "ctx.drawImage(img, x, y, w, h)"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "ctx.scaleImage(img, x, y, w, h)",
+                "ru": "ctx.scaleImage(img, x, y, w, h)"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "ctx.stretchImage(img, x, y, w, h)",
+                "ru": "ctx.stretchImage(img, x, y, w, h)"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 15,
+          "name": {
+            "en": "What method creates a clipping region?",
+            "ru": "Какой метод создаёт область обрезки?"
+          },
+          "codeSnippet": "ctx.clip();",
+          "explanation": {
+            "en": "`clip()` creates a clipping region from the current path.",
+            "ru": "`clip()` создаёт область обрезки из текущего пути."
+          },
+          "answers": [
+            { "text": { "en": "mask()", "ru": "mask()" }, "isCorrect": false },
+            { "text": { "en": "clip()", "ru": "clip()" }, "isCorrect": true },
+            { "text": { "en": "cut()", "ru": "cut()" }, "isCorrect": false },
+            { "text": { "en": "region()", "ru": "region()" }, "isCorrect": false }
+          ]
+        },
+        {
+          "sortOrder": 16,
+          "name": { "en": "How do you draw with a pattern?", "ru": "Как рисовать с паттерном?" },
+          "codeSnippet": "const pattern = ctx.createPattern(img, 'repeat');\nctx.fillStyle = pattern;",
+          "explanation": {
+            "en": "`createPattern(image, repetition)` creates a pattern for use as fillStyle.",
+            "ru": "`createPattern(image, repetition)` создаёт паттерн для использования как fillStyle."
+          },
+          "answers": [
+            { "text": { "en": "createPattern()", "ru": "createPattern()" }, "isCorrect": true },
+            { "text": { "en": "createTexture()", "ru": "createTexture()" }, "isCorrect": false },
+            { "text": { "en": "createFill()", "ru": "createFill()" }, "isCorrect": false },
+            { "text": { "en": "createImage()", "ru": "createImage()" }, "isCorrect": false }
+          ]
+        }
+      ]
+    },
+    {
+      "name": { "en": "Chrome DevTools", "ru": "Chrome DevTools" },
+      "description": {
+        "en": "Using Chrome DevTools for debugging, performance profiling, and network inspection",
+        "ru": "Использование Chrome DevTools для отладки, профилирования производительности и анализа сети"
+      },
+      "links": ["https://developer.chrome.com/docs/devtools"],
+      "questions": [
+        {
+          "sortOrder": 1,
+          "name": {
+            "en": "How do you open Chrome DevTools?",
+            "ru": "Как открыть Chrome DevTools?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "Press F12, Ctrl+Shift+I (Cmd+Opt+I on Mac), or right-click and select Inspect.",
+            "ru": "Нажмите F12, Ctrl+Shift+I (Cmd+Opt+I на Mac) или щёлкните правой кнопкой и выберите Inspect."
+          },
+          "answers": [
+            { "text": { "en": "Ctrl+D", "ru": "Ctrl+D" }, "isCorrect": false },
+            {
+              "text": {
+                "en": "F12 or right-click > Inspect",
+                "ru": "F12 или правый клик > Inspect"
+              },
+              "isCorrect": true
+            },
+            { "text": { "en": "Alt+D", "ru": "Alt+D" }, "isCorrect": false },
+            { "text": { "en": "Ctrl+Shift+E", "ru": "Ctrl+Shift+E" }, "isCorrect": false }
+          ]
+        },
+        {
+          "sortOrder": 2,
+          "name": {
+            "en": "Which panel shows the HTML structure?",
+            "ru": "Какая панель показывает HTML-структуру?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "The Elements panel shows the DOM tree and allows inspection/editing of HTML and CSS.",
+            "ru": "Панель Elements показывает DOM-дерево и позволяет проверять/редактировать HTML и CSS."
+          },
+          "answers": [
+            { "text": { "en": "Console", "ru": "Console" }, "isCorrect": false },
+            { "text": { "en": "Elements", "ru": "Elements" }, "isCorrect": true },
+            { "text": { "en": "Network", "ru": "Network" }, "isCorrect": false },
+            { "text": { "en": "Sources", "ru": "Sources" }, "isCorrect": false }
+          ]
+        },
+        {
+          "sortOrder": 3,
+          "name": {
+            "en": "How do you select an element in the page?",
+            "ru": "Как выбрать элемент на странице?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "Click the cursor icon in DevTools, then click any element in the page.",
+            "ru": "Щёлкните значок курсора в DevTools, затем щёлкните любой элемент на странице."
+          },
+          "answers": [
+            { "text": { "en": "Press S key", "ru": "Нажмите клавишу S" }, "isCorrect": false },
+            {
+              "text": { "en": "Click the inspect icon", "ru": "Щёлкните значок Inspect" },
+              "isCorrect": true
+            },
+            { "text": { "en": "Press Ctrl+F", "ru": "Нажмите Ctrl+F" }, "isCorrect": false },
+            {
+              "text": { "en": "Type element name", "ru": "Введите имя элемента" },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 4,
+          "name": {
+            "en": "Which panel shows JavaScript execution and logs?",
+            "ru": "Какая панель показывает выполнение JavaScript и логи?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "The Console panel shows logs, errors, and allows executing JavaScript code.",
+            "ru": "Панель Console показывает логи, ошибки и позволяет выполнять JavaScript-код."
+          },
+          "answers": [
+            { "text": { "en": "Elements", "ru": "Elements" }, "isCorrect": false },
+            { "text": { "en": "Console", "ru": "Console" }, "isCorrect": true },
+            { "text": { "en": "Network", "ru": "Network" }, "isCorrect": false },
+            { "text": { "en": "Performance", "ru": "Performance" }, "isCorrect": false }
+          ]
+        },
+        {
+          "sortOrder": 5,
+          "name": {
+            "en": "How do you view network requests?",
+            "ru": "Как просмотреть сетевые запросы?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "Open the Network panel to see all HTTP requests, their timing, and responses.",
+            "ru": "Откройте панель Network, чтобы увидеть все HTTP-запросы, их время и ответы."
+          },
+          "answers": [
+            { "text": { "en": "Elements panel", "ru": "Панель Elements" }, "isCorrect": false },
+            { "text": { "en": "Network panel", "ru": "Панель Network" }, "isCorrect": true },
+            { "text": { "en": "Sources panel", "ru": "Панель Sources" }, "isCorrect": false },
+            { "text": { "en": "Console panel", "ru": "Панель Console" }, "isCorrect": false }
+          ]
+        },
+        {
+          "sortOrder": 6,
+          "name": {
+            "en": "How do you add a breakpoint in the debugger?",
+            "ru": "Как добавить точку останова в отладчике?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "Click the line number in the Sources panel to add a line breakpoint.",
+            "ru": "Щёлкните номер строки в панели Sources, чтобы добавить точку останова."
+          },
+          "answers": [
+            {
+              "text": { "en": "Right-click the line", "ru": "Правый клик по строке" },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "Click the line number", "ru": "Щёлкните номер строки" },
+              "isCorrect": true
+            },
+            {
+              "text": { "en": "Type 'break' in console", "ru": "Введите 'break' в консоли" },
+              "isCorrect": false
+            },
+            { "text": { "en": "Use Ctrl+B", "ru": "Используйте Ctrl+B" }, "isCorrect": false }
+          ]
+        },
+        {
+          "sortOrder": 7,
+          "name": {
+            "en": "What does the Network tab's Waterfall show?",
+            "ru": "Что показывает Waterfall на вкладке Network?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "Waterfall shows the timing of each request: DNS, connect, TTFB, download.",
+            "ru": "Waterfall показывает время каждого запроса: DNS, подключение, TTFB, загрузка."
+          },
+          "answers": [
+            { "text": { "en": "Memory usage", "ru": "Использование памяти" }, "isCorrect": false },
+            {
+              "text": { "en": "Request timing breakdown", "ru": "Разбивка времени запроса" },
+              "isCorrect": true
+            },
+            { "text": { "en": "File sizes", "ru": "Размеры файлов" }, "isCorrect": false },
+            { "text": { "en": "Error count", "ru": "Количество ошибок" }, "isCorrect": false }
+          ]
+        },
+        {
+          "sortOrder": 8,
+          "name": { "en": "How do you inspect cookies?", "ru": "Как проверить куки?" },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "Application panel > Cookies (or Storage panel in newer versions) shows all cookies.",
+            "ru": "Application panel > Cookies (или Storage в новых версиях) показывает все куки."
+          },
+          "answers": [
+            { "text": { "en": "Network panel", "ru": "Панель Network" }, "isCorrect": false },
+            {
+              "text": { "en": "Application/Storage panel", "ru": "Панель Application/Storage" },
+              "isCorrect": true
+            },
+            { "text": { "en": "Console", "ru": "Console" }, "isCorrect": false },
+            { "text": { "en": "Elements", "ru": "Elements" }, "isCorrect": false }
+          ]
+        },
+        {
+          "sortOrder": 9,
+          "name": {
+            "en": "What is the Performance panel used for?",
+            "ru": "Для чего используется панель Performance?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "Performance panel records and analyzes runtime performance, frames, CPU usage, and bottlenecks.",
+            "ru": "Панель Performance записывает и анализирует производительность времени выполнения, кадры, использование CPU и узкие места."
+          },
+          "answers": [
+            { "text": { "en": "Viewing HTML", "ru": "Просмотр HTML" }, "isCorrect": false },
+            {
+              "text": {
+                "en": "Analyzing runtime performance",
+                "ru": "Анализ производительности времени выполнения"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": { "en": "Debugging JavaScript", "ru": "Отладка JavaScript" },
+              "isCorrect": false
+            },
+            { "text": { "en": "Network analysis", "ru": "Анализ сети" }, "isCorrect": false }
+          ]
+        },
+        {
+          "sortOrder": 10,
+          "name": {
+            "en": "How do you simulate slow network conditions?",
+            "ru": "Как симулировать медленные сетевые условия?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "Network panel > dropdown > select preset (Fast 3G, Slow 3G) or add custom profile.",
+            "ru": "Network panel > выпадающий список > выберите пресет (Fast 3G, Slow 3G) или добавьте профиль."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "Console > setNetworkThrottle()",
+                "ru": "Console > setNetworkThrottle()"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Network panel throttling dropdown",
+                "ru": "Выпадающий список throttling в Network"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": { "en": "Settings > Network", "ru": "Settings > Network" },
+              "isCorrect": false
+            },
+            { "text": { "en": "Elements panel", "ru": "Панель Elements" }, "isCorrect": false }
+          ]
+        },
+        {
+          "sortOrder": 11,
+          "name": {
+            "en": "What does the Lighthouse panel do?",
+            "ru": "Что делает панель Lighthouse?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "Lighthouse runs audits for performance, accessibility, SEO, and best practices.",
+            "ru": "Lighthouse запускает аудиты производительности, доступности, SEO и лучших практик."
+          },
+          "answers": [
+            {
+              "text": { "en": "Records network traffic", "ru": "Записывает сетевой трафик" },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Runs performance and accessibility audits",
+                "ru": "Запускает аудиты производительности и доступности"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": { "en": "Debugs JavaScript errors", "ru": "Отлаживает ошибки JavaScript" },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "Edits CSS styles", "ru": "Редактирует CSS-стили" },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 12,
+          "name": {
+            "en": "How do you view localStorage data?",
+            "ru": "Как просмотреть данные localStorage?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "Application panel > Local Storage shows key-value pairs stored in localStorage.",
+            "ru": "Панель Application > Local Storage показывает пары ключ-значение в localStorage."
+          },
+          "answers": [
+            {
+              "text": { "en": "Console > localStorage", "ru": "Console > localStorage" },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "Application/Storage panel", "ru": "Панель Application/Storage" },
+              "isCorrect": true
+            },
+            { "text": { "en": "Network panel", "ru": "Панель Network" }, "isCorrect": false },
+            { "text": { "en": "Elements panel", "ru": "Панель Elements" }, "isCorrect": false }
+          ]
+        },
+        {
+          "sortOrder": 13,
+          "name": {
+            "en": "What keyboard shortcut steps over a function in debugger?",
+            "ru": "Какая горячая клавиша перешагивает функцию в отладчике?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "F10 steps over (executes function without entering it). F11 steps into.",
+            "ru": "F10 перешагивает (выполняет функцию без входа в неё). F11 входит внутрь."
+          },
+          "answers": [
+            { "text": { "en": "F5", "ru": "F5" }, "isCorrect": false },
+            { "text": { "en": "F10", "ru": "F10" }, "isCorrect": true },
+            { "text": { "en": "F8", "ru": "F8" }, "isCorrect": false },
+            { "text": { "en": "F9", "ru": "F9" }, "isCorrect": false }
+          ]
+        },
+        {
+          "sortOrder": 14,
+          "name": {
+            "en": "What keyboard shortcut steps into a function?",
+            "ru": "Какая горячая клавиша входит в функцию?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "F11 steps into the function. Shift+F11 steps out.",
+            "ru": "F11 входит в функцию. Shift+F11 выходит из функции."
+          },
+          "answers": [
+            { "text": { "en": "F10", "ru": "F10" }, "isCorrect": false },
+            { "text": { "en": "F11", "ru": "F11" }, "isCorrect": true },
+            { "text": { "en": "F9", "ru": "F9" }, "isCorrect": false },
+            { "text": { "en": "F12", "ru": "F12" }, "isCorrect": false }
+          ]
+        },
+        {
+          "sortOrder": 15,
+          "name": {
+            "en": "How do you find text in the page source?",
+            "ru": "Как найти текст в исходном коде страницы?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "Ctrl+Shift+F (Cmd+Opt+F on Mac) opens search across all files.",
+            "ru": "Ctrl+Shift+F (Cmd+Opt+F на Mac) открывает поиск по всем файлам."
+          },
+          "answers": [
+            {
+              "text": { "en": "Ctrl+F in Elements", "ru": "Ctrl+F в Elements" },
+              "isCorrect": false
+            },
+            { "text": { "en": "Ctrl+Shift+F", "ru": "Ctrl+Shift+F" }, "isCorrect": true },
+            { "text": { "en": "Ctrl+G", "ru": "Ctrl+G" }, "isCorrect": false },
+            { "text": { "en": "Ctrl+S", "ru": "Ctrl+S" }, "isCorrect": false }
+          ]
+        },
+        {
+          "sortOrder": 16,
+          "name": {
+            "en": "What is the purpose of the Memory panel?",
+            "ru": "Для чего нужна панель Memory?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "Memory panel profiles heap usage, finds memory leaks, and takes heap snapshots.",
+            "ru": "Панель Memory профилирует использование кучи, находит утечки памяти и делает снимки кучи."
+          },
+          "answers": [
+            { "text": { "en": "Network analysis", "ru": "Анализ сети" }, "isCorrect": false },
+            {
+              "text": {
+                "en": "Heap profiling and leak detection",
+                "ru": "Профилирование кучи и обнаружение утечек"
+              },
+              "isCorrect": true
+            },
+            { "text": { "en": "CSS editing", "ru": "Редактирование CSS" }, "isCorrect": false },
+            {
+              "text": { "en": "Console logging", "ru": "Логирование в консоль" },
+              "isCorrect": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": { "en": "Web Storage", "ru": "Web Storage" },
+      "description": {
+        "en": "Client-side storage: localStorage, sessionStorage, and cookies — differences and use cases",
+        "ru": "Хранилище на стороне клиента: localStorage, sessionStorage и cookies — отличия и случаи применения"
+      },
+      "links": ["https://developer.mozilla.org/en-US/docs/Web/API/Web_Storage_API"],
+      "questions": [
+        {
+          "sortOrder": 1,
+          "name": {
+            "en": "What is the storage limit for localStorage?",
+            "ru": "Каков лимит хранилища для localStorage?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "localStorage typically allows ~5-10MB per origin (varies by browser).",
+            "ru": "localStorage обычно позволяет ~5-10MB на источник (зависит от браузера)."
+          },
+          "answers": [
+            { "text": { "en": "1MB", "ru": "1MB" }, "isCorrect": false },
+            { "text": { "en": "~5-10MB", "ru": "~5-10MB" }, "isCorrect": true },
+            { "text": { "en": "Unlimited", "ru": "Безлимит" }, "isCorrect": false },
+            { "text": { "en": "100KB", "ru": "100KB" }, "isCorrect": false }
+          ]
+        },
+        {
+          "sortOrder": 2,
+          "name": {
+            "en": "How do you set an item in localStorage?",
+            "ru": "Как установить элемент в localStorage?"
+          },
+          "codeSnippet": "localStorage.setItem('key', 'value');",
+          "explanation": {
+            "en": "`localStorage.setItem(key, value)` stores a key-value pair as strings.",
+            "ru": "`localStorage.setItem(key, value)` сохраняет пару ключ-значение как строки."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "localStorage.add('key', 'value')",
+                "ru": "localStorage.add('key', 'value')"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "localStorage.setItem('key', 'value')",
+                "ru": "localStorage.setItem('key', 'value')"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "localStorage['key'] = 'value'",
+                "ru": "localStorage['key'] = 'value'"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "localStorage.save('key', 'value')",
+                "ru": "localStorage.save('key', 'value')"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 3,
+          "name": {
+            "en": "What is the difference between localStorage and sessionStorage?",
+            "ru": "В чём разница между localStorage и sessionStorage?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "localStorage persists across sessions; sessionStorage is cleared when the tab/browser closes.",
+            "ru": "localStorage сохраняется между сессиями; sessionStorage очищается при закрытии вкладки/браузера."
+          },
+          "answers": [
+            {
+              "text": { "en": "localStorage is faster", "ru": "localStorage быстрее" },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "localStorage persists, sessionStorage clears on close",
+                "ru": "localStorage сохраняется, sessionStorage очищается при закрытии"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "sessionStorage has more space",
+                "ru": "sessionStorage имеет больше места"
+              },
+              "isCorrect": false
+            },
+            { "text": { "en": "They are identical", "ru": "Они идентичны" }, "isCorrect": false }
+          ]
+        },
+        {
+          "sortOrder": 4,
+          "name": {
+            "en": "How do you get an item from localStorage?",
+            "ru": "Как получить элемент из localStorage?"
+          },
+          "codeSnippet": "const value = localStorage.getItem('key');",
+          "explanation": {
+            "en": "`localStorage.getItem(key)` returns the value as a string, or null if not found.",
+            "ru": "`localStorage.getItem(key)` возвращает значение как строку или null, если не найдено."
+          },
+          "answers": [
+            {
+              "text": { "en": "localStorage.fetch('key')", "ru": "localStorage.fetch('key')" },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "localStorage.getItem('key')", "ru": "localStorage.getItem('key')" },
+              "isCorrect": true
+            },
+            {
+              "text": { "en": "localStorage.read('key')", "ru": "localStorage.read('key')" },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "localStorage['key']", "ru": "localStorage['key']" },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 5,
+          "name": {
+            "en": "How do you remove an item from localStorage?",
+            "ru": "Как удалить элемент из localStorage?"
+          },
+          "codeSnippet": "localStorage.removeItem('key');",
+          "explanation": {
+            "en": "`localStorage.removeItem(key)` removes the specific key from storage.",
+            "ru": "`localStorage.removeItem(key)` удаляет конкретный ключ из хранилища."
+          },
+          "answers": [
+            {
+              "text": { "en": "localStorage.delete('key')", "ru": "localStorage.delete('key')" },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "localStorage.removeItem('key')",
+                "ru": "localStorage.removeItem('key')"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": { "en": "localStorage.clear('key')", "ru": "localStorage.clear('key')" },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "localStorage.drop('key')", "ru": "localStorage.drop('key')" },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 6,
+          "name": {
+            "en": "How do you clear all localStorage data?",
+            "ru": "Как очистить все данные localStorage?"
+          },
+          "codeSnippet": "localStorage.clear();",
+          "explanation": {
+            "en": "`localStorage.clear()` removes all items from the storage for that origin.",
+            "ru": "`localStorage.clear()` удаляет все элементы из хранилища для этого источника."
+          },
+          "answers": [
+            {
+              "text": { "en": "localStorage.removeAll()", "ru": "localStorage.removeAll()" },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "localStorage.clear()", "ru": "localStorage.clear()" },
+              "isCorrect": true
+            },
+            {
+              "text": { "en": "localStorage.empty()", "ru": "localStorage.empty()" },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "localStorage.flush()", "ru": "localStorage.flush()" },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 7,
+          "name": {
+            "en": "Can localStorage store objects directly?",
+            "ru": "Может ли localStorage хранить объекты напрямую?"
+          },
+          "codeSnippet": "localStorage.setItem('obj', JSON.stringify({a: 1}));",
+          "explanation": {
+            "en": "No, only strings. Use JSON.stringify() to store objects and JSON.parse() to retrieve.",
+            "ru": "Нет, только строки. Используйте JSON.stringify() для хранения объектов и JSON.parse() для получения."
+          },
+          "answers": [
+            { "text": { "en": "Yes, directly", "ru": "Да, напрямую" }, "isCorrect": false },
+            {
+              "text": {
+                "en": "No, must use JSON.stringify",
+                "ru": "Нет, нужно использовать JSON.stringify"
+              },
+              "isCorrect": true
+            },
+            { "text": { "en": "Only arrays", "ru": "Только массивы" }, "isCorrect": false },
+            { "text": { "en": "Only primitives", "ru": "Только примитивы" }, "isCorrect": false }
+          ]
+        },
+        {
+          "sortOrder": 8,
+          "name": {
+            "en": "Are localStorage values sent to the server with requests?",
+            "ru": "Отправляются ли значения localStorage на сервер с запросами?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "No, localStorage stays on the client. Use cookies if you need server communication.",
+            "ru": "Нет, localStorage остаётся на клиенте. Используйте куки для связи с сервером."
+          },
+          "answers": [
+            {
+              "text": { "en": "Yes, automatically", "ru": "Да, автоматически" },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "No, only on client", "ru": "Нет, только на клиенте" },
+              "isCorrect": true
+            },
+            { "text": { "en": "Only with AJAX", "ru": "Только с AJAX" }, "isCorrect": false },
+            { "text": { "en": "Depends on CORS", "ru": "Зависит от CORS" }, "isCorrect": false }
+          ]
+        },
+        {
+          "sortOrder": 9,
+          "name": {
+            "en": "What happens when storage is full?",
+            "ru": "Что происходит, когда хранилище заполнено?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "A DOMException with 'QuotaExceededError' is thrown when storage is full.",
+            "ru": "Выбрасывается DOMException с 'QuotaExceededError', когда хранилище заполнено."
+          },
+          "answers": [
+            {
+              "text": { "en": "It overwrites old data", "ru": "Оно перезаписывает старые данные" },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "QuotaExceededError is thrown",
+                "ru": "Выбрасывается QuotaExceededError"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": { "en": "It silently fails", "ru": "Оно молча завершается неудачей" },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "Browser asks user", "ru": "Браузер спрашивает пользователя" },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 10,
+          "name": {
+            "en": "Can other windows access the same localStorage?",
+            "ru": "Могут ли другие окна получить доступ к тому же localStorage?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "Yes, same-origin windows share localStorage. A 'storage' event fires on other windows.",
+            "ru": "Да, окна с тем же источником разделяют localStorage. Событие 'storage' вызывается на других окнах."
+          },
+          "answers": [
+            { "text": { "en": "No, never", "ru": "Нет, никогда" }, "isCorrect": false },
+            {
+              "text": {
+                "en": "Yes, same-origin windows share it",
+                "ru": "Да, окна с тем же источником разделяют его"
+              },
+              "isCorrect": true
+            },
+            { "text": { "en": "Only with HTTPS", "ru": "Только с HTTPS" }, "isCorrect": false },
+            {
+              "text": {
+                "en": "Only with user permission",
+                "ru": "Только с разрешения пользователя"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 11,
+          "name": {
+            "en": "What is the main difference between cookies and localStorage?",
+            "ru": "В чём главное различие между куки и localStorage?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "Cookies are sent to server with requests; localStorage stays client-only.",
+            "ru": "Куки отправляются на сервер с запросами; localStorage остаётся только на клиенте."
+          },
+          "answers": [
+            { "text": { "en": "Cookies are faster", "ru": "Куки быстрее" }, "isCorrect": false },
+            {
+              "text": {
+                "en": "Cookies go to server, localStorage stays client-side",
+                "ru": "Куки уходят на сервер, localStorage остаётся на клиенте"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": { "en": "localStorage is more secure", "ru": "localStorage безопаснее" },
+              "isCorrect": false
+            },
+            { "text": { "en": "They are the same", "ru": "Они одинаковы" }, "isCorrect": false }
+          ]
+        },
+        {
+          "sortOrder": 12,
+          "name": {
+            "en": "How do you check if localStorage is available?",
+            "ru": "Как проверить доступность localStorage?"
+          },
+          "codeSnippet": "try {\n  localStorage.setItem('test', 'test');\n  localStorage.removeItem('test');\n} catch(e) {\n  console.log('Not available');\n}",
+          "explanation": {
+            "en": "Wrap in try-catch because localStorage can throw in private mode or when full.",
+            "ru": "Оберните в try-catch, так как localStorage может выбросить в приватном режиме или при заполнении."
+          },
+          "answers": [
+            {
+              "text": { "en": "localStorage.available", "ru": "localStorage.available" },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "Try-catch around setItem", "ru": "Try-catch вокруг setItem" },
+              "isCorrect": true
+            },
+            {
+              "text": { "en": "typeof localStorage", "ru": "typeof localStorage" },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Check navigator.cookiesEnabled",
+                "ru": "Проверить navigator.cookiesEnabled"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 13,
+          "name": {
+            "en": "What is the max size of a cookie?",
+            "ru": "Каков максимальный размер куки?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "~4KB per cookie, ~50 cookies per domain (varies by browser).",
+            "ru": "~4KB на куку, ~50 кук на домен (зависит от браузера)."
+          },
+          "answers": [
+            { "text": { "en": "Unlimited", "ru": "Безлимит" }, "isCorrect": false },
+            { "text": { "en": "~4KB", "ru": "~4KB" }, "isCorrect": true },
+            { "text": { "en": "1MB", "ru": "1MB" }, "isCorrect": false },
+            { "text": { "en": "100KB", "ru": "100KB" }, "isCorrect": false }
+          ]
+        },
+        {
+          "sortOrder": 14,
+          "name": {
+            "en": "How do you set a cookie with expiration?",
+            "ru": "Как установить куку с истечением срока?"
+          },
+          "codeSnippet": "document.cookie = 'name=value; expires=Fri, 31 Dec 2025 23:59:59 GMT';",
+          "explanation": {
+            "en": "Add 'expires=date' to set expiration. Without it, cookie is session-only.",
+            "ru": "Добавьте 'expires=date' для установки срока. Без этого кука существует только для сессии."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "document.cookie.set('name', 'value', {expires})",
+                "ru": "document.cookie.set('name', 'value', {expires})"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Add expires to cookie string",
+                "ru": "Добавить expires в строку куки"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "document.cookie.save('name', 'value', date)",
+                "ru": "document.cookie.save('name', 'value', date)"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "Use localStorage instead", "ru": "Используйте localStorage" },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 15,
+          "name": {
+            "en": "Can you store JSON in sessionStorage?",
+            "ru": "Можно ли хранить JSON в sessionStorage?"
+          },
+          "codeSnippet": "sessionStorage.setItem('data', JSON.stringify(obj));",
+          "explanation": {
+            "en": "Yes, same as localStorage - must stringify objects and parse on retrieval.",
+            "ru": "Да, как localStorage - нужноstringify объекты и парсить при получении."
+          },
+          "answers": [
+            {
+              "text": { "en": "No, only strings", "ru": "Нет, только строки" },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "Yes, with JSON.stringify", "ru": "Да, с JSON.stringify" },
+              "isCorrect": true
+            },
+            { "text": { "en": "Only numbers", "ru": "Только числа" }, "isCorrect": false },
+            {
+              "text": { "en": "Only with special method", "ru": "Только со специальным методом" },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 16,
+          "name": {
+            "en": "What event fires when localStorage changes in another tab?",
+            "ru": "Какое событие возникает при изменении localStorage в другой вкладке?"
+          },
+          "codeSnippet": "window.addEventListener('storage', (e) => {});",
+          "explanation": {
+            "en": "The 'storage' event fires on other tabs when localStorage is modified.",
+            "ru": "Событие 'storage' возникает на других вкладках при изменении localStorage."
+          },
+          "answers": [
+            {
+              "text": { "en": "localStoragechange", "ru": "localStoragechange" },
+              "isCorrect": false
+            },
+            { "text": { "en": "storage", "ru": "storage" }, "isCorrect": true },
+            { "text": { "en": "update", "ru": "update" }, "isCorrect": false },
+            { "text": { "en": "sync", "ru": "sync" }, "isCorrect": false }
+          ]
+        }
+      ]
+    },
+    {
+      "name": { "en": "Event Loop & Animation", "ru": "Цикл событий и анимация" },
+      "description": {
+        "en": "The JavaScript event loop, call stack, task queues, microtasks, and requestAnimationFrame",
+        "ru": "Цикл событий JavaScript, стек вызовов, очереди задач, микрозадачи и requestAnimationFrame"
+      },
+      "links": [
+        "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/EventLoop",
+        "https://developer.mozilla.org/en-US/docs/Web/API/window/requestAnimationFrame"
+      ],
+      "questions": [
+        {
+          "sortOrder": 1,
+          "name": { "en": "What is the call stack?", "ru": "Что такое стек вызовов?" },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "The call stack is a LIFO data structure that tracks function execution in JavaScript.",
+            "ru": "Стек вызовов — это структура данных LIFO, которая отслеживает выполнение функций в JavaScript."
+          },
+          "answers": [
+            {
+              "text": { "en": "A queue of functions", "ru": "Очередь функций" },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "A LIFO stack tracking function calls",
+                "ru": "LIFO-стек для отслеживания вызовов функций"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": { "en": "A list of variables", "ru": "Список переменных" },
+              "isCorrect": false
+            },
+            { "text": { "en": "A memory heap", "ru": "Куча памяти" }, "isCorrect": false }
+          ]
+        },
+        {
+          "sortOrder": 2,
+          "name": { "en": "What is the event loop?", "ru": "Что такое цикл событий?" },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "The event loop continuously checks if the call stack is empty and moves tasks from the queue to the stack.",
+            "ru": "Цикл событий постоянно проверяет, пуст ли стек вызовов, и перемещает задачи из очереди в стек."
+          },
+          "answers": [
+            {
+              "text": { "en": "A loop for handling events", "ru": "Цикл для обработки событий" },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Moves tasks from queue to stack when empty",
+                "ru": "Перемещает задачи из очереди в стек, когда он пуст"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": { "en": "A recursive function", "ru": "Рекурсивная функция" },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "An event listener", "ru": "Обработчик событий" },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 3,
+          "name": { "en": "What are microtasks?", "ru": "Что такое микрозадачи?" },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "Microtasks are tasks (Promise callbacks, queueMicrotask) that run after current task but before rendering.",
+            "ru": "Микрозадачи — это задачи (колбэки промисов, queueMicrotask), которые выполняются после текущей задачи, но до отрисовки."
+          },
+          "answers": [
+            {
+              "text": { "en": "Small setTimeout calls", "ru": "Маленькие вызовы setTimeout" },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Promise callbacks that run before rendering",
+                "ru": "Колбэки промисов, которые выполняются перед отрисовкой"
+              },
+              "isCorrect": true
+            },
+            { "text": { "en": "Event handlers", "ru": "Обработчики событий" }, "isCorrect": false },
+            { "text": { "en": "CSS animations", "ru": "CSS-анимации" }, "isCorrect": false }
+          ]
+        },
+        {
+          "sortOrder": 4,
+          "name": { "en": "When are microtasks executed?", "ru": "Когда выполняются микрозадачи?" },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "Microtasks run after the current synchronous code completes but before the next macrotask.",
+            "ru": "Микрозадачи выполняются после завершения текущего синхронного кода, но перед следующей макрозадачей."
+          },
+          "answers": [
+            {
+              "text": { "en": "After every function call", "ru": "После каждого вызова функции" },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "After current task, before next macrotask",
+                "ru": "После текущей задачи, перед следующей макрозадачей"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": { "en": "Immediately when called", "ru": "Немедленно при вызове" },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "Only when stack is empty", "ru": "Только когда стек пуст" },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 5,
+          "name": {
+            "en": "What is requestAnimationFrame?",
+            "ru": "Что такое requestAnimationFrame?"
+          },
+          "codeSnippet": "function animate() {\n  requestAnimationFrame(animate);\n}",
+          "explanation": {
+            "en": "`requestAnimationFrame` schedules a callback to run before the next repaint, synced to display refresh.",
+            "ru": "`requestAnimationFrame` планирует колбэк для выполнения перед следующей отрисовкой, синхронизированно с частотой обновления экрана."
+          },
+          "answers": [
+            {
+              "text": { "en": "A setTimeout alternative", "ru": "Альтернатива setTimeout" },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Callback before next paint",
+                "ru": "Колбэк перед следующей отрисовкой"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": { "en": "An animation library", "ru": "Библиотека анимаций" },
+              "isCorrect": false
+            },
+            { "text": { "en": "A CSS property", "ru": "CSS-свойство" }, "isCorrect": false }
+          ]
+        },
+        {
+          "sortOrder": 6,
+          "name": {
+            "en": "What is the difference between setTimeout and requestAnimationFrame?",
+            "ru": "В чём разница между setTimeout и requestAnimationFrame?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "setTimeout runs at specified delay; rAF runs before next paint, synced to refresh rate.",
+            "ru": "setTimeout выполняется с указанной задержкой; rAF выполняется перед следующей отрисовкой, синхронизированно с частотой обновления."
+          },
+          "answers": [
+            { "text": { "en": "They are the same", "ru": "Они одинаковы" }, "isCorrect": false },
+            {
+              "text": {
+                "en": "rAF syncs to display, setTimeout is time-based",
+                "ru": "rAF синхронизирован с дисплеем, setTimeout по времени"
+              },
+              "isCorrect": true
+            },
+            { "text": { "en": "rAF is slower", "ru": "rAF медленнее" }, "isCorrect": false },
+            {
+              "text": { "en": "setTimeout is deprecated", "ru": "setTimeout устарел" },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 7,
+          "name": { "en": "What is the macrotask queue?", "ru": "Что такое очередь макрозадач?" },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "The macrotask queue holds async tasks: setTimeout, setInterval, I/O, UI rendering.",
+            "ru": "Очередь макрозадач содержит асинхронные задачи: setTimeout, setInterval, I/O, отрисовка UI."
+          },
+          "answers": [
+            {
+              "text": { "en": "Queue of synchronous code", "ru": "Очередь синхронного кода" },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Queue for setTimeout, I/O, rendering",
+                "ru": "Очередь для setTimeout, I/O, отрисовки"
+              },
+              "isCorrect": true
+            },
+            { "text": { "en": "Queue of promises", "ru": "Очередь промисов" }, "isCorrect": false },
+            { "text": { "en": "The call stack", "ru": "Стек вызовов" }, "isCorrect": false }
+          ]
+        },
+        {
+          "sortOrder": 8,
+          "name": {
+            "en": "What happens to the UI during a long-running synchronous loop?",
+            "ru": "Что происходит с UI во время длительного синхронного цикла?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "The page freezes because the call stack is blocked; the event loop can't process other tasks.",
+            "ru": "Страница зависает, потому что стек вызовов заблокирован; цикл событий не может обрабатывать другие задачи."
+          },
+          "answers": [
+            {
+              "text": { "en": "It continues normally", "ru": "Оно продолжает работать нормально" },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Page freezes, can't respond",
+                "ru": "Страница зависает, не отвечает"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": { "en": "It shows a loading spinner", "ru": "Показывает спиннер загрузки" },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Events queue up and run after",
+                "ru": "События накапливаются и выполняются после"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 9,
+          "name": { "en": "What does queueMicrotask do?", "ru": "Что делает queueMicrotask?" },
+          "codeSnippet": "queueMicrotask(() => { console.log('microtask'); });",
+          "explanation": {
+            "en": "`queueMicrotask` queues a function to run as a microtask, after current synchronous code.",
+            "ru": "`queueMicrotask` ставит функцию в очередь микрозадач для выполнения после текущего синхронного кода."
+          },
+          "answers": [
+            {
+              "text": { "en": "Runs immediately", "ru": "Выполняется немедленно" },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "Queues a microtask", "ru": "Ставит в очередь микрозадачу" },
+              "isCorrect": true
+            },
+            { "text": { "en": "Creates a promise", "ru": "Создаёт промис" }, "isCorrect": false },
+            {
+              "text": { "en": "Delays execution", "ru": "Задерживает выполнение" },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 10,
+          "name": {
+            "en": "What is the order of execution: sync code, microtasks, macrotasks?",
+            "ru": "Каков порядок выполнения: синхронный код, микрозадачи, макрозадачи?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "Sync code runs first, then all microtasks, then one macrotask (then repeat).",
+            "ru": "Сначала выполняется синхронный код, затем все микрозадачи, затем одна макрозадача (повторяется)."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "Sync, macrotask, microtask",
+                "ru": "Синхронный, макрозадача, микрозадача"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Sync, microtask, macrotask",
+                "ru": "Синхронный, микрозадача, макрозадача"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "Microtask, sync, macrotask",
+                "ru": "Микрозадача, синхронный, макрозадача"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "All run simultaneously", "ru": "Все выполняются одновременно" },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 11,
+          "name": {
+            "en": "Does requestAnimationFrame run when the tab is hidden?",
+            "ru": "Выполняется ли requestAnimationFrame, когда вкладка скрыта?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "No, rAF pauses when tab is hidden to save resources. It resumes when visible.",
+            "ru": "Нет, rAF приостанавливается, когда вкладка скрыта, для экономии ресурсов. Возобновляется при видимости."
+          },
+          "answers": [
+            { "text": { "en": "Yes, continuously", "ru": "Да, непрерывно" }, "isCorrect": false },
+            {
+              "text": { "en": "No, it pauses", "ru": "Нет, оно приостанавливается" },
+              "isCorrect": true
+            },
+            { "text": { "en": "Only once", "ru": "Только один раз" }, "isCorrect": false },
+            {
+              "text": { "en": "At reduced rate", "ru": "С пониженной частотой" },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 12,
+          "name": { "en": "What is task.yield?", "ru": "Что такое task.yield?" },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "`yield` allows a task to yield control back to the event loop, letting other tasks run.",
+            "ru": "`yield` позволяет задаче вернуть управление циклу событий, давая возможность выполняться другим задачам."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "Stops execution permanently",
+                "ru": "Останавливает выполнение навсегда"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Yields to event loop for other tasks",
+                "ru": "Уступает циклу событий для других задач"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": { "en": "Pauses for a duration", "ru": "Приостанавливает на время" },
+              "isCorrect": false
+            },
+            { "text": { "en": "Creates a promise", "ru": "Создаёт промис" }, "isCorrect": false }
+          ]
+        },
+        {
+          "sortOrder": 13,
+          "name": {
+            "en": "Why is requestAnimationFrame better for animations than setInterval?",
+            "ru": "Почему requestAnimationFrame лучше для анимаций, чем setInterval?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "rAF syncs with display refresh (usually 60fps), avoids jank, pauses when tab hidden.",
+            "ru": "rAF синхронизируется с частотой обновления экрана (обычно 60fps), избегает подёргиваний, приостанавливается при скрытии вкладки."
+          },
+          "answers": [
+            { "text": { "en": "It's faster", "ru": "Оно быстрее" }, "isCorrect": false },
+            {
+              "text": {
+                "en": "Syncs with refresh rate, pauses when hidden",
+                "ru": "Синхронизируется с частотой обновления, приостанавливается при скрытии"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": { "en": "It uses less memory", "ru": "Оно использует меньше памяти" },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "setInterval doesn't work", "ru": "setInterval не работает" },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 14,
+          "name": { "en": "What is the heap?", "ru": "Что такое куча (heap)?" },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "The heap is where objects are allocated in memory. It's not organized in a specific order.",
+            "ru": "Куча — это место в памяти, где выделяются объекты. Она не организована в определённом порядке."
+          },
+          "answers": [
+            {
+              "text": { "en": "A queue data structure", "ru": "Структура данных очередь" },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Memory where objects are allocated",
+                "ru": "Память, где выделяются объекты"
+              },
+              "isCorrect": true
+            },
+            { "text": { "en": "The call stack", "ru": "Стек вызовов" }, "isCorrect": false },
+            { "text": { "en": "The event loop", "ru": "Цикл событий" }, "isCorrect": false }
+          ]
+        },
+        {
+          "sortOrder": 15,
+          "name": {
+            "en": "What determines when rAF callbacks are called?",
+            "ru": "Что определяет, когда вызываются колбэки rAF?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "rAF callbacks are called before each repaint, synchronized with the display refresh rate.",
+            "ru": "Колбэки rAF вызываются перед каждой отрисовкой, синхронизированно с частотой обновления экрана."
+          },
+          "answers": [
+            { "text": { "en": "Fixed timer", "ru": "Фиксированный таймер" }, "isCorrect": false },
+            {
+              "text": { "en": "Display refresh rate", "ru": "Частота обновления экрана" },
+              "isCorrect": true
+            },
+            { "text": { "en": "CPU usage", "ru": "Использование CPU" }, "isCorrect": false },
+            { "text": { "en": "User input", "ru": "Ввод пользователя" }, "isCorrect": false }
+          ]
+        },
+        {
+          "sortOrder": 16,
+          "name": {
+            "en": "Can microtasks interrupt rendering?",
+            "ru": "Могут ли микрозадачи прервать отрисовку?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "No, microtasks run after the current task but before rendering. Long microtask chains can delay rendering.",
+            "ru": "Нет, микрозадачи выполняются после текущей задачи, но до отрисовки. Длинные цепочки микрозадач могут задержать отрисовку."
+          },
+          "answers": [
+            { "text": { "en": "Yes, always", "ru": "Да, всегда" }, "isCorrect": false },
+            {
+              "text": { "en": "No, but can delay it", "ru": "Нет, но могут задержать её" },
+              "isCorrect": true
+            },
+            {
+              "text": { "en": "Only with promises", "ru": "Только с промисами" },
+              "isCorrect": false
+            },
+            { "text": { "en": "Only in Firefox", "ru": "Только в Firefox" }, "isCorrect": false }
+          ]
+        }
+      ]
+    },
+    {
+      "name": { "en": "WebSockets", "ru": "WebSockets" },
+      "description": {
+        "en": "Full-duplex browser-server communication using the WebSocket protocol",
+        "ru": "Полнодуплексная коммуникация между браузером и сервером с использованием протокола WebSocket"
+      },
+      "links": ["https://developer.mozilla.org/en-US/docs/Web/API/WebSocket"],
+      "questions": [
+        {
+          "sortOrder": 1,
+          "name": {
+            "en": "What is a key advantage of WebSockets over HTTP?",
+            "ru": "Какое ключевое преимущество WebSockets перед HTTP?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "WebSockets provide full-duplex communication over a single persistent connection.",
+            "ru": "WebSockets обеспечивают полнодуплексную связь через одно постоянное соединение."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "They're faster for static files",
+                "ru": "Они быстрее для статических файлов"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Full-duplex, persistent connection",
+                "ru": "Полнодуплексное, постоянное соединение"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": { "en": "They use less bandwidth", "ru": "Они используют меньше трафика" },
+              "isCorrect": false
+            },
+            { "text": { "en": "They're more secure", "ru": "Они безопаснее" }, "isCorrect": false }
+          ]
+        },
+        {
+          "sortOrder": 2,
+          "name": {
+            "en": "How do you create a WebSocket connection?",
+            "ru": "Как создать WebSocket-соединение?"
+          },
+          "codeSnippet": "const ws = new WebSocket('ws://example.com/socket');",
+          "explanation": {
+            "en": "`new WebSocket(url)` creates a WebSocket connection. Use 'ws://' or 'wss://' for secure.",
+            "ru": "`new WebSocket(url)` создаёт WebSocket-соединение. Используйте 'ws://' или 'wss://' для безопасного."
+          },
+          "answers": [
+            {
+              "text": { "en": "WebSocket.connect('url')", "ru": "WebSocket.connect('url')" },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "new WebSocket('ws://...')", "ru": "new WebSocket('ws://...')" },
+              "isCorrect": true
+            },
+            {
+              "text": { "en": "WebSocket.create('url')", "ru": "WebSocket.create('url')" },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "ws = WebSocket.open('url')", "ru": "ws = WebSocket.open('url')" },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 3,
+          "name": {
+            "en": "What event fires when the connection opens?",
+            "ru": "Какое событие возникает при открытии соединения?"
+          },
+          "codeSnippet": "ws.onopen = () => {};",
+          "explanation": {
+            "en": "The 'open' event fires when the WebSocket connection is established.",
+            "ru": "Событие 'open' возникает, когда WebSocket-соединение установлено."
+          },
+          "answers": [
+            { "text": { "en": "connect", "ru": "connect" }, "isCorrect": false },
+            { "text": { "en": "open", "ru": "open" }, "isCorrect": true },
+            { "text": { "en": "ready", "ru": "ready" }, "isCorrect": false },
+            { "text": { "en": "on", "ru": "on" }, "isCorrect": false }
+          ]
+        },
+        {
+          "sortOrder": 4,
+          "name": {
+            "en": "How do you send a message over WebSocket?",
+            "ru": "Как отправить сообщение через WebSocket?"
+          },
+          "codeSnippet": "ws.send('Hello');",
+          "explanation": {
+            "en": "`ws.send(data)` sends data over the WebSocket connection. Data can be string, Blob, or ArrayBuffer.",
+            "ru": "`ws.send(data)` отправляет данные через WebSocket. Данные могут быть строкой, Blob или ArrayBuffer."
+          },
+          "answers": [
+            {
+              "text": { "en": "ws.send('message')", "ru": "ws.send('message')" },
+              "isCorrect": true
+            },
+            {
+              "text": { "en": "ws.post('message')", "ru": "ws.post('message')" },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "ws.write('message')", "ru": "ws.write('message')" },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "ws.emit('message')", "ru": "ws.emit('message')" },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 5,
+          "name": {
+            "en": "How do you handle incoming messages?",
+            "ru": "Как обрабатывать входящие сообщения?"
+          },
+          "codeSnippet": "ws.onmessage = (event) => {\n  const data = event.data;\n};",
+          "explanation": {
+            "en": "`ws.onmessage` receives a MessageEvent with the data in `event.data`.",
+            "ru": "`ws.onmessage` получает MessageEvent с данными в `event.data`."
+          },
+          "answers": [
+            {
+              "text": { "en": "ws.on('message', fn)", "ru": "ws.on('message', fn)" },
+              "isCorrect": false
+            },
+            { "text": { "en": "ws.onmessage = fn", "ru": "ws.onmessage = fn" }, "isCorrect": true },
+            { "text": { "en": "ws.message(fn)", "ru": "ws.message(fn)" }, "isCorrect": false },
+            { "text": { "en": "ws.receive(fn)", "ru": "ws.receive(fn)" }, "isCorrect": false }
+          ]
+        },
+        {
+          "sortOrder": 6,
+          "name": {
+            "en": "What happens when the connection closes?",
+            "ru": "Что происходит при закрытии соединения?"
+          },
+          "codeSnippet": "ws.onclose = (event) => {\n  console.log(event.code, event.reason);\n};",
+          "explanation": {
+            "en": "The 'close' event fires with code and reason. Common codes: 1000 (normal), 1001 (going away).",
+            "ru": "Событие 'close' возникает с кодом и причиной. Коды: 1000 (нормальное), 1001 (уход)."
+          },
+          "answers": [
+            { "text": { "en": "Nothing", "ru": "Ничего" }, "isCorrect": false },
+            {
+              "text": {
+                "en": "onclose fires with code and reason",
+                "ru": "onclose срабатывает с кодом и причиной"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": { "en": "Page refreshes", "ru": "Страница перезагружается" },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "Error is thrown", "ru": "Выбрасывается ошибка" },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 7,
+          "name": {
+            "en": "How do you close a WebSocket connection?",
+            "ru": "Как закрыть WebSocket-соединение?"
+          },
+          "codeSnippet": "ws.close(1000, 'Done');",
+          "explanation": {
+            "en": "`ws.close(code, reason)` initiates a close handshake. Code 1000 is normal closure.",
+            "ru": "`ws.close(code, reason)` инициирует закрытие. Код 1000 — нормальное закрытие."
+          },
+          "answers": [
+            { "text": { "en": "ws.disconnect()", "ru": "ws.disconnect()" }, "isCorrect": false },
+            { "text": { "en": "ws.close()", "ru": "ws.close()" }, "isCorrect": true },
+            { "text": { "en": "ws.end()", "ru": "ws.end()" }, "isCorrect": false },
+            { "text": { "en": "ws.stop()", "ru": "ws.stop()" }, "isCorrect": false }
+          ]
+        },
+        {
+          "sortOrder": 8,
+          "name": {
+            "en": "What is the WebSocket readyState?",
+            "ru": "Что такое readyState WebSocket?"
+          },
+          "codeSnippet": "console.log(ws.readyState); // 0=CONNECTING, 1=OPEN, 2=CLOSING, 3=CLOSED",
+          "explanation": {
+            "en": "readyState indicates connection status: 0 CONNECTING, 1 OPEN, 2 CLOSING, 3 CLOSED.",
+            "ru": "readyState указывает статус соединения: 0 CONNECTING, 1 OPEN, 2 CLOSING, 3 CLOSED."
+          },
+          "answers": [
+            {
+              "text": { "en": "Connection speed", "ru": "Скорость соединения" },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "Connection status (0-3)", "ru": "Статус соединения (0-3)" },
+              "isCorrect": true
+            },
+            {
+              "text": { "en": "Message queue size", "ru": "Размер очереди сообщений" },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "Server response time", "ru": "Время ответа сервера" },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 9,
+          "name": { "en": "When does onerror fire?", "ru": "Когда срабатывает onerror?" },
+          "codeSnippet": "ws.onerror = (error) => {};",
+          "explanation": {
+            "en": "The 'error' event fires when there's a WebSocket error. Connection typically closes after.",
+            "ru": "Событие 'error' возникает при ошибке WebSocket. Обычно после этого соединение закрывается."
+          },
+          "answers": [
+            { "text": { "en": "Never", "ru": "Никогда" }, "isCorrect": false },
+            {
+              "text": {
+                "en": "On connection or transmission error",
+                "ru": "При ошибке соединения или передачи"
+              },
+              "isCorrect": true
+            },
+            { "text": { "en": "Only on close", "ru": "Только при закрытии" }, "isCorrect": false },
+            {
+              "text": { "en": "Only on message receive", "ru": "Только при получении сообщения" },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 10,
+          "name": {
+            "en": "What protocol do secure WebSockets use?",
+            "ru": "Какой протокол используют защищённые WebSockets?"
+          },
+          "codeSnippet": "const ws = new WebSocket('wss://example.com/socket');",
+          "explanation": {
+            "en": "Secure WebSockets use 'wss://' (WebSocket Secure), similar to HTTPS.",
+            "ru": "Защищённые WebSockets используют 'wss://' (WebSocket Secure), аналогично HTTPS."
+          },
+          "answers": [
+            { "text": { "en": "http", "ru": "http" }, "isCorrect": false },
+            { "text": { "en": "wss", "ru": "wss" }, "isCorrect": true },
+            { "text": { "en": "ssl", "ru": "ssl" }, "isCorrect": false },
+            { "text": { "en": "secure", "ru": "secure" }, "isCorrect": false }
+          ]
+        },
+        {
+          "sortOrder": 11,
+          "name": {
+            "en": "Can you send binary data over WebSocket?",
+            "ru": "Можно ли отправлять бинарные данные через WebSocket?"
+          },
+          "codeSnippet": "ws.send(arrayBuffer); // or Blob",
+          "explanation": {
+            "en": "Yes, WebSocket supports sending ArrayBuffer and Blob in addition to strings.",
+            "ru": "Да, WebSocket поддерживает отправку ArrayBuffer и Blob в дополнение к строкам."
+          },
+          "answers": [
+            { "text": { "en": "No, only text", "ru": "Нет, только текст" }, "isCorrect": false },
+            {
+              "text": { "en": "Yes, ArrayBuffer and Blob", "ru": "Да, ArrayBuffer и Blob" },
+              "isCorrect": true
+            },
+            { "text": { "en": "Only JSON", "ru": "Только JSON" }, "isCorrect": false },
+            { "text": { "en": "Only numbers", "ru": "Только числа" }, "isCorrect": false }
+          ]
+        },
+        {
+          "sortOrder": 12,
+          "name": {
+            "en": "What is the WebSocket protocol upgrade?",
+            "ru": "Что такое обновление протокола WebSocket?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "WebSocket starts with HTTP, sends Upgrade header, server responds, then switches to WebSocket protocol.",
+            "ru": "WebSocket начинается с HTTP, отправляет заголовок Upgrade, сервер отвечает, затем переключается на протокол WebSocket."
+          },
+          "answers": [
+            { "text": { "en": "HTTP to FTP", "ru": "HTTP на FTP" }, "isCorrect": false },
+            {
+              "text": { "en": "HTTP to WebSocket protocol", "ru": "HTTP на протокол WebSocket" },
+              "isCorrect": true
+            },
+            { "text": { "en": "TCP to UDP", "ru": "TCP на UDP" }, "isCorrect": false },
+            {
+              "text": { "en": "Version 1 to version 2", "ru": "Версия 1 на версию 2" },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 13,
+          "name": {
+            "en": "How do you detect if WebSocket is open and ready?",
+            "ru": "Как определить, открыт ли WebSocket и готов?"
+          },
+          "codeSnippet": "if (ws.readyState === WebSocket.OPEN) {\n  ws.send(data);\n}",
+          "explanation": {
+            "en": "Check `ws.readyState === WebSocket.OPEN` before sending to ensure connection is ready.",
+            "ru": "Проверьте `ws.readyState === WebSocket.OPEN` перед отправкой, чтобы убедиться в готовности соединения."
+          },
+          "answers": [
+            { "text": { "en": "ws.isConnected()", "ru": "ws.isConnected()" }, "isCorrect": false },
+            {
+              "text": {
+                "en": "ws.readyState === WebSocket.OPEN",
+                "ru": "ws.readyState === WebSocket.OPEN"
+              },
+              "isCorrect": true
+            },
+            { "text": { "en": "ws.isReady()", "ru": "ws.isReady()" }, "isCorrect": false },
+            { "text": { "en": "ws.ping()", "ru": "ws.ping()" }, "isCorrect": false }
+          ]
+        },
+        {
+          "sortOrder": 14,
+          "name": {
+            "en": "What is the typical use case for WebSockets?",
+            "ru": "Каков типичный случай использования WebSockets?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "Real-time features: chat, live updates, notifications, collaborative editing, gaming.",
+            "ru": "Функции реального времени: чат, живые обновления, уведомления, совместное редактирование, игры."
+          },
+          "answers": [
+            { "text": { "en": "File downloads", "ru": "Загрузка файлов" }, "isCorrect": false },
+            {
+              "text": { "en": "Real-time communication", "ru": "Связь в реальном времени" },
+              "isCorrect": true
+            },
+            { "text": { "en": "Static content", "ru": "Статический контент" }, "isCorrect": false },
+            {
+              "text": { "en": "Database queries", "ru": "Запросы к базе данных" },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 15,
+          "name": {
+            "en": "Can WebSocket connections be used with subprotocols?",
+            "ru": "Можно ли использовать WebSocket-соединения с подпротоколами?"
+          },
+          "codeSnippet": "const ws = new WebSocket('ws://game.example.com', ['soap', 'wamp']);",
+          "explanation": {
+            "en": "Yes, pass an array of subprotocol strings as the second argument. Server chooses one.",
+            "ru": "Да, передайте массив строк подпротоколов вторым аргументом. Сервер выбирает один."
+          },
+          "answers": [
+            {
+              "text": { "en": "No, only one protocol", "ru": "Нет, только один протокол" },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Yes, pass array as second argument",
+                "ru": "Да, передайте массив вторым аргументом"
+              },
+              "isCorrect": true
+            },
+            { "text": { "en": "Only with CORS", "ru": "Только с CORS" }, "isCorrect": false },
+            { "text": { "en": "Only on server", "ru": "Только на сервере" }, "isCorrect": false }
+          ]
+        },
+        {
+          "sortOrder": 16,
+          "name": {
+            "en": "What happens if server doesn't respond to WebSocket upgrade?",
+            "ru": "Что произойдёт, если сервер не ответит на обновление WebSocket?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "Connection fails with a 'close' event. readyState becomes CLOSED.",
+            "ru": "Соединение завершается с ошибкой, событие 'close'. readyState становится CLOSED."
+          },
+          "answers": [
+            {
+              "text": { "en": "It retries forever", "ru": "Оно повторяет бесконечно" },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Connection fails, close event fires",
+                "ru": "Соединение завершается, событие close срабатывает"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": { "en": "HTTP fallback", "ru": "HTTP-запасной вариант" },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "Nothing happens", "ru": "Ничего не происходит" },
+              "isCorrect": false
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

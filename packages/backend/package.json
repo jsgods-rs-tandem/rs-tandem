@@ -16,6 +16,7 @@
     "migrate:up": "node-pg-migrate up --migrations-dir src/migrations",
     "migrate:down": "node-pg-migrate down --migrations-dir src/migrations",
     "migrate:create": "node-pg-migrate create --migrations-dir src/migrations",
+    "seed:content": "ts-node --project tsconfig.scripts.json -r dotenv/config src/scripts/seed-content.ts",
     "test": "jest",
     "test:watch": "jest --watch",
     "test:cov": "jest --coverage",

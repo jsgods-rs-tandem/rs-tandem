@@ -1,0 +1,2410 @@
+{
+  "category": {
+    "name": { "en": "Progressive Web Apps", "ru": "Прогрессивные веб-приложения" },
+    "description": {
+      "en": "Building installable, offline-capable web apps with Service Workers, caching strategies, and the Web App Manifest",
+      "ru": "Создание устанавливаемых, работающих офлайн веб-приложений с помощью Service Workers, стратегий кэширования и Web App Manifest"
+    }
+  },
+  "topics": [
+    {
+      "name": { "en": "PWA Fundamentals", "ru": "Основы PWA" },
+      "description": {
+        "en": "What makes an app a PWA: installability, reliability, capability, and the PWA checklist",
+        "ru": "Что делает приложение PWA: устанавливаемость, надёжность, расширенные возможности и чеклист PWA"
+      },
+      "links": [
+        "https://web.dev/explore/progressive-web-apps",
+        "https://developer.mozilla.org/en-US/docs/Web/Progressive_web_apps"
+      ],
+      "questions": [
+        {
+          "sortOrder": 1,
+          "name": {
+            "en": "Which three pillars are commonly used to describe a Progressive Web App?",
+            "ru": "Какие три столпа обычно используются для описания Progressive Web App?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "PWAs are defined by three core qualities: Reliable (loads instantly and never shows a downasaur), Fast (responds quickly to user interactions), and Engaging (feels like a natural app on the device).",
+            "ru": "PWA определяются тремя ключевыми качествами: Reliable (мгновенная загрузка, никаких ошибок), Fast (быстрая реакция на взаимодействие) и Engaging (ощущение нативного приложения на устройстве)."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "Reliable, Fast, Engaging",
+                "ru": "Надёжность, Быстродействие, Вовлечённость"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "Secure, Scalable, Offline",
+                "ru": "Безопасность, Масштабируемость, Офлайн"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Responsive, Accessible, Installable",
+                "ru": "Адаптивность, Доступность, Устанавливаемость"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Modular, Performant, Linkable",
+                "ru": "Модульность, Производительность, Ссылочность"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 2,
+          "name": {
+            "en": "What is the minimum requirement for a site to be considered installable as a PWA in most browsers?",
+            "ru": "Каково минимальное требование для того, чтобы сайт считался устанавливаемым как PWA в большинстве браузеров?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "To be installable, a PWA must be served over HTTPS, have a registered Service Worker with a fetch handler, and include a Web App Manifest with at minimum a `name`, `icons`, and `start_url`.",
+            "ru": "Для устанавливаемости PWA должен обслуживаться по HTTPS, иметь зарегистрированный Service Worker с обработчиком fetch и включать Web App Manifest с как минимум `name`, `icons` и `start_url`."
+          },
+          "answers": [
+            {
+              "text": { "en": "A responsive CSS layout", "ru": "Адаптивный CSS-макет" },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "HTTPS, a Service Worker with a fetch handler, and a Web App Manifest",
+                "ru": "HTTPS, Service Worker с обработчиком fetch и Web App Manifest"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": { "en": "An app store listing", "ru": "Запись в магазине приложений" },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "A native WebAssembly module", "ru": "Нативный WebAssembly-модуль" },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 3,
+          "name": {
+            "en": "Why must PWAs be served over HTTPS?",
+            "ru": "Почему PWA должны обслуживаться по HTTPS?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "HTTPS is required because Service Workers can intercept all network requests, which would be a major security risk over an unencrypted connection. Browsers only register Service Workers on secure origins (HTTPS or localhost).",
+            "ru": "HTTPS обязателен, поскольку Service Workers могут перехватывать все сетевые запросы, что было бы серьёзной угрозой безопасности при незашифрованном соединении. Браузеры регистрируют Service Workers только на защищённых источниках (HTTPS или localhost)."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "To improve page load speed",
+                "ru": "Для повышения скорости загрузки страницы"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Because Service Workers can intercept all requests and would be a security risk over HTTP",
+                "ru": "Потому что Service Workers могут перехватывать все запросы и это было бы угрозой безопасности по HTTP"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": { "en": "To enable CSS animations", "ru": "Для включения CSS-анимаций" },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "App stores require it for submission",
+                "ru": "Магазины приложений требуют это для публикации"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 4,
+          "name": {
+            "en": "What tool does Google provide to audit how well a web app meets PWA criteria?",
+            "ru": "Какой инструмент предоставляет Google для проверки соответствия веб-приложения критериям PWA?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "Lighthouse is an open-source, automated tool for auditing web pages. It includes a PWA category that checks installability criteria, performance, and best practices specific to Progressive Web Apps.",
+            "ru": "Lighthouse — это автоматизированный инструмент с открытым исходным кодом для аудита веб-страниц. Он включает категорию PWA, которая проверяет критерии устанавливаемости, производительность и лучшие практики для Progressive Web Apps."
+          },
+          "answers": [
+            {
+              "text": { "en": "PageSpeed Insights only", "ru": "Только PageSpeed Insights" },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "Lighthouse", "ru": "Lighthouse" },
+              "isCorrect": true
+            },
+            {
+              "text": { "en": "Chrome Task Manager", "ru": "Диспетчер задач Chrome" },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "WebPageTest", "ru": "WebPageTest" },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 5,
+          "name": {
+            "en": "Which of the following is NOT a characteristic of a Progressive Web App?",
+            "ru": "Что из перечисленного НЕ является характеристикой Progressive Web App?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "PWAs do not require compilation to native code. They are built with standard web technologies (HTML, CSS, JavaScript). The use of native compilation (like Swift or Kotlin) is a property of truly native apps, not PWAs.",
+            "ru": "PWA не требуют компиляции в нативный код. Они создаются с использованием стандартных веб-технологий (HTML, CSS, JavaScript). Использование нативной компиляции (например, Swift или Kotlin) — это свойство действительно нативных приложений, а не PWA."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "Offline functionality via Service Workers",
+                "ru": "Офлайн-функциональность через Service Workers"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Compiled to native machine code (Swift/Kotlin)",
+                "ru": "Компилируется в нативный машинный код (Swift/Kotlin)"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "Installable to the home screen",
+                "ru": "Устанавливается на главный экран"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "Push notification support", "ru": "Поддержка push-уведомлений" },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 6,
+          "name": {
+            "en": "What does the term 'progressive enhancement' mean in the context of PWA?",
+            "ru": "Что означает термин 'прогрессивное улучшение' в контексте PWA?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "Progressive enhancement means the app provides a baseline experience that works in all browsers, then adds advanced features (like offline support or installation) for browsers that support them — gracefully degrading for those that don't.",
+            "ru": "Прогрессивное улучшение означает, что приложение предоставляет базовый опыт, работающий во всех браузерах, а затем добавляет расширенные функции (офлайн-поддержку или установку) для браузеров, которые их поддерживают, корректно деградируя для тех, которые не поддерживают."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "The app must load all features at once",
+                "ru": "Приложение должно загружать все функции сразу"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "The app works for all browsers and enhances for those that support advanced features",
+                "ru": "Приложение работает во всех браузерах и улучшается для тех, кто поддерживает расширенные функции"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "The app requires the latest browser version",
+                "ru": "Приложение требует последней версии браузера"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "The app progressively downloads content",
+                "ru": "Приложение постепенно загружает контент"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 7,
+          "name": {
+            "en": "Which Web API enables PWAs to send notifications to users even when the browser is closed?",
+            "ru": "Какой Web API позволяет PWA отправлять уведомления пользователям даже при закрытом браузере?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "The Push API combined with the Notifications API allows a server to send messages to a Service Worker, which can then display notifications even when the web app is not open. This is one of the key capabilities that makes PWAs feel native.",
+            "ru": "Push API в сочетании с Notifications API позволяет серверу отправлять сообщения в Service Worker, который затем может отображать уведомления даже при закрытом веб-приложении. Это одна из ключевых возможностей, делающих PWA похожими на нативные приложения."
+          },
+          "answers": [
+            {
+              "text": { "en": "WebSockets API", "ru": "WebSockets API" },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Push API + Notifications API",
+                "ru": "Push API + Notifications API"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": { "en": "Server-Sent Events", "ru": "Server-Sent Events" },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "BroadcastChannel API", "ru": "BroadcastChannel API" },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 8,
+          "name": {
+            "en": "What is the App Shell architecture pattern used in PWAs?",
+            "ru": "Что такое паттерн архитектуры App Shell, используемый в PWA?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "The App Shell model separates the minimal HTML, CSS, and JavaScript required to power the user interface (the shell) from the content. The shell is cached so it loads instantly on repeat visits, and content is fetched dynamically.",
+            "ru": "Модель App Shell разделяет минимальный HTML, CSS и JavaScript, необходимый для работы пользовательского интерфейса (оболочки), и контент. Оболочка кэшируется для мгновенной загрузки при повторных посещениях, а контент загружается динамически."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "Loading all app resources in a single JavaScript bundle",
+                "ru": "Загрузка всех ресурсов приложения в одном JavaScript-бандле"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Caching the minimal UI shell separately from dynamic content for instant loading",
+                "ru": "Кэширование минимальной UI-оболочки отдельно от динамического контента для мгновенной загрузки"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "Rendering all pages server-side before delivery",
+                "ru": "Рендеринг всех страниц на сервере перед доставкой"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Using iframes to isolate each app component",
+                "ru": "Использование iframes для изоляции каждого компонента приложения"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 9,
+          "name": {
+            "en": "Which of the following best describes the difference between a PWA and a native mobile app?",
+            "ru": "Что из следующего лучше всего описывает разницу между PWA и нативным мобильным приложением?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "PWAs run in the browser engine using web technologies and can be installed without an app store. Native apps are compiled for a specific platform (iOS/Android) and have deeper OS integration, but require store distribution and separate codebases per platform.",
+            "ru": "PWA работают в движке браузера с использованием веб-технологий и могут быть установлены без магазина приложений. Нативные приложения компилируются под конкретную платформу (iOS/Android) и имеют более глубокую интеграцию с ОС, но требуют дистрибуции через магазин и отдельных кодовых баз для каждой платформы."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "PWAs can only run on Android, while native apps run on both platforms",
+                "ru": "PWA работают только на Android, тогда как нативные приложения — на обеих платформах"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "PWAs use web technologies and don't require an app store, while native apps are platform-compiled and have deeper OS integration",
+                "ru": "PWA используют веб-технологии и не требуют магазина приложений, тогда как нативные приложения компилируются под платформу и имеют более глубокую интеграцию с ОС"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "Native apps can work offline but PWAs cannot",
+                "ru": "Нативные приложения могут работать офлайн, а PWA нет"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "PWAs require a more powerful device than native apps",
+                "ru": "PWA требуют более мощного устройства, чем нативные приложения"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 10,
+          "name": {
+            "en": "What does the `display` property in a Web App Manifest control, and which value makes the PWA look most like a native app?",
+            "ru": "Что контролирует свойство `display` в Web App Manifest, и какое значение делает PWA максимально похожим на нативное приложение?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "The `display` property controls how the app is presented when launched from the home screen. The `standalone` value hides the browser's address bar and navigation UI, making the app look and feel like a native application. The `fullscreen` value goes even further by hiding all browser chrome.",
+            "ru": "Свойство `display` управляет тем, как приложение отображается при запуске с главного экрана. Значение `standalone` скрывает адресную строку и навигацию браузера, делая приложение похожим на нативное. Значение `fullscreen` идёт ещё дальше, скрывая весь интерфейс браузера."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "`browser` — shows the full browser UI",
+                "ru": "`browser` — показывает полный интерфейс браузера"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "`standalone` — hides the browser address bar to look like a native app",
+                "ru": "`standalone` — скрывает адресную строку браузера, чтобы выглядеть как нативное приложение"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "`minimal-ui` — shows the maximum browser chrome",
+                "ru": "`minimal-ui` — показывает максимальный интерфейс браузера"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "`native` — compiles the app to machine code",
+                "ru": "`native` — компилирует приложение в машинный код"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 11,
+          "name": {
+            "en": "Which metric is most directly improved by the App Shell + Service Worker caching pattern?",
+            "ru": "Какой метрик наиболее прямо улучшается паттерном App Shell + кэширование через Service Worker?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "Time to Interactive (TTI) and First Contentful Paint (FCP) on repeat visits are dramatically improved because the App Shell is served from the cache instantly, without waiting for a network response. This makes the app feel fast even on slow or unreliable connections.",
+            "ru": "Time to Interactive (TTI) и First Contentful Paint (FCP) при повторных посещениях резко улучшаются, поскольку App Shell мгновенно отдаётся из кэша без ожидания сетевого ответа. Это делает приложение быстрым даже при медленном или нестабильном соединении."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "Server response time (TTFB) for initial page load",
+                "ru": "Время ответа сервера (TTFB) при первоначальной загрузке страницы"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Repeat-visit FCP and TTI, because the shell is served instantly from cache",
+                "ru": "FCP и TTI при повторных посещениях, поскольку оболочка мгновенно отдаётся из кэша"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "JavaScript parse time on first load",
+                "ru": "Время парсинга JavaScript при первой загрузке"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "CSS specificity resolution time",
+                "ru": "Время разрешения специфичности CSS"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 12,
+          "name": {
+            "en": "In PWA terminology, what is a 'Trusted Web Activity' (TWA)?",
+            "ru": "Что такое 'Trusted Web Activity' (TWA) в терминологии PWA?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "A Trusted Web Activity is a way to wrap a PWA inside an Android app shell and publish it to the Google Play Store. The web content is rendered by the user's installed Chrome browser, so the PWA experience is identical to what users see in the browser, but the app can be distributed through the Play Store.",
+            "ru": "Trusted Web Activity — это способ обернуть PWA в оболочку Android-приложения и опубликовать его в Google Play Store. Веб-контент рендерится установленным браузером Chrome пользователя, поэтому опыт PWA идентичен тому, что пользователи видят в браузере, но приложение может распространяться через Play Store."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "A Service Worker security policy",
+                "ru": "Политика безопасности Service Worker"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "A mechanism to wrap a PWA in an Android app for distribution via the Play Store",
+                "ru": "Механизм для обёртывания PWA в Android-приложение для распространения через Play Store"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "A Chrome DevTools panel for PWA debugging",
+                "ru": "Панель Chrome DevTools для отладки PWA"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "A way to grant PWAs full native device API access",
+                "ru": "Способ предоставить PWA полный доступ к нативным API устройства"
+              },
+              "isCorrect": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": { "en": "Service Workers", "ru": "Service Workers" },
+      "description": {
+        "en": "Service Worker lifecycle, registration, the fetch event, and intercepting network requests",
+        "ru": "Жизненный цикл Service Worker, регистрация, событие fetch и перехват сетевых запросов"
+      },
+      "links": [
+        "https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API/Using_Service_Workers",
+        "https://web.dev/learn/pwa/service-workers"
+      ],
+      "questions": [
+        {
+          "sortOrder": 1,
+          "name": {
+            "en": "What is a Service Worker?",
+            "ru": "Что такое Service Worker?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "A Service Worker is a JavaScript file that runs in a separate worker thread (not the main thread), acts as a proxy between the web app and the network, and enables features like offline support, background sync, and push notifications.",
+            "ru": "Service Worker — это JavaScript-файл, который выполняется в отдельном рабочем потоке (не основном), действует как прокси между веб-приложением и сетью и позволяет реализовать такие функции, как офлайн-поддержка, фоновая синхронизация и push-уведомления."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "A DOM element that manages network requests",
+                "ru": "DOM-элемент, управляющий сетевыми запросами"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "A background JavaScript thread that acts as a network proxy for the web app",
+                "ru": "Фоновый JavaScript-поток, выступающий сетевым прокси для веб-приложения"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "A browser plugin for offline mode",
+                "ru": "Плагин браузера для офлайн-режима"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "A server-side Node.js process", "ru": "Серверный процесс Node.js" },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 2,
+          "name": {
+            "en": "What are the three main lifecycle events of a Service Worker, in order?",
+            "ru": "Каковы три основных события жизненного цикла Service Worker по порядку?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "The three lifecycle events are: `install` (fired when the Service Worker is first registered, used for pre-caching assets), `activate` (fired after install when the SW takes control, used for cache cleanup), and `fetch` (fired for every network request, used to serve cached or network responses).",
+            "ru": "Три события жизненного цикла: `install` (запускается при первой регистрации Service Worker, используется для предварительного кэширования ресурсов), `activate` (запускается после установки, когда SW берёт управление, используется для очистки кэша) и `fetch` (запускается для каждого сетевого запроса, используется для отдачи кэшированных или сетевых ответов)."
+          },
+          "answers": [
+            {
+              "text": { "en": "`load`, `ready`, `idle`", "ru": "`load`, `ready`, `idle`" },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "`install`, `activate`, `fetch`",
+                "ru": "`install`, `activate`, `fetch`"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "`register`, `start`, `intercept`",
+                "ru": "`register`, `start`, `intercept`"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "`init`, `run`, `terminate`", "ru": "`init`, `run`, `terminate`" },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 3,
+          "name": {
+            "en": "How do you register a Service Worker from a web page?",
+            "ru": "Как зарегистрировать Service Worker со страницы?"
+          },
+          "codeSnippet": "if ('serviceWorker' in navigator) {\n  navigator.serviceWorker.register('/sw.js');\n}",
+          "explanation": {
+            "en": "Service Workers are registered using `navigator.serviceWorker.register(url)`. It's best practice to first check if `serviceWorker` is available in `navigator` for progressive enhancement, then call `register` with the path to the Service Worker file.",
+            "ru": "Service Workers регистрируются с помощью `navigator.serviceWorker.register(url)`. Рекомендуется сначала проверить наличие `serviceWorker` в `navigator` для прогрессивного улучшения, а затем вызвать `register` с путём к файлу Service Worker."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "`new ServiceWorker('/sw.js')`",
+                "ru": "`new ServiceWorker('/sw.js')`"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "`navigator.serviceWorker.register('/sw.js')`",
+                "ru": "`navigator.serviceWorker.register('/sw.js')`"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "`document.registerServiceWorker('/sw.js')`",
+                "ru": "`document.registerServiceWorker('/sw.js')`"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "`window.sw.install('/sw.js')`",
+                "ru": "`window.sw.install('/sw.js')`"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 4,
+          "name": {
+            "en": "What determines the scope of a Service Worker?",
+            "ru": "Что определяет область действия Service Worker?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "The scope of a Service Worker is determined by its location (URL path) in the server. By default, a Service Worker at `/app/sw.js` controls pages under `/app/`. The scope can be restricted (but not expanded) by passing a `scope` option to `register()`. A SW cannot control pages above its own path.",
+            "ru": "Область действия Service Worker определяется его расположением (URL-путём) на сервере. По умолчанию Service Worker по пути `/app/sw.js` управляет страницами в `/app/`. Область можно ограничить (но не расширить), передав опцию `scope` в `register()`. SW не может управлять страницами выше своего пути."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "The `scope` CSS property of the root element",
+                "ru": "CSS-свойство `scope` корневого элемента"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "The location (URL path) of the Service Worker file; it controls pages within its directory or below",
+                "ru": "Расположение (URL-путь) файла Service Worker; он управляет страницами в своём каталоге и ниже"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "The `scope` attribute on the `<script>` tag",
+                "ru": "Атрибут `scope` тега `<script>`"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "The `manifest.json` `scope` field only",
+                "ru": "Только поле `scope` в `manifest.json`"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 5,
+          "name": {
+            "en": "Which method inside the `install` event is used to keep the Service Worker alive until pre-caching is complete?",
+            "ru": "Какой метод внутри события `install` используется для удержания Service Worker живым до завершения предварительного кэширования?"
+          },
+          "codeSnippet": "self.addEventListener('install', (event) => {\n  event.waitUntil(\n    caches.open('v1').then((cache) => cache.addAll(['/index.html', '/app.js']))\n  );\n});",
+          "explanation": {
+            "en": "`event.waitUntil()` accepts a Promise and tells the browser to keep the Service Worker in the `installing` state until that Promise resolves. If the Promise rejects, the install fails and the Service Worker is discarded.",
+            "ru": "`event.waitUntil()` принимает Promise и сообщает браузеру держать Service Worker в состоянии `installing` до тех пор, пока этот Promise не разрешится. Если Promise отклоняется, установка завершается неудачей и Service Worker отбрасывается."
+          },
+          "answers": [
+            {
+              "text": { "en": "`event.respondWith()`", "ru": "`event.respondWith()`" },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "`event.waitUntil()`", "ru": "`event.waitUntil()`" },
+              "isCorrect": true
+            },
+            {
+              "text": { "en": "`event.keepAlive()`", "ru": "`event.keepAlive()`" },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "`event.defer()`", "ru": "`event.defer()`" },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 6,
+          "name": {
+            "en": "By default, when does a newly installed Service Worker take control of existing pages?",
+            "ru": "По умолчанию, когда только что установленный Service Worker берёт управление над существующими страницами?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "By default, a new Service Worker waits until all tabs using the old Service Worker are closed. When the user navigates to a new page (or reopens after closing all tabs), the new SW activates and takes control. You can bypass this with `self.skipWaiting()` during install and `clients.claim()` during activate.",
+            "ru": "По умолчанию новый Service Worker ожидает, пока все вкладки, использующие старый Service Worker, не будут закрыты. Когда пользователь переходит на новую страницу (или повторно открывает после закрытия всех вкладок), новый SW активируется и берёт управление. Это можно обойти с помощью `self.skipWaiting()` при установке и `clients.claim()` при активации."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "Immediately after installation completes",
+                "ru": "Сразу после завершения установки"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "After all pages controlled by the old Service Worker are closed",
+                "ru": "После закрытия всех страниц, управляемых старым Service Worker"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "Only after the server sends a signal",
+                "ru": "Только после получения сигнала от сервера"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "After 24 hours automatically", "ru": "Автоматически через 24 часа" },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 7,
+          "name": {
+            "en": "What does `self.skipWaiting()` do inside a Service Worker?",
+            "ru": "Что делает `self.skipWaiting()` внутри Service Worker?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "`self.skipWaiting()` forces the waiting Service Worker to become the active one immediately, without waiting for all existing clients (tabs) to close. It is commonly paired with `clients.claim()` in the `activate` event to make the new SW take control of all open pages right away.",
+            "ru": "`self.skipWaiting()` заставляет ожидающий Service Worker немедленно стать активным, не дожидаясь закрытия всех существующих клиентов (вкладок). Обычно используется вместе с `clients.claim()` в событии `activate`, чтобы новый SW немедленно взял управление над всеми открытыми страницами."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "Delays the Service Worker installation by one tick",
+                "ru": "Задерживает установку Service Worker на один тик"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Forces the new Service Worker to activate immediately without waiting for existing tabs to close",
+                "ru": "Заставляет новый Service Worker немедленно активироваться, не дожидаясь закрытия существующих вкладок"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "Skips the `install` event entirely",
+                "ru": "Полностью пропускает событие `install`"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Prevents the Service Worker from being registered",
+                "ru": "Предотвращает регистрацию Service Worker"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 8,
+          "name": {
+            "en": "Which method is used inside the `fetch` event to respond with a custom response?",
+            "ru": "Какой метод используется внутри события `fetch` для ответа с пользовательским ответом?"
+          },
+          "codeSnippet": "self.addEventListener('fetch', (event) => {\n  event.respondWith(\n    caches.match(event.request).then((response) => response || fetch(event.request))\n  );\n});",
+          "explanation": {
+            "en": "`event.respondWith()` is called inside the `fetch` event handler to take control of the response. It accepts a Response object or a Promise that resolves to one. If not called, the browser proceeds with the normal network request.",
+            "ru": "`event.respondWith()` вызывается внутри обработчика события `fetch` для управления ответом. Он принимает объект Response или Promise, который разрешается в Response. Если не вызван, браузер выполняет обычный сетевой запрос."
+          },
+          "answers": [
+            {
+              "text": { "en": "`event.waitUntil()`", "ru": "`event.waitUntil()`" },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "`event.respondWith()`", "ru": "`event.respondWith()`" },
+              "isCorrect": true
+            },
+            {
+              "text": { "en": "`event.reply()`", "ru": "`event.reply()`" },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "`event.intercept()`", "ru": "`event.intercept()`" },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 9,
+          "name": {
+            "en": "Can a Service Worker access the DOM directly?",
+            "ru": "Может ли Service Worker напрямую обращаться к DOM?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "No. Service Workers run in a separate worker context and do not have access to the DOM. They cannot directly manipulate elements on the page. Communication with the page happens through the `postMessage` API or the Clients API.",
+            "ru": "Нет. Service Workers выполняются в отдельном рабочем контексте и не имеют доступа к DOM. Они не могут напрямую манипулировать элементами на странице. Взаимодействие со страницей происходит через API `postMessage` или Clients API."
+          },
+          "answers": [
+            {
+              "text": { "en": "Yes, via `self.document`", "ru": "Да, через `self.document`" },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "No, Service Workers have no DOM access; communication happens via postMessage",
+                "ru": "Нет, Service Workers не имеют доступа к DOM; взаимодействие происходит через postMessage"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "Yes, but only in read-only mode",
+                "ru": "Да, но только в режиме чтения"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "Yes, via the `clients` object", "ru": "Да, через объект `clients`" },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 10,
+          "name": {
+            "en": "How often does the browser check for an updated Service Worker file?",
+            "ru": "Как часто браузер проверяет наличие обновлённого файла Service Worker?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "The browser checks for a Service Worker update on every navigation to a page in scope. The update check downloads the SW file and byte-compares it to the currently installed one. If even one byte differs, the new SW is installed. The browser also automatically checks every 24 hours at minimum.",
+            "ru": "Браузер проверяет обновление Service Worker при каждой навигации на страницу в области его действия. Проверка обновления загружает файл SW и побайтно сравнивает его с установленным. Если хотя бы один байт отличается, новый SW устанавливается. Браузер также автоматически проверяет как минимум каждые 24 часа."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "Only when manually triggered via DevTools",
+                "ru": "Только при ручном запуске через DevTools"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "On every navigation to a page in scope, and at minimum every 24 hours",
+                "ru": "При каждой навигации на страницу в области действия, и как минимум каждые 24 часа"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "Only on page hard reload (Ctrl+Shift+R)",
+                "ru": "Только при принудительной перезагрузке страницы (Ctrl+Shift+R)"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "Once per browser session", "ru": "Один раз за сессию браузера" },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 11,
+          "name": {
+            "en": "What happens in the `activate` event of a Service Worker, and why is it the right place to delete old caches?",
+            "ru": "Что происходит в событии `activate` Service Worker, и почему это правильное место для удаления старых кэшей?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "The `activate` event fires when the new SW successfully takes control (after the old SW is no longer controlling any clients). At this point it's safe to delete old caches because: 1) no pages are using the old SW that might need old cached resources, and 2) the new SW's resources are already installed.",
+            "ru": "Событие `activate` запускается, когда новый SW успешно берёт управление (после того как старый SW больше не управляет клиентами). В этот момент безопасно удалять старые кэши, потому что: 1) никакие страницы не используют старый SW, который мог бы нуждаться в старых кэшированных ресурсах, и 2) ресурсы нового SW уже установлены."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "It is the first event, so old caches don't exist yet",
+                "ru": "Это первое событие, поэтому старых кэшей ещё нет"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "It fires after the old SW is no longer in control, so deleting old caches won't break pages still using them",
+                "ru": "Оно запускается после того, как старый SW больше не управляет страницами, поэтому удаление старых кэшей не нарушит работу страниц, ещё использующих их"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "It fires before `install`, giving time to clean up",
+                "ru": "Оно запускается до `install`, давая время на очистку"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Old caches are automatically deleted here by the browser",
+                "ru": "Старые кэши автоматически удаляются здесь браузером"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 12,
+          "name": {
+            "en": "What is `clients.claim()` used for in a Service Worker?",
+            "ru": "Для чего используется `clients.claim()` в Service Worker?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "`clients.claim()` is called in the `activate` event to make the active Service Worker take immediate control of all open pages within its scope, without requiring those pages to reload. It is typically used together with `self.skipWaiting()` for instant SW updates.",
+            "ru": "`clients.claim()` вызывается в событии `activate`, чтобы активный Service Worker немедленно взял управление над всеми открытыми страницами в своей области, не требуя их перезагрузки. Обычно используется вместе с `self.skipWaiting()` для мгновенного обновления SW."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "To register a new client tab",
+                "ru": "Для регистрации новой клиентской вкладки"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "To make the active SW immediately control all open pages in scope without a reload",
+                "ru": "Чтобы активный SW немедленно взял управление всеми открытыми страницами в области действия без перезагрузки"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "To claim exclusive access to IndexedDB",
+                "ru": "Чтобы получить эксклюзивный доступ к IndexedDB"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "To send a message to all open windows",
+                "ru": "Для отправки сообщения всем открытым окнам"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 13,
+          "name": {
+            "en": "A Service Worker is installed at `/dashboard/sw.js`. Which of these pages will it be able to control?",
+            "ru": "Service Worker установлен по адресу `/dashboard/sw.js`. Какими из этих страниц он сможет управлять?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "A Service Worker controls pages within its scope — by default, the directory of the SW file and all paths below it. A SW at `/dashboard/sw.js` controls `/dashboard/`, `/dashboard/reports/`, etc., but NOT `/` or `/settings/` because those are above or outside its directory.",
+            "ru": "Service Worker управляет страницами в своей области действия — по умолчанию это каталог файла SW и все пути ниже него. SW по адресу `/dashboard/sw.js` управляет `/dashboard/`, `/dashboard/reports/` и т.д., но НЕ `/` или `/settings/`, поскольку они выше или вне его каталога."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "All pages on the entire origin",
+                "ru": "Все страницы всего источника"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Only pages under `/dashboard/` and its sub-paths",
+                "ru": "Только страницы в `/dashboard/` и её под-путях"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "Only the page that registered it",
+                "ru": "Только страница, которая зарегистрировала его"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Pages on `/` and all sub-paths",
+                "ru": "Страницы на `/` и всех под-путях"
+              },
+              "isCorrect": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": { "en": "Caching Strategies", "ru": "Стратегии кэширования" },
+      "description": {
+        "en": "Cache-first, network-first, stale-while-revalidate, and cache-only strategies using the Cache API",
+        "ru": "Стратегии cache-first, network-first, stale-while-revalidate и cache-only с использованием Cache API"
+      },
+      "links": [
+        "https://web.dev/learn/pwa/caching",
+        "https://developer.mozilla.org/en-US/docs/Web/API/Cache"
+      ],
+      "questions": [
+        {
+          "sortOrder": 1,
+          "name": {
+            "en": "What does the Cache API provide in a Service Worker context?",
+            "ru": "Что предоставляет Cache API в контексте Service Worker?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "The Cache API is a storage mechanism available in Service Workers (and window context) that allows storing and retrieving Request/Response pairs. It is separate from the HTTP cache and is fully controlled by application code, making it ideal for implementing custom caching strategies.",
+            "ru": "Cache API — это механизм хранения, доступный в Service Workers (и в контексте window), который позволяет хранить и извлекать пары Request/Response. Он отдельен от HTTP-кэша и полностью контролируется кодом приложения, что делает его идеальным для реализации пользовательских стратегий кэширования."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "A key-value store for JavaScript objects only",
+                "ru": "Хранилище ключ-значение только для JavaScript-объектов"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "A storage mechanism for Request/Response pairs, fully controllable by application code",
+                "ru": "Механизм хранения пар Request/Response, полностью контролируемый кодом приложения"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "A read-only interface to the browser's HTTP cache",
+                "ru": "Интерфейс только для чтения HTTP-кэша браузера"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "A SQLite database accessible from workers",
+                "ru": "База данных SQLite, доступная из воркеров"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 2,
+          "name": {
+            "en": "Which caching strategy checks the cache first and only goes to the network if the asset is not cached?",
+            "ru": "Какая стратегия кэширования сначала проверяет кэш и обращается к сети только если ресурс не закэширован?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "The Cache-First strategy checks the cache first. If a cached response is found, it is returned immediately without a network request. Only if the cache misses does it fall back to the network. This is ideal for versioned static assets (fonts, images, app bundles) that don't change frequently.",
+            "ru": "Стратегия Cache-First сначала проверяет кэш. Если кэшированный ответ найден, он возвращается немедленно без сетевого запроса. Только при промахе кэша происходит обращение к сети. Это идеально для версионированных статических ресурсов (шрифты, изображения, бандлы приложения), которые не меняются часто."
+          },
+          "answers": [
+            {
+              "text": { "en": "Network-First", "ru": "Network-First" },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "Cache-First", "ru": "Cache-First" },
+              "isCorrect": true
+            },
+            {
+              "text": { "en": "Stale-While-Revalidate", "ru": "Stale-While-Revalidate" },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "Network-Only", "ru": "Network-Only" },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 3,
+          "name": {
+            "en": "Which caching strategy is best suited for frequently updated API responses where you always want fresh data but can tolerate a small delay?",
+            "ru": "Какая стратегия кэширования лучше всего подходит для часто обновляемых API-ответов, где всегда нужны свежие данные, но допустима небольшая задержка?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "The Network-First strategy tries the network first. If the network succeeds, it caches the fresh response and returns it. If the network fails (offline), it falls back to the cached version. This ensures fresh data when online while still providing offline fallback.",
+            "ru": "Стратегия Network-First сначала обращается к сети. Если сеть доступна, она кэширует свежий ответ и возвращает его. Если сеть недоступна (офлайн), происходит откат к кэшированной версии. Это обеспечивает свежие данные при наличии сети и офлайн-откат при её отсутствии."
+          },
+          "answers": [
+            {
+              "text": { "en": "Cache-First", "ru": "Cache-First" },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "Network-First", "ru": "Network-First" },
+              "isCorrect": true
+            },
+            {
+              "text": { "en": "Cache-Only", "ru": "Cache-Only" },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "Stale-While-Revalidate", "ru": "Stale-While-Revalidate" },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 4,
+          "name": {
+            "en": "How does the Stale-While-Revalidate strategy work?",
+            "ru": "Как работает стратегия Stale-While-Revalidate?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "Stale-While-Revalidate immediately returns the cached (stale) response for fast loading, then simultaneously sends a network request to update the cache in the background. The next visit will get the freshly cached version. It trades consistency for speed.",
+            "ru": "Stale-While-Revalidate немедленно возвращает кэшированный (устаревший) ответ для быстрой загрузки, затем одновременно отправляет сетевой запрос для обновления кэша в фоне. При следующем посещении будет получена свежая кэшированная версия. Эта стратегия жертвует согласованностью ради скорости."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "Waits for both cache and network responses, returns whichever is faster",
+                "ru": "Ожидает ответов от кэша и сети, возвращает тот, что быстрее"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Returns the cached response immediately, then updates the cache from the network in the background",
+                "ru": "Немедленно возвращает кэшированный ответ, затем обновляет кэш из сети в фоне"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "Always returns the network response, never the cache",
+                "ru": "Всегда возвращает ответ из сети, никогда из кэша"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Deletes the cache after each response",
+                "ru": "Удаляет кэш после каждого ответа"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 5,
+          "name": {
+            "en": "When would you use the Cache-Only strategy?",
+            "ru": "Когда вы бы использовали стратегию Cache-Only?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "Cache-Only serves every request exclusively from the cache, never touching the network. It is used for resources that were pre-cached during the Service Worker `install` event (like the App Shell) and are guaranteed to be in the cache. Any cache miss results in a failure.",
+            "ru": "Cache-Only обслуживает каждый запрос исключительно из кэша, никогда не обращаясь к сети. Используется для ресурсов, предварительно закэшированных во время события `install` Service Worker (например, App Shell), которые гарантированно находятся в кэше. Промах кэша приводит к ошибке."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "When you want the freshest data on every request",
+                "ru": "Когда нужны самые свежие данные при каждом запросе"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "For resources pre-cached during install that are guaranteed to be in the cache",
+                "ru": "Для ресурсов, предварительно закэшированных при установке, которые гарантированно находятся в кэше"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "When the network is always available",
+                "ru": "Когда сеть всегда доступна"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "To bypass the Service Worker entirely",
+                "ru": "Чтобы полностью обойти Service Worker"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 6,
+          "name": {
+            "en": "Which method on a Cache object stores a URL by fetching it and caching the response?",
+            "ru": "Какой метод объекта Cache сохраняет URL, загружая его и кэшируя ответ?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "`cache.add(url)` takes a URL string, fetches it from the network, and stores the response in the cache. It is equivalent to calling `fetch(url)` and then `cache.put(url, response)`. `cache.addAll(urls)` does the same for an array of URLs.",
+            "ru": "`cache.add(url)` принимает строку URL, загружает её из сети и сохраняет ответ в кэш. Это эквивалентно вызову `fetch(url)`, а затем `cache.put(url, response)`. `cache.addAll(urls)` делает то же самое для массива URL."
+          },
+          "answers": [
+            {
+              "text": { "en": "`cache.store(url)`", "ru": "`cache.store(url)`" },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "`cache.add(url)`", "ru": "`cache.add(url)`" },
+              "isCorrect": true
+            },
+            {
+              "text": { "en": "`cache.save(url)`", "ru": "`cache.save(url)`" },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "`cache.set(url)`", "ru": "`cache.set(url)`" },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 7,
+          "name": {
+            "en": "What is the difference between `cache.add()` and `cache.put()`?",
+            "ru": "В чём разница между `cache.add()` и `cache.put()`?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "`cache.add(url)` fetches the URL from the network and stores the response. `cache.put(request, response)` stores a request/response pair that you supply — no network request is made. `cache.put` gives you full control over what gets cached, while `cache.add` is a convenience shortcut.",
+            "ru": "`cache.add(url)` загружает URL из сети и сохраняет ответ. `cache.put(request, response)` сохраняет пару запрос/ответ, которую вы предоставляете — сетевой запрос не выполняется. `cache.put` даёт полный контроль над тем, что кэшируется, тогда как `cache.add` является удобным сокращением."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "`cache.add()` is synchronous; `cache.put()` is async",
+                "ru": "`cache.add()` — синхронный; `cache.put()` — асинхронный"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "`cache.add()` fetches and stores; `cache.put()` stores a provided request/response pair without fetching",
+                "ru": "`cache.add()` загружает и сохраняет; `cache.put()` сохраняет предоставленную пару запрос/ответ без загрузки"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "`cache.put()` can only store text responses",
+                "ru": "`cache.put()` может хранить только текстовые ответы"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "They are identical — just different aliases",
+                "ru": "Они идентичны — просто разные псевдонимы"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 8,
+          "name": {
+            "en": "Which caching strategy is recommended for the App Shell HTML?",
+            "ru": "Какая стратегия кэширования рекомендуется для App Shell HTML?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "Cache-First (or Cache-Only if pre-cached) is recommended for the App Shell HTML. Since the App Shell is pre-cached during `install` and versioned by the SW file itself, it should always be served from cache for an instant load. Updates are delivered by deploying a new Service Worker.",
+            "ru": "Для App Shell HTML рекомендуется Cache-First (или Cache-Only, если предварительно закэшировано). Поскольку App Shell предварительно кэшируется при `install` и версионируется самим файлом SW, его всегда следует отдавать из кэша для мгновенной загрузки. Обновления доставляются путём развёртывания нового Service Worker."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "Network-First, to ensure the latest HTML is always used",
+                "ru": "Network-First, чтобы всегда использовался последний HTML"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Cache-First or Cache-Only, since the shell is pre-cached and updated via SW versioning",
+                "ru": "Cache-First или Cache-Only, поскольку оболочка предварительно кэшируется и обновляется через версионирование SW"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "Network-Only, to avoid stale HTML",
+                "ru": "Network-Only, чтобы избежать устаревшего HTML"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Stale-While-Revalidate, so the user always sees the latest version on the next request",
+                "ru": "Stale-While-Revalidate, чтобы пользователь всегда видел последнюю версию при следующем запросе"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 9,
+          "name": {
+            "en": "What is pre-caching in the context of Service Workers?",
+            "ru": "Что такое предварительное кэширование в контексте Service Workers?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "Pre-caching (also called precaching) is the process of downloading and storing a predefined list of assets in the cache during the Service Worker `install` event, before any user requests them. This guarantees those assets are always available offline from the first visit.",
+            "ru": "Предварительное кэширование — это процесс загрузки и хранения заранее определённого списка ресурсов в кэше во время события `install` Service Worker, до того как пользователь их запросит. Это гарантирует, что эти ресурсы всегда доступны офлайн с первого посещения."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "Caching resources on-demand when they are first requested by the user",
+                "ru": "Кэширование ресурсов по запросу при первом обращении пользователя"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Storing a predefined list of assets during Service Worker install before any user request",
+                "ru": "Хранение заранее определённого списка ресурсов при установке Service Worker до любого запроса пользователя"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "Using HTTP cache headers to cache assets on the CDN",
+                "ru": "Использование HTTP-заголовков кэша для кэширования ресурсов на CDN"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Caching server responses in Redis",
+                "ru": "Кэширование ответов сервера в Redis"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 10,
+          "name": {
+            "en": "What is the main risk of using Cache-First for dynamic API data?",
+            "ru": "В чём главный риск использования Cache-First для динамических данных API?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "The main risk of Cache-First for dynamic data is serving stale (outdated) content. If the server data changes, users will keep receiving the old cached response until the cache is explicitly invalidated or expires. This can lead to showing incorrect or outdated information.",
+            "ru": "Главный риск Cache-First для динамических данных — отдача устаревшего контента. Если данные на сервере изменятся, пользователи будут продолжать получать старый кэшированный ответ до тех пор, пока кэш явно не аннулируется или не истечёт его срок действия. Это может привести к отображению некорректной или устаревшей информации."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "It increases server load",
+                "ru": "Это увеличивает нагрузку на сервер"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Users may see stale (outdated) data because the cache is not updated unless explicitly invalidated",
+                "ru": "Пользователи могут видеть устаревшие данные, потому что кэш не обновляется, если явно не аннулируется"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": { "en": "It breaks all POST requests", "ru": "Это ломает все POST-запросы" },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "It requires a database connection inside the Service Worker",
+                "ru": "Это требует соединения с базой данных внутри Service Worker"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 11,
+          "name": {
+            "en": "How does Workbox simplify implementing caching strategies in Service Workers?",
+            "ru": "Как Workbox упрощает реализацию стратегий кэширования в Service Workers?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "Workbox is a set of libraries from Google that abstracts away the low-level Service Worker and Cache API code. It provides ready-to-use strategy classes (`CacheFirst`, `NetworkFirst`, `StaleWhileRevalidate`, etc.), routing helpers, and pre-caching support, so developers write declarative configuration instead of raw fetch event handlers.",
+            "ru": "Workbox — это набор библиотек от Google, который абстрагирует низкоуровневый код Service Worker и Cache API. Он предоставляет готовые классы стратегий (`CacheFirst`, `NetworkFirst`, `StaleWhileRevalidate` и т.д.), вспомогательные средства маршрутизации и поддержку предварительного кэширования, поэтому разработчики пишут декларативную конфигурацию вместо обработчиков fetch."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "It automatically generates the Service Worker file from CSS",
+                "ru": "Он автоматически генерирует файл Service Worker из CSS"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "It provides ready-to-use strategy classes and routing helpers, replacing raw fetch handler boilerplate",
+                "ru": "Он предоставляет готовые классы стратегий и вспомогательные средства маршрутизации, заменяя шаблонный код обработчиков fetch"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "It moves the Service Worker to a separate server process",
+                "ru": "Он переносит Service Worker в отдельный серверный процесс"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "It compresses cache entries using WebAssembly",
+                "ru": "Он сжимает записи кэша с помощью WebAssembly"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 12,
+          "name": {
+            "en": "What happens when a Cache-First strategy encounters a cache miss and the network request also fails?",
+            "ru": "Что происходит, когда стратегия Cache-First сталкивается с промахом кэша и сетевой запрос также завершается неудачей?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "When both the cache miss and network fail, the fetch event handler receives a rejected Promise. Unless you add explicit error handling (e.g., returning an offline fallback page from a well-known cache key), the browser will show its default network error page to the user.",
+            "ru": "Когда промах кэша и сетевой запрос завершаются неудачей, обработчик события fetch получает отклонённый Promise. Если не добавить явную обработку ошибок (например, возвращение офлайн-страницы из заранее известного ключа кэша), браузер покажет пользователю стандартную страницу сетевой ошибки."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "The Service Worker retries the request automatically",
+                "ru": "Service Worker автоматически повторяет запрос"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "The browser shows a network error unless an offline fallback is explicitly provided",
+                "ru": "Браузер показывает ошибку сети, если явно не предоставлен офлайн-откат"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "The Service Worker switches to Network-First automatically",
+                "ru": "Service Worker автоматически переключается на Network-First"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "The page is redirected to /offline",
+                "ru": "Страница перенаправляется на /offline"
+              },
+              "isCorrect": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": {
+        "en": "Web App Manifest & Installability",
+        "ru": "Web App Manifest и устанавливаемость"
+      },
+      "description": {
+        "en": "Manifest properties (name, icons, display, start_url), the beforeinstallprompt event, and home screen installation",
+        "ru": "Свойства манифеста (name, icons, display, start_url), событие beforeinstallprompt и установка на главный экран"
+      },
+      "links": [
+        "https://web.dev/learn/pwa/web-app-manifest",
+        "https://developer.mozilla.org/en-US/docs/Web/Manifest"
+      ],
+      "questions": [
+        {
+          "sortOrder": 1,
+          "name": {
+            "en": "How do you link a Web App Manifest to an HTML page?",
+            "ru": "Как связать Web App Manifest со страницей HTML?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "A Web App Manifest is linked to an HTML page via a `<link>` tag in the `<head>` with `rel=\"manifest\"` and `href` pointing to the manifest JSON file. Without this link, the browser will not recognize the manifest.",
+            "ru": "Web App Manifest связывается со страницей HTML через тег `<link>` в `<head>` с атрибутами `rel=\"manifest\"` и `href`, указывающим на JSON-файл манифеста. Без этой ссылки браузер не распознает манифест."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "`<script src=\"manifest.json\"></script>`",
+                "ru": "`<script src=\"manifest.json\"></script>`"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "`<link rel=\"manifest\" href=\"/manifest.json\">`",
+                "ru": "`<link rel=\"manifest\" href=\"/manifest.json\">`"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "`<meta name=\"manifest\" content=\"/manifest.json\">`",
+                "ru": "`<meta name=\"manifest\" content=\"/manifest.json\">`"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "`<import src=\"/manifest.json\" type=\"manifest\">`",
+                "ru": "`<import src=\"/manifest.json\" type=\"manifest\">`"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 2,
+          "name": {
+            "en": "What is the purpose of the `start_url` field in a Web App Manifest?",
+            "ru": "Какова цель поля `start_url` в Web App Manifest?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "`start_url` specifies the URL that loads when the user launches the installed PWA from their home screen or app drawer. It allows you to control the entry point (e.g., `/app/` instead of `/`) and can include query parameters for analytics tracking.",
+            "ru": "`start_url` указывает URL, который загружается, когда пользователь запускает установленное PWA с главного экрана или лаунчера приложений. Это позволяет управлять точкой входа (например, `/app/` вместо `/`) и может включать параметры запроса для аналитического отслеживания."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "The URL of the Service Worker file",
+                "ru": "URL файла Service Worker"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "The URL that loads when the installed PWA is launched from the home screen",
+                "ru": "URL, загружаемый при запуске установленного PWA с главного экрана"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "The URL of the first page a new user visits",
+                "ru": "URL первой страницы, посещаемой новым пользователем"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "The URL used for deep linking from push notifications",
+                "ru": "URL для deep-ссылок из push-уведомлений"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 3,
+          "name": {
+            "en": "What are the required icon sizes that Chrome recommends for a PWA to be installable?",
+            "ru": "Какие размеры иконок рекомендует Chrome для устанавливаемости PWA?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "Chrome requires at least a 192x192 PNG icon and a 512x512 PNG icon for a PWA to be installable. The 192x192 icon is used for the home screen, while the 512x512 icon is used for the splash screen. Both should be specified in the `icons` array of the manifest.",
+            "ru": "Chrome требует как минимум иконку PNG 192x192 и иконку PNG 512x512 для устанавливаемости PWA. Иконка 192x192 используется для главного экрана, а иконка 512x512 — для экрана загрузки. Обе должны быть указаны в массиве `icons` манифеста."
+          },
+          "answers": [
+            {
+              "text": { "en": "48x48 and 96x96", "ru": "48x48 и 96x96" },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "192x192 and 512x512", "ru": "192x192 и 512x512" },
+              "isCorrect": true
+            },
+            {
+              "text": { "en": "128x128 and 256x256", "ru": "128x128 и 256x256" },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "64x64 and 1024x1024", "ru": "64x64 и 1024x1024" },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 4,
+          "name": {
+            "en": "What are the four possible values of the `display` field in a Web App Manifest?",
+            "ru": "Каковы четыре возможных значения поля `display` в Web App Manifest?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "The four `display` values are: `fullscreen` (uses all available screen, no browser UI), `standalone` (looks like a native app, hides address bar), `minimal-ui` (shows minimal browser controls), and `browser` (opens in a normal browser tab). They fall back in that order if not supported.",
+            "ru": "Четыре значения `display`: `fullscreen` (использует весь экран, нет UI браузера), `standalone` (выглядит как нативное приложение, скрывает адресную строку), `minimal-ui` (показывает минимальные элементы управления браузера) и `browser` (открывается в обычной вкладке браузера). При отсутствии поддержки они откатываются в этом порядке."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "`native`, `standalone`, `iframe`, `browser`",
+                "ru": "`native`, `standalone`, `iframe`, `browser`"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "`fullscreen`, `standalone`, `minimal-ui`, `browser`",
+                "ru": "`fullscreen`, `standalone`, `minimal-ui`, `browser`"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "`kiosk`, `app`, `tab`, `window`",
+                "ru": "`kiosk`, `app`, `tab`, `window`"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "`hidden`, `visible`, `inline`, `block`",
+                "ru": "`hidden`, `visible`, `inline`, `block`"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 5,
+          "name": {
+            "en": "What is the `beforeinstallprompt` event and how is it used?",
+            "ru": "Что такое событие `beforeinstallprompt` и как оно используется?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "`beforeinstallprompt` fires before the browser shows the native install prompt. You can call `event.preventDefault()` to suppress the default prompt, save the event reference, and show your own custom install button. When the user clicks it, you call `event.prompt()` to show the install dialog.",
+            "ru": "`beforeinstallprompt` запускается до того, как браузер показывает нативный запрос на установку. Можно вызвать `event.preventDefault()` для подавления стандартного запроса, сохранить ссылку на событие и показать собственную кнопку установки. Когда пользователь нажимает её, вызывается `event.prompt()` для отображения диалога установки."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "An event that fires after the app is installed on the home screen",
+                "ru": "Событие, запускаемое после установки приложения на главный экран"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "An event that fires before the install prompt, allowing you to defer or customize the prompt",
+                "ru": "Событие, запускаемое до запроса на установку, позволяющее отложить или настроить запрос"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "An event triggered when the Service Worker completes installation",
+                "ru": "Событие, запускаемое при завершении установки Service Worker"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "A lifecycle hook in the manifest file",
+                "ru": "Хук жизненного цикла в файле манифеста"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 6,
+          "name": {
+            "en": "What does the `theme_color` field in the manifest control?",
+            "ru": "Что контролирует поле `theme_color` в манифесте?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "`theme_color` sets the color of the browser's toolbar and the task switcher on Android when the app is in standalone mode. It should match the `<meta name=\"theme-color\">` tag in the HTML to avoid a color flash during launch.",
+            "ru": "`theme_color` задаёт цвет панели браузера и переключателя задач на Android при работе приложения в режиме standalone. Оно должно соответствовать тегу `<meta name=\"theme-color\">` в HTML, чтобы избежать мигания цвета при запуске."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "The background color of the app's splash screen only",
+                "ru": "Только цвет фона экрана загрузки приложения"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "The color of the browser toolbar and Android task switcher in standalone mode",
+                "ru": "Цвет панели браузера и переключателя задач Android в режиме standalone"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "The primary brand color used in CSS variables",
+                "ru": "Основной фирменный цвет, используемый в CSS-переменных"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "The icon border color in the app drawer",
+                "ru": "Цвет границы иконки в лаунчере приложений"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 7,
+          "name": {
+            "en": "What is the `scope` property in a Web App Manifest?",
+            "ru": "Что такое свойство `scope` в Web App Manifest?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "The `scope` property defines the set of URLs the browser considers within the app. If the user navigates outside the scope, the browser opens the URL in a regular browser tab instead of the standalone app window. The scope defaults to the directory of the `start_url`.",
+            "ru": "Свойство `scope` определяет набор URL, которые браузер считает частью приложения. Если пользователь переходит за пределы области, браузер открывает URL в обычной вкладке браузера, а не в отдельном окне приложения. По умолчанию область совпадает с каталогом `start_url`."
+          },
+          "answers": [
+            {
+              "text": { "en": "The CORS policy for the app", "ru": "Политика CORS для приложения" },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "The set of URLs considered part of the app; navigation outside it opens the browser",
+                "ru": "Набор URL, считающихся частью приложения; навигация за его пределы открывает браузер"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "The URL scope for which the Service Worker applies",
+                "ru": "Область URL, к которой применяется Service Worker"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "The allowed JavaScript execution scope",
+                "ru": "Допустимая область выполнения JavaScript"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 8,
+          "name": {
+            "en": "Which manifest field specifies a short name for the app, shown on the home screen where space is limited?",
+            "ru": "Какое поле манифеста задаёт краткое название приложения, отображаемое на главном экране, где места мало?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "The `short_name` field provides a short version of the app name used where space is limited, such as below the app icon on a home screen. The `name` field is used in the install dialog and splash screen where more space is available. If `short_name` is omitted, `name` is used everywhere.",
+            "ru": "Поле `short_name` предоставляет сокращённую версию названия приложения, используемую там, где места мало, например под иконкой приложения на главном экране. Поле `name` используется в диалоге установки и экране загрузки, где больше пространства. Если `short_name` отсутствует, везде используется `name`."
+          },
+          "answers": [
+            {
+              "text": { "en": "`id`", "ru": "`id`" },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "`short_name`", "ru": "`short_name`" },
+              "isCorrect": true
+            },
+            {
+              "text": { "en": "`label`", "ru": "`label`" },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "`title`", "ru": "`title`" },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 9,
+          "name": {
+            "en": "What does the `appinstalled` event on `window` indicate?",
+            "ru": "Что означает событие `appinstalled` на объекте `window`?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "The `appinstalled` event fires on `window` when the PWA has been successfully installed on the user's device (home screen / app drawer). It can be used to log an analytics event or update the UI (e.g., hide the custom install button).",
+            "ru": "Событие `appinstalled` запускается на `window`, когда PWA успешно установлено на устройство пользователя (главный экран / лаунчер приложений). Его можно использовать для записи аналитического события или обновления UI (например, скрытия пользовательской кнопки установки)."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "The Service Worker has been installed",
+                "ru": "Service Worker установлен"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "The PWA was successfully added to the user's home screen or app drawer",
+                "ru": "PWA успешно добавлено на главный экран или в лаунчер приложений пользователя"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": { "en": "An npm package has been installed", "ru": "Установлен npm-пакет" },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "A new version of the app was deployed to the server",
+                "ru": "На сервер развёрнута новая версия приложения"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 10,
+          "name": {
+            "en": "Can you call `event.prompt()` multiple times on the saved `beforeinstallprompt` event?",
+            "ru": "Можно ли вызвать `event.prompt()` несколько раз на сохранённом событии `beforeinstallprompt`?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "No. `event.prompt()` can only be called once. After it is called (regardless of the user's choice), the event is consumed and cannot be reused. If the user dismisses the prompt, you must wait for the `beforeinstallprompt` event to fire again on a future visit.",
+            "ru": "Нет. `event.prompt()` можно вызвать только один раз. После вызова (независимо от выбора пользователя) событие потребляется и не может быть использовано повторно. Если пользователь отклонил запрос, необходимо дождаться повторного запуска события `beforeinstallprompt` при следующем посещении."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "Yes, up to three times per session",
+                "ru": "Да, до трёх раз за сессию"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "No, `event.prompt()` can only be called once; the event is consumed after the first call",
+                "ru": "Нет, `event.prompt()` можно вызвать только один раз; событие потребляется после первого вызова"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "Yes, it can be called whenever the user declines",
+                "ru": "Да, его можно вызывать каждый раз, когда пользователь отклоняет"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Yes, but only if the user is logged in",
+                "ru": "Да, но только если пользователь авторизован"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 11,
+          "name": {
+            "en": "What is the `maskable` icon purpose type in the manifest, and why is it important?",
+            "ru": "Что такое тип назначения иконки `maskable` в манифесте и почему он важен?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "A `maskable` icon has important content within the \"safe zone\" (center 80% of the icon), allowing Android to apply any shape mask (circle, squircle, etc.) to it. Without a maskable icon, Android shows the icon in a white square, which looks inconsistent with other app icons. Setting `\"purpose\": \"maskable\"` tells the browser the icon is designed for masking.",
+            "ru": "Иконка `maskable` имеет важный контент в «безопасной зоне» (центральные 80% иконки), что позволяет Android применять любую форму маски (круг, squircle и т.д.). Без иконки maskable Android показывает иконку в белом квадрате, что выглядит непоследовательно с другими иконками приложений. Установка `\"purpose\": \"maskable\"` сообщает браузеру, что иконка предназначена для маскирования."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "It makes the icon transparent in the app drawer",
+                "ru": "Она делает иконку прозрачной в лаунчере приложений"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "It allows the OS to apply any shape mask while keeping important content in the safe zone",
+                "ru": "Она позволяет ОС применять любую форму маски, сохраняя важный контент в безопасной зоне"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "It prevents the icon from being used in notifications",
+                "ru": "Она предотвращает использование иконки в уведомлениях"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "It scales the icon to any resolution automatically",
+                "ru": "Она автоматически масштабирует иконку до любого разрешения"
+              },
+              "isCorrect": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": {
+        "en": "Offline-first & Background Sync",
+        "ru": "Offline-first и фоновая синхронизация"
+      },
+      "description": {
+        "en": "Designing for offline-first, Background Sync API, and handling connectivity changes gracefully",
+        "ru": "Проектирование в стиле offline-first, Background Sync API и корректная обработка изменений сетевого подключения"
+      },
+      "links": [
+        "https://web.dev/learn/pwa/offline",
+        "https://developer.mozilla.org/en-US/docs/Web/API/Background_Sync_API"
+      ],
+      "questions": [
+        {
+          "sortOrder": 1,
+          "name": {
+            "en": "What does 'offline-first' mean as a design approach?",
+            "ru": "Что означает 'offline-first' как подход к проектированию?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "Offline-first means designing the application to work without a network connection as the primary use case, rather than treating offline as an edge case. Data is stored locally first (e.g., in IndexedDB or Cache API), and synchronization with the server happens when connectivity is restored.",
+            "ru": "Offline-first означает проектирование приложения с работой без сетевого соединения в качестве основного сценария использования, а не рассмотрение офлайна как крайнего случая. Данные сначала сохраняются локально (например, в IndexedDB или Cache API), а синхронизация с сервером происходит при восстановлении соединения."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "The app loads static HTML before JavaScript",
+                "ru": "Приложение загружает статический HTML перед JavaScript"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Designing the app to function without a network connection as the primary case, syncing when reconnected",
+                "ru": "Проектирование приложения для работы без сети как основного случая с синхронизацией при восстановлении соединения"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "Disabling all network requests by default",
+                "ru": "Отключение всех сетевых запросов по умолчанию"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Serving the app from a local file system",
+                "ru": "Обслуживание приложения из локальной файловой системы"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 2,
+          "name": {
+            "en": "Which browser API is most commonly used to store structured data for offline use in a PWA?",
+            "ru": "Какой браузерный API чаще всего используется для хранения структурированных данных для офлайн-использования в PWA?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "IndexedDB is the recommended storage for large amounts of structured data in a PWA. It is a transactional, asynchronous, key-value store that works in both the main thread and Service Worker context. It can store complex objects and is much larger in quota than localStorage.",
+            "ru": "IndexedDB является рекомендуемым хранилищем для больших объёмов структурированных данных в PWA. Это транзакционное, асинхронное хранилище ключ-значение, работающее как в основном потоке, так и в контексте Service Worker. Оно может хранить сложные объекты и имеет значительно большую квоту, чем localStorage."
+          },
+          "answers": [
+            {
+              "text": { "en": "`localStorage`", "ru": "`localStorage`" },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "`IndexedDB`", "ru": "`IndexedDB`" },
+              "isCorrect": true
+            },
+            {
+              "text": { "en": "`sessionStorage`", "ru": "`sessionStorage`" },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "`WebSQL`", "ru": "`WebSQL`" },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 3,
+          "name": {
+            "en": "What is the Background Sync API designed to solve?",
+            "ru": "Для чего предназначен Background Sync API?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "The Background Sync API allows a PWA to defer actions (like sending a form submission or POST request) until the user has a stable network connection. The Service Worker listens for the `sync` event, which fires when connectivity is available, and then retries the deferred operations.",
+            "ru": "Background Sync API позволяет PWA откладывать действия (например, отправку формы или POST-запроса) до тех пор, пока у пользователя не будет стабильного сетевого соединения. Service Worker слушает событие `sync`, которое запускается при наличии соединения, и затем повторяет отложенные операции."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "Syncing files between two browser tabs",
+                "ru": "Синхронизация файлов между двумя вкладками браузера"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Deferring network operations until connectivity is available, then retrying them automatically",
+                "ru": "Откладывание сетевых операций до появления соединения с последующей автоматической повторной попыткой"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "Synchronizing the local cache with the HTTP cache headers",
+                "ru": "Синхронизация локального кэша с HTTP-заголовками кэша"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Running scheduled tasks at specific times in the background",
+                "ru": "Выполнение запланированных задач в определённое время в фоне"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 4,
+          "name": {
+            "en": "How do you register a Background Sync tag from the page?",
+            "ru": "Как зарегистрировать тег Background Sync со страницы?"
+          },
+          "codeSnippet": "navigator.serviceWorker.ready.then((registration) => {\n  return registration.sync.register('send-message');\n});",
+          "explanation": {
+            "en": "Background Sync is registered by getting the active Service Worker registration (via `navigator.serviceWorker.ready`) and calling `registration.sync.register(tag)` with a string tag. The tag is used to identify the sync event when it fires in the Service Worker.",
+            "ru": "Background Sync регистрируется путём получения активной регистрации Service Worker (через `navigator.serviceWorker.ready`) и вызова `registration.sync.register(tag)` со строковым тегом. Тег используется для идентификации события sync при его запуске в Service Worker."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "`navigator.sync.register('send-message')`",
+                "ru": "`navigator.sync.register('send-message')`"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "`registration.sync.register('send-message')` via `navigator.serviceWorker.ready`",
+                "ru": "`registration.sync.register('send-message')` через `navigator.serviceWorker.ready`"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "`self.syncManager.register('send-message')` inside the Service Worker",
+                "ru": "`self.syncManager.register('send-message')` внутри Service Worker"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "`fetch('/sync?tag=send-message')`",
+                "ru": "`fetch('/sync?tag=send-message')`"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 5,
+          "name": {
+            "en": "What event does a Service Worker listen for to handle Background Sync?",
+            "ru": "На какое событие подписывается Service Worker для обработки Background Sync?"
+          },
+          "codeSnippet": "self.addEventListener('sync', (event) => {\n  if (event.tag === 'send-message') {\n    event.waitUntil(sendPendingMessages());\n  }\n});",
+          "explanation": {
+            "en": "The Service Worker listens for the `sync` event. This event fires when the browser has connectivity and there are pending sync registrations. The `event.tag` property identifies which sync to process. `event.waitUntil()` keeps the SW alive until the async work completes.",
+            "ru": "Service Worker слушает событие `sync`. Это событие запускается, когда у браузера есть соединение и есть ожидающие регистрации синхронизации. Свойство `event.tag` идентифицирует, какую синхронизацию обрабатывать. `event.waitUntil()` удерживает SW живым до завершения асинхронной работы."
+          },
+          "answers": [
+            {
+              "text": { "en": "`online`", "ru": "`online`" },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "`sync`", "ru": "`sync`" },
+              "isCorrect": true
+            },
+            {
+              "text": { "en": "`reconnect`", "ru": "`reconnect`" },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "`networkchange`", "ru": "`networkchange`" },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 6,
+          "name": {
+            "en": "How can you detect when the browser comes back online in a web page (not Service Worker)?",
+            "ru": "Как определить, что браузер снова подключился к сети на веб-странице (не в Service Worker)?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "You can detect online/offline status changes on the window object using `window.addEventListener('online', handler)` and `window.addEventListener('offline', handler)`. The current status is available via `navigator.onLine`, though this property is not always reliable and should be combined with actual network requests to confirm connectivity.",
+            "ru": "Изменения статуса онлайн/офлайн можно определять на объекте window с помощью `window.addEventListener('online', handler)` и `window.addEventListener('offline', handler)`. Текущий статус доступен через `navigator.onLine`, хотя это свойство не всегда надёжно и должно сочетаться с реальными сетевыми запросами для подтверждения соединения."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "Polling `navigator.connection.type` every second",
+                "ru": "Опрос `navigator.connection.type` каждую секунду"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Listening to the `online` and `offline` events on `window`, and checking `navigator.onLine`",
+                "ru": "Прослушивание событий `online` и `offline` на `window` и проверка `navigator.onLine`"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "Subscribing to the Service Worker `networkchange` event",
+                "ru": "Подписка на событие `networkchange` Service Worker"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Using `document.addEventListener('visibilitychange')`",
+                "ru": "Использование `document.addEventListener('visibilitychange')`"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 7,
+          "name": {
+            "en": "What is the Periodic Background Sync API and how does it differ from the regular Background Sync API?",
+            "ru": "Что такое Periodic Background Sync API и чем он отличается от обычного Background Sync API?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "Periodic Background Sync allows a PWA to periodically fetch fresh content at a minimum interval (e.g., every day), even when the app is not open. Unlike one-shot Background Sync (which fires when connectivity is restored after a specific action), Periodic Background Sync runs on a schedule. It requires installation and the user to have the app installed.",
+            "ru": "Periodic Background Sync позволяет PWA периодически загружать свежий контент с минимальным интервалом (например, раз в день), даже когда приложение не открыто. В отличие от одноразового Background Sync (который запускается при восстановлении соединения после конкретного действия), Periodic Background Sync работает по расписанию. Требует установки приложения."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "They are the same API with different tag names",
+                "ru": "Это один и тот же API с разными именами тегов"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Periodic Background Sync runs on a schedule; regular Background Sync fires once when connectivity is restored after a deferred action",
+                "ru": "Periodic Background Sync работает по расписанию; обычный Background Sync срабатывает однократно при восстановлении соединения после отложенного действия"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "Regular Background Sync runs on a schedule; Periodic runs once",
+                "ru": "Обычный Background Sync работает по расписанию; Periodic запускается один раз"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Periodic Background Sync requires a WebSocket connection",
+                "ru": "Periodic Background Sync требует WebSocket-соединения"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 8,
+          "name": {
+            "en": "What storage technology is recommended for queuing failed requests for Background Sync retry?",
+            "ru": "Какая технология хранения рекомендуется для очередирования неудавшихся запросов для повторной попытки Background Sync?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "IndexedDB is recommended for storing pending requests (e.g., form data or POST body) that need to be retried via Background Sync. The Cache API stores Request/Response pairs but isn't designed as a general-purpose queue. IndexedDB can store arbitrary structured data and is accessible from both the page and the Service Worker.",
+            "ru": "IndexedDB рекомендуется для хранения ожидающих запросов (например, данных форм или тела POST), которые нужно повторить через Background Sync. Cache API хранит пары Request/Response, но не предназначен для очередей общего назначения. IndexedDB может хранить произвольные структурированные данные и доступен как со страницы, так и из Service Worker."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "`localStorage` (synchronous, available in SW)",
+                "ru": "`localStorage` (синхронный, доступен в SW)"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "`IndexedDB` — supports structured data and is accessible from both page and Service Worker",
+                "ru": "`IndexedDB` — поддерживает структурированные данные и доступен как со страницы, так и из Service Worker"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": { "en": "HTTP cookies", "ru": "HTTP куки" },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "The Cache API response queue", "ru": "Очередь ответов Cache API" },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 9,
+          "name": {
+            "en": "What happens to a Background Sync registration if the Promise passed to `event.waitUntil()` rejects?",
+            "ru": "Что происходит с регистрацией Background Sync, если Promise, переданный в `event.waitUntil()`, отклоняется?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "If the Promise rejects, the browser will automatically retry the sync event later (with exponential backoff), up to a browser-defined maximum number of retries. This is one of the key advantages of Background Sync over manual retry logic — the browser handles retry scheduling.",
+            "ru": "Если Promise отклоняется, браузер автоматически повторит событие sync позже (с экспоненциальной задержкой) вплоть до максимального числа повторов, определённого браузером. Это одно из ключевых преимуществ Background Sync перед ручной логикой повторных попыток — браузер управляет расписанием повторов."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "The sync registration is permanently deleted",
+                "ru": "Регистрация синхронизации удаляется навсегда"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "The browser retries the sync event later with exponential backoff",
+                "ru": "Браузер повторяет событие sync позже с экспоненциальной задержкой"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "The Service Worker is unregistered",
+                "ru": "Service Worker снимается с регистрации"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "The page is reloaded automatically",
+                "ru": "Страница автоматически перезагружается"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 10,
+          "name": {
+            "en": "Which Network Information API property indicates the effective connection type (e.g., 4g, 3g, slow-2g)?",
+            "ru": "Какое свойство Network Information API указывает эффективный тип соединения (например, 4g, 3g, slow-2g)?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "`navigator.connection.effectiveType` returns a string ('slow-2g', '2g', '3g', or '4g') representing the effective network connection type. This can be used to adapt the app's behavior — for example, serving lower quality images or disabling auto-play video on slow connections.",
+            "ru": "`navigator.connection.effectiveType` возвращает строку ('slow-2g', '2g', '3g' или '4g'), представляющую эффективный тип сетевого соединения. Это можно использовать для адаптации поведения приложения — например, отдачи изображений более низкого качества или отключения автовоспроизведения видео при медленном соединении."
+          },
+          "answers": [
+            {
+              "text": { "en": "`navigator.connection.type`", "ru": "`navigator.connection.type`" },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "`navigator.connection.effectiveType`",
+                "ru": "`navigator.connection.effectiveType`"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": { "en": "`navigator.network.speed`", "ru": "`navigator.network.speed`" },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "`window.connectionQuality`", "ru": "`window.connectionQuality`" },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 11,
+          "name": {
+            "en": "Why is `navigator.onLine` considered unreliable for detecting actual internet connectivity?",
+            "ru": "Почему `navigator.onLine` считается ненадёжным для определения реального подключения к интернету?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "`navigator.onLine` only checks if the device is connected to *any* network (including a local network with no internet access). A device connected to a WiFi router that has no internet connection will still report `true`. To reliably detect internet connectivity, you must make an actual network request to a known endpoint.",
+            "ru": "`navigator.onLine` проверяет только наличие подключения устройства к *какой-либо* сети (включая локальную сеть без доступа в интернет). Устройство, подключённое к WiFi-роутеру без интернета, всё равно вернёт `true`. Для надёжного определения интернет-соединения необходимо выполнить реальный сетевой запрос к известной конечной точке."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "It only works on Android, not desktop browsers",
+                "ru": "Оно работает только на Android, не в десктопных браузерах"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "It detects connection to any network, not actual internet access; a real request is needed to confirm",
+                "ru": "Оно определяет подключение к любой сети, а не реальный доступ в интернет; для подтверждения нужен реальный запрос"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "It is deprecated and removed in modern browsers",
+                "ru": "Оно устарело и удалено в современных браузерах"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "It only updates once per browser session",
+                "ru": "Оно обновляется только один раз за сессию браузера"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 12,
+          "name": {
+            "en": "What is an 'offline fallback page' and how is it implemented in a PWA?",
+            "ru": "Что такое «офлайн-страница резервного варианта» и как она реализуется в PWA?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "An offline fallback page is a custom HTML page (e.g., `/offline.html`) that is pre-cached during Service Worker install and returned when a navigation request fails (network error and cache miss). In the `fetch` event handler, when a navigation request fails, the SW returns the cached offline page instead of the browser's default error page.",
+            "ru": "Офлайн-страница резервного варианта — это пользовательская HTML-страница (например, `/offline.html`), предварительно кэшированная при установке Service Worker и возвращаемая при неудаче навигационного запроса (ошибка сети и промах кэша). В обработчике события `fetch`, когда навигационный запрос завершается неудачей, SW возвращает кэшированную офлайн-страницу вместо стандартной страницы ошибки браузера."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "A page that redirects to the home page when offline",
+                "ru": "Страница, перенаправляющая на главную при офлайне"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "A pre-cached custom error page returned by the Service Worker when navigation fails due to no network",
+                "ru": "Предварительно кэшированная пользовательская страница ошибки, возвращаемая Service Worker при неудаче навигации из-за отсутствия сети"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": { "en": "A server-side 503 page", "ru": "Серверная страница 503" },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "A page rendered by the browser when JavaScript is disabled",
+                "ru": "Страница, рендерируемая браузером при отключённом JavaScript"
+              },
+              "isCorrect": false
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

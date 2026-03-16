@@ -1,0 +1,2453 @@
+{
+  "category": {
+    "name": { "en": "Tooling, Quality & Process", "ru": "Инструменты, качество и процессы" },
+    "description": {
+      "en": "Developer tooling, code quality practices, testing, CI/CD and agile methodologies",
+      "ru": "Инструменты разработчика, практики качества кода, тестирование, CI/CD и Agile-методологии"
+    }
+  },
+  "topics": [
+    {
+      "name": { "en": "Linters, Formatters & Husky", "ru": "Линтеры, форматтеры и Husky" },
+      "description": {
+        "en": "ESLint, Prettier, and enforcing code standards with Git hooks via Husky and lint-staged",
+        "ru": "ESLint, Prettier и обеспечение стандартов кода с помощью Git-хуков через Husky и lint-staged"
+      },
+      "links": ["https://eslint.org/", "https://prettier.io/", "https://typicode.github.io/husky/"],
+      "questions": [
+        {
+          "sortOrder": 1,
+          "name": {
+            "en": "What is the main difference between a linter and a formatter?",
+            "ru": "Какова главная разница между линтером и форматтером?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "Linters analyze code for stylistic and programmatic errors, including potential bugs. Formatters only change code style (whitespace, semicolons) without affecting logic.",
+            "ru": "Линтеры анализируют код на стилистические и программные ошибки, включая потенциальные баги. Форматтеры меняют только стиль кода (пробелы, точки с запятой), не влияя на логику."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "Linters check style and errors; formatters only fix formatting",
+                "ru": "Линтеры проверяют стиль и ошибки; форматтеры только исправляют форматирование"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": { "en": "They are the same thing", "ru": "Это одно и то же" },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "Linters run faster", "ru": "Линтеры работают быстрее" },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "Formatters find bugs", "ru": "Форматтеры находят баги" },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 2,
+          "name": {
+            "en": "What does ESLint do?",
+            "ru": "Что делает ESLint?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "ESLint is a JavaScript/TypeScript linter that analyzes code for patterns, potential errors, and enforces code style rules using a configurable rule set.",
+            "ru": "ESLint — это линтер для JavaScript/TypeScript, который анализирует код на паттерны, потенциальные ошибки и обеспечивает соблюдение стиля кода с помощью настраиваемого набора правил."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "Analyzes JavaScript/TypeScript for errors and style",
+                "ru": "Анализирует JavaScript/TypeScript на ошибки и стиль"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": { "en": "Formats code automatically", "ru": "Автоматически форматирует код" },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Compiles TypeScript to JavaScript",
+                "ru": "Компилирует TypeScript в JavaScript"
+              },
+              "isCorrect": false
+            },
+            { "text": { "en": "Runs tests", "ru": "Запускает тесты" }, "isCorrect": false }
+          ]
+        },
+        {
+          "sortOrder": 3,
+          "name": {
+            "en": "What is Prettier?",
+            "ru": "Что такое Prettier?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "Prettier is an opinionated code formatter that enforces consistent style by parsing code and reprinting it with its own rules.",
+            "ru": "Prettier — это авторитетный форматтер кода, который обеспечивает единообразный стиль, парся код и перепечатывая его по своим правилам."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "Opinionated code formatter for consistent style",
+                "ru": "Авторитетный форматтер кода для единообразного стиля"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": { "en": "A testing framework", "ru": "Фреймворк для тестирования" },
+              "isCorrect": false
+            },
+            { "text": { "en": "A package manager", "ru": "Менеджер пакетов" }, "isCorrect": false },
+            {
+              "text": { "en": "A JavaScript runtime", "ru": "JavaScript- runtime" },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 4,
+          "name": {
+            "en": "What is Husky used for?",
+            "ru": "Для чего используется Husky?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "Husky enables Git hooks, allowing you to run scripts (like linters) at certain points in the Git workflow, such as before commit.",
+            "ru": "Husky включает Git-хуки, позволяя запускать скрипты (например, линтеры) в определённых точках Git-процесса, например, перед коммитом."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "Run scripts at Git hooks (like pre-commit)",
+                "ru": "Запускать скрипты на Git-хукax (например, pre-commit)"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "Create new Git repositories",
+                "ru": "Создавать новые Git-репозитории"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "Manage npm packages", "ru": "Управлять npm-пакетами" },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "Deploy applications", "ru": "Развёртывать приложения" },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 5,
+          "name": {
+            "en": "What is lint-staged?",
+            "ru": "Что такое lint-staged?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "lint-staged runs linters on staged Git files only, not on all files. This makes pre-commit checks faster by only checking files that will be committed.",
+            "ru": "lint-staged запускает линтеры только на подготовленных Git-файлах, а не на всех файлах. Это ускоряет проверки перед коммитом, проверяя только файлы для коммита."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "Runs linters only on staged files",
+                "ru": "Запускает линтеры только на подготовленных файлах"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "Lints all JavaScript files",
+                "ru": "Проверяет все JavaScript-файлы"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "Creates lint reports", "ru": "Создаёт отчёты о линтинге" },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Installs linting packages",
+                "ru": "Устанавливает пакеты для линтинга"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 6,
+          "name": {
+            "en": "Why should you run linters before formatters?",
+            "ru": "Почему линтеры нужно запускать перед форматтерами?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "Linters may add or remove code that affects formatting. Running formatters first could waste work. Run linters to fix code issues first, then format for consistent style.",
+            "ru": "Линтеры могут добавлять или удалять код, влияющий на форматирование. Запуск форматтеров первым может浪费работу. Сначала запустите линтеры для исправления проблем, затем форматируйте."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "Linters may modify code that affects formatting",
+                "ru": "Линтеры могут модифицировать код, влияющий на форматирование"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": { "en": "Formatters run slower", "ru": "Форматтеры работают медленнее" },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "Linters are more important", "ru": "Линтеры важнее" },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "It doesn't matter the order", "ru": "Порядок не имеет значения" },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 7,
+          "name": {
+            "en": "What is a Git hook?",
+            "ru": "Что такое Git-хук?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "Git hooks are scripts that run automatically at certain points in the Git workflow (like before commit, after push). They're stored in the `.git/hooks` directory.",
+            "ru": "Git-хукы — это скрипты, автоматически запускаемые в определённых точках Git-процесса (например, перед коммитом, после пуша). Они хранятся в директории `.git/hooks`."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "Scripts that run at Git workflow points",
+                "ru": "Скрипты, запускаемые в точках Git-процесса"
+              },
+              "isCorrect": true
+            },
+            { "text": { "en": "A type of Git branch", "ru": "Тип Git-ветки" }, "isCorrect": false },
+            {
+              "text": { "en": "A code formatting tool", "ru": "Инструмент форматирования кода" },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "A testing framework", "ru": "Фреймворк для тестирования" },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 8,
+          "name": {
+            "en": "What does `.eslintrc` configure?",
+            "ru": "Что настраивает `.eslintrc`?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": ".eslintrc (or eslint.config.js) is the configuration file for ESLint where you define rules, environments, plugins, and other settings.",
+            "ru": ".eslintrc (или eslint.config.js) — это конфигурационный файл ESLint, где вы определяете правила, окружения, плагины и другие настройки."
+          },
+          "answers": [
+            {
+              "text": { "en": "ESLint rules and settings", "ru": "Правила и настройки ESLint" },
+              "isCorrect": true
+            },
+            {
+              "text": { "en": "Prettier formatting", "ru": "Форматирование Prettier" },
+              "isCorrect": false
+            },
+            { "text": { "en": "Git configuration", "ru": "Конфигурация Git" }, "isCorrect": false },
+            { "text": { "en": "npm packages", "ru": "npm-пакеты" }, "isCorrect": false }
+          ]
+        },
+        {
+          "sortOrder": 9,
+          "name": {
+            "en": "What is the purpose of extends in ESLint config?",
+            "ru": "Какова цель поля extends в конфигурации ESLint?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "The `extends` field allows you to use shared ESLint configurations as a base. You can then override or add specific rules on top.",
+            "ru": "Поле `extends` позволяет использовать общие конфигурации ESLint как базу. Затем вы можете переопределить или добавить конкретные правила."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "Use shared configs as a base",
+                "ru": "Использовать общие конфиги как базу"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": { "en": "Extend JavaScript classes", "ru": "Расширять JavaScript-классы" },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "Add new ESLint plugins", "ru": "Добавлять новые ESLint-плагины" },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "Increase file size limits", "ru": "Увеличить лимиты размера файла" },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 10,
+          "name": {
+            "en": "What does 'fix' option do in ESLint?",
+            "ru": "Что делает опция 'fix' в ESLint?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "The `--fix` flag automatically fixes problems that ESLint can fix (like missing semicolons, spacing issues). Not all rules support auto-fixing.",
+            "ru": "Флаг `--fix` автоматически исправляет проблемы, которые ESLint может исправить (например, пропущенные точки с запятой, проблемы с пробелами). Не все правила поддерживают автоисправление."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "Automatically fixes fixable errors",
+                "ru": "Автоматически исправляет исправимые ошибки"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "Removes all ESLint warnings",
+                "ru": "Удаляет все предупреждения ESLint"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "Enables all rules", "ru": "Включает все правила" },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Compiles to older JavaScript",
+                "ru": "Компилирует в старый JavaScript"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 11,
+          "name": {
+            "en": "What is the benefit of using Prettier with ESLint together?",
+            "ru": "Какова польза использования Prettier с ESLint вместе?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "ESLint with prettier plugin handles code quality (bugs, best practices) while Prettier handles formatting. Using both eliminates conflicts between style and formatting.",
+            "ru": "ESLint с плагином prettier обрабатывает качество кода (баги, лучшие практики), а Prettier обрабатывает форматирование. Использование обоих устраняет конфликты между стилем и форматированием."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "ESLint handles quality; Prettier handles formatting",
+                "ru": "ESLint обрабатывает качество; Prettier обрабатывает форматирование"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": { "en": "They are the same tool", "ru": "Это один и тот же инструмент" },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "Prettier finds more bugs", "ru": "Prettier находит больше багов" },
+              "isCorrect": false
+            },
+            { "text": { "en": "ESLint is faster", "ru": "ESLint быстрее" }, "isCorrect": false }
+          ]
+        },
+        {
+          "sortOrder": 12,
+          "name": {
+            "en": "What does the 'pre-commit hook' do?",
+            "ru": "Что делает 'pre-commit hook'?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "A pre-commit hook runs before a commit is created. It's often used to run linters, tests, or other checks to ensure code quality before it's committed.",
+            "ru": "Pre-commit hook запускается перед созданием коммита. Он часто используется для запуска линтеров, тестов или других проверок для обеспечения качества кода перед коммитом."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "Runs checks before commit is created",
+                "ru": "Запускает проверки перед созданием коммита"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": { "en": "Runs after pushing code", "ru": "Запускается после пуша кода" },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "Creates automatic commits", "ru": "Создаёт автоматические коммиты" },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "Deletes old commits", "ru": "Удаляет старые коммиты" },
+              "isCorrect": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": { "en": "Code Review", "ru": "Code Review" },
+      "description": {
+        "en": "Best practices for giving and receiving code review feedback in a collaborative team",
+        "ru": "Лучшие практики проведения и получения обратной связи в процессе code review в команде"
+      },
+      "links": [
+        "https://google.github.io/eng-practices/review/reviewer/",
+        "https://github.com/features/code-review"
+      ],
+      "questions": [
+        {
+          "sortOrder": 1,
+          "name": {
+            "en": "What is the main purpose of code review?",
+            "ru": "Какова главная цель code review?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "Code review's main purpose is to catch bugs, ensure code quality, share knowledge, and maintain consistency. It's also a learning opportunity for both reviewer and author.",
+            "ru": "Главная цель code review — находить баги, обеспечивать качество кода, делиться знаниями и поддерживать согласованность. Это также возможность обучения для рецензента и автора."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "Catch bugs and ensure code quality",
+                "ru": "Находить баги и обеспечивать качество кода"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": { "en": "Make code perfect", "ru": "Сделать код идеальным" },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "Find who wrote bad code", "ru": "Найти, кто написал плохой код" },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "Slow down development", "ru": "Замедлить разработку" },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 2,
+          "name": {
+            "en": "What is a good practice when writing code review comments?",
+            "ru": "Какая хорошая практика при написании комментариев в code review?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "Good review comments are respectful, specific, and explain why something should be changed. Suggest solutions rather than just criticizing.",
+            "ru": "Хорошие комментарии в ревью уважительны, конкретны и объясняют, почему что-то нужно изменить. Предлагайте решения, а не только критикуйте."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "Be respectful and suggest solutions",
+                "ru": "Быть уважительным и предлагать решения"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "Criticize the developer personally",
+                "ru": "Критиковать разработчика лично"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Write long paragraphs explaining errors",
+                "ru": "Писать длинные абзацы об ошибках"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "Only point out mistakes", "ru": "Только указывать на ошибки" },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 3,
+          "name": {
+            "en": "What should you do if you disagree with a code review comment?",
+            "ru": "Что делать, если вы не согласны с комментарием в code review?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "If you disagree, explain your reasoning with technical arguments. If the reviewer is insistent, consider discussing synchronously or involving a third party.",
+            "ru": "Если вы не согласны, объясните свою позицию техническими аргументами. Если рецензент настаивает, обсудите синхронно или привлеките третью сторону."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "Explain your reasoning and discuss",
+                "ru": "Объяснить свою позицию и обсудить"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": { "en": "Ignore the comment", "ru": "Игнорировать комментарий" },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "Always accept the comment", "ru": "Всегда принимать комментарий" },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "Remove the code instead", "ru": "Удалить код вместо этого" },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 4,
+          "name": {
+            "en": "How large should a code review be?",
+            "ru": "Каким должен быть размер code review?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "Keep code reviews small (under 400 lines). Large reviews are harder to thorough, cause reviewer fatigue, and delay feedback.",
+            "ru": "Делайте code review небольшими (до 400 строк). Большие ревью сложнее проверять тщательно, вызывают усталость рецензента и задерживают обратную связь."
+          },
+          "answers": [
+            {
+              "text": { "en": "Small (under 400 lines)", "ru": "Небольшим (до 400 строк)" },
+              "isCorrect": true
+            },
+            {
+              "text": { "en": "As large as possible", "ru": "Как можно большим" },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "At least 1000 lines", "ru": "Не менее 1000 строк" },
+              "isCorrect": false
+            },
+            { "text": { "en": "It doesn't matter", "ru": "Размер не важен" }, "isCorrect": false }
+          ]
+        },
+        {
+          "sortOrder": 5,
+          "name": {
+            "en": "What is the best approach to reviewing code you don't understand?",
+            "ru": "Какой лучший подход к ревью кода, который вы не понимаете?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "Ask questions instead of making demands. Understanding code is the reviewer's job, and questions help both parties learn.",
+            "ru": "Задавайте вопросы вместо требований. Понимание кода — работа рецензента, и вопросы помогают обеим сторонам учиться."
+          },
+          "answers": [
+            {
+              "text": { "en": "Ask clarifying questions", "ru": "Задавать уточняющие вопросы" },
+              "isCorrect": true
+            },
+            {
+              "text": { "en": "Assume it's wrong", "ru": "Считать, что это неправильно" },
+              "isCorrect": false
+            },
+            { "text": { "en": "Skip the review", "ru": "Пропустить ревью" }, "isCorrect": false },
+            {
+              "text": { "en": "Copy it to fix later", "ru": "Скопировать, чтобы исправить позже" },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 6,
+          "name": {
+            "en": "What is a nitpick in code review?",
+            "ru": "Что такое nitpick в code review?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "A nitpick is a very minor issue (typos, formatting). Marking comments as nitpicks helps authors know these are optional to fix.",
+            "ru": "Nitpick — это очень мелкая проблема (опечатки, форматирование). Обозначение комментариев как nitpick помогает авторам понять, что их можно не исправлять."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "Very minor issues like typos",
+                "ru": "Очень мелкие проблемы вроде опечаток"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": { "en": "Critical security bugs", "ru": "Критические баги безопасности" },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "Large refactoring needed", "ru": "Нужно большой рефакторинг" },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "New feature requests", "ru": "Запросы новых функций" },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 7,
+          "name": {
+            "en": "When should you approve a PR?",
+            "ru": "Когда следует одобрить PR?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "Approve when the code is good enough, not perfect. Don't block on minor issues. Trust that the author can address remaining concerns later.",
+            "ru": "Одобряйте, когда код достаточно хорош, а не идеален. Не блокируйте из-за мелких проблем. Доверяйте, что автор решит оставшиеся вопросы позже."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "When code is good enough, not perfect",
+                "ru": "Когда код достаточно хорош, а не идеален"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "Only when code is 100% perfect",
+                "ru": "Только когда код 100% идеален"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Never approve, always find issues",
+                "ru": "Никогда не одобрять, всегда находить проблемы"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "When all tests pass", "ru": "Когда все тесты проходят" },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 8,
+          "name": {
+            "en": "What is the benefit of reviewing code in small batches?",
+            "ru": "Какова польза ревью кода небольшими порциями?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "Small batches allow for faster, more thorough reviews. They reduce context-switching and help catch issues before they compound.",
+            "ru": "Небольшие порции позволяют делать быстрые, более тщательные ревью. Они уменьшают переключение контекста и помогают находить проблемы до их накопления."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "Faster, more thorough reviews",
+                "ru": "Более быстрые, тщательные ревью"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": { "en": "Requires less testing", "ru": "Требует меньше тестирования" },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "Better code performance", "ru": "Лучшая производительность кода" },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "Fewer bugs overall", "ru": "Меньше багов в целом" },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 9,
+          "name": {
+            "en": "What should code reviewers look for first?",
+            "ru": "на что в первую очередь следует обращать внимание рецензентам?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "First check for correctness, bugs, and edge cases. Then look at design, functionality, and complexity. Style comes last.",
+            "ru": "Сначала проверяйте правильность, баги и граничные случаи. Затем смотрите на дизайн, функциональность и сложность. Стиль — в последнюю очередь."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "Correctness, bugs, and edge cases",
+                "ru": "Правильность, баги и граничные случаи"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": { "en": "Variable naming", "ru": "Именование переменных" },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "Code formatting", "ru": "Форматирование кода" },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "Comment quality", "ru": "Качество комментариев" },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 10,
+          "name": {
+            "en": "How quickly should code review feedback be given?",
+            "ru": "Как быстро следует давать обратную связь по code review?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "Code review feedback should be prompt (within 24 hours). Slow reviews block progress and create bottlenecks in the development workflow.",
+            "ru": "Обратная связь по code review должна быть оперативной (в течение 24 часов). Медленные ревью блокируют прогресс и создают узкие места в процессе разработки."
+          },
+          "answers": [
+            { "text": { "en": "Within 24 hours", "ru": "В течение 24 часов" }, "isCorrect": true },
+            { "text": { "en": "Within a week", "ru": "В течение недели" }, "isCorrect": false },
+            {
+              "text": {
+                "en": "Whenever the reviewer has time",
+                "ru": "Когда у рецензента есть время"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "At the end of sprint", "ru": "В конце спринта" },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 11,
+          "name": {
+            "en": "What is the purpose of a style guide in code review?",
+            "ru": "Какова цель style guide в code review?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "A style guide provides consistent standards, reducing subjective debates. With automated formatters, style comments become unnecessary.",
+            "ru": "Style guide предоставляет единые стандарты, уменьшая субъективные дебаты. С автоматическими форматтерами комментарии о стиле становятся ненужными."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "Provide consistent standards, reduce debates",
+                "ru": "Предоставить единые стандарты, уменьшить дебаты"
+              },
+              "isCorrect": true
+            },
+            { "text": { "en": "Make review harder", "ru": "Усложнить ревью" }, "isCorrect": false },
+            {
+              "text": {
+                "en": "Replace all code comments",
+                "ru": "Заменить все комментарии в коде"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "Slow down development", "ru": "Замедлить разработку" },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 12,
+          "name": {
+            "en": "What is pair programming compared to code review?",
+            "ru": "Что такое pair programming по сравнению с code review?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "Pair programming is real-time code review where two developers work together. It's more immediate but requires more resources than asynchronous review.",
+            "ru": "Pair programming — это ревью кода в реальном времени, когда два разработчика работают вместе. Это более оперативно, но требует больше ресурсов, чем асинхронное ревью."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "Real-time code review with two developers",
+                "ru": "Ревью кода в реальном времени с двумя разработчиками"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "Automated testing only",
+                "ru": "Только автоматическое тестирование"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "A replacement for testing", "ru": "Замена тестированию" },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "Writing documentation", "ru": "Написание документации" },
+              "isCorrect": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": { "en": "Clean Code", "ru": "Чистый код" },
+      "description": {
+        "en": "Writing readable, maintainable code: naming, functions, comments, and refactoring principles",
+        "ru": "Написание читаемого, поддерживаемого кода: именование, функции, комментарии и принципы рефакторинга"
+      },
+      "links": [
+        "https://github.com/ryanmcdermott/clean-code-javascript",
+        "https://refactoring.guru/refactoring"
+      ],
+      "questions": [
+        {
+          "sortOrder": 1,
+          "name": {
+            "en": "What is a good practice for naming variables?",
+            "ru": "Какая хорошая практика для именования переменных?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "Use descriptive names that reveal intent: `daysSinceLastLogin` is better than `d` or `data`. Names should answer why the variable exists.",
+            "ru": "Используйте описательные имена, раскрывающие намерение: `daysSinceLastLogin` лучше, чем `d` или `data`. Имена должны отвечать, почему переменная существует."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "Use descriptive names that reveal intent",
+                "ru": "Использовать описательные имена, раскрывающие намерение"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "Use single letters for brevity",
+                "ru": "Использовать одну букву для краткости"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "Use random names", "ru": "Использовать случайные имена" },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "Use numbers only", "ru": "Использовать только цифры" },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 2,
+          "name": {
+            "en": "What is the Single Responsibility Principle (SRP)?",
+            "ru": "Что такое принцип единственной ответственности (SRP)?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "Each class, function, or module should have only one reason to change. This makes code easier to understand, test, and maintain.",
+            "ru": "Каждый класс, функция или модуль должен иметь только одну причину для изменения. Это делает код проще для понимания, тестирования и поддержки."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "One reason to change per function/class",
+                "ru": "Одна причина для изменения на функцию/класс"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": { "en": "Write code only once", "ru": "Писать код только один раз" },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Each file should have one function",
+                "ru": "Каждый файл должен иметь одну функцию"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Use only one programming language",
+                "ru": "Использовать только один язык программирования"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 3,
+          "name": {
+            "en": "When should you write comments in code?",
+            "ru": "Когда следует писать комментарии в коде?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "Good comments explain 'why', not 'what'. Explain business logic, workarounds, or complex algorithms. If code is unclear, refactor instead of commenting.",
+            "ru": "Хорошие комментарии объясняют 'почему', а не 'что'. Объясняйте бизнес-логику, обходные пути или сложные алгоритмы. Если код непонятен — рефакторите, а не комментируйте."
+          },
+          "answers": [
+            {
+              "text": { "en": "Explain 'why', not 'what'", "ru": "Объяснять 'почему', а не 'что'" },
+              "isCorrect": true
+            },
+            {
+              "text": { "en": "Every line of code", "ru": "Каждую строку кода" },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "Never write comments", "ru": "Никогда не писать комментарии" },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "Only at the top of files", "ru": "Только в начале файлов" },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 4,
+          "name": {
+            "en": "What is code refactoring?",
+            "ru": "Что такое рефакторинг кода?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "Refactoring is changing code structure without changing behavior. It improves readability, reduces complexity, and makes code easier to extend.",
+            "ru": "Рефакторинг — это изменение структуры кода без изменения поведения. Он улучшает читаемость, уменьшает сложность и упрощает расширение кода."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "Improving structure without changing behavior",
+                "ru": "Улучшение структуры без изменения поведения"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": { "en": "Adding new features", "ru": "Добавление новых функций" },
+              "isCorrect": false
+            },
+            { "text": { "en": "Fixing bugs", "ru": "Исправление багов" }, "isCorrect": false },
+            { "text": { "en": "Writing tests", "ru": "Написание тестов" }, "isCorrect": false }
+          ]
+        },
+        {
+          "sortOrder": 5,
+          "name": {
+            "en": "What is the ideal function length?",
+            "ru": "Какова идеальная длина функции?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "Functions should be small — typically under 20 lines. Each function should do one thing well. Smaller functions are easier to test and understand.",
+            "ru": "Функции должны быть маленькими — обычно до 20 строк. Каждая функция должна делать одно дело хорошо. Маленькие функции легче тестировать и понимать."
+          },
+          "answers": [
+            {
+              "text": { "en": "Small, under 20 lines", "ru": "Маленькие, до 20 строк" },
+              "isCorrect": true
+            },
+            {
+              "text": { "en": "As long as possible", "ru": "Как можно длиннее" },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "At least 100 lines", "ru": "Не менее 100 строк" },
+              "isCorrect": false
+            },
+            { "text": { "en": "No limit", "ru": "Без ограничений" }, "isCorrect": false }
+          ]
+        },
+        {
+          "sortOrder": 6,
+          "name": {
+            "en": "What is the DRY principle?",
+            "ru": "Что такое принцип DRY?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "DRY (Don't Repeat Yourself) means avoid duplicating code. Extract common patterns into reusable functions, components, or utilities.",
+            "ru": "DRY (Don't Repeat Yourself) означает избегать дублирования кода. Извлекайте общие паттерны в переиспользуемые функции, компоненты или утилиты."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "Don't repeat yourself, extract common patterns",
+                "ru": "Не повторяться, извлекать общие паттерны"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": { "en": "Always write dry code", "ru": "Всегда писать сухой код" },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "Never use comments", "ru": "Никогда не использовать комментарии" },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Use as few variables as possible",
+                "ru": "Использовать как можно меньше переменных"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 7,
+          "name": {
+            "en": "What is a magic number?",
+            "ru": "Что такое магическое число?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "Magic numbers are unexplained numeric values in code. Replace them with named constants to make code self-documenting.",
+            "ru": "Магические числа — это необъяснённые числовые значения в коде. Заменяйте их именованными константами, чтобы сделать код самодокументируемым."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "Unexplained numeric values",
+                "ru": "Необъяснённые числовые значения"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": { "en": "Very large numbers", "ru": "Очень большие числа" },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "Random numbers in code", "ru": "Случайные числа в коде" },
+              "isCorrect": false
+            },
+            { "text": { "en": "Constants only", "ru": "Только константы" }, "isCorrect": false }
+          ]
+        },
+        {
+          "sortOrder": 8,
+          "name": {
+            "en": "What is a code smell?",
+            "ru": "Что такое запах кода (code smell)?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "A code smell is a surface indication that usually corresponds to a deeper problem. Examples: long functions, large classes, duplicated code.",
+            "ru": "Запах кода — это поверхностный признак, обычно указывающий на более глубокую проблему. Примеры: длинные функции, большие классы, дублированный код."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "Indicator of deeper code problems",
+                "ru": "Индикатор более глубоких проблем в коде"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": { "en": "Bad variable names", "ru": "Плохие имена переменных" },
+              "isCorrect": false
+            },
+            { "text": { "en": "Compile errors", "ru": "Ошибки компиляции" }, "isCorrect": false },
+            { "text": { "en": "Missing tests", "ru": "Отсутствующие тесты" }, "isCorrect": false }
+          ]
+        },
+        {
+          "sortOrder": 9,
+          "name": {
+            "en": "What is YAGNI principle?",
+            "ru": "Что такое принцип YAGNI?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "YAGNI (You Aren't Gonna Need It) means don't add functionality until it's needed. Avoid over-engineering and premature optimization.",
+            "ru": "YAGNI (You Aren't Gonna Need It) означает не добавлять функциональность, пока она не нужна. Избегайте избыточного проектирования и преждевременной оптимизации."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "Don't add functionality until needed",
+                "ru": "Не добавлять функциональность, пока не нужно"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "Always add all possible features",
+                "ru": "Всегда добавлять все возможные функции"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "Write code for future needs", "ru": "Писать код на будущее" },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Ignore user requirements",
+                "ru": "Игнорировать требования пользователей"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 10,
+          "name": {
+            "en": "What is the Boy Scout Rule in code?",
+            "ru": "Что правило бойскаута в коде?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "Leave code better than you found it. If you see something that can be improved, refactor it while you're working in that area.",
+            "ru": "Оставляйте код лучше, чем нашли. Если видите что-то, что можно улучшить, рефакторите это, пока работаете в этой области."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "Leave code better than you found it",
+                "ru": "Оставлять код лучше, чем нашли"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "Never change existing code",
+                "ru": "Никогда не менять существующий код"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "Only write new code", "ru": "Только писать новый код" },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Clean code only on Fridays",
+                "ru": "Чистить код только по пятницам"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 11,
+          "name": {
+            "en": "What is KISS principle?",
+            "ru": "Что такое принцип KISS?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "KISS (Keep It Simple, Stupid) advocates for simple solutions over complex ones. Most systems work best when they are simple.",
+            "ru": "KISS (Keep It Simple, Stupid) выступает за простые решения вместо сложных. Большинство систем работают лучше, когда они простые."
+          },
+          "answers": [
+            {
+              "text": { "en": "Keep solutions simple", "ru": "Сохранять решения простыми" },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "Keep code as short as possible",
+                "ru": "Писать код как можно короче"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Always use complex algorithms",
+                "ru": "Всегда использовать сложные алгоритмы"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Minimize the number of files",
+                "ru": "Минимизировать количество файлов"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 12,
+          "name": {
+            "en": "What is separation of concerns?",
+            "ru": "Что такое разделение ответственности?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "Separation of concerns means dividing code into distinct sections, each handling a specific concern (e.g., UI, business logic, data access).",
+            "ru": "Разделение ответственности означает разделение кода на отдельные секции, каждая обрабатывающая конкретную задачу (например, UI, бизнес-логика, доступ к данным)."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "Divide code into sections handling specific concerns",
+                "ru": "Разделять код на секции с конкретными задачами"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "Separate developers from tasks",
+                "ru": "Отделять разработчиков от задач"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "Put all code in one file", "ru": "Помещать весь код в один файл" },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "Avoid using functions", "ru": "Избегать использования функций" },
+              "isCorrect": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": { "en": "Testing", "ru": "Тестирование" },
+      "description": {
+        "en": "Test pyramid, unit/integration/E2E tests, TDD, BDD, and performance testing concepts",
+        "ru": "Пирамида тестирования, модульные/интеграционные/E2E тесты, TDD, BDD и концепции нагрузочного тестирования"
+      },
+      "links": ["https://testing-library.com/", "https://jestjs.io/docs"],
+      "questions": [
+        {
+          "sortOrder": 1,
+          "name": {
+            "en": "What is the testing pyramid?",
+            "ru": "Что такое пирамида тестирования?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "The testing pyramid shows the ideal ratio of test types: many unit tests at the bottom, fewer integration tests in the middle, and few E2E tests at the top.",
+            "ru": "Пирамида тестирования показывает идеальное соотношение типов тестов: много юнит-тестов внизу, меньше интеграционных в середине и мало E2E-тестов наверху."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "Many unit, some integration, few E2E",
+                "ru": "Много юнит-, некоторые интеграционные, мало E2E"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": { "en": "Few unit, many E2E", "ru": "Мало юнит-, много E2E" },
+              "isCorrect": false
+            },
+            { "text": { "en": "Only unit tests", "ru": "Только юнит-тесты" }, "isCorrect": false },
+            { "text": { "en": "All tests equal", "ru": "Все тесты равны" }, "isCorrect": false }
+          ]
+        },
+        {
+          "sortOrder": 2,
+          "name": {
+            "en": "What does TDD stand for?",
+            "ru": "Что означает TDD?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "TDD (Test-Driven Development) is a process where you write tests first, watch them fail, then write code to make them pass. The cycle is Red-Green-Refactor.",
+            "ru": "TDD (Test-Driven Development) — это процесс, где вы сначала пишете тесты, видите их провал, затем пишете код для прохождения. Цикл — Red-Green-Refactor."
+          },
+          "answers": [
+            {
+              "text": { "en": "Test-Driven Development", "ru": "Test-Driven Development" },
+              "isCorrect": true
+            },
+            {
+              "text": { "en": "Test Design Development", "ru": "Test Design Development" },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "Type Definition Development", "ru": "Type Definition Development" },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "Technical Debugging Data", "ru": "Technical Debugging Data" },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 3,
+          "name": {
+            "en": "What is a unit test?",
+            "ru": "Что такое юнит-тест?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "A unit test tests a single function, method, or class in isolation. It should be fast, independent, and test one piece of functionality.",
+            "ru": "Юнит-тест тестирует одну функцию, метод или класс в изоляции. Он должен быть быстрым, независимым и тестировать одну функциональность."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "Tests single function/method in isolation",
+                "ru": "Тестирует одну функцию/метод в изоляции"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": { "en": "Tests entire application", "ru": "Тестирует всё приложение" },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Tests user interface only",
+                "ru": "Тестирует только пользовательский интерфейс"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "Tests database only", "ru": "Тестирует только базу данных" },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 4,
+          "name": {
+            "en": "What is an integration test?",
+            "ru": "Что такое интеграционный тест?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "An integration test verifies how multiple components work together. It tests interactions between modules, services, or external systems.",
+            "ru": "Интеграционный тест проверяет, как несколько компонентов работают вместе. Он тестирует взаимодействие между модулями, сервисами или внешними системами."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "Tests how multiple components work together",
+                "ru": "Тестирует, как несколько компонентов работают вместе"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": { "en": "Tests single function", "ru": "Тестирует одну функцию" },
+              "isCorrect": false
+            },
+            { "text": { "en": "Tests only UI", "ru": "Тестирует только UI" }, "isCorrect": false },
+            {
+              "text": {
+                "en": "Tests production deployment",
+                "ru": "Тестирует развёртывание в продакшен"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 5,
+          "name": {
+            "en": "What is E2E (end-to-end) testing?",
+            "ru": "Что такое E2E (end-to-end) тестирование?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "E2E tests simulate real user scenarios, testing the entire application from the UI to the database. They're slower but catch integration issues.",
+            "ru": "E2E-тесты симулируют реальные пользовательские сценарии, тестируя всё приложение от UI до базы данных. Они медленнее, но находят проблемы интеграции."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "Simulates real user scenarios, tests full app",
+                "ru": "Симулирует реальные сценарии, тестирует всё приложение"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": { "en": "Tests single function", "ru": "Тестирует одну функцию" },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "Tests only backend", "ru": "Тестирует только бэкенд" },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "Tests only database", "ru": "Тестирует только базу данных" },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 6,
+          "name": {
+            "en": "What is mocking in testing?",
+            "ru": "Что такое мокирование в тестировании?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "Mocking creates fake objects that simulate real ones. It's used to isolate the code under test from external dependencies like APIs or databases.",
+            "ru": "Мокирование создаёт поддельные объекты, симулирующие реальные. Это используется для изоляции тестируемого кода от внешних зависимостей, таких как API или базы данных."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "Create fake objects to isolate code under test",
+                "ru": "Создавать поддельные объекты для изоляции тестируемого кода"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": { "en": "Delete test files", "ru": "Удалять тестовые файлы" },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "Write more tests", "ru": "Писать больше тестов" },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "Compile code faster", "ru": "Компилировать код быстрее" },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 7,
+          "name": {
+            "en": "What is BDD?",
+            "ru": "Что такое BDD?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "BDD (Behavior-Driven Development) focuses on behavior from the user's perspective. It uses readable language (Given-When-Then) to define scenarios.",
+            "ru": "BDD (Behavior-Driven Development) фокусируется на поведении с точки зрения пользователя. Он использует читаемый язык (Given-When-Then) для определения сценариев."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "Behavior-Driven Development with Given-When-Then",
+                "ru": "Behavior-Driven Development с Given-When-Then"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": { "en": "Bug-Driven Development", "ru": "Bug-Driven Development" },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "Basic Data Debugging", "ru": "Basic Data Debugging" },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "Build Debug Deploy", "ru": "Build Debug Deploy" },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 8,
+          "name": {
+            "en": "What is test coverage?",
+            "ru": "Что такое покрытие тестами?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "Test coverage measures how much of your code is executed by tests. High coverage doesn't guarantee good tests—it just means code runs, not that it's tested correctly.",
+            "ru": "Покрытие тестами измеряет, какая часть кода выполняется тестами. Высокое покрытие не гарантирует хорошие тесты — это значит только, что код выполняется, а не что он правильно протестирован."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "Percentage of code executed by tests",
+                "ru": "Процент кода, выполняемого тестами"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": { "en": "Number of test files", "ru": "Количество тестовых файлов" },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "How fast tests run", "ru": "Как быстро работают тесты" },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Number of developers writing tests",
+                "ru": "Количество разработчиков, пишущих тесты"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 9,
+          "name": {
+            "en": "What is a regression test?",
+            "ru": "Что такое регрессионный тест?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "A regression test ensures that new changes don't break existing functionality. Run these to catch bugs when adding features or fixing code.",
+            "ru": "Регрессионный тест гарантирует, что новые изменения не ломают существующую функциональность. Запускайте их для нахождения багов при добавлении функций или исправлении кода."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "Ensures new changes don't break existing features",
+                "ru": "Гарантирует, что новые изменения не ломают существующие функции"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "Tests for performance issues",
+                "ru": "Тестирует проблемы производительности"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "Tests only new features", "ru": "Тестирует только новые функции" },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "Tests code style", "ru": "Тестирует стиль кода" },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 10,
+          "name": {
+            "en": "What is snapshot testing?",
+            "ru": "Что такое snapshot-тестирование?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "Snapshot testing captures the output of a component and compares it to a stored 'snapshot'. If the output changes, the test fails unless you update the snapshot.",
+            "ru": "Snapshot-тестирование захватывает вывод компонента и сравнивает его с сохранённым 'снимком'. Если вывод меняется, тест падает, пока вы не обновите снимок."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "Compare output to stored snapshot",
+                "ru": "Сравнивать вывод с сохранённым снимком"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": { "en": "Test memory usage", "ru": "Тестировать использование памяти" },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "Take screenshots of UI", "ru": "Делать скриншоты UI" },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "Test database snapshots", "ru": "Тестировать снимки базы данных" },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 11,
+          "name": {
+            "en": "What is a flaky test?",
+            "ru": "Что такое нестабильный тест (flaky test)?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "A flaky test passes and fails intermittently without code changes. It's often caused by timing issues, shared state, or external dependencies.",
+            "ru": "Нестабильный тест периодически проходит и падает без изменений кода. Это часто вызвано проблемами синхронизации, разделяемым состоянием или внешними зависимостями."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "Test that passes/fails intermittently",
+                "ru": "Тест, который периодически проходит/падает"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "Test that runs very fast",
+                "ru": "Тест, который работает очень быстро"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Test that checks code style",
+                "ru": "Тест, который проверяет стиль кода"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Test that only runs on Fridays",
+                "ru": "Тест, который запускается только по пятницам"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 12,
+          "name": {
+            "en": "What is the Arrange-Act-Assert pattern?",
+            "ru": "Что такое паттерн Arrange-Act-Assert?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "AAA is a test structure pattern: Arrange (set up test data), Act (execute the action), Assert (verify the result). It makes tests clear and readable.",
+            "ru": "AAA — это паттерн структуры теста: Arrange (подготовка тестовых данных), Act (выполнение действия), Assert (проверка результата). Это делает тесты понятными и читаемыми."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "Arrange-Act-Assert test structure",
+                "ru": "Структура теста Arrange-Act-Assert"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": { "en": "Automatic test runner", "ru": "Автоматический тест-раннер" },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "Test reporting format", "ru": "Формат отчёта о тестах" },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "Code coverage tool", "ru": "Инструмент покрытия кода" },
+              "isCorrect": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": { "en": "CI/CD", "ru": "CI/CD" },
+      "description": {
+        "en": "Continuous integration and continuous delivery pipelines, automation, and deployment strategies",
+        "ru": "Конвейеры непрерывной интеграции и доставки, автоматизация и стратегии развёртывания"
+      },
+      "links": ["https://github.com/features/actions", "https://docs.gitlab.com/ee/ci/"],
+      "questions": [
+        {
+          "sortOrder": 1,
+          "name": {
+            "en": "What does CI stand for?",
+            "ru": "Что означает CI?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "CI (Continuous Integration) automatically builds and tests code every time a developer pushes changes. It catches integration issues early.",
+            "ru": "CI (Continuous Integration) автоматически собирает и тестирует код каждый раз, когда разработчик пушит изменения. Это раньше находит проблемы интеграции."
+          },
+          "answers": [
+            {
+              "text": { "en": "Continuous Integration", "ru": "Continuous Integration" },
+              "isCorrect": true
+            },
+            { "text": { "en": "Code Integration", "ru": "Code Integration" }, "isCorrect": false },
+            {
+              "text": { "en": "Compile Instantly", "ru": "Compile Instantly" },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "Central Integration", "ru": "Central Integration" },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 2,
+          "name": {
+            "en": "What does CD stand for in CI/CD?",
+            "ru": "Что означает CD в CI/CD?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "CD can mean Continuous Delivery (manually deploy to production) or Continuous Deployment (automatically deploy to production).",
+            "ru": "CD может означать Continuous Delivery (вручную развёртывать в продакшен) или Continuous Deployment (автоматически развёртывать в продакшен)."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "Continuous Delivery or Deployment",
+                "ru": "Continuous Delivery или Deployment"
+              },
+              "isCorrect": true
+            },
+            { "text": { "en": "Code Deployment", "ru": "Code Deployment" }, "isCorrect": false },
+            { "text": { "en": "Compile Deploy", "ru": "Compile Deploy" }, "isCorrect": false },
+            {
+              "text": { "en": "Centralized Deployment", "ru": "Centralized Deployment" },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 3,
+          "name": {
+            "en": "What is a CI/CD pipeline?",
+            "ru": "Что такое CI/CD pipeline?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "A pipeline is a set of automated steps (build, test, deploy) that code goes through. Each step must pass for the next to run.",
+            "ru": "Pipeline — это набор автоматических шагов (сборка, тестирование, развёртывание), через которые проходит код. Каждый шаг должен пройти для запуска следующего."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "Automated steps: build, test, deploy",
+                "ru": "Автоматические шаги: сборка, тестирование, развёртывание"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": { "en": "A type of water pipe", "ru": "Тип водопроводной трубы" },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "Manual code review process", "ru": "Процесс ручного ревью кода" },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "A development framework", "ru": "Фреймворк разработки" },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 4,
+          "name": {
+            "en": "What is a build artifact?",
+            "ru": "Что такое артефакт сборки?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "Build artifacts are files generated during the build process (executables, libraries, packages). They're stored and used in later pipeline stages or deployments.",
+            "ru": "Артефакты сборки — это файлы, генерируемые в процессе сборки (исполняемые файлы, библиотеки, пакеты). Они сохраняются и используются на следующих этапах pipeline или развёртывания."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "Files generated during build (executables, packages)",
+                "ru": "Файлы, генерируемые при сборке (исполняемые, пакеты)"
+              },
+              "isCorrect": true
+            },
+            { "text": { "en": "Test results", "ru": "Результаты тестов" }, "isCorrect": false },
+            {
+              "text": { "en": "Source code files", "ru": "Файлы исходного кода" },
+              "isCorrect": false
+            },
+            { "text": { "en": "Documentation", "ru": "Документация" }, "isCorrect": false }
+          ]
+        },
+        {
+          "sortOrder": 5,
+          "name": {
+            "en": "What is blue-green deployment?",
+            "ru": "Что такое blue-green развёртывание?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "Blue-green deployment runs two identical production environments. New version goes to 'green', then traffic is switched. If issues, switch back to 'blue'.",
+            "ru": "Blue-green развёртывание запускает две идентичные продакшен-среды. Новая версия идёт в 'green', затем трафик переключается. При проблемах — обратно на 'blue'."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "Two environments, switch traffic between them",
+                "ru": "Две среды, переключение трафика между ними"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": { "en": "Deploy only on blue days", "ru": "Развёртывать только в синие дни" },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Deploy to one server only",
+                "ru": "Развёртывать только на один сервер"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "Use blue color in UI", "ru": "Использовать синий цвет в UI" },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 6,
+          "name": {
+            "en": "What is a canary release?",
+            "ru": "Что такое canary-релиз?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "A canary release gradually rolls out changes to a small subset of users. If issues arise, only a few users are affected. It's a safer alternative to big-bang releases.",
+            "ru": "Canary-релиз постепенно выпускает изменения небольшой группе пользователей. При проблемах затрагивается мало пользователей. Это более безопасная альтернатива массовым релизам."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "Gradually roll out to small user subset",
+                "ru": "Постепенно выпускать небольшой группе пользователей"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": { "en": "Release only to canaries", "ru": "Релизить только канарейкам" },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "Test with bird images", "ru": "Тестировать с изображениями птиц" },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "Deploy yellow code", "ru": "Развёртывать жёлтый код" },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 7,
+          "name": {
+            "en": "What is infrastructure as code (IaC)?",
+            "ru": "Что такое инфраструктура как код (IaC)?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "IaC manages infrastructure (servers, networks) using code and version control. Tools like Terraform, CloudFormation let you provision environments consistently.",
+            "ru": "IaC управляет инфраструктурой (серверы, сети) с помощью кода и контроля версий. Инструменты как Terraform, CloudFormation позволяют создавать среды согласованно."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "Manage infrastructure using code and version control",
+                "ru": "Управлять инфраструктурой с помощью кода и контроля версий"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "Write code on infrastructure",
+                "ru": "Писать код на инфраструктуре"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "Build data centers", "ru": "Строить дата-центры" },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "Buy server hardware", "ru": "Покупать серверное оборудование" },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 8,
+          "name": {
+            "en": "What is a GitOps workflow?",
+            "ru": "Что такое GitOps-процесс?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "GitOps uses Git as the single source of truth for infrastructure and deployments. Changes are made via pull requests, and automated tools sync with production.",
+            "ru": "GitOps использует Git как единый источник правды для инфраструктуры и развёртываний. Изменения делаются через pull requests, автоматические инструменты синхронизируются с продакшеном."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "Git as single source for deployments",
+                "ru": "Git как единый источник для развёртываний"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "Use Git to write code only",
+                "ru": "Использовать Git только для написания кода"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Git controls your computer",
+                "ru": "Git управляет вашим компьютером"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "Deploy Git repositories", "ru": "Развёртывать Git-репозитории" },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 9,
+          "name": {
+            "en": "What is environment drift?",
+            "ru": "Что такое расхождение сред (environment drift)?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "Environment drift occurs when production differs from staging/dev due to manual changes. IaC helps prevent drift by ensuring all environments are provisioned from code.",
+            "ru": "Расхождение сред происходит, когда продакшен отличается от staging/dev из-за ручных изменений. IaC помогает предотвратить расхождение, обеспечивая создание всех сред из кода."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "Production differs from other environments",
+                "ru": "Продакшен отличается от других сред"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": { "en": "Code compiles differently", "ru": "Код компилируется по-разному" },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "Git branches diverge", "ru": "Ветки Git расходятся" },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "Developers leave the team", "ru": "Разработчики уходят из команды" },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 10,
+          "name": {
+            "en": "What is a rollback in deployment?",
+            "ru": "Что такое откат (rollback) при развёртывании?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "A rollback reverts to the previous working version when issues are detected. It's a critical safety net for deployments.",
+            "ru": "Откат возвращает к предыдущей рабочей версии при обнаружении проблем. Это критически важная сетка безопасности для развёртываний."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "Revert to previous working version",
+                "ru": "Вернуться к предыдущей рабочей версии"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": { "en": "Deploy to a new server", "ru": "Развернуть на новый сервер" },
+              "isCorrect": false
+            },
+            { "text": { "en": "Delete all code", "ru": "Удалить весь код" }, "isCorrect": false },
+            {
+              "text": { "en": "Restart the computer", "ru": "Перезагрузить компьютер" },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 11,
+          "name": {
+            "en": "What is Docker in CI/CD?",
+            "ru": "Что такое Docker в CI/CD?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "Docker packages applications with their dependencies into containers. This ensures consistent behavior across development, testing, and production environments.",
+            "ru": "Docker упаковывает приложения с их зависимостями в контейнеры. Это обеспечивает согласованное поведение между разработкой, тестированием и продакшеном."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "Package app with dependencies into containers",
+                "ru": "Упаковать приложение с зависимостями в контейнеры"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": { "en": "A programming language", "ru": "Язык программирования" },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "A testing framework", "ru": "Фреймворк для тестирования" },
+              "isCorrect": false
+            },
+            { "text": { "en": "A code editor", "ru": "Редактор кода" }, "isCorrect": false }
+          ]
+        },
+        {
+          "sortOrder": 12,
+          "name": {
+            "en": "What is the benefit of feature flags?",
+            "ru": "Какова польза фича-флагов?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "Feature flags let you toggle features on/off without deploying new code. You can test in production, do gradual rollouts, and instantly disable problematic features.",
+            "ru": "Фича-флаги позволяют включать/выключать функции без развёртывания нового кода. Можно тестировать в продакшене, делать постепенные rollout и мгновенно отключать проблемные функции."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "Toggle features without deploying code",
+                "ru": "Включать/выключать функции без развёртывания кода"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": { "en": "Add new features only", "ru": "Добавлять только новые функции" },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "Hide all features", "ru": "Скрывать все функции" },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "Flag developers", "ru": "Отмечать разработчиков" },
+              "isCorrect": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": { "en": "Scrum & Kanban", "ru": "Scrum и Kanban" },
+      "description": {
+        "en": "Agile, Scrum sprints and ceremonies, Kanban flow with WIP limits, and Waterfall comparison",
+        "ru": "Agile, спринты и церемонии Scrum, поток Kanban с WIP-лимитами и сравнение с Waterfall"
+      },
+      "links": ["https://www.scrum.org/", "https://kanban.university/"],
+      "questions": [
+        {
+          "sortOrder": 1,
+          "name": {
+            "en": "What is Agile methodology?",
+            "ru": "Что такое методология Agile?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "Agile is an iterative approach to project management and software development. It delivers value in small increments, welcomes changes, and emphasizes collaboration.",
+            "ru": "Agile — это итеративный подход к управлению проектами и разработке ПО. Он доставляет ценность небольшими порциями, приветствует изменения и делает акцент на сотрудничестве."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "Iterative approach with small increments",
+                "ru": "Итеративный подход с небольшими порциями"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": { "en": "Plan everything upfront", "ru": "Планировать всё заранее" },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "One-time deliverable", "ru": "Однократная поставка" },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "No planning required", "ru": "Планирование не требуется" },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 2,
+          "name": {
+            "en": "What is a Sprint in Scrum?",
+            "ru": "Что такое спринт в Scrum?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "A Sprint is a time-boxed iteration (usually 1-4 weeks) where a potentially releasable product increment is created. All work happens within one Sprint.",
+            "ru": "Спринт — это ограниченная по времени итерация (обычно 1-4 недели), в которой создаётся потенциально готовый к выпуску инкремент продукта. Вся работа происходит в пределах одного спринта."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "Time-boxed iteration (1-4 weeks)",
+                "ru": "Ограниченная по времени итерация (1-4 недели)"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": { "en": "A type of running exercise", "ru": "Тип бегового упражнения" },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "A long-term project plan", "ru": "Долгосрочный план проекта" },
+              "isCorrect": false
+            },
+            { "text": { "en": "A bug report", "ru": "Баг-отчёт" }, "isCorrect": false }
+          ]
+        },
+        {
+          "sortOrder": 3,
+          "name": {
+            "en": "What is the Scrum Daily Standup?",
+            "ru": "Что такое ежедневный стендап в Scrum?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "A daily standup is a brief daily meeting (15 minutes max) where team members share what they did, what they'll do, and any blockers.",
+            "ru": "Ежедневный стендап — это короткая ежедневная встреча (максимум 15 минут), где участники делятся тем, что сделали, что будут делать и какие есть препятствия."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "Brief daily sync (15 min) on progress and blockers",
+                "ru": "Короткая ежедневная встреча о прогрессе и блокерах"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "A weekly meeting lasting hours",
+                "ru": "Еженедельная встреча на несколько часов"
+              },
+              "isCorrect": false
+            },
+            { "text": { "en": "A type of testing", "ru": "Тип тестирования" }, "isCorrect": false },
+            {
+              "text": { "en": "A code review session", "ru": "Сессия ревью кода" },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 4,
+          "name": {
+            "en": "What is a Product Backlog?",
+            "ru": "Что такое бэклог продукта?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "A Product Backlog is an ordered list of everything that might be needed in the product. It's owned by the Product Owner and continuously refined.",
+            "ru": "Бэклог продукта — это упорядоченный список всего, что может понадобиться в продукте. Он принадлежит Product Owner и постоянно уточняется."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "Ordered list of product requirements",
+                "ru": "Упорядоченный список требований к продукту"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": { "en": "A list of completed tasks", "ru": "Список выполненных задач" },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "Team member names", "ru": "Имена участников команды" },
+              "isCorrect": false
+            },
+            { "text": { "en": "Server logs", "ru": "Логи сервера" }, "isCorrect": false }
+          ]
+        },
+        {
+          "sortOrder": 5,
+          "name": {
+            "en": "What is a Sprint Retrospective?",
+            "ru": "Что такое ретроспектива спринта?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "A Sprint Retrospective is held at the end of each Sprint to reflect on what went well, what didn't, and how to improve.",
+            "ru": "Ретроспектива спринта проводится в конце каждого спринта для размышления о том, что прошло хорошо, что нет и как улучшиться."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "Reflect on sprint: what worked, what didn't, improvements",
+                "ru": "Оценить спринт: что сработало, что нет, улучшения"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "Plan the next sprint features",
+                "ru": "Планировать функции следующего спринта"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Demo product to stakeholders",
+                "ru": "Демонстрировать продукт стейкхолдерам"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Write code for next features",
+                "ru": "Писать код для следующих функций"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 6,
+          "name": {
+            "en": "What is a Kanban board?",
+            "ru": "Что такое доска Kanban?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "A Kanban board visualizes work with columns (To Do, In Progress, Done). Cards move through columns, showing workflow status at a glance.",
+            "ru": "Доска Kanban визуализирует работу с колонками (To Do, In Progress, Done). Карточки перемещаются через колонки, показывая статус рабочего процесса."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "Visual board with workflow columns",
+                "ru": "Визуальная доска с колонками рабочего процесса"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": { "en": "A type of music instrument", "ru": "Тип музыкального инструмента" },
+              "isCorrect": false
+            },
+            { "text": { "en": "A coffee brand", "ru": "Марка кофе" }, "isCorrect": false },
+            {
+              "text": { "en": "A testing methodology", "ru": "Методология тестирования" },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 7,
+          "name": {
+            "en": "What does WIP limit mean in Kanban?",
+            "ru": "Что означает WIP-лимит в Kanban?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "WIP (Work In Progress) limit caps how many items can be in a column at once. It prevents bottlenecks and focuses the team on finishing work.",
+            "ru": "WIP (Work In Progress) лимит ограничивает количество элементов в одной колонке. Это предотвращает узкие места и фокусирует команду на завершении работы."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "Max items allowed in progress at once",
+                "ru": "Максимум элементов в работе одновременно"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": { "en": "Write In Progress reports", "ru": "Писать отчёты о ходе работы" },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "Work Immediately Please", "ru": "Work Immediately Please" },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "Weekly Implementation Plan", "ru": "Weekly Implementation Plan" },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 8,
+          "name": {
+            "en": "What is the main difference between Scrum and Kanban?",
+            "ru": "Какова главная разница между Scrum и Kanban?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "Scrum uses fixed-length sprints with roles and ceremonies. Kanban is continuous flow without fixed iterations. Scrum has more structure; Kanban is more flexible.",
+            "ru": "Scrum использует спринты фиксированной длины с ролями и церемониями. Kanban — непрерывный поток без фиксированных итераций. Scrum имеет больше структуры; Kanban более гибкий."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "Scrum has sprints; Kanban is continuous flow",
+                "ru": "Scrum имеет спринты; Kanban — непрерывный поток"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": { "en": "They are exactly the same", "ru": "Они абсолютно одинаковы" },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "Kanban requires more roles", "ru": "Kanban требует больше ролей" },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "Scrum doesn't use boards", "ru": "Scrum не использует доски" },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 9,
+          "name": {
+            "en": "What is a Scrum Master responsible for?",
+            "ru": "За что отвечает Scrum Master?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "The Scrum Master helps the team follow Scrum practices, removes impediments, and facilitates ceremonies. They serve the team, not manage it.",
+            "ru": "Scrum Master помогает команде следовать практикам Scrum, устраняет препятствия и проводит церемонии. Он служит команде, а не управляет ею."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "Help team follow Scrum, remove blockers",
+                "ru": "Помогать команде следовать Scrum, устранять блокеры"
+              },
+              "isCorrect": true
+            },
+            { "text": { "en": "Write all the code", "ru": "Писать весь код" }, "isCorrect": false },
+            {
+              "text": {
+                "en": "Fire underperforming team members",
+                "ru": "Увольнять неэффективных участников"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Make all product decisions",
+                "ru": "Принимать все решения о продукте"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 10,
+          "name": {
+            "en": "What is a user story?",
+            "ru": "Что такое пользовательская история?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "A user story is a brief description of a feature from the user's perspective: 'As a [user], I want [goal] so that [benefit].' It focuses on value delivered.",
+            "ru": "Пользовательская история — это краткое описание функции с точки зрения пользователя: 'Как [пользователь], я хочу [цель], чтобы [получить выгоду].' Фокус на ценности."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "Feature from user perspective with goal and benefit",
+                "ru": "Функция с точки зрения пользователя с целью и выгодой"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": { "en": "A novel about users", "ru": "Роман о пользователях" },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "Technical specification", "ru": "Техническая спецификация" },
+              "isCorrect": false
+            },
+            { "text": { "en": "Bug report", "ru": "Баг-отчёт" }, "isCorrect": false }
+          ]
+        },
+        {
+          "sortOrder": 11,
+          "name": {
+            "en": "What is velocity in Scrum?",
+            "ru": "Что такое velocity в Scrum?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "Velocity measures how much work a team completes in a sprint (usually in story points). It helps predict how much work can be done in future sprints.",
+            "ru": "Velocity измеряет, сколько работы команда выполняет за спринт (обычно в story points). Это помогает предсказать, сколько работы можно выполнить в будущих спринтах."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "Work completed per sprint (story points)",
+                "ru": "Работа, выполненная за спринт (story points)"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": { "en": "How fast code runs", "ru": "Как быстро работает код" },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "Team member speed", "ru": "Скорость участника команды" },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "Network bandwidth", "ru": "Пропускная способность сети" },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 12,
+          "name": {
+            "en": "What is the difference between Agile and Waterfall?",
+            "ru": "В чём разница между Agile и Waterfall?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "Waterfall is sequential: complete one phase before the next. Agile is iterative: deliver in cycles, adapt to changes. Waterfall is rigid; Agile is flexible.",
+            "ru": "Waterfall последовательный: завершить одну фазу перед следующей. Agile итеративный: доставлять циклами, адаптироваться к изменениям. Waterfall жёсткий; Agile гибкий."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "Waterfall: sequential; Agile: iterative and flexible",
+                "ru": "Waterfall: последовательный; Agile: итеративный и гибкий"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": { "en": "They are the same thing", "ru": "Это одно и то же" },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "Waterfall is faster", "ru": "Waterfall быстрее" },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "Agile requires no planning", "ru": "Agile не требует планирования" },
+              "isCorrect": false
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

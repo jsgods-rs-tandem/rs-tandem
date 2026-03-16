@@ -1,0 +1,2461 @@
+{
+  "category": {
+    "name": { "en": "Web Platform & Networking", "ru": "Веб-платформа и сети" },
+    "description": {
+      "en": "Internet fundamentals, HTTP, client-server interaction, REST, web security, and how browsers work",
+      "ru": "Основы интернета, HTTP, взаимодействие клиента и сервера, REST, веб-безопасность и принцип работы браузеров"
+    }
+  },
+  "topics": [
+    {
+      "name": { "en": "Internet Fundamentals", "ru": "Основы интернета" },
+      "description": {
+        "en": "How the internet works: DNS, TCP/IP, HTTP vs HTTPS, and status codes",
+        "ru": "Как работает интернет: DNS, TCP/IP, HTTP vs HTTPS и коды состояния"
+      },
+      "links": [
+        "https://developer.mozilla.org/en-US/docs/Learn_web_development/Getting_started/Web_standards/How_the_web_works",
+        "https://developer.mozilla.org/en-US/docs/Web/HTTP"
+      ],
+      "questions": [
+        {
+          "sortOrder": 1,
+          "name": { "en": "What does DNS stand for?", "ru": "Что означает аббревиатура DNS?" },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "DNS stands for Domain Name System. It acts like a phone book for the internet, translating human-readable domain names (e.g., `example.com`) into IP addresses that computers use to route traffic.",
+            "ru": "DNS расшифровывается как Domain Name System (Система доменных имён). Она работает как телефонная книга интернета, преобразуя понятные человеку доменные имена (например, `example.com`) в IP-адреса, которые компьютеры используют для маршрутизации трафика."
+          },
+          "answers": [
+            {
+              "text": { "en": "Domain Name System", "ru": "Domain Name System" },
+              "isCorrect": true
+            },
+            {
+              "text": { "en": "Data Network Service", "ru": "Data Network Service" },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "Dynamic Name Server", "ru": "Dynamic Name Server" },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "Digital Node Standard", "ru": "Digital Node Standard" },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 2,
+          "name": {
+            "en": "What is the default port for HTTPS?",
+            "ru": "Какой порт по умолчанию используется для HTTPS?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "HTTPS uses port 443 by default, while plain HTTP uses port 80. When a browser connects to `https://example.com` without specifying a port, it automatically connects to port 443.",
+            "ru": "HTTPS по умолчанию использует порт 443, тогда как обычный HTTP использует порт 80. Когда браузер подключается к `https://example.com` без указания порта, он автоматически подключается к порту 443."
+          },
+          "answers": [
+            { "text": { "en": "80", "ru": "80" }, "isCorrect": false },
+            { "text": { "en": "443", "ru": "443" }, "isCorrect": true },
+            { "text": { "en": "8080", "ru": "8080" }, "isCorrect": false },
+            { "text": { "en": "22", "ru": "22" }, "isCorrect": false }
+          ]
+        },
+        {
+          "sortOrder": 3,
+          "name": { "en": "What does TCP stand for?", "ru": "Что означает аббревиатура TCP?" },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "TCP stands for Transmission Control Protocol. It is a transport-layer protocol that provides reliable, ordered, and error-checked delivery of data between applications over a network.",
+            "ru": "TCP расшифровывается как Transmission Control Protocol (Протокол управления передачей). Это транспортный протокол, который обеспечивает надёжную, упорядоченную и проверенную на ошибки доставку данных между приложениями по сети."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "Transmission Control Protocol",
+                "ru": "Transmission Control Protocol"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "Transfer Connection Protocol",
+                "ru": "Transfer Connection Protocol"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "Technical Control Protocol", "ru": "Technical Control Protocol" },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Transmission Communication Protocol",
+                "ru": "Transmission Communication Protocol"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 4,
+          "name": {
+            "en": "Which HTTP status code indicates 'Not Found'?",
+            "ru": "Какой код статуса HTTP означает «Не найдено»?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "HTTP status code 404 means 'Not Found'. It indicates that the server could not find the requested resource. Status codes in the 4xx range represent client errors.",
+            "ru": "Код статуса HTTP 404 означает «Не найдено». Он указывает, что сервер не смог найти запрошенный ресурс. Коды статуса в диапазоне 4xx обозначают ошибки на стороне клиента."
+          },
+          "answers": [
+            { "text": { "en": "500", "ru": "500" }, "isCorrect": false },
+            { "text": { "en": "301", "ru": "301" }, "isCorrect": false },
+            { "text": { "en": "404", "ru": "404" }, "isCorrect": true },
+            { "text": { "en": "204", "ru": "204" }, "isCorrect": false }
+          ]
+        },
+        {
+          "sortOrder": 5,
+          "name": {
+            "en": "What does IP stand for in networking?",
+            "ru": "Что означает аббревиатура IP в сетях?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "IP stands for Internet Protocol. It is the network-layer protocol responsible for addressing and routing packets of data across networks. Every device on the internet has an IP address.",
+            "ru": "IP расшифровывается как Internet Protocol (Интернет-протокол). Это сетевой протокол, отвечающий за адресацию и маршрутизацию пакетов данных по сетям. Каждое устройство в интернете имеет IP-адрес."
+          },
+          "answers": [
+            { "text": { "en": "Internet Protocol", "ru": "Internet Protocol" }, "isCorrect": true },
+            {
+              "text": { "en": "Internal Protocol", "ru": "Internal Protocol" },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "Internet Provider", "ru": "Internet Provider" },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "Independent Protocol", "ru": "Independent Protocol" },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 6,
+          "name": {
+            "en": "What does the HTTP status code 301 indicate?",
+            "ru": "Что означает код статуса HTTP 301?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "301 Moved Permanently is a redirect status code. It tells the client that the requested resource has been permanently moved to a new URL. Browsers cache this redirect and update bookmarks accordingly.",
+            "ru": "301 Moved Permanently — это код перенаправления. Он сообщает клиенту, что запрошенный ресурс был окончательно перемещён на новый URL. Браузеры кэшируют это перенаправление и обновляют закладки."
+          },
+          "answers": [
+            {
+              "text": { "en": "Temporary redirect", "ru": "Временное перенаправление" },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "Permanent redirect", "ru": "Постоянное перенаправление" },
+              "isCorrect": true
+            },
+            { "text": { "en": "Bad request", "ru": "Неверный запрос" }, "isCorrect": false },
+            { "text": { "en": "Resource created", "ru": "Ресурс создан" }, "isCorrect": false }
+          ]
+        },
+        {
+          "sortOrder": 7,
+          "name": {
+            "en": "At which OSI model layer does HTTP operate?",
+            "ru": "На каком уровне модели OSI работает HTTP?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "HTTP operates at Layer 7, the Application layer, of the OSI model. TCP operates at Layer 4 (Transport), IP at Layer 3 (Network), and Ethernet at Layer 2 (Data Link).",
+            "ru": "HTTP работает на 7-м уровне — прикладном уровне (Application) модели OSI. TCP работает на 4-м уровне (транспортном), IP — на 3-м (сетевом), Ethernet — на 2-м (канальном)."
+          },
+          "answers": [
+            {
+              "text": { "en": "Transport layer (4)", "ru": "Транспортный уровень (4)" },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "Network layer (3)", "ru": "Сетевой уровень (3)" },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "Session layer (5)", "ru": "Сеансовый уровень (5)" },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "Application layer (7)", "ru": "Прикладной уровень (7)" },
+              "isCorrect": true
+            }
+          ]
+        },
+        {
+          "sortOrder": 8,
+          "name": {
+            "en": "What protocol does DNS primarily use for queries?",
+            "ru": "Какой протокол DNS в основном использует для запросов?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "DNS primarily uses UDP on port 53 for queries because it is fast and lightweight. It falls back to TCP for responses larger than 512 bytes or for zone transfers.",
+            "ru": "DNS в основном использует UDP на порту 53 для запросов, поскольку это быстро и экономично. DNS переключается на TCP для ответов размером более 512 байт или при передаче зон."
+          },
+          "answers": [
+            { "text": { "en": "TCP", "ru": "TCP" }, "isCorrect": false },
+            { "text": { "en": "HTTP", "ru": "HTTP" }, "isCorrect": false },
+            { "text": { "en": "UDP", "ru": "UDP" }, "isCorrect": true },
+            { "text": { "en": "ICMP", "ru": "ICMP" }, "isCorrect": false }
+          ]
+        },
+        {
+          "sortOrder": 9,
+          "name": {
+            "en": "What is the key improvement in HTTP/2 over HTTP/1.1?",
+            "ru": "Какое ключевое улучшение принёс HTTP/2 по сравнению с HTTP/1.1?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "HTTP/2 introduces multiplexing, which allows multiple requests and responses to be sent over a single TCP connection simultaneously. HTTP/1.1 was limited to one request per connection at a time (without pipelining). HTTP/2 also adds header compression and server push.",
+            "ru": "HTTP/2 вводит мультиплексирование, позволяющее отправлять несколько запросов и ответов одновременно по одному TCP-соединению. HTTP/1.1 допускал только один запрос за раз на соединение (без конвейеризации). HTTP/2 также добавляет сжатие заголовков и server push."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "Uses text-based framing",
+                "ru": "Использует текстовое форматирование"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Multiplexing multiple requests over one connection",
+                "ru": "Мультиплексирование нескольких запросов в одном соединении"
+              },
+              "isCorrect": true
+            },
+            { "text": { "en": "Requires HTTPS", "ru": "Требует HTTPS" }, "isCorrect": false },
+            {
+              "text": {
+                "en": "Eliminates the need for TCP",
+                "ru": "Устраняет необходимость в TCP"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 10,
+          "name": {
+            "en": "What is the purpose of a port number in networking?",
+            "ru": "Какова цель номера порта в сети?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "Port numbers identify specific applications or services running on a host. An IP address identifies the machine, while the port number identifies which service on that machine should receive the data (e.g., port 80 for HTTP, 443 for HTTPS, 22 for SSH).",
+            "ru": "Номера портов идентифицируют конкретные приложения или службы, работающие на хосте. IP-адрес определяет машину, а номер порта — какая служба на этой машине должна получить данные (например, порт 80 для HTTP, 443 для HTTPS, 22 для SSH)."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "Identify the host on a network",
+                "ru": "Идентифицировать хост в сети"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "Encrypt data in transit", "ru": "Шифровать данные при передаче" },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Identify specific services on a host",
+                "ru": "Идентифицировать конкретные службы на хосте"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "Route packets between networks",
+                "ru": "Маршрутизировать пакеты между сетями"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 11,
+          "name": {
+            "en": "What does TTL mean in the context of DNS records?",
+            "ru": "Что означает TTL применительно к DNS-записям?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "TTL (Time To Live) in DNS specifies how long a resolver should cache a DNS record (in seconds) before requesting fresh data from the authoritative server. A shorter TTL allows faster propagation of changes; a longer TTL reduces DNS query load.",
+            "ru": "TTL (Time To Live) в DNS указывает, как долго резолвер должен кэшировать DNS-запись (в секундах) перед повторным запросом к авторитативному серверу. Меньший TTL обеспечивает более быстрое распространение изменений; больший TTL снижает нагрузку DNS-запросов."
+          },
+          "answers": [
+            {
+              "text": { "en": "Total Transfer Length", "ru": "Total Transfer Length" },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "Type Transfer Label", "ru": "Type Transfer Label" },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Time To Live — how long a record is cached",
+                "ru": "Time To Live — время кэширования записи"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": { "en": "Transmission Time Limit", "ru": "Transmission Time Limit" },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 12,
+          "name": {
+            "en": "What does SSL/TLS primarily provide?",
+            "ru": "Что прежде всего обеспечивает SSL/TLS?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "SSL/TLS provides encryption (so data cannot be read in transit), authentication (verifying the server's identity via certificates), and integrity (ensuring data has not been tampered with). HTTPS = HTTP + TLS.",
+            "ru": "SSL/TLS обеспечивает шифрование (данные нельзя прочитать при передаче), аутентификацию (проверка подлинности сервера с помощью сертификатов) и целостность (данные не были изменены). HTTPS = HTTP + TLS."
+          },
+          "answers": [
+            {
+              "text": { "en": "Faster data transfer", "ru": "Более быстрая передача данных" },
+              "isCorrect": false
+            },
+            { "text": { "en": "Better caching", "ru": "Лучшее кэширование" }, "isCorrect": false },
+            {
+              "text": {
+                "en": "Encryption, authentication, and integrity",
+                "ru": "Шифрование, аутентификация и целостность"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": { "en": "Content compression", "ru": "Сжатие содержимого" },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 13,
+          "name": {
+            "en": "What is the main advantage of IPv6 over IPv4?",
+            "ru": "В чём главное преимущество IPv6 перед IPv4?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "IPv6 uses 128-bit addresses, providing approximately 3.4×10^38 unique addresses, compared to IPv4's 32-bit addresses (~4.3 billion). This solves the IPv4 address exhaustion problem and eliminates the need for NAT in most cases.",
+            "ru": "IPv6 использует 128-битные адреса, обеспечивая примерно 3,4×10^38 уникальных адресов, тогда как у IPv4 32-битные адреса (~4,3 миллиарда). Это решает проблему исчерпания адресов IPv4 и в большинстве случаев устраняет необходимость в NAT."
+          },
+          "answers": [
+            {
+              "text": { "en": "Always lower latency", "ru": "Всегда меньшая задержка" },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "Built-in encryption", "ru": "Встроенное шифрование" },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Much larger address space (128-bit vs 32-bit)",
+                "ru": "Значительно большее адресное пространство (128 бит против 32 бит)"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "Faster routing algorithms",
+                "ru": "Более быстрые алгоритмы маршрутизации"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 14,
+          "name": {
+            "en": "What underlying transport protocol does HTTP/3 use?",
+            "ru": "Какой транспортный протокол использует HTTP/3?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "HTTP/3 is built on QUIC (Quick UDP Internet Connections), which runs over UDP rather than TCP. QUIC provides built-in encryption, multiplexing without head-of-line blocking, and faster connection establishment than TCP+TLS.",
+            "ru": "HTTP/3 построен на протоколе QUIC (Quick UDP Internet Connections), который работает поверх UDP, а не TCP. QUIC обеспечивает встроенное шифрование, мультиплексирование без блокировки начала очереди и более быстрое установление соединения, чем TCP+TLS."
+          },
+          "answers": [
+            { "text": { "en": "TCP", "ru": "TCP" }, "isCorrect": false },
+            { "text": { "en": "WebSocket", "ru": "WebSocket" }, "isCorrect": false },
+            { "text": { "en": "SPDY", "ru": "SPDY" }, "isCorrect": false },
+            { "text": { "en": "QUIC (over UDP)", "ru": "QUIC (поверх UDP)" }, "isCorrect": true }
+          ]
+        },
+        {
+          "sortOrder": 15,
+          "name": {
+            "en": "What does the HTTP `Host` request header specify?",
+            "ru": "Что указывает HTTP-заголовок запроса `Host`?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "The `Host` header specifies the domain name of the target server (and optionally the port). It is mandatory in HTTP/1.1. It enables virtual hosting — a single server with one IP can host multiple domains by inspecting this header.",
+            "ru": "Заголовок `Host` указывает доменное имя целевого сервера (и, при необходимости, порт). В HTTP/1.1 он является обязательным. Он позволяет реализовывать виртуальный хостинг — один сервер с одним IP может размещать несколько доменов, проверяя этот заголовок."
+          },
+          "answers": [
+            {
+              "text": { "en": "The client's IP address", "ru": "IP-адрес клиента" },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "The domain name of the target server",
+                "ru": "Доменное имя целевого сервера"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": { "en": "The desired response format", "ru": "Желаемый формат ответа" },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "The request timeout value", "ru": "Значение тайм-аута запроса" },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 16,
+          "name": {
+            "en": "What does a 502 Bad Gateway error typically indicate?",
+            "ru": "Что обычно означает ошибка 502 Bad Gateway?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "A 502 Bad Gateway error means a server acting as a gateway or proxy received an invalid response from an upstream server. This is different from 503 (server unavailable) and 500 (internal server error).",
+            "ru": "Ошибка 502 Bad Gateway означает, что сервер, выступающий в роли шлюза или прокси, получил недопустимый ответ от вышестоящего сервера. Это отличается от 503 (сервер недоступен) и 500 (внутренняя ошибка сервера)."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "The client sent a malformed request",
+                "ru": "Клиент отправил неверный запрос"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "The gateway received an invalid response from an upstream server",
+                "ru": "Шлюз получил недопустимый ответ от вышестоящего сервера"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "The requested resource was not found",
+                "ru": "Запрошенный ресурс не найден"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "The server is temporarily overloaded",
+                "ru": "Сервер временно перегружен"
+              },
+              "isCorrect": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": { "en": "Client–Server Interaction", "ru": "Взаимодействие клиента и сервера" },
+      "description": {
+        "en": "Network requests in the browser: Fetch API, XMLHttpRequest, CORS, and the same-origin policy",
+        "ru": "Сетевые запросы в браузере: Fetch API, XMLHttpRequest, CORS и политика одного источника"
+      },
+      "links": [
+        "https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch",
+        "https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS"
+      ],
+      "questions": [
+        {
+          "sortOrder": 1,
+          "name": { "en": "What does CORS stand for?", "ru": "Что означает аббревиатура CORS?" },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "CORS stands for Cross-Origin Resource Sharing. It is a browser security mechanism that controls how web pages can request resources from a different origin (domain, protocol, or port) than the one that served the page.",
+            "ru": "CORS расшифровывается как Cross-Origin Resource Sharing (Совместное использование ресурсов между источниками). Это механизм безопасности браузера, который контролирует, как веб-страницы могут запрашивать ресурсы из другого источника (домен, протокол или порт), отличного от того, с которого была загружена страница."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "Cross-Origin Request Security",
+                "ru": "Cross-Origin Request Security"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Common Origin Resource System",
+                "ru": "Common Origin Resource System"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Cross-Origin Resource Sharing",
+                "ru": "Cross-Origin Resource Sharing"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "Cross-Origin Response System",
+                "ru": "Cross-Origin Response System"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 2,
+          "name": {
+            "en": "What is the same-origin policy?",
+            "ru": "Что такое политика одного источника?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "The same-origin policy is a browser security rule that restricts scripts on one origin from accessing resources on a different origin. An origin is defined by the combination of protocol, host, and port. It prevents malicious sites from reading sensitive data from other sites.",
+            "ru": "Политика одного источника — это правило безопасности браузера, ограничивающее доступ скриптов одного источника к ресурсам другого источника. Источник определяется сочетанием протокола, хоста и порта. Она предотвращает чтение вредоносными сайтами конфиденциальных данных других сайтов."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "Restricts how documents interact with resources from other origins",
+                "ru": "Ограничивает взаимодействие документов с ресурсами из других источников"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "Prevents all cross-origin requests entirely",
+                "ru": "Полностью запрещает все межсайтовые запросы"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Blocks all external resources from loading",
+                "ru": "Блокирует загрузку всех внешних ресурсов"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Only applies to POST requests",
+                "ru": "Применяется только к POST-запросам"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 3,
+          "name": {
+            "en": "Which modern API is used for making HTTP requests in browsers?",
+            "ru": "Какой современный API используется для HTTP-запросов в браузерах?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "The Fetch API is the modern, Promise-based API for making HTTP requests in browsers. It replaced the older XMLHttpRequest (XHR) API and provides a cleaner, more flexible interface. It returns Promises, making it easy to use with `async/await`.",
+            "ru": "Fetch API — это современный Promise-based API для выполнения HTTP-запросов в браузерах. Он заменил устаревший XMLHttpRequest (XHR) и предоставляет более чистый и гибкий интерфейс. Fetch возвращает промисы, что упрощает использование с `async/await`."
+          },
+          "answers": [
+            { "text": { "en": "XMLHttpRequest", "ru": "XMLHttpRequest" }, "isCorrect": false },
+            { "text": { "en": "Fetch API", "ru": "Fetch API" }, "isCorrect": true },
+            {
+              "text": { "en": "`document.request()`", "ru": "`document.request()`" },
+              "isCorrect": false
+            },
+            { "text": { "en": "`window.http()`", "ru": "`window.http()`" }, "isCorrect": false }
+          ]
+        },
+        {
+          "sortOrder": 4,
+          "name": {
+            "en": "What is a CORS preflight request?",
+            "ru": "Что такое preflight-запрос CORS?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "A CORS preflight request is an automatic `OPTIONS` request sent by the browser before the actual request when the request is 'non-simple' (e.g., uses a non-standard method or header). The server must respond with appropriate CORS headers to allow the actual request to proceed.",
+            "ru": "Preflight-запрос CORS — это автоматический `OPTIONS`-запрос, отправляемый браузером перед фактическим запросом, когда запрос является «несимплексным» (например, использует нестандартный метод или заголовок). Сервер должен ответить соответствующими заголовками CORS, чтобы разрешить выполнение фактического запроса."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "A GET request sent before every cross-origin fetch",
+                "ru": "GET-запрос, отправляемый перед каждым кросс-origin fetch"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "An `OPTIONS` request the browser sends before a non-simple cross-origin request",
+                "ru": "`OPTIONS`-запрос, который браузер отправляет перед несимплексным кросс-origin запросом"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "A server-initiated request to verify the client",
+                "ru": "Запрос, инициированный сервером для проверки клиента"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "A request used to warm up the connection",
+                "ru": "Запрос для прогрева соединения"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 5,
+          "name": {
+            "en": "What response header must a server include to allow cross-origin requests?",
+            "ru": "Какой заголовок ответа сервер должен включать для разрешения кросс-origin запросов?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "`Access-Control-Allow-Origin` is the primary CORS response header. The server sets it to the allowed origin (e.g., `https://example.com`) or `*` to allow any origin. Without it, the browser blocks the response from being read by the requesting page.",
+            "ru": "`Access-Control-Allow-Origin` — это основной заголовок ответа CORS. Сервер устанавливает его в значение разрешённого источника (например, `https://example.com`) или `*` для разрешения любого источника. Без него браузер блокирует чтение ответа запрашивающей страницей."
+          },
+          "answers": [
+            {
+              "text": { "en": "`Cross-Origin-Allow`", "ru": "`Cross-Origin-Allow`" },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "`Access-Control-Allow-Origin`",
+                "ru": "`Access-Control-Allow-Origin`"
+              },
+              "isCorrect": true
+            },
+            { "text": { "en": "`Origin-Policy`", "ru": "`Origin-Policy`" }, "isCorrect": false },
+            {
+              "text": { "en": "`Allow-Cross-Origin`", "ru": "`Allow-Cross-Origin`" },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 6,
+          "name": {
+            "en": "How does the Fetch API handle HTTP error responses (e.g., 404 or 500)?",
+            "ru": "Как Fetch API обрабатывает HTTP-ответы с ошибками (например, 404 или 500)?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "The Fetch API does NOT reject the returned Promise for HTTP error status codes (4xx, 5xx). The Promise resolves normally, and you must check `response.ok` (or `response.status`) to determine if the request succeeded. The Promise only rejects on network errors (e.g., DNS failure, no connection).",
+            "ru": "Fetch API НЕ отклоняет промис при HTTP-ошибках (4xx, 5xx). Промис успешно завершается, и вы должны проверить `response.ok` (или `response.status`), чтобы определить, успешен ли запрос. Промис отклоняется только при сетевых ошибках (например, сбой DNS, нет соединения)."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "The Promise rejects for any status code >= 400",
+                "ru": "Промис отклоняется для любого кода >= 400"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "The Promise resolves; you must check `response.ok` or `response.status`",
+                "ru": "Промис выполняется; нужно проверять `response.ok` или `response.status`"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "Fetch automatically retries on 5xx errors",
+                "ru": "Fetch автоматически повторяет запрос при 5xx-ошибках"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "The response body is `null` for error status codes",
+                "ru": "Тело ответа равно `null` при кодах ошибок"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 7,
+          "name": {
+            "en": "What is long polling in client–server communication?",
+            "ru": "Что такое long polling в взаимодействии клиента и сервера?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "Long polling is a technique where the client sends an HTTP request and the server holds the connection open until new data is available, then responds and closes the connection. The client immediately sends a new request after receiving a response. It simulates push notifications before WebSockets were widely available.",
+            "ru": "Long polling — это техника, при которой клиент отправляет HTTP-запрос, а сервер держит соединение открытым до появления новых данных, затем отвечает и закрывает соединение. Клиент немедленно отправляет новый запрос после получения ответа. Она имитирует push-уведомления до широкого распространения WebSocket."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "The client repeatedly polls the server every few seconds",
+                "ru": "Клиент периодически опрашивает сервер каждые несколько секунд"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "The server holds the connection open until new data is available, then responds",
+                "ru": "Сервер держит соединение открытым до появления новых данных, затем отвечает"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "A persistent bidirectional connection over TCP",
+                "ru": "Постоянное двунаправленное соединение поверх TCP"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "A technique to compress large HTTP responses",
+                "ru": "Техника сжатия больших HTTP-ответов"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 8,
+          "name": {
+            "en": "What is the purpose of the `credentials` option in the Fetch API?",
+            "ru": "Какова цель опции `credentials` в Fetch API?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "The `credentials` option controls whether cookies, HTTP authentication headers, and TLS client certificates are sent with cross-origin requests. Values: `'omit'` (never send), `'same-origin'` (default — send only for same-origin), `'include'` (always send, even cross-origin).",
+            "ru": "Опция `credentials` управляет тем, отправляются ли куки, заголовки HTTP-аутентификации и клиентские TLS-сертификаты при кросс-origin запросах. Значения: `'omit'` (никогда не отправлять), `'same-origin'` (по умолчанию — отправлять только для одного источника), `'include'` (всегда отправлять, даже кросс-origin)."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "Sets the Authorization header automatically",
+                "ru": "Автоматически устанавливает заголовок Authorization"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Controls whether cookies and auth headers are sent with the request",
+                "ru": "Управляет тем, отправляются ли куки и заголовки авторизации с запросом"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "Specifies the username and password for basic auth",
+                "ru": "Указывает имя пользователя и пароль для базовой аутентификации"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "Enables HTTPS for the request", "ru": "Включает HTTPS для запроса" },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 9,
+          "name": {
+            "en": "What is WebSocket and how does it differ from HTTP?",
+            "ru": "Что такое WebSocket и чем он отличается от HTTP?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "WebSocket is a protocol that establishes a persistent, full-duplex communication channel over a single TCP connection. Unlike HTTP (which is request–response), WebSocket allows both the client and server to send messages at any time without re-establishing a connection.",
+            "ru": "WebSocket — это протокол, устанавливающий постоянный полнодуплексный канал связи через одно TCP-соединение. В отличие от HTTP (модель запрос–ответ), WebSocket позволяет и клиенту, и серверу отправлять сообщения в любое время без повторного установления соединения."
+          },
+          "answers": [
+            {
+              "text": { "en": "A faster version of HTTP/2", "ru": "Более быстрая версия HTTP/2" },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "A persistent full-duplex channel where both sides can send messages freely",
+                "ru": "Постоянный полнодуплексный канал, в котором обе стороны могут свободно отправлять сообщения"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "A request–response protocol like HTTP but with binary encoding",
+                "ru": "Протокол запрос–ответ, как HTTP, но с бинарным кодированием"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "A UDP-based protocol for low-latency data",
+                "ru": "Протокол на основе UDP для передачи данных с низкой задержкой"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 10,
+          "name": {
+            "en": "What does Server-Sent Events (SSE) provide compared to WebSocket?",
+            "ru": "Что обеспечивает Server-Sent Events (SSE) по сравнению с WebSocket?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "SSE provides a one-way channel where the server pushes events to the client over a persistent HTTP connection. Unlike WebSocket, SSE is unidirectional (server → client only). SSE is simpler, uses plain HTTP, supports automatic reconnection, and works through proxies and firewalls more easily.",
+            "ru": "SSE обеспечивает односторонний канал, по которому сервер отправляет события клиенту через постоянное HTTP-соединение. В отличие от WebSocket, SSE является однонаправленным (только от сервера к клиенту). SSE проще, использует обычный HTTP, поддерживает автоматическое переподключение и легче работает через прокси и межсетевые экраны."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "Bidirectional real-time messaging between client and server",
+                "ru": "Двунаправленный обмен сообщениями в реальном времени между клиентом и сервером"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "A one-way server-to-client push stream over HTTP",
+                "ru": "Односторонний поток данных от сервера к клиенту по HTTP"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "Encrypted peer-to-peer communication",
+                "ru": "Зашифрованная одноранговая связь"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "A replacement for Fetch API for streaming downloads",
+                "ru": "Замена Fetch API для потоковой загрузки"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 11,
+          "name": {
+            "en": "What HTTP header do browsers add to cross-origin requests to indicate the source page's origin?",
+            "ru": "Какой HTTP-заголовок браузеры добавляют к кросс-origin запросам для указания источника страницы?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "Browsers automatically add the `Origin` header to cross-origin requests. It contains the scheme, hostname, and port of the page initiating the request (e.g., `Origin: https://app.example.com`). The server uses this to decide whether to allow the request via CORS.",
+            "ru": "Браузеры автоматически добавляют заголовок `Origin` к кросс-origin запросам. Он содержит схему, имя хоста и порт страницы, инициирующей запрос (например, `Origin: https://app.example.com`). Сервер использует его для принятия решения о разрешении запроса через CORS."
+          },
+          "answers": [
+            { "text": { "en": "`Referer`", "ru": "`Referer`" }, "isCorrect": false },
+            {
+              "text": { "en": "`X-Requested-With`", "ru": "`X-Requested-With`" },
+              "isCorrect": false
+            },
+            { "text": { "en": "`Origin`", "ru": "`Origin`" }, "isCorrect": true },
+            { "text": { "en": "`Host`", "ru": "`Host`" }, "isCorrect": false }
+          ]
+        },
+        {
+          "sortOrder": 12,
+          "name": {
+            "en": "What is the difference between `XMLHttpRequest` and the Fetch API in handling request cancellation?",
+            "ru": "В чём разница между `XMLHttpRequest` и Fetch API в отношении отмены запроса?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "`XMLHttpRequest` has a built-in `abort()` method to cancel requests. The Fetch API uses the `AbortController` / `AbortSignal` pattern: you create an `AbortController`, pass its `signal` to the fetch options, then call `controller.abort()` to cancel the request.",
+            "ru": "`XMLHttpRequest` имеет встроенный метод `abort()` для отмены запросов. Fetch API использует паттерн `AbortController` / `AbortSignal`: вы создаёте `AbortController`, передаёте его `signal` в опции fetch, затем вызываете `controller.abort()` для отмены запроса."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "Neither API supports request cancellation",
+                "ru": "Ни один из API не поддерживает отмену запроса"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Only Fetch supports cancellation via `AbortController`",
+                "ru": "Только Fetch поддерживает отмену через `AbortController`"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "`XMLHttpRequest` uses `abort()`; Fetch uses `AbortController` with a signal",
+                "ru": "`XMLHttpRequest` использует `abort()`; Fetch использует `AbortController` с сигналом"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "Fetch automatically cancels requests after a timeout",
+                "ru": "Fetch автоматически отменяет запросы по тайм-ауту"
+              },
+              "isCorrect": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": { "en": "RESTful API Style", "ru": "REST API" },
+      "description": {
+        "en": "REST constraints, HTTP methods, idempotency, statelessness, and resource design",
+        "ru": "Ограничения REST, HTTP-методы, идемпотентность, отсутствие состояния и проектирование ресурсов"
+      },
+      "links": ["https://developer.mozilla.org/en-US/docs/Web/HTTP"],
+      "questions": [
+        {
+          "sortOrder": 1,
+          "name": { "en": "What does REST stand for?", "ru": "Что означает аббревиатура REST?" },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "REST stands for Representational State Transfer. It is an architectural style for distributed hypermedia systems defined by Roy Fielding in his 2000 dissertation. RESTful APIs use HTTP and treat every piece of data as a resource identified by a URL.",
+            "ru": "REST расшифровывается как Representational State Transfer (Передача репрезентативного состояния). Это архитектурный стиль для распределённых гипермедиасистем, определённый Роем Филдингом в его диссертации 2000 года. RESTful API использует HTTP и рассматривает каждый фрагмент данных как ресурс, идентифицируемый URL."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "Remote Execution State Transfer",
+                "ru": "Remote Execution State Transfer"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Representational State Transfer",
+                "ru": "Representational State Transfer"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "Relational Entity State Transfer",
+                "ru": "Relational Entity State Transfer"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Resource Entity Service Transfer",
+                "ru": "Resource Entity Service Transfer"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 2,
+          "name": {
+            "en": "Which HTTP method is used to fully replace an existing resource?",
+            "ru": "Какой HTTP-метод используется для полной замены существующего ресурса?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "`PUT` is used to fully replace a resource at a given URL. The entire representation of the resource must be sent in the request body. `PATCH` is used for partial updates. `POST` typically creates a new resource.",
+            "ru": "`PUT` используется для полной замены ресурса по указанному URL. В теле запроса должно быть отправлено полное представление ресурса. `PATCH` используется для частичного обновления. `POST`, как правило, создаёт новый ресурс."
+          },
+          "answers": [
+            { "text": { "en": "`POST`", "ru": "`POST`" }, "isCorrect": false },
+            { "text": { "en": "`PATCH`", "ru": "`PATCH`" }, "isCorrect": false },
+            { "text": { "en": "`PUT`", "ru": "`PUT`" }, "isCorrect": true },
+            { "text": { "en": "`UPDATE`", "ru": "`UPDATE`" }, "isCorrect": false }
+          ]
+        },
+        {
+          "sortOrder": 3,
+          "name": {
+            "en": "What does idempotency mean in the context of HTTP methods?",
+            "ru": "Что означает идемпотентность применительно к HTTP-методам?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "An HTTP method is idempotent if making the same request multiple times produces the same result as making it once. `GET`, `PUT`, `DELETE`, and `HEAD` are idempotent. `POST` is NOT idempotent — sending the same POST twice may create two resources.",
+            "ru": "HTTP-метод является идемпотентным, если многократное выполнение одного и того же запроса даёт тот же результат, что и однократное. `GET`, `PUT`, `DELETE` и `HEAD` идемпотентны. `POST` НЕ является идемпотентным — отправка одного и того же POST дважды может создать два ресурса."
+          },
+          "answers": [
+            {
+              "text": { "en": "The request is always encrypted", "ru": "Запрос всегда зашифрован" },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Multiple identical requests produce the same result as a single request",
+                "ru": "Многократное выполнение одинаковых запросов даёт тот же результат, что и однократное"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "The request body is ignored by the server",
+                "ru": "Тело запроса игнорируется сервером"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "The response is always cached", "ru": "Ответ всегда кэшируется" },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 4,
+          "name": {
+            "en": "What does statelessness mean in REST?",
+            "ru": "Что означает отсутствие состояния в REST?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "Statelessness means the server does not store any session state between requests. Each request must contain all the information the server needs to fulfill it (e.g., authentication token, parameters). This improves scalability because any server can handle any request.",
+            "ru": "Отсутствие состояния означает, что сервер не хранит никакого состояния сессии между запросами. Каждый запрос должен содержать всю информацию, необходимую серверу для его обработки (например, токен аутентификации, параметры). Это повышает масштабируемость, поскольку любой сервер может обработать любой запрос."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "The server never modifies its data",
+                "ru": "Сервер никогда не изменяет свои данные"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Each request must contain all necessary information; the server stores no session state",
+                "ru": "Каждый запрос должен содержать всю необходимую информацию; сервер не хранит состояние сессии"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "Responses always have an empty body",
+                "ru": "Ответы всегда имеют пустое тело"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "The client never stores cookies",
+                "ru": "Клиент никогда не хранит куки"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 5,
+          "name": {
+            "en": "Which HTTP status code should a REST API return when a new resource is successfully created?",
+            "ru": "Какой код статуса HTTP должен возвращать REST API при успешном создании нового ресурса?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "201 Created is the correct status code for a successful resource creation. The response should also include a `Location` header pointing to the URL of the newly created resource.",
+            "ru": "201 Created — правильный код статуса для успешного создания ресурса. Ответ также должен содержать заголовок `Location`, указывающий на URL только что созданного ресурса."
+          },
+          "answers": [
+            { "text": { "en": "200 OK", "ru": "200 OK" }, "isCorrect": false },
+            { "text": { "en": "201 Created", "ru": "201 Created" }, "isCorrect": true },
+            { "text": { "en": "202 Accepted", "ru": "202 Accepted" }, "isCorrect": false },
+            { "text": { "en": "204 No Content", "ru": "204 No Content" }, "isCorrect": false }
+          ]
+        },
+        {
+          "sortOrder": 6,
+          "name": {
+            "en": "What is the difference between `PUT` and `PATCH`?",
+            "ru": "В чём разница между `PUT` и `PATCH`?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "`PUT` replaces the entire resource — you must send all fields, including unchanged ones. `PATCH` applies a partial update — you send only the fields you want to change. `PUT` is idempotent; `PATCH` may or may not be idempotent depending on the implementation.",
+            "ru": "`PUT` полностью заменяет ресурс — необходимо отправить все поля, включая неизменившиеся. `PATCH` применяет частичное обновление — отправляются только изменяемые поля. `PUT` идемпотентен; `PATCH` может быть или не быть идемпотентным в зависимости от реализации."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "`PUT` creates, `PATCH` updates",
+                "ru": "`PUT` создаёт, `PATCH` обновляет"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "`PUT` replaces the full resource; `PATCH` applies a partial update",
+                "ru": "`PUT` полностью заменяет ресурс; `PATCH` применяет частичное обновление"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "Both are identical; use either interchangeably",
+                "ru": "Они идентичны; можно использовать любой"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "`PATCH` is idempotent; `PUT` is not",
+                "ru": "`PATCH` идемпотентен; `PUT` — нет"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 7,
+          "name": {
+            "en": "In REST, what is the recommended HTTP method and URL pattern to retrieve a list of users?",
+            "ru": "В REST: какой HTTP-метод и шаблон URL рекомендуется использовать для получения списка пользователей?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "RESTful conventions use `GET /users` to retrieve a collection. Resources are named with nouns (not verbs), and collections use the plural form. The HTTP method (`GET`) conveys the action, not the URL path.",
+            "ru": "Конвенции REST предусматривают использование `GET /users` для получения коллекции. Ресурсы именуются существительными (не глаголами), а коллекции — во множественном числе. HTTP-метод (`GET`) передаёт действие, а не путь URL."
+          },
+          "answers": [
+            { "text": { "en": "`POST /getUsers`", "ru": "`POST /getUsers`" }, "isCorrect": false },
+            { "text": { "en": "`GET /users`", "ru": "`GET /users`" }, "isCorrect": true },
+            {
+              "text": { "en": "`GET /fetchAllUsers`", "ru": "`GET /fetchAllUsers`" },
+              "isCorrect": false
+            },
+            { "text": { "en": "`GET /user/list`", "ru": "`GET /user/list`" }, "isCorrect": false }
+          ]
+        },
+        {
+          "sortOrder": 8,
+          "name": {
+            "en": "What does HATEOAS stand for in REST?",
+            "ru": "Что означает HATEOAS в REST?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "HATEOAS stands for Hypermedia As The Engine Of Application State. It is one of the REST constraints: API responses include hyperlinks to related resources, allowing clients to navigate the API dynamically without hardcoding URLs. Few real-world APIs fully implement this constraint.",
+            "ru": "HATEOAS расшифровывается как Hypermedia As The Engine Of Application State (Гипермедиа как движок состояния приложения). Это одно из ограничений REST: ответы API содержат гиперссылки на связанные ресурсы, позволяя клиентам динамически навигировать по API без жёстко заданных URL. Немногие реальные API полностью реализуют это ограничение."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "High Availability Transfer Engine Over API Services",
+                "ru": "High Availability Transfer Engine Over API Services"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Hypermedia As The Engine Of Application State",
+                "ru": "Hypermedia As The Engine Of Application State"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "HTTP Abstraction Through Entity And Operation Schema",
+                "ru": "HTTP Abstraction Through Entity And Operation Schema"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Horizontal Architecture Transfer Engine Over API Systems",
+                "ru": "Horizontal Architecture Transfer Engine Over API Systems"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 9,
+          "name": {
+            "en": "Which HTTP status code should be returned when a client sends invalid data to a REST endpoint?",
+            "ru": "Какой код статуса HTTP следует возвращать, когда клиент отправляет некорректные данные REST-эндпойнту?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "400 Bad Request is the correct status code when the server cannot process the request because the client sent malformed or invalid data (e.g., a failed validation). 422 Unprocessable Entity is also used for semantic validation errors.",
+            "ru": "400 Bad Request — правильный код статуса, когда сервер не может обработать запрос из-за неверных или некорректных данных от клиента (например, ошибка валидации). 422 Unprocessable Entity также используется для семантических ошибок валидации."
+          },
+          "answers": [
+            {
+              "text": { "en": "500 Internal Server Error", "ru": "500 Internal Server Error" },
+              "isCorrect": false
+            },
+            { "text": { "en": "404 Not Found", "ru": "404 Not Found" }, "isCorrect": false },
+            { "text": { "en": "400 Bad Request", "ru": "400 Bad Request" }, "isCorrect": true },
+            { "text": { "en": "401 Unauthorized", "ru": "401 Unauthorized" }, "isCorrect": false }
+          ]
+        },
+        {
+          "sortOrder": 10,
+          "name": {
+            "en": "What is the purpose of HTTP `DELETE` in a REST API?",
+            "ru": "Каково назначение HTTP-метода `DELETE` в REST API?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "`DELETE` removes the specified resource. It is idempotent: deleting a resource once or many times has the same end state (the resource does not exist). Successful deletion typically returns 200 OK (with a body), 202 Accepted (async), or 204 No Content (no body).",
+            "ru": "`DELETE` удаляет указанный ресурс. Метод идемпотентен: удаление ресурса один или несколько раз приводит к одному конечному состоянию (ресурс не существует). При успешном удалении обычно возвращается 200 OK (с телом), 202 Accepted (асинхронно) или 204 No Content (без тела)."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "Remove all resources on the server",
+                "ru": "Удалить все ресурсы на сервере"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Remove the specified resource; is idempotent",
+                "ru": "Удалить указанный ресурс; является идемпотентным"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "Mark a resource as inactive without removing it",
+                "ru": "Пометить ресурс как неактивный без удаления"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Not part of the standard HTTP method set",
+                "ru": "Не входит в стандартный набор HTTP-методов"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 11,
+          "name": {
+            "en": "Which of the following is a correct REST URL design for accessing a specific user's orders?",
+            "ru": "Какой из вариантов является правильным REST URL для доступа к заказам конкретного пользователя?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "REST uses hierarchical, noun-based URLs to represent resources and their relationships. `/users/{id}/orders` expresses 'the orders belonging to a specific user', which follows REST conventions. Verb-based paths like `/getUserOrders` are not RESTful.",
+            "ru": "REST использует иерархические, основанные на существительных URL для представления ресурсов и их связей. `/users/{id}/orders` выражает «заказы, принадлежащие конкретному пользователю», что соответствует конвенциям REST. Пути с глаголами, как `/getUserOrders`, не являются RESTful."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "`GET /getUserOrders?userId=1`",
+                "ru": "`GET /getUserOrders?userId=1`"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "`GET /orders/user/1`", "ru": "`GET /orders/user/1`" },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "`GET /users/1/orders`", "ru": "`GET /users/1/orders`" },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "`POST /fetchOrders` with `{ userId: 1 }` body",
+                "ru": "`POST /fetchOrders` с телом `{ userId: 1 }`"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 12,
+          "name": {
+            "en": "What are the six REST architectural constraints defined by Roy Fielding?",
+            "ru": "Каковы шесть архитектурных ограничений REST, определённых Роем Филдингом?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "The six REST constraints are: (1) Client–Server, (2) Stateless, (3) Cacheable, (4) Uniform Interface, (5) Layered System, (6) Code on Demand (optional). An API that satisfies all constraints is called RESTful.",
+            "ru": "Шесть ограничений REST: (1) Клиент–Сервер, (2) Отсутствие состояния, (3) Кэшируемость, (4) Единообразный интерфейс, (5) Многоуровневая система, (6) Код по требованию (необязательно). API, удовлетворяющий всем ограничениям, называется RESTful."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "Stateless, Encrypted, Versioned, Uniform Interface, Layered, Cacheable",
+                "ru": "Stateless, Encrypted, Versioned, Uniform Interface, Layered, Cacheable"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Client–Server, Stateless, Cacheable, Uniform Interface, Layered System, Code on Demand",
+                "ru": "Client–Server, Stateless, Cacheable, Uniform Interface, Layered System, Code on Demand"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "GET-only, Stateless, JSON, RESTful, Layered, Authenticated",
+                "ru": "GET-only, Stateless, JSON, RESTful, Layered, Authenticated"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Client–Server, Encrypted, Paginated, Uniform Interface, Async, Cached",
+                "ru": "Client–Server, Encrypted, Paginated, Uniform Interface, Async, Cached"
+              },
+              "isCorrect": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": { "en": "Web Security", "ru": "Веб-безопасность" },
+      "description": {
+        "en": "CORS, XSS, OWASP Top 10, authentication mechanisms (JWT, OAuth)",
+        "ru": "CORS, XSS, OWASP Top 10, механизмы аутентификации (JWT, OAuth)"
+      },
+      "links": ["https://developer.mozilla.org/en-US/docs/Web/Security"],
+      "questions": [
+        {
+          "sortOrder": 1,
+          "name": { "en": "What does XSS stand for?", "ru": "Что означает аббревиатура XSS?" },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "XSS stands for Cross-Site Scripting. It is a security vulnerability where an attacker injects malicious scripts into web pages viewed by other users. The injected script runs in the victim's browser with the privileges of that page.",
+            "ru": "XSS расшифровывается как Cross-Site Scripting (Межсайтовый скриптинг). Это уязвимость безопасности, при которой злоумышленник внедряет вредоносные скрипты в веб-страницы, просматриваемые другими пользователями. Внедрённый скрипт выполняется в браузере жертвы с привилегиями этой страницы."
+          },
+          "answers": [
+            {
+              "text": { "en": "Cross-Site Scripting", "ru": "Cross-Site Scripting" },
+              "isCorrect": true
+            },
+            {
+              "text": { "en": "Cross-Server Scripting", "ru": "Cross-Server Scripting" },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "Cross-Site Session", "ru": "Cross-Site Session" },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "Cross-Syntax Scripting", "ru": "Cross-Syntax Scripting" },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 2,
+          "name": {
+            "en": "What does CSRF stand for and what does it exploit?",
+            "ru": "Что означает CSRF и что эта атака эксплуатирует?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "CSRF stands for Cross-Site Request Forgery. It tricks an authenticated user's browser into making unwanted requests to a site where the user is logged in, exploiting the fact that the browser automatically sends cookies with requests. CSRF tokens and the `SameSite` cookie attribute are common defenses.",
+            "ru": "CSRF расшифровывается как Cross-Site Request Forgery (Межсайтовая подделка запроса). Атака заставляет браузер аутентифицированного пользователя выполнять нежелательные запросы к сайту, на котором пользователь вошёл в систему, эксплуатируя автоматическую отправку браузером куки вместе с запросами. CSRF-токены и атрибут `SameSite` у куки являются распространёнными средствами защиты."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "Cross-Site Request Forgery — exploits automatic cookie sending",
+                "ru": "Cross-Site Request Forgery — эксплуатирует автоматическую отправку куки"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "Cross-Server Request Forgery — exploits weak server authentication",
+                "ru": "Cross-Server Request Forgery — эксплуатирует слабую аутентификацию сервера"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Cross-Site Resource Fetch — exploits CORS misconfigurations",
+                "ru": "Cross-Site Resource Fetch — эксплуатирует неправильную настройку CORS"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Content Security Request Failure — exploits missing CSP headers",
+                "ru": "Content Security Request Failure — эксплуатирует отсутствующие CSP-заголовки"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 3,
+          "name": { "en": "What is SQL injection?", "ru": "Что такое SQL-инъекция?" },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "SQL injection is an attack where malicious SQL code is inserted into a query via user input, potentially allowing the attacker to read, modify, or delete database data. The primary defense is to use parameterized queries (prepared statements), never concatenate user input into SQL strings.",
+            "ru": "SQL-инъекция — это атака, при которой вредоносный SQL-код внедряется в запрос через пользовательский ввод, что потенциально позволяет злоумышленнику читать, изменять или удалять данные из базы данных. Основная защита — использование параметризованных запросов (подготовленных выражений), никогда не конкатенировать пользовательский ввод в SQL-строки."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "Injecting JavaScript into a SQL database",
+                "ru": "Внедрение JavaScript в SQL-базу данных"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Inserting malicious SQL code into a query via user input to manipulate the database",
+                "ru": "Вставка вредоносного SQL-кода в запрос через пользовательский ввод для манипуляции базой данных"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "A technique to optimize SQL queries",
+                "ru": "Техника оптимизации SQL-запросов"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Stealing database schema by analyzing HTTP responses",
+                "ru": "Кража схемы базы данных путём анализа HTTP-ответов"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 4,
+          "name": {
+            "en": "What is the purpose of the `Content-Security-Policy` (CSP) HTTP header?",
+            "ru": "Какова цель HTTP-заголовка `Content-Security-Policy` (CSP)?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "CSP is a browser security feature that allows servers to declare which content sources are permitted to load. It mitigates XSS attacks by preventing the browser from executing inline scripts or loading scripts from untrusted origins. For example, `Content-Security-Policy: script-src 'self'` allows scripts only from the same origin.",
+            "ru": "CSP — это функция безопасности браузера, позволяющая серверам объявлять, из каких источников разрешена загрузка контента. Она снижает риск XSS-атак, запрещая браузеру выполнять встроенные скрипты или загружать скрипты из ненадёжных источников. Например, `Content-Security-Policy: script-src 'self'` разрешает скрипты только из того же источника."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "Encrypt the HTTP response body",
+                "ru": "Шифровать тело HTTP-ответа"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Declare which content sources are allowed to load, mitigating XSS",
+                "ru": "Объявить, из каких источников разрешена загрузка контента, снижая риск XSS"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "Block cross-origin requests entirely",
+                "ru": "Полностью блокировать кросс-origin запросы"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Set the maximum age for browser cache entries",
+                "ru": "Установить максимальный срок хранения записей в кэше браузера"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 5,
+          "name": {
+            "en": "What are the three parts of a JWT (JSON Web Token)?",
+            "ru": "Из каких трёх частей состоит JWT (JSON Web Token)?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "A JWT consists of three Base64URL-encoded parts separated by dots: (1) Header — algorithm and token type, (2) Payload — claims (data), (3) Signature — used to verify the token was not tampered with. Example: `xxxxx.yyyyy.zzzzz`.",
+            "ru": "JWT состоит из трёх частей, закодированных в Base64URL и разделённых точками: (1) Заголовок — алгоритм и тип токена, (2) Полезная нагрузка — утверждения (данные), (3) Подпись — используется для проверки того, что токен не был изменён. Пример: `xxxxx.yyyyy.zzzzz`."
+          },
+          "answers": [
+            {
+              "text": { "en": "Key, Value, Hash", "ru": "Ключ, Значение, Хеш" },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Header, Payload, Signature",
+                "ru": "Заголовок, Полезная нагрузка, Подпись"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "ID, Data, Checksum",
+                "ru": "Идентификатор, Данные, Контрольная сумма"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "Token, Claim, Secret", "ru": "Токен, Утверждение, Секрет" },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 6,
+          "name": {
+            "en": "What is the primary purpose of the `HttpOnly` cookie attribute?",
+            "ru": "Какова основная цель атрибута куки `HttpOnly`?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "The `HttpOnly` attribute prevents JavaScript from accessing the cookie via `document.cookie`. This is a defence against XSS attacks: even if a malicious script is injected, it cannot steal the session cookie. The cookie is still sent automatically on HTTP requests.",
+            "ru": "Атрибут `HttpOnly` запрещает JavaScript доступ к куки через `document.cookie`. Это защита от XSS-атак: даже если вредоносный скрипт внедрён, он не сможет похитить куки сессии. Куки по-прежнему автоматически отправляется с HTTP-запросами."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "Ensures the cookie is sent only over HTTPS",
+                "ru": "Гарантирует отправку куки только по HTTPS"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Prevents JavaScript from accessing the cookie, mitigating XSS cookie theft",
+                "ru": "Запрещает JavaScript доступ к куки, снижая риск кражи куки через XSS"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "Makes the cookie available only to HTTP/1.1 requests",
+                "ru": "Делает куки доступным только для HTTP/1.1 запросов"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Encrypts the cookie value before storing it",
+                "ru": "Шифрует значение куки перед сохранением"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 7,
+          "name": {
+            "en": "What is the `Secure` cookie attribute?",
+            "ru": "Что такое атрибут куки `Secure`?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "The `Secure` attribute instructs the browser to send the cookie only over HTTPS connections. This prevents the cookie from being transmitted in plaintext over HTTP, protecting it from network eavesdropping (man-in-the-middle attacks).",
+            "ru": "Атрибут `Secure` указывает браузеру отправлять куки только через HTTPS-соединения. Это предотвращает передачу куки в открытом тексте по HTTP, защищая его от перехвата по сети (атаки «человек посередине»)."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "Encrypts the cookie value using AES",
+                "ru": "Шифрует значение куки с помощью AES"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Sends the cookie only over HTTPS connections",
+                "ru": "Отправляет куки только через HTTPS-соединения"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "Blocks third-party access to the cookie",
+                "ru": "Блокирует доступ третьих сторон к куки"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Validates the cookie's digital signature",
+                "ru": "Проверяет цифровую подпись куки"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 8,
+          "name": { "en": "What is OAuth 2.0?", "ru": "Что такое OAuth 2.0?" },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "OAuth 2.0 is an authorization framework that allows third-party applications to obtain limited access to a user's account on a service without exposing the user's password. It uses access tokens. Common flows include Authorization Code, Client Credentials, and Implicit.",
+            "ru": "OAuth 2.0 — это фреймворк авторизации, позволяющий сторонним приложениям получать ограниченный доступ к учётной записи пользователя в сервисе без раскрытия пароля пользователя. Он использует токены доступа. Распространённые потоки: Authorization Code, Client Credentials и Implicit."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "An authentication protocol that replaces passwords with biometrics",
+                "ru": "Протокол аутентификации, заменяющий пароли биометрикой"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "An authorization framework for delegated third-party access using tokens",
+                "ru": "Фреймворк авторизации для делегированного доступа третьих сторон с использованием токенов"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "An encryption standard for securing API responses",
+                "ru": "Стандарт шифрования для защиты ответов API"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "A two-factor authentication standard",
+                "ru": "Стандарт двухфакторной аутентификации"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 9,
+          "name": { "en": "What is the OWASP Top 10?", "ru": "Что такое OWASP Top 10?" },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "The OWASP Top 10 is a regularly updated list of the ten most critical web application security risks published by the Open Web Application Security Project. It serves as a standard awareness document and includes risks like injection, broken authentication, XSS, and insecure deserialization.",
+            "ru": "OWASP Top 10 — это регулярно обновляемый список десяти наиболее критичных рисков безопасности веб-приложений, публикуемый Open Web Application Security Project. Он служит стандартным документом повышения осведомлённости и включает такие риски, как инъекции, нарушенная аутентификация, XSS и небезопасная десериализация."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "The ten fastest web frameworks",
+                "ru": "Десять самых быстрых веб-фреймворков"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "A list of ten best practices for REST API design",
+                "ru": "Список десяти лучших практик проектирования REST API"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "A list of the ten most critical web application security risks",
+                "ru": "Список десяти наиболее критичных рисков безопасности веб-приложений"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "The top ten HTTP status codes every developer should know",
+                "ru": "Десять наиболее важных HTTP-кодов статуса, которые должен знать каждый разработчик"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 10,
+          "name": {
+            "en": "How does storing a JWT in `localStorage` differ from storing it in an `HttpOnly` cookie in terms of security?",
+            "ru": "Чем отличается хранение JWT в `localStorage` от хранения в `HttpOnly`-куки с точки зрения безопасности?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "Storing a JWT in `localStorage` makes it accessible via JavaScript, meaning an XSS attack can steal the token. An `HttpOnly` cookie is inaccessible to JavaScript, protecting against XSS token theft. However, `HttpOnly` cookies are vulnerable to CSRF, which must be mitigated separately (e.g., with CSRF tokens or `SameSite` attribute).",
+            "ru": "Хранение JWT в `localStorage` делает его доступным через JavaScript, то есть XSS-атака может похитить токен. `HttpOnly`-куки недоступна для JavaScript, что защищает от кражи токена через XSS. Однако `HttpOnly`-куки уязвимы к CSRF, что необходимо снижать отдельно (например, с помощью CSRF-токенов или атрибута `SameSite`)."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "`localStorage` is safer because it avoids CSRF vulnerabilities",
+                "ru": "`localStorage` безопаснее, так как избегает уязвимостей CSRF"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "`localStorage` is vulnerable to XSS; `HttpOnly` cookie is not, but needs CSRF protection",
+                "ru": "`localStorage` уязвим к XSS; `HttpOnly`-куки — нет, но требует защиты от CSRF"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "Both have identical security characteristics",
+                "ru": "Оба имеют одинаковые характеристики безопасности"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "`HttpOnly` cookies expose the JWT to XSS; `localStorage` does not",
+                "ru": "`HttpOnly`-куки подвергает JWT XSS-атакам; `localStorage` — нет"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 11,
+          "name": {
+            "en": "What is the `SameSite` cookie attribute used for?",
+            "ru": "Для чего используется атрибут куки `SameSite`?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "The `SameSite` attribute controls when cookies are sent with cross-site requests. `Strict` — never sent cross-site. `Lax` — sent with top-level navigations. `None` — always sent (requires `Secure`). It is a primary defense against CSRF attacks.",
+            "ru": "Атрибут `SameSite` управляет тем, когда куки отправляются с межсайтовыми запросами. `Strict` — никогда не отправляется кросс-сайтово. `Lax` — отправляется при навигации верхнего уровня. `None` — отправляется всегда (требует `Secure`). Это основная защита от CSRF-атак."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "Restricts the cookie to the same subdomain only",
+                "ru": "Ограничивает куки только тем же поддоменом"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Controls when cookies are sent with cross-site requests to mitigate CSRF",
+                "ru": "Управляет отправкой куки с межсайтовыми запросами для защиты от CSRF"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "Ensures the cookie is sent with the same HTTP method",
+                "ru": "Гарантирует отправку куки с тем же HTTP-методом"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Limits cookie size to prevent header overflow attacks",
+                "ru": "Ограничивает размер куки для предотвращения атак переполнения заголовков"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 12,
+          "name": {
+            "en": "What is the difference between authentication and authorization?",
+            "ru": "В чём разница между аутентификацией и авторизацией?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "Authentication (AuthN) verifies WHO you are — proving your identity (e.g., logging in with username/password). Authorization (AuthZ) determines WHAT you are allowed to do — checking if the authenticated user has permission to perform an action or access a resource.",
+            "ru": "Аутентификация (AuthN) проверяет, КТО вы — подтверждение вашей личности (например, вход по имени пользователя/паролю). Авторизация (AuthZ) определяет, ЧТО вам разрешено делать — проверяет, есть ли у аутентифицированного пользователя право выполнять действие или получать доступ к ресурсу."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "They are synonyms for the same security concept",
+                "ru": "Это синонимы одного и того же понятия безопасности"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Authentication verifies identity; authorization determines permitted actions",
+                "ru": "Аутентификация проверяет личность; авторизация определяет разрешённые действия"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "Authorization verifies identity; authentication grants access",
+                "ru": "Авторизация проверяет личность; аутентификация предоставляет доступ"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Authentication uses tokens; authorization uses passwords",
+                "ru": "Аутентификация использует токены; авторизация использует пароли"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 13,
+          "name": {
+            "en": "What does the `X-Frame-Options` HTTP header do?",
+            "ru": "Что делает HTTP-заголовок `X-Frame-Options`?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "`X-Frame-Options` controls whether a browser is allowed to render a page inside an `<iframe>`, `<frame>`, or `<object>`. It defends against clickjacking attacks. Values: `DENY` (never frame), `SAMEORIGIN` (frame only from same origin), `ALLOW-FROM uri` (legacy, deprecated in favor of CSP `frame-ancestors`).",
+            "ru": "`X-Frame-Options` управляет тем, разрешено ли браузеру отображать страницу внутри `<iframe>`, `<frame>` или `<object>`. Защищает от кликджекинга. Значения: `DENY` (запрет фреймов), `SAMEORIGIN` (фрейм только из того же источника), `ALLOW-FROM uri` (устаревшее, заменено на CSP `frame-ancestors`)."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "Sets custom response headers for API calls",
+                "ru": "Устанавливает пользовательские заголовки ответа для вызовов API"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Controls whether the page can be embedded in an iframe, preventing clickjacking",
+                "ru": "Управляет возможностью встраивания страницы в iframe, предотвращая кликджекинг"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "Disables JavaScript execution in frames",
+                "ru": "Отключает выполнение JavaScript во фреймах"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Limits the number of frames per page",
+                "ru": "Ограничивает количество фреймов на странице"
+              },
+              "isCorrect": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": { "en": "How Browsers Work", "ru": "Как работают браузеры" },
+      "description": {
+        "en": "Critical rendering path, parsing, DOM/CSSOM construction, reflow, repaint, and page lifecycle events",
+        "ru": "Критический путь рендеринга, парсинг, построение DOM/CSSOM, reflow, repaint и события жизненного цикла страницы"
+      },
+      "links": ["https://developer.mozilla.org/en-US/docs/Web/Performance/How_browsers_work"],
+      "questions": [
+        {
+          "sortOrder": 1,
+          "name": { "en": "What is the DOM?", "ru": "Что такое DOM?" },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "The DOM (Document Object Model) is a tree-structured, in-memory representation of an HTML document that the browser builds after parsing HTML. It represents the page as a hierarchy of nodes (elements, text, attributes). JavaScript uses the DOM API to read and modify page content dynamically.",
+            "ru": "DOM (Document Object Model) — это древовидное представление HTML-документа в памяти, которое браузер строит после разбора HTML. Он представляет страницу в виде иерархии узлов (элементы, текст, атрибуты). JavaScript использует DOM API для динамического чтения и изменения содержимого страницы."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "The CSS stylesheet attached to a page",
+                "ru": "Таблица стилей CSS, прикреплённая к странице"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "A tree-structured in-memory representation of the HTML document",
+                "ru": "Древовидное представление HTML-документа в памяти"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "The binary representation of a web page on disk",
+                "ru": "Двоичное представление веб-страницы на диске"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "The network layer protocol for fetching resources",
+                "ru": "Протокол сетевого уровня для загрузки ресурсов"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 2,
+          "name": { "en": "What is the CSSOM?", "ru": "Что такое CSSOM?" },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "The CSSOM (CSS Object Model) is a tree of CSS rules built by the browser after parsing all CSS. It mirrors the DOM but represents styles. The browser combines the DOM and CSSOM to produce the render tree, which is used to compute layout and paint.",
+            "ru": "CSSOM (CSS Object Model) — это дерево CSS-правил, построенное браузером после разбора всего CSS. Оно зеркалирует DOM, но представляет стили. Браузер объединяет DOM и CSSOM для построения дерева рендеринга, которое используется для вычисления компоновки и отрисовки."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "The compiled JavaScript bundle",
+                "ru": "Скомпилированный JavaScript-бандл"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "A tree of CSS rules the browser builds from parsed stylesheets",
+                "ru": "Дерево CSS-правил, построенное браузером из разобранных таблиц стилей"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "The server-side representation of styles",
+                "ru": "Серверное представление стилей"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "A JavaScript API for animating elements",
+                "ru": "JavaScript API для анимации элементов"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 3,
+          "name": {
+            "en": "What is the critical rendering path?",
+            "ru": "Что такое критический путь рендеринга?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "The critical rendering path is the sequence of steps the browser performs to convert HTML, CSS, and JavaScript into pixels on screen: (1) Build DOM, (2) Build CSSOM, (3) Combine into render tree, (4) Layout (reflow), (5) Paint, (6) Composite. Optimizing this path reduces time to first meaningful paint.",
+            "ru": "Критический путь рендеринга — это последовательность шагов, выполняемых браузером для преобразования HTML, CSS и JavaScript в пиксели на экране: (1) Построение DOM, (2) Построение CSSOM, (3) Объединение в дерево рендеринга, (4) Компоновка (reflow), (5) Отрисовка, (6) Компоновка слоёв. Оптимизация этого пути сокращает время до первой значимой отрисовки."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "The minimum set of HTTP requests required to load a page",
+                "ru": "Минимальный набор HTTP-запросов для загрузки страницы"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "The sequence of steps to convert HTML/CSS/JS into pixels: DOM → CSSOM → render tree → layout → paint",
+                "ru": "Последовательность шагов преобразования HTML/CSS/JS в пиксели: DOM → CSSOM → дерево рендеринга → компоновка → отрисовка"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "The JavaScript execution order as defined by `<script>` tags",
+                "ru": "Порядок выполнения JavaScript, определяемый тегами `<script>`"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "The route from the browser to the DNS server",
+                "ru": "Маршрут от браузера до DNS-сервера"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 4,
+          "name": {
+            "en": "What is the difference between reflow and repaint?",
+            "ru": "В чём разница между reflow и repaint?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "Reflow (layout) occurs when the browser recalculates the geometry (position and size) of elements — e.g., when DOM structure or CSS geometry properties change. Repaint occurs when visual styling changes without affecting geometry (e.g., color, background). Reflow always triggers a repaint; repaint does not always trigger reflow. Both are expensive operations.",
+            "ru": "Reflow (компоновка) происходит, когда браузер пересчитывает геометрию (положение и размер) элементов — например, при изменении структуры DOM или геометрических CSS-свойств. Repaint происходит при изменении визуального стиля без влияния на геометрию (например, цвет, фон). Reflow всегда вызывает repaint; repaint не всегда вызывает reflow. Оба являются дорогостоящими операциями."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "Reflow changes colors; repaint changes positions",
+                "ru": "Reflow изменяет цвета; repaint изменяет позиции"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Reflow recalculates geometry; repaint redraws pixels without geometry change",
+                "ru": "Reflow пересчитывает геометрию; repaint перерисовывает пиксели без изменения геометрии"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "Repaint is always triggered before reflow",
+                "ru": "Repaint всегда запускается до reflow"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "They are the same process with different names",
+                "ru": "Это один и тот же процесс с разными названиями"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 5,
+          "name": {
+            "en": "Why does a `<script>` tag without `async` or `defer` block HTML parsing?",
+            "ru": "Почему тег `<script>` без `async` или `defer` блокирует разбор HTML?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "By default, when the HTML parser encounters a `<script>` tag, it stops parsing HTML, fetches the script, executes it, then resumes parsing. This is because the script might modify the DOM (e.g., using `document.write()`). `defer` delays execution until after parsing; `async` executes as soon as downloaded.",
+            "ru": "По умолчанию, когда HTML-парсер встречает тег `<script>`, он останавливает разбор HTML, загружает скрипт, выполняет его, затем возобновляет разбор. Это связано с тем, что скрипт может изменять DOM (например, используя `document.write()`). `defer` откладывает выполнение до завершения разбора; `async` выполняет скрипт сразу после загрузки."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "To prevent CORS errors during page load",
+                "ru": "Для предотвращения CORS-ошибок при загрузке страницы"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Because scripts may modify the DOM, so the parser stops to fetch and execute them first",
+                "ru": "Потому что скрипты могут изменять DOM, поэтому парсер останавливается для их загрузки и выполнения"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "Because JavaScript must be compiled before CSS is applied",
+                "ru": "Потому что JavaScript должен быть скомпилирован до применения CSS"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Because only one file can be fetched at a time over HTTP/1.1",
+                "ru": "Потому что по HTTP/1.1 одновременно можно загрузить только один файл"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 6,
+          "name": {
+            "en": "What is the difference between `DOMContentLoaded` and `load` events?",
+            "ru": "В чём разница между событиями `DOMContentLoaded` и `load`?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "`DOMContentLoaded` fires when the HTML has been fully parsed and the DOM is ready, without waiting for stylesheets, images, or other external resources to load. `load` fires when the page and all its dependent resources (images, scripts, stylesheets) have completely loaded.",
+            "ru": "`DOMContentLoaded` срабатывает, когда HTML полностью разобран и DOM готов, не дожидаясь загрузки таблиц стилей, изображений и других внешних ресурсов. `load` срабатывает, когда страница и все зависимые ресурсы (изображения, скрипты, таблицы стилей) полностью загружены."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "They fire at the same time but are used in different contexts",
+                "ru": "Они срабатывают одновременно, но используются в разных контекстах"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "`DOMContentLoaded` fires when the DOM is ready; `load` fires when all resources are loaded",
+                "ru": "`DOMContentLoaded` срабатывает, когда DOM готов; `load` — когда все ресурсы загружены"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "`load` fires before `DOMContentLoaded`",
+                "ru": "`load` срабатывает раньше `DOMContentLoaded`"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "`DOMContentLoaded` includes image loading; `load` does not",
+                "ru": "`DOMContentLoaded` включает загрузку изображений; `load` — нет"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 7,
+          "name": {
+            "en": "What does the `defer` attribute on a `<script>` tag do?",
+            "ru": "Что делает атрибут `defer` у тега `<script>`?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "The `defer` attribute tells the browser to download the script in parallel with HTML parsing but execute it only after parsing is complete (just before `DOMContentLoaded`). Multiple deferred scripts execute in order. `async`, by contrast, executes as soon as the script is downloaded, in any order.",
+            "ru": "Атрибут `defer` указывает браузеру загружать скрипт параллельно с разбором HTML, но выполнять его только после завершения разбора (непосредственно перед `DOMContentLoaded`). Несколько отложенных скриптов выполняются по порядку. `async`, напротив, выполняет скрипт сразу после загрузки, в любом порядке."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "Delays the download of the script until after the page loads",
+                "ru": "Откладывает загрузку скрипта до полной загрузки страницы"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Downloads the script in parallel and executes it after HTML parsing is complete",
+                "ru": "Загружает скрипт параллельно и выполняет его после завершения разбора HTML"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "Executes the script as soon as it is downloaded, regardless of HTML parsing",
+                "ru": "Выполняет скрипт сразу после загрузки, независимо от разбора HTML"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Prevents the script from being cached by the browser",
+                "ru": "Предотвращает кэширование скрипта браузером"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 8,
+          "name": {
+            "en": "What is the browser's event loop?",
+            "ru": "Что такое цикл событий (event loop) браузера?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "The event loop is the mechanism that allows JavaScript (single-threaded) to perform non-blocking operations. It continuously checks whether the call stack is empty; if so, it dequeues the next task from the task queue (macrotask queue) or microtask queue and executes it. Microtasks (e.g., Promises) always run before the next macrotask.",
+            "ru": "Цикл событий — это механизм, позволяющий JavaScript (однопоточному) выполнять неблокирующие операции. Он непрерывно проверяет, пуст ли стек вызовов; если да — извлекает следующую задачу из очереди задач (очередь макрозадач) или очереди микрозадач и выполняет её. Микрозадачи (например, промисы) всегда выполняются до следующей макрозадачи."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "A loop that continuously re-renders the page at 60 fps",
+                "ru": "Цикл, непрерывно перерисовывающий страницу со скоростью 60 кадров/с"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "A mechanism that picks tasks from queues and executes them when the call stack is empty",
+                "ru": "Механизм, извлекающий задачи из очередей и выполняющий их, когда стек вызовов пуст"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "The loop inside `for` and `while` statements in JavaScript",
+                "ru": "Цикл внутри операторов `for` и `while` в JavaScript"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "The network request queue managed by the browser",
+                "ru": "Очередь сетевых запросов, управляемая браузером"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 9,
+          "name": {
+            "en": "What is browser painting in the rendering pipeline?",
+            "ru": "Что такое этап отрисовки (painting) в конвейере рендеринга браузера?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "Painting is the step where the browser fills in the actual pixels for each node in the render tree, based on computed layout and styles. It converts geometric shapes, colors, borders, and shadows into pixel data in memory (bitmap). Compositing then combines painted layers to produce the final frame.",
+            "ru": "Отрисовка (painting) — это шаг, на котором браузер заполняет фактические пиксели для каждого узла дерева рендеринга на основе вычисленного макета и стилей. Он преобразует геометрические фигуры, цвета, границы и тени в данные пикселей в памяти (битмап). Композитинг затем объединяет отрисованные слои для создания итогового кадра."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "The step where the browser downloads images",
+                "ru": "Шаг, на котором браузер загружает изображения"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "The step where the browser fills pixels for each element based on layout and styles",
+                "ru": "Шаг, на котором браузер заполняет пиксели для каждого элемента на основе компоновки и стилей"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "The step where JavaScript is compiled to machine code",
+                "ru": "Шаг, на котором JavaScript компилируется в машинный код"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "The step where CSS selectors are matched to DOM nodes",
+                "ru": "Шаг, на котором CSS-селекторы сопоставляются с узлами DOM"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 10,
+          "name": { "en": "What is the render tree?", "ru": "Что такое дерево рендеринга?" },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "The render tree is a combined tree built from the DOM and CSSOM that contains only the nodes that are visible on screen, with their computed styles. Nodes with `display: none` are excluded from the render tree (but `visibility: hidden` nodes are included with transparent styling).",
+            "ru": "Дерево рендеринга — это объединённое дерево, построенное из DOM и CSSOM, содержащее только узлы, видимые на экране, с их вычисленными стилями. Узлы с `display: none` исключаются из дерева рендеринга (но узлы с `visibility: hidden` включаются с прозрачным стилем)."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "A duplicate of the DOM used for diffing in virtual DOM frameworks",
+                "ru": "Копия DOM, используемая для сравнения в фреймворках с виртуальным DOM"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "A tree combining DOM and CSSOM containing only visible nodes with computed styles",
+                "ru": "Дерево, объединяющее DOM и CSSOM, содержащее только видимые узлы с вычисленными стилями"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "The list of network requests needed to render the page",
+                "ru": "Список сетевых запросов, необходимых для рендеринга страницы"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "A JavaScript data structure representing the HTML form elements",
+                "ru": "Структура данных JavaScript, представляющая HTML-элементы формы"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 11,
+          "name": {
+            "en": "What does compositing do in the browser's rendering process?",
+            "ru": "Что делает этап компоновки (compositing) в процессе рендеринга браузера?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "Compositing is the final step where the browser takes separately painted layers (e.g., for elements with `transform`, `opacity`, `will-change`) and combines them into the final image sent to the display. Using GPU-accelerated compositing for animations (e.g., `transform` instead of `top/left`) avoids reflow and repaint.",
+            "ru": "Компоновка (compositing) — это последний шаг, на котором браузер берёт отдельно отрисованные слои (например, для элементов с `transform`, `opacity`, `will-change`) и объединяет их в итоговое изображение для вывода на экран. Использование GPU-ускоренного компоновки для анимаций (например, `transform` вместо `top/left`) позволяет избежать reflow и repaint."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "Merging multiple JS files into one bundle",
+                "ru": "Объединение нескольких JS-файлов в один бандл"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Combining separately painted layers into the final display image",
+                "ru": "Объединение отдельно отрисованных слоёв в итоговое изображение для экрана"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "Applying CSS animations using JavaScript",
+                "ru": "Применение CSS-анимаций с помощью JavaScript"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Building the render tree from DOM and CSSOM",
+                "ru": "Построение дерева рендеринга из DOM и CSSOM"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 12,
+          "name": {
+            "en": "What is the `requestAnimationFrame` API used for?",
+            "ru": "Для чего используется API `requestAnimationFrame`?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "`requestAnimationFrame` schedules a callback to run just before the browser performs its next repaint. This ensures animations are synchronized with the display refresh rate (typically 60Hz), producing smooth animations and avoiding unnecessary work when the tab is hidden.",
+            "ru": "`requestAnimationFrame` планирует выполнение callback-функции непосредственно перед следующей перерисовкой браузера. Это обеспечивает синхронизацию анимаций с частотой обновления дисплея (обычно 60 Гц), создавая плавные анимации и избегая лишней работы, когда вкладка скрыта."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "To create CSS animations programmatically",
+                "ru": "Для программного создания CSS-анимаций"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "To schedule a callback before the next browser repaint, synchronized with the display refresh rate",
+                "ru": "Для планирования callback-функции до следующей перерисовки браузера, синхронизированной с частотой обновления дисплея"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "To request that the server send animation data",
+                "ru": "Для запроса данных анимации с сервера"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "To measure how long a paint operation takes",
+                "ru": "Для измерения времени выполнения операции отрисовки"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 13,
+          "name": {
+            "en": "What triggers a reflow in the browser?",
+            "ru": "Что вызывает reflow в браузере?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "Reflow is triggered when the browser must recalculate the geometry of elements. Common triggers: adding/removing DOM nodes, changing CSS geometry properties (width, height, margin, padding, position), reading layout-dependent properties like `offsetWidth` or `getBoundingClientRect()` after a DOM change.",
+            "ru": "Reflow запускается, когда браузер должен пересчитать геометрию элементов. Распространённые причины: добавление/удаление узлов DOM, изменение геометрических CSS-свойств (ширина, высота, отступы, позиционирование), чтение зависимых от компоновки свойств, таких как `offsetWidth` или `getBoundingClientRect()`, после изменения DOM."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "Changing only the `color` property of an element",
+                "ru": "Изменение только свойства `color` у элемента"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Adding/removing DOM nodes or changing geometry CSS properties",
+                "ru": "Добавление/удаление узлов DOM или изменение геометрических CSS-свойств"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": { "en": "Navigating to a new page", "ru": "Переход на новую страницу" },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "Playing an audio file", "ru": "Воспроизведение аудиофайла" },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 14,
+          "name": {
+            "en": "What is speculative parsing in browsers?",
+            "ru": "Что такое предварительный разбор (speculative parsing) в браузерах?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "Speculative parsing (also called preload scanning) is a browser optimization where a secondary thread scans ahead in the HTML while the main parser is blocked (e.g., by a synchronous `<script>`). It discovers resources like images, stylesheets, and scripts to begin downloading early, reducing overall page load time.",
+            "ru": "Предварительный разбор (speculative parsing, также называемый preload scanning) — это оптимизация браузера, при которой вторичный поток анализирует HTML вперёд, пока основной парсер заблокирован (например, синхронным `<script>`). Он обнаруживает ресурсы, такие как изображения, таблицы стилей и скрипты, для их ранней загрузки, сокращая общее время загрузки страницы."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "The browser guessing which CSS properties will be used",
+                "ru": "Браузер предсказывает, какие CSS-свойства будут использоваться"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "A background scan of HTML ahead of the main parser to discover and preload resources early",
+                "ru": "Фоновое сканирование HTML впереди основного парсера для раннего обнаружения и загрузки ресурсов"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "The browser pre-executing JavaScript before the page is displayed",
+                "ru": "Предварительное выполнение JavaScript браузером до отображения страницы"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "A technique to predict user navigation and preload the next page",
+                "ru": "Техника предсказания навигации пользователя и предварительной загрузки следующей страницы"
+              },
+              "isCorrect": false
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

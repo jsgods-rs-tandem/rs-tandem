@@ -1,0 +1,2303 @@
+{
+  "category": {
+    "name": { "en": "Build Tools & Module Bundlers", "ru": "Инструменты сборки и бандлеры" },
+    "description": {
+      "en": "Module bundlers, build tooling, and the JavaScript module ecosystem",
+      "ru": "Бандлеры модулей, инструменты сборки и экосистема JavaScript-модулей"
+    }
+  },
+  "topics": [
+    {
+      "name": { "en": "Module Systems", "ru": "Системы модулей" },
+      "description": {
+        "en": "CommonJS, ES Modules, AMD, UMD — differences, interoperability, and how bundlers resolve them",
+        "ru": "CommonJS, ES Modules, AMD, UMD — отличия, совместимость и механизм разрешения зависимостей в бандлерах"
+      },
+      "links": [
+        "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules",
+        "https://nodejs.org/api/modules.html"
+      ],
+      "questions": [
+        {
+          "sortOrder": 1,
+          "name": {
+            "en": "Which keyword is used to export values in CommonJS modules?",
+            "ru": "Какое ключевое слово используется для экспорта значений в модулях CommonJS?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "CommonJS uses `module.exports` (or the shorthand `exports`) to expose values. ES Modules use the `export` keyword instead.",
+            "ru": "CommonJS использует `module.exports` (или сокращённую форму `exports`) для предоставления значений. ES Modules вместо этого используют ключевое слово `export`."
+          },
+          "answers": [
+            { "text": { "en": "`export`", "ru": "`export`" }, "isCorrect": false },
+            { "text": { "en": "`module.exports`", "ru": "`module.exports`" }, "isCorrect": true },
+            { "text": { "en": "`define`", "ru": "`define`" }, "isCorrect": false },
+            { "text": { "en": "`provide`", "ru": "`provide`" }, "isCorrect": false }
+          ]
+        },
+        {
+          "sortOrder": 2,
+          "name": {
+            "en": "Which module format is natively supported by modern browsers without a bundler?",
+            "ru": "Какой формат модулей нативно поддерживается современными браузерами без бандлера?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "ES Modules (ESM) are natively supported by modern browsers via `<script type=\"module\">`. CommonJS, AMD, and UMD require runtime libraries or a bundler to work in the browser.",
+            "ru": "ES Modules (ESM) нативно поддерживаются современными браузерами через `<script type=\"module\">`. CommonJS, AMD и UMD требуют рантайм-библиотек или бандлера для работы в браузере."
+          },
+          "answers": [
+            { "text": { "en": "CommonJS", "ru": "CommonJS" }, "isCorrect": false },
+            { "text": { "en": "AMD", "ru": "AMD" }, "isCorrect": false },
+            { "text": { "en": "ES Modules (ESM)", "ru": "ES Modules (ESM)" }, "isCorrect": true },
+            { "text": { "en": "UMD", "ru": "UMD" }, "isCorrect": false }
+          ]
+        },
+        {
+          "sortOrder": 3,
+          "name": {
+            "en": "What does `require()` return when called in a CommonJS module?",
+            "ru": "Что возвращает `require()` при вызове в модуле CommonJS?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "`require()` returns the value of `module.exports` from the required module. This is evaluated synchronously at runtime.",
+            "ru": "`require()` возвращает значение `module.exports` из запрошенного модуля. Это вычисляется синхронно во время выполнения."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "A Promise that resolves to the module",
+                "ru": "Promise, который разрешается в модуль"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "The value of `module.exports` from the required module",
+                "ru": "Значение `module.exports` из запрошенного модуля"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "The raw file contents as a string",
+                "ru": "Сырое содержимое файла в виде строки"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "An iterator over the module's named exports",
+                "ru": "Итератор по именованным экспортам модуля"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 4,
+          "name": {
+            "en": "What does UMD stand for?",
+            "ru": "Что означает аббревиатура UMD?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "UMD stands for Universal Module Definition. It is a pattern that tries to be compatible with CommonJS, AMD, and global script environments simultaneously.",
+            "ru": "UMD расшифровывается как Universal Module Definition (Универсальное определение модуля). Это паттерн, который стремится быть совместимым одновременно с CommonJS, AMD и глобальной средой скриптов."
+          },
+          "answers": [
+            {
+              "text": { "en": "Unified Module Design", "ru": "Unified Module Design" },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "Universal Module Definition", "ru": "Universal Module Definition" },
+              "isCorrect": true
+            },
+            {
+              "text": { "en": "Unnamed Module Dependency", "ru": "Unnamed Module Dependency" },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "Universal Module Dependency", "ru": "Universal Module Dependency" },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 5,
+          "name": {
+            "en": "How does CommonJS `require()` differ from ES Module `import` in terms of execution timing?",
+            "ru": "Чем `require()` CommonJS отличается от `import` ES Module с точки зрения времени выполнения?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "`require()` is synchronous and evaluated at runtime when the statement is reached. ES Module `import` declarations are statically analyzed and evaluated before any code runs (hoisted and linked at parse time).",
+            "ru": "`require()` является синхронным и вычисляется во время выполнения, когда достигается соответствующая инструкция. Объявления `import` ES Module анализируются статически и вычисляются до запуска любого кода (поднимаются и связываются во время парсинга)."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "Both are synchronous and evaluated at runtime",
+                "ru": "Оба синхронны и вычисляются во время выполнения"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "`require()` is synchronous at runtime; `import` is statically analyzed at parse time",
+                "ru": "`require()` синхронен во время выполнения; `import` анализируется статически во время парсинга"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "`import` is synchronous at runtime; `require()` is analyzed at parse time",
+                "ru": "`import` синхронен во время выполнения; `require()` анализируется во время парсинга"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Both are asynchronous and return Promises",
+                "ru": "Оба асинхронны и возвращают Promise"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 6,
+          "name": {
+            "en": "Which module format was specifically designed for asynchronous loading in browsers before ES Modules existed?",
+            "ru": "Какой формат модулей был специально разработан для асинхронной загрузки в браузерах до появления ES Modules?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "AMD (Asynchronous Module Definition) was designed for browsers and supports async loading of dependencies. RequireJS is the most popular AMD implementation.",
+            "ru": "AMD (Asynchronous Module Definition) был разработан для браузеров и поддерживает асинхронную загрузку зависимостей. RequireJS является наиболее популярной реализацией AMD."
+          },
+          "answers": [
+            { "text": { "en": "CommonJS", "ru": "CommonJS" }, "isCorrect": false },
+            { "text": { "en": "UMD", "ru": "UMD" }, "isCorrect": false },
+            { "text": { "en": "AMD", "ru": "AMD" }, "isCorrect": true },
+            { "text": { "en": "SystemJS", "ru": "SystemJS" }, "isCorrect": false }
+          ]
+        },
+        {
+          "sortOrder": 7,
+          "name": {
+            "en": "What is the `\"type\": \"module\"` field in `package.json` used for?",
+            "ru": "Для чего используется поле `\"type\": \"module\"` в `package.json`?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "Setting `\"type\": \"module\"` tells Node.js to treat `.js` files in that package as ES Modules instead of CommonJS. Without it, `.js` files default to CommonJS in Node.js.",
+            "ru": "Установка `\"type\": \"module\"` сообщает Node.js, что `.js`-файлы в этом пакете следует обрабатывать как ES Modules, а не как CommonJS. Без этого поля `.js`-файлы по умолчанию считаются CommonJS в Node.js."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "It forces all imports to be resolved asynchronously",
+                "ru": "Это заставляет все импорты разрешаться асинхронно"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "It tells Node.js to treat `.js` files as ES Modules",
+                "ru": "Это указывает Node.js обрабатывать `.js`-файлы как ES Modules"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "It enables TypeScript compilation for the package",
+                "ru": "Это включает компиляцию TypeScript для пакета"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "It marks the package as a browser-only module",
+                "ru": "Это помечает пакет как модуль только для браузера"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 8,
+          "name": {
+            "en": "Which of the following is a key advantage of ES Modules over CommonJS for bundlers?",
+            "ru": "Какое из следующих преимуществ ES Modules перед CommonJS важно для бандлеров?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "ES Modules have a static structure — all `import` and `export` statements must be at the top level and cannot be inside conditionals. This allows bundlers to statically analyze the dependency graph and perform tree-shaking.",
+            "ru": "ES Modules имеют статическую структуру — все инструкции `import` и `export` должны находиться на верхнем уровне и не могут быть внутри условных операторов. Это позволяет бандлерам статически анализировать граф зависимостей и выполнять tree-shaking."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "They support synchronous loading which speeds up execution",
+                "ru": "Они поддерживают синхронную загрузку, что ускоряет выполнение"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "They have a static structure enabling tree-shaking",
+                "ru": "Они имеют статическую структуру, что позволяет выполнять tree-shaking"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "They automatically cache modules in the browser",
+                "ru": "Они автоматически кэшируют модули в браузере"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "They allow circular dependencies without issues",
+                "ru": "Они позволяют использовать циклические зависимости без проблем"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 9,
+          "name": {
+            "en": "What happens when you use `import()` (dynamic import) in JavaScript?",
+            "ru": "Что происходит при использовании `import()` (динамического импорта) в JavaScript?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "Dynamic `import()` returns a Promise that resolves to the module namespace object. It allows loading modules on demand at runtime, enabling code splitting.",
+            "ru": "Динамический `import()` возвращает Promise, который разрешается в объект пространства имён модуля. Это позволяет загружать модули по требованию во время выполнения, обеспечивая разделение кода."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "It synchronously loads and executes the module",
+                "ru": "Он синхронно загружает и выполняет модуль"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "It returns a Promise that resolves to the module namespace object",
+                "ru": "Он возвращает Promise, который разрешается в объект пространства имён модуля"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "It inlines the module code at compile time",
+                "ru": "Он встраивает код модуля во время компиляции"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "It is only available in Node.js, not in browsers",
+                "ru": "Он доступен только в Node.js, а не в браузерах"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 10,
+          "name": {
+            "en": "In an ES Module, can you use `import` inside an `if` block?",
+            "ru": "Можно ли использовать `import` внутри блока `if` в ES Module?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "Static `import` declarations must be at the top level of a module — they cannot be nested inside blocks, functions, or conditionals. For conditional imports, you must use the dynamic `import()` function.",
+            "ru": "Статические объявления `import` должны находиться на верхнем уровне модуля — они не могут быть вложены в блоки, функции или условные операторы. Для условных импортов необходимо использовать функцию динамического `import()`."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "Yes, static imports work anywhere in the file",
+                "ru": "Да, статические импорты работают в любом месте файла"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "No, static imports must be at the top level; use dynamic `import()` for conditional loading",
+                "ru": "Нет, статические импорты должны быть на верхнем уровне; для условной загрузки используйте динамический `import()`"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "Yes, but only inside `async` functions",
+                "ru": "Да, но только внутри `async`-функций"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "No, and there is no alternative for conditional module loading",
+                "ru": "Нет, и нет альтернативы для условной загрузки модулей"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 11,
+          "name": {
+            "en": "What is the `exports` field in `package.json` (package exports map) used for?",
+            "ru": "Для чего используется поле `exports` в `package.json` (карта экспортов пакета)?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "The `exports` field defines public entry points for a package, allowing fine-grained control over which files are accessible and enabling conditional exports (e.g., different files for `import` vs `require` or browser vs Node.js).",
+            "ru": "Поле `exports` определяет публичные точки входа пакета, обеспечивая детальный контроль над доступными файлами и поддерживая условные экспорты (например, разные файлы для `import` и `require` или для браузера и Node.js)."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "It lists all the files to include when publishing to npm",
+                "ru": "Оно перечисляет все файлы для включения при публикации в npm"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "It defines public entry points and enables conditional exports for different environments",
+                "ru": "Оно определяет публичные точки входа и включает условные экспорты для разных сред"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "It declares the global variables exported by the package",
+                "ru": "Оно объявляет глобальные переменные, экспортируемые пакетом"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "It maps module names to CDN URLs",
+                "ru": "Оно сопоставляет имена модулей с URL CDN"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 12,
+          "name": {
+            "en": "When interoperating between CommonJS and ES Modules in Node.js, what is a `default` import from a CommonJS module equivalent to?",
+            "ru": "При совместном использовании CommonJS и ES Modules в Node.js чему эквивалентен импорт `default` из модуля CommonJS?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "When you `import` a CommonJS module from an ES Module, the entire `module.exports` value becomes the default export. Named exports are not automatically available unless the bundler or runtime provides interop helpers.",
+            "ru": "Когда вы делаете `import` из CommonJS-модуля в ES Module, всё значение `module.exports` становится экспортом по умолчанию. Именованные экспорты автоматически недоступны, если только бандлер или среда выполнения не предоставляет вспомогательные средства совместимости."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "The named exports of the CommonJS module",
+                "ru": "Именованные экспорты CommonJS-модуля"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "The entire `module.exports` object",
+                "ru": "Весь объект `module.exports`"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "The `exports.default` property if it exists",
+                "ru": "Свойство `exports.default`, если оно существует"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "An async wrapper around the CommonJS module",
+                "ru": "Асинхронная обёртка вокруг CommonJS-модуля"
+              },
+              "isCorrect": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": { "en": "Webpack", "ru": "Webpack" },
+      "description": {
+        "en": "Webpack concepts: entry, output, loaders, plugins, code splitting, and configuration",
+        "ru": "Концепции Webpack: entry, output, загрузчики (loaders), плагины, разделение кода и конфигурация"
+      },
+      "links": [
+        "https://webpack.js.org/concepts/",
+        "https://webpack.js.org/guides/getting-started/",
+        "https://webpack.js.org/configuration/",
+        "https://webpack.js.org/guides/code-splitting/"
+      ],
+      "questions": [
+        {
+          "sortOrder": 1,
+          "name": {
+            "en": "What is the purpose of the `entry` field in a Webpack configuration?",
+            "ru": "Какова цель поля `entry` в конфигурации Webpack?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "The `entry` field tells Webpack where to start building its dependency graph. Webpack traces all imports from the entry point(s) to determine what to include in the bundle.",
+            "ru": "Поле `entry` указывает Webpack, с чего начать построение графа зависимостей. Webpack отслеживает все импорты от точки(точек) входа, чтобы определить, что включить в бандл."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "It specifies the output file name",
+                "ru": "Оно задаёт имя выходного файла"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "It defines the starting point(s) for Webpack's dependency graph",
+                "ru": "Оно определяет начальную точку(точки) для графа зависимостей Webpack"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "It lists the loaders to apply to each file type",
+                "ru": "Оно перечисляет загрузчики, применяемые к каждому типу файлов"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "It configures the development server",
+                "ru": "Оно настраивает сервер разработки"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 2,
+          "name": {
+            "en": "What is the role of a Webpack loader?",
+            "ru": "Какова роль загрузчика (loader) в Webpack?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "Loaders transform files before they are added to the dependency graph. For example, `babel-loader` transpiles JavaScript, `css-loader` processes CSS, and `ts-loader` compiles TypeScript. Webpack itself only understands JavaScript and JSON.",
+            "ru": "Загрузчики преобразуют файлы до их добавления в граф зависимостей. Например, `babel-loader` транспилирует JavaScript, `css-loader` обрабатывает CSS, а `ts-loader` компилирует TypeScript. Сам Webpack понимает только JavaScript и JSON."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "It optimizes the final bundle size",
+                "ru": "Он оптимизирует размер финального бандла"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "It transforms files so Webpack can process non-JavaScript assets",
+                "ru": "Он преобразует файлы, чтобы Webpack мог обрабатывать не-JavaScript ресурсы"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "It injects environment variables into the build",
+                "ru": "Он внедряет переменные окружения в сборку"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "It splits the bundle into multiple chunks",
+                "ru": "Он разбивает бандл на несколько чанков"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 3,
+          "name": {
+            "en": "What distinguishes a Webpack plugin from a loader?",
+            "ru": "Чем плагин Webpack отличается от загрузчика?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "Loaders transform individual files as they are added to the graph. Plugins operate on the entire compilation and can hook into the build lifecycle to perform broader tasks like bundle optimization, asset management, or injecting environment variables.",
+            "ru": "Загрузчики преобразуют отдельные файлы при их добавлении в граф. Плагины работают со всей компиляцией и могут подключаться к жизненному циклу сборки для выполнения более широких задач, таких как оптимизация бандла, управление ресурсами или внедрение переменных окружения."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "Plugins run before loaders in the pipeline",
+                "ru": "Плагины запускаются до загрузчиков в пайплайне"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Loaders transform individual files; plugins operate on the entire compilation lifecycle",
+                "ru": "Загрузчики преобразуют отдельные файлы; плагины работают со всем жизненным циклом компиляции"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "Plugins can only be used in production builds",
+                "ru": "Плагины могут использоваться только в продакшн-сборках"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Loaders can modify the Webpack configuration at runtime",
+                "ru": "Загрузчики могут изменять конфигурацию Webpack во время выполнения"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 4,
+          "name": {
+            "en": "What Webpack feature allows splitting your app into multiple bundles that are loaded on demand?",
+            "ru": "Какая функция Webpack позволяет разбивать приложение на несколько бандлов, загружаемых по требованию?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "Code splitting allows Webpack to split the output into multiple chunks. Chunks can be loaded on demand using dynamic `import()`, reducing the initial bundle size and improving load performance.",
+            "ru": "Разделение кода (code splitting) позволяет Webpack разбивать вывод на несколько чанков. Чанки можно загружать по требованию с помощью динамического `import()`, уменьшая размер начального бандла и улучшая производительность загрузки."
+          },
+          "answers": [
+            {
+              "text": { "en": "Hot Module Replacement", "ru": "Hot Module Replacement" },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "Code splitting", "ru": "Разделение кода (code splitting)" },
+              "isCorrect": true
+            },
+            { "text": { "en": "Tree-shaking", "ru": "Tree-shaking" }, "isCorrect": false },
+            { "text": { "en": "Source maps", "ru": "Source maps" }, "isCorrect": false }
+          ]
+        },
+        {
+          "sortOrder": 5,
+          "name": {
+            "en": "What is `webpack-dev-server` primarily used for?",
+            "ru": "Для чего в основном используется `webpack-dev-server`?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "`webpack-dev-server` provides a local development server with live reloading and Hot Module Replacement (HMR). It serves bundles from memory without writing to disk, making the development feedback loop faster.",
+            "ru": "`webpack-dev-server` предоставляет локальный сервер разработки с живой перезагрузкой и Hot Module Replacement (HMR). Он обслуживает бандлы из памяти, не записывая на диск, что ускоряет цикл обратной связи при разработке."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "To minify and compress the production bundle",
+                "ru": "Для минификации и сжатия продакшн-бандла"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "To provide a development server with live reloading and HMR",
+                "ru": "Для предоставления сервера разработки с живой перезагрузкой и HMR"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "To analyze bundle size and report unused modules",
+                "ru": "Для анализа размера бандла и отчёта о неиспользуемых модулях"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "To deploy the application to a CDN",
+                "ru": "Для развёртывания приложения на CDN"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 6,
+          "name": {
+            "en": "What does `SplitChunksPlugin` do in Webpack?",
+            "ru": "Что делает `SplitChunksPlugin` в Webpack?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "`SplitChunksPlugin` automatically splits shared dependencies into separate chunks so they are downloaded once and cached by the browser, rather than duplicated across every bundle that uses them.",
+            "ru": "`SplitChunksPlugin` автоматически выделяет общие зависимости в отдельные чанки, чтобы они загружались один раз и кэшировались браузером, а не дублировались в каждом бандле, который их использует."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "It removes dead code from the final bundle",
+                "ru": "Он удаляет мёртвый код из финального бандла"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "It splits shared dependencies into separate chunks to avoid duplication",
+                "ru": "Он выделяет общие зависимости в отдельные чанки, чтобы избежать дублирования"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "It splits CSS from JavaScript into separate files",
+                "ru": "Он выделяет CSS из JavaScript в отдельные файлы"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "It creates a separate chunk for each imported module",
+                "ru": "Он создаёт отдельный чанк для каждого импортируемого модуля"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 7,
+          "name": {
+            "en": "What does the `resolve.alias` configuration option in Webpack do?",
+            "ru": "Что делает параметр конфигурации `resolve.alias` в Webpack?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "`resolve.alias` creates aliases for import paths, allowing you to replace long relative paths with short, memorable names. For example, mapping `@` to `src/` so `import Foo from '@/components/Foo'` works.",
+            "ru": "`resolve.alias` создаёт псевдонимы для путей импорта, позволяя заменить длинные относительные пути короткими, запоминающимися именами. Например, маппинг `@` на `src/`, чтобы работал `import Foo from '@/components/Foo'`."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "It maps npm package names to local file paths for mocking",
+                "ru": "Оно сопоставляет имена npm-пакетов с локальными путями для моков"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "It creates short aliases for long import paths",
+                "ru": "Оно создаёт короткие псевдонимы для длинных путей импорта"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "It tells Webpack which file extensions to try when resolving modules",
+                "ru": "Оно указывает Webpack, какие расширения файлов пробовать при разрешении модулей"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "It configures external CDN URLs for certain packages",
+                "ru": "Оно настраивает URL CDN для определённых пакетов"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 8,
+          "name": {
+            "en": "What is the purpose of source maps in a Webpack build?",
+            "ru": "Какова цель карт источников (source maps) в сборке Webpack?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "Source maps map the minified/bundled output code back to the original source files. They make debugging easier because browser DevTools show the original source code instead of the bundled output.",
+            "ru": "Карты источников сопоставляют минифицированный/собранный код вывода с исходными файлами. Они упрощают отладку, поскольку DevTools браузера показывают оригинальный исходный код вместо скомпонованного вывода."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "They reduce the final bundle size in production",
+                "ru": "Они уменьшают размер финального бандла в продакшне"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "They map bundled output back to original source for easier debugging",
+                "ru": "Они сопоставляют скомпонованный вывод с оригинальным источником для упрощения отладки"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "They enable Hot Module Replacement in the dev server",
+                "ru": "Они включают Hot Module Replacement на сервере разработки"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "They generate a dependency graph visualization",
+                "ru": "Они создают визуализацию графа зависимостей"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 9,
+          "name": {
+            "en": "What is the `externals` configuration option used for in Webpack?",
+            "ru": "Для чего используется параметр конфигурации `externals` в Webpack?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "`externals` tells Webpack to exclude certain dependencies from the bundle and instead expect them to be available in the global environment at runtime. This is commonly used for libraries like React or jQuery that are loaded via a CDN.",
+            "ru": "`externals` указывает Webpack исключить определённые зависимости из бандла и ожидать, что они будут доступны в глобальном окружении во время выполнения. Это обычно используется для библиотек, таких как React или jQuery, загружаемых через CDN."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "It lists modules that should be loaded asynchronously",
+                "ru": "Оно перечисляет модули, которые должны загружаться асинхронно"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "It excludes specific dependencies from the bundle, expecting them from the runtime environment",
+                "ru": "Оно исключает определённые зависимости из бандла, ожидая их от среды выполнения"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "It defines external plugins to load at runtime",
+                "ru": "Оно определяет внешние плагины для загрузки во время выполнения"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "It configures which npm packages can be published",
+                "ru": "Оно настраивает, какие npm-пакеты можно опубликовать"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 10,
+          "name": {
+            "en": "In Webpack 5, what is Module Federation primarily designed to solve?",
+            "ru": "Для решения какой задачи в первую очередь предназначена Module Federation в Webpack 5?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "Module Federation allows multiple separately deployed applications (micro-frontends) to share code and dependencies at runtime without bundling everything together at build time. Each application can expose and consume remote modules dynamically.",
+            "ru": "Module Federation позволяет нескольким независимо развёрнутым приложениям (микрофронтендам) совместно использовать код и зависимости во время выполнения, не объединяя всё в один бандл во время сборки. Каждое приложение может динамически предоставлять и потреблять удалённые модули."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "Reducing the size of a single application's bundle through tree-shaking",
+                "ru": "Уменьшение размера бандла одного приложения через tree-shaking"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Sharing code and dependencies between separately deployed applications at runtime",
+                "ru": "Совместное использование кода и зависимостей между независимо развёрнутыми приложениями во время выполнения"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "Running multiple Webpack builds in parallel to speed up CI",
+                "ru": "Параллельный запуск нескольких сборок Webpack для ускорения CI"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Automating the generation of `package.json` for each chunk",
+                "ru": "Автоматизация генерации `package.json` для каждого чанка"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 11,
+          "name": {
+            "en": "What does the Webpack `mode` option set to `'production'` enable by default?",
+            "ru": "Что по умолчанию включает параметр `mode` со значением `'production'` в Webpack?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "Setting `mode: 'production'` enables optimizations including minification (via TerserPlugin), scope hoisting (ModuleConcatenationPlugin), and tree-shaking. It also sets `process.env.NODE_ENV` to `'production'`.",
+            "ru": "Установка `mode: 'production'` включает оптимизации: минификацию (через TerserPlugin), подъём области видимости (ModuleConcatenationPlugin) и tree-shaking. Также устанавливает `process.env.NODE_ENV` в `'production'`."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "Source maps and verbose logging",
+                "ru": "Карты источников и подробное логирование"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Minification, scope hoisting, and tree-shaking",
+                "ru": "Минификацию, подъём области видимости и tree-shaking"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "Hot Module Replacement and live reload",
+                "ru": "Hot Module Replacement и живую перезагрузку"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "TypeScript compilation without type checking",
+                "ru": "Компиляцию TypeScript без проверки типов"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 12,
+          "name": {
+            "en": "What is the purpose of the `contenthash` placeholder in Webpack output filenames (e.g., `[name].[contenthash].js`)?",
+            "ru": "Для чего используется плейсхолдер `contenthash` в именах выходных файлов Webpack (например, `[name].[contenthash].js`)?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "`contenthash` generates a unique hash based on the file's content. If the content doesn't change between builds, the hash stays the same, enabling long-term browser caching. Only files whose content changes get new hashes and are re-downloaded.",
+            "ru": "`contenthash` генерирует уникальный хэш на основе содержимого файла. Если содержимое не меняется между сборками, хэш остаётся тем же, обеспечивая долгосрочное кэширование браузером. Только файлы, содержимое которых изменилось, получают новые хэши и скачиваются повторно."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "It adds a random suffix to prevent any caching",
+                "ru": "Оно добавляет случайный суффикс для предотвращения кэширования"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "It generates a hash based on file content for long-term cache busting",
+                "ru": "Оно генерирует хэш на основе содержимого файла для долгосрочного сброса кэша"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "It compresses the file and appends the compression type",
+                "ru": "Оно сжимает файл и добавляет тип сжатия"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "It increments a counter on every build regardless of changes",
+                "ru": "Оно увеличивает счётчик при каждой сборке независимо от изменений"
+              },
+              "isCorrect": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": { "en": "Vite & Modern Build Tools", "ru": "Vite и современные инструменты сборки" },
+      "description": {
+        "en": "Vite's dev server (ESM-native), esbuild, Rollup, and how modern tools differ from Webpack",
+        "ru": "Dev-сервер Vite (нативный ESM), esbuild, Rollup и отличия современных инструментов от Webpack"
+      },
+      "links": [
+        "https://vite.dev/guide/",
+        "https://vite.dev/guide/why",
+        "https://vite.dev/config/",
+        "https://rollupjs.org/"
+      ],
+      "questions": [
+        {
+          "sortOrder": 1,
+          "name": {
+            "en": "How does Vite serve files during development?",
+            "ru": "Как Vite обслуживает файлы в процессе разработки?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "Vite's dev server does not bundle files during development. Instead it serves source files as native ES Modules directly to the browser. The browser's native ESM support handles dependency resolution, making startup near-instant.",
+            "ru": "Dev-сервер Vite не собирает файлы в бандл в процессе разработки. Вместо этого он обслуживает исходные файлы как нативные ES Modules напрямую в браузер. Нативная поддержка ESM браузером обрабатывает разрешение зависимостей, делая запуск практически мгновенным."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "It bundles all files on startup using esbuild",
+                "ru": "Он собирает все файлы при запуске с помощью esbuild"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "It serves source files as native ES Modules without bundling",
+                "ru": "Он обслуживает исходные файлы как нативные ES Modules без бандлинга"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "It compiles everything to CommonJS before serving",
+                "ru": "Он компилирует всё в CommonJS перед обслуживанием"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "It uses Webpack under the hood for the dev server",
+                "ru": "Он использует Webpack под капотом для сервера разработки"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 2,
+          "name": {
+            "en": "Which bundler does Vite use for production builds?",
+            "ru": "Какой бандлер использует Vite для продакшн-сборок?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "Vite uses Rollup for production builds. Rollup produces optimized ES Module output with efficient tree-shaking. esbuild is used during development for pre-bundling dependencies.",
+            "ru": "Vite использует Rollup для продакшн-сборок. Rollup создаёт оптимизированный вывод ES Module с эффективным tree-shaking. esbuild используется в процессе разработки для предварительной сборки зависимостей."
+          },
+          "answers": [
+            { "text": { "en": "Webpack", "ru": "Webpack" }, "isCorrect": false },
+            { "text": { "en": "esbuild", "ru": "esbuild" }, "isCorrect": false },
+            { "text": { "en": "Rollup", "ru": "Rollup" }, "isCorrect": true },
+            { "text": { "en": "Parcel", "ru": "Parcel" }, "isCorrect": false }
+          ]
+        },
+        {
+          "sortOrder": 3,
+          "name": {
+            "en": "Why is esbuild significantly faster than Webpack or Babel for transpilation?",
+            "ru": "Почему esbuild значительно быстрее Webpack или Babel при транспиляции?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "esbuild is written in Go, which compiles to native machine code and runs in parallel across CPU cores. JavaScript-based tools like Webpack and Babel run in a single-threaded Node.js process, making them inherently slower for CPU-intensive tasks.",
+            "ru": "esbuild написан на Go, который компилируется в нативный машинный код и работает параллельно на нескольких ядрах CPU. Инструменты на основе JavaScript, такие как Webpack и Babel, работают в однопоточном процессе Node.js, что делает их изначально медленнее для CPU-интенсивных задач."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "It skips type checking entirely",
+                "ru": "Он полностью пропускает проверку типов"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "It is written in Go, compiles to native code, and runs in parallel",
+                "ru": "Он написан на Go, компилируется в нативный код и работает параллельно"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "It only supports modern browsers so it does less transformation",
+                "ru": "Он поддерживает только современные браузеры, поэтому выполняет меньше преобразований"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "It caches aggressively so subsequent builds reuse all previous results",
+                "ru": "Он активно использует кэширование, поэтому последующие сборки повторно используют все предыдущие результаты"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 4,
+          "name": {
+            "en": "What is the main use case for Rollup compared to Webpack?",
+            "ru": "В чём главное преимущество использования Rollup по сравнению с Webpack?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "Rollup excels at building libraries because it produces clean, minimal bundles with excellent tree-shaking and native ES Module output. Webpack is better suited for bundling web applications with complex asset pipelines.",
+            "ru": "Rollup отлично подходит для сборки библиотек, поскольку создаёт чистые, минимальные бандлы с превосходным tree-shaking и нативным выводом ES Module. Webpack больше подходит для сборки веб-приложений со сложными пайплайнами ресурсов."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "Building large web applications with complex routing",
+                "ru": "Сборка крупных веб-приложений со сложной маршрутизацией"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Building libraries with clean, minimal ES Module output",
+                "ru": "Сборка библиотек с чистым, минимальным выводом ES Module"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "Providing a development server with HMR",
+                "ru": "Предоставление сервера разработки с HMR"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Compiling TypeScript faster than `tsc`",
+                "ru": "Компиляция TypeScript быстрее, чем `tsc`"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 5,
+          "name": {
+            "en": "What is \"dependency pre-bundling\" in Vite and why does it happen?",
+            "ru": "Что такое «предварительная сборка зависимостей» в Vite и зачем она нужна?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "Vite pre-bundles `node_modules` dependencies using esbuild on first start. This converts CommonJS modules to ESM (so the browser can load them natively) and collapses modules with many internal imports into a single file, reducing the number of browser requests.",
+            "ru": "Vite предварительно собирает зависимости из `node_modules` с помощью esbuild при первом запуске. Это преобразует CommonJS-модули в ESM (чтобы браузер мог загружать их нативно) и объединяет модули с множеством внутренних импортов в один файл, сокращая количество запросов браузера."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "Vite compiles all source files to CommonJS before the dev server starts",
+                "ru": "Vite компилирует все исходные файлы в CommonJS перед запуском сервера разработки"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Vite bundles `node_modules` with esbuild to convert CJS to ESM and reduce browser requests",
+                "ru": "Vite собирает `node_modules` с помощью esbuild для конвертации CJS в ESM и сокращения запросов браузера"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "Vite generates a production bundle ahead of time to speed up the first page load",
+                "ru": "Vite заранее генерирует продакшн-бандл для ускорения первой загрузки страницы"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Vite downloads and caches all dependencies from a CDN",
+                "ru": "Vite загружает и кэширует все зависимости из CDN"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 6,
+          "name": {
+            "en": "Which of these tools is a zero-configuration bundler that infers configuration from project structure?",
+            "ru": "Какой из этих инструментов является бандлером с нулевой конфигурацией, определяющим настройки из структуры проекта?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "Parcel is designed as a zero-configuration bundler. It automatically detects the project entry, infers what transformations are needed based on file types, and requires no configuration file for most use cases.",
+            "ru": "Parcel разработан как бандлер с нулевой конфигурацией. Он автоматически определяет точку входа проекта, выводит необходимые преобразования на основе типов файлов и не требует конфигурационного файла для большинства случаев использования."
+          },
+          "answers": [
+            { "text": { "en": "Webpack", "ru": "Webpack" }, "isCorrect": false },
+            { "text": { "en": "Rollup", "ru": "Rollup" }, "isCorrect": false },
+            { "text": { "en": "Parcel", "ru": "Parcel" }, "isCorrect": true },
+            { "text": { "en": "esbuild", "ru": "esbuild" }, "isCorrect": false }
+          ]
+        },
+        {
+          "sortOrder": 7,
+          "name": {
+            "en": "What is Hot Module Replacement (HMR) and which Vite feature makes it particularly fast?",
+            "ru": "Что такое Hot Module Replacement (HMR) и какая особенность Vite делает его особенно быстрым?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "HMR updates only the changed module in the running application without a full page reload. Vite's HMR is fast because it operates over native ESM — only the changed module itself needs to be fetched, with no re-bundling required.",
+            "ru": "HMR обновляет только изменённый модуль в работающем приложении без полной перезагрузки страницы. HMR в Vite быстр, поскольку работает через нативный ESM — нужно запросить только изменённый модуль, не требуя повторной сборки."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "HMR reloads the entire page but skips CSS files",
+                "ru": "HMR перезагружает всю страницу, но пропускает CSS-файлы"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "HMR updates only the changed module; Vite's ESM approach means no re-bundling is needed",
+                "ru": "HMR обновляет только изменённый модуль; подход ESM в Vite означает отсутствие необходимости в повторной сборке"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "HMR sends the entire bundle over WebSockets on every change",
+                "ru": "HMR отправляет весь бандл через WebSockets при каждом изменении"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "HMR in Vite is powered by Webpack's HMR API for compatibility",
+                "ru": "HMR в Vite работает на основе HMR API Webpack для совместимости"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 8,
+          "name": {
+            "en": "What is Turbopack and what project introduced it?",
+            "ru": "Что такое Turbopack и в каком проекте он был представлен?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "Turbopack is a Rust-based bundler developed by Vercel and introduced as the successor to Webpack in Next.js 13. It uses incremental computation to only rebuild what changed, making it significantly faster than Webpack for large codebases.",
+            "ru": "Turbopack — это бандлер на основе Rust, разработанный Vercel и представленный как преемник Webpack в Next.js 13. Он использует инкрементальные вычисления для пересборки только изменившегося, что делает его значительно быстрее Webpack для больших кодовых баз."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "A Go-based bundler introduced by the Vite team",
+                "ru": "Бандлер на основе Go, представленный командой Vite"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "A Rust-based bundler by Vercel, introduced in Next.js 13",
+                "ru": "Бандлер на основе Rust от Vercel, представленный в Next.js 13"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "A Webpack plugin that enables parallel builds",
+                "ru": "Плагин Webpack, обеспечивающий параллельные сборки"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "An npm-based task runner similar to Grunt or Gulp",
+                "ru": "Таск-раннер на основе npm, похожий на Grunt или Gulp"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 9,
+          "name": {
+            "en": "In Vite, what file is used for configuration?",
+            "ru": "Какой файл используется для конфигурации в Vite?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "Vite reads its configuration from `vite.config.js` (or `vite.config.ts`). This file exports a configuration object created with the `defineConfig` helper, which provides TypeScript intellisense.",
+            "ru": "Vite считывает конфигурацию из `vite.config.js` (или `vite.config.ts`). Этот файл экспортирует объект конфигурации, созданный с помощью хелпера `defineConfig`, который обеспечивает поддержку TypeScript intellisense."
+          },
+          "answers": [
+            {
+              "text": { "en": "`webpack.config.js`", "ru": "`webpack.config.js`" },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "`vite.config.js` or `vite.config.ts`",
+                "ru": "`vite.config.js` или `vite.config.ts`"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": { "en": "`build.config.json`", "ru": "`build.config.json`" },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "`rollup.config.js`", "ru": "`rollup.config.js`" },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 10,
+          "name": {
+            "en": "What is a key limitation of Vite's native ESM dev server approach?",
+            "ru": "В чём ключевое ограничение подхода Vite с нативным ESM на сервере разработки?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "Because Vite serves each module as a separate ESM request, applications with many unbundled modules can experience slow initial loads (many sequential HTTP requests). This is why Vite pre-bundles `node_modules` and why very large numbers of source modules can still cause slow cold starts.",
+            "ru": "Поскольку Vite обслуживает каждый модуль как отдельный ESM-запрос, приложения с большим количеством несобранных модулей могут испытывать медленную начальную загрузку (много последовательных HTTP-запросов). Именно поэтому Vite предварительно собирает `node_modules`, и большое количество исходных модулей всё равно может приводить к медленному холодному старту."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "It only supports Vue.js projects",
+                "ru": "Он поддерживает только проекты Vue.js"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Many unbundled modules result in a large number of HTTP requests, slowing the initial load",
+                "ru": "Большое количество несобранных модулей приводит к множеству HTTP-запросов, замедляя начальную загрузку"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "It cannot handle CSS or static assets",
+                "ru": "Он не может обрабатывать CSS или статические ресурсы"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "It does not support TypeScript",
+                "ru": "Он не поддерживает TypeScript"
+              },
+              "isCorrect": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": {
+        "en": "Tree-shaking & Dead Code Elimination",
+        "ru": "Tree-shaking и устранение мёртвого кода"
+      },
+      "description": {
+        "en": "How tree-shaking works with ES Modules, side effects, and writing tree-shakeable libraries",
+        "ru": "Принцип работы tree-shaking с ES Modules, побочные эффекты и написание tree-shakeable библиотек"
+      },
+      "links": [
+        "https://webpack.js.org/guides/tree-shaking/",
+        "https://rollupjs.org/",
+        "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules"
+      ],
+      "questions": [
+        {
+          "sortOrder": 1,
+          "name": {
+            "en": "What is tree-shaking in the context of JavaScript bundlers?",
+            "ru": "Что такое tree-shaking в контексте JavaScript-бандлеров?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "Tree-shaking is a form of dead code elimination where the bundler statically analyzes the import/export graph and removes exported code that is never imported or used anywhere in the application.",
+            "ru": "Tree-shaking — это форма устранения мёртвого кода, при которой бандлер статически анализирует граф импортов/экспортов и удаляет экспортированный код, который нигде не импортируется и не используется в приложении."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "Removing unused CSS rules from stylesheets",
+                "ru": "Удаление неиспользуемых CSS-правил из таблиц стилей"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Statically analyzing the module graph and removing unused exports",
+                "ru": "Статический анализ графа модулей и удаление неиспользуемых экспортов"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "Splitting the bundle into smaller chunks for lazy loading",
+                "ru": "Разделение бандла на меньшие чанки для ленивой загрузки"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Compressing the bundle using gzip or Brotli",
+                "ru": "Сжатие бандла с использованием gzip или Brotli"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 2,
+          "name": {
+            "en": "Why does tree-shaking require ES Modules and not work with CommonJS?",
+            "ru": "Почему tree-shaking требует ES Modules и не работает с CommonJS?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "Tree-shaking relies on static analysis of the import/export graph. ES Module imports and exports are statically declared and cannot change at runtime. CommonJS `require()` is dynamic — it can be called anywhere and can use runtime values as paths — making static analysis impossible.",
+            "ru": "Tree-shaking основан на статическом анализе графа импортов/экспортов. Импорты и экспорты ES Module объявляются статически и не могут изменяться во время выполнения. `require()` в CommonJS является динамическим — его можно вызывать где угодно и использовать значения времени выполнения в качестве путей — что делает статический анализ невозможным."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "CommonJS modules are not supported by modern browsers",
+                "ru": "CommonJS-модули не поддерживаются современными браузерами"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "CommonJS `require()` is dynamic and prevents static analysis of the dependency graph",
+                "ru": "`require()` CommonJS является динамическим и препятствует статическому анализу графа зависимостей"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "CommonJS modules always export everything, so nothing can be eliminated",
+                "ru": "CommonJS-модули всегда экспортируют всё, поэтому ничто не может быть устранено"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Bundlers cannot parse CommonJS syntax",
+                "ru": "Бандлеры не могут разбирать синтаксис CommonJS"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 3,
+          "name": {
+            "en": "What does the `\"sideEffects\": false` field in `package.json` tell bundlers?",
+            "ru": "Что поле `\"sideEffects\": false` в `package.json` сообщает бандлерам?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "Setting `\"sideEffects\": false` tells bundlers that no files in the package have side effects (i.e., importing them only for their exports is safe). This allows the bundler to safely tree-shake any module in the package that has no used exports.",
+            "ru": "Установка `\"sideEffects\": false` сообщает бандлерам, что ни один файл в пакете не имеет побочных эффектов (то есть импортировать их только ради экспортов безопасно). Это позволяет бандлеру безопасно применять tree-shaking к любому модулю пакета без используемых экспортов."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "The package has no runtime dependencies",
+                "ru": "Пакет не имеет зависимостей времени выполнения"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "No files in the package have side effects, so unused modules can be safely tree-shaken",
+                "ru": "Ни один файл в пакете не имеет побочных эффектов, поэтому неиспользуемые модули можно безопасно удалить при tree-shaking"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "The package disables all polyfills",
+                "ru": "Пакет отключает все полифиллы"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "The package should not be imported with side effects syntax",
+                "ru": "Пакет не должен импортироваться с синтаксисом побочных эффектов"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 4,
+          "name": {
+            "en": "Which of the following is an example of a module side effect that prevents tree-shaking?",
+            "ru": "Какой из следующих примеров является побочным эффектом модуля, препятствующим tree-shaking?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "A side effect is code that runs when a module is imported regardless of whether any export is used. Modifying a global variable (`window.myLib = ...`) at module scope is a side effect — the bundler must keep the module even if no export is used.",
+            "ru": "Побочный эффект — это код, который выполняется при импорте модуля, независимо от того, используется ли какой-либо экспорт. Изменение глобальной переменной (`window.myLib = ...`) на уровне модуля является побочным эффектом — бандлер должен сохранить модуль, даже если ни один экспорт не используется."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "Exporting a pure function that takes arguments and returns a value",
+                "ru": "Экспорт чистой функции, принимающей аргументы и возвращающей значение"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Modifying `window.myLib` at the top level when the module is loaded",
+                "ru": "Изменение `window.myLib` на верхнем уровне при загрузке модуля"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "Using named exports instead of a default export",
+                "ru": "Использование именованных экспортов вместо экспорта по умолчанию"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Importing a utility function from another module",
+                "ru": "Импорт вспомогательной функции из другого модуля"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 5,
+          "name": {
+            "en": "If you import only `{ add }` from a utility library that also exports `subtract`, `multiply`, and `divide`, what happens with tree-shaking enabled?",
+            "ru": "Если вы импортируете только `{ add }` из библиотеки утилит, которая также экспортирует `subtract`, `multiply` и `divide`, что произойдёт при включённом tree-shaking?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "With tree-shaking, the bundler will include only `add` in the final bundle and eliminate `subtract`, `multiply`, and `divide` because they are exported but never imported anywhere in the application.",
+            "ru": "При tree-shaking бандлер включит в финальный бандл только `add` и удалит `subtract`, `multiply` и `divide`, поскольку они экспортируются, но нигде не импортируются в приложении."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "All four functions are included because they are in the same module",
+                "ru": "Все четыре функции включаются, потому что они находятся в одном модуле"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Only `add` is included; the other three functions are eliminated",
+                "ru": "Включается только `add`; остальные три функции удаляются"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "The bundler throws an error for unused exports",
+                "ru": "Бандлер выбрасывает ошибку для неиспользуемых экспортов"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "All functions are included because tree-shaking only works at the file level",
+                "ru": "Все функции включаются, потому что tree-shaking работает только на уровне файлов"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 6,
+          "name": {
+            "en": "What is scope hoisting (also called module concatenation) and how does it help?",
+            "ru": "Что такое подъём области видимости (scope hoisting или module concatenation) и как он помогает?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "Scope hoisting concatenates module code into a single scope instead of wrapping each module in a separate function. This reduces the bundle size and improves runtime performance by eliminating the overhead of module wrapper functions and enabling more minification opportunities.",
+            "ru": "Подъём области видимости объединяет код модулей в одну область видимости вместо оборачивания каждого модуля в отдельную функцию. Это уменьшает размер бандла и улучшает производительность во время выполнения, устраняя накладные расходы на функции-обёртки модулей и создавая больше возможностей для минификации."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "It moves all variable declarations to the top of the file for faster parsing",
+                "ru": "Оно перемещает все объявления переменных в начало файла для более быстрого разбора"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "It concatenates modules into a single scope to reduce bundle size and runtime overhead",
+                "ru": "Оно объединяет модули в одну область видимости для уменьшения размера бандла и накладных расходов во время выполнения"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "It moves async imports to the top of each file",
+                "ru": "Оно перемещает асинхронные импорты в начало каждого файла"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "It inlines small modules directly into the HTML",
+                "ru": "Оно встраивает небольшие модули непосредственно в HTML"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 7,
+          "name": {
+            "en": "Why might a library shipped only as CommonJS prevent effective tree-shaking in your application?",
+            "ru": "Почему библиотека, поставляемая только в формате CommonJS, может препятствовать эффективному tree-shaking в вашем приложении?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "Bundlers cannot statically analyze CommonJS modules. When a library only ships CommonJS, the entire library must be included in the bundle because the bundler cannot determine which parts are actually used. Libraries should also ship an ESM version (`\"module\"` or `\"exports\"` field) to enable tree-shaking.",
+            "ru": "Бандлеры не могут статически анализировать CommonJS-модули. Когда библиотека поставляется только в CommonJS, весь пакет должен быть включён в бандл, потому что бандлер не может определить, какие части фактически используются. Библиотеки должны также поставлять ESM-версию (поле `\"module\"` или `\"exports\"`), чтобы обеспечить tree-shaking."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "CommonJS libraries use more memory at runtime",
+                "ru": "CommonJS-библиотеки используют больше памяти во время выполнения"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Bundlers cannot statically analyze CJS, so the entire library is bundled even if only part is used",
+                "ru": "Бандлеры не могут статически анализировать CJS, поэтому вся библиотека включается в бандл, даже если используется только её часть"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "CommonJS libraries always include polyfills that bloat the bundle",
+                "ru": "CommonJS-библиотеки всегда включают полифиллы, раздувающие бандл"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "CJS exports are encrypted and cannot be read by bundlers",
+                "ru": "CJS-экспорты зашифрованы и не могут быть прочитаны бандлерами"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 8,
+          "name": {
+            "en": "What does the `/*#__PURE__*/` annotation do in JavaScript bundler pipelines?",
+            "ru": "Что делает аннотация `/*#__PURE__*/` в пайплайне JavaScript-бандлеров?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "`/*#__PURE__*/` is a hint to bundlers and minifiers that the annotated function call has no side effects. This allows the tool to eliminate the call if its result is unused, enabling tree-shaking of calls that would otherwise appear to have side effects.",
+            "ru": "`/*#__PURE__*/` — это подсказка для бандлеров и минификаторов о том, что аннотированный вызов функции не имеет побочных эффектов. Это позволяет инструменту устранить вызов, если его результат не используется, обеспечивая tree-shaking вызовов, которые в противном случае казались бы имеющими побочные эффекты."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "It marks the function as a pure virtual function in TypeScript",
+                "ru": "Оно помечает функцию как чисто виртуальную в TypeScript"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "It tells bundlers the call has no side effects and can be removed if unused",
+                "ru": "Оно сообщает бандлерам, что вызов не имеет побочных эффектов и может быть удалён, если не используется"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "It disables minification for the annotated expression",
+                "ru": "Оно отключает минификацию для аннотированного выражения"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "It marks the call for inclusion in the final bundle regardless of usage",
+                "ru": "Оно помечает вызов для включения в финальный бандл независимо от использования"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 9,
+          "name": {
+            "en": "Which of the following library authoring practices best enables tree-shaking for consumers?",
+            "ru": "Какая из следующих практик написания библиотек лучше всего обеспечивает tree-shaking для потребителей?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "Publishing an ESM build, using named exports (not a single default object), and setting `\"sideEffects\": false` in `package.json` are the key practices that allow consumers' bundlers to tree-shake the library effectively.",
+            "ru": "Публикация ESM-сборки, использование именованных экспортов (не единого объекта по умолчанию) и установка `\"sideEffects\": false` в `package.json` — ключевые практики, позволяющие бандлерам потребителей эффективно применять tree-shaking к библиотеке."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "Bundle everything into a single minified UMD file",
+                "ru": "Собрать всё в один минифицированный UMD-файл"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Publish an ESM build with named exports and set `\"sideEffects\": false`",
+                "ru": "Публиковать ESM-сборку с именованными экспортами и установить `\"sideEffects\": false`"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "Export a single default object containing all utilities",
+                "ru": "Экспортировать один объект по умолчанию, содержащий все утилиты"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Use dynamic `require()` to load sub-modules on demand",
+                "ru": "Использовать динамический `require()` для загрузки подмодулей по требованию"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 10,
+          "name": {
+            "en": "What happens to a module imported only for its side effects (e.g., `import './polyfill.js'`) during tree-shaking?",
+            "ru": "Что происходит с модулем, импортированным только ради побочных эффектов (например, `import './polyfill.js'`), при tree-shaking?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "Side-effect-only imports are preserved even during tree-shaking. The bundler keeps the module because its mere execution (the side effect) is the intent. This is why CSS imports, polyfill imports, and instrumentation imports work correctly when using tree-shaking.",
+            "ru": "Импорты только ради побочных эффектов сохраняются даже при tree-shaking. Бандлер сохраняет модуль, поскольку само его выполнение (побочный эффект) является намерением. Именно поэтому импорты CSS, полифиллов и инструментов мониторинга работают корректно при использовании tree-shaking."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "The module is removed because no export is used",
+                "ru": "Модуль удаляется, потому что ни один экспорт не используется"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "The module is kept because its execution (the side effect) is the intent",
+                "ru": "Модуль сохраняется, потому что его выполнение (побочный эффект) является намерением"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "The bundler throws an error for imports with no used exports",
+                "ru": "Бандлер выбрасывает ошибку для импортов без используемых экспортов"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "The module is inlined directly at the import site",
+                "ru": "Модуль встраивается непосредственно в место импорта"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 11,
+          "name": {
+            "en": "How does Webpack determine whether a module has side effects when `\"sideEffects\"` is not specified in `package.json`?",
+            "ru": "Как Webpack определяет, есть ли у модуля побочные эффекты, если `\"sideEffects\"` не указан в `package.json`?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "If `\"sideEffects\"` is not specified, Webpack assumes all modules could potentially have side effects and will not tree-shake them. This is the conservative default. Explicitly setting `\"sideEffects\": false` (or an array of files that do have side effects) opts the package into aggressive tree-shaking.",
+            "ru": "Если `\"sideEffects\"` не указан, Webpack предполагает, что все модули потенциально могут иметь побочные эффекты, и не применяет к ним tree-shaking. Это консервативное значение по умолчанию. Явная установка `\"sideEffects\": false` (или массива файлов с побочными эффектами) включает агрессивный tree-shaking для пакета."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "Webpack statically analyzes every line of code for potential side effects",
+                "ru": "Webpack статически анализирует каждую строку кода на наличие потенциальных побочных эффектов"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Webpack assumes all modules may have side effects and keeps them all",
+                "ru": "Webpack предполагает, что все модули могут иметь побочные эффекты, и сохраняет их все"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "Webpack removes all unused exports by default regardless of side effects",
+                "ru": "Webpack удаляет все неиспользуемые экспорты по умолчанию, независимо от побочных эффектов"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Webpack asks the user at build time which files have side effects",
+                "ru": "Webpack спрашивает пользователя во время сборки, какие файлы имеют побочные эффекты"
+              },
+              "isCorrect": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": { "en": "Transpilation & Polyfilling", "ru": "Транспиляция и полифилинг" },
+      "description": {
+        "en": "Babel, SWC, TypeScript compilation, browserslist targets, and the difference between transpiling and polyfilling",
+        "ru": "Babel, SWC, компиляция TypeScript, browserslist-таргеты и разница между транспиляцией и полифилингом"
+      },
+      "links": [
+        "https://babeljs.io/docs/",
+        "https://babeljs.io/docs/presets",
+        "https://github.com/zloirock/core-js",
+        "https://github.com/browserslist/browserslist"
+      ],
+      "questions": [
+        {
+          "sortOrder": 1,
+          "name": {
+            "en": "What is the difference between transpilation and polyfilling?",
+            "ru": "В чём разница между транспиляцией и полифилингом?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "Transpilation converts new syntax (e.g., arrow functions, `class`) into older equivalent syntax that older engines understand. Polyfilling provides runtime implementations of new built-in APIs (e.g., `Promise`, `Array.from`) that are missing in older environments.",
+            "ru": "Транспиляция преобразует новый синтаксис (например, стрелочные функции, `class`) в более старый эквивалентный синтаксис, понятный старым движкам. Полифилинг предоставляет реализации новых встроенных API (например, `Promise`, `Array.from`) для времени выполнения, которые отсутствуют в старых средах."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "They are the same thing — both add missing syntax support",
+                "ru": "Это одно и то же — оба добавляют поддержку отсутствующего синтаксиса"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Transpilation converts syntax; polyfilling provides runtime implementations of missing APIs",
+                "ru": "Транспиляция преобразует синтаксис; полифилинг предоставляет реализации отсутствующих API для времени выполнения"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "Transpilation adds new APIs; polyfilling converts syntax",
+                "ru": "Транспиляция добавляет новые API; полифилинг преобразует синтаксис"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Transpilation is for TypeScript; polyfilling is for JavaScript",
+                "ru": "Транспиляция предназначена для TypeScript; полифилинг — для JavaScript"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 2,
+          "name": {
+            "en": "What is Babel primarily used for?",
+            "ru": "Для чего в первую очередь используется Babel?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "Babel is a JavaScript transpiler that converts modern JavaScript (ES2015+) syntax into backwards-compatible JavaScript that can run in older browsers or environments. It uses plugins and presets to determine which transformations to apply.",
+            "ru": "Babel — это транспилятор JavaScript, который преобразует современный синтаксис JavaScript (ES2015+) в обратно совместимый JavaScript, способный работать в старых браузерах или средах. Для определения применяемых преобразований он использует плагины и пресеты."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "Type-checking TypeScript code before bundling",
+                "ru": "Проверка типов TypeScript-кода перед сборкой"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Transpiling modern JavaScript syntax to backwards-compatible JavaScript",
+                "ru": "Транспиляция современного синтаксиса JavaScript в обратно совместимый JavaScript"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "Minifying and compressing JavaScript for production",
+                "ru": "Минификация и сжатие JavaScript для продакшна"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Bundling multiple JavaScript files into a single file",
+                "ru": "Объединение нескольких JavaScript-файлов в один файл"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 3,
+          "name": {
+            "en": "What is a Babel preset?",
+            "ru": "Что такое пресет Babel?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "A Babel preset is a pre-configured collection of plugins. For example, `@babel/preset-env` includes all plugins needed to transform modern JavaScript syntax based on target environments, so you don't need to configure each plugin individually.",
+            "ru": "Пресет Babel — это заранее настроенная коллекция плагинов. Например, `@babel/preset-env` включает все плагины, необходимые для преобразования современного синтаксиса JavaScript в зависимости от целевых сред, поэтому вам не нужно настраивать каждый плагин отдельно."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "A configuration file that sets Babel's output directory",
+                "ru": "Конфигурационный файл, задающий выходную директорию Babel"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "A pre-configured collection of Babel plugins",
+                "ru": "Заранее настроенная коллекция плагинов Babel"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "A set of polyfills added to the output bundle",
+                "ru": "Набор полифиллов, добавляемых в выходной бандл"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "A browser compatibility database used by Babel",
+                "ru": "База данных совместимости браузеров, используемая Babel"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 4,
+          "name": {
+            "en": "What is the purpose of `browserslist` in a frontend project?",
+            "ru": "Для чего используется `browserslist` в фронтенд-проекте?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "`browserslist` defines a list of target browsers and Node.js versions for the project. Tools like Babel (`@babel/preset-env`), PostCSS Autoprefixer, and ESLint use this to determine what transformations and prefixes are necessary.",
+            "ru": "`browserslist` определяет список целевых браузеров и версий Node.js для проекта. Такие инструменты, как Babel (`@babel/preset-env`), PostCSS Autoprefixer и ESLint, используют его для определения необходимых преобразований и префиксов."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "It specifies which browsers the app will block from accessing the site",
+                "ru": "Оно указывает, каким браузерам будет закрыт доступ к сайту"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "It defines target browsers so tools know what transformations are needed",
+                "ru": "Оно определяет целевые браузеры, чтобы инструменты знали, какие преобразования необходимы"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "It downloads polyfills for each listed browser at build time",
+                "ru": "Оно загружает полифиллы для каждого указанного браузера во время сборки"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "It generates a compatibility table in the project documentation",
+                "ru": "Оно генерирует таблицу совместимости в документации проекта"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 5,
+          "name": {
+            "en": "How does SWC differ from Babel?",
+            "ru": "Чем SWC отличается от Babel?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "SWC (Speedy Web Compiler) is a Rust-based JavaScript/TypeScript transpiler that performs the same task as Babel but is significantly faster — often 20–70x faster — because it compiles to native code and runs in parallel. It is used by Next.js and Vite as a drop-in Babel replacement.",
+            "ru": "SWC (Speedy Web Compiler) — это транспилятор JavaScript/TypeScript на основе Rust, выполняющий те же задачи, что и Babel, но значительно быстрее — зачастую в 20–70 раз — поскольку компилируется в нативный код и работает параллельно. Используется в Next.js и Vite как замена Babel."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "SWC is a Webpack plugin; Babel is a standalone transpiler",
+                "ru": "SWC — это плагин Webpack; Babel — автономный транспилятор"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "SWC is Rust-based and much faster than Babel; both transpile JS/TS",
+                "ru": "SWC основан на Rust и намного быстрее Babel; оба транспилируют JS/TS"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "SWC only supports TypeScript while Babel only supports JavaScript",
+                "ru": "SWC поддерживает только TypeScript, тогда как Babel — только JavaScript"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "SWC generates smaller output files than Babel",
+                "ru": "SWC генерирует файлы меньшего размера, чем Babel"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 6,
+          "name": {
+            "en": "What does TypeScript's `tsc` compiler do that Babel and SWC do not when processing TypeScript files?",
+            "ru": "Что делает компилятор TypeScript `tsc`, чего не делают Babel и SWC при обработке TypeScript-файлов?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "`tsc` performs full type checking and reports type errors. Babel and SWC strip TypeScript types at transpile time without running the type checker — they only transform syntax. This makes them faster but means they won't catch type errors.",
+            "ru": "`tsc` выполняет полную проверку типов и сообщает об ошибках типов. Babel и SWC удаляют типы TypeScript во время транспиляции без запуска проверки типов — они только преобразуют синтаксис. Это делает их быстрее, но означает, что они не обнаруживают ошибки типов."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "It produces smaller output because it minifies the code",
+                "ru": "Он производит вывод меньшего размера, поскольку минифицирует код"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "It performs full type checking and reports type errors",
+                "ru": "Он выполняет полную проверку типов и сообщает об ошибках типов"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "It generates source maps while Babel and SWC do not",
+                "ru": "Он генерирует карты источников, тогда как Babel и SWC — нет"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "It compiles to WebAssembly instead of JavaScript",
+                "ru": "Он компилирует в WebAssembly вместо JavaScript"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 7,
+          "name": {
+            "en": "What does `core-js` provide in a Babel setup?",
+            "ru": "Что предоставляет `core-js` в связке с Babel?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "`core-js` is a polyfill library for JavaScript built-ins. When used with `@babel/preset-env` and `useBuiltIns: 'usage'` or `'entry'`, Babel automatically injects only the polyfills needed for the target browsers, keeping the bundle size minimal.",
+            "ru": "`core-js` — это библиотека полифиллов для встроенных объектов JavaScript. При использовании с `@babel/preset-env` и `useBuiltIns: 'usage'` или `'entry'`, Babel автоматически внедряет только те полифиллы, которые необходимы для целевых браузеров, сохраняя минимальный размер бандла."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "A collection of Babel syntax transformation plugins",
+                "ru": "Набор плагинов синтаксических преобразований Babel"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Polyfills for JavaScript built-in APIs for older browser targets",
+                "ru": "Полифиллы для встроенных API JavaScript для старых целевых браузеров"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "The Babel compiler core runtime",
+                "ru": "Ядро среды выполнения компилятора Babel"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "TypeScript type definitions for the browser APIs",
+                "ru": "Определения типов TypeScript для API браузера"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 8,
+          "name": {
+            "en": "What is the difference between `useBuiltIns: 'usage'` and `useBuiltIns: 'entry'` in `@babel/preset-env`?",
+            "ru": "В чём разница между `useBuiltIns: 'usage'` и `useBuiltIns: 'entry'` в `@babel/preset-env`?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "`usage` automatically adds polyfills only for features actually used in each file. `entry` replaces a single `import 'core-js'` statement with all polyfills required by the target browsers, regardless of what the code actually uses. `usage` produces smaller bundles.",
+            "ru": "`usage` автоматически добавляет полифиллы только для функций, фактически используемых в каждом файле. `entry` заменяет единственный оператор `import 'core-js'` всеми полифиллами, необходимыми для целевых браузеров, независимо от того, что фактически использует код. `usage` производит бандлы меньшего размера."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "`entry` adds polyfills per file; `usage` adds them at the entry point only",
+                "ru": "`entry` добавляет полифиллы для каждого файла; `usage` добавляет их только в точке входа"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "`usage` adds only needed polyfills per file; `entry` adds all target-browser polyfills at the entry point",
+                "ru": "`usage` добавляет только необходимые полифиллы для каждого файла; `entry` добавляет все полифиллы целевых браузеров в точке входа"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "They are equivalent; the difference is only in naming convention",
+                "ru": "Они эквивалентны; разница только в соглашении об именовании"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "`entry` is deprecated and should not be used in new projects",
+                "ru": "`entry` устарел и не должен использоваться в новых проектах"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 9,
+          "name": {
+            "en": "What is the `tsconfig.json` `target` option used for in TypeScript compilation?",
+            "ru": "Для чего используется параметр `target` в `tsconfig.json` при компиляции TypeScript?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "The `target` option specifies which ECMAScript version the TypeScript compiler should output. For example, `target: 'ES2017'` will downlevel async/await to Promises, while `target: 'ES2022'` will emit them as-is. It controls syntax transformations but not polyfills.",
+            "ru": "Параметр `target` указывает, в какую версию ECMAScript должен выводить компилятор TypeScript. Например, `target: 'ES2017'` преобразует async/await в Promises, тогда как `target: 'ES2022'` оставит их как есть. Он управляет синтаксическими преобразованиями, но не полифиллами."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "It specifies which browsers should be able to run the compiled output",
+                "ru": "Оно указывает, в каких браузерах должен работать скомпилированный вывод"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "It specifies the ECMAScript version for the compiler's output syntax",
+                "ru": "Оно указывает версию ECMAScript для синтаксиса вывода компилятора"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "It sets which TypeScript version to use for compilation",
+                "ru": "Оно задаёт версию TypeScript для компиляции"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "It defines the output directory for compiled files",
+                "ru": "Оно определяет выходную директорию для скомпилированных файлов"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 10,
+          "name": {
+            "en": "Which of the following features requires a polyfill rather than just transpilation to support in older browsers?",
+            "ru": "Какая из следующих возможностей требует полифилла, а не просто транспиляции, для поддержки в старых браузерах?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "`Promise` is a runtime API that does not exist in very old browsers (e.g., IE11). It cannot be emulated through syntax transformation alone — it requires a polyfill that provides a working `Promise` implementation. Arrow functions and `class`, by contrast, are just syntax and can be transpiled.",
+            "ru": "`Promise` — это API времени выполнения, которого не существует в очень старых браузерах (например, IE11). Его нельзя эмулировать только синтаксическими преобразованиями — требуется полифилл, предоставляющий рабочую реализацию `Promise`. Стрелочные функции и `class`, напротив, являются лишь синтаксисом и могут быть транспилированы."
+          },
+          "answers": [
+            { "text": { "en": "Arrow functions", "ru": "Стрелочные функции" }, "isCorrect": false },
+            { "text": { "en": "`Promise`", "ru": "`Promise`" }, "isCorrect": true },
+            {
+              "text": { "en": "Template literals", "ru": "Шаблонные строки (template literals)" },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "Destructuring assignment", "ru": "Деструктурирующее присваивание" },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 11,
+          "name": {
+            "en": "What is the role of `@babel/plugin-transform-runtime` in a Babel configuration?",
+            "ru": "Какова роль `@babel/plugin-transform-runtime` в конфигурации Babel?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "`@babel/plugin-transform-runtime` replaces inline Babel helper functions (which would be duplicated in every file) with imports from `@babel/runtime`, reducing overall bundle size. It also optionally provides corejs polyfills without polluting the global scope.",
+            "ru": "`@babel/plugin-transform-runtime` заменяет встроенные вспомогательные функции Babel (которые дублировались бы в каждом файле) импортами из `@babel/runtime`, уменьшая общий размер бандла. Он также опционально предоставляет полифиллы corejs без загрязнения глобальной области видимости."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "It enables runtime type checking for Babel transformations",
+                "ru": "Оно включает проверку типов во время выполнения для преобразований Babel"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "It replaces duplicated Babel helpers with shared imports from `@babel/runtime`, reducing bundle size",
+                "ru": "Оно заменяет дублированные вспомогательные функции Babel общими импортами из `@babel/runtime`, уменьшая размер бандла"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "It allows Babel to run transformations at runtime in the browser",
+                "ru": "Оно позволяет Babel выполнять преобразования во время выполнения в браузере"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "It generates a runtime configuration file for each target browser",
+                "ru": "Оно генерирует конфигурационный файл времени выполнения для каждого целевого браузера"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 12,
+          "name": {
+            "en": "When TypeScript is used with `isolatedModules: true` in `tsconfig.json`, what restriction does it impose?",
+            "ru": "Какое ограничение накладывает `isolatedModules: true` в `tsconfig.json` при использовании TypeScript?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "`isolatedModules: true` requires each file to be compilable in isolation without knowledge of other files. This means you cannot use `const enum` or namespace-style re-exports, and all type imports must use `import type`. This mode is required when using Babel or SWC to strip types, as they process files one at a time.",
+            "ru": "`isolatedModules: true` требует, чтобы каждый файл мог компилироваться изолированно без знания других файлов. Это означает запрет на использование `const enum` и реэкспортов в стиле пространства имён, а все импорты типов должны использовать `import type`. Этот режим необходим при использовании Babel или SWC для удаления типов, поскольку они обрабатывают файлы по одному."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "Each file must export at least one symbol",
+                "ru": "Каждый файл должен экспортировать хотя бы один символ"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Each file must be compilable in isolation; `const enum` and certain re-exports are forbidden",
+                "ru": "Каждый файл должен компилироваться изолированно; `const enum` и определённые реэкспорты запрещены"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "Type checking is disabled and types are ignored entirely",
+                "ru": "Проверка типов отключена и типы полностью игнорируются"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "All imports must use absolute paths instead of relative paths",
+                "ru": "Все импорты должны использовать абсолютные пути вместо относительных"
+              },
+              "isCorrect": false
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

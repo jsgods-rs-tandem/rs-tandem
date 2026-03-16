@@ -36,6 +36,9 @@ COPY --from=builder /app/packages/backend/dist ./packages/backend/dist
 # SQL migration files (read at runtime by node-pg-migrate)
 COPY packages/backend/src/migrations ./packages/backend/src/migrations
 
+# Quiz content JSON files (read at runtime by seed-content script)
+COPY packages/backend/src/quiz-content ./packages/backend/src/quiz-content
+
 # Shared TS source (needed for workspace symlink resolution; types are erased at runtime)
 COPY packages/shared/src ./packages/shared/src
 
@@ -44,4 +47,4 @@ ENV NODE_ENV=production
 EXPOSE 3000
 
 # Run migrations then start the server
-CMD sh -c "npm run migrate:up -w @rs-tandem/backend && exec node packages/backend/dist/backend/src/main.js"
+CMD sh -c "npm run migrate:up -w @rs-tandem/backend && QUIZ_CONTENT_DIR=/app/packages/backend/src/quiz-content node packages/backend/dist/backend/src/scripts/seed-content.js && exec node packages/backend/dist/backend/src/main.js"
