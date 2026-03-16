@@ -1,6 +1,6 @@
 import { Component, input } from '@angular/core';
-import { ButtonComponent } from '../button/button.component';
-import { IconName } from '../icon/Icon.types';
+import { ButtonComponent } from '../../button/button.component';
+import { IconName } from '../../icon/Icon.types';
 
 @Component({
   selector: 'app-team-member-card',

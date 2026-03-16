@@ -23,6 +23,11 @@
 
   @include m.transition((background-color, transform, box-shadow, border-color, opacity));
 
+  &:focus-visible {
+    outline: var(--button-border);
+    outline-offset: 1px;
+  }
+
   ::ng-deep .icon {
     @include m.transition(color);
   }
@@ -46,6 +51,12 @@
   &__spin {
     @extend %position-center;
     display: none;
+  }
+
+  &_logo {
+    &:hover {
+      opacity: 0.5;
+    }
   }
 
   &_primary {
@@ -76,7 +87,6 @@
 
   &_ghost,
   &_ghost_brand {
-    padding: var(--spacing-x1);
     color: var(--secondary-color);
 
     #{$this}__wrapper {
@@ -91,11 +101,6 @@
       .button__text {
         border-bottom-color: var(--secondary-color);
       }
-    }
-
-    &:focus-visible {
-      outline: var(--button-border);
-      outline-offset: 2px;
     }
   }
 

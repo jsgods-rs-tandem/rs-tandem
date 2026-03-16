@@ -1,0 +1,12 @@
+@use 'assets/styles/mixins' as m;
+
+:host {
+  @include m.full-page-section;
+}
+
+.team {
+  &__board {
+    display: block;
+    margin: var(--spacing-x6) 0;
+  }
+}

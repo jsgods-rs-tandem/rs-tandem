@@ -1,3 +1,5 @@
+@use 'assets/styles/mixins' as m;
+
 :host {
   overflow-y: auto;
   display: block;
@@ -9,18 +11,7 @@
   border: 1px solid var(--secondary-color);
   border-radius: var(--radius-md);
 
-  &::-webkit-scrollbar {
-    width: 6px;
-  }
-
-  &::-webkit-scrollbar-track {
-    background: transparent;
-  }
-
-  &::-webkit-scrollbar-thumb {
-    border-radius: var(--radius-md);
-    background: var(--secondary-color);
-  }
+  @include m.set-scrollbar(6);
 }
 
 .user-message-row {
@@ -75,19 +66,7 @@
 
     background-color: var(--code-bg-color);
 
-    &::-webkit-scrollbar {
-      width: 6px;
-      height: 6px;
-    }
-
-    &::-webkit-scrollbar-track {
-      background: transparent;
-    }
-
-    &::-webkit-scrollbar-thumb {
-      border-radius: var(--radius-md);
-      background: var(--secondary-color);
-    }
+    @include m.set-scrollbar(6);
   }
 
   ::ng-deep code {

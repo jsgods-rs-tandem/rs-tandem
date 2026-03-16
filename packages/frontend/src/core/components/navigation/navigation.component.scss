@@ -6,9 +6,10 @@
 .nav__container {
   display: flex;
   flex-direction: column;
-  gap: var(--spacing-x6);
+  gap: var(--spacing-x7);
   align-items: flex-start;
   justify-content: center;
 
   height: 100%;
+  margin-left: var(--spacing-x1);
 }

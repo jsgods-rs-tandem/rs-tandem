@@ -1,3 +1,5 @@
+@use 'assets/styles/mixins' as m;
+
 .form {
   display: flex;
   align-items: center;
@@ -25,18 +27,7 @@
 
   background-color: inherit;
 
-  &::-webkit-scrollbar {
-    width: 6px;
-  }
-
-  &::-webkit-scrollbar-track {
-    background: transparent;
-  }
-
-  &::-webkit-scrollbar-thumb {
-    border-radius: var(--radius-md);
-    background: var(--secondary-color);
-  }
+  @include m.set-scrollbar(6);
 
   &:focus {
     outline: none;

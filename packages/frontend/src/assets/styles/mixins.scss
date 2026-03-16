@@ -3,6 +3,8 @@
 @use 'sass:map';
 @use './variables' as vars;
 
+$scrollbar-floating-threshold: 12;
+
 @mixin media($device-size) {
   $breakpoint: map.get(vars.$grid-breakpoints, $device-size) - 1;
 
@@ -52,6 +54,29 @@
 
   &::-webkit-scrollbar {
     display: none;
+  }
+}
+
+@mixin set-scrollbar($width: 8) {
+  $width-px: $width * 1px;
+
+  &::-webkit-scrollbar {
+    width: $width-px;
+    height: $width-px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    border-radius: var(--radius-md);
+    background: var(--secondary-color);
+
+    @if $width > $scrollbar-floating-threshold {
+      border: 1px solid transparent;
+      background-clip: content-box;
+    }
   }
 }
 

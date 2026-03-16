@@ -73,6 +73,7 @@ html {
   @media (pointer: coarse) {
     scrollbar-gutter: auto;
   }
+  @include m.set-scrollbar(16);
 }
 
 body {

@@ -13,6 +13,7 @@ type IconName =
   | 'minus'
   | 'moon'
   | 'plus'
+  | 'rs'
   | 'sun';
 type IconSize = 'm' | 'l';
 type IconColor = 'neutral' | 'brand' | 'secondary';
