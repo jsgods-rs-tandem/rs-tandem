@@ -1,4 +1,6 @@
-<app-layout [loading]="quizService.loading().categories">
+@let loading = quizService.loading();
+
+<app-layout [loading]="loading.categories || loading.category">
   <header class="categories-page__header">
     <h1 class="h2">Quiz</h1>
   </header>

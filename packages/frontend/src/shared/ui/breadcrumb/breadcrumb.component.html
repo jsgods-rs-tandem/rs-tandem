@@ -2,7 +2,7 @@
 @let isSingleBreadcrumb = crumbs.length === 1;
 
 <!-- We hide breadcrumb if depth is only one level, preserving the location in the markup -->
-<nav [class.breadcrumb_hidden]="isSingleBreadcrumb" aria-label="Breadcrumb">
+<nav class="breadcrumb" [class.breadcrumb_hidden]="isSingleBreadcrumb" aria-label="Breadcrumb">
   <ol class="breadcrumb__list">
     @for (breadcrumb of crumbs; track breadcrumb.url; let last = $last) {
       <li class="breadcrumb__list-item">

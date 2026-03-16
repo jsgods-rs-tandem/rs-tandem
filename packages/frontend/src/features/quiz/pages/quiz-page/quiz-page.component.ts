@@ -82,7 +82,10 @@ export class QuizPageComponent implements OnInit {
   ngOnInit(): void {
     const topicId = this.topicId();
 
-    this.quizService.getTopic(topicId);
+    if (this.quizService.topic()?.id !== topicId) {
+      this.quizService.getTopic(topicId);
+    }
+
     this.quizService.startTopic(topicId);
   }
 
