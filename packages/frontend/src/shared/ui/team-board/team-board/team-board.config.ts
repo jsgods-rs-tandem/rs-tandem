@@ -1,4 +1,4 @@
-import { TeamMember } from '@/shared/types/team-member.type';
+import { TeamMember } from '@/shared/types';
 
 export const TEAM_MEMBERS: TeamMember[] = [
   {

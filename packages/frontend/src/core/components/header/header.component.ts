@@ -59,7 +59,7 @@ export class HeaderComponent {
     this.themeService.toggleTheme();
   }
 
-  handleLogout() {
+  handleLogout(): void {
     this.authService.logout();
     void this.router.navigate([ROUTE_PATHS.home]);
   }
