@@ -28,3 +28,12 @@
     <app-button type="submit" text="Sign In" />
   </form>
 </app-auth-page>
+
+@if (isErrorModalOpen()) {
+  <app-modal
+    title="Login Error"
+    message="Invalid email or password. Please check your credentials and try again."
+    icon="info-outline"
+    (closed)="isErrorModalOpen.set(false)"
+  />
+}

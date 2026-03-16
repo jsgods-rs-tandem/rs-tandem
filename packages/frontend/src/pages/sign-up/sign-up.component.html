@@ -38,3 +38,12 @@
     <app-button type="submit" text="Sign Up" />
   </form>
 </app-auth-page>
+
+@if (isErrorModalOpen()) {
+  <app-modal
+    title="Registration Error"
+    message="Failed to create an account. Please try again later or use a different email."
+    icon="info-outline"
+    (closed)="isErrorModalOpen.set(false)"
+  />
+}
