@@ -13,7 +13,10 @@
         "en": "The Document Object Model: querying, creating, and modifying elements programmatically",
         "ru": "Document Object Model: поиск, создание и изменение элементов программным способом"
       },
-      "links": [],
+      "links": [
+        "https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model",
+        "https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Scripting/DOM_scripting"
+      ],
       "questions": []
     },
     {
@@ -22,7 +25,10 @@
         "en": "Event types, propagation phases (capture/bubble), delegation, timers, and preventing default behavior",
         "ru": "Типы событий, фазы распространения (захват/всплытие), делегирование, таймеры и предотвращение действий по умолчанию"
       },
-      "links": [],
+      "links": [
+        "https://developer.mozilla.org/en-US/docs/Web/API/Event",
+        "https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Scripting/Events"
+      ],
       "questions": []
     },
     {
@@ -31,7 +37,7 @@
         "en": "Drawing 2D graphics, animations, and image manipulation using the HTML Canvas API",
         "ru": "Рисование 2D-графики, анимаций и работа с изображениями через HTML Canvas API"
       },
-      "links": [],
+      "links": ["https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API"],
       "questions": []
     },
     {
@@ -40,7 +46,7 @@
         "en": "Using Chrome DevTools for debugging, performance profiling, and network inspection",
         "ru": "Использование Chrome DevTools для отладки, профилирования производительности и анализа сети"
       },
-      "links": [],
+      "links": ["https://developer.chrome.com/docs/devtools"],
       "questions": []
     },
     {
@@ -49,7 +55,7 @@
         "en": "Client-side storage: localStorage, sessionStorage, and cookies — differences and use cases",
         "ru": "Хранилище на стороне клиента: localStorage, sessionStorage и cookies — отличия и случаи применения"
       },
-      "links": [],
+      "links": ["https://developer.mozilla.org/en-US/docs/Web/API/Web_Storage_API"],
       "questions": []
     },
     {
@@ -58,7 +64,10 @@
         "en": "The JavaScript event loop, call stack, task queues, microtasks, and requestAnimationFrame",
         "ru": "Цикл событий JavaScript, стек вызовов, очереди задач, микрозадачи и requestAnimationFrame"
       },
-      "links": [],
+      "links": [
+        "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/EventLoop",
+        "https://developer.mozilla.org/en-US/docs/Web/API/window/requestAnimationFrame"
+      ],
       "questions": []
     },
     {
@@ -67,7 +76,7 @@
         "en": "Full-duplex browser-server communication using the WebSocket protocol",
         "ru": "Полнодуплексная коммуникация между браузером и сервером с использованием протокола WebSocket"
       },
-      "links": [],
+      "links": ["https://developer.mozilla.org/en-US/docs/Web/API/WebSocket"],
       "questions": []
     }
   ]

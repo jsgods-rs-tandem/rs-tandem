@@ -13,7 +13,10 @@
         "en": "Basic types, enums, interfaces vs type aliases, optional/readonly properties, and function types",
         "ru": "Базовые типы, перечисления, interface vs type, необязательные и readonly свойства, типы функций"
       },
-      "links": [],
+      "links": [
+        "https://www.typescriptlang.org/docs/",
+        "https://www.typescriptlang.org/docs/handbook/2/basic-types.html"
+      ],
       "questions": [
         {
           "sortOrder": 1,
@@ -518,7 +521,10 @@
         "en": "Generics, utility types (Partial, Record, Pick, Omit), type guards, declaration merging, and module system",
         "ru": "Дженерики, утилитарные типы (Partial, Record, Pick, Omit), type guards, слияние объявлений и модульная система"
       },
-      "links": [],
+      "links": [
+        "https://www.typescriptlang.org/docs/handbook/2/generics.html",
+        "https://www.typescriptlang.org/docs/handbook/2/utility-types.html"
+      ],
       "questions": [
         {
           "sortOrder": 1,

@@ -13,7 +13,7 @@
         "en": "ESLint, Prettier, and enforcing code standards with Git hooks via Husky and lint-staged",
         "ru": "ESLint, Prettier и обеспечение стандартов кода с помощью Git-хуков через Husky и lint-staged"
       },
-      "links": [],
+      "links": ["https://eslint.org/", "https://prettier.io/", "https://typicode.github.io/husky/"],
       "questions": []
     },
     {
@@ -22,7 +22,10 @@
         "en": "Best practices for giving and receiving code review feedback in a collaborative team",
         "ru": "Лучшие практики проведения и получения обратной связи в процессе code review в команде"
       },
-      "links": [],
+      "links": [
+        "https://google.github.io/eng-practices/review/reviewer/",
+        "https://github.com/features/code-review"
+      ],
       "questions": []
     },
     {
@@ -31,7 +34,10 @@
         "en": "Writing readable, maintainable code: naming, functions, comments, and refactoring principles",
         "ru": "Написание читаемого, поддерживаемого кода: именование, функции, комментарии и принципы рефакторинга"
       },
-      "links": [],
+      "links": [
+        "https://github.com/ryanmcdermott/clean-code-javascript",
+        "https://refactoring.guru/refactoring"
+      ],
       "questions": []
     },
     {
@@ -40,7 +46,7 @@
         "en": "Test pyramid, unit/integration/E2E tests, TDD, BDD, and performance testing concepts",
         "ru": "Пирамида тестирования, модульные/интеграционные/E2E тесты, TDD, BDD и концепции нагрузочного тестирования"
       },
-      "links": [],
+      "links": ["https://testing-library.com/", "https://jestjs.io/docs"],
       "questions": []
     },
     {
@@ -49,7 +55,7 @@
         "en": "Continuous integration and continuous delivery pipelines, automation, and deployment strategies",
         "ru": "Конвейеры непрерывной интеграции и доставки, автоматизация и стратегии развёртывания"
       },
-      "links": [],
+      "links": ["https://github.com/features/actions", "https://docs.gitlab.com/ee/ci/"],
       "questions": []
     },
     {
@@ -58,7 +64,7 @@
         "en": "Agile, Scrum sprints and ceremonies, Kanban flow with WIP limits, and Waterfall comparison",
         "ru": "Agile, спринты и церемонии Scrum, поток Kanban с WIP-лимитами и сравнение с Waterfall"
       },
-      "links": [],
+      "links": ["https://www.scrum.org/", "https://kanban.university/"],
       "questions": []
     }
   ]

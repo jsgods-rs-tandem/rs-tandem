@@ -13,7 +13,11 @@
         "en": "Fundamental HTML concepts: document structure, semantic elements, and accessibility",
         "ru": "Основы HTML: структура документа, семантические элементы и доступность"
       },
-      "links": [],
+      "links": [
+        "https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML",
+        "https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Structuring_content",
+        "https://www.w3schools.com/html/html_intro.asp"
+      ],
       "questions": []
     },
     {
@@ -22,8 +26,11 @@
         "en": "Core CSS concepts: selectors, the cascade, specificity, and the box model",
         "ru": "Основы CSS: селекторы, каскад, специфичность и блочная модель"
       },
-      "links": [],
-      "questions": []
+      "links": [
+        "https://developer.mozilla.org/en-US/docs/Learn/CSS/First_steps",
+        "https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Styling_basics",
+        "https://www.w3schools.com/css/css_intro.asp"
+      ]
     },
     {
       "name": {
@@ -34,7 +41,10 @@
         "en": "Building layouts that adapt to different screen sizes using media queries and responsive techniques",
         "ru": "Создание адаптивных макетов с использованием медиазапросов и техник отзывчивого дизайна"
       },
-      "links": [],
+      "links": [
+        "https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Responsive_Design",
+        "https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/CSS_layout/Media_queries"
+      ],
       "questions": []
     },
     {
@@ -43,7 +53,10 @@
         "en": "Two-dimensional layout system using CSS Grid for complex page structures",
         "ru": "Двумерная система вёрстки с помощью CSS Grid для сложных структур страниц"
       },
-      "links": [],
+      "links": [
+        "https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_grid_layout",
+        "https://cssgridgarden.com/"
+      ],
       "questions": []
     },
     {
@@ -52,7 +65,10 @@
         "en": "One-dimensional layout control with Flexbox and CSS positioning properties",
         "ru": "Одномерное управление макетом с помощью Flexbox и свойств позиционирования CSS"
       },
-      "links": [],
+      "links": [
+        "https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_flexible_box_layout/Basic_concepts_of_flexbox",
+        "https://flexboxfroggy.com/"
+      ],
       "questions": []
     },
     {
@@ -61,7 +77,10 @@
         "en": "Building accessible HTML forms with native validation and input types",
         "ru": "Создание доступных HTML-форм с нативной валидацией и типами полей ввода"
       },
-      "links": [],
+      "links": [
+        "https://developer.mozilla.org/en-US/docs/Learn_web_development/Extensions/Forms",
+        "https://developer.mozilla.org/en-US/docs/Learn_web_development/Extensions/Forms/Form_validation"
+      ],
       "questions": []
     },
     {
@@ -70,7 +89,7 @@
         "en": "Extending CSS with variables, nesting, mixins, and functions using Sass",
         "ru": "Расширение CSS с помощью переменных, вложенности, миксинов и функций через Sass"
       },
-      "links": [],
+      "links": ["https://sass-lang.com/guide", "https://www.w3schools.com/sass/sass_intro.asp"],
       "questions": []
     },
     {
@@ -82,7 +101,10 @@
         "en": "Scoped CSS with CSS Modules and modern features like custom properties and container queries",
         "ru": "Изолированные стили через CSS Modules и современные возможности: кастомные свойства и контейнерные запросы"
       },
-      "links": [],
+      "links": [
+        "https://css-tricks.com/css-modules/",
+        "https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Cascading_variables"
+      ],
       "questions": []
     }
   ]

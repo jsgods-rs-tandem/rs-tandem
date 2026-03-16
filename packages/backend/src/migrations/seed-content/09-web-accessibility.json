@@ -13,7 +13,7 @@
         "en": "Web Content Accessibility Guidelines (WCAG): levels A/AA/AAA, the four principles (POUR), and legal context",
         "ru": "Руководство по доступности веб-контента (WCAG): уровни A/AA/AAA, четыре принципа (POUR) и правовой контекст"
       },
-      "links": [],
+      "links": ["https://www.w3.org/WAI/WCAG21/quickref/", "https://webaim.org/intro/"],
       "questions": []
     },
     {
@@ -22,7 +22,9 @@
         "en": "Using correct HTML elements to convey meaning, landmark regions, headings hierarchy, and accessible forms",
         "ru": "Использование правильных HTML-элементов для передачи смысла, регионы-ориентиры, иерархия заголовков и доступные формы"
       },
-      "links": [],
+      "links": [
+        "https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Accessibility/HTML"
+      ],
       "questions": []
     },
     {
@@ -31,7 +33,7 @@
         "en": "WAI-ARIA roles, states, and properties — when to use ARIA and the first rule: don't use ARIA if native HTML suffices",
         "ru": "WAI-ARIA роли, состояния и свойства — когда применять ARIA и первое правило: не использовать ARIA, если хватает нативного HTML"
       },
-      "links": [],
+      "links": ["https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA"],
       "questions": []
     },
     {
@@ -43,7 +45,9 @@
         "en": "Tab order, focus trapping in modals, skip links, focusable elements, and visible focus indicators",
         "ru": "Порядок табуляции, захват фокуса в модальных окнах, ссылки-пропуски, фокусируемые элементы и видимые индикаторы фокуса"
       },
-      "links": [],
+      "links": [
+        "https://developer.mozilla.org/en-US/docs/Web/Accessibility/Understanding_Accessibility_and_Keyboard_Navigation"
+      ],
       "questions": []
     },
     {
@@ -55,7 +59,7 @@
         "en": "How screen readers work, live regions, accessible names and descriptions, and testing with assistive tools",
         "ru": "Как работают скринридеры, live-регионы, доступные имена и описания, тестирование со вспомогательными инструментами"
       },
-      "links": [],
+      "links": ["https://www.screenreader.org/", "https://webaim.org/projects/screenreadersurvey/"],
       "questions": []
     },
     {
@@ -67,7 +71,10 @@
         "en": "Contrast ratios, color blindness considerations, text sizing, motion sensitivity, and accessible color palettes",
         "ru": "Коэффициенты контрастности, учёт цветовой слепоты, размер текста, чувствительность к движению и доступные цветовые палитры"
       },
-      "links": [],
+      "links": [
+        "https://webaim.org/resources/contrastchecker/",
+        "https://developer.mozilla.org/en-US/docs/Web/Accessibility/Understanding_WCAG/Perceivable/Color_contrast"
+      ],
       "questions": []
     }
   ]

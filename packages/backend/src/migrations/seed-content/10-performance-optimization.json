@@ -13,7 +13,10 @@
         "en": "LCP, FID/INP, CLS — Google's user-centric performance metrics, their thresholds, and how to measure them",
         "ru": "LCP, FID/INP, CLS — пользориентированные метрики производительности Google, их пороговые значения и методы измерения"
       },
-      "links": [],
+      "links": [
+        "https://web.dev/vitals/",
+        "https://developer.mozilla.org/en-US/docs/Web/Performance/Core_web_vitals"
+      ],
       "questions": [
         {
           "sortOrder": 1,
@@ -473,7 +476,7 @@
         "en": "Avoiding layout thrashing, GPU compositing, will-change, reducing reflows/repaints, and the RAIL model",
         "ru": "Предотвращение layout thrashing, GPU-компоновка, will-change, сокращение reflow/repaint и модель RAIL"
       },
-      "links": [],
+      "links": ["https://developer.mozilla.org/en-US/docs/Web/Performance/Rendering_performance"],
       "questions": [
         {
           "sortOrder": 1,
@@ -951,7 +954,10 @@
         "en": "Code splitting, tree-shaking, minification, compression (gzip/brotli), image optimization, and caching strategies",
         "ru": "Разделение кода, tree-shaking, минификация, сжатие (gzip/brotli), оптимизация изображений и стратегии кэширования"
       },
-      "links": [],
+      "links": [
+        "https://webpack.js.org/guides/code-splitting/",
+        "https://developer.mozilla.org/en-US/docs/Web/Performance/Optimizing_startup_time"
+      ],
       "questions": [
         {
           "sortOrder": 1,
@@ -1393,7 +1399,7 @@
         "en": "Dynamic imports, route-based splitting, lazy loading images and components, and the Intersection Observer API",
         "ru": "Динамические импорты, разделение по маршрутам, ленивая загрузка изображений и компонентов, Intersection Observer API"
       },
-      "links": [],
+      "links": ["https://developer.mozilla.org/en-US/docs/Web/Performance/Lazy_loading"],
       "questions": [
         {
           "sortOrder": 1,
@@ -1817,7 +1823,10 @@
         "en": "Using Lighthouse, Chrome DevTools Performance panel, Web Vitals library, and performance budgets",
         "ru": "Использование Lighthouse, панели Performance в Chrome DevTools, библиотеки Web Vitals и бюджетов производительности"
       },
-      "links": [],
+      "links": [
+        "https://developer.chrome.com/docs/lighthouse",
+        "https://developer.mozilla.org/en-US/docs/Web/Performance/Performance_budgets"
+      ],
       "questions": [
         {
           "sortOrder": 1,

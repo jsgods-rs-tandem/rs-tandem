@@ -13,7 +13,10 @@
         "en": "CommonJS, ES Modules, AMD, UMD — differences, interoperability, and how bundlers resolve them",
         "ru": "CommonJS, ES Modules, AMD, UMD — отличия, совместимость и механизм разрешения зависимостей в бандлерах"
       },
-      "links": [],
+      "links": [
+        "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules",
+        "https://nodejs.org/api/modules.html"
+      ],
       "questions": [
         {
           "sortOrder": 1,

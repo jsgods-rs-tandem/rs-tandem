@@ -13,7 +13,10 @@
         "en": "How the internet works: DNS, TCP/IP, HTTP vs HTTPS, and status codes",
         "ru": "Как работает интернет: DNS, TCP/IP, HTTP vs HTTPS и коды состояния"
       },
-      "links": [],
+      "links": [
+        "https://developer.mozilla.org/en-US/docs/Learn_web_development/Getting_started/Web_standards/How_the_web_works",
+        "https://developer.mozilla.org/en-US/docs/Web/HTTP"
+      ],
       "questions": [
         {
           "sortOrder": 1,
@@ -488,7 +491,10 @@
         "en": "Network requests in the browser: Fetch API, XMLHttpRequest, CORS, and the same-origin policy",
         "ru": "Сетевые запросы в браузере: Fetch API, XMLHttpRequest, CORS и политика одного источника"
       },
-      "links": [],
+      "links": [
+        "https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch",
+        "https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS"
+      ],
       "questions": [
         {
           "sortOrder": 1,
@@ -939,7 +945,7 @@
         "en": "REST constraints, HTTP methods, idempotency, statelessness, and resource design",
         "ru": "Ограничения REST, HTTP-методы, идемпотентность, отсутствие состояния и проектирование ресурсов"
       },
-      "links": [],
+      "links": ["https://developer.mozilla.org/en-US/docs/Web/HTTP"],
       "questions": [
         {
           "sortOrder": 1,
@@ -1348,7 +1354,7 @@
         "en": "CORS, XSS, OWASP Top 10, authentication mechanisms (JWT, OAuth)",
         "ru": "CORS, XSS, OWASP Top 10, механизмы аутентификации (JWT, OAuth)"
       },
-      "links": [],
+      "links": ["https://developer.mozilla.org/en-US/docs/Web/Security"],
       "questions": [
         {
           "sortOrder": 1,
@@ -1874,7 +1880,7 @@
         "en": "Critical rendering path, parsing, DOM/CSSOM construction, reflow, repaint, and page lifecycle events",
         "ru": "Критический путь рендеринга, парсинг, построение DOM/CSSOM, reflow, repaint и события жизненного цикла страницы"
       },
-      "links": [],
+      "links": ["https://developer.mozilla.org/en-US/docs/Web/Performance/How_browsers_work"],
       "questions": [
         {
           "sortOrder": 1,
