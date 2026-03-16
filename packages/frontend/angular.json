@@ -42,6 +42,11 @@
                 "glob": "**/*",
                 "input": "src/assets/images",
                 "output": "assets/images"
+              },
+              {
+                "glob": "**/*",
+                "input": "src/assets/favicon",
+                "output": "assets/favicon"
               }
             ],
             "styles": ["src/assets/styles/index.scss", "prismjs/themes/prism.css"],
