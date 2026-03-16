@@ -6,4 +6,4 @@ export { IconButtonComponent } from './icon-button/icon-button.component';
 export { IconComponent } from './icon/icon.component';
 export { LogoComponent } from './logo/logo.component';
 export { SpinComponent } from './spin';
-export { TeamBoardComponent } from './team-board/team-board.component';
+export { TeamBoardComponent } from './team-board';
