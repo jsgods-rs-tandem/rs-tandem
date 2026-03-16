@@ -2,7 +2,7 @@
   <h2 class="h2">{{ title }}</h2>
   <div class="faq__accordion">
     <app-accordion [multi]="false">
-      @for (element of faqData; track element.answer; let isFirst = $first) {
+      @for (element of faqData; track element.question; let isFirst = $first) {
         <app-accordion-item
           [title]="element.question"
           [isOpen]="isFirst"

@@ -36,7 +36,6 @@ export class HeaderComponent {
 
   menuToggled = output();
   languageClick = output();
-  logoutClick = output();
 
   actionConfig = computed(() => HEADER_ACTIONS[this.mode()]);
   langText = computed(() => (this.isEngLanguage() ? 'EN' : 'RU'));
@@ -50,6 +49,10 @@ export class HeaderComponent {
   // change ROUTE_PATHS.library to ROUTE_PATHS.dashboard when available
   readonly logoLink = computed(() =>
     this.authService.isAuthenticated() ? ROUTE_PATHS.library : ROUTE_PATHS.home,
+  );
+
+  readonly logoAriaLabel = computed(() =>
+    this.authService.isAuthenticated() ? 'Go to the library' : 'Go to the home page',
   );
 
   toggleTheme(): void {

@@ -40,8 +40,8 @@
               },
               {
                 "glob": "**/*",
-                "input": "src/assets",
-                "output": "assets"
+                "input": "src/assets/images",
+                "output": "assets/images"
               }
             ],
             "styles": ["src/assets/styles/index.scss", "prismjs/themes/prism.css"],

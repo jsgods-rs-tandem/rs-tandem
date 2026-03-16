@@ -1,4 +1,6 @@
-export const TEAM_MEMBERS = [
+import { TeamMember } from '@/shared/types/team-member.type';
+
+export const TEAM_MEMBERS: TeamMember[] = [
   {
     name: 'Diana Dukhovskaya',
     avatarUrl: 'https://avatars.githubusercontent.com/u/127693483?v=4',
@@ -31,7 +33,7 @@ export const TEAM_MEMBERS = [
   },
   {
     name: 'The RS School',
-    avatarUrl: '/assets/images/rss-team.svg',
+    avatarUrl: 'assets/images/rss-team.svg',
     linkText: 'RS school',
     linkUrl: 'https://rs.school/',
     isRotate: true,

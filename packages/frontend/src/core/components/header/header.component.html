@@ -1,5 +1,5 @@
 <header class="header">
-  <app-button [link]="logoLink()" version="logo" ariaLabel="Go to main page">
+  <app-button [link]="logoLink()" version="logo" [ariaLabel]="logoAriaLabel()">
     <app-logo size="m" class="header__logo" />
   </app-button>
 
@@ -44,6 +44,6 @@
     [link]="config.link"
     version="primary"
     [isSmallButton]="true"
-    (click)="config.emitLogout ? handleLogout() : null"
+    (click)="config.isLogoutAction ? handleLogout() : null"
   />
 </ng-template>
