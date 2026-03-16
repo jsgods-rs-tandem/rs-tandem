@@ -14,7 +14,482 @@
         "ru": "Руководство по доступности веб-контента (WCAG): уровни A/AA/AAA, четыре принципа (POUR) и правовой контекст"
       },
       "links": ["https://www.w3.org/WAI/WCAG21/quickref/", "https://webaim.org/intro/"],
-      "questions": []
+      "questions": [
+        {
+          "sortOrder": 1,
+          "name": { "en": "What does WCAG stand for?", "ru": "Что означает WCAG?" },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "WCAG stands for Web Content Accessibility Guidelines, developed by the W3C's Web Accessibility Initiative (WAI).",
+            "ru": "WCAG означает Руководство по доступности веб-контента, разработанное Инициативой по доступности веб-контента (WAI) консорциума W3C."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "Web Content Accessibility Guidelines",
+                "ru": "Руководство по доступности веб-контента"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "World Consortium for Accessible Graphics",
+                "ru": "Всемирный консорциум по доступной графике"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Web Communication Accessibility Guide",
+                "ru": "Руководство по доступности веб-коммуникации"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "World Content Accessibility Guidelines",
+                "ru": "Всемирные руководства по доступности контента"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 2,
+          "name": {
+            "en": "What are the four principles of WCAG known as POUR?",
+            "ru": "Какие четыре принципа WCAG известны как POUR?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "POUR stands for Perceptible, Operable, Understandable, and Robust. These are the four core principles that guide WCAG guidelines.",
+            "ru": "POUR означает Воспринимаемый, Управляемый, Понятный и Надёжный. Это четыре основных принципа, которыми руководствуются рекомендации WCAG."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "Perceptible, Operable, Understandable, Robust",
+                "ru": "Воспринимаемый, Управляемый, Понятный, Надёжный"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "Public, Open, Universal, Reliable",
+                "ru": "Публичный, Открытый, Универсальный, Надёжный"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Performance, Optimization, Usability, Responsiveness",
+                "ru": "Производительность, Оптимизация, Удобство использования, Отзывчивость"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Perceivable, Organized, Unified, Responsive",
+                "ru": "Воспринимаемый, Организованный, Объединённый, Отзывчивый"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 3,
+          "name": {
+            "en": "What is the minimum WCAG conformance level required for most legal accessibility mandates?",
+            "ru": "Какой минимальный уровень соответствия WCAG требуется для большинства юридических требований по доступности?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "Level AA is the most commonly required conformance level by laws and regulations, including ADA, Section 508, and EN 301 549.",
+            "ru": "Уровень AA — наиболее часто требуемый уровень соответствия законами и нормативными актами, включая ADA, Section 508 и EN 301 549."
+          },
+          "answers": [
+            { "text": { "en": "Level A", "ru": "Уровень A" }, "isCorrect": false },
+            { "text": { "en": "Level AA", "ru": "Уровень AA" }, "isCorrect": true },
+            { "text": { "en": "Level AAA", "ru": "Уровень AAA" }, "isCorrect": false },
+            { "text": { "en": "Level AAA+", "ru": "Уровень AAA+" }, "isCorrect": false }
+          ]
+        },
+        {
+          "sortOrder": 4,
+          "name": {
+            "en": "Which WCAG principle states that content must be presentable in ways users can perceive?",
+            "ru": "Какой принцип WCAG гласит, что контент должен быть представлен способами, которые пользователи могут воспринимать?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "The Perceivable principle requires that information must be presentable to users in ways they can perceive, including text alternatives, captions, and adaptable layouts.",
+            "ru": "Принцип Воспринимаемости требует, чтобы информация представлялась пользователям способами, которые они могут воспринимать, включая текстовые альтернативы, субтитры и адаптируемые макеты."
+          },
+          "answers": [
+            { "text": { "en": "Perceptible", "ru": "Воспринимаемый" }, "isCorrect": true },
+            { "text": { "en": "Operable", "ru": "Управляемый" }, "isCorrect": false },
+            { "text": { "en": "Understandable", "ru": "Понятный" }, "isCorrect": false },
+            { "text": { "en": "Robust", "ru": "Надёжный" }, "isCorrect": false }
+          ]
+        },
+        {
+          "sortOrder": 5,
+          "name": {
+            "en": "What does the WCAG Success Criterion 1.4.3 (Contrast Minimum) require for normal text?",
+            "ru": "Что требует Критерий успеха WCAG 1.4.3 (Минимальный контраст) для обычного текста?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "WCAG 1.4.3 requires a contrast ratio of at least 4.5:1 for normal text to ensure readability for users with visual impairments.",
+            "ru": "WCAG 1.4.3 требует коэффициента контрастности не менее 4,5:1 для обычного текста, чтобы обеспечить читаемость для пользователей с нарушениями зрения."
+          },
+          "answers": [
+            { "text": { "en": "At least 4.5:1", "ru": "Не менее 4,5:1" }, "isCorrect": true },
+            { "text": { "en": "At least 3:1", "ru": "Не менее 3:1" }, "isCorrect": false },
+            { "text": { "en": "At least 7:1", "ru": "Не менее 7:1" }, "isCorrect": false },
+            { "text": { "en": "No requirement", "ru": "Нет требований" }, "isCorrect": false }
+          ]
+        },
+        {
+          "sortOrder": 6,
+          "name": {
+            "en": "What is the purpose of WCAG Success Criterion 2.1.1 (Keyboard)?",
+            "ru": "Какова цель Критерия успеха WCAG 2.1.1 (Клавиатура)?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "This criterion ensures all functionality is operable through a keyboard interface, allowing users who cannot use a mouse to access all features.",
+            "ru": "Этот критерий гарантирует, что вся функциональность доступна через клавиатурный интерфейс, позволяя пользователям, не использующим мышь, получить доступ ко всем функциям."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "All functionality must be available via keyboard",
+                "ru": "Вся функциональность должна быть доступна через клавиатуру"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "Websites must load within 3 seconds",
+                "ru": "Веб-сайты должны загружаться за 3 секунды"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "All images must have alt text",
+                "ru": "Все изображения должны иметь alt-текст"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Forms must validate on server side",
+                "ru": "Формы должны проверяться на стороне сервера"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 7,
+          "name": {
+            "en": "What is the difference between WCAG Level A and Level AA?",
+            "ru": "Какова разница между уровнями WCAG A и AA?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "Level A addresses the most basic accessibility features, while Level AA adds more stringent requirements including contrast ratios and keyboard accessibility.",
+            "ru": "Уровень A охватывает самые базовые функции доступности, тогда как уровень AA добавляет более строгие требования, включая коэффициенты контрастности и клавиатурную доступность."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "AA includes all A requirements plus additional accessibility features",
+                "ru": "AA включает все требования A плюс дополнительные функции доступности"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": { "en": "A is more strict than AA", "ru": "A строже, чем AA" },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "They are the same level", "ru": "Это один и тот же уровень" },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "AA is optional, A is mandatory",
+                "ru": "AA необязателен, A обязателен"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 8,
+          "name": {
+            "en": "Which US law requires government websites to be accessible?",
+            "ru": "Какой закон США требует доступности государственных веб-сайтов?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "Section 508 of the Rehabilitation Act requires federal agencies to make their electronic and information technology accessible to people with disabilities.",
+            "ru": "Раздел 508 Закона о реабилитации требует от федеральных агентств обеспечивать доступность электронных и информационных технологий для людей с ограниченными возможностями."
+          },
+          "answers": [
+            { "text": { "en": "Section 508", "ru": "Раздел 508" }, "isCorrect": true },
+            { "text": { "en": "HIPAA", "ru": "HIPAA" }, "isCorrect": false },
+            { "text": { "en": "GDPR", "ru": "GDPR" }, "isCorrect": false },
+            { "text": { "en": "ADA Title I", "ru": "ADA Раздел I" }, "isCorrect": false }
+          ]
+        },
+        {
+          "sortOrder": 9,
+          "name": {
+            "en": "What does WCAG Success Criterion 1.1.1 (Non-text Content) require?",
+            "ru": "Что требует Критерий успеха WCAG 1.1.1 (Нетекстовый контент)?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "This criterion requires that all non-text content (images, icons, charts) have text alternatives that describe the information they convey.",
+            "ru": "Этот критерий требует, чтобы весь нетекстовый контент (изображения, иконки, диаграммы) имел текстовые альтернативы, описывающие передаваемую ими информацию."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "All non-text content must have text alternatives",
+                "ru": "Весь нетекстовый контент должен иметь текстовые альтернативы"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "Images must be smaller than 100KB",
+                "ru": "Изображения должны быть меньше 100КБ"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Text must be at least 18px",
+                "ru": "Текст должен быть не менее 18px"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Videos must have audio descriptions",
+                "ru": "Видео должны иметь аудиоописания"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 10,
+          "name": {
+            "en": "What is the WCAG conformance level that addresses the needs of users with significant disabilities?",
+            "ru": "Какой уровень соответствия WCAG учитывает потребности пользователей с серьёзными ограничениями?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "Level AAA provides the highest level of accessibility and addresses needs of users with significant disabilities, but few sites can meet all AAA requirements.",
+            "ru": "Уровень AAA обеспечивает наивысший уровень доступности и учитывает потребности пользователей с серьёзными ограничениями, но немногие сайты могут соответствовать всем требованиям AAA."
+          },
+          "answers": [
+            { "text": { "en": "Level AAA", "ru": "Уровень AAA" }, "isCorrect": true },
+            { "text": { "en": "Level A", "ru": "Уровень A" }, "isCorrect": false },
+            { "text": { "en": "Level AA", "ru": "Уровень AA" }, "isCorrect": false },
+            { "text": { "en": "Level A+", "ru": "Уровень A+" }, "isCorrect": false }
+          ]
+        },
+        {
+          "sortOrder": 11,
+          "name": {
+            "en": "What does the WCAG Robust principle require?",
+            "ru": "Что требует принцип Надёжности WCAG?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "The Robust principle requires that content must be interpreted reliably by various user agents, including assistive technologies, as web technologies evolve.",
+            "ru": "Принцип Надёжности требует, чтобы контент надёжно интерпретировался различными пользовательскими агентами, включая вспомогательные технологии, по мере развития веб-технологий."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "Content must work with current and future assistive technologies",
+                "ru": "Контент должен работать с текущими и будущими вспомогательными технологиями"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "Websites must load instantly",
+                "ru": "Веб-сайты должны загружаться мгновенно"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "All code must pass validation",
+                "ru": "Весь код должен проходить валидацию"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Pages must work without JavaScript",
+                "ru": "Страницы должны работать без JavaScript"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 12,
+          "name": {
+            "en": "Which organization developed WCAG?",
+            "ru": "Какая организация разработала WCAG?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "WCAG was developed by the Web Accessibility Initiative (WAI) of the World Wide Web Consortium (W3C), the main international standards organization for the web.",
+            "ru": "WCAG был разработан Инициативой по доступности веб-контента (WAI) Консорциума Всемирной паутины (W3C) — главной международной организацией по стандартизации веба."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "W3C (World Wide Web Consortium)",
+                "ru": "W3C (Консорциум Всемирной паутины)"
+              },
+              "isCorrect": true
+            },
+            { "text": { "en": "Google", "ru": "Google" }, "isCorrect": false },
+            { "text": { "en": "Mozilla Foundation", "ru": "Фонд Mozilla" }, "isCorrect": false },
+            { "text": { "en": "Microsoft", "ru": "Microsoft" }, "isCorrect": false }
+          ]
+        },
+        {
+          "sortOrder": 13,
+          "name": {
+            "en": "What is the WCAG Success Criterion 3.1.1 (Language of Page) about?",
+            "ru": "О чём Критерий успеха WCAG 3.1.1 (Язык страницы)?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "This criterion requires that the default human language of each web page can be programmatically determined, helping assistive technologies provide correct pronunciation.",
+            "ru": "Этот критерий требует, чтобы язык по умолчанию каждой веб-страницы можно было программно определить, помогая вспомогательным технологиям обеспечивать правильное произношение."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "The page must declare its human language in code",
+                "ru": "Страница должна объявить свой человеческий язык в коде"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "Pages must be available in at least 3 languages",
+                "ru": "Страницы должны быть доступны как минимум на 3 языках"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Translation tools must be provided",
+                "ru": "Должны предоставляться инструменты перевода"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Text must be at least 14px in size",
+                "ru": "Текст должен быть не менее 14px"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 14,
+          "name": {
+            "en": "What is the WCAG Understandable principle about?",
+            "ru": "О чём принцип Понятности WCAG?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "The Understandable principle requires that content and interface must be understandable, including readable text, predictable operation, and input assistance.",
+            "ru": "Принцип Понятности требует, чтобы контент и интерфейс были понятны, включая читаемый текст, предсказуемую работу и помощь при вводе."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "Content and interface must be readable and predictable",
+                "ru": "Контент и интерфейс должны быть читаемыми и предсказуемыми"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": { "en": "Websites must be fast", "ru": "Веб-сайты должны быть быстрыми" },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "All content must be in English",
+                "ru": "Весь контент должен быть на английском"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "Code must be minified", "ru": "Код должен быть минифицирован" },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 15,
+          "name": {
+            "en": "What does WCAG 2.2.1 (Bypass Blocks) require?",
+            "ru": "Что требует WCAG 2.2.1 (Обход блоков)?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "This criterion requires a mechanism to bypass repeated content (like navigation menus) so users can go directly to the main content.",
+            "ru": "Этот критерий требует механизма для обхода повторяющегося контента (например, навигационных меню), чтобы пользователи могли сразу перейти к основному контенту."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "A skip link or mechanism to bypass repeated content",
+                "ru": "Ссылка-пропуск или механизм для обхода повторяющегося контента"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "All blocks must be clickable",
+                "ru": "Все блоки должны быть кликабельными"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Content must be in a single column",
+                "ru": "Контент должен быть в одной колонке"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "Ads must be hidden", "ru": "Реклама должна быть скрыта" },
+              "isCorrect": false
+            }
+          ]
+        }
+      ]
     },
     {
       "name": { "en": "Semantic HTML & Accessibility", "ru": "Семантический HTML и доступность" },
@@ -25,7 +500,395 @@
       "links": [
         "https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Accessibility/HTML"
       ],
-      "questions": []
+      "questions": [
+        {
+          "sortOrder": 1,
+          "name": {
+            "en": "Which HTML element is the most appropriate for the main navigation of a website?",
+            "ru": "Какой HTML-элемент наиболее подходит для основной навигации веб-сайта?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "The `<nav>` element defines a set of navigation links and is the semantic way to mark up main navigation areas.",
+            "ru": "Элемент `<nav>` определяет набор навигационных ссылок и является семантически правильным способом разметки основных областей навигации."
+          },
+          "answers": [
+            { "text": { "en": "<nav>", "ru": "<nav>" }, "isCorrect": true },
+            { "text": { "en": "<div>", "ru": "<div>" }, "isCorrect": false },
+            { "text": { "en": "<menu>", "ru": "<menu>" }, "isCorrect": false },
+            { "text": { "en": "<navigation>", "ru": "<navigation>" }, "isCorrect": false }
+          ]
+        },
+        {
+          "sortOrder": 2,
+          "name": {
+            "en": "What is the correct heading hierarchy for accessibility?",
+            "ru": "Какая правильная иерархия заголовков для доступности?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "Headings must follow a logical order (h1 → h2 → h3) without skipping levels. Screen readers use headings for navigation.",
+            "ru": "Заголовки должны следовать логическому порядку (h1 → h2 → h3) без пропуска уровней. Скринридеры используют заголовки для навигации."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "h1, then h2, then h3 (no skipping)",
+                "ru": "h1, затем h2, затем h3 (без пропусков)"
+              },
+              "isCorrect": true
+            },
+            { "text": { "en": "Start with h3", "ru": "Начинать с h3" }, "isCorrect": false },
+            {
+              "text": { "en": "Skip from h1 to h4", "ru": "Пропускать с h1 до h4" },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "Use only h1 and h4", "ru": "Использовать только h1 и h4" },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 3,
+          "name": {
+            "en": "Which element should be used for a clickable button that navigates to another page?",
+            "ru": "Какой элемент следует использовать для кнопки, которая переходит на другую страницу?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "An `<a>` (anchor) element should be used for links that navigate to another page or location, while `<button>` is for actions within the page.",
+            "ru": "Элемент `<a>` (якорь) следует использовать для ссылок, которые ведут на другую страницу или место, а `<button>` — для действий на странице."
+          },
+          "answers": [
+            { "text": { "en": "<a href=\"...\">", "ru": "<a href=\"...\">" }, "isCorrect": true },
+            { "text": { "en": "<button>", "ru": "<button>" }, "isCorrect": false },
+            {
+              "text": { "en": "<div onclick=\"...\">", "ru": "<div onclick=\"...\">" },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "<input type=\"button\">", "ru": "<input type=\"button\">" },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 4,
+          "name": {
+            "en": "What does the `<main>` landmark element represent?",
+            "ru": "Что представляет элемент-ориентир `<main>`?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "The `<main>` element represents the main content of a document, which should be unique and not include repeated content like sidebars or navigation.",
+            "ru": "Элемент `<main>` представляет основной контент документа, который должен быть уникальным и не включать повторяющийся контент, такой как боковые панели или навигацию."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "The primary content of the page",
+                "ru": "Основной контент страницы"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": { "en": "The website header", "ru": "Заголовок веб-сайта" },
+              "isCorrect": false
+            },
+            { "text": { "en": "The footer area", "ru": "Область подвала" }, "isCorrect": false },
+            {
+              "text": { "en": "The navigation menu", "ru": "Навигационное меню" },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 5,
+          "name": {
+            "en": "Which HTML attribute is required for all form input elements?",
+            "ru": "Какой атрибут HTML требуется для всех элементов ввода формы?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "The `label` element must be associated with form inputs using `for` attribute (or wrapped inside label) to provide an accessible name.",
+            "ru": "Элемент `label` должен быть связан с элементами ввода формы с помощью атрибута `for` (или обёрнут внутри label), чтобы обеспечить доступное имя."
+          },
+          "answers": [
+            { "text": { "en": "label element", "ru": "элемент label" }, "isCorrect": true },
+            { "text": { "en": "placeholder", "ru": "placeholder" }, "isCorrect": false },
+            { "text": { "en": "title", "ru": "title" }, "isCorrect": false },
+            { "text": { "en": "alt", "ru": "alt" }, "isCorrect": false }
+          ]
+        },
+        {
+          "sortOrder": 6,
+          "name": {
+            "en": "What is the purpose of the `<aside>` element?",
+            "ru": "Какова цель элемента `<aside>`?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "The `<aside>` element represents content tangentially related to the surrounding content, like a sidebar or callout boxes.",
+            "ru": "Элемент `<aside>` представляет контент, косвенно связанный с окружающим контентом, например боковую панель или выделенные блоки."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "Content related but separate from main content",
+                "ru": "Контент, связанный с основным, но отдельный от него"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": { "en": "The main article content", "ru": "Основной контент статьи" },
+              "isCorrect": false
+            },
+            { "text": { "en": "Page footer", "ru": "Подвал страницы" }, "isCorrect": false },
+            {
+              "text": { "en": "Navigation links", "ru": "Навигационные ссылки" },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 7,
+          "name": {
+            "en": "How should you associate a label with an input element?",
+            "ru": "Как связать label с элементом ввода?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "Use the `for` attribute on `<label>` matching the `id` on `<input>`, or wrap the input inside the label element.",
+            "ru": "Используйте атрибут `for` на `<label>`, соответствующий `id` на `<input>`, или оберните input внутри элемента label."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "Use for=\"id\" on label matching input's id",
+                "ru": "Используйте for=\"id\" на label, соответствующий id input"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "Place them in different sections",
+                "ru": "Разместите их в разных секциях"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "Just use placeholder text", "ru": "Просто используйте placeholder" },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Add a title attribute instead",
+                "ru": "Добавьте вместо этого атрибут title"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 8,
+          "name": {
+            "en": "Which element is used to create a landmark for the page header?",
+            "ru": "Какой элемент используется для создания ориентира для заголовка страницы?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "The `<header>` element represents introductory content or a set of navigational links, serving as a landmark for the page header area.",
+            "ru": "Элемент `<header>` представляет вводный контент или набор навигационных ссылок, служа ориентиром для области заголовка страницы."
+          },
+          "answers": [
+            { "text": { "en": "<header>", "ru": "<header>" }, "isCorrect": true },
+            { "text": { "en": "<top>", "ru": "<top>" }, "isCorrect": false },
+            {
+              "text": { "en": "<div class=\"header\">", "ru": "<div class=\"header\">" },
+              "isCorrect": false
+            },
+            { "text": { "en": "<h1>", "ru": "<h1>" }, "isCorrect": false }
+          ]
+        },
+        {
+          "sortOrder": 9,
+          "name": {
+            "en": "What is the correct way to mark up a list of items where order doesn't matter?",
+            "ru": "Как правильно разметить список элементов, где порядок не важен?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "Use `<ul>` for unordered lists where order doesn't matter, and `<ol>` for ordered lists where sequence is important.",
+            "ru": "Используйте `<ul>` для неупорядоченных списков, где порядок не важен, и `<ol>` для упорядоченных списков, где последовательность важна."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "<ul> for unordered, <ol> for ordered",
+                "ru": "<ul> для неупорядоченных, <ol> для упорядоченных"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "Use only <div> elements",
+                "ru": "Используйте только элементы <div>"
+              },
+              "isCorrect": false
+            },
+            { "text": { "en": "<li> for everything", "ru": "<li> для всего" }, "isCorrect": false },
+            { "text": { "en": "<list> element", "ru": "Элемент <list>" }, "isCorrect": false }
+          ]
+        },
+        {
+          "sortOrder": 10,
+          "name": {
+            "en": "What element should be used for the footer area of a page?",
+            "ru": "Какой элемент следует использовать для области подвала страницы?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "The `<footer>` element represents a footer for its nearest sectioning content or root element, typically containing author info or copyright.",
+            "ru": "Элемент `<footer>` представляет подвал для ближайшего секционного контента или корневого элемента, обычно содержащего информацию об авторе или авторские права."
+          },
+          "answers": [
+            { "text": { "en": "<footer>", "ru": "<footer>" }, "isCorrect": true },
+            { "text": { "en": "<bottom>", "ru": "<bottom>" }, "isCorrect": false },
+            {
+              "text": { "en": "<div class=\"footer\">", "ru": "<div class=\"footer\">" },
+              "isCorrect": false
+            },
+            { "text": { "en": "<end>", "ru": "<end>" }, "isCorrect": false }
+          ]
+        },
+        {
+          "sortOrder": 11,
+          "name": {
+            "en": "What is wrong with using <div> for everything instead of semantic elements?",
+            "ru": "Что не так с использованием <div> для всего вместо семантических элементов?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "Using only <div> elements loses semantic meaning, making it harder for assistive technologies to understand page structure and navigate.",
+            "ru": "Использование только элементов <div> теряет семантический смысл, что затрудняет понимание структуры страницы и навигацию для вспомогательных технологий."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "It loses semantic meaning for assistive technologies",
+                "ru": "Теряется семантический смысл для вспомогательных технологий"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "It makes pages load slower",
+                "ru": "Страницы загружаются медленнее"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "It causes SEO problems", "ru": "Это вызывает проблемы с SEO" },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "It is not valid HTML", "ru": "Это невалидный HTML" },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 12,
+          "name": {
+            "en": "Which attribute makes a form input required for WCAG compliance?",
+            "ru": "Какой атрибут делает ввод формы обязательным для соответствия WCAG?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "The `required` attribute makes form inputs mandatory. For better accessibility, also provide clear labels and error messages.",
+            "ru": "Атрибут `required` делает ввод формы обязательным. Для лучшей доступности также предоставляйте чёткие метки и сообщения об ошибках."
+          },
+          "answers": [
+            { "text": { "en": "required", "ru": "required" }, "isCorrect": true },
+            { "text": { "en": "mandatory", "ru": "mandatory" }, "isCorrect": false },
+            { "text": { "en": "necessary", "ru": "necessary" }, "isCorrect": false },
+            { "text": { "en": "important", "ru": "important" }, "isCorrect": false }
+          ]
+        },
+        {
+          "sortOrder": 13,
+          "name": {
+            "en": "What is the purpose of the <article> element?",
+            "ru": "Какова цель элемента <article>?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "The <article> element represents a self-contained composition intended to be independently distributable or reusable, like a blog post or news story.",
+            "ru": "Элемент <article> представляет самодостаточную композицию, предназначенную для независимого распространения или повторного использования, например статью в блоге или новость."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "Self-contained, distributable content like posts",
+                "ru": "Самодостаточный распространяемый контент, например посты"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": { "en": "The entire page content", "ru": "Весь контент страницы" },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "Only for news websites", "ru": "Только для новостных сайтов" },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "For advertising sections", "ru": "Для рекламных секций" },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 14,
+          "name": {
+            "en": "How many <h1> elements should a page typically have?",
+            "ru": "Сколько элементов <h1> должна иметь типичная страница?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "A page should typically have one <h1> element representing the main title. Multiple <h1>s can be used but should be in separate sectioning elements.",
+            "ru": "Страница обычно должна иметь один элемент <h1>, представляющий основной заголовок. Несколько <h1> могут использоваться, но в отдельных секционных элементах."
+          },
+          "answers": [
+            { "text": { "en": "One", "ru": "Один" }, "isCorrect": true },
+            { "text": { "en": "As many as needed", "ru": "Сколько угодно" }, "isCorrect": false },
+            { "text": { "en": "None", "ru": "Ни одного" }, "isCorrect": false },
+            { "text": { "en": "At least three", "ru": "Не менее трёх" }, "isCorrect": false }
+          ]
+        },
+        {
+          "sortOrder": 15,
+          "name": {
+            "en": "What element should you use to group related form controls together?",
+            "ru": "Какой элемент следует использовать для группировки связанных элементов формы?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "The <fieldset> element groups related form controls together, and <legend> provides a caption for the group, improving accessibility.",
+            "ru": "Элемент <fieldset> группирует связанные элементы формы, а <legend> предоставляет подпись для группы, улучшая доступность."
+          },
+          "answers": [
+            {
+              "text": { "en": "<fieldset> with <legend>", "ru": "<fieldset> с <legend>" },
+              "isCorrect": true
+            },
+            { "text": { "en": "<div>", "ru": "<div>" }, "isCorrect": false },
+            { "text": { "en": "<group>", "ru": "<group>" }, "isCorrect": false },
+            { "text": { "en": "<form>", "ru": "<form>" }, "isCorrect": false }
+          ]
+        }
+      ]
     },
     {
       "name": { "en": "ARIA", "ru": "ARIA" },
@@ -34,7 +897,509 @@
         "ru": "WAI-ARIA роли, состояния и свойства — когда применять ARIA и первое правило: не использовать ARIA, если хватает нативного HTML"
       },
       "links": ["https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA"],
-      "questions": []
+      "questions": [
+        {
+          "sortOrder": 1,
+          "name": { "en": "What is the first rule of ARIA?", "ru": "Каково первое правило ARIA?" },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "The first rule of ARIA states: If a native HTML element or attribute has the semantics and behavior you need, use it instead of ARIA.",
+            "ru": "Первое правило ARIA гласит: если нативный HTML-элемент или атрибут имеет нужную семантику и поведение, используйте его вместо ARIA."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "Don't use ARIA if native HTML suffices",
+                "ru": "Не использовать ARIA, если хватает нативного HTML"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "Always add ARIA to improve accessibility",
+                "ru": "Всегда добавлять ARIA для улучшения доступности"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Use ARIA on all div elements",
+                "ru": "Использовать ARIA на всех элементах div"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "ARIA is only for complex widgets",
+                "ru": "ARIA только для сложных виджетов"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 2,
+          "name": {
+            "en": "What does the role=\"button\" attribute indicate?",
+            "ru": "Что означает атрибут role=\"button\"?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "The role=\"button\" attribute tells assistive technologies that the element should be treated as a button, even if it's not a native <button>.",
+            "ru": "Атрибут role=\"button\" сообщает вспомогательным технологиям, что элемент следует обрабатывать как кнопку, даже если это не нативный <button>."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "The element functions as a button",
+                "ru": "Элемент функционирует как кнопка"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": { "en": "The element is a link", "ru": "Элемент является ссылкой" },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "The element is a heading", "ru": "Элемент является заголовком" },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "The element is an image", "ru": "Элемент является изображением" },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 3,
+          "name": {
+            "en": "What is aria-label used for?",
+            "ru": "Для чего используется aria-label?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "aria-label provides an accessible name for an element when the native accessible name isn't sufficient or doesn't exist.",
+            "ru": "aria-label предоставляет доступное имя для элемента, когда нативное доступное имя недостаточно или не существует."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "To provide an accessible name for an element",
+                "ru": "Чтобы предоставить доступное имя для элемента"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": { "en": "To add CSS styling", "ru": "Для добавления CSS-стилей" },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "To create a tooltip", "ru": "Для создания всплывающей подсказки" },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "To add JavaScript event handlers",
+                "ru": "Для добавления JavaScript-обработчиков"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 4,
+          "name": {
+            "en": "What does aria-expanded indicate?",
+            "ru": "Что означает aria-expanded?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "aria-expanded indicates whether a collapsible element is expanded or collapsed, helping assistive technology users understand the state.",
+            "ru": "aria-expanded указывает, развёрнут или свёрнут сворачиваемый элемент, помогая пользователям вспомогательных технологий понять состояние."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "Whether an element is expanded or collapsed",
+                "ru": "Развёрнут или свёрнут элемент"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": { "en": "The size of an element", "ru": "Размер элемента" },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "Whether text can be edited", "ru": "Можно ли редактировать текст" },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "The visibility of an element", "ru": "Видимость элемента" },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 5,
+          "name": {
+            "en": "What is aria-hidden=\"true\" used for?",
+            "ru": "Для чего используется aria-hidden=\"true\"?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "aria-hidden=\"true\" hides an element and its children from assistive technologies, useful for decorative or duplicated content.",
+            "ru": "aria-hidden=\"true\" скрывает элемент и его потомков от вспомогательных технологий, полезно для декоративного или дублированного контента."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "To hide content from assistive technologies",
+                "ru": "Скрыть контент от вспомогательных технологий"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "To hide content from all users",
+                "ru": "Скрыть контент от всех пользователей"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "To remove an element from the page",
+                "ru": "Удалить элемент со страницы"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "To make content editable", "ru": "Сделать контент редактируемым" },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 6,
+          "name": {
+            "en": "What is the difference between aria-label and aria-labelledby?",
+            "ru": "Какова разница между aria-label и aria-labelledby?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "aria-label provides an explicit string as the label, while aria-labelledby references another element's content as the label.",
+            "ru": "aria-label предоставляет явную строку в качестве метки, тогда как aria-labelledby ссылается на контент другого элемента как на метку."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "label is string, labelledby references another element",
+                "ru": "label — строка, labelledby — ссылка на другой элемент"
+              },
+              "isCorrect": true
+            },
+            { "text": { "en": "They are identical", "ru": "Они идентичны" }, "isCorrect": false },
+            {
+              "text": { "en": "aria-label is deprecated", "ru": "aria-label устарел" },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "aria-labelledby only works on forms",
+                "ru": "aria-labelledby работает только на формах"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 7,
+          "name": {
+            "en": "When should you use role=\"presentation\"?",
+            "ru": "Когда следует использовать role=\"presentation\"?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "role=\"presentation\" removes semantic meaning from an element, used for decorative images or layout elements that have no semantic purpose.",
+            "ru": "role=\"presentation\" удаляет семантический смысл из элемента, используется для декоративных изображений или элементов макета без семантической цели."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "For decorative or layout elements with no meaning",
+                "ru": "Для декоративных или макетных элементов без смысла"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": { "en": "For important headings", "ru": "Для важных заголовков" },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "For form inputs", "ru": "Для элементов ввода формы" },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "For navigation links", "ru": "Для навигационных ссылок" },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 8,
+          "name": { "en": "What does aria-describedby do?", "ru": "Что делает aria-describedby?" },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "aria-describedby provides additional description text for an element by referencing another element's ID, useful for form validation messages.",
+            "ru": "aria-describedby предоставляет дополнительный описательный текст для элемента, ссылаясь на ID другого элемента, полезно для сообщений валидации форм."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "Links to another element providing additional description",
+                "ru": "Ссылается на другой элемент с дополнительным описанием"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": { "en": "Creates a tooltip", "ru": "Создаёт всплывающую подсказку" },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "Makes an element hidden", "ru": "Скрывает элемент" },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "Adds a label to an element", "ru": "Добавляет метку элементу" },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 9,
+          "name": { "en": "What is aria-live used for?", "ru": "Для чего используется aria-live?" },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "aria-live creates a live region that announces changes to assistive technologies, used for dynamic content updates like error messages or chat messages.",
+            "ru": "aria-live создаёт динамическую область, которая объявляет изменения вспомогательным технологиям, используется для динамических обновлений, например сообщений об ошибках."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "To announce dynamic content changes to screen readers",
+                "ru": "Объявлять динамические изменения контента скринридерам"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": { "en": "To add animations", "ru": "Для добавления анимаций" },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "To make content editable", "ru": "Сделать контент редактируемым" },
+              "isCorrect": false
+            },
+            { "text": { "en": "To hide content", "ru": "Скрыть контент" }, "isCorrect": false }
+          ]
+        },
+        {
+          "sortOrder": 10,
+          "name": {
+            "en": "What is role=\"navigation\" used for?",
+            "ru": "Для чего используется role=\"navigation\"?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "role=\"navigation\" identifies a region of navigation links. However, the native <nav> element is preferred over using this role.",
+            "ru": "role=\"navigation\" идентифицирует область навигационных ссылок. Однако нативный элемент <nav> предпочтительнее использования этой роли."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "To identify a navigation region (prefer <nav> instead)",
+                "ru": "Идентифицировать навигационную область (лучше <nav>)"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": { "en": "To create a new page", "ru": "Создать новую страницу" },
+              "isCorrect": false
+            },
+            { "text": { "en": "To add a footer", "ru": "Добавить подвал" }, "isCorrect": false },
+            {
+              "text": { "en": "To make a link clickable", "ru": "Сделать ссылку кликабельной" },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 11,
+          "name": {
+            "en": "What does aria-checked indicate for a checkbox?",
+            "ru": "Что означает aria-checked для чекбокса?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "aria-checked indicates the current checked state of a checkbox (true, false, or mixed for tri-state checkboxes).",
+            "ru": "aria-checked указывает текущее состояние чекбокса (true, false или mixed для трёхпозиционных чекбоксов)."
+          },
+          "answers": [
+            {
+              "text": { "en": "Whether the checkbox is checked", "ru": "Отмечен ли чекбокс" },
+              "isCorrect": true
+            },
+            {
+              "text": { "en": "The color of the checkbox", "ru": "Цвет чекбокса" },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "If the checkbox is required", "ru": "Обязателен ли чекбокс" },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "The size of the checkbox", "ru": "Размер чекбокса" },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 12,
+          "name": {
+            "en": "What is the correct ARIA pattern for a modal dialog?",
+            "ru": "Какой правильный паттерн ARIA для модального диалога?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "A modal should use role=\"dialog\" or role=\"alertdialog\", have aria-modal=\"true\", and be labelled by a title or description.",
+            "ru": "Модальное окно должно использовать role=\"dialog\" или role=\"alertdialog\", иметь aria-modal=\"true\" и быть помеченным заголовком или описанием."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "role=\"dialog\" with aria-modal=\"true\" and label",
+                "ru": "role=\"dialog\" с aria-modal=\"true\" и меткой"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": { "en": "Just role=\"modal\"", "ru": "Просто role=\"modal\"" },
+              "isCorrect": false
+            },
+            { "text": { "en": "role=\"window\"", "ru": "role=\"window\"" }, "isCorrect": false },
+            {
+              "text": { "en": "No ARIA needed for modals", "ru": "Для модалей ARIA не нужен" },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 13,
+          "name": {
+            "en": "What does aria-required indicate?",
+            "ru": "Что означает aria-required?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "aria-required indicates that user input is required on an element before a form can be submitted, similar to the HTML required attribute.",
+            "ru": "aria-required указывает, что ввод пользователя обязателен на элементе перед отправкой формы, аналогично атрибуту HTML required."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "That input must be provided before submission",
+                "ru": "Что ввод обязателен перед отправкой"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": { "en": "That input can be deleted", "ru": "Что ввод можно удалить" },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "That input is read-only", "ru": "Что ввод только для чтения" },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "That input has a default value",
+                "ru": "Что ввод имеет значение по умолчанию"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 14,
+          "name": {
+            "en": "What is aria-invalid used for?",
+            "ru": "Для чего используется aria-invalid?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "aria-invalid indicates the entered value doesn't conform to the expected format, helping assistive technologies announce validation errors.",
+            "ru": "aria-invalid указывает, что введённое значение не соответствует ожидаемому формату, помогая вспомогательным технологиям объявлять ошибки валидации."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "Indicates the value has a validation error",
+                "ru": "Указывает, что значение имеет ошибку валидации"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": { "en": "Makes the field editable", "ru": "Делает поле редактируемым" },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Hides the field from users",
+                "ru": "Скрывает поле от пользователей"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "Adds a default value", "ru": "Добавляет значение по умолчанию" },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 15,
+          "name": { "en": "What is the second rule of ARIA?", "ru": "Каково второе правило ARIA?" },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "The second rule states: Don't change native semantics unless you really have to. Don't add role=\"button\" to a <button> element.",
+            "ru": "Второе правило гласит: Не изменяйте нативную семантику, если это не действительно необходимо. Не добавляйте role=\"button\" к элементу <button>."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "Don't change native semantics unnecessarily",
+                "ru": "Не изменяйте нативную семантику без необходимости"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": { "en": "Always use ARIA roles", "ru": "Всегда используйте ARIA-роли" },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Use ARIA on all interactive elements",
+                "ru": "Используйте ARIA на всех интерактивных элементах"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Avoid using ARIA at all costs",
+                "ru": "Избегайте использования ARIA любой ценой"
+              },
+              "isCorrect": false
+            }
+          ]
+        }
+      ]
     },
     {
       "name": {
@@ -48,7 +1413,485 @@
       "links": [
         "https://developer.mozilla.org/en-US/docs/Web/Accessibility/Understanding_Accessibility_and_Keyboard_Navigation"
       ],
-      "questions": []
+      "questions": [
+        {
+          "sortOrder": 1,
+          "name": {
+            "en": "What is the default tab order in HTML?",
+            "ru": "Каков порядок табуляции по умолчанию в HTML?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "Elements are focused in the order they appear in the DOM. The tabindex attribute can modify this order.",
+            "ru": "Элементы получают фокус в порядке их появления в DOM. Атрибут tabindex может изменить этот порядок."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "The order elements appear in the DOM",
+                "ru": "Порядок появления элементов в DOM"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": { "en": "Alphabetical order", "ru": "Алфавитный порядок" },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "Reverse alphabetical order", "ru": "Обратный алфавитный порядок" },
+              "isCorrect": false
+            },
+            { "text": { "en": "Random order", "ru": "Случайный порядок" }, "isCorrect": false }
+          ]
+        },
+        {
+          "sortOrder": 2,
+          "name": { "en": "What does tabindex=\"0\" do?", "ru": "Что делает tabindex=\"0\"?" },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "tabindex=\"0\" adds an element to the natural tab order, making it focusable via keyboard, even if it wouldn't normally be (like <div>).",
+            "ru": "tabindex=\"0\" добавляет элемент в естественный порядок табуляции, делая его фокусируемым через клавиатуру, даже если обычно это не так (как <div>)."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "Adds element to natural tab order",
+                "ru": "Добавляет элемент в естественный порядок табуляции"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "Removes element from tab order",
+                "ru": "Удаляет элемент из порядка табуляции"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Makes element non-focusable",
+                "ru": "Делает элемент нефокусируемым"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Automatically focuses element on load",
+                "ru": "Автоматически фокусирует элемент при загрузке"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 3,
+          "name": { "en": "What is focus trapping?", "ru": "Что такое захват фокуса?" },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "Focus trapping keeps keyboard focus within a modal or other element when open, preventing users from tabbing outside to background content.",
+            "ru": "Захват фокуса удерживает клавиатурный фокус внутри модального окна или другого элемента при открытии, не позволяя пользователям выйти за его пределы."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "Keeping focus inside a modal while open",
+                "ru": "Удержание фокуса внутри модального окна при открытии"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": { "en": "Freezing the page", "ru": "Заморозка страницы" },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Highlighting focused elements",
+                "ru": "Выделение фокусируемых элементов"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Auto-focusing the first element",
+                "ru": "Автофокус первого элемента"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 4,
+          "name": { "en": "What is a skip link?", "ru": "Что такое ссылка-пропуск?" },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "A skip link is a hidden link that allows users to bypass repeated content (like navigation) and jump directly to main content.",
+            "ru": "Ссылка-пропуск — это скрытая ссылка, которая позволяет пользователям обходить повторяющийся контент (например, навигацию) и сразу переходить к основному контенту."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "A link to bypass navigation and jump to main content",
+                "ru": "Ссылка для обхода навигации и перехода к основному контенту"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "A link that skips the entire page",
+                "ru": "Ссылка, которая пропускает всю страницу"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "A keyboard shortcut", "ru": "Клавиатурный ярлык" },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "A type of error message", "ru": "Тип сообщения об ошибке" },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 5,
+          "name": {
+            "en": "Which CSS property ensures focus indicators are visible?",
+            "ru": "Какое CSS-свойство обеспечивает видимость индикаторов фокуса?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "The outline property controls the focus ring. Never set outline: none without providing an alternative focus indicator.",
+            "ru": "Свойство outline управляет кольцом фокуса. Никогда не устанавливайте outline: none без предоставления альтернативного индикатора фокуса."
+          },
+          "answers": [
+            { "text": { "en": "outline", "ru": "outline" }, "isCorrect": true },
+            { "text": { "en": "display", "ru": "display" }, "isCorrect": false },
+            { "text": { "en": "visibility", "ru": "visibility" }, "isCorrect": false },
+            { "text": { "en": "opacity", "ru": "opacity" }, "isCorrect": false }
+          ]
+        },
+        {
+          "sortOrder": 6,
+          "name": {
+            "en": "Which elements are naturally focusable in HTML?",
+            "ru": "Какие элементы естественно фокусируемы в HTML?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "Links (<a> with href), buttons, form inputs, select, textarea, and iframe elements are naturally focusable.",
+            "ru": "Ссылки (<a> с href), кнопки, элементы ввода формы, select, textarea и iframe естественно фокусируемы."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "Links, buttons, form inputs",
+                "ru": "Ссылки, кнопки, элементы ввода формы"
+              },
+              "isCorrect": true
+            },
+            { "text": { "en": "Only buttons", "ru": "Только кнопки" }, "isCorrect": false },
+            { "text": { "en": "Only links", "ru": "Только ссылки" }, "isCorrect": false },
+            { "text": { "en": "Only headings", "ru": "Только заголовки" }, "isCorrect": false }
+          ]
+        },
+        {
+          "sortOrder": 7,
+          "name": { "en": "What does tabindex=\"-1\" do?", "ru": "Что делает tabindex=\"-1\"?" },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "tabindex=\"-1\" removes an element from the tab order but allows it to be focused programmatically via JavaScript.",
+            "ru": "tabindex=\"-1\" удаляет элемент из порядка табуляции, но позволяет ему быть фокусируемым программно через JavaScript."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "Removes from tab order but allows programmatic focus",
+                "ru": "Удаляет из порядка табуляции, но позволяет программный фокус"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": { "en": "Makes element invisible", "ru": "Делает элемент невидимым" },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Prioritizes element in tab order",
+                "ru": "Приоритизирует элемент в порядке табуляции"
+              },
+              "isCorrect": false
+            },
+            { "text": { "en": "Deletes the element", "ru": "Удаляет элемент" }, "isCorrect": false }
+          ]
+        },
+        {
+          "sortOrder": 8,
+          "name": {
+            "en": "What happens when focus() is called in JavaScript?",
+            "ru": "Что происходит при вызове focus() в JavaScript?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "The focus() method moves keyboard focus to the specified element, making it the active element that receives keyboard events.",
+            "ru": "Метод focus() перемещает клавиатурный фокус на указанный элемент, делая его активным элементом, который получает клавиатурные события."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "Moves keyboard focus to the element",
+                "ru": "Перемещает клавиатурный фокус на элемент"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "Clicks the element automatically",
+                "ru": "Автоматически кликает элемент"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Scrolls the element into view",
+                "ru": "Прокручивает элемент в видимую область"
+              },
+              "isCorrect": false
+            },
+            { "text": { "en": "Hides the element", "ru": "Скрывает элемент" }, "isCorrect": false }
+          ]
+        },
+        {
+          "sortOrder": 9,
+          "name": {
+            "en": "What should happen when a modal dialog opens?",
+            "ru": "Что должно происходить при открытии модального диалога?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "When a modal opens, focus should move to the modal or the first focusable element inside it, and focus should be trapped within the modal.",
+            "ru": "При открытии модального окна фокус должен переместиться на модальное окно или первый фокусируемый элемент внутри него, а фокус должен быть захвачен внутри модального окна."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "Focus moves to modal and is trapped inside",
+                "ru": "Фокус перемещается на модальное окно и захватывается внутри"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "Focus stays on the triggering button",
+                "ru": "Фокус остаётся на кнопке-триггере"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "The page scrolls to top", "ru": "Страница прокручивается наверх" },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "Nothing happens", "ru": "Ничего не происходит" },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 10,
+          "name": {
+            "en": "What is the roving tabindex technique?",
+            "ru": "Что такое техника roving tabindex?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "Roving tabindex sets tabindex=\"0\" on the focused item and tabindex=\"-1\" on others in a widget, allowing arrow keys to navigate between items.",
+            "ru": "Roving tabindex устанавливает tabindex=\"0\" на сфокусированном элементе и tabindex=\"-1\" на остальных в виджете, позволяя клавишам-стрелкам перемещаться между элементами."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "Using arrow keys to navigate within a widget",
+                "ru": "Использование стрелок для навигации внутри виджета"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": { "en": "A type of skip link", "ru": "Тип ссылки-пропуска" },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "Automatic tab order", "ru": "Автоматический порядок табуляции" },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "A form validation method", "ru": "Метод валидации формы" },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 11,
+          "name": {
+            "en": "Why should you never remove outline without providing an alternative?",
+            "ru": "Почему нельзя убирать outline без предоставления альтернативы?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "Users navigating by keyboard rely on the visible focus indicator to know which element is focused. Removing it makes navigation impossible for keyboard users.",
+            "ru": "Пользователи, навигирующие с помощью клавиатуры, полагаются на видимый индикатор фокуса, чтобы знать, какой элемент сфокусирован. Его удаление делает навигацию невозможной для клавиатурных пользователей."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "Keyboard users need to see which element is focused",
+                "ru": "Клавиатурным пользователям нужно видеть сфокусированный элемент"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "It affects page performance",
+                "ru": "Это влияет на производительность страницы"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "It's against CSS standards",
+                "ru": "Это противоречит CSS-стандартам"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "It breaks mobile layout", "ru": "Это ломает мобильный макет" },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 12,
+          "name": {
+            "en": "What happens when a modal is closed?",
+            "ru": "Что происходит при закрытии модального окна?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "When a modal closes, focus should return to the element that opened it (the trigger), maintaining the user's place in the page flow.",
+            "ru": "При закрытии модального окна фокус должен вернуться к элементу, который его открыл (триггеру), сохраняя место пользователя в потоке страницы."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "Focus returns to the element that opened it",
+                "ru": "Фокус возвращается к элементу, который открыл модальное окно"
+              },
+              "isCorrect": true
+            },
+            { "text": { "en": "Focus is lost", "ru": "Фокус теряется" }, "isCorrect": false },
+            {
+              "text": {
+                "en": "Focus goes to the top of the page",
+                "ru": "Фокус переходит наверх страницы"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "Page reloads", "ru": "Страница перезагружается" },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 13,
+          "name": {
+            "en": "What is the purpose of the :focus-visible pseudo-class?",
+            "ru": "Какова цель псевдокласса :focus-visible?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": ":focus-visible applies styles only when the browser determines focus should be visible, allowing different styles for mouse vs keyboard focus.",
+            "ru": ":focus-visible применяет стили только когда браузер определяет, что фокус должен быть видимым, позволяя разные стили для фокуса мыши и клавиатуры."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "Show focus style only for keyboard navigation",
+                "ru": "Показывать стиль фокуса только для клавиатурной навигации"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": { "en": "Hide all focus styles", "ru": "Скрыть все стили фокуса" },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Make elements always focused",
+                "ru": "Всегда делать элементы сфокусированными"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Disable keyboard navigation",
+                "ru": "Отключить клавиатурную навигацию"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 14,
+          "name": {
+            "en": "Which HTML attribute can make a non-interactive element focusable?",
+            "ru": "Какой HTML-атрибут может сделать неинтерактивный элемент фокусируемым?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "The tabindex attribute can make any element focusable. tabindex=\"0\" adds to natural order, tabindex=\"-1\" allows programmatic focus.",
+            "ru": "Атрибут tabindex может сделать любой элемент фокусируемым. tabindex=\"0\" добавляет в естественный порядок, tabindex=\"-1\" позволяет программный фокус."
+          },
+          "answers": [
+            { "text": { "en": "tabindex", "ru": "tabindex" }, "isCorrect": true },
+            { "text": { "en": "focusable", "ru": "focusable" }, "isCorrect": false },
+            { "text": { "en": "disabled", "ru": "disabled" }, "isCorrect": false },
+            { "text": { "en": "readonly", "ru": "readonly" }, "isCorrect": false }
+          ]
+        },
+        {
+          "sortOrder": 15,
+          "name": {
+            "en": "What is logical focus order?",
+            "ru": "Что такое логический порядок фокуса?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "Logical focus order means the tab order follows the visual and semantic flow of the page, making navigation intuitive for all users.",
+            "ru": "Логический порядок фокуса означает, что порядок табуляции следует визуальному и семантическому потоку страницы, делая навигацию интуитивной для всех пользователей."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "Tab order matches visual flow of the page",
+                "ru": "Порядок табуляции соответствует визуальному потоку страницы"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": { "en": "Tab order is alphabetical", "ru": "Порядок табуляции алфавитный" },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "Focus order is random", "ru": "Случайный порядок фокуса" },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "Only images are focusable", "ru": "Только изображения фокусируемы" },
+              "isCorrect": false
+            }
+          ]
+        }
+      ]
     },
     {
       "name": {
@@ -60,7 +1903,401 @@
         "ru": "Как работают скринридеры, live-регионы, доступные имена и описания, тестирование со вспомогательными инструментами"
       },
       "links": ["https://www.screenreader.org/", "https://webaim.org/projects/screenreadersurvey/"],
-      "questions": []
+      "questions": [
+        {
+          "sortOrder": 1,
+          "name": { "en": "What is a screen reader?", "ru": "Что такое скринридер?" },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "A screen reader is assistive technology that converts visual content to audio or Braille for users who are blind or visually impaired.",
+            "ru": "Скринридер — вспомогательная технология, которая преобразует визуальный контент в аудио или Брайль для пользователей с нарушением зрения."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "Software that reads screen content aloud",
+                "ru": "Программа, которая читает контент экрана вслух"
+              },
+              "isCorrect": true
+            },
+            { "text": { "en": "A type of monitor", "ru": "Тип монитора" }, "isCorrect": false },
+            {
+              "text": { "en": "A keyboard shortcut", "ru": "Клавиатурный ярлык" },
+              "isCorrect": false
+            },
+            { "text": { "en": "A web browser", "ru": "Веб-браузер" }, "isCorrect": false }
+          ]
+        },
+        {
+          "sortOrder": 2,
+          "name": {
+            "en": "What does the accessible name of an element mean?",
+            "ru": "Что означает доступное имя элемента?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "The accessible name is what assistive technologies announce for an element, derived from text, labels, or ARIA attributes.",
+            "ru": "Доступное имя — это то, что вспомогательные технологии объявляют для элемента, полученное из текста, меток или ARIA-атрибутов."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "The name assistive technologies use for an element",
+                "ru": "Имя, которое используют вспомогательные технологии для элемента"
+              },
+              "isCorrect": true
+            },
+            { "text": { "en": "The CSS class name", "ru": "Имя CSS-класса" }, "isCorrect": false },
+            { "text": { "en": "The element's ID", "ru": "ID элемента" }, "isCorrect": false },
+            { "text": { "en": "The page title", "ru": "Заголовок страницы" }, "isCorrect": false }
+          ]
+        },
+        {
+          "sortOrder": 3,
+          "name": {
+            "en": "What are live regions in ARIA?",
+            "ru": "Что такое live-регионы в ARIA?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "Live regions are areas that announce dynamic content changes to screen readers, using aria-live, aria-relevant, and aria-atomic.",
+            "ru": "Live-регионы — это области, которые объявляют динамические изменения контента скринридерам, используя aria-live, aria-relevant и aria-atomic."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "Regions that announce dynamic content updates",
+                "ru": "Регионы, которые объявляют динамические обновления контента"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": { "en": "Static content areas", "ru": "Области статического контента" },
+              "isCorrect": false
+            },
+            { "text": { "en": "Video players", "ru": "Видеоплееры" }, "isCorrect": false },
+            { "text": { "en": "Image galleries", "ru": "Галереи изображений" }, "isCorrect": false }
+          ]
+        },
+        {
+          "sortOrder": 4,
+          "name": {
+            "en": "Which popular screen reader is built into macOS?",
+            "ru": "Какой популярный скринридер встроен в macOS?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "VoiceOver is the built-in screen reader for macOS and iOS, accessible via keyboard shortcuts or VoiceOver command key.",
+            "ru": "VoiceOver — встроенный скринридер для macOS и iOS, доступный через клавиатурные ярлыки или клавишу команд VoiceOver."
+          },
+          "answers": [
+            { "text": { "en": "VoiceOver", "ru": "VoiceOver" }, "isCorrect": true },
+            { "text": { "en": "JAWS", "ru": "JAWS" }, "isCorrect": false },
+            { "text": { "en": "NVDA", "ru": "NVDA" }, "isCorrect": false },
+            { "text": { "en": "TalkBack", "ru": "TalkBack" }, "isCorrect": false }
+          ]
+        },
+        {
+          "sortOrder": 5,
+          "name": { "en": "What is NVDA?", "ru": "Что такое NVDA?" },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "NVDA (NonVisual Desktop Access) is a free, open-source screen reader for Windows, widely used and community-developed.",
+            "ru": "NVDA (NonVisual Desktop Access) — бесплатный скринридер с открытым исходным кодом для Windows, широко используемый и разработанный сообществом."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "A free Windows screen reader",
+                "ru": "Бесплатный скринридер для Windows"
+              },
+              "isCorrect": true
+            },
+            { "text": { "en": "A web browser", "ru": "Веб-браузер" }, "isCorrect": false },
+            {
+              "text": { "en": "A keyboard shortcut", "ru": "Клавиатурный ярлык" },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "An operating system", "ru": "Операционная система" },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 6,
+          "name": { "en": "What is TalkBack?", "ru": "Что такое TalkBack?" },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "TalkBack is Google's built-in screen reader for Android devices, pre-installed on most Android phones.",
+            "ru": "TalkBack — встроенный скринридер Google для устройств Android, предустановленный на большинстве телефонов Android."
+          },
+          "answers": [
+            {
+              "text": { "en": "Screen reader for Android", "ru": "Скринридер для Android" },
+              "isCorrect": true
+            },
+            {
+              "text": { "en": "Screen reader for iOS", "ru": "Скринридер для iOS" },
+              "isCorrect": false
+            },
+            { "text": { "en": "A web framework", "ru": "Веб-фреймворк" }, "isCorrect": false },
+            { "text": { "en": "A CSS property", "ru": "CSS-свойство" }, "isCorrect": false }
+          ]
+        },
+        {
+          "sortOrder": 7,
+          "name": {
+            "en": "What does aria-live=\"polite\" do?",
+            "ru": "Что делает aria-live=\"polite\"?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "aria-live=\"polite\" causes screen readers to announce changes at the next convenient time, not interrupting current speech.",
+            "ru": "aria-live=\"polite\" заставляет скринридеры объявлять изменения в следующий удобный момент, не прерывая текущую речь."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "Announces at next convenient time",
+                "ru": "Объявляет в следующий удобный момент"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "Immediately interrupts current speech",
+                "ru": "Немедленно прерывает текущую речь"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "Never announces changes", "ru": "Никогда не объявляет изменения" },
+              "isCorrect": false
+            },
+            {
+              "text": {
+                "en": "Only announces on user request",
+                "ru": "Объявляет только по запросу пользователя"
+              },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 8,
+          "name": {
+            "en": "What does aria-live=\"assertive\" do?",
+            "ru": "Что делает aria-live=\"assertive\"?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "aria-live=\"assertive\" causes screen readers to immediately announce the change, interrupting current speech for urgent updates.",
+            "ru": "aria-live=\"assertive\" заставляет скринридеры немедленно объявить изменение, прерывая текущую речь для срочных обновлений."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "Immediately announces urgent updates",
+                "ru": "Немедленно объявляет срочные обновления"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "Announces only when idle",
+                "ru": "Объявляет только в режиме ожидания"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "Never announces changes", "ru": "Никогда не объявляет изменения" },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "Shows a popup message", "ru": "Показывает всплывающее сообщение" },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 9,
+          "name": {
+            "en": "What is the accessible description of an element?",
+            "ru": "Что такое доступное описание элемента?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "The accessible description provides additional information about an element, exposed via aria-describedby or title attribute.",
+            "ru": "Доступное описание предоставляет дополнительную информацию об элементе, предоставляется через aria-describedby или атрибут title."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "Additional information beyond the accessible name",
+                "ru": "Дополнительная информация помимо доступного имени"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "The same as the accessible name",
+                "ru": "То же, что и доступное имя"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "The element's CSS class", "ru": "CSS-класс элемента" },
+              "isCorrect": false
+            },
+            { "text": { "en": "The page URL", "ru": "URL страницы" }, "isCorrect": false }
+          ]
+        },
+        {
+          "sortOrder": 10,
+          "name": {
+            "en": "What is the most popular screen reader among blind users?",
+            "ru": "Какой скринридер наиболее популярен среди незрячих пользователей?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "According to surveys, JAWS (Job Access With Speech) has historically been the most widely used screen reader on Windows.",
+            "ru": "Согласно опросам, JAWS (Job Access With Speech) исторически был наиболее широко используемым скринридером на Windows."
+          },
+          "answers": [
+            { "text": { "en": "JAWS", "ru": "JAWS" }, "isCorrect": true },
+            { "text": { "en": "VoiceOver", "ru": "VoiceOver" }, "isCorrect": false },
+            { "text": { "en": "ChromeVox", "ru": "ChromeVox" }, "isCorrect": false },
+            { "text": { "en": "Orca", "ru": "Orca" }, "isCorrect": false }
+          ]
+        },
+        {
+          "sortOrder": 11,
+          "name": { "en": "What is a screen reader buffer?", "ru": "Что такое буфер скринридера?" },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "The screen reader buffer is the virtual content that the screen reader presents, derived from the DOM and accessible tree.",
+            "ru": "Буфер скринридера — это виртуальный контент, который представляет скринридер, полученный из DOM и доступного дерева."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "The virtual content presented by the screen reader",
+                "ru": "Виртуальный контент, представляемый скринридером"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": { "en": "A type of RAM", "ru": "Тип оперативной памяти" },
+              "isCorrect": false
+            },
+            { "text": { "en": "A browser cache", "ru": "Кэш браузера" }, "isCorrect": false },
+            { "text": { "en": "A storage location", "ru": "Место хранения" }, "isCorrect": false }
+          ]
+        },
+        {
+          "sortOrder": 12,
+          "name": { "en": "What is the accessible tree?", "ru": "Что такое доступное дерево?" },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "The accessible tree is a version of the DOM that assistive technologies use, containing accessible objects with properties like name and role.",
+            "ru": "Доступное дерево — это версия DOM, которую используют вспомогательные технологии, содержащая доступные объекты со свойствами, такими как имя и роль."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "DOM version used by assistive technologies",
+                "ru": "Версия DOM, используемая вспомогательными технологиями"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": { "en": "A JavaScript library", "ru": "JavaScript-библиотека" },
+              "isCorrect": false
+            },
+            { "text": { "en": "A CSS selector", "ru": "CSS-селектор" }, "isCorrect": false },
+            {
+              "text": { "en": "HTML file structure", "ru": "Структура HTML-файла" },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 13,
+          "name": {
+            "en": "What is dynamic content that screen readers need to know about?",
+            "ru": "Какой динамический контент нужно сообщать скринридерам?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "Dynamic content like form validation errors, chat messages, loading states, and content updates should be announced using live regions.",
+            "ru": "Динамический контент, такой как ошибки валидации формы, сообщения чата, состояния загрузки и обновления контента, должен объявляться через live-регионы."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "Form errors, chat messages, loading states",
+                "ru": "Ошибки форм, сообщения чата, состояния загрузки"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": { "en": "Static page content", "ru": "Статический контент страницы" },
+              "isCorrect": false
+            },
+            { "text": { "en": "CSS styles", "ru": "CSS-стили" }, "isCorrect": false },
+            {
+              "text": { "en": "JavaScript functions", "ru": "JavaScript-функции" },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 14,
+          "name": {
+            "en": "What is the purpose of testing with actual assistive technologies?",
+            "ru": "Для чего нужно тестировать с реальными вспомогательными технологиями?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "Automated tools can't detect all accessibility issues. Real assistive technology testing reveals how users actually experience the site.",
+            "ru": "Автоматизированные инструменты не могут обнаружить все проблемы доступности. Реальное тестирование с вспомогательными технологиями показывает, как пользователи фактически воспринимают сайт."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "Reveals real user experience issues",
+                "ru": "Выявляет реальные проблемы пользовательского опыта"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": { "en": "Makes the page load faster", "ru": "Ускоряет загрузку страницы" },
+              "isCorrect": false
+            },
+            { "text": { "en": "Improves SEO", "ru": "Улучшает SEO" }, "isCorrect": false },
+            { "text": { "en": "Fixes all bugs", "ru": "Исправляет все баги" }, "isCorrect": false }
+          ]
+        },
+        {
+          "sortOrder": 15,
+          "name": {
+            "en": "Which keyboard shortcut activates VoiceOver on Mac?",
+            "ru": "Какой клавиатурный ярлык активирует VoiceOver на Mac?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "Cmd + F5 activates VoiceOver on Mac. VoiceOver also has its own navigation with VO key (Control + Option).",
+            "ru": "Cmd + F5 активирует VoiceOver на Mac. VoiceOver также имеет собственную навигацию с клавишей VO (Control + Option)."
+          },
+          "answers": [
+            { "text": { "en": "Cmd + F5", "ru": "Cmd + F5" }, "isCorrect": true },
+            { "text": { "en": "Alt + Tab", "ru": "Alt + Tab" }, "isCorrect": false },
+            { "text": { "en": "Ctrl + Shift + S", "ru": "Ctrl + Shift + S" }, "isCorrect": false },
+            { "text": { "en": "F6", "ru": "F6" }, "isCorrect": false }
+          ]
+        }
+      ]
     },
     {
       "name": {
@@ -75,7 +2312,392 @@
         "https://webaim.org/resources/contrastchecker/",
         "https://developer.mozilla.org/en-US/docs/Web/Accessibility/Understanding_WCAG/Perceivable/Color_contrast"
       ],
-      "questions": []
+      "questions": [
+        {
+          "sortOrder": 1,
+          "name": {
+            "en": "What is the minimum contrast ratio required for normal text under WCAG AA?",
+            "ru": "Какой минимальный коэффициент контрастности требуется для обычного текста по WCAG AA?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "WCAG AA requires a contrast ratio of at least 4.5:1 for normal text (text smaller than 18pt or 14pt bold).",
+            "ru": "WCAG AA требует коэффициента контрастности не менее 4,5:1 для обычного текста (текст меньше 18pt или 14pt жирный)."
+          },
+          "answers": [
+            { "text": { "en": "4.5:1", "ru": "4,5:1" }, "isCorrect": true },
+            { "text": { "en": "3:1", "ru": "3:1" }, "isCorrect": false },
+            { "text": { "en": "7:1", "ru": "7:1" }, "isCorrect": false },
+            { "text": { "en": "2:1", "ru": "2:1" }, "isCorrect": false }
+          ]
+        },
+        {
+          "sortOrder": 2,
+          "name": {
+            "en": "What contrast ratio is required for large text under WCAG AA?",
+            "ru": "Какой коэффициент контрастности требуется для крупного текста по WCAG AA?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "Large text (18pt+ or 14pt+ bold) requires at least 3:1 contrast ratio under WCAG AA.",
+            "ru": "Крупный текст (18pt+ или 14pt+ жирный) требует коэффициента контрастности не менее 3:1 по WCAG AA."
+          },
+          "answers": [
+            { "text": { "en": "3:1", "ru": "3:1" }, "isCorrect": true },
+            { "text": { "en": "4.5:1", "ru": "4,5:1" }, "isCorrect": false },
+            { "text": { "en": "2:1", "ru": "2:1" }, "isCorrect": false },
+            { "text": { "en": "1:1", "ru": "1:1" }, "isCorrect": false }
+          ]
+        },
+        {
+          "sortOrder": 3,
+          "name": {
+            "en": "What is the WCAG AAA requirement for normal text contrast?",
+            "ru": "Каково требование WCAG AAA для контрастности обычного текста?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "WCAG AAA requires a contrast ratio of at least 7:1 for normal text, providing enhanced accessibility.",
+            "ru": "WCAG AAA требует коэффициента контрастности не менее 7:1 для обычного текста, обеспечивая улучшенную доступность."
+          },
+          "answers": [
+            { "text": { "en": "7:1", "ru": "7:1" }, "isCorrect": true },
+            { "text": { "en": "4.5:1", "ru": "4,5:1" }, "isCorrect": false },
+            { "text": { "en": "3:1", "ru": "3:1" }, "isCorrect": false },
+            { "text": { "en": "5:1", "ru": "5:1" }, "isCorrect": false }
+          ]
+        },
+        {
+          "sortOrder": 4,
+          "name": {
+            "en": "Which type of color blindness is most common?",
+            "ru": "Какой тип цветовой слепоты наиболее распространён?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "Red-green color blindness (protanopia and deuteranopia) is the most common, affecting about 8% of men.",
+            "ru": "Красно-зелёная цветовая слепота (протанопия и дейтеранопия) наиболее распространена, затрагивая около 8% мужчин."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "Red-green (protanopia/deuteranopia)",
+                "ru": "Красно-зелёная (протанопия/дейтеранопия)"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": { "en": "Blue-yellow (tritanopia)", "ru": "Сине-жёлтая (тританопия)" },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "Total color blindness", "ru": "Полная цветовая слепота" },
+              "isCorrect": false
+            },
+            { "text": { "en": "Achromatopsia", "ru": "Ахроматопсия" }, "isCorrect": false }
+          ]
+        },
+        {
+          "sortOrder": 5,
+          "name": {
+            "en": "What should you NOT rely on alone for conveying information?",
+            "ru": "На чём НЕ следует полагаться в одиночку для передачи информации?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "Never rely on color alone to convey information. Users with color blindness may not perceive the difference. Use text, icons, or patterns as alternatives.",
+            "ru": "Никогда не полагайтесь только на цвет для передачи информации. Пользователи с цветовой слепотой могут не воспринимать разницу. Используйте текст, иконки или паттерны как альтернативы."
+          },
+          "answers": [
+            { "text": { "en": "Color alone", "ru": "Только цвет" }, "isCorrect": true },
+            { "text": { "en": "Text labels", "ru": "Текстовые метки" }, "isCorrect": false },
+            { "text": { "en": "Icons with text", "ru": "Иконки с текстом" }, "isCorrect": false },
+            { "text": { "en": "Patterns", "ru": "Паттерны" }, "isCorrect": false }
+          ]
+        },
+        {
+          "sortOrder": 6,
+          "name": {
+            "en": "What is the WCAG requirement for user interface components?",
+            "ru": "Каково требование WCAG для пользовательских интерфейсов?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "User interface components (like form inputs, buttons) need at least 3:1 contrast against adjacent colors under WCAG AA.",
+            "ru": "Компоненты пользовательского интерфейса (например, поля ввода, кнопки) требуют контрастности не менее 3:1 по отношению к соседним цветам по WCAG AA."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "3:1 minimum against adjacent colors",
+                "ru": "Минимум 3:1 к соседним цветам"
+              },
+              "isCorrect": true
+            },
+            { "text": { "en": "1:1 is acceptable", "ru": "1:1 допустим" }, "isCorrect": false },
+            {
+              "text": { "en": "No contrast requirement", "ru": "Нет требований к контрастности" },
+              "isCorrect": false
+            },
+            { "text": { "en": "10:1 required", "ru": "Требуется 10:1" }, "isCorrect": false }
+          ]
+        },
+        {
+          "sortOrder": 7,
+          "name": {
+            "en": "What does the prefers-reduced-motion media query do?",
+            "ru": "Что делает медиа-запрос prefers-reduced-motion?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "prefers-reduced-motion detects if the user has requested reduced motion, allowing you to disable animations for those with motion sensitivity.",
+            "ru": "prefers-reduced-motion определяет, запросил ли пользователь уменьшение движения, позволяя отключить анимации для тех, кто чувствителен к движению."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "Reduces or disables animations",
+                "ru": "Уменьшает или отключает анимации"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": { "en": "Increases animation speed", "ru": "Увеличивает скорость анимации" },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "Changes color scheme", "ru": "Меняет цветовую схему" },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "Adds more animations", "ru": "Добавляет больше анимаций" },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 8,
+          "name": {
+            "en": "What is a good minimum text size for body content?",
+            "ru": "Какой минимальный размер текста рекомендуется для основного контента?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "A minimum of 16px (or 1rem) for body text is recommended for readability. Users can always zoom if they need larger text.",
+            "ru": "Минимум 16px (или 1rem) для основного текста рекомендуется для читаемости. Пользователи могут увеличить масштаб, если им нужен больший текст."
+          },
+          "answers": [
+            { "text": { "en": "16px (1rem)", "ru": "16px (1rem)" }, "isCorrect": true },
+            { "text": { "en": "8px", "ru": "8px" }, "isCorrect": false },
+            { "text": { "en": "10px", "ru": "10px" }, "isCorrect": false },
+            { "text": { "en": "24px", "ru": "24px" }, "isCorrect": false }
+          ]
+        },
+        {
+          "sortOrder": 9,
+          "name": {
+            "en": "What is high contrast mode?",
+            "ru": "Что такое режим высокой контрастности?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "High contrast mode is an operating system setting that increases color contrast and often adds borders to improve visibility for users with visual impairments.",
+            "ru": "Режим высокой контрастности — это настройка операционной системы, которая увеличивает цветовую контрастность и часто добавляет границы для улучшения видимости для пользователей с нарушениями зрения."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "OS setting for increased color contrast",
+                "ru": "Настройка ОС для увеличенной цветовой контрастности"
+              },
+              "isCorrect": true
+            },
+            { "text": { "en": "A type of monitor", "ru": "Тип монитора" }, "isCorrect": false },
+            { "text": { "en": "A CSS framework", "ru": "CSS-фреймворк" }, "isCorrect": false },
+            { "text": { "en": "A font style", "ru": "Стиль шрифта" }, "isCorrect": false }
+          ]
+        },
+        {
+          "sortOrder": 10,
+          "name": {
+            "en": "What is color contrast ratio?",
+            "ru": "Что такое коэффициент цветовой контрастности?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "Contrast ratio is the relative luminance difference between foreground and background colors, expressed as a ratio like 4.5:1.",
+            "ru": "Коэффициент контрастности — это относительная разница яркости между цветами переднего и заднего плана, выраженная как отношение, например 4,5:1."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "Ratio of luminance between foreground and background",
+                "ru": "Отношение яркости между передним и задним планом"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": { "en": "Difference in hue", "ru": "Разница в оттенке" },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "Saturation level", "ru": "Уровень насыщенности" },
+              "isCorrect": false
+            },
+            { "text": { "en": "Brightness of screen", "ru": "Яркость экрана" }, "isCorrect": false }
+          ]
+        },
+        {
+          "sortOrder": 11,
+          "name": {
+            "en": "What is the WCAG requirement for graphical objects?",
+            "ru": "Каково требование WCAG для графических объектов?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "Graphical objects (like charts, icons) need at least 3:1 contrast ratio against adjacent colors or the background.",
+            "ru": "Графические объекты (диаграммы, иконки) требуют коэффициента контрастности не менее 3:1 по отношению к соседним цветам или фону."
+          },
+          "answers": [
+            {
+              "text": { "en": "3:1 minimum contrast", "ru": "Минимум 3:1 контрастности" },
+              "isCorrect": true
+            },
+            { "text": { "en": "1:1 is acceptable", "ru": "1:1 допустим" }, "isCorrect": false },
+            {
+              "text": { "en": "No contrast required", "ru": "Контраст не требуется" },
+              "isCorrect": false
+            },
+            { "text": { "en": "10:1 required", "ru": "Требуется 10:1" }, "isCorrect": false }
+          ]
+        },
+        {
+          "sortOrder": 12,
+          "name": {
+            "en": "What should you provide for users who can't perceive certain colors?",
+            "ru": "Что следует предоставить пользователям, которые не воспринимают определённые цвета?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "Provide multiple ways to perceive information: text labels, icons, patterns, or shapes alongside color indicators.",
+            "ru": "Предоставьте несколько способов восприятия информации: текстовые метки, иконки, паттерны или формы вместе с цветовыми индикаторами."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "Text, icons, or patterns alongside color",
+                "ru": "Текст, иконки или паттерны вместе с цветом"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": {
+                "en": "Only a different shade of color",
+                "ru": "Только другой оттенок цвета"
+              },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "Nothing extra needed", "ru": "Ничего дополнительного не нужно" },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "A link to a help page", "ru": "Ссылку на страницу помощи" },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 13,
+          "name": { "en": "What is relative luminance?", "ru": "Что такое относительная яркость?" },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "Relative luminance is the relative brightness of any color, on a scale from 0 (black) to 1 (white), used to calculate contrast ratios.",
+            "ru": "Относительная яркость — это относительная яркость любого цвета по шкале от 0 (чёрный) до 1 (белый), используемая для расчёта коэффициентов контрастности."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "Relative brightness of a color (0-1 scale)",
+                "ru": "Относительная яркость цвета (шкала 0-1)"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": { "en": "The actual pixel brightness", "ru": "Фактическая яркость пикселей" },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "Screen brightness setting", "ru": "Настройка яркости экрана" },
+              "isCorrect": false
+            },
+            { "text": { "en": "Color saturation", "ru": "Насыщенность цвета" }, "isCorrect": false }
+          ]
+        },
+        {
+          "sortOrder": 14,
+          "name": {
+            "en": "What is the WCAG requirement for focus visible?",
+            "ru": "Каково требование WCAG для видимости фокуса?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "Any keyboard focus indicator must have at least 3:1 contrast ratio against the adjacent background.",
+            "ru": "Любой индикатор клавиатурного фокуса должен иметь коэффициент контрастности не менее 3:1 по отношению к соседнему фону."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "3:1 minimum contrast against background",
+                "ru": "Минимум 3:1 контрастности к фону"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": { "en": "No contrast requirement", "ru": "Нет требований к контрастности" },
+              "isCorrect": false
+            },
+            { "text": { "en": "1:1 is acceptable", "ru": "1:1 допустим" }, "isCorrect": false },
+            {
+              "text": { "en": "Focus can be invisible", "ru": "Фокус может быть невидимым" },
+              "isCorrect": false
+            }
+          ]
+        },
+        {
+          "sortOrder": 15,
+          "name": {
+            "en": "What is an accessible color palette?",
+            "ru": "Что такое доступная цветовая палитра?"
+          },
+          "codeSnippet": null,
+          "explanation": {
+            "en": "An accessible color palette has sufficient contrast between colors and doesn't rely solely on color to convey information, working for users with color vision deficiencies.",
+            "ru": "Доступная цветовая палитра имеет достаточную контрастность между цветами и не полагается только на цвет для передачи информации, работая для пользователей с нарушениями цветового зрения."
+          },
+          "answers": [
+            {
+              "text": {
+                "en": "Colors with sufficient contrast, not color-dependent",
+                "ru": "Цвета с достаточной контрастностью, не зависящие от цвета"
+              },
+              "isCorrect": true
+            },
+            {
+              "text": { "en": "Only black and white colors", "ru": "Только чёрно-белые цвета" },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "A rainbow of colors", "ru": "Вся радуга цветов" },
+              "isCorrect": false
+            },
+            {
+              "text": { "en": "Very bright neon colors", "ru": "Очень яркие неоновые цвета" },
+              "isCorrect": false
+            }
+          ]
+        }
+      ]
     }
   ]
 }
