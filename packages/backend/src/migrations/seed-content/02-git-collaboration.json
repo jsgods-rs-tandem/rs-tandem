@@ -13,7 +13,12 @@
         "en": "Core Git concepts: commits, branches, merging, and history management",
         "ru": "Основные концепции Git: коммиты, ветки, слияние и управление историей"
       },
-      "links": [],
+      "links": [
+        "https://git-scm.com/book/en/v2/Git-Basics-Getting-a-Git-Repository",
+        "https://git-scm.com/book/en/v2/Git-Branching-Branches-in-a-Nutshell",
+        "https://docs.github.com/en/get-started/using-git/about-git",
+        "https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Version_control"
+      ],
       "questions": [
         {
           "sortOrder": 1,
@@ -692,7 +697,12 @@
         "en": "Advanced Git techniques: rebasing, cherry-picking, hooks, and GitHub workflows",
         "ru": "Продвинутые техники Git: rebase, cherry-pick, хуки и рабочие процессы GitHub"
       },
-      "links": [],
+      "links": [
+        "https://git-scm.com/book/en/v2/Git-Branching-Rebasing",
+        "https://git-scm.com/book/en/v2/Customizing-Git-Git-Hooks",
+        "https://docs.github.com/en/pull-requests",
+        "https://docs.github.com/en/get-started/using-git/about-git"
+      ],
       "questions": [
         {
           "sortOrder": 1,

@@ -13,7 +13,12 @@
         "en": "Variable declarations, hoisting, the Temporal Dead Zone, Object.is, and polyfills",
         "ru": "Объявление переменных, поднятие (hoisting), временная мёртвая зона, Object.is и полифилы"
       },
-      "links": [],
+      "links": [
+        "https://javascript.info/variables",
+        "https://javascript.info/closure",
+        "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Functions",
+        "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let"
+      ],
       "questions": [
         {
           "sortOrder": 1,
@@ -431,7 +436,12 @@
         "en": "Primitive and reference types, type coercion, and built-in array and object methods",
         "ru": "Примитивные и ссылочные типы, приведение типов, встроенные методы массивов и объектов"
       },
-      "links": [],
+      "links": [
+        "https://javascript.info/types",
+        "https://javascript.info/array",
+        "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object",
+        "https://javascript.info/object"
+      ],
       "questions": [
         {
           "sortOrder": 1,
@@ -816,7 +826,12 @@
         "en": "Function types, scope, closures, lexical environments, and the `this` keyword with call/apply/bind",
         "ru": "Виды функций, область видимости, замыкания, лексическое окружение и ключевое слово `this` с call/apply/bind"
       },
-      "links": [],
+      "links": [
+        "https://javascript.info/function-basics",
+        "https://javascript.info/closure",
+        "https://javascript.info/bind",
+        "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions"
+      ],
       "questions": [
         {
           "sortOrder": 1,

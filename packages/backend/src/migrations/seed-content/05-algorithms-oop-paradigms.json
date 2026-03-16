@@ -13,7 +13,12 @@
         "en": "Fundamental algorithms, complexity analysis (Big O), and common data structures",
         "ru": "Базовые алгоритмы, анализ сложности (Big O) и распространённые структуры данных"
       },
-      "links": [],
+      "links": [
+        "https://www.freecodecamp.org/learn/coding-interview-prep/algorithms/",
+        "https://www.freecodecamp.org/learn/coding-interview-prep/data-structures/",
+        "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Iterators_and_generators",
+        "https://www.geeksforgeeks.org/fundamentals-of-algorithms/"
+      ],
       "questions": [
         {
           "sortOrder": 1,
@@ -389,7 +394,12 @@
         "en": "Prototype chain, ES6 class syntax, constructor functions, inheritance, public/private members, and OOP principles",
         "ru": "Цепочка прототипов, синтаксис классов ES6, функции-конструкторы, наследование, публичные/приватные члены и принципы ООП"
       },
-      "links": [],
+      "links": [
+        "https://javascript.info/prototypes",
+        "https://javascript.info/class",
+        "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Inheritance_and_the_prototype_chain",
+        "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Using_classes"
+      ],
       "questions": [
         {
           "sortOrder": 1,
@@ -864,7 +874,12 @@
         "en": "Pure functions, immutability, currying, partial application, IIFE, and avoiding callback hell",
         "ru": "Чистые функции, иммутабельность, каррирование, частичное применение, IIFE и избегание callback hell"
       },
-      "links": [],
+      "links": [
+        "https://javascript.info/currying-partials",
+        "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Iterators_and_generators",
+        "https://www.freecodecamp.org/news/functional-programming-concepts/",
+        "https://javascript.info/array-methods"
+      ],
       "questions": [
         {
           "sortOrder": 1,
