@@ -1,9 +1,9 @@
-import { Component, inject, type OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 import { LayoutComponent } from '@/pages/layout';
 import { CategoryCardListComponent } from '@/shared/ui';
 
-import { QuizService } from '../../services';
+import mock from '../../data/categories.json';
 
 @Component({
   selector: 'app-categories-page',
@@ -12,10 +12,6 @@ import { QuizService } from '../../services';
   styleUrl: './categories-page.component.scss',
   standalone: true,
 })
-export class CategoriesPageComponent implements OnInit {
-  readonly quizService = inject(QuizService);
-
-  ngOnInit(): void {
-    this.quizService.getCategories();
-  }
+export class CategoriesPageComponent {
+  readonly categories = mock;
 }
