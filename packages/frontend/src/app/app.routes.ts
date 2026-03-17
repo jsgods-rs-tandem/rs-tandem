@@ -16,6 +16,7 @@ import {
 
 import { authGuard } from '@/core/guards';
 import { NotFoundComponent } from '@/pages/not-found/not-found.component';
+import { ProfileComponent } from '@/pages/profile/profile.component';
 
 export const routes: Routes = [
   {
@@ -80,6 +81,12 @@ export const routes: Routes = [
         ],
       },
     ],
+  },
+  {
+    path: ROUTES.profile,
+    component: ProfileComponent,
+    canActivate: [authGuard],
+    data: { layout: { mode: 'logout', sidebar: true, auth: true } },
   },
   {
     path: ROUTES.notFound,
