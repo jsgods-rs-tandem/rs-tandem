@@ -5,6 +5,7 @@ export const ROUTES = {
   profile: 'profile',
   library: 'library',
   aiChat: 'ai-chat',
+  challenges: 'challenges',
   quiz: 'quiz',
   quizCategory: ':categoryId',
   quizTopic: 'topic/:topicId',
@@ -20,6 +21,7 @@ export const ROUTE_PATHS = {
   profile: `/${ROUTES.profile}`,
   library: `/${ROUTES.library}`,
   aiChat: `/${ROUTES.aiChat}`,
+  challenges: `/${ROUTES.challenges}`,
   quiz: `/${ROUTES.quiz}`,
   dashboard: `/${ROUTES.dashboard}`,
 } as const;
