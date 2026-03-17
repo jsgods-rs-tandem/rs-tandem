@@ -5,8 +5,10 @@ import { SignUpComponent } from '@/pages/sign-up/sign-up.component';
 import { LibraryComponent } from '@/pages/library';
 import { ROUTES } from '@/core/constants';
 
+import { CategoriesPageComponent as ChallengesCategoriesPageComponent } from '@/features/challenges';
+
 import {
-  CategoriesPageComponent,
+  CategoriesPageComponent as QuizCategoriesPageComponent,
   CategoryPageComponent,
   QuizPageComponent,
   ResultsPageComponent,
@@ -22,6 +24,18 @@ export const routes: Routes = [
   { path: ROUTES.signUp, component: SignUpComponent, canActivate: [authGuard] },
   { path: ROUTES.library, component: LibraryComponent, canActivate: [authGuard] },
   {
+    path: ROUTES.challenges,
+    data: { breadcrumb: 'Challenges' },
+    canActivate: [authGuard],
+    children: [
+      {
+        path: '',
+        data: { breadcrumb: null },
+        component: ChallengesCategoriesPageComponent,
+      },
+    ],
+  },
+  {
     path: ROUTES.quiz,
     data: { breadcrumb: 'Quiz' },
     canActivate: [authGuard],
@@ -29,7 +43,7 @@ export const routes: Routes = [
       {
         path: '',
         data: { breadcrumb: null },
-        component: CategoriesPageComponent,
+        component: QuizCategoriesPageComponent,
       },
       {
         path: ROUTES.quizCategory,

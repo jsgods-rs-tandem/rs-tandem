@@ -1,5 +1,6 @@
 @let loading = quizService.loading();
 
+<!-- TODO: think on making template reusable as in Atomic Design level -->
 <app-layout [loading]="loading.categories || loading.category">
   <header class="categories-page__header">
     <h1 class="h2">Quiz</h1>

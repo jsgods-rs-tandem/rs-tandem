@@ -1,7 +1,8 @@
 import { Component, inject, input, type OnInit } from '@angular/core';
 
-import { LayoutComponent } from '../layout';
-import { ProgressComponent, TopicCardListComponent } from '../../ui';
+import { LayoutComponent } from '@/pages/layout';
+import { ProgressComponent } from '@/shared/ui';
+import { TopicCardListComponent } from '../../ui';
 
 import { QuizService } from '../../services';
 
