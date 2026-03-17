@@ -2158,7 +2158,7 @@
             "en": "How do you create a custom error class in modern JavaScript?",
             "ru": "Как создать пользовательский класс ошибки в современном JavaScript?"
           },
-          "codeSnippet": "class ValidationError extends Error {\n  constructor(message) {\n    super(message);\n    this.name = 'ValidationError';\n  }\n}",
+          "codeSnippet": null,
           "explanation": {
             "en": "Extend the built-in `Error` class using `class MyError extends Error`. Call `super(message)` and set `this.name` so that `instanceof` checks and stack traces work correctly.",
             "ru": "Расширьте встроенный класс `Error` с помощью `class MyError extends Error`. Вызовите `super(message)` и задайте `this.name`, чтобы проверки `instanceof` и трассировки стека работали корректно."
@@ -2407,8 +2407,8 @@
         {
           "sortOrder": 15,
           "name": {
-            "en": "What does `instanceof Error` return for a custom class that extends `Error`?",
-            "ru": "Что возвращает `instanceof Error` для пользовательского класса, расширяющего `Error`?"
+            "en": "What does `instanceof Error` return for a custom class `ValidationError` that extends `Error`?",
+            "ru": "Что возвращает `instanceof Error` для пользовательского класса `ValidationError`, расширяющего `Error`?"
           },
           "codeSnippet": null,
           "explanation": {
