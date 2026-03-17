@@ -1,6 +1,6 @@
 import { Component, input } from '@angular/core';
 
-import { ButtonComponent } from '@/shared/ui';
+import { ButtonComponent } from '../../../button/button.component';
 import { ProgressComponent } from '../../../progress/progress.component';
 
 @Component({

@@ -1,7 +1,7 @@
 import { Component, input, computed } from '@angular/core';
 import { TitleCasePipe } from '@angular/common';
 
-import { PopoverComponent } from '../popover/popover.component';
+import { PopoverComponent } from '@/shared/ui';
 
 import { computeProgressStatus, computeRewardLevel } from '../../utilities';
 

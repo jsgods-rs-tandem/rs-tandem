@@ -1,8 +1,8 @@
 import { Component, computed, inject, input, type OnInit } from '@angular/core';
 import { DecimalPipe } from '@angular/common';
 
+import { LayoutComponent } from '@/pages/layout';
 import { ButtonComponent, EmptyComponent } from '@/shared/ui';
-import { LayoutComponent } from '../layout';
 
 import { QuizService } from '../../services';
 
