@@ -148,6 +148,7 @@ export class QuizService {
   getCategory(id: string) {
     this._state.update((state) => ({
       ...state,
+      data: { ...state.data, category: null },
       loading: { ...state.loading, category: true },
       error: { ...state.error, category: '' },
     }));

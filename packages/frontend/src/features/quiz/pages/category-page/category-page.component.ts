@@ -17,6 +17,10 @@ export class CategoryPageComponent implements OnInit {
   readonly categoryId = input.required<string>();
 
   ngOnInit(): void {
-    this.quizService.getCategory(this.categoryId());
+    const categoryId = this.categoryId();
+
+    if (this.quizService.category()?.id !== categoryId) {
+      this.quizService.getCategory(categoryId);
+    }
   }
 }

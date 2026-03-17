@@ -1,5 +1,11 @@
 @use './functions' as fn;
 
+.xxl {
+  font-size: fn.fluid(100px, 230px);
+  font-weight: var(--fw-regular);
+  line-height: 1;
+}
+
 .h1 {
   max-width: min-content;
   font-size: fn.fluid(48px, 128px);

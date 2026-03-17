@@ -15,15 +15,36 @@ import {
 } from '@/features/quiz';
 
 import { authGuard } from '@/core/guards';
+import { NotFoundComponent } from '@/pages/not-found/not-found.component';
 
 export const routes: Routes = [
-  { path: ROUTES.home, component: HomeComponent, canActivate: [authGuard] },
-  { path: ROUTES.signIn, component: SignInComponent, canActivate: [authGuard] },
-  { path: ROUTES.signUp, component: SignUpComponent, canActivate: [authGuard] },
-  { path: ROUTES.library, component: LibraryComponent, canActivate: [authGuard] },
+  {
+    path: ROUTES.home,
+    component: HomeComponent,
+    canActivate: [authGuard],
+    data: { layout: { mode: 'login', sidebar: true, auth: false } },
+  },
+  {
+    path: ROUTES.signIn,
+    component: SignInComponent,
+    canActivate: [authGuard],
+    data: { layout: { mode: 'home', sidebar: false, auth: false } },
+  },
+  {
+    path: ROUTES.signUp,
+    component: SignUpComponent,
+    canActivate: [authGuard],
+    data: { layout: { mode: 'home', sidebar: false, auth: false } },
+  },
+  {
+    path: ROUTES.library,
+    component: LibraryComponent,
+    canActivate: [authGuard],
+    data: { layout: { mode: 'logout', sidebar: true, auth: true } },
+  },
   {
     path: ROUTES.quiz,
-    data: { breadcrumb: 'Quiz' },
+    data: { layout: { mode: 'logout', sidebar: true, auth: true }, breadcrumb: 'Quiz' },
     canActivate: [authGuard],
     children: [
       {
@@ -60,5 +81,10 @@ export const routes: Routes = [
       },
     ],
   },
-  { path: ROUTES.notFound, redirectTo: '' },
+  {
+    path: ROUTES.notFound,
+    component: NotFoundComponent,
+    data: { layout: { mode: 'home', sidebar: false, auth: false } },
+  },
+  { path: ROUTES.wildcard, redirectTo: ROUTES.notFound },
 ];

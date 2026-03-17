@@ -1,19 +1,60 @@
+import { inject } from '@angular/core';
 import type { ResolveFn } from '@angular/router';
+import { toObservable } from '@angular/core/rxjs-interop';
+import { distinctUntilChanged, filter, map, skipWhile, take } from 'rxjs';
 
-// Переделать после доработки бэка
-export const categoryBreadcrumbResolver: ResolveFn<string> = () => {
-  return 'Category';
+import { QuizService } from '../services';
 
-  // const categoryId = route.paramMap.get('categoryId');
-  // const name = categoryId ? categories.categories.find((c) => c.id === categoryId)?.name : '';
+export const categoryBreadcrumbResolver: ResolveFn<string> = (route) => {
+  const quizService = inject(QuizService);
+  const categoryId = route.paramMap.get('categoryId');
 
-  // return name ?? 'Category';
+  if (!categoryId) {
+    return 'Category';
+  }
+
+  quizService.getCategory(categoryId);
+
+  const loadingCategory$ = toObservable(quizService.loading).pipe(
+    map((loading) => loading.category),
+    distinctUntilChanged(),
+  );
+
+  return loadingCategory$.pipe(
+    skipWhile((isLoading) => !isLoading),
+    filter((isLoading) => !isLoading),
+    take(1),
+    map(() => {
+      const category = quizService.category();
+
+      return category?.id === categoryId ? category.name : 'Category';
+    }),
+  );
 };
 
-export const topicBreadcrumbResolver: ResolveFn<string> = () => {
-  return 'Topic';
-  // const topicId = route.paramMap.get('topicId');
-  // const name = topicId ? category.topics.find((t) => t.id === topicId)?.name : '';
+export const topicBreadcrumbResolver: ResolveFn<string> = (route) => {
+  const quizService = inject(QuizService);
+  const topicId = route.paramMap.get('topicId');
 
-  // return name ?? 'Topic';
+  if (!topicId) {
+    return 'Topic';
+  }
+
+  quizService.getTopic(topicId);
+
+  const loadingTopic$ = toObservable(quizService.loading).pipe(
+    map((loading) => loading.topic),
+    distinctUntilChanged(),
+  );
+
+  return loadingTopic$.pipe(
+    skipWhile((isLoading) => !isLoading),
+    filter((isLoading) => !isLoading),
+    take(1),
+    map(() => {
+      const topic = quizService.topic();
+
+      return topic?.id === topicId ? topic.name : 'Topic';
+    }),
+  );
 };
