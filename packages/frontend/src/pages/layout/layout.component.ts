@@ -7,6 +7,7 @@ import { BreadcrumbComponent, SpinComponent } from '@/shared/ui';
   imports: [BreadcrumbComponent, SpinComponent],
   templateUrl: './layout.component.html',
   styleUrl: './layout.component.scss',
+  standalone: true,
 })
 export class LayoutComponent {
   loading = input<boolean>(false);
