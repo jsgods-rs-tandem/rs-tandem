@@ -3,6 +3,8 @@ import { provideRouter, Router } from '@angular/router';
 import { RouterTestingHarness } from '@angular/router/testing';
 
 import { authGuard } from './auth-guard';
+import { AuthService } from '@/core/services/auth.service';
+import { vi } from 'vitest';
 
 import { HomeComponent } from '@/pages/home/home.component';
 import { LibraryComponent } from '@/pages/library/library.component';
@@ -13,8 +15,6 @@ import { ROUTES, ROUTE_PATHS } from '@/core/constants';
 
 describe('authGuard', () => {
   beforeEach(async () => {
-    localStorage.clear();
-
     const scrollSpyServiceStub: Pick<ScrollSpyService, 'spy' | 'cleanup'> = {
       spy: () => undefined,
       cleanup: () => undefined,
@@ -33,10 +33,10 @@ describe('authGuard', () => {
   });
 
   it('should redirect authenticated user from sign-in to library', async () => {
-    localStorage.setItem('auth_token', 'token');
-
     const router = TestBed.inject(Router);
     const harness = await RouterTestingHarness.create();
+    const authService = TestBed.inject(AuthService);
+    vi.spyOn(authService, 'isAuthenticated').mockReturnValue(true);
 
     await harness.navigateByUrl(ROUTE_PATHS.signIn);
 
