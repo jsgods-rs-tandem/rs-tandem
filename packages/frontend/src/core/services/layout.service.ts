@@ -1,5 +1,5 @@
 import { Injectable, inject, signal } from '@angular/core';
-import { Router, NavigationEnd, Data } from '@angular/router';
+import { Router, NavigationEnd, ActivatedRouteSnapshot } from '@angular/router';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { filter } from 'rxjs';
 import { NavService } from './navigation.service';
@@ -27,13 +27,7 @@ export class LayoutService {
         takeUntilDestroyed(),
       )
       .subscribe(() => {
-        let route = this.router.routerState.root;
-        while (route.firstChild) {
-          route = route.firstChild;
-        }
-
-        const data: Data = route.snapshot.data;
-        const layoutConfig: unknown = data.layout;
+        const layoutConfig = this.getRouteData('layout');
 
         if (isLayoutConfig(layoutConfig)) {
           this.headerMode.set(layoutConfig.mode);
@@ -45,5 +39,23 @@ export class LayoutService {
           this.navService.setAuthState(false);
         }
       });
+  }
+
+  private getRouteData(key: string): unknown {
+    let route: ActivatedRouteSnapshot | null = this.router.routerState.root.snapshot;
+
+    while (route.firstChild) {
+      route = route.firstChild;
+    }
+
+    let currentRoute: ActivatedRouteSnapshot | null = route;
+    while (currentRoute) {
+      if (currentRoute.data[key]) {
+        return currentRoute.data[key];
+      }
+      currentRoute = currentRoute.parent;
+    }
+
+    return null;
   }
 }

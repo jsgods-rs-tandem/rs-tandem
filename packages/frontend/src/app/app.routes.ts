@@ -27,11 +27,13 @@ export const routes: Routes = [
   {
     path: ROUTES.signIn,
     component: SignInComponent,
+    canActivate: [authGuard],
     data: { layout: { mode: 'home', sidebar: false, auth: false } },
   },
   {
     path: ROUTES.signUp,
     component: SignUpComponent,
+    canActivate: [authGuard],
     data: { layout: { mode: 'home', sidebar: false, auth: false } },
   },
   {
@@ -80,8 +82,9 @@ export const routes: Routes = [
     ],
   },
   {
-    path: ROUTES.notFound,
+    path: ROUTES.error404,
     component: NotFoundComponent,
-    data: { layout: { mode: 'home', sidebar: false } },
+    data: { layout: { mode: 'home', sidebar: false, auth: false } },
   },
+  { path: ROUTES.wildcard, redirectTo: ROUTES.error404 },
 ];
