@@ -8,6 +8,12 @@ export const features = [
     href: ROUTE_PATHS.aiChat,
   },
   {
+    heading: 'Challenges',
+    description:
+      "Solve interactive JS and algorithmic tasks from top-tier tech interviews. Master the specific logic and data structures you'll face in real-world technical screenings. Write code, run tests, and track your progress as you bridge the gap between basic coding and high-level engineering",
+    href: ROUTE_PATHS.challenges,
+  },
+  {
     heading: 'Quiz',
     description:
       'Pick a category and topic, then answer programming questions fast.\nYou have 2 minutes — a quick interview warm-up.\nAfter the round you get your score, feedback, and links to reinforce learning and go deeper.\nEarn badges and track your progress over time',
