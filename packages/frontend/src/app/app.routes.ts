@@ -82,9 +82,9 @@ export const routes: Routes = [
     ],
   },
   {
-    path: ROUTES.error404,
+    path: ROUTES.notFound,
     component: NotFoundComponent,
     data: { layout: { mode: 'home', sidebar: false, auth: false } },
   },
-  { path: ROUTES.wildcard, redirectTo: ROUTES.error404 },
+  { path: ROUTES.wildcard, redirectTo: ROUTES.notFound },
 ];

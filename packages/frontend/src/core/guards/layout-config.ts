@@ -1,4 +1,4 @@
-import { LayoutConfig } from '../services/layout.service';
+import type { LayoutConfig } from '../services/layout.service';
 
 export function isLayoutConfig(config: unknown): config is LayoutConfig {
   return (

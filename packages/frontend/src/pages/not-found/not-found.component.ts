@@ -11,7 +11,6 @@ import { AuthService } from '@/core/services/auth.service';
 })
 export class NotFoundComponent {
   private authService = inject(AuthService);
-  readonly ROUTE_PATHS = ROUTE_PATHS;
 
   readonly title = '404';
   readonly text = "We couldn't find that page. Maybe it's playing hide and seek?";
