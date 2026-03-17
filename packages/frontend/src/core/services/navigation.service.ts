@@ -1,4 +1,4 @@
-import { Injectable, signal } from '@angular/core';
+import { computed, Injectable, signal } from '@angular/core';
 import { NavLink } from '../components/navigation/navigation.types';
 import { ROUTE_PATHS } from '@/core/constants';
 
@@ -17,13 +17,11 @@ export class NavService {
     { label: 'Dashboard', path: ROUTE_PATHS.dashboard, isAnchor: false },
   ];
 
-  links = signal<NavLink[]>(this.guestLinks);
+  private isAuthenticated = signal<boolean>(false);
 
-  setAuthenticatedLinks(): void {
-    this.links.set(this.authLinks);
-  }
+  links = computed(() => (this.isAuthenticated() ? this.authLinks : this.guestLinks));
 
-  setGuestLinks(): void {
-    this.links.set(this.guestLinks);
+  setAuthState(isAuth: boolean): void {
+    this.isAuthenticated.set(isAuth);
   }
 }
