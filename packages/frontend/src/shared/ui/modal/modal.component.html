@@ -3,16 +3,9 @@
   role="dialog"
   aria-modal="true"
   [attr.aria-labelledby]="modalTitleId"
-  (keydown.escape)="onClose()"
+  (document:keydown.escape)="onClose()"
 >
-  <div
-    class="modal__backdrop"
-    (click)="onClose()"
-    (keydown.enter)="onClose()"
-    (keydown.space)="onClose()"
-    tabindex="-1"
-    aria-hidden="true"
-  ></div>
+  <div class="modal__backdrop" (click)="onClose()" aria-hidden="true"></div>
 
   <div class="modal__container">
     <div class="modal__header">

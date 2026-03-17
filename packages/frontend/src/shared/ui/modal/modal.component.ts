@@ -4,6 +4,8 @@ import { IconButtonComponent } from '../icon-button/icon-button.component';
 import { IconComponent } from '../icon/icon.component';
 import { IconName } from '../icon/Icon.types';
 
+let nextUniqueId = 0;
+
 @Component({
   selector: 'app-modal',
   standalone: true,
@@ -17,7 +19,7 @@ export class ModalComponent {
   buttonText = input<string>('OK');
   icon = input<IconName>('info-outline');
 
-  protected readonly modalTitleId = `modal-title-${Math.random().toString(36).slice(2, 9)}`;
+  protected readonly modalTitleId = `modal-title-${String(nextUniqueId++)}`;
 
   closed = output();
 

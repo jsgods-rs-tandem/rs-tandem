@@ -1,24 +1,19 @@
-import { Component, inject, signal } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { FormControl, ReactiveFormsModule, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthPageComponent } from '@/shared/ui/auth-page/auth-page.component';
 import { InputComponent } from '@/shared/ui/input/input.component';
-import { ButtonComponent, ModalComponent } from '@/shared/ui';
+import { ButtonComponent } from '@/shared/ui';
 import { AuthService } from '@/core/services/auth.service';
 import { AuthStore } from '@/core/store/auth.store';
 import { switchMap } from 'rxjs';
 import { ROUTE_PATHS } from '@/core/constants';
+import { ModalService } from '@/core/services/modal.service';
 
 @Component({
   selector: 'app-sign-in',
   standalone: true,
-  imports: [
-    AuthPageComponent,
-    ReactiveFormsModule,
-    InputComponent,
-    ButtonComponent,
-    ModalComponent,
-  ],
+  imports: [AuthPageComponent, ReactiveFormsModule, InputComponent, ButtonComponent],
   templateUrl: './sign-in.component.html',
   styleUrl: './sign-in.component.scss',
 })
@@ -26,8 +21,7 @@ export class SignInComponent {
   private authService = inject(AuthService);
   private router = inject(Router);
   private authStore = inject(AuthStore);
-
-  protected isErrorModalOpen = signal(false);
+  private modalService = inject(ModalService);
 
   readonly ROUTE_PATHS = ROUTE_PATHS;
 
@@ -61,7 +55,11 @@ export class SignInComponent {
         },
         error: (error) => {
           console.error('Login failed', error);
-          this.isErrorModalOpen.set(true);
+          this.modalService.open({
+            title: 'Login Error',
+            message: 'Invalid email or password. Please check your credentials and try again.',
+            icon: 'info-outline',
+          });
         },
       });
   }

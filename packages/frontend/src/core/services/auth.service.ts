@@ -14,8 +14,6 @@ export class AuthService {
   private localStorageService = inject(LocalStorageService);
   private authStore = inject(AuthStore);
 
-  public isSessionExpired = false;
-
   private readonly TOKEN_KEY = 'auth_token';
 
   register(dto: RegisterDto): Observable<UserDto> {
