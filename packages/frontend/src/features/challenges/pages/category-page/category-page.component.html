@@ -1,0 +1,30 @@
+<app-layout>
+  @if (category) {
+    <header class="category-page__header">
+      <h1 class="h2">{{ category.categoryName }}</h1>
+
+      <app-progress
+        class="category-page__progress"
+        [valueNow]="category.topicsCompleteCount"
+        [valueMax]="category.topicsCount"
+        [valueProgress]="category.progress"
+      />
+    </header>
+
+    <ul class="category-page__list">
+      @for (topic of category.topics; track topic.id) {
+        <li>
+          <app-challenge-preview-card
+            [id]="topic.id"
+            [heading]="topic.name"
+            [description]="topic.description"
+            [difficulty]="topic.difficulty"
+            [tags]="topic.tags"
+            [inProgress]="topic.inProgress"
+            [isComplete]="topic.isComplete"
+          />
+        </li>
+      }
+    </ul>
+  }
+</app-layout>

@@ -1,0 +1,51 @@
+@use 'assets/styles/mixins' as mix;
+
+.challenge-preview-card {
+  padding: var(--spacing-x6);
+  border: 2px solid var(--secondary-color);
+  border-radius: var(--radius-md);
+
+  &__header {
+    display: flex;
+    gap: var(--spacing-x3);
+    align-items: center;
+    justify-content: space-between;
+
+    @include mix.media('s') {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
+
+  &__heading-wrapper {
+    display: flex;
+    gap: var(--spacing-x4);
+    align-items: center;
+    margin-inline-start: var(--spacing-x2);
+  }
+
+  &__heading {
+    overflow-wrap: anywhere;
+  }
+
+  &__difficulty-badge {
+    margin-block-end: auto;
+  }
+
+  &__status-badge {
+    flex-shrink: 0;
+    margin-block-end: auto;
+  }
+
+  &__body,
+  &__footer {
+    margin-block-start: var(--spacing-x3);
+  }
+
+  &__tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-x1);
+    margin-block-start: var(--spacing-x1);
+  }
+}

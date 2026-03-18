@@ -5,11 +5,14 @@ import { SignUpComponent } from '@/pages/sign-up/sign-up.component';
 import { LibraryComponent } from '@/pages/library';
 import { ROUTES } from '@/core/constants';
 
-import { CategoriesPageComponent as ChallengesCategoriesPageComponent } from '@/features/challenges';
+import {
+  CategoriesPageComponent as ChallengesCategoriesPageComponent,
+  CategoryPageComponent as ChallengesCategoryPageComponent,
+} from '@/features/challenges';
 
 import {
   CategoriesPageComponent as QuizCategoriesPageComponent,
-  CategoryPageComponent,
+  CategoryPageComponent as QuizCategoryPageComponent,
   QuizPageComponent,
   ResultsPageComponent,
   categoryBreadcrumbResolver,
@@ -33,6 +36,17 @@ export const routes: Routes = [
         data: { breadcrumb: null },
         component: ChallengesCategoriesPageComponent,
       },
+      {
+        path: ROUTES.challengesCategory,
+        data: { breadcrumb: 'Category' },
+        children: [
+          {
+            path: '',
+            data: { breadcrumb: null },
+            component: ChallengesCategoryPageComponent,
+          },
+        ],
+      },
     ],
   },
   {
@@ -52,7 +66,7 @@ export const routes: Routes = [
           {
             path: '',
             data: { breadcrumb: null },
-            component: CategoryPageComponent,
+            component: QuizCategoryPageComponent,
           },
           {
             path: ROUTES.quizTopic,

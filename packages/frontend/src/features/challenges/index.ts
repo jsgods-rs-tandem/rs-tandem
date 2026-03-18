@@ -1,1 +1,1 @@
-export { CategoriesPageComponent } from './pages';
+export { CategoriesPageComponent, CategoryPageComponent } from './pages';
