@@ -6,8 +6,13 @@ import { LibraryComponent } from '@/pages/library';
 import { ROUTES } from '@/core/constants';
 
 import {
-  CategoriesPageComponent,
-  CategoryPageComponent,
+  CategoriesPageComponent as ChallengesCategoriesPageComponent,
+  CategoryPageComponent as ChallengesCategoryPageComponent,
+} from '@/features/challenges';
+
+import {
+  CategoriesPageComponent as QuizCategoriesPageComponent,
+  CategoryPageComponent as QuizCategoryPageComponent,
   QuizPageComponent,
   ResultsPageComponent,
   categoryBreadcrumbResolver,
@@ -43,6 +48,29 @@ export const routes: Routes = [
     data: { layout: { mode: 'logout', sidebar: true, auth: true } },
   },
   {
+    path: ROUTES.challenges,
+    data: { breadcrumb: 'Challenges' },
+    canActivate: [authGuard],
+    children: [
+      {
+        path: '',
+        data: { breadcrumb: null },
+        component: ChallengesCategoriesPageComponent,
+      },
+      {
+        path: ROUTES.challengesCategory,
+        data: { breadcrumb: 'Category' },
+        children: [
+          {
+            path: '',
+            data: { breadcrumb: null },
+            component: ChallengesCategoryPageComponent,
+          },
+        ],
+      },
+    ],
+  },
+  {
     path: ROUTES.quiz,
     data: { layout: { mode: 'logout', sidebar: true, auth: true }, breadcrumb: 'Quiz' },
     canActivate: [authGuard],
@@ -50,7 +78,7 @@ export const routes: Routes = [
       {
         path: '',
         data: { breadcrumb: null },
-        component: CategoriesPageComponent,
+        component: QuizCategoriesPageComponent,
       },
       {
         path: ROUTES.quizCategory,
@@ -59,7 +87,7 @@ export const routes: Routes = [
           {
             path: '',
             data: { breadcrumb: null },
-            component: CategoryPageComponent,
+            component: QuizCategoryPageComponent,
           },
           {
             path: ROUTES.quizTopic,

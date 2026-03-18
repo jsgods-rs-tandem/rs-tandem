@@ -1,0 +1,44 @@
+@let tagsValue = tags();
+@let inProgressValue = inProgress();
+@let isCompleteValue = isComplete();
+
+<article class="challenge-preview-card">
+  <header class="challenge-preview-card__header">
+    <div class="challenge-preview-card__heading-wrapper">
+      <app-badge
+        class="challenge-preview-card__difficulty-badge"
+        [text]="difficulty()"
+        shape="diamond"
+        [color]="badgeDifficultyColor()"
+      />
+
+      <h2 class="h3 challenge-preview-card__heading">{{ heading() }}</h2>
+    </div>
+
+    @if (inProgressValue) {
+      <app-badge class="challenge-preview-card__status-badge" text="In progress" color="info" />
+    }
+
+    @if (isCompleteValue) {
+      <app-badge class="challenge-preview-card__status-badge" text="Solved" color="success" />
+    }
+  </header>
+
+  <div class="challenge-preview-card__body">
+    <p>{{ description() }}</p>
+
+    @if (tagsValue.length > 0) {
+      <ul class="challenge-preview-card__tags">
+        @for (tag of tagsValue; track $index) {
+          <li>
+            <app-tag>{{ `#${tag}` }}</app-tag>
+          </li>
+        }
+      </ul>
+    }
+  </div>
+
+  <footer class="challenge-preview-card__footer">
+    <app-button [link]="'topic/' + id()" [isSmallButton]="true">Start coding</app-button>
+  </footer>
+</article>
