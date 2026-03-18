@@ -1,0 +1,28 @@
+@let textValue = text();
+@let popoverContentValue = popoverContent();
+
+<div class="badge">
+  @if (popoverContentValue) {
+    <button
+      [id]="id"
+      class="text-base-fluid badge__inner badge__inner_shape_{{ shape() }} badge__inner_color_{{
+        color()
+      }} badge__inner_button"
+      type="button"
+      [attr.popovertarget]="anchorId"
+    >
+      {{ textValue }}
+    </button>
+  } @else {
+    <span
+      class="text-base-fluid badge__inner badge__inner_shape_{{ shape() }} badge__inner_color_{{ color() }}"
+      >{{ textValue }}</span
+    >
+  }
+
+  @if (popoverContentValue) {
+    <app-popover [id]="anchorId" [anchorId]="id">
+      {{ popoverContent() }}
+    </app-popover>
+  }
+</div>

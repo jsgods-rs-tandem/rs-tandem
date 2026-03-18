@@ -26,6 +26,14 @@
     gap: var(--spacing-x2);
   }
 
+  &__badge {
+    ::ng-deep {
+      .popover__content {
+        white-space: pre-line;
+      }
+    }
+  }
+
   &__body,
   &__footer {
     margin-block-start: var(--spacing-x2);

@@ -1,0 +1,105 @@
+:host {
+  display: flex;
+}
+
+.badge {
+  display: flex;
+  font-family: var(--font-main);
+
+  &__inner {
+    display: flex;
+    align-items: center;
+
+    padding: var(--spacing-x1) var(--spacing-x2);
+
+    color: var(--secondary-color);
+    text-transform: capitalize;
+
+    background-color: var(--bg-color);
+
+    &_color {
+      &_success {
+        --bg-color: var(--success-color);
+        color: var(--primary-color);
+      }
+
+      &_error {
+        --bg-color: var(--error-color);
+        color: var(--primary-color);
+      }
+
+      // TODO: think on color variables
+      &_info {
+        --bg-color: lightblue;
+      }
+
+      &_gold {
+        --bg-color: gold;
+      }
+
+      &_silver {
+        --bg-color: silver;
+      }
+
+      &_bronze {
+        --bg-color: lightcoral;
+      }
+
+      &_pink {
+        --bg-color: pink;
+      }
+    }
+
+    &_shape {
+      &_rectangle {
+        border-radius: var(--radius-sm);
+      }
+
+      &_diamond {
+        position: relative;
+        min-height: 32px;
+        background-color: var(--bg-color);
+
+        &::before {
+          content: ' ';
+
+          position: absolute;
+          inset-inline-start: calc(-1 * var(--spacing-x2));
+
+          width: 0;
+          height: 0;
+          border-block-start: var(--spacing-x4) solid transparent;
+          border-block-end: var(--spacing-x4) solid transparent;
+          border-inline-end: var(--spacing-x2) solid var(--bg-color);
+        }
+
+        &::after {
+          content: '';
+
+          position: absolute;
+          inset-block-start: 0;
+          inset-inline-end: calc(-1 * var(--spacing-x2));
+
+          width: 0;
+          border-block-start: var(--spacing-x4) solid transparent;
+          border-block-end: var(--spacing-x4) solid transparent;
+          border-inline-start: var(--spacing-x2) solid var(--bg-color);
+        }
+      }
+    }
+
+    &_button {
+      font-family: inherit;
+
+      &:focus {
+        outline: none;
+      }
+
+      &:focus-visible {
+        border-radius: var(--radius-sm);
+        outline: var(--button-border);
+        outline-offset: 2px;
+      }
+    }
+  }
+}
