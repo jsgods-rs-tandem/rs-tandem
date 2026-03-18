@@ -48,7 +48,6 @@ export class HunterAlphaProvider implements IAiProvider {
         reasoning: { enabled: true },
         stream: true,
       }),
-      signal: AbortSignal.timeout(30_000),
     });
 
     if (!response.ok) {
