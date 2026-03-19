@@ -3,6 +3,7 @@ import { Pool } from 'pg';
 import { PG_POOL } from '../database/database.constants.js';
 import type {
   CreateUserInput,
+  UpdatePasswordInput,
   UpdateUserInput,
   UserRow,
   UserWithPasswordRow,
@@ -108,6 +109,19 @@ export class UserRepository {
     return row ? toUserWithPasswordRow(row) : undefined;
   }
 
+  async findByIdWithPassword(id: string): Promise<UserWithPasswordRow | undefined> {
+    const result = await this.pool.query<Record<string, unknown>>(
+      `SELECT id, email, display_name, password_hash, created_at, updated_at
+       FROM users
+       WHERE id = $1`,
+      [id],
+    );
+
+    const row = result.rows[0];
+
+    return row ? toUserWithPasswordRow(row) : undefined;
+  }
+
   async update(id: string, input: UpdateUserInput): Promise<UserRow> {
     const setClauses: string[] = [];
     const values: unknown[] = [];
@@ -143,6 +157,15 @@ export class UserRepository {
     }
 
     return toUserRow(row);
+  }
+
+  async updatePassword(id: string, input: UpdatePasswordInput): Promise<void> {
+    await this.pool.query(
+      `UPDATE users
+       SET password_hash = $1, updated_at = NOW()
+       WHERE id = $2`,
+      [input.passwordHash, id],
+    );
   }
 
   async create(input: CreateUserInput): Promise<UserRow> {
