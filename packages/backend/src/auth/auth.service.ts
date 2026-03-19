@@ -1,7 +1,15 @@
 import { ConflictException, Injectable, UnauthorizedException } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
 import * as bcrypt from 'bcryptjs';
-import type { AuthResponseDto, LoginDto, RegisterDto, UserDto } from '@rs-tandem/shared';
+
+const BCRYPT_SALT_ROUNDS = 12;
+import type {
+  AuthResponseDto,
+  ChangePasswordDto,
+  LoginDto,
+  RegisterDto,
+  UserDto,
+} from '@rs-tandem/shared';
 import { UserRepository } from '../users/user.repository.js';
 import { ProfilesService } from '../profiles/profiles.service.js';
 
@@ -33,6 +41,28 @@ export class AuthService {
     };
   }
 
+  async changePassword(userId: string, dto: ChangePasswordDto): Promise<void> {
+    const user = await this.userRepository.findByIdWithPassword(userId);
+
+    if (!user) {
+      throw new UnauthorizedException('Invalid credentials');
+    }
+
+    const valid = await bcrypt.compare(dto.currentPassword, user.passwordHash);
+
+    if (!valid) {
+      throw new UnauthorizedException('Current password is incorrect');
+    }
+
+    if (dto.currentPassword === dto.newPassword) {
+      throw new ConflictException('New password must differ from the current password');
+    }
+
+    const passwordHash = await bcrypt.hash(dto.newPassword, BCRYPT_SALT_ROUNDS);
+
+    await this.userRepository.updatePassword(userId, { passwordHash });
+  }
+
   async register(dto: RegisterDto): Promise<UserDto> {
     const existing = await this.userRepository.findByEmail(dto.email);
 
@@ -40,7 +70,7 @@ export class AuthService {
       throw new ConflictException('Email already registered');
     }
 
-    const passwordHash = await bcrypt.hash(dto.password, 12);
+    const passwordHash = await bcrypt.hash(dto.password, BCRYPT_SALT_ROUNDS);
     const row = await this.userRepository.create({
       email: dto.email,
       passwordHash,

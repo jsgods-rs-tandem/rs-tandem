@@ -146,5 +146,15 @@ export default defineConfig([
     },
   },
 
+  {
+    files: ['packages/backend/**/*.ts'],
+    rules: {
+      '@typescript-eslint/no-unnecessary-condition': [
+        'error',
+        { allowConstantLoopConditions: true },
+      ],
+    },
+  },
+
   prettierConfig,
 ]);
