@@ -75,6 +75,22 @@
     color: var(--text-secondary);
   }
 
+  &__messages {
+    margin: 0;
+    padding-left: var(--spacing-x5);
+    list-style: disc;
+  }
+
+  &__message-item {
+    font-size: fn.to-rem(16px);
+    line-height: 1.5;
+    color: var(--text-secondary);
+
+    &:not(:last-child) {
+      margin-bottom: var(--spacing-x2);
+    }
+  }
+
   &__footer {
     display: flex;
     justify-content: flex-end;

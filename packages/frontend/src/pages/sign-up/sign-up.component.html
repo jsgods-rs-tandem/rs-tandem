@@ -35,6 +35,6 @@
       [errorText]="getErrorText('password')"
     />
 
-    <app-button type="submit" text="Sign Up" />
+    <app-button type="submit" text="Sign Up" [loading]="isLoading()" />
   </form>
 </app-auth-page>

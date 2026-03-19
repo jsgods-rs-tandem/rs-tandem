@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
 import { FormControl, ReactiveFormsModule, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthPageComponent } from '@/shared/ui/auth-page/auth-page.component';
@@ -7,8 +7,11 @@ import { ButtonComponent } from '@/shared/ui';
 import { AuthService } from '@/core/services/auth.service';
 import { AuthStore } from '@/core/store/auth.store';
 import { switchMap } from 'rxjs';
+import { HttpErrorResponse } from '@angular/common/http';
 import { ROUTE_PATHS } from '@/core/constants';
 import { ModalService } from '@/core/services/modal.service';
+import { getHttpErrorMessage } from '@/shared/utils/http-error.utilities';
+import { AUTH_ERROR_MESSAGES } from '@/shared/utils/auth-error-messages.constants';
 
 @Component({
   selector: 'app-sign-in',
@@ -22,6 +25,8 @@ export class SignInComponent {
   private router = inject(Router);
   private authStore = inject(AuthStore);
   private modalService = inject(ModalService);
+
+  protected isLoading = signal(false);
 
   readonly ROUTE_PATHS = ROUTE_PATHS;
 
@@ -42,6 +47,8 @@ export class SignInComponent {
       throw new Error('[SignInComponent] Unexpected missing required fields in a valid form.');
     }
 
+    this.isLoading.set(true);
+
     this.authService
       .login({
         email: formValue.email,
@@ -50,14 +57,16 @@ export class SignInComponent {
       .pipe(switchMap(() => this.authService.getMe()))
       .subscribe({
         next: (user) => {
+          this.isLoading.set(false);
           this.authStore.setUser(user);
           void this.router.navigate([ROUTE_PATHS.home]);
         },
-        error: (error) => {
+        error: (error: HttpErrorResponse) => {
+          this.isLoading.set(false);
           console.error('Login failed', error);
           this.modalService.open({
             title: 'Login Error',
-            message: 'Invalid email or password. Please check your credentials and try again.',
+            message: getHttpErrorMessage(error, 'Invalid email or password.', AUTH_ERROR_MESSAGES),
             icon: 'info-outline',
           });
         },

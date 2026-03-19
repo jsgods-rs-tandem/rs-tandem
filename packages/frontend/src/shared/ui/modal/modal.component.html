@@ -22,7 +22,15 @@
     </div>
 
     <div class="modal__body">
-      <p class="modal__message">{{ message() }}</p>
+      @if (isMessageArray()) {
+        <ul class="modal__messages">
+          @for (msg of messageList(); track msg) {
+            <li class="modal__message-item">{{ msg }}</li>
+          }
+        </ul>
+      } @else {
+        <p class="modal__message">{{ message() }}</p>
+      }
     </div>
 
     <div class="modal__footer">
