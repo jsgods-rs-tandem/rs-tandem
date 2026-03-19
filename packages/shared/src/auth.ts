@@ -20,3 +20,8 @@ export interface UserDto {
   createdAt: string;
   updatedAt: string;
 }
+
+export interface ChangePasswordDto {
+  currentPassword: string;
+  newPassword: string;
+}

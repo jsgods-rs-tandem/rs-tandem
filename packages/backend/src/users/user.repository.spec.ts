@@ -241,4 +241,17 @@ describe('UserRepository', () => {
       ).rejects.toThrow('Unexpected user row shape from database');
     });
   });
+
+  describe('updatePassword', () => {
+    it('executes update with password_hash and id', async () => {
+      mockPool.query.mockResolvedValue({ rows: [] });
+
+      await repository.updatePassword('u1', { passwordHash: 'new_hash' });
+
+      expect(mockPool.query).toHaveBeenCalledWith(expect.stringContaining('password_hash = $1'), [
+        'new_hash',
+        'u1',
+      ]);
+    });
+  });
 });

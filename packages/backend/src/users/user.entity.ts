@@ -20,3 +20,7 @@ export interface UpdateUserInput {
   displayName?: string;
   email?: string;
 }
+
+export interface UpdatePasswordInput {
+  passwordHash: string;
+}

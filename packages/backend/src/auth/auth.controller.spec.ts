@@ -3,11 +3,12 @@ import type { AuthResponseDto, UserDto } from '@rs-tandem/shared';
 import { AuthController } from './auth.controller.js';
 import { AuthService } from './auth.service.js';
 import { JwtAuthGuard } from './guards/jwt-auth.guard.js';
-import { LoginDto, RegisterDto } from './dto/index.js';
+import { ChangePasswordDto, LoginDto, RegisterDto } from './dto/index.js';
 
 const mockAuthService = {
   register: jest.fn(),
   login: jest.fn(),
+  changePassword: jest.fn(),
 };
 
 const userFixture: UserDto = {
@@ -57,6 +58,26 @@ describe('AuthController', () => {
 
       expect(mockAuthService.login).toHaveBeenCalledWith(dto);
       expect(result).toBe(response);
+    });
+  });
+
+  describe('changePassword', () => {
+    it('delegates to authService.changePassword with user id from request', async () => {
+      const dto = { currentPassword: 'old', newPassword: 'new' } as ChangePasswordDto;
+      const request = { user: userFixture } as unknown as Express.Request;
+      mockAuthService.changePassword.mockResolvedValue(undefined);
+
+      await controller.changePassword(request, dto);
+
+      expect(mockAuthService.changePassword).toHaveBeenCalledWith('u1', dto);
+    });
+
+    it('is protected by JwtAuthGuard', () => {
+      const handler = Object.getOwnPropertyDescriptor(AuthController.prototype, 'changePassword')
+        ?.value as object;
+      const guards = Reflect.getMetadata('__guards__', handler) as unknown[];
+
+      expect(guards).toContain(JwtAuthGuard);
     });
   });
 

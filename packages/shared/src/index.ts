@@ -1,4 +1,4 @@
-export type { LoginDto, RegisterDto, AuthResponseDto, UserDto } from './auth.js';
+export type { LoginDto, RegisterDto, AuthResponseDto, UserDto, ChangePasswordDto } from './auth.js';
 export type { PublicUserProfileDto, UserProfileDto, UpdateProfileDto } from './user-profile.js';
 export type {
   AiMessage,
