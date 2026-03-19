@@ -2,17 +2,12 @@ import type { AiMessage } from '@rs-tandem/shared';
 import type { AiProviderMeta, IAiProvider } from './ai-provider.interface.js';
 import { streamToAsyncIterable } from '../../common/utils/stream-to-async-iterable.js';
 
-export class HunterAlphaProvider implements IAiProvider {
+export class OpenRouterProvider implements IAiProvider {
   constructor(
-    private readonly baseUrl = process.env.OPENROUTER_BASE_URL ?? 'https://openrouter.ai/api',
-    private readonly model = process.env.OPENROUTER_MODEL ?? 'openrouter/hunter-alpha',
+    readonly meta: AiProviderMeta,
+    private readonly baseUrl = process.env.OPENROUTER_BASE_URL,
+    private readonly model = process.env.OPENROUTER_MODEL,
   ) {}
-
-  readonly meta: AiProviderMeta = {
-    id: 'hunter-alpha',
-    label: 'Hunter Alpha',
-    requiresKey: true,
-  };
 
   async chat(messages: AiMessage[], apiKey: string | null): Promise<string> {
     const stream = this.streamChat(messages, apiKey);
@@ -30,15 +25,14 @@ export class HunterAlphaProvider implements IAiProvider {
     apiKey: string | null,
   ): Promise<ReadableStream<Uint8Array>> {
     if (!this.baseUrl) {
-      throw new Error('HUNTER_ALPHA_BASE_URL is not set');
+      throw new Error('OPENROUTER_BASE_URL is not set');
     }
     if (!this.model) {
-      throw new Error('HUNTER_ALPHA_MODEL is not set');
+      throw new Error('OPENROUTER_MODEL is not set');
     }
     if (!apiKey) {
-      throw new Error('API key is required for Hunter Alpha provider');
+      throw new Error('API key is required for Open Router provider');
     }
-
     const response = await fetch(`${this.baseUrl}/v1/chat/completions`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${apiKey}` },
@@ -51,7 +45,7 @@ export class HunterAlphaProvider implements IAiProvider {
     });
 
     if (!response.ok) {
-      throw new Error(`Hunter Alpha responded with ${String(response.status)}`);
+      throw new Error(`Open Router responded with ${String(response.status)}`);
     }
 
     if (!response.body) {
