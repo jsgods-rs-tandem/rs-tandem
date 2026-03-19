@@ -85,6 +85,51 @@ Authorization: Bearer <токен>
 
 ---
 
+### PATCH `/auth/change-password`
+
+Сменить пароль текущего пользователя. Требует токен.
+
+**Тело запроса:**
+
+```json
+{
+  "currentPassword": "старый_пароль",
+  "newPassword": "новый_пароль"
+}
+```
+
+Оба поля обязательные. Пароль должен быть минимум 8 символов.
+
+**Ответ `204`:** — пароль успешно изменён. Пустое тело ответа.
+
+**Ответ `400`:** — пароль меньше 8 символов.
+
+```json
+{
+  "message": ["currentPassword must be longer than or equal to 8 characters"],
+  "error": "Bad Request",
+  "statusCode": 400
+}
+```
+
+**Ответ `401`:** — текущий пароль неверный.
+
+```json
+{ "message": "Current password is incorrect", "error": "Unauthorized", "statusCode": 401 }
+```
+
+**Ответ `409`:** — новый пароль совпадает с текущим.
+
+```json
+{
+  "message": "New password must differ from the current password",
+  "error": "Conflict",
+  "statusCode": 409
+}
+```
+
+---
+
 ### GET `/profiles/me`
 
 Получить профиль текущего пользователя. Требует токен.
