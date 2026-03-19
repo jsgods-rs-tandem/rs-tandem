@@ -63,7 +63,7 @@ export class SignUpComponent {
         },
         error: (error: HttpErrorResponse) => {
           this.isLoading.set(false);
-          console.error('Registration failed', error);
+
           this.modalService.open({
             title: 'Registration Error',
             message: getHttpErrorMessage(

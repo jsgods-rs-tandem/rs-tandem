@@ -63,7 +63,7 @@ export class SignInComponent {
         },
         error: (error: HttpErrorResponse) => {
           this.isLoading.set(false);
-          console.error('Login failed', error);
+
           this.modalService.open({
             title: 'Login Error',
             message: getHttpErrorMessage(error, 'Invalid email or password.', AUTH_ERROR_MESSAGES),
