@@ -4,8 +4,8 @@ import { streamToAsyncIterable } from '../../common/utils/stream-to-async-iterab
 
 export class HunterAlphaProvider implements IAiProvider {
   constructor(
-    private readonly baseUrl = process.env.HUNTER_ALPHA_BASE_URL,
-    private readonly model = process.env.HUNTER_ALPHA_MODEL,
+    private readonly baseUrl = process.env.OPENROUTER_BASE_URL ?? 'https://openrouter.ai/api',
+    private readonly model = process.env.OPENROUTER_MODEL ?? 'openrouter/hunter-alpha',
   ) {}
 
   readonly meta: AiProviderMeta = {
