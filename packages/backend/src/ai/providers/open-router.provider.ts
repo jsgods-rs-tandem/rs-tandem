@@ -33,16 +33,23 @@ export class OpenRouterProvider implements IAiProvider {
     if (!apiKey) {
       throw new Error('API key is required for Open Router provider');
     }
-    const response = await fetch(`${this.baseUrl}/v1/chat/completions`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${apiKey}` },
-      body: JSON.stringify({
-        model: this.model,
-        messages,
-        reasoning: { enabled: true },
-        stream: true,
-      }),
-    });
+    let response;
+    try {
+      response = await fetch(`${this.baseUrl}/v1/chat/completions`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${apiKey}` },
+        body: JSON.stringify({
+          model: this.model,
+          messages,
+          reasoning: { enabled: true },
+          stream: true,
+        }),
+      });
+    } catch (error) {
+      throw new Error(
+        `Failed to connect to Open Router API: ${error instanceof Error ? error.message : String(error)}`,
+      );
+    }
 
     if (!response.ok) {
       throw new Error(`Open Router responded with ${String(response.status)}`);
