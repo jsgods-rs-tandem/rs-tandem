@@ -1,3 +1,6 @@
+import { UserDto } from './auth.js';
+import { Socket } from 'socket.io';
+
 export interface AiMessage {
   role: 'user' | 'assistant' | 'system';
   content: string;
@@ -25,3 +28,24 @@ export interface AiChatRequestDto {
 export interface AiChatResponseDto {
   content: string;
 }
+
+export type UserMessageDto = Omit<AiMessage, 'role'>;
+interface ClientToServerEvents {
+  chat: (message: UserMessageDto) => void;
+}
+
+interface ServerToClientEvents {
+  chat_chunk: (chunk: string) => void;
+  chat_end: () => void;
+}
+
+interface SocketData {
+  user: UserDto;
+}
+
+export type AuthenticatedSocket = Socket<
+  ClientToServerEvents,
+  ServerToClientEvents,
+  Record<string, never>,
+  SocketData
+>;
