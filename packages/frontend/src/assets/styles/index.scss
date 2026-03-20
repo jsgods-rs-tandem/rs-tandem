@@ -74,7 +74,7 @@ html {
   @media (pointer: coarse) {
     scrollbar-gutter: auto;
   }
-  @include m.set-scrollbar(16);
+  @include m.set-scrollbar(12);
 }
 
 body {
@@ -92,7 +92,7 @@ body {
     var(--transition-easing-func)
   );
   @media (hover: hover) and (pointer: fine) {
-    padding: 0 var(--spacing-x1) 0 var(--spacing-x5);
+    padding: 0 var(--spacing-x2) 0 var(--spacing-x5);
   }
   @media (hover: none), (pointer: coarse) {
     padding: 0 var(--spacing-x5);
