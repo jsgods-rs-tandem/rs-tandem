@@ -50,6 +50,7 @@
   &_success {
     &#{&} {
       &#{&} {
+        color: var(--q-answer-text-color);
         background-color: var(--success-color);
       }
     }
@@ -58,6 +59,7 @@
   &_error {
     &#{&} {
       &#{&} {
+        color: var(--q-answer-text-color);
         background-color: var(--error-color);
       }
     }

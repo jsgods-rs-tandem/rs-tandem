@@ -46,10 +46,20 @@
   --text-secondary: #222c;
   --header-height: 60px;
   --footer-height: 64px;
+  --q-answer-text-color: #ececec;
+  --info-color: #1677ff;
+  --info-border-color: #91caff;
+  --info-bg-color: #e6f4ff;
+  --info-text-color: #222;
+  --in-progress-color: #b3e5fc;
+  --senior-color: #ffd54f;
+  --middle-color: #cfd8dc;
+  --junior-color: #ffab91;
+  --trainee-color: #f48fb1;
+  color-scheme: light;
   @include m.media('s') {
     --footer-height: 103.81px;
   }
-  color-scheme: light;
 }
 
 [data-theme='dark'] {
@@ -65,6 +75,11 @@
   --button-border: 2px solid var(--secondary-color);
   --text-primary: #ececec;
   --text-secondary: #ecececcc;
+  --in-progress-color: #217388;
+  --senior-color: #90630f;
+  --middle-color: #54646b;
+  --junior-color: #d53706;
+  --trainee-color: #ad1457;
   color-scheme: dark;
 }
 

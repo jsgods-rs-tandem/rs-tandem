@@ -8,16 +8,16 @@
 
   width: 100%;
   padding: var(--spacing-x2) var(--spacing-x3);
-
-  // TODO use variable
-  border: 2px solid #91caff;
+  border: 2px solid var(--info-border-color);
   border-radius: var(--radius-md);
 
-  background-color: #e6f4ff;
+  color: var(--info-text-color);
+
+  background-color: var(--info-bg-color);
 
   &__icon {
     ::ng-deep .icon {
-      color: #1677ff;
+      color: var(--info-color);
     }
   }
 }

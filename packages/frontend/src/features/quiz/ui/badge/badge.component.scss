@@ -22,25 +22,24 @@
       outline-offset: 2px;
     }
 
-    // TODO: think on color variables
     &_in-progress {
-      background-color: lightblue;
+      background-color: var(--in-progress-color);
     }
 
     &_senior {
-      background-color: gold;
+      background-color: var(--senior-color);
     }
 
     &_middle {
-      background-color: silver;
+      background-color: var(--middle-color);
     }
 
     &_junior {
-      background-color: lightcoral;
+      background-color: var(--junior-color);
     }
 
     &_trainee {
-      background-color: pink;
+      background-color: var(--trainee-color);
     }
   }
 }
