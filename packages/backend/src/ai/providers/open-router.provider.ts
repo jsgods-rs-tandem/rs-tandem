@@ -4,14 +4,18 @@ import { streamToAsyncIterable } from '../../common/utils/stream-to-async-iterab
 
 export class OpenRouterProvider implements IAiProvider {
   constructor(
-    readonly meta: AiProviderMeta,
     private readonly baseUrl = process.env.OPENROUTER_BASE_URL,
     private readonly model = process.env.OPENROUTER_MODEL,
   ) {}
 
+  readonly meta: AiProviderMeta = {
+    id: 'openrouter',
+    label: 'Open Router',
+    requiresKey: true,
+  };
+
   async chat(messages: AiMessage[], apiKey: string | null): Promise<string> {
-    const stream = this.streamChat(messages, apiKey);
-    const asyncIterable = streamToAsyncIterable(stream);
+    const asyncIterable = await this.streamChat(messages, apiKey);
     let message = '';
     for await (const chunk of asyncIterable) {
       message += chunk;
@@ -20,10 +24,7 @@ export class OpenRouterProvider implements IAiProvider {
     return message;
   }
 
-  async streamChat(
-    messages: AiMessage[],
-    apiKey: string | null,
-  ): Promise<ReadableStream<Uint8Array>> {
+  async streamChat(messages: AiMessage[], apiKey: string | null): Promise<AsyncIterable<string>> {
     if (!this.baseUrl) {
       throw new Error('OPENROUTER_BASE_URL is not set');
     }
@@ -59,6 +60,6 @@ export class OpenRouterProvider implements IAiProvider {
       throw new Error('Response body is null');
     }
 
-    return response.body;
+    return streamToAsyncIterable(Promise.resolve(response.body));
   }
 }

@@ -1,5 +1,6 @@
 import type { AiMessage } from '@rs-tandem/shared';
 import type { AiProviderMeta, IAiProvider } from './ai-provider.interface.js';
+import { ollamaStreamToAsyncIterable } from '../../common/utils/ollama-stream-to-async-iterable.js';
 
 interface OllamaChatResponse {
   message: {
@@ -30,6 +31,31 @@ export class OllamaProvider implements IAiProvider {
     label: 'Ollama (local)',
     requiresKey: false,
   };
+
+  async streamChat(messages: AiMessage[]): Promise<AsyncIterable<string>> {
+    if (!this.baseUrl) {
+      throw new Error('OLLAMA_BASE_URL is not set');
+    }
+    if (!this.model) {
+      throw new Error('OLLAMA_MODEL is not set');
+    }
+    const response = await fetch(`${this.baseUrl}/api/chat`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ model: this.model, messages, stream: true }),
+      signal: AbortSignal.timeout(30_000),
+    });
+
+    if (!response.ok) {
+      throw new Error(`Ollama responded with ${String(response.status)}`);
+    }
+
+    if (!response.body) {
+      throw new Error('Response body is null');
+    }
+
+    return ollamaStreamToAsyncIterable(Promise.resolve(response.body));
+  }
 
   async chat(messages: AiMessage[], _apiKey: string | null): Promise<string> {
     const response = await fetch(`${this.baseUrl}/api/chat`, {
