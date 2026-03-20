@@ -2,11 +2,12 @@
   <h1 class="h2">{{ title }}</h1>
 
   <div class="user__content">
+    @let currentUser = user();
     @if (loading()) {
       <div class="spin__wrapper">
         <app-spin size="large" theme="light" />
       </div>
-    } @else if (user(); as currentUser) {
+    } @else if (currentUser) {
       @if (isViewing()) {
         <app-profile-view [user]="currentUser" (editClicked)="state.set('edit')" />
       } @else {
