@@ -102,11 +102,7 @@ body {
   color: var(--secondary-color);
 
   background-color: var(--primary-color);
-  @include m.transition(
-    (background-color),
-    var(--transition-duration-basic),
-    var(--transition-easing-func)
-  );
+  @include m.transition(background-color);
   @media (hover: hover) and (pointer: fine) {
     padding: 0 var(--spacing-x2) 0 var(--spacing-x5);
   }
