@@ -44,7 +44,7 @@ export class AuthService {
   }
 
   isAuthenticated(): boolean {
-    return !!this.getToken();
+    return !!this.authStore.user();
   }
 
   getMe(): Observable<UserDto> {

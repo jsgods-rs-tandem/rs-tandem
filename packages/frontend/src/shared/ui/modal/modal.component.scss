@@ -1,0 +1,99 @@
+@use 'assets/styles/mixins.scss' as m;
+@use 'assets/styles/functions' as fn;
+
+.modal {
+  position: fixed;
+  z-index: 1000;
+  inset: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  @include m.transition(opacity);
+
+  &__backdrop {
+    cursor: pointer;
+
+    position: absolute;
+    inset: 0;
+
+    background-color: var(--backdrop-color);
+    backdrop-filter: blur(4px);
+  }
+
+  &__container {
+    position: relative;
+    z-index: 1001;
+
+    width: 100%;
+    max-width: fn.to-rem(450px);
+    margin: var(--spacing-x5);
+    border: var(--card-border);
+    border-radius: var(--radius-sm);
+
+    background-color: var(--primary-color);
+    box-shadow: var(--shadow);
+
+    @include m.transition(transform);
+  }
+
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--spacing-x4) var(--spacing-x5);
+  }
+
+  &__title-wrapper {
+    display: flex;
+    gap: var(--spacing-x3);
+    align-items: center;
+  }
+
+  &__icon {
+    font-size: fn.to-rem(24px);
+  }
+
+  &__title {
+    font-size: fn.to-rem(20px);
+    font-weight: var(--fw-medium);
+    color: var(--text-primary);
+  }
+
+  &__close-btn {
+    display: flex;
+  }
+
+  &__body {
+    padding: var(--spacing-x6) var(--spacing-x5);
+  }
+
+  &__message {
+    font-size: fn.to-rem(16px);
+    line-height: 1.5;
+    color: var(--text-secondary);
+  }
+
+  &__messages {
+    margin: 0;
+    padding-left: var(--spacing-x5);
+    list-style: disc;
+  }
+
+  &__message-item {
+    font-size: fn.to-rem(16px);
+    line-height: 1.5;
+    color: var(--text-secondary);
+
+    &:not(:last-child) {
+      margin-bottom: var(--spacing-x2);
+    }
+  }
+
+  &__footer {
+    display: flex;
+    justify-content: flex-end;
+    padding: var(--spacing-x4) var(--spacing-x5);
+  }
+}

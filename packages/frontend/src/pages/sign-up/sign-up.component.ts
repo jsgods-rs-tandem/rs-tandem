@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
 import { FormControl, ReactiveFormsModule, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthPageComponent } from '@/shared/ui/auth-page/auth-page.component';
@@ -7,6 +7,10 @@ import { ButtonComponent } from '@/shared/ui';
 import { AuthService } from '@/core/services/auth.service';
 import { AuthStore } from '@/core/store/auth.store';
 import { ROUTE_PATHS } from '@/core/constants';
+import { HttpErrorResponse } from '@angular/common/http';
+import { ModalService } from '@/core/services/modal.service';
+import { getHttpErrorMessage } from '@/shared/utils/http-error.utilities';
+import { AUTH_ERROR_MESSAGES } from '@/shared/utils/auth-error-messages.constants';
 
 @Component({
   selector: 'app-sign-up',
@@ -19,6 +23,9 @@ export class SignUpComponent {
   private authService = inject(AuthService);
   private router = inject(Router);
   private authStore = inject(AuthStore);
+  private modalService = inject(ModalService);
+
+  protected isLoading = signal(false);
 
   readonly ROUTE_PATHS = ROUTE_PATHS;
 
@@ -40,6 +47,8 @@ export class SignUpComponent {
       throw new Error('[SignUpComponent] Unexpected missing required fields in a valid form.');
     }
 
+    this.isLoading.set(true);
+
     this.authService
       .register({
         displayName: formValue.username,
@@ -48,11 +57,22 @@ export class SignUpComponent {
       })
       .subscribe({
         next: (user) => {
+          this.isLoading.set(false);
           this.authStore.setUser(user);
           void this.router.navigate([ROUTE_PATHS.signIn]);
         },
-        error: (error) => {
-          console.error('Registration failed', error);
+        error: (error: HttpErrorResponse) => {
+          this.isLoading.set(false);
+
+          this.modalService.open({
+            title: 'Registration Error',
+            message: getHttpErrorMessage(
+              error,
+              'Failed to create an account. Please try again later or use a different email.',
+              AUTH_ERROR_MESSAGES,
+            ),
+            icon: 'info-outline',
+          });
         },
       });
   }

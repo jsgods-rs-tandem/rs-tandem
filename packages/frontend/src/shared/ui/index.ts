@@ -5,5 +5,6 @@ export { CardFooterDirective } from './card/card-footer.directive';
 export { IconButtonComponent } from './icon-button/icon-button.component';
 export { IconComponent } from './icon/icon.component';
 export { LogoComponent } from './logo/logo.component';
+export { ModalComponent } from './modal/modal.component';
 export { SpinComponent } from './spin';
 export { TeamBoardComponent } from './team-board';

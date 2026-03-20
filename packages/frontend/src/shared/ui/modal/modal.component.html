@@ -1,0 +1,40 @@
+<div
+  class="modal"
+  role="dialog"
+  aria-modal="true"
+  [attr.aria-labelledby]="modalTitleId"
+  (document:keydown.escape)="onClose()"
+>
+  <div class="modal__backdrop" (click)="onClose()" aria-hidden="true"></div>
+
+  <div class="modal__container">
+    <div class="modal__header">
+      <div class="modal__title-wrapper">
+        <app-icon [name]="icon()" class="modal__icon" />
+        <h2 [id]="modalTitleId" class="modal__title">{{ title() }}</h2>
+      </div>
+      <app-icon-button
+        icon="close"
+        (click)="onClose()"
+        ariaLabel="Close modal"
+        class="modal__close-btn"
+      />
+    </div>
+
+    <div class="modal__body">
+      @if (isMessageArray()) {
+        <ul class="modal__messages">
+          @for (msg of messageList(); track msg) {
+            <li class="modal__message-item">{{ msg }}</li>
+          }
+        </ul>
+      } @else {
+        <p class="modal__message">{{ message() }}</p>
+      }
+    </div>
+
+    <div class="modal__footer">
+      <app-button [text]="buttonText()" version="primary" (click)="onClose()" />
+    </div>
+  </div>
+</div>

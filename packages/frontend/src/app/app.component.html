@@ -12,3 +12,12 @@
   </main>
 </div>
 <app-footer />
+
+@if (modalService.activeModal(); as config) {
+  <app-modal
+    [title]="config.title"
+    [message]="config.message"
+    [buttonText]="config.buttonText ?? 'OK'"
+    (closed)="modalService.close()"
+  />
+}
