@@ -1,0 +1,24 @@
+<div class="user__wrapper">
+  <div class="user__avatar-section">
+    <div class="user__avatar">
+      <img [src]="avatarUrl()" alt="User profile avatar" class="avatar" />
+    </div>
+  </div>
+
+  <div class="user__info-section">
+    <p class="text">{{ userName() }}</p>
+    <p class="text">{{ userEmail() }}</p>
+    <p class="text">{{ joinedDateText() }}</p>
+  </div>
+
+  <div class="user__edit-section">
+    <app-button
+      type="button"
+      [isSmallButton]="true"
+      version="primary"
+      text="Edit"
+      ariaLabel="Edit profile"
+      (click)="editClicked.emit()"
+    />
+  </div>
+</div>

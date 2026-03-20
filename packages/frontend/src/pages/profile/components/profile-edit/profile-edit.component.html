@@ -1,0 +1,71 @@
+<div class="user__wrapper">
+  <div class="user__avatar-section">
+    <div class="user__avatar">
+      <img [src]="avatarUrl()" alt="User profile avatar" class="avatar" />
+    </div>
+  </div>
+
+  <div class="user__info-section">
+    <form [formGroup]="profileForm" class="user__form">
+      <app-input
+        formControlName="displayName"
+        label="Username"
+        placeholder="Enter your username"
+        [required]="true"
+        [hasError]="isInvalid('displayName')"
+        [errorText]="getError('displayName')"
+      />
+      <app-input
+        formControlName="email"
+        targetType="email"
+        label="Email"
+        placeholder="Enter your email"
+        [required]="true"
+        [hasError]="isInvalid('email')"
+        [errorText]="getError('email')"
+      />
+
+      <hr class="divider" />
+
+      <p class="footer__text">Leave blank to keep current</p>
+      <app-input
+        formControlName="currentPassword"
+        targetType="password"
+        label="Current Password"
+        placeholder="Enter your password"
+        [hasError]="isInvalid('currentPassword')"
+        errorText="Minimum 8 characters"
+        autoComplete="off"
+      />
+      <app-input
+        formControlName="newPassword"
+        targetType="password"
+        label="New Password"
+        placeholder="Enter new password"
+        [hasError]="isInvalid('newPassword')"
+        errorText="New password must be at least 8 characters"
+        autoComplete="new-password"
+      />
+    </form>
+  </div>
+
+  <div class="user__edit-section">
+    <div class="user__actions">
+      <app-button
+        type="button"
+        [isSmallButton]="true"
+        version="ghost"
+        text="Cancel"
+        (click)="cancelClicked.emit()"
+      />
+      <app-button
+        type="button"
+        [isSmallButton]="true"
+        version="primary"
+        text="Save"
+        [disabled]="profileForm.invalid"
+        (click)="onSave()"
+      />
+    </div>
+  </div>
+</div>

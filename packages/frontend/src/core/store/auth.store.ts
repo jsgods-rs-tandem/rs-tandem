@@ -33,6 +33,19 @@ export class AuthStore {
     this._state.set({ user, isLoading: false, error: null });
   }
 
+  updateUser(updatedFields: Partial<UserDto>): void {
+    this._state.update((state) => {
+      if (!state.user) return state;
+      return {
+        ...state,
+        user: {
+          ...state.user,
+          ...updatedFields,
+        },
+      };
+    });
+  }
+
   clearUser(): void {
     this._state.set(createInitialState());
   }
