@@ -8,6 +8,7 @@ import { UserDto } from '@rs-tandem/shared';
 import { HttpErrorResponse } from '@angular/common/http';
 import { takeUntilDestroyed, toObservable } from '@angular/core/rxjs-interop';
 import { SpinComponent } from '@/shared/ui';
+import { ModalService } from '@/core/services/modal.service';
 
 @Component({
   selector: 'app-profile',
@@ -22,6 +23,7 @@ export class ProfileComponent {
   private destroyRef = inject(DestroyRef);
   private authService = inject(AuthService);
   private authStore = inject(AuthStore);
+  private modalService = inject(ModalService);
 
   readonly user = computed<AuthUser | null>(() => this.authStore.user());
 
@@ -70,29 +72,31 @@ export class ProfileComponent {
       .pipe(takeUntilDestroyed(this.destroyRef))
       .subscribe({
         next: () => {
-          alert('Profile and password updated successfully!'); // CHANGE TO MODAL WINDOW WITH SUCCESS MESSAGE
+          this.modalService.open({
+            title: 'Success',
+            message: 'Profile and password updated successfully!',
+            icon: 'info-outline',
+          });
           this.state.set('view');
         },
-        error: (error: unknown) => {
-          console.error('Update failed:', error);
-
-          let errorMessage = 'Check your data and try again';
+        error: (error: HttpErrorResponse) => {
+          let errorMessage: string | string[] = 'Check your data and try again';
 
           if (error instanceof HttpErrorResponse) {
             const body = error.error as ApiErrorResponse;
-            const serverMessage = body.message;
-
-            if (Array.isArray(serverMessage)) {
-              errorMessage = serverMessage.join('. ');
-            } else if (typeof serverMessage === 'string') {
-              errorMessage = serverMessage;
-            } else {
+            if (body.message) {
+              errorMessage = body.message;
+            } else if (error.message) {
               errorMessage = error.message;
             }
           }
 
-          alert(`Error: ${errorMessage}`); // CHANGE TO MODAL WINDOW WITH ERROR MESSAGE
           this.state.set('edit');
+          this.modalService.open({
+            title: 'Error',
+            message: errorMessage,
+            icon: 'info-outline',
+          });
         },
       });
   }
