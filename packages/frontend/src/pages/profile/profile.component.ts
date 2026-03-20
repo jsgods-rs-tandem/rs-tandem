@@ -3,19 +3,21 @@ import { ProfileViewComponent, ProfileEditComponent } from './components';
 import { AuthStore } from '@/core/store/auth.store';
 import { ApiErrorResponse, AuthUser, ProfileFormData, ProfileState } from './profile.types';
 import { AuthService } from '@/core/services/auth.service';
-import { forkJoin, Observable, of } from 'rxjs';
+import { filter, forkJoin, Observable, of, take, timer } from 'rxjs';
 import { UserDto } from '@rs-tandem/shared';
 import { HttpErrorResponse } from '@angular/common/http';
-import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+import { takeUntilDestroyed, toObservable } from '@angular/core/rxjs-interop';
+import { SpinComponent } from '@/shared/ui';
 
 @Component({
   selector: 'app-profile',
-  imports: [ProfileViewComponent, ProfileEditComponent],
+  imports: [ProfileViewComponent, ProfileEditComponent, SpinComponent],
   templateUrl: './profile.component.html',
   styleUrl: './profile.component.scss',
 })
 export class ProfileComponent {
   readonly title = 'Profile';
+  readonly loading = signal<boolean>(true);
 
   private destroyRef = inject(DestroyRef);
   private authService = inject(AuthService);
@@ -26,6 +28,20 @@ export class ProfileComponent {
   readonly state = signal<ProfileState>('view');
   readonly isViewing = computed(() => this.state() === 'view');
   readonly isSaving = computed(() => this.state() === 'saving');
+
+  constructor() {
+    forkJoin([
+      toObservable(this.user).pipe(
+        filter((user) => !!user),
+        take(1),
+      ),
+      timer(500),
+    ])
+      .pipe(takeUntilDestroyed())
+      .subscribe(() => {
+        this.loading.set(false);
+      });
+  }
 
   saveProfile(formData: ProfileFormData) {
     this.state.set('saving');
@@ -49,6 +65,7 @@ export class ProfileComponent {
     forkJoin({
       profile: profileUpdate$,
       password: passwordUpdate$,
+      delay: timer(500),
     })
       .pipe(takeUntilDestroyed(this.destroyRef))
       .subscribe({

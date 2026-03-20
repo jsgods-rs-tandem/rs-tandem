@@ -1,10 +1,20 @@
 @use 'assets/styles/mixins' as m;
 
 .user__content {
+  display: flex;
+  flex-direction: column;
+
   margin-top: var(--spacing-x10);
   padding: var(--spacing-x5) var(--spacing-x4);
   border: var(--card-border);
   border-radius: var(--radius-sm);
 
   box-shadow: var(--shadow);
+}
+
+.spin__wrapper {
+  display: flex;
+  flex-grow: 1;
+  align-items: center;
+  justify-content: center;
 }
