@@ -63,8 +63,9 @@
         [isSmallButton]="true"
         version="primary"
         text="Save"
-        [disabled]="profileForm.invalid"
+        [disabled]="profileForm.invalid || isSaving()"
         (click)="onSave()"
+        [loading]="isSaving()"
       />
     </div>
   </div>

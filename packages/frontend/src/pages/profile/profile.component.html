@@ -2,7 +2,11 @@
   <h1 class="h2">{{ title }}</h1>
 
   <div class="user__content">
-    @if (user(); as currentUser) {
+    @if (loading()) {
+      <div class="spin__wrapper">
+        <app-spin size="large" theme="light" />
+      </div>
+    } @else if (user(); as currentUser) {
       @if (isViewing()) {
         <app-profile-view [user]="currentUser" (editClicked)="state.set('edit')" />
       } @else {
@@ -13,9 +17,6 @@
           (saveClicked)="saveProfile($event)"
         />
       }
-    } @else {
-      <!-- CHANGE TO SPIN LOADING -->
-      <p>Loading profile data...</p>
     }
   </div>
 </section>
