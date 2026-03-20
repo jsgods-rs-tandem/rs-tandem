@@ -22,7 +22,7 @@ export const authInterceptor: HttpInterceptorFn = (request, next) => {
 
   return next(request).pipe(
     catchError((error: HttpErrorResponse) => {
-      if (error.status === 401) {
+      if (error.status === 401 && !request.url.includes('change-password')) {
         if (authService.isAuthenticated() && !router.url.includes('auth')) {
           authService.logout();
 
