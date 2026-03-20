@@ -54,6 +54,32 @@ export class AiService {
     };
   }
 
+  async streamChat(userId: string, dto: AiChatDto): Promise<AsyncIterable<string>> {
+    const settings = await this.aiSettingsRepository.findByUserId(userId);
+
+    if (!settings) {
+      throw new BadRequestException('No AI provider selected');
+    }
+
+    const provider = findProvider(settings.providerId);
+
+    if (!provider) {
+      throw new BadRequestException('No AI provider selected');
+    }
+
+    if (provider.meta.requiresKey && settings.apiKey === null) {
+      throw new BadRequestException('API key required for this provider');
+    }
+
+    try {
+      const stream = await provider.streamChat(dto.messages, settings.apiKey);
+      return stream;
+    } catch (error) {
+      this.logger.error('AI provider error', error instanceof Error ? error.stack : String(error));
+      throw new BadGatewayException('AI provider unavailable');
+    }
+  }
+
   async chat(userId: string, dto: AiChatDto): Promise<AiChatResponseDto> {
     const settings = await this.aiSettingsRepository.findByUserId(userId);
 
