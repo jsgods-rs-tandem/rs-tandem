@@ -1,11 +1,11 @@
 <section class="hero">
-  <p class="hero__text">{{ subtitle }}</p>
+  <p class="text-xl-fluid">{{ subtitle }}</p>
   <h1 class="h1">{{ title }}</h1>
   <div class="feature__wrapper">
     @for (feature of features; track feature.text) {
       <div class="feature__item">
         <app-icon [name]="feature.icon" color="brand" size="m" />
-        <p class="feature__text">{{ feature.text }}</p>
+        <p class="text-sm-fluid">{{ feature.text }}</p>
       </div>
     }
   </div>
