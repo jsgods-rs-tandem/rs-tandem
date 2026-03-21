@@ -20,7 +20,9 @@ export class AiSocketService {
 
   listen<T>(event: string): Observable<T> {
     return new Observable<T>((subscriber) => {
-      this.socket.on(event, (data: T) => { subscriber.next(data); });
+      this.socket.on(event, (data: T) => {
+        subscriber.next(data);
+      });
       return () => this.socket.off(event);
     });
   }
