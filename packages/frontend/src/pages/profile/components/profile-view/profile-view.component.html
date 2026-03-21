@@ -6,12 +6,12 @@
   </div>
 
   <div class="user__info-section">
-    <p class="text">{{ userName() }}</p>
-    <p class="text">{{ userEmail() }}</p>
-    <p class="text">{{ joinedDateText() }}</p>
+    <p class="text-3xl user__name">{{ userName() }}</p>
+    <p class="text-lg">{{ userEmail() }}</p>
+    <p class="text-sm">{{ joinedDateText() }}</p>
   </div>
 
-  <div class="user__edit-section">
+  <div class="user__button-section">
     <app-button
       type="button"
       [isSmallButton]="true"

@@ -16,10 +16,15 @@
   &__info-section {
     display: flex;
     flex-direction: column;
-    gap: var(--spacing-x4);
+    gap: var(--spacing-x2);
   }
 
-  &__edit-section {
+  &__name {
+    margin-bottom: var(--spacing-x5);
+    font-weight: var(--fw-medium);
+  }
+
+  &__button-section {
     align-self: flex-start;
     margin-left: auto;
   }
