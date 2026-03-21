@@ -24,6 +24,13 @@
         [hasError]="isInvalid('email')"
         [errorText]="getError('email')"
       />
+      <app-input
+        formControlName="githubUsername"
+        label="GitHub Username"
+        placeholder="Enter your GitHub username"
+        [hasError]="isInvalid('githubUsername')"
+        [errorText]="getError('githubUsername')"
+      />
 
       <hr class="divider" />
 

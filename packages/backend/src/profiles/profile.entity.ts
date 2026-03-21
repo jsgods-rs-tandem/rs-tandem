@@ -7,8 +7,17 @@ export interface UserProfileRow {
   longestStreak: number;
   lastSolvedAt: Date | null;
   updatedAt: Date;
+  avatarUrl: string | null;
+  githubUsername: string | null;
 }
 
 export interface CreateUserProfileInput {
   userId: string;
 }
+
+export interface UpdateProfileInput {
+  avatarUrl?: string | null;
+  githubUsername?: string | null;
+}
+
+export const DEFAULT_AVATAR_URL = 'assets/images/user-avatar-placeholder.png';

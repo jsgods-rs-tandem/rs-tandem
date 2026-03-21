@@ -1,5 +1,5 @@
 import { Injectable, computed, signal } from '@angular/core';
-import { UserDto } from '@rs-tandem/shared';
+import { UpdateProfileDto, UserDto } from '@rs-tandem/shared';
 
 interface AuthState {
   user: UserDto | null;
@@ -33,7 +33,7 @@ export class AuthStore {
     this._state.set({ user, isLoading: false, error: null });
   }
 
-  updateUser(updatedFields: Partial<UserDto>): void {
+  updateUser(updatedFields: UpdateProfileDto): void {
     this._state.update((state) => {
       if (!state.user) return state;
       return {

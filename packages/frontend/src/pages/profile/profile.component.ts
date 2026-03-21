@@ -3,8 +3,8 @@ import { ProfileViewComponent, ProfileEditComponent } from './components';
 import { AuthStore } from '@/core/store/auth.store';
 import { AuthUser, ProfileFormData, ProfileState } from './profile.types';
 import { AuthService } from '@/core/services/auth.service';
-import { filter, forkJoin, Observable, of, take, timer } from 'rxjs';
-import { UserDto } from '@rs-tandem/shared';
+import { filter, forkJoin, Observable, take, timer } from 'rxjs';
+import { UpdateProfileDto, UserProfileDto } from '@rs-tandem/shared';
 import { HttpErrorResponse } from '@angular/common/http';
 import { takeUntilDestroyed, toObservable } from '@angular/core/rxjs-interop';
 import { SpinComponent } from '@/shared/ui';
@@ -49,27 +49,48 @@ export class ProfileComponent {
   saveProfile(formData: ProfileFormData) {
     this.state.set('saving');
 
-    const profileDto: Partial<UserDto> = {
-      displayName: formData.displayName ?? '',
-      email: formData.email ?? '',
+    const profileDto: UpdateProfileDto = {};
+    const currentUser = this.user();
+    if (!currentUser) return;
+    if (formData.displayName && formData.displayName !== currentUser.displayName) {
+      profileDto.displayName = formData.displayName;
+    }
+    if (formData.email && formData.email !== currentUser.email) {
+      profileDto.email = formData.email;
+    }
+
+    if (
+      formData.githubUsername !== undefined &&
+      formData.githubUsername !== currentUser.githubUsername
+    ) {
+      profileDto.githubUsername = formData.githubUsername;
+    }
+
+    const requests: {
+      delay: Observable<number>;
+      profile?: Observable<UserProfileDto>;
+      password?: Observable<unknown>;
+    } = {
+      delay: timer(500),
     };
 
-    const profileUpdate$ = this.authService.updateProfile(profileDto);
-
-    let passwordUpdate$: Observable<unknown> = of(null);
+    if (Object.keys(profileDto).length > 0) {
+      requests.profile = this.authService.updateProfile(profileDto);
+    }
 
     if (formData.currentPassword && formData.newPassword) {
-      passwordUpdate$ = this.authService.changePassword(
+      requests.password = this.authService.changePassword(
         formData.currentPassword,
         formData.newPassword,
       );
     }
 
-    forkJoin({
-      profile: profileUpdate$,
-      password: passwordUpdate$,
-      delay: timer(500),
-    })
+    if (!requests.profile && !requests.password) {
+      this.state.set('view');
+      return;
+    }
+
+    forkJoin(requests)
       .pipe(takeUntilDestroyed(this.destroyRef))
       .subscribe({
         next: () => {

@@ -17,6 +17,8 @@ const validDatabaseRow = {
   longest_streak: 7,
   last_solved_at: now,
   updated_at: now,
+  avatar_url: 'assets/images/user-avatar-placeholder.png',
+  github_username: null,
 };
 
 const expectedProfileRow = {
@@ -28,6 +30,8 @@ const expectedProfileRow = {
   longestStreak: 7,
   lastSolvedAt: now,
   updatedAt: now,
+  avatarUrl: 'assets/images/user-avatar-placeholder.png',
+  githubUsername: null,
 };
 
 describe('ProfileRepository', () => {
@@ -89,7 +93,7 @@ describe('ProfileRepository', () => {
       expect(result).toEqual(expectedProfileRow);
       expect(mockPool.query).toHaveBeenCalledWith(
         expect.stringContaining('INSERT INTO user_profiles'),
-        ['u1'],
+        ['u1', 'assets/images/user-avatar-placeholder.png'],
       );
     });
 

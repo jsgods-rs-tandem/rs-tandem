@@ -3,7 +3,8 @@ import { UserDto } from '@rs-tandem/shared';
 export type ProfileState = 'view' | 'edit' | 'saving' | 'error';
 
 export interface AuthUser extends UserDto {
-  avatarUrl?: string;
+  avatarUrl?: string | null;
+  githubUsername?: string | null;
 }
 
 export interface ProfileFormData extends Partial<AuthUser> {
@@ -13,6 +14,6 @@ export interface ProfileFormData extends Partial<AuthUser> {
 
 export interface ApiErrorResponse {
   message: string | string[];
-  error?: string;
+  error?: string | null;
   statusCode?: number;
 }

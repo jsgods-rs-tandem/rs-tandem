@@ -1,7 +1,14 @@
 import { Injectable, inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, tap } from 'rxjs';
-import { LoginDto, RegisterDto, AuthResponseDto, UserDto } from '@rs-tandem/shared';
+import {
+  LoginDto,
+  RegisterDto,
+  AuthResponseDto,
+  UserDto,
+  UpdateProfileDto,
+  UserProfileDto,
+} from '@rs-tandem/shared';
 import { LocalStorageService } from './local-storage.service';
 import { environment } from '@/environments/environment';
 import { AuthStore } from '../store/auth.store';
@@ -51,10 +58,16 @@ export class AuthService {
     return this.http.get<UserDto>(`${environment.apiUrl}/auth/me`);
   }
 
-  updateProfile(data: Partial<UserDto>): Observable<UserDto> {
-    return this.http.patch<UserDto>(`${environment.apiUrl}/profiles/me`, data).pipe(
+  updateProfile(data: UpdateProfileDto): Observable<UserProfileDto> {
+    return this.http.patch<UserProfileDto>(`${environment.apiUrl}/profiles/me`, data).pipe(
       tap((updatedProfile) => {
-        this.authStore.updateUser(updatedProfile);
+        const updatedFields: UpdateProfileDto = {
+          displayName: updatedProfile.displayName,
+          email: updatedProfile.email,
+          avatarUrl: updatedProfile.avatarUrl,
+          githubUsername: updatedProfile.githubUsername,
+        };
+        this.authStore.updateUser(updatedFields);
       }),
     );
   }
