@@ -1,7 +1,15 @@
 import { ConflictException, Injectable, NotFoundException } from '@nestjs/common';
-import type { PublicUserProfileDto, UpdateProfileDto, UserProfileDto } from '@rs-tandem/shared';
+import {
+  type PublicUserProfileDto,
+  type UpdateProfileDto,
+  type UserProfileDto,
+} from '@rs-tandem/shared';
 import { ProfileRepository } from './profile.repository.js';
-import type { UserProfileRow } from './profile.entity.js';
+import {
+  DEFAULT_AVATAR_URL,
+  type UpdateProfileInput,
+  type UserProfileRow,
+} from './profile.entity.js';
 import { UserRepository } from '../users/user.repository.js';
 
 function toPublicUserProfileDto(
@@ -15,6 +23,8 @@ function toPublicUserProfileDto(
     level: profile.level,
     problemsSolved: profile.problemsSolved,
     currentStreak: profile.currentStreak,
+    avatarUrl: profile.avatarUrl ?? DEFAULT_AVATAR_URL,
+    githubUsername: profile.githubUsername,
   };
 }
 
@@ -73,7 +83,23 @@ export class ProfilesService {
       }
     }
 
-    await this.userRepository.update(userId, { ...dto });
+    if (dto.email !== undefined || dto.displayName !== undefined) {
+      const userUpdate: { email?: string; displayName?: string } = {};
+
+      if (dto.email !== undefined) userUpdate.email = dto.email;
+      if (dto.displayName !== undefined) userUpdate.displayName = dto.displayName;
+
+      await this.userRepository.update(userId, userUpdate);
+    }
+
+    if (dto.avatarUrl !== undefined || dto.githubUsername !== undefined) {
+      const profileUpdate: UpdateProfileInput = {};
+
+      if (dto.avatarUrl !== undefined) profileUpdate.avatarUrl = dto.avatarUrl;
+      if (dto.githubUsername !== undefined) profileUpdate.githubUsername = dto.githubUsername;
+
+      await this.profileRepository.update(userId, profileUpdate);
+    }
 
     return this.getProfile(userId);
   }

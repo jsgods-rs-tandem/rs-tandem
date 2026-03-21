@@ -3,6 +3,7 @@ import { NonNullableFormBuilder, ReactiveFormsModule, Validators } from '@angula
 import { AuthUser, ProfileFormData } from '../../profile.types';
 import { InputComponent } from '@/shared/ui/input/input.component';
 import { ButtonComponent } from '@/shared/ui';
+import { DEFAULT_AVATAR_URL } from '@/core/constants';
 
 @Component({
   selector: 'app-profile-edit',
@@ -19,13 +20,12 @@ export class ProfileEditComponent implements OnInit {
   cancelClicked = output();
   saveClicked = output<ProfileFormData>();
 
-  readonly avatarUrl = computed(
-    () => this.user().avatarUrl ?? 'assets/images/user-avatar-placeholder.png',
-  );
+  readonly avatarUrl = computed(() => this.user().avatarUrl ?? DEFAULT_AVATAR_URL);
 
   readonly profileForm = this.fb.group({
-    displayName: ['', [Validators.required, Validators.minLength(3)]],
+    displayName: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(50)]],
     email: ['', [Validators.required, Validators.email]],
+    githubUsername: ['', [Validators.maxLength(50)]],
     currentPassword: ['', [Validators.minLength(8)]],
     newPassword: ['', [Validators.minLength(8)]],
   });
@@ -45,6 +45,7 @@ export class ProfileEditComponent implements OnInit {
     this.profileForm.patchValue({
       displayName: currentUser.displayName,
       email: currentUser.email,
+      githubUsername: currentUser.githubUsername ?? '',
     });
     this.profileForm.valueChanges.subscribe((value) => {
       const currentPassword = this.profileForm.get('currentPassword');
@@ -78,6 +79,8 @@ export class ProfileEditComponent implements OnInit {
     if (this.profileForm.get(field)?.hasError('email')) return 'Invalid email address';
     if (this.profileForm.get(field)?.hasError('minlength'))
       return `Minimum length is ${field === 'username' ? '3' : '8'} characters`;
+    if (this.profileForm.get(field)?.hasError('maxlength'))
+      return `Maximum length is 50 characters`;
     return '';
   }
 }

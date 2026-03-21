@@ -15,6 +15,8 @@ const profileRow = {
   longestStreak: 7,
   lastSolvedAt: now,
   updatedAt: now,
+  avatarUrl: null,
+  githubUsername: null,
 };
 
 const userRow = {
@@ -35,6 +37,8 @@ const expectedUserProfileDto = {
   currentStreak: 3,
   longestStreak: 7,
   lastSolvedAt: now.toISOString(),
+  avatarUrl: 'assets/images/user-avatar-placeholder.png',
+  githubUsername: null,
 };
 
 const expectedPublicProfileDto = {
@@ -44,6 +48,8 @@ const expectedPublicProfileDto = {
   level: 2,
   problemsSolved: 5,
   currentStreak: 3,
+  avatarUrl: 'assets/images/user-avatar-placeholder.png',
+  githubUsername: null,
 };
 
 const mockProfileRepository = {
@@ -201,7 +207,7 @@ describe('ProfilesService', () => {
 
       const result = await service.updateProfile('u1', {});
 
-      expect(mockUserRepository.update).toHaveBeenCalledWith('u1', {});
+      expect(mockUserRepository.update).not.toHaveBeenCalled();
       expect(result).toEqual(expectedUserProfileDto);
     });
   });

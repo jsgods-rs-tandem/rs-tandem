@@ -1,6 +1,7 @@
 import { Component, computed, input, output } from '@angular/core';
 import { ButtonComponent } from '@/shared/ui';
 import { AuthUser } from '../../profile.types';
+import { DEFAULT_AVATAR_URL } from '@/core/constants';
 
 @Component({
   selector: 'app-profile-view',
@@ -15,9 +16,17 @@ export class ProfileViewComponent {
 
   readonly userName = computed(() => this.user().displayName);
   readonly userEmail = computed(() => this.user().email);
-  readonly avatarUrl = computed(
-    () => this.user().avatarUrl ?? 'assets/images/user-avatar-placeholder.png',
-  );
+  readonly avatarUrl = computed(() => this.user().avatarUrl ?? DEFAULT_AVATAR_URL);
+  readonly githubUsername = computed(() => this.user().githubUsername ?? '');
+
+  readonly linkUrl = computed(() => {
+    const github = this.githubUsername();
+    return github ? `https://github.com/${github}` : '';
+  });
+  readonly ariaLabel = computed(() => {
+    const github = this.githubUsername();
+    return github ? `Link for ${github} GitHub profile` : 'GitHub profile link';
+  });
 
   readonly joinedDateText = computed(() => {
     const dateString = this.user().createdAt;
