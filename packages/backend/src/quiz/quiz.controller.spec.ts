@@ -1,5 +1,8 @@
+import { type INestApplication } from '@nestjs/common';
+import type { Server } from 'node:http';
 import { Test, TestingModule } from '@nestjs/testing';
 import type { UserDto } from '@rs-tandem/shared';
+import request from 'supertest';
 import { QuizController } from './quiz.controller.js';
 import { QuizService } from './quiz.service.js';
 import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard.js';
@@ -38,6 +41,39 @@ describe('QuizController', () => {
       providers: [{ provide: QuizService, useValue: mockQuizService }],
     }).compile();
     controller = module.get(QuizController);
+  });
+
+  // -------------------------------------------------------------------------
+  describe('UUID validation (400)', () => {
+    let app: INestApplication;
+
+    beforeEach(async () => {
+      const module: TestingModule = await Test.createTestingModule({
+        controllers: [QuizController],
+        providers: [{ provide: QuizService, useValue: mockQuizService }],
+      })
+        .overrideGuard(JwtAuthGuard)
+        .useValue({ canActivate: () => true })
+        .compile();
+
+      app = module.createNestApplication();
+      await app.init();
+    });
+
+    afterEach(() => app.close());
+
+    it.each([
+      ['GET', '/quiz/categories/not-a-uuid'],
+      ['GET', '/quiz/topics/not-a-uuid'],
+      ['POST', '/quiz/topics/not-a-uuid/start'],
+      ['PUT', '/quiz/topics/not-a-uuid/questions/00000000-0000-0000-0000-000000000000'],
+      ['PUT', '/quiz/topics/00000000-0000-0000-0000-000000000000/questions/not-a-uuid'],
+      ['GET', '/quiz/results/not-a-uuid'],
+    ])('%s %s returns 400', async (method, url) => {
+      await request(app.getHttpServer() as Server)
+        [method.toLowerCase() as 'get' | 'post' | 'put'](url)
+        .expect(400);
+    });
   });
 
   // -------------------------------------------------------------------------
