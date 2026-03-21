@@ -100,7 +100,7 @@ export class AiService {
     try {
       const content = await provider.chat(dto.messages, settings.apiKey);
 
-      return { content };
+      return content;
     } catch (error) {
       this.logger.error('AI provider error', error instanceof Error ? error.stack : String(error));
       throw new BadGatewayException('AI provider unavailable');
