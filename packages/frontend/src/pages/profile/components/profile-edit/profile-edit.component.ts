@@ -24,7 +24,7 @@ export class ProfileEditComponent implements OnInit {
   );
 
   readonly profileForm = this.fb.group({
-    displayName: ['', [Validators.required]],
+    displayName: ['', [Validators.required, Validators.minLength(3)]],
     email: ['', [Validators.required, Validators.email]],
     currentPassword: ['', [Validators.minLength(8)]],
     newPassword: ['', [Validators.minLength(8)]],
@@ -45,6 +45,20 @@ export class ProfileEditComponent implements OnInit {
     this.profileForm.patchValue({
       displayName: currentUser.displayName,
       email: currentUser.email,
+    });
+    this.profileForm.valueChanges.subscribe((value) => {
+      const currentPassword = this.profileForm.get('currentPassword');
+      const newPassword = this.profileForm.get('newPassword');
+
+      if (value.currentPassword || value.newPassword) {
+        currentPassword?.setValidators([Validators.required, Validators.minLength(8)]);
+        newPassword?.setValidators([Validators.required, Validators.minLength(8)]);
+      } else {
+        currentPassword?.setValidators([Validators.minLength(8)]);
+        newPassword?.setValidators([Validators.minLength(8)]);
+      }
+      currentPassword?.updateValueAndValidity({ emitEvent: false });
+      newPassword?.updateValueAndValidity({ emitEvent: false });
     });
   }
 
