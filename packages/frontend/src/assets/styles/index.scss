@@ -46,10 +46,20 @@
   --text-secondary: #222c;
   --header-height: 60px;
   --footer-height: 64px;
+  --quiz-answer-text-color: #ececec;
+  --info-color: #1677ff;
+  --info-border-color: #91caff;
+  --info-bg-color: #e6f4ff;
+  --info-text-color: #222;
+  --in-progress-color: #b3e5fc;
+  --senior-color: #ffd54f;
+  --middle-color: #cfd8dc;
+  --junior-color: #ffab91;
+  --trainee-color: #f48fb1;
+  color-scheme: light;
   @include m.media('s') {
     --footer-height: 103.81px;
   }
-  color-scheme: light;
 }
 
 [data-theme='dark'] {
@@ -57,6 +67,7 @@
   --primary-color: #181e22;
   --secondary-color: #ececec;
   --secondary-color-rgb: 236, 236, 236;
+  --accent-color: #ef6200;
   --backdrop-color: rgb(255 255 255 / 50%);
   --btn-bg-color: var(--accent-color);
   --accent-color-button-spin: #ececec;
@@ -65,6 +76,11 @@
   --button-border: 2px solid var(--secondary-color);
   --text-primary: #ececec;
   --text-secondary: #ecececcc;
+  --in-progress-color: #217388;
+  --senior-color: #90630f;
+  --middle-color: #54646b;
+  --junior-color: #d53706;
+  --trainee-color: #ad1457;
   color-scheme: dark;
 }
 
@@ -74,7 +90,7 @@ html {
   @media (pointer: coarse) {
     scrollbar-gutter: auto;
   }
-  @include m.set-scrollbar(16);
+  @include m.set-scrollbar(12);
 }
 
 body {
@@ -86,13 +102,9 @@ body {
   color: var(--secondary-color);
 
   background-color: var(--primary-color);
-  @include m.transition(
-    (background-color),
-    var(--transition-duration-basic),
-    var(--transition-easing-func)
-  );
+  @include m.transition(background-color);
   @media (hover: hover) and (pointer: fine) {
-    padding: 0 var(--spacing-x1) 0 var(--spacing-x5);
+    padding: 0 var(--spacing-x2) 0 var(--spacing-x5);
   }
   @media (hover: none), (pointer: coarse) {
     padding: 0 var(--spacing-x5);

@@ -39,7 +39,7 @@
         height: 3px;
 
         background: var(--secondary-color);
-        @include m.transition(all, var(--transition-duration-basic), var(--transition-easing-func));
+        @include m.transition(all);
 
         &:nth-child(1) {
           top: 0;
@@ -126,11 +126,7 @@
     box-shadow: var(--shadow-mobile-menu);
 
     animation: slideIn 0.7s cubic-bezier(0.77, 0.2, 0.05, 1);
-    @include m.transition(
-      background-color,
-      var(--transition-duration-basic),
-      var(--transition-easing-func)
-    );
+    @include m.transition(background-color);
   }
 
   &__content {

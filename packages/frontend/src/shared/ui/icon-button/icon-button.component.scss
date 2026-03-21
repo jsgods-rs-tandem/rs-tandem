@@ -6,7 +6,7 @@
   @extend %host-base;
 
   ::ng-deep .icon {
-    @include m.transition(all, var(--transition-duration-basic), var(--transition-easing-func));
+    @include m.transition(all);
   }
 
   &:focus-visible {

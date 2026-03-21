@@ -48,11 +48,7 @@
 
   background-color: transparent;
   outline: none;
-  @include m.transition(
-    (border-color, box-shadow),
-    var(--transition-duration-basic),
-    var(--transition-easing-func)
-  );
+  @include m.transition((border-color, box-shadow));
 
   &::placeholder {
     color: var(--text-secondary);
