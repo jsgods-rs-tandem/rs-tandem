@@ -22,7 +22,7 @@
     align-items: center;
   }
 
-  &__edit-section {
+  &__button-section {
     align-self: flex-start;
     margin-left: auto;
   }
@@ -31,4 +31,8 @@
 .avatar {
   aspect-ratio: 1/1;
   height: 240px;
+}
+
+.text__info {
+  margin-bottom: var(--spacing-x3);
 }
