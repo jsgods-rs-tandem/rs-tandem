@@ -1,4 +1,14 @@
-import { Body, Controller, Get, Param, Post, Put, Request, UseGuards } from '@nestjs/common';
+import {
+  Body,
+  Controller,
+  Get,
+  Param,
+  ParseUUIDPipe,
+  Post,
+  Put,
+  Request,
+  UseGuards,
+} from '@nestjs/common';
 import type {
   GetCategoriesResponseDto,
   GetCategoryResponseDto,
@@ -28,7 +38,7 @@ export class QuizController {
 
   @Get('categories/:id')
   getCategory(
-    @Param('id') id: string,
+    @Param('id', ParseUUIDPipe) id: string,
     @Request() request: Express.Request,
   ): Promise<GetCategoryResponseDto> {
     const user = request.user as UserDto;
@@ -39,7 +49,7 @@ export class QuizController {
 
   @Get('topics/:id')
   getTopic(
-    @Param('id') id: string,
+    @Param('id', ParseUUIDPipe) id: string,
     @Request() request: Express.Request,
   ): Promise<GetTopicResponseDto> {
     const user = request.user as UserDto;
@@ -50,7 +60,7 @@ export class QuizController {
 
   @Post('topics/:id/start')
   startTopic(
-    @Param('id') id: string,
+    @Param('id', ParseUUIDPipe) id: string,
     @Request() request: Express.Request,
   ): Promise<StartTopicResponseDto> {
     const user = request.user as UserDto;
@@ -60,8 +70,8 @@ export class QuizController {
 
   @Put('topics/:topicId/questions/:questionId')
   submitAnswer(
-    @Param('topicId') topicId: string,
-    @Param('questionId') questionId: string,
+    @Param('topicId', ParseUUIDPipe) topicId: string,
+    @Param('questionId', ParseUUIDPipe) questionId: string,
     @Request() request: Express.Request,
     @Body() dto: SubmitAnswerDto,
   ): Promise<SubmitAnswerResponseDto> {
@@ -73,7 +83,7 @@ export class QuizController {
 
   @Get('results/:topicId')
   getResults(
-    @Param('topicId') topicId: string,
+    @Param('topicId', ParseUUIDPipe) topicId: string,
     @Request() request: Express.Request,
   ): Promise<GetResultsResponseDto> {
     const user = request.user as UserDto;

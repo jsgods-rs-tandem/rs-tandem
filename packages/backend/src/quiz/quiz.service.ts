@@ -28,7 +28,7 @@ export class QuizService {
     const category = await this.quizRepository.findCategoryById(id, userId, lang);
 
     if (!category) {
-      throw new NotFoundException('Category not found');
+      throw new NotFoundException(`Category ${id} not found`);
     }
 
     return category;
@@ -41,7 +41,7 @@ export class QuizService {
     ]);
 
     if (!topic) {
-      throw new NotFoundException('Topic not found');
+      throw new NotFoundException(`Topic ${id} not found`);
     }
 
     const step = latestAttempt?.completedAt === null ? latestAttempt.currentStep : 0;
@@ -56,7 +56,7 @@ export class QuizService {
     ]);
 
     if (!exists) {
-      throw new NotFoundException('Topic not found');
+      throw new NotFoundException(`Topic ${id} not found`);
     }
 
     if (latestAttempt?.completedAt === null) {
