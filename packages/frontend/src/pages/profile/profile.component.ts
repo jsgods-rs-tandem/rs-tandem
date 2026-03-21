@@ -1,7 +1,7 @@
 import { Component, computed, DestroyRef, inject, signal } from '@angular/core';
 import { ProfileViewComponent, ProfileEditComponent } from './components';
 import { AuthStore } from '@/core/store/auth.store';
-import { ApiErrorResponse, AuthUser, ProfileFormData, ProfileState } from './profile.types';
+import { AuthUser, ProfileFormData, ProfileState } from './profile.types';
 import { AuthService } from '@/core/services/auth.service';
 import { filter, forkJoin, Observable, of, take, timer } from 'rxjs';
 import { UserDto } from '@rs-tandem/shared';
@@ -9,6 +9,7 @@ import { HttpErrorResponse } from '@angular/common/http';
 import { takeUntilDestroyed, toObservable } from '@angular/core/rxjs-interop';
 import { SpinComponent } from '@/shared/ui';
 import { ModalService } from '@/core/services/modal.service';
+import { getHttpErrorMessage } from '@/shared/utils/http-error.utilities';
 
 @Component({
   selector: 'app-profile',
@@ -74,23 +75,13 @@ export class ProfileComponent {
         next: () => {
           this.modalService.open({
             title: 'Success',
-            message: 'Profile and password updated successfully!',
+            message: 'Profile updated successfully!',
             icon: 'info-outline',
           });
           this.state.set('view');
         },
         error: (error: HttpErrorResponse) => {
-          let errorMessage: string | string[] = 'Check your data and try again';
-
-          if (error instanceof HttpErrorResponse) {
-            const body = error.error as ApiErrorResponse;
-            if (body.message) {
-              errorMessage = body.message;
-            } else if (error.message) {
-              errorMessage = error.message;
-            }
-          }
-
+          const errorMessage = getHttpErrorMessage(error, 'Check your data and try again');
           this.state.set('edit');
           this.modalService.open({
             title: 'Error',
