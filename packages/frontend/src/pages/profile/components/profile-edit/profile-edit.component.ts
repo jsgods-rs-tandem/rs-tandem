@@ -74,9 +74,10 @@ export class ProfileEditComponent implements OnInit {
   }
 
   getError(field: string) {
-    if (this.profileForm.get(field)?.hasError('required')) return 'Required';
-    if (this.profileForm.get(field)?.hasError('email')) return 'Invalid email';
-    if (this.profileForm.get(field)?.hasError('minlength')) return 'Must be at least 8 characters';
+    if (this.profileForm.get(field)?.hasError('required')) return 'This field is required';
+    if (this.profileForm.get(field)?.hasError('email')) return 'Invalid email address';
+    if (this.profileForm.get(field)?.hasError('minlength'))
+      return `Minimum length is ${field === 'username' ? '3' : '8'} characters`;
     return '';
   }
 }
