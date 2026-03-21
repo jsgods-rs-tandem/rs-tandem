@@ -34,7 +34,7 @@ export class ChatFormComponent implements OnInit, OnDestroy {
   constructor() {
     effect(() => {
       const status = this.store.status();
-      if (status !== 'pending' && status !== 'typing') {
+      if (status === 'error' || status === 'default') {
         this.isActive.set(true);
       } else {
         this.isActive.set(false);
