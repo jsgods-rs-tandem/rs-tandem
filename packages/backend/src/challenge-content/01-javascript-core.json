@@ -1,0 +1,146 @@
+{
+  "category": {
+    "name": { "en": "JavaScript Core", "ru": "Основы JavaScript" },
+    "description": {
+      "en": "Deep dive into JavaScript fundamentals — closures, prototypes, async patterns, and polyfills.",
+      "ru": "Глубокое погружение в основы JavaScript — замыкания, прототипы, асинхронные паттерны и полифилы."
+    }
+  },
+  "topics": [
+    {
+      "name": { "en": "Implement Array.prototype.map", "ru": "Реализовать Array.prototype.map" },
+      "description": {
+        "en": "Write a polyfill for the native Array.prototype.map method from scratch.",
+        "ru": "Напишите полифил для нативного метода Array.prototype.map с нуля."
+      },
+      "difficulty": "easy",
+      "tags": ["Polyfill", "Array"]
+    },
+    {
+      "name": {
+        "en": "Implement Array.prototype.filter",
+        "ru": "Реализовать Array.prototype.filter"
+      },
+      "description": {
+        "en": "Write a polyfill for the native Array.prototype.filter method from scratch.",
+        "ru": "Напишите полифил для нативного метода Array.prototype.filter с нуля."
+      },
+      "difficulty": "easy",
+      "tags": ["Polyfill", "Array"]
+    },
+    {
+      "name": {
+        "en": "Implement Array.prototype.reduce",
+        "ru": "Реализовать Array.prototype.reduce"
+      },
+      "description": {
+        "en": "Write a polyfill for the native Array.prototype.reduce method from scratch.",
+        "ru": "Напишите полифил для нативного метода Array.prototype.reduce с нуля."
+      },
+      "difficulty": "easy",
+      "tags": ["Polyfill", "Array"]
+    },
+    {
+      "name": { "en": "Implement Array.prototype.flat", "ru": "Реализовать Array.prototype.flat" },
+      "description": {
+        "en": "Write a polyfill for Array.prototype.flat that supports an optional depth parameter.",
+        "ru": "Напишите полифил для Array.prototype.flat с поддержкой необязательного параметра глубины."
+      },
+      "difficulty": "medium",
+      "tags": ["Polyfill", "Array", "Recursion"]
+    },
+    {
+      "name": {
+        "en": "Implement Function.prototype.bind",
+        "ru": "Реализовать Function.prototype.bind"
+      },
+      "description": {
+        "en": "Write a polyfill for Function.prototype.bind, including support for partial application.",
+        "ru": "Напишите полифил для Function.prototype.bind с поддержкой частичного применения."
+      },
+      "difficulty": "medium",
+      "tags": ["Polyfill", "Function", "this"]
+    },
+    {
+      "name": { "en": "Implement Promise.all", "ru": "Реализовать Promise.all" },
+      "description": {
+        "en": "Write a polyfill for Promise.all that resolves when all promises resolve or rejects on first failure.",
+        "ru": "Напишите полифил для Promise.all, который резолвится когда все промисы выполнены или реджектится при первой ошибке."
+      },
+      "difficulty": "medium",
+      "tags": ["Promise", "Async"]
+    },
+    {
+      "name": { "en": "Implement Promise.allSettled", "ru": "Реализовать Promise.allSettled" },
+      "description": {
+        "en": "Write a polyfill for Promise.allSettled that waits for all promises to settle.",
+        "ru": "Напишите полифил для Promise.allSettled, который ждёт завершения всех промисов."
+      },
+      "difficulty": "medium",
+      "tags": ["Promise", "Async"]
+    },
+    {
+      "name": { "en": "Implement debounce", "ru": "Реализовать debounce" },
+      "description": {
+        "en": "Write a debounce function that delays execution until after a specified wait time has elapsed.",
+        "ru": "Напишите функцию debounce, откладывающую выполнение до истечения заданного интервала ожидания."
+      },
+      "difficulty": "easy",
+      "tags": ["Function", "Timing"]
+    },
+    {
+      "name": { "en": "Implement throttle", "ru": "Реализовать throttle" },
+      "description": {
+        "en": "Write a throttle function that ensures a function is called at most once per specified interval.",
+        "ru": "Напишите функцию throttle, которая гарантирует вызов функции не чаще одного раза за указанный интервал."
+      },
+      "difficulty": "easy",
+      "tags": ["Function", "Timing"]
+    },
+    {
+      "name": { "en": "Implement deep clone", "ru": "Реализовать глубокое копирование" },
+      "description": {
+        "en": "Write a deepClone function that creates a deep copy of any JavaScript value.",
+        "ru": "Напишите функцию deepClone для создания глубокой копии любого значения JavaScript."
+      },
+      "difficulty": "medium",
+      "tags": ["Object", "Recursion"]
+    },
+    {
+      "name": { "en": "Implement curry", "ru": "Реализовать каррирование" },
+      "description": {
+        "en": "Write a curry function that transforms a function with multiple arguments into a sequence of single-argument functions.",
+        "ru": "Напишите функцию curry, преобразующую функцию с несколькими аргументами в последовательность функций с одним аргументом."
+      },
+      "difficulty": "hard",
+      "tags": ["Function", "Functional Programming"]
+    },
+    {
+      "name": { "en": "Implement memoize", "ru": "Реализовать мемоизацию" },
+      "description": {
+        "en": "Write a memoize function that caches the results of expensive function calls.",
+        "ru": "Напишите функцию memoize, кэширующую результаты дорогостоящих вызовов функций."
+      },
+      "difficulty": "medium",
+      "tags": ["Function", "Performance"]
+    },
+    {
+      "name": { "en": "Implement EventEmitter", "ru": "Реализовать EventEmitter" },
+      "description": {
+        "en": "Implement a basic EventEmitter class with on, off, and emit methods.",
+        "ru": "Реализуйте базовый класс EventEmitter с методами on, off и emit."
+      },
+      "difficulty": "medium",
+      "tags": ["Class", "Event"]
+    },
+    {
+      "name": { "en": "Implement Observable", "ru": "Реализовать Observable" },
+      "description": {
+        "en": "Implement a simplified Observable pattern with subscribe and unsubscribe support.",
+        "ru": "Реализуйте упрощённый паттерн Observable с поддержкой subscribe и unsubscribe."
+      },
+      "difficulty": "hard",
+      "tags": ["Class", "Async", "Functional Programming"]
+    }
+  ]
+}
