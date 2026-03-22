@@ -9,10 +9,11 @@ import {
   getProfileFieldError,
   isControlInvalid,
 } from '../../utils/profile.utilities';
+import { AvatarEditComponent } from '../avatar-edit/avatar-edit.component';
 
 @Component({
   selector: 'app-profile-edit',
-  imports: [InputComponent, ButtonComponent, ReactiveFormsModule],
+  imports: [InputComponent, ButtonComponent, ReactiveFormsModule, AvatarEditComponent],
   templateUrl: './profile-edit.component.html',
   styleUrl: './profile-edit.component.scss',
 })
@@ -26,6 +27,9 @@ export class ProfileEditComponent implements OnInit {
   readonly avatarUrl = computed(() => this.user().avatarUrl ?? DEFAULT_AVATAR_URL);
 
   readonly profileForm = buildProfileForm(inject(NonNullableFormBuilder));
+  readonly formAvatar = computed(() => {
+    return this.profileForm.controls.avatarUrl.value;
+  });
 
   constructor() {
     effect(() => {
@@ -38,12 +42,18 @@ export class ProfileEditComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    const { displayName, email, githubUsername } = this.user();
+    const { displayName, email, avatarUrl, githubUsername } = this.user();
     this.profileForm.patchValue({
       displayName,
       email,
+      avatarUrl: avatarUrl ?? '',
       githubUsername: githubUsername ?? '',
     });
+  }
+
+  onAvatarSelect(url: string): void {
+    this.profileForm.patchValue({ avatarUrl: url });
+    this.profileForm.markAsDirty();
   }
 
   onSave(): void {

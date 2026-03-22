@@ -20,6 +20,9 @@ export function buildUpdateProfileDto(
       dto.githubUsername = trimmedGithubUsername;
     }
   }
+  if (formData.avatarUrl && formData.avatarUrl !== currentUser.avatarUrl) {
+    dto.avatarUrl = formData.avatarUrl;
+  }
 
   return dto;
 }

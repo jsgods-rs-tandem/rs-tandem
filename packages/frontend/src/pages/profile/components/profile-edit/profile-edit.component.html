@@ -1,12 +1,12 @@
 <div class="user__wrapper">
   <div class="user__avatar-section">
     <div class="user__avatar">
-      <img [src]="avatarUrl()" alt="User profile avatar" class="avatar" />
+      <app-avatar-edit [currentAvatar]="formAvatar()" (avatarSelected)="onAvatarSelect($event)" />
     </div>
   </div>
 
   <div class="user__info-section">
-    <form [formGroup]="profileForm" class="user__form">
+    <form [formGroup]="profileForm" class="user__form" (ngSubmit)="onSave()">
       <app-input
         formControlName="displayName"
         label="Username"

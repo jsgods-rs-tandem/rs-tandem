@@ -11,7 +11,7 @@ import { getHttpErrorMessage } from '@/shared/utils/http-error.utilities';
 import { AuthUser, ProfileFormData, ProfileState } from '../models/profile.types';
 import { buildUpdateProfileDto } from '../utils/profile.mapper';
 
-const DELAY_MS = 500;
+const DELAY_MS = 300;
 
 @Injectable()
 export class ProfileFacade {

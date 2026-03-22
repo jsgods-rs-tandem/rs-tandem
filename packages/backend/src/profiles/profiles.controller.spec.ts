@@ -29,7 +29,7 @@ const profileFixture: UserProfileDto = {
   currentStreak: 3,
   longestStreak: 7,
   lastSolvedAt: '2024-06-01T12:00:00.000Z',
-  avatarUrl: 'assets/images/user-avatar-placeholder.png',
+  avatarUrl: 'assets/images/avatars/avatar-0.png',
   githubUsername: null,
 };
 
@@ -40,7 +40,7 @@ const publicProfileFixture: PublicUserProfileDto = {
   level: 2,
   problemsSolved: 5,
   currentStreak: 3,
-  avatarUrl: 'assets/images/user-avatar-placeholder.png',
+  avatarUrl: 'assets/images/avatars/avatar-0.png',
   githubUsername: null,
 };
 

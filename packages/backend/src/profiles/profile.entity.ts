@@ -20,4 +20,4 @@ export interface UpdateProfileInput {
   githubUsername?: string | null;
 }
 
-export const DEFAULT_AVATAR_URL = 'assets/images/user-avatar-placeholder.png';
+export const DEFAULT_AVATAR_URL = 'assets/images/avatars/avatar-0.png';

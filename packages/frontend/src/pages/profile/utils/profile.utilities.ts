@@ -14,6 +14,7 @@ export function buildProfileForm(fb: NonNullableFormBuilder) {
         ],
       ],
       email: ['', [Validators.required, Validators.email]],
+      avatarUrl: [''],
       githubUsername: ['', [Validators.maxLength(MAX_INPUT_LENGTH)]],
       currentPassword: ['', [Validators.minLength(MIN_LENGTH_PASSWORD)]],
       newPassword: ['', [Validators.minLength(MIN_LENGTH_PASSWORD)]],
