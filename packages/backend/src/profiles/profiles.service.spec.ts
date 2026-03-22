@@ -37,7 +37,7 @@ const expectedUserProfileDto = {
   currentStreak: 3,
   longestStreak: 7,
   lastSolvedAt: now.toISOString(),
-  avatarUrl: 'assets/images/avatars/avatar-0.png',
+  avatarUrl: null,
   githubUsername: null,
 };
 
@@ -48,7 +48,7 @@ const expectedPublicProfileDto = {
   level: 2,
   problemsSolved: 5,
   currentStreak: 3,
-  avatarUrl: 'assets/images/avatars/avatar-0.png',
+  avatarUrl: null,
   githubUsername: null,
 };
 
