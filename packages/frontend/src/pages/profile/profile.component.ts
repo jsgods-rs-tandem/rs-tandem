@@ -3,13 +3,14 @@ import { ProfileViewComponent, ProfileEditComponent } from './components';
 import { AuthStore } from '@/core/store/auth.store';
 import { AuthUser, ProfileFormData, ProfileState } from './profile.types';
 import { AuthService } from '@/core/services/auth.service';
-import { filter, forkJoin, Observable, take, timer } from 'rxjs';
+import { filter, forkJoin, Observable, switchMap, take, timer } from 'rxjs';
 import { UpdateProfileDto, UserProfileDto } from '@rs-tandem/shared';
 import { HttpErrorResponse } from '@angular/common/http';
 import { takeUntilDestroyed, toObservable } from '@angular/core/rxjs-interop';
 import { SpinComponent } from '@/shared/ui';
 import { ModalService } from '@/core/services/modal.service';
 import { getHttpErrorMessage } from '@/shared/utils/http-error.utilities';
+import { ProfilesService } from '@/core/services/profile.service';
 
 @Component({
   selector: 'app-profile',
@@ -23,26 +24,46 @@ export class ProfileComponent {
 
   private destroyRef = inject(DestroyRef);
   private authService = inject(AuthService);
+  private profilesService = inject(ProfilesService);
   private authStore = inject(AuthStore);
   private modalService = inject(ModalService);
-
-  readonly user = computed<AuthUser | null>(() => this.authStore.user());
 
   readonly state = signal<ProfileState>('view');
   readonly isViewing = computed(() => this.state() === 'view');
   readonly isSaving = computed(() => this.state() === 'saving');
 
+  private profileData = signal<UserProfileDto | null>(null);
+
+  readonly user = computed<AuthUser | null>(() => {
+    const authUser = this.authStore.user();
+    const extraData = this.profileData();
+
+    if (!authUser) return null;
+
+    return {
+      ...authUser,
+      avatarUrl: extraData?.avatarUrl,
+      githubUsername: extraData?.githubUsername ?? '',
+      createdAt: authUser.createdAt,
+    } as AuthUser;
+  });
+
   constructor() {
-    forkJoin([
-      toObservable(this.user).pipe(
+    toObservable(this.user)
+      .pipe(
         filter((user) => !!user),
         take(1),
-      ),
-      timer(500),
-    ])
-      .pipe(takeUntilDestroyed())
-      .subscribe(() => {
-        this.loading.set(false);
+        switchMap(() => forkJoin([this.profilesService.getProfile('me'), timer(500)])),
+        takeUntilDestroyed(),
+      )
+      .subscribe({
+        next: ([profile]) => {
+          this.profileData.set(profile);
+          this.loading.set(false);
+        },
+        error: () => {
+          this.loading.set(false);
+        },
       });
   }
 
@@ -75,7 +96,7 @@ export class ProfileComponent {
     };
 
     if (Object.keys(profileDto).length > 0) {
-      requests.profile = this.authService.updateProfile(profileDto);
+      requests.profile = this.profilesService.updateProfile(profileDto);
     }
 
     if (formData.currentPassword && formData.newPassword) {
@@ -93,7 +114,10 @@ export class ProfileComponent {
     forkJoin(requests)
       .pipe(takeUntilDestroyed(this.destroyRef))
       .subscribe({
-        next: () => {
+        next: (results) => {
+          if (results.profile) {
+            this.profileData.set(results.profile);
+          }
           this.modalService.open({
             title: 'Success',
             message: 'Profile updated successfully!',

@@ -1,11 +1,8 @@
-import { UserDto } from '@rs-tandem/shared';
+import { UserDto, UserProfileDto } from '@rs-tandem/shared';
 
 export type ProfileState = 'view' | 'edit' | 'saving' | 'error';
 
-export interface AuthUser extends UserDto {
-  avatarUrl?: string | null;
-  githubUsername?: string | null;
-}
+export type AuthUser = UserDto & Partial<UserProfileDto>;
 
 export interface ProfileFormData extends Partial<AuthUser> {
   currentPassword?: string;
