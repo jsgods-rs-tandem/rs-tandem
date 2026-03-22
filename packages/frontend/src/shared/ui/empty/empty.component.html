@@ -1,0 +1,17 @@
+<div class="empty">
+  @switch (headingLevel()) {
+    @case (1) {
+      <h1 class="h2">{{ heading() }}</h1>
+    }
+    @case (3) {
+      <h3 class="h3">{{ heading() }}</h3>
+    }
+    @default {
+      <h2 class="h2">{{ heading() }}</h2>
+    }
+  }
+
+  <p class="text-lg-fluid empty__description">{{ description() }}</p>
+
+  <ng-content></ng-content>
+</div>

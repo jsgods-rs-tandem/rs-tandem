@@ -15,5 +15,20 @@
     </header>
 
     <app-topic-card-list class="category-page__topic-card-list" [topics]="category.topics" />
+  } @else {
+    <app-empty
+      class="category-page__empty"
+      heading="Category is&nbsp;currently empty"
+      [headingLevel]="1"
+      description="We&nbsp;couldn&rsquo;t find any quizzes in&nbsp;this category right now. Try refreshing the page or&nbsp;explore other categories"
+    >
+      <div class="category-page__nav-buttons">
+        <app-button [isSmallButton]="true" (click)="quizService.reloadPage()"
+          >Refresh page</app-button
+        >
+
+        <app-button link="/quiz" [isSmallButton]="true">Back to&nbsp;categories</app-button>
+      </div>
+    </app-empty>
   }
 </app-layout>

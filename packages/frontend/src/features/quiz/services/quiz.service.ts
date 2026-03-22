@@ -4,6 +4,10 @@ import { finalize } from 'rxjs';
 
 import { environment } from '@/environments/environment';
 
+import { ModalService } from '@/core/services/modal.service';
+
+import { getHttpErrorMessage } from '@/shared/utils/http-error.utilities';
+
 import type {
   GetCategoriesResponseDto,
   GetCategoryResponseDto,
@@ -12,40 +16,16 @@ import type {
   StartTopicResponseDto,
   SubmitAnswerRequestDto,
   SubmitAnswerResponseDto,
-  QuizCategorySummary,
-  QuizCategory,
 } from '@rs-tandem/shared';
+import type { CustomHttpError } from '@/shared/types';
+import type { QuizState } from './quiz.types';
 
 @Injectable({ providedIn: 'root' })
 export class QuizService {
   private readonly _http = inject(HttpClient);
+  private readonly _modalService = inject(ModalService);
 
-  private readonly _state = signal<{
-    data: {
-      categories: QuizCategorySummary[];
-      category: QuizCategory | null;
-      topic: GetTopicResponseDto | null;
-      step: number;
-      answer: SubmitAnswerResponseDto | null;
-      results: GetResultsResponseDto['results'] | null;
-    };
-    loading: {
-      categories: boolean;
-      category: boolean;
-      topic: boolean;
-      step: boolean;
-      answer: boolean;
-      results: boolean;
-    };
-    error: {
-      categories: string;
-      category: string;
-      topic: string;
-      step: string;
-      answer: string;
-      results: string;
-    };
-  }>({
+  private readonly _state = signal<QuizState>({
     data: {
       categories: [],
       category: null,
@@ -61,15 +41,6 @@ export class QuizService {
       step: false,
       answer: false,
       results: false,
-    },
-    // preparations for showing error state of a page or button
-    error: {
-      categories: '',
-      category: '',
-      topic: '',
-      step: '',
-      answer: '',
-      results: '',
     },
   });
 
@@ -111,11 +82,14 @@ export class QuizService {
     }));
   }
 
+  reloadPage() {
+    window.location.reload();
+  }
+
   getCategories() {
     this._state.update((state) => ({
       ...state,
       loading: { ...state.loading, categories: true },
-      error: { ...state.error, categories: '' },
     }));
 
     this._http
@@ -135,12 +109,8 @@ export class QuizService {
             data: { ...state.data, categories: data.categories },
           }));
         },
-        // Add correct types of error in future
-        error: (error: string) => {
-          this._state.update((state) => ({
-            ...state,
-            error: { ...state.error, categories: error },
-          }));
+        error: (error: CustomHttpError) => {
+          this._showError(error);
         },
       });
   }
@@ -150,7 +120,6 @@ export class QuizService {
       ...state,
       data: { ...state.data, category: null },
       loading: { ...state.loading, category: true },
-      error: { ...state.error, category: '' },
     }));
 
     this._http
@@ -167,11 +136,8 @@ export class QuizService {
         next: (data) => {
           this._state.update((state) => ({ ...state, data: { ...state.data, category: data } }));
         },
-        error: (error: string) => {
-          this._state.update((state) => ({
-            ...state,
-            error: { ...state.error, category: error },
-          }));
+        error: (error: CustomHttpError) => {
+          this._showError(error);
         },
       });
   }
@@ -181,7 +147,6 @@ export class QuizService {
       ...state,
       data: { ...state.data, topic: null },
       loading: { ...state.loading, topic: true },
-      error: { ...state.error, topic: '' },
     }));
 
     this._http
@@ -198,11 +163,8 @@ export class QuizService {
         next: (data) => {
           this._state.update((state) => ({ ...state, data: { ...state.data, topic: data } }));
         },
-        error: (error: string) => {
-          this._state.update((state) => ({
-            ...state,
-            error: { ...state.error, topic: error },
-          }));
+        error: (error: CustomHttpError) => {
+          this._showError(error);
         },
       });
   }
@@ -211,7 +173,6 @@ export class QuizService {
     this._state.update((state) => ({
       ...state,
       loading: { ...state.loading, step: true },
-      error: { ...state.error, step: '' },
     }));
 
     this._http
@@ -231,11 +192,8 @@ export class QuizService {
             data: { ...state.data, step: data.step },
           }));
         },
-        error: (error: string) => {
-          this._state.update((state) => ({
-            ...state,
-            error: { ...state.error, step: error },
-          }));
+        error: (error: CustomHttpError) => {
+          this._showError(error);
         },
       });
   }
@@ -244,7 +202,6 @@ export class QuizService {
     this._state.update((state) => ({
       ...state,
       loading: { ...state.loading, answer: true },
-      error: { ...state.error, answer: '' },
     }));
 
     this._http
@@ -267,11 +224,8 @@ export class QuizService {
             data: { ...state.data, answer: data },
           }));
         },
-        error: (error: string) => {
-          this._state.update((state) => ({
-            ...state,
-            error: { ...state.error, answer: error },
-          }));
+        error: (error: CustomHttpError) => {
+          this._showError(error);
         },
       });
   }
@@ -281,7 +235,6 @@ export class QuizService {
       ...state,
       data: { ...state.data, answer: null },
       loading: { ...state.loading, results: true },
-      error: { ...state.error, results: '' },
     }));
 
     this._http
@@ -301,12 +254,17 @@ export class QuizService {
             data: { ...state.data, results: data.results },
           }));
         },
-        error: (error: string) => {
-          this._state.update((state) => ({
-            ...state,
-            error: { ...state.error, results: error },
-          }));
+        error: (error: CustomHttpError) => {
+          this._showError(error);
         },
       });
+  }
+
+  private _showError(error: CustomHttpError) {
+    this._modalService.open({
+      title: `${String(error.error.statusCode || 0)} — ${error.error.error || 'Network Error'}`,
+      message: getHttpErrorMessage(error, 'Unexpected Error'),
+      icon: 'info-outline',
+    });
   }
 }

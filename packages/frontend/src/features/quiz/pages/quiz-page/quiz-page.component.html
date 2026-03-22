@@ -49,5 +49,20 @@
         >
       </form>
     </div>
+  } @else {
+    <app-empty
+      class="quiz-page__empty"
+      heading="Quiz content not found"
+      [headingLevel]="1"
+      description="We&rsquo;re having trouble loading the questions for this quiz. Try refreshing the page or&nbsp;see all categories to&nbsp;choose another topic"
+    >
+      <div class="quiz-page__nav-buttons">
+        <app-button [isSmallButton]="true" (click)="quizService.reloadPage()"
+          >Refresh page</app-button
+        >
+
+        <app-button link="/quiz" [isSmallButton]="true">Back to&nbsp;categories</app-button>
+      </div>
+    </app-empty>
   }
 </app-layout>

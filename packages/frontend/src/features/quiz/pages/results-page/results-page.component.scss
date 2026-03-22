@@ -71,4 +71,18 @@
       flex-direction: column;
     }
   }
+
+  &__empty {
+    margin: auto;
+  }
+
+  &__nav-buttons {
+    display: flex;
+    gap: var(--spacing-x4);
+    margin-block-start: var(--spacing-x4);
+
+    @include mix.media('s') {
+      flex-direction: column;
+    }
+  }
 }
