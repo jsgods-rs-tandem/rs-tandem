@@ -5,11 +5,7 @@ import {
   type UserProfileDto,
 } from '@rs-tandem/shared';
 import { ProfileRepository } from './profile.repository.js';
-import {
-  DEFAULT_AVATAR_URL,
-  type UpdateProfileInput,
-  type UserProfileRow,
-} from './profile.entity.js';
+import { type UpdateProfileInput, type UserProfileRow } from './profile.entity.js';
 import { UserRepository } from '../users/user.repository.js';
 
 function toPublicUserProfileDto(
@@ -23,7 +19,7 @@ function toPublicUserProfileDto(
     level: profile.level,
     problemsSolved: profile.problemsSolved,
     currentStreak: profile.currentStreak,
-    avatarUrl: profile.avatarUrl ?? DEFAULT_AVATAR_URL,
+    avatarUrl: profile.avatarUrl,
     githubUsername: profile.githubUsername,
   };
 }

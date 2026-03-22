@@ -2,7 +2,6 @@ import { Inject, Injectable } from '@nestjs/common';
 import { Pool } from 'pg';
 import { PG_POOL } from '../database/database.constants.js';
 import {
-  DEFAULT_AVATAR_URL,
   type CreateUserProfileInput,
   type UpdateProfileInput,
   type UserProfileRow,
@@ -73,12 +72,11 @@ export class ProfileRepository {
   }
 
   async create(input: CreateUserProfileInput): Promise<UserProfileRow> {
-    const defaultAvatar = DEFAULT_AVATAR_URL;
     const result = await this.pool.query<Record<string, unknown>>(
-      `INSERT INTO user_profiles (user_id, avatar_url)
-       VALUES ($1, $2)
+      `INSERT INTO user_profiles (user_id)
+       VALUES ($1)
        RETURNING user_id, total_xp, level, problems_solved, current_streak, longest_streak, last_solved_at, updated_at, avatar_url, github_username`,
-      [input.userId, defaultAvatar],
+      [input.userId],
     );
 
     const row = result.rows[0];

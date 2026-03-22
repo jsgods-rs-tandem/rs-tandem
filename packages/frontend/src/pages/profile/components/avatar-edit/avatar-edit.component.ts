@@ -1,6 +1,5 @@
 import { Component, computed, effect, input, output, signal } from '@angular/core';
-import { DEFAULT_AVATAR_URL } from '@/core/constants';
-import { AVATAR_POOL } from './avatar-edit.config';
+import { AVATAR_POOL, DEFAULT_AVATAR_URL } from '@/core/constants';
 import { ButtonComponent } from '@/shared/ui';
 
 @Component({
