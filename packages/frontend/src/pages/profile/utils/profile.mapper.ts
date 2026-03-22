@@ -13,11 +13,12 @@ export function buildUpdateProfileDto(
   if (formData.email && formData.email !== currentUser.email) {
     dto.email = formData.email;
   }
-  if (
-    formData.githubUsername !== undefined &&
-    formData.githubUsername !== currentUser.githubUsername
-  ) {
-    dto.githubUsername = formData.githubUsername;
+  if (formData.githubUsername !== undefined) {
+    const trimmedGithubUsername = formData.githubUsername?.trim() ?? null;
+
+    if (trimmedGithubUsername !== currentUser.githubUsername) {
+      dto.githubUsername = trimmedGithubUsername;
+    }
   }
 
   return dto;

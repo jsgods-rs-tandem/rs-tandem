@@ -33,7 +33,7 @@ export class ProfileFacade {
     return {
       ...authUser,
       avatarUrl: extraData?.avatarUrl ?? null,
-      githubUsername: extraData?.githubUsername ?? '',
+      githubUsername: extraData?.githubUsername ?? null,
       createdAt: authUser.createdAt,
     };
   });

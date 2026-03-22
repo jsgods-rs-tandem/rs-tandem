@@ -16,7 +16,7 @@ export class ProfileViewComponent {
   readonly userName = computed(() => this.user().displayName);
   readonly userEmail = computed(() => this.user().email);
   readonly avatarUrl = computed(() => this.user().avatarUrl ?? DEFAULT_AVATAR_URL);
-  readonly githubUsername = computed(() => this.user().githubUsername ?? '');
+  readonly githubUsername = computed(() => this.user().githubUsername);
 
   readonly linkUrl = computed(() => {
     const github = this.githubUsername();
