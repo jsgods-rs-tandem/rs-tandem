@@ -9,7 +9,6 @@
     @include m.media('s') {
       flex-direction: column;
       align-items: flex-start;
-      width: 100%;
     }
   }
 
@@ -34,4 +33,7 @@
 .avatar {
   aspect-ratio: 1/1;
   height: 240px;
+  @include m.media('xs') {
+    height: 200px;
+  }
 }

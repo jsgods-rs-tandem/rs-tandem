@@ -16,7 +16,7 @@
 
   &__carousel {
     display: flex;
-    gap: 1rem;
+    gap: var(--spacing-x1);
     align-items: center;
 
     .carousel-arrow {
@@ -32,6 +32,9 @@
     .carousel-items {
       display: flex;
       gap: var(--spacing-x3);
+      @include m.media('xs') {
+        gap: var(--spacing-x2);
+      }
 
       &__small {
         cursor: pointer;

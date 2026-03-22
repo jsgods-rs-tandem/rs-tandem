@@ -10,6 +10,18 @@
   border-radius: var(--radius-sm);
 
   box-shadow: var(--shadow);
+
+  @include m.media('s') {
+    width: max-content;
+    margin: var(--spacing-x10) auto 0;
+    padding: var(--spacing-x5) var(--spacing-x13);
+  }
+
+  @include m.media('xs') {
+    width: max-content;
+    margin: var(--spacing-x10) auto 0;
+    padding: var(--spacing-x5) var(--spacing-x6);
+  }
 }
 
 .spin__wrapper {

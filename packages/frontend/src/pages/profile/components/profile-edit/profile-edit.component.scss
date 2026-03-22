@@ -7,7 +7,6 @@
     gap: var(--spacing-x5);
     @include m.media('s') {
       flex-direction: column;
-      width: 100%;
     }
   }
 
@@ -28,12 +27,6 @@
   }
 }
 
-.avatar {
-  aspect-ratio: 1/1;
-  height: 240px;
-}
-
 .text__info {
   max-width: 237px;
-  max-height: 2.8em;
 }
