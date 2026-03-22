@@ -1,7 +1,7 @@
 import { Component, computed, inject, input, type OnInit } from '@angular/core';
 import { DecimalPipe } from '@angular/common';
 
-import { ButtonComponent } from '@/shared/ui';
+import { ButtonComponent, EmptyComponent } from '@/shared/ui';
 import { LayoutComponent } from '../layout';
 
 import { QuizService } from '../../services';
@@ -13,7 +13,7 @@ import { REWARD_PRAISE } from '../../constants';
 
 @Component({
   selector: 'app-results-page',
-  imports: [ButtonComponent, DecimalPipe, LayoutComponent],
+  imports: [ButtonComponent, DecimalPipe, EmptyComponent, LayoutComponent],
   templateUrl: './results-page.component.html',
   styleUrl: './results-page.component.scss',
   standalone: true,

@@ -4,7 +4,7 @@ import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angula
 
 import { ShufflePipe } from '@/shared/pipes';
 
-import { ButtonComponent } from '@/shared/ui';
+import { ButtonComponent, EmptyComponent } from '@/shared/ui';
 import { LayoutComponent } from '../layout';
 import {
   AnswerTileGroupComponent,
@@ -27,6 +27,7 @@ import { successAnswers, errorAnswers } from './quiz-page.constants';
     ButtonComponent,
     CountdownTimerComponent,
     DecimalPipe,
+    EmptyComponent,
     LayoutComponent,
     ReactiveFormsModule,
     ShufflePipe,
@@ -58,6 +59,8 @@ export class QuizPageComponent implements OnInit {
     this.isQuizComplete() ? ROUTES.quizResults : undefined,
   );
 
+  private readonly _isTimeExpired = signal(false);
+
   constructor() {
     effect(() => {
       const answer = this.quizService.answer();
@@ -65,6 +68,8 @@ export class QuizPageComponent implements OnInit {
       if (!answer) {
         return;
       }
+
+      this.isAnswerSubmitted.set(true);
 
       if (answer.isCorrect) {
         this.comment.set(successAnswers[getRandomArrayIndex(successAnswers)] ?? 'Great Job!');
@@ -97,12 +102,13 @@ export class QuizPageComponent implements OnInit {
       return;
     }
 
+    this._isTimeExpired.set(true);
+
     this.quizForm.markAllAsTouched();
     this.error = errorAnswers.timeExpired;
-    this.isAnswerSubmitted.set(true);
     this.quizService.answerQuestion(this.topicId(), questionId, {
       answerId: '',
-      isTimeUp: true,
+      isTimeUp: this._isTimeExpired(),
     });
   }
 
@@ -144,11 +150,10 @@ export class QuizPageComponent implements OnInit {
     }
 
     this.error = '';
-    this.isAnswerSubmitted.set(true);
 
     this.quizService.answerQuestion(this.topicId(), questionId, {
       answerId: this.quizForm.controls.answer.value ?? '',
-      isTimeUp: false,
+      isTimeUp: this._isTimeExpired(),
     });
   }
 
@@ -156,6 +161,7 @@ export class QuizPageComponent implements OnInit {
     this.quizService.setNextStep();
     this.error = '';
     this.quizForm.reset();
+    this._isTimeExpired.set(false);
     this.isAnswerSubmitted.set(false);
     this.comment.set('');
     this.answerResult.set(undefined);

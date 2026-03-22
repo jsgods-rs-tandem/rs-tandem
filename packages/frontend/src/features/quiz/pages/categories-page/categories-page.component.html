@@ -1,12 +1,28 @@
 @let loading = quizService.loading();
+@let categoriesValue = quizService.categories();
 
 <app-layout [loading]="loading.categories || loading.category">
-  <header class="categories-page__header">
-    <h1 class="h2">Quiz</h1>
-  </header>
+  @if (categoriesValue.length > 0) {
+    <header class="categories-page__header">
+      <h1 class="h2">Quiz</h1>
+    </header>
 
-  <app-category-card-list
-    class="categories-page__category-card-list"
-    [categories]="quizService.categories()"
-  />
+    <app-category-card-list
+      class="categories-page__category-card-list"
+      [categories]="quizService.categories()"
+    />
+  } @else {
+    <app-empty
+      class="categories-page__empty"
+      heading="No&nbsp;categories available"
+      [headingLevel]="1"
+      description="We&nbsp;couldn&rsquo;t find any quiz categories at&nbsp;the moment. Try refreshing the page to&nbsp;see if&nbsp;anything has changed"
+      ><app-button
+        class="categories-page__refresh-button"
+        [isSmallButton]="true"
+        (click)="quizService.reloadPage()"
+        >Refresh page</app-button
+      ></app-empty
+    >
+  }
 </app-layout>

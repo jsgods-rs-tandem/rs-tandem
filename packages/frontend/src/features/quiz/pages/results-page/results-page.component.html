@@ -39,5 +39,20 @@
         <app-button link="..">Re-explore topic</app-button>
       </div>
     </div>
+  } @else {
+    <app-empty
+      class="results-page__empty"
+      heading="Couldn't load your score"
+      [headingLevel]="1"
+      description="We&rsquo;re having trouble retrieving your results right now. Please refresh the page or&nbsp;try again in&nbsp;a&nbsp;moment"
+    >
+      <div class="results-page__nav-buttons">
+        <app-button [isSmallButton]="true" (click)="quizService.reloadPage()"
+          >Refresh page</app-button
+        >
+
+        <app-button link="/quiz" [isSmallButton]="true">Back to&nbsp;categories</app-button>
+      </div>
+    </app-empty>
   }
 </app-layout>

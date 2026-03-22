@@ -1,0 +1,16 @@
+:host,
+.empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  max-width: 712px;
+
+  text-align: center;
+}
+
+.empty {
+  &__description {
+    margin-block-start: var(--spacing-x4);
+  }
+}
