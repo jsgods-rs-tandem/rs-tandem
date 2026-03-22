@@ -1,6 +1,6 @@
 import { Component, computed, input, output } from '@angular/core';
 import { ButtonComponent } from '@/shared/ui';
-import { AuthUser } from '../../profile.types';
+import { AuthUser } from '../../models/profile.types';
 import { DEFAULT_AVATAR_URL } from '@/core/constants';
 
 @Component({
@@ -11,7 +11,6 @@ import { DEFAULT_AVATAR_URL } from '@/core/constants';
 })
 export class ProfileViewComponent {
   user = input.required<AuthUser>();
-
   editClicked = output();
 
   readonly userName = computed(() => this.user().displayName);

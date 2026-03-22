@@ -2,20 +2,20 @@
   <h1 class="h2">{{ title }}</h1>
 
   <div class="user__content">
-    @let currentUser = user();
-    @if (loading()) {
+    @let currentUser = facade.user();
+    @if (facade.loading()) {
       <div class="spin__wrapper">
         <app-spin size="large" theme="light" />
       </div>
     } @else if (currentUser) {
       @if (isViewing()) {
-        <app-profile-view [user]="currentUser" (editClicked)="state.set('edit')" />
+        <app-profile-view [user]="currentUser" (editClicked)="facade.state.set('edit')" />
       } @else {
         <app-profile-edit
           [user]="currentUser"
           [isSaving]="isSaving()"
-          (cancelClicked)="state.set('view')"
-          (saveClicked)="saveProfile($event)"
+          (cancelClicked)="facade.state.set('view')"
+          (saveClicked)="facade.saveProfile($event)"
         />
       }
     }

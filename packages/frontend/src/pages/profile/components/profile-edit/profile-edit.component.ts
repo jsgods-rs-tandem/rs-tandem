@@ -1,9 +1,14 @@
 import { Component, computed, effect, inject, input, OnInit, output } from '@angular/core';
-import { NonNullableFormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
-import { AuthUser, ProfileFormData } from '../../profile.types';
+import { NonNullableFormBuilder, ReactiveFormsModule } from '@angular/forms';
+import { AuthUser, ProfileFormData } from '../../models/profile.types';
 import { InputComponent } from '@/shared/ui/input/input.component';
 import { ButtonComponent } from '@/shared/ui';
 import { DEFAULT_AVATAR_URL } from '@/core/constants';
+import {
+  buildProfileForm,
+  getProfileFieldError,
+  isControlInvalid,
+} from '../../utils/profile.utilities';
 
 @Component({
   selector: 'app-profile-edit',
@@ -12,8 +17,6 @@ import { DEFAULT_AVATAR_URL } from '@/core/constants';
   styleUrl: './profile-edit.component.scss',
 })
 export class ProfileEditComponent implements OnInit {
-  private fb = inject(NonNullableFormBuilder);
-
   user = input.required<AuthUser>();
   isSaving = input<boolean>(false);
 
@@ -22,13 +25,7 @@ export class ProfileEditComponent implements OnInit {
 
   readonly avatarUrl = computed(() => this.user().avatarUrl ?? DEFAULT_AVATAR_URL);
 
-  readonly profileForm = this.fb.group({
-    displayName: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(50)]],
-    email: ['', [Validators.required, Validators.email]],
-    githubUsername: ['', [Validators.maxLength(50)]],
-    currentPassword: ['', [Validators.minLength(8)]],
-    newPassword: ['', [Validators.minLength(8)]],
-  });
+  readonly profileForm = buildProfileForm(inject(NonNullableFormBuilder));
 
   constructor() {
     effect(() => {
@@ -40,47 +37,26 @@ export class ProfileEditComponent implements OnInit {
     });
   }
 
-  ngOnInit() {
-    const currentUser = this.user();
+  ngOnInit(): void {
+    const { displayName, email, githubUsername } = this.user();
     this.profileForm.patchValue({
-      displayName: currentUser.displayName,
-      email: currentUser.email,
-      githubUsername: currentUser.githubUsername ?? '',
-    });
-    this.profileForm.valueChanges.subscribe((value) => {
-      const currentPassword = this.profileForm.get('currentPassword');
-      const newPassword = this.profileForm.get('newPassword');
-
-      if (value.currentPassword || value.newPassword) {
-        currentPassword?.setValidators([Validators.required, Validators.minLength(8)]);
-        newPassword?.setValidators([Validators.required, Validators.minLength(8)]);
-      } else {
-        currentPassword?.setValidators([Validators.minLength(8)]);
-        newPassword?.setValidators([Validators.minLength(8)]);
-      }
-      currentPassword?.updateValueAndValidity({ emitEvent: false });
-      newPassword?.updateValueAndValidity({ emitEvent: false });
+      displayName,
+      email,
+      githubUsername: githubUsername ?? '',
     });
   }
 
-  onSave() {
+  onSave(): void {
     if (this.profileForm.valid) {
       this.saveClicked.emit(this.profileForm.getRawValue());
     }
   }
 
-  isInvalid(field: string) {
-    const ctrl = this.profileForm.get(field);
-    return !!ctrl && ctrl.invalid && (ctrl.dirty || ctrl.touched);
+  isInvalid(field: string): boolean {
+    return isControlInvalid(this.profileForm.get(field));
   }
 
-  getError(field: string) {
-    if (this.profileForm.get(field)?.hasError('required')) return 'This field is required';
-    if (this.profileForm.get(field)?.hasError('email')) return 'Invalid email address';
-    if (this.profileForm.get(field)?.hasError('minlength'))
-      return `Minimum length is ${field === 'username' ? '3' : '8'} characters`;
-    if (this.profileForm.get(field)?.hasError('maxlength'))
-      return `Maximum length is 50 characters`;
-    return '';
+  getError(field: string): string {
+    return getProfileFieldError(this.profileForm.get(field), field);
   }
 }

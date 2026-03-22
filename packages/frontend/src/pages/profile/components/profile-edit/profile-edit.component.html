@@ -33,15 +33,21 @@
       />
 
       <hr class="divider" />
-
-      <p class="text-sm text__info">Leave blank to keep current</p>
+      <div class="text__info">
+        @if (!profileForm.value.currentPassword && !profileForm.value.newPassword) {
+          <p class="text-xs" aria-live="polite">Leave blank to keep current</p>
+        }
+        @if (profileForm.hasError('incompletePasswordChange')) {
+          <p class="text-xs" aria-live="polite">Fill out both fields to change your password.</p>
+        }
+      </div>
       <app-input
         formControlName="currentPassword"
         targetType="password"
         label="Current Password"
         placeholder="Enter your password"
         [hasError]="isInvalid('currentPassword')"
-        errorText="Minimum 8 characters"
+        [errorText]="getError('currentPassword')"
         autoComplete="off"
       />
       <app-input
@@ -50,7 +56,7 @@
         label="New Password"
         placeholder="Enter new password"
         [hasError]="isInvalid('newPassword')"
-        errorText="New password must be at least 8 characters"
+        [errorText]="getError('newPassword')"
         autoComplete="new-password"
       />
     </form>
