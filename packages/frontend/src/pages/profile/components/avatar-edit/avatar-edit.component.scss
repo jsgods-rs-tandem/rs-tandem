@@ -18,49 +18,68 @@
     display: flex;
     gap: var(--spacing-x1);
     align-items: center;
+  }
 
-    .carousel-arrow {
-      display: flex;
-      align-items: center;
-      justify-content: center;
+  .carousel-arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
-      font-size: 1.5rem;
-      line-height: 1;
-      color: var(--secondary-color);
+    font-size: 1.5rem;
+    line-height: 1;
+    color: var(--secondary-color);
+  }
+
+  .carousel-items {
+    display: flex;
+    gap: var(--spacing-x3);
+
+    @include m.media('xs') {
+      gap: var(--spacing-x2);
     }
 
-    .carousel-items {
-      display: flex;
-      gap: var(--spacing-x3);
-      @include m.media('xs') {
-        gap: var(--spacing-x2);
+    &__button {
+      cursor: pointer;
+
+      padding: 0;
+      border: none;
+      border-radius: var(--radius-xs);
+
+      background: none;
+      @include m.transition(all);
+
+      &:focus-visible {
+        outline: 2px solid var(--secondary-color);
+        outline-offset: 2px;
       }
 
-      &__small {
-        cursor: pointer;
-
-        width: 60px;
-        height: 60px;
-        border: 2px solid transparent;
-        border-radius: var(--radius-xs);
-
-        opacity: 0.7;
-        object-fit: cover;
-        @include m.transition(all);
-
-        &:hover,
-        &:focus-visible {
+      &:hover,
+      &.selected {
+        .carousel-items__small {
           transform: scale(1.1);
           opacity: 1;
         }
+      }
 
-        &.selected {
-          transform: scale(1.1);
+      &.selected {
+        .carousel-items__small {
           border-color: var(--secondary-color);
           border-radius: var(--radius-md);
-          opacity: 1;
         }
       }
+    }
+
+    &__small {
+      display: block;
+
+      width: 60px;
+      height: 60px;
+      border: 2px solid transparent;
+      border-radius: var(--radius-xs);
+
+      opacity: 0.7;
+      object-fit: cover;
+      @include m.transition(all);
     }
   }
 }

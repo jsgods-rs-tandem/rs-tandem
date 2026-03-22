@@ -6,9 +6,9 @@ import { ModalService } from '@/core/services/modal.service';
 import { filter, forkJoin, switchMap, take, timer, of } from 'rxjs';
 import { takeUntilDestroyed, toObservable } from '@angular/core/rxjs-interop';
 import { HttpErrorResponse } from '@angular/common/http';
-import { UserProfileDto } from '@rs-tandem/shared';
+import type { UserProfileDto } from '@rs-tandem/shared';
 import { getHttpErrorMessage } from '@/shared/utils/http-error.utilities';
-import { AuthUser, ProfileFormData, ProfileState } from '../models/profile.types';
+import type { AuthUser, ProfileFormData, ProfileState } from '../models/profile.types';
 import { buildUpdateProfileDto } from '../utils/profile.mapper';
 
 const DELAY_MS = 300;
@@ -58,9 +58,9 @@ export class ProfileFacade {
   }
 
   saveProfile(formData: ProfileFormData): void {
-    this.state.set('saving');
     const currentUser = this.user();
     if (!currentUser) return;
+    this.state.set('saving');
 
     const profileDto = buildUpdateProfileDto(formData, currentUser);
 

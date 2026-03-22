@@ -18,18 +18,17 @@
       @for (avatar of visibleAvatars(); track avatar; let i = $index) {
         @let isSelected = avatar === selectedUrl;
         @let avatarIndex = startIndex() + i + 1;
-        <img
-          [src]="avatar"
-          alt="Avatar option"
-          class="carousel-items__small"
+        <app-button
+          type="button"
+          version="ghost"
+          class="carousel-items__button"
           [class.selected]="isSelected"
           (click)="selectAvatar(avatar)"
           (keyup.enter)="selectAvatar(avatar)"
-          tabindex="0"
-          role="button"
           [attr.aria-label]="`Select avatar option ${avatarIndex}`"
           [attr.aria-pressed]="isSelected"
-        />
+          ><img [src]="avatar" alt="`Avatar option ${avatarIndex}`" class="carousel-items__small" />
+        </app-button>
       }
     </div>
 

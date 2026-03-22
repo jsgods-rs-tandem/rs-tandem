@@ -83,11 +83,11 @@ export class ProfilesService {
       }
     }
 
-    if (dto.email !== undefined || dto.displayName !== undefined) {
+    if (dto.email || dto.displayName) {
       const userUpdate: { email?: string; displayName?: string } = {};
 
-      if (dto.email !== undefined) userUpdate.email = dto.email;
-      if (dto.displayName !== undefined) userUpdate.displayName = dto.displayName;
+      if (dto.email) userUpdate.email = dto.email;
+      if (dto.displayName) userUpdate.displayName = dto.displayName;
 
       await this.userRepository.update(userId, userUpdate);
     }

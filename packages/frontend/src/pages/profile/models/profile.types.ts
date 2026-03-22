@@ -1,4 +1,4 @@
-import { UserDto, UserProfileDto } from '@rs-tandem/shared';
+import type { UserDto, UserProfileDto } from '@rs-tandem/shared';
 
 export type ProfileState = 'view' | 'edit' | 'saving';
 

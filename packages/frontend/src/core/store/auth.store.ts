@@ -1,5 +1,5 @@
 import { Injectable, computed, signal } from '@angular/core';
-import { UpdateProfileDto, UserDto } from '@rs-tandem/shared';
+import type { UpdateProfileDto, UserDto } from '@rs-tandem/shared';
 
 interface AuthState {
   user: UserDto | null;

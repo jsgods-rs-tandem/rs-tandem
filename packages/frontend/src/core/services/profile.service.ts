@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { AuthStore } from '../store/auth.store';
 import { inject, Injectable } from '@angular/core';
-import { UpdateProfileDto, UserProfileDto } from '@rs-tandem/shared';
+import type { UpdateProfileDto, UserProfileDto } from '@rs-tandem/shared';
 import { Observable, tap } from 'rxjs';
 import { environment } from '@/environments/environment';
 
