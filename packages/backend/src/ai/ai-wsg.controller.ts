@@ -11,12 +11,7 @@ import { UseGuards } from '@nestjs/common';
 import { WsJwtGuard } from '../auth/guards/ws-jwt-auth.guard.js';
 import type { AiChatResponseDto, AiMessage, AuthenticatedSocket } from 'packages/shared/src/ai.js';
 
-@WebSocketGateway({
-  cors: {
-    origin: 'http://localhost:4200',
-    credentials: true,
-  },
-})
+@WebSocketGateway()
 export class AiWSGController {
   constructor(private readonly aiService: AiService) {}
 
