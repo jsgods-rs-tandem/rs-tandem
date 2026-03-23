@@ -5,7 +5,7 @@ import {
   ConnectedSocket,
   WebSocketServer,
 } from '@nestjs/websockets';
-import { Server , Socket } from 'socket.io';
+import { Server, Socket } from 'socket.io';
 import { AiService } from './ai.service.js';
 import { UseGuards } from '@nestjs/common';
 import { WsJwtGuard } from '../auth/guards/ws-jwt-auth.guard.js';
@@ -33,7 +33,7 @@ type AuthenticatedSocket = Socket<
 >;
 
 @WebSocketGateway()
-export class AiWSGController {
+export class AiGateway {
   constructor(private readonly aiService: AiService) {}
 
   @WebSocketServer()
