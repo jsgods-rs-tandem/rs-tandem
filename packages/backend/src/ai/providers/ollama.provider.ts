@@ -33,12 +33,7 @@ export class OllamaProvider implements IAiProvider {
   };
 
   async streamChat(messages: AiMessage[]): Promise<AsyncIterable<string>> {
-    const response = await fetch(`${this.baseUrl}/api/chat`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ model: this.model, messages, stream: true }),
-      signal: AbortSignal.timeout(30_000),
-    });
+    const response = await this.sendPrompt(messages, true);
 
     if (!response.ok) {
       throw new Error(`Ollama responded with ${String(response.status)}`);
@@ -52,12 +47,7 @@ export class OllamaProvider implements IAiProvider {
   }
 
   async chat(messages: AiMessage[], _apiKey: string | null): Promise<string> {
-    const response = await fetch(`${this.baseUrl}/api/chat`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ model: this.model, messages, stream: false }),
-      signal: AbortSignal.timeout(30_000),
-    });
+    const response = await this.sendPrompt(messages, false);
 
     if (!response.ok) {
       throw new Error(`Ollama responded with ${String(response.status)}`);
@@ -70,5 +60,14 @@ export class OllamaProvider implements IAiProvider {
     }
 
     return data.message.content;
+  }
+
+  private sendPrompt(messages: AiMessage[], stream: boolean) {
+    return fetch(`${this.baseUrl}/api/chat`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ model: this.model, messages, stream }),
+      signal: AbortSignal.timeout(30_000),
+    });
   }
 }
