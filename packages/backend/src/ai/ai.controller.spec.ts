@@ -107,7 +107,7 @@ describe('AiController', () => {
     it('delegates to aiService.chat with user id and dto', async () => {
       const request = { user: userFixture } as unknown as Express.Request;
       const dto = { messages: [{ role: 'user' as const, content: 'Hi' }] } as AiChatDto;
-      const responseFixture: AiChatResponseDto = 'Hello!';
+      const responseFixture: AiChatResponseDto = { content: 'Hello!' };
       mockAiService.chat.mockResolvedValue(responseFixture);
 
       const result = await controller.chat(request, dto);

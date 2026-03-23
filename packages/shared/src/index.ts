@@ -7,7 +7,6 @@ export type {
   UpdateAiSettingsDto,
   AiChatRequestDto,
   AiChatResponseDto,
-  UserMessageDto,
 } from './ai.js';
 export type {
   QuizAnswer,

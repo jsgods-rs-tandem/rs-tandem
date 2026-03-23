@@ -9,5 +9,4 @@ export interface AiProviderMeta {
 export interface IAiProvider {
   readonly meta: AiProviderMeta;
   chat(messages: AiMessage[], apiKey: string | null): Promise<string>;
-  streamChat(messages: AiMessage[], apiKey: string | null): Promise<AsyncIterable<string>>;
 }
