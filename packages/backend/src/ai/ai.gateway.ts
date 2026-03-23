@@ -9,8 +9,7 @@ import { Server, Socket } from 'socket.io';
 import { AiService } from './ai.service.js';
 import { UseGuards } from '@nestjs/common';
 import { WsJwtGuard } from '../auth/guards/ws-jwt-auth.guard.js';
-import type { AiChatResponseDto, AiMessage, UserDto } from 'packages/shared';
-import { UserMessageDto } from 'packages/shared/src/ai.js';
+import type { AiChatResponseDto, AiMessage, UserDto, UserMessageDto } from 'packages/shared';
 
 export interface SocketData {
   user: UserDto;
