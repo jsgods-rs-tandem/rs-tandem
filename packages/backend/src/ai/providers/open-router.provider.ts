@@ -1,6 +1,6 @@
 import type { AiMessage } from '@rs-tandem/shared';
 import type { AiProviderMeta, IAiProvider } from './ai-provider.interface.js';
-import { streamToAsyncIterable } from '../../common/utils/stream-to-async-iterable.js';
+import { streamToAsyncIterable } from '../utils/stream-to-async-iterable.js';
 
 export class OpenRouterProvider implements IAiProvider {
   constructor(

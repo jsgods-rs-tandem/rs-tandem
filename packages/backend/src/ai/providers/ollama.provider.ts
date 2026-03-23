@@ -1,6 +1,6 @@
 import type { AiMessage } from '@rs-tandem/shared';
 import type { AiProviderMeta, IAiProvider } from './ai-provider.interface.js';
-import { ollamaStreamToAsyncIterable } from '../../common/utils/ollama-stream-to-async-iterable.js';
+import { ollamaStreamToAsyncIterable } from '../utils/ollama-stream-to-async-iterable.js';
 
 interface OllamaChatResponse {
   message: {
