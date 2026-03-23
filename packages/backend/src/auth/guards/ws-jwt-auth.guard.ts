@@ -2,6 +2,7 @@ import { CanActivate, ExecutionContext, Injectable, UnauthorizedException } from
 import { JwtService } from '@nestjs/jwt';
 import { UsersService } from '../../users/users.service';
 import { UserDto } from '@rs-tandem/shared';
+import { ConfigService } from '@nestjs/config';
 
 interface JwtPayload {
   sub: string;
@@ -25,6 +26,7 @@ export class WsJwtGuard implements CanActivate {
   constructor(
     private readonly jwtService: JwtService,
     private readonly usersService: UsersService,
+    private readonly configService: ConfigService,
   ) {}
 
   async canActivate(context: ExecutionContext): Promise<boolean> {
@@ -35,10 +37,7 @@ export class WsJwtGuard implements CanActivate {
       throw new UnauthorizedException('Token not provided');
     }
 
-    const secret = process.env.JWT_SECRET;
-    if (!secret) {
-      throw new UnauthorizedException('JWT_SECRET not configured');
-    }
+    const secret: string = this.configService.getOrThrow('JWT_SECRET');
 
     let payload: JwtPayload;
     try {
