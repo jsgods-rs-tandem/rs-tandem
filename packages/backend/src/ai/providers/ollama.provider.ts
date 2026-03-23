@@ -33,12 +33,6 @@ export class OllamaProvider implements IAiProvider {
   };
 
   async streamChat(messages: AiMessage[]): Promise<AsyncIterable<string>> {
-    if (!this.baseUrl) {
-      throw new Error('OLLAMA_BASE_URL is not set');
-    }
-    if (!this.model) {
-      throw new Error('OLLAMA_MODEL is not set');
-    }
     const response = await fetch(`${this.baseUrl}/api/chat`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
