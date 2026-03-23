@@ -38,7 +38,6 @@
     "stylelint-config-clean-order": "^8.0.1",
     "stylelint-config-prettier-scss": "^1.0.0",
     "stylelint-config-standard-scss": "^17.0.0",
-    "vitest": "^4.0.8",
-    "socket.io-client": "^4.8.3"
+    "vitest": "^4.0.8"
   }
 }

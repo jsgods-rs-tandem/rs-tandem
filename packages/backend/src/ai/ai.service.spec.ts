@@ -139,7 +139,7 @@ describe('AiService', () => {
         messages: [{ role: 'user', content: 'Hi' }],
       });
 
-      expect(result).toEqual('Hello!');
+      expect(result).toEqual({ content: 'Hello!' });
     });
 
     it('passes messages and apiKey to provider', async () => {

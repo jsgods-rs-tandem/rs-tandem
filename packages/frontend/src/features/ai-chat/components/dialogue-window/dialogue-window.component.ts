@@ -1,7 +1,7 @@
 import { Component, effect, ElementRef, inject } from '@angular/core';
 import { MarkdownDirective } from '@/shared/directives/markdown.directive';
+import { AiChatMockStore } from '../../services/ai-chat-mock.store';
 import { ChatStatus } from '../../models/ai-chat-status';
-import { AiChatStore } from '../../services/ai-chat.store';
 
 @Component({
   selector: 'app-dialogue-window',
@@ -10,7 +10,7 @@ import { AiChatStore } from '../../services/ai-chat.store';
   styleUrl: './dialogue-window.component.scss',
 })
 export class DialogueWindowComponent {
-  protected readonly store = inject(AiChatStore);
+  protected readonly store = inject(AiChatMockStore);
   private prevLength = this.store.messagesLength();
   private host = inject<ElementRef<HTMLElement>>(ElementRef);
 

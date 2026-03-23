@@ -1,1 +1,1 @@
-export type ChatStatus = 'pending' | 'typing' | 'error' | 'default' | 'connecting';
+export type ChatStatus = 'pending' | 'typing' | 'error' | 'default';
