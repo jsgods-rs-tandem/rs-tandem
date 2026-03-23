@@ -2,13 +2,14 @@ import { Injectable } from '@angular/core';
 import { io, Socket } from 'socket.io-client';
 import { Observable } from 'rxjs';
 import { IMessage } from '../models/llm-message-model';
+import { environment } from '@/environments/environment';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AiSocketService {
   private socket: Socket;
-  private readonly url = 'http://localhost:3000';
+  private readonly url = environment.backendUrl;
 
   constructor() {
     this.socket = io(this.url, { auth: { token: localStorage.getItem('auth_token') } });
