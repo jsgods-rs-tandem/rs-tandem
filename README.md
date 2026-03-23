@@ -51,7 +51,7 @@ We used **GitHub Projects** with a **Kanban board** to manage tasks and track ou
 
 ## 📺 Demo Video
 
-**[🔗 Demo Video link - TBC]**
+[🔗 Demo Video - Checkpoint 5](https://youtu.be/pV0YgJyy_Nk)
 
 ---
 
