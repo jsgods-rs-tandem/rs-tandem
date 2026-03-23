@@ -22,6 +22,6 @@ export interface AiChatRequestDto {
   messages: AiMessage[];
 }
 
-export interface AiChatResponseDto {
-  content: string;
-}
+export type AiChatResponseDto = string;
+
+export type UserMessageDto = Omit<AiMessage, 'role'>;
