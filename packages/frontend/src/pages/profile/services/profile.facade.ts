@@ -3,7 +3,7 @@ import { AuthStore } from '@/core/store/auth.store';
 import { AuthService } from '@/core/services/auth.service';
 import { ProfilesService } from '@/core/services/profile.service';
 import { ModalService } from '@/core/services/modal.service';
-import { filter, forkJoin, switchMap, take, timer, of } from 'rxjs';
+import { filter, forkJoin, switchMap, take, timer, of, map } from 'rxjs';
 import { takeUntilDestroyed, toObservable } from '@angular/core/rxjs-interop';
 import { HttpErrorResponse } from '@angular/common/http';
 import type { UserProfileDto } from '@rs-tandem/shared';
@@ -70,22 +70,22 @@ export class ProfileFacade {
       this.state.set('view');
       return;
     }
+    const passwordUpdate$ = hasPassword
+      ? this.authService.changePassword(formData.currentPassword ?? '', formData.newPassword ?? '')
+      : of(null);
 
-    forkJoin({
-      delay: timer(DELAY_MS),
-      profile: hasProfile ? this.profilesService.updateProfile(profileDto) : of(null),
-      password: hasPassword
-        ? this.authService.changePassword(
-            formData.currentPassword ?? '',
-            formData.newPassword ?? '',
-          )
-        : of(null),
-    })
-      .pipe(takeUntilDestroyed(this.destroyRef))
+    const profileUpdate$ = hasProfile ? this.profilesService.updateProfile(profileDto) : of(null);
+
+    passwordUpdate$
+      .pipe(
+        switchMap(() => profileUpdate$),
+        switchMap((profile) => timer(DELAY_MS).pipe(map(() => profile))),
+        takeUntilDestroyed(this.destroyRef),
+      )
       .subscribe({
-        next: (results) => {
-          if (results.profile) {
-            this.profileData.set(results.profile);
+        next: (updatedProfile) => {
+          if (updatedProfile) {
+            this.profileData.set(updatedProfile);
           }
           this.modalService.open({
             title: 'Success',
@@ -97,8 +97,8 @@ export class ProfileFacade {
         error: (error: HttpErrorResponse) => {
           this.state.set('edit');
           this.modalService.open({
-            title: 'Error',
-            message: getHttpErrorMessage(error, 'Check your data and try again'),
+            title: 'Update Failed',
+            message: getHttpErrorMessage(error, 'Please check your current password or data'),
             icon: 'info-outline',
           });
         },

@@ -46,7 +46,7 @@ export class ProfileEditComponent implements OnInit {
     this.profileForm.patchValue({
       displayName,
       email,
-      avatarUrl: avatarUrl ?? '',
+      avatarUrl: avatarUrl ?? DEFAULT_AVATAR_URL,
       githubUsername: githubUsername ?? '',
     });
   }
