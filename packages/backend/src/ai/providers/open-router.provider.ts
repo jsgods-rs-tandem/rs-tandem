@@ -1,6 +1,6 @@
 import type { AiMessage } from '@rs-tandem/shared';
 import type { AiProviderMeta, IAiProvider } from './ai-provider.interface.js';
-import { streamToAsyncIterable } from '../utils/stream-to-async-iterable.js';
+import { openrouterStreamToAsyncIterable } from '../utils/openrouter-stream-to-async-iterable.js';
 
 export class OpenRouterProvider implements IAiProvider {
   constructor(
@@ -60,6 +60,6 @@ export class OpenRouterProvider implements IAiProvider {
       throw new Error('Response body is null');
     }
 
-    return streamToAsyncIterable(Promise.resolve(response.body));
+    return openrouterStreamToAsyncIterable(Promise.resolve(response.body));
   }
 }
