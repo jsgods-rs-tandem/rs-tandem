@@ -23,7 +23,7 @@ export const routes: Routes = [
     path: ROUTES.aiChat,
     component: AiChatComponent,
     canActivate: [authGuard],
-    data: { layout: { mode: 'login', sidebar: true, auth: false } },
+    data: { layout: { mode: 'logout', sidebar: true, auth: true } },
   },
   {
     path: ROUTES.home,
