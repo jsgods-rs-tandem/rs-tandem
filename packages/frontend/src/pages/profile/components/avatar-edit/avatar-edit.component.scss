@@ -7,8 +7,8 @@
   align-items: center;
 
   &__large {
-    width: 150px;
-    height: 150px;
+    width: 200px;
+    height: 200px;
     border-radius: var(--radius-xs);
     object-fit: cover;
     @include m.transition(transform);
@@ -28,6 +28,9 @@
     font-size: 1.5rem;
     line-height: 1;
     color: var(--secondary-color);
+    @include m.media('s') {
+      font-size: 2rem;
+    }
   }
 
   .carousel-items {
@@ -49,7 +52,7 @@
       @include m.transition(all);
 
       &:focus-visible {
-        outline: 2px solid var(--secondary-color);
+        outline: 2px solid var(--accent-color);
         outline-offset: 2px;
       }
 
@@ -69,7 +72,7 @@
 
       &.selected {
         .carousel-items__small {
-          border-color: var(--secondary-color);
+          border-color: var(--accent-color);
           border-radius: var(--radius-md);
         }
       }
