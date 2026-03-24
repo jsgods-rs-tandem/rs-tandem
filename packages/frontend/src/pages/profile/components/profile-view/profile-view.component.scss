@@ -33,6 +33,7 @@
 .avatar {
   aspect-ratio: 1/1;
   height: 240px;
+  border-radius: var(--radius-xs);
   @include m.media('xs') {
     height: 200px;
   }

@@ -1,39 +1,56 @@
 <div class="avatar-edit">
   @let selectedUrl = selectedAvatarUrl();
-  <div class="avatar-edit__main">
+  <div class="avatar-edit__main" aria-live="polite">
     <img [src]="selectedUrl" alt="Selected user avatar" class="avatar-edit__large" />
   </div>
 
-  <div class="avatar-edit__carousel">
+  <div
+    class="avatar-edit__carousel"
+    role="region"
+    aria-roledescription="carousel"
+    aria-label="Avatar options"
+  >
     <app-button
       version="ghost"
       [disabled]="!canGoPrev()"
       (click)="prev()"
-      ariaLabel="Previous avatars"
+      ariaLabel="Go to previous avatars"
     >
-      <span class="carousel-arrow">&#10094;</span>
+      <span class="carousel-arrow" aria-hidden="true">&#10094;</span>
     </app-button>
 
-    <div class="carousel-items" role="listbox" aria-label="Avatar selection">
+    <ul class="carousel-items" role="list" aria-label="Available avatar options">
       @for (avatar of visibleAvatars(); track avatar; let i = $index) {
         @let isSelected = avatar === selectedUrl;
         @let avatarIndex = startIndex() + i + 1;
-        <app-button
-          type="button"
-          version="ghost"
-          class="carousel-items__button"
-          [class.selected]="isSelected"
-          (click)="selectAvatar(avatar)"
-          (keyup.enter)="selectAvatar(avatar)"
-          [attr.aria-label]="`Select avatar option ${avatarIndex}`"
-          [attr.aria-pressed]="isSelected"
-          ><img [src]="avatar" alt="`Avatar option ${avatarIndex}`" class="carousel-items__small" />
-        </app-button>
+        <li role="listitem" aria-roledescription="slide">
+          <app-button
+            type="button"
+            version="ghost"
+            class="carousel-items__button"
+            [class.selected]="isSelected"
+            (click)="selectAvatar(avatar)"
+            (keyup.enter)="selectAvatar(avatar)"
+            [attr.aria-current]="isSelected ? 'true' : null"
+            [ariaLabel]="`Select avatar option ${avatarIndex}`"
+          >
+            <img
+              [src]="avatar"
+              [attr.alt]="`Avatar option ${avatarIndex}`"
+              class="carousel-items__small"
+            />
+          </app-button>
+        </li>
       }
-    </div>
+    </ul>
 
-    <app-button version="ghost" [disabled]="!canGoNext()" (click)="next()" ariaLabel="Next avatars">
-      <span class="carousel-arrow">&#10095;</span>
+    <app-button
+      version="ghost"
+      [disabled]="!canGoNext()"
+      (click)="next()"
+      ariaLabel="Go to next avatars"
+    >
+      <span class="carousel-arrow" aria-hidden="true">&#10095;</span>
     </app-button>
   </div>
 </div>
