@@ -1,7 +1,16 @@
-import { Component, effect, ElementRef, inject, output } from '@angular/core';
+import {
+  Component,
+  effect,
+  ElementRef,
+  inject,
+  OnDestroy,
+  OnInit,
+  output,
+  signal,
+} from '@angular/core';
 import { ReactiveFormsModule, FormGroup, FormControl } from '@angular/forms';
-import { AiChatMockStore } from '../../services/ai-chat-mock.store';
 import { IconButtonComponent } from '@/shared/ui';
+import { AiChatStore } from '../../services/ai-chat.store';
 
 const padding = 12;
 const lineHeight = 16;
@@ -13,24 +22,33 @@ const baseTextAreaHeight = padding * 2 + lineHeight;
   templateUrl: './chat-form.component.html',
   styleUrl: './chat-form.component.scss',
 })
-export class ChatFormComponent {
+export class ChatFormComponent implements OnInit, OnDestroy {
   readonly sendMessageEvent = output<string>();
-  protected readonly store = inject(AiChatMockStore);
+  protected readonly store = inject(AiChatStore);
   protected messageForm = new FormGroup({
     message: new FormControl(''),
   });
-  protected isActive = false;
+  protected isActive = signal(false);
   private el = inject<ElementRef<HTMLElement>>(ElementRef);
 
   constructor() {
     effect(() => {
-      if (this.store.status() !== 'pending' && this.store.status() !== 'typing') {
-        this.isActive = true;
+      const status = this.store.status();
+      if (status === 'error' || status === 'default') {
+        this.isActive.set(true);
       } else {
-        this.isActive = false;
+        this.isActive.set(false);
         this.removeFocus();
       }
     });
+  }
+
+  ngOnInit(): void {
+    this.store.initSocketListeners();
+  }
+
+  ngOnDestroy(): void {
+    this.store.destroySocketListeners();
   }
 
   protected autoResize(textarea: HTMLTextAreaElement) {
@@ -48,7 +66,7 @@ export class ChatFormComponent {
 
   protected handleSubmit(textarea: HTMLTextAreaElement) {
     const message = this.messageForm.value.message;
-    if (this.isActive && message?.trim()) {
+    if (this.isActive() && message?.trim()) {
       this.sendMessageEvent.emit(message);
       this.messageForm.reset();
       this.autoResize(textarea);

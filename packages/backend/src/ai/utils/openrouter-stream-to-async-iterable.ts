@@ -25,7 +25,7 @@ function isChatCompletionChunk(json: unknown): json is ChatCompletionChunk {
   );
 }
 
-export async function* streamToAsyncIterable(
+export async function* openrouterStreamToAsyncIterable(
   streamPromise: Promise<ReadableStream<Uint8Array>>,
 ): AsyncIterable<string> {
   const stream = await streamPromise;
