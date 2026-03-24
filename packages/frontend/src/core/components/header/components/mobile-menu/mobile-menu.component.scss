@@ -103,10 +103,6 @@
 
     background-color: var(--backdrop-color);
     backdrop-filter: blur(2px);
-
-    animation:
-      fadeIn var(--transition-duration-basic),
-      var(--transition-easing-func);
   }
 
   &__panel {
@@ -125,7 +121,6 @@
     background-color: var(--primary-color);
     box-shadow: var(--shadow-mobile-menu);
 
-    animation: slideIn 0.7s cubic-bezier(0.77, 0.2, 0.05, 1);
     @include m.transition(background-color);
   }
 
@@ -135,6 +130,14 @@
     gap: var(--spacing-x6);
     padding: var(--spacing-x6) var(--spacing-x4);
   }
+}
+
+.fade-in {
+  animation: fadeIn var(--transition-duration-basic) ease-out;
+}
+
+.fade-out {
+  animation: fadeOut var(--transition-duration-basic) ease-in;
 }
 
 @keyframes fadeIn {
@@ -147,6 +150,24 @@
   }
 }
 
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
+}
+
+.slide-in {
+  animation: slideIn 0.7s cubic-bezier(0.77, 0.2, 0.05, 1);
+}
+
+.slide-out {
+  animation: slideOut 0.7s cubic-bezier(0.77, 0.2, 0.05, 1);
+}
+
 @keyframes slideIn {
   from {
     transform: translateX(100%);
@@ -156,5 +177,17 @@
   to {
     transform: translateX(0);
     opacity: 1;
+  }
+}
+
+@keyframes slideOut {
+  from {
+    transform: translateX(0);
+    opacity: 1;
+  }
+
+  to {
+    transform: translateX(100%);
+    opacity: 0;
   }
 }
