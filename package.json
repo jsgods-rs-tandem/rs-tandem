@@ -25,8 +25,6 @@
     "prepare": "husky"
   },
   "devDependencies": {
-    "@nestjs/platform-socket.io": "^11.1.17",
-    "@nestjs/websockets": "^11.1.17",
     "@commitlint/cli": "^20.4.1",
     "@commitlint/config-conventional": "^20.4.1",
     "@eslint/js": "^9.39.2",
