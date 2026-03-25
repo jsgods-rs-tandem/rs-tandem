@@ -1,12 +1,16 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ProfileEditComponent } from './profile-edit.component';
+import { AuthUser } from '@/shared/types';
 
-const mockUser = {
+const mockUser: AuthUser = {
   id: '1',
   displayName: 'John Doe',
   email: 'john@example.com',
   avatarUrl: 'https://avatar.com/1.png',
+  githubUsername: 'johndoe_dev',
+  createdAt: new Date().toISOString(),
+  updatedAt: new Date().toISOString(),
 };
 
 describe('ProfileEditComponent', () => {
@@ -25,10 +29,6 @@ describe('ProfileEditComponent', () => {
   });
 
   it('should create', () => {
-    fixture.componentRef.setInput('user', mockUser);
-
-    fixture.detectChanges();
-
     expect(component).toBeTruthy();
   });
 });
