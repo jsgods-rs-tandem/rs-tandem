@@ -5,7 +5,7 @@
       @let github = githubUsername();
       @if (github) {
         <app-button
-          class="github-link"
+          class="github-link user__github"
           version="ghost"
           iconColor="brand"
           icon="github"
@@ -20,7 +20,7 @@
 
   <div class="user__info-section">
     <p class="text-3xl user__name">{{ userName() }}</p>
-    <p class="text-lg">{{ userEmail() }}</p>
+    <p class="text-lg user__email">{{ userEmail() }}</p>
     <p class="text-sm">{{ joinedDateText() }}</p>
   </div>
 

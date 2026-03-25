@@ -1,5 +1,6 @@
 import type { UpdateProfileDto } from '@rs-tandem/shared';
-import type { AuthUser, ProfileFormData } from '../models/profile.types';
+import type { ProfileFormData } from '../models/profile.types';
+import type { AuthUser } from '@/shared/types';
 
 export function buildUpdateProfileDto(
   formData: ProfileFormData,

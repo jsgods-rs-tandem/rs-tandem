@@ -3,13 +3,14 @@ import { AuthStore } from '@/core/store/auth.store';
 import { AuthService } from '@/core/services/auth.service';
 import { ProfilesService } from '@/core/services/profile.service';
 import { ModalService } from '@/core/services/modal.service';
-import { filter, forkJoin, switchMap, take, timer, of, map } from 'rxjs';
+import { forkJoin, switchMap, take, timer, of, map, EMPTY, filter } from 'rxjs';
 import { takeUntilDestroyed, toObservable } from '@angular/core/rxjs-interop';
 import { HttpErrorResponse } from '@angular/common/http';
 import type { UserProfileDto } from '@rs-tandem/shared';
 import { getHttpErrorMessage } from '@/shared/utils/http-error.utilities';
-import type { AuthUser, ProfileFormData, ProfileState } from '../models/profile.types';
+import type { ProfileFormData, ProfileState } from '../models/profile.types';
 import { buildUpdateProfileDto } from '../utils/profile.mapper';
+import type { AuthUser } from '@/shared/types';
 
 const DELAY_MS = 300;
 
@@ -32,8 +33,8 @@ export class ProfileFacade {
 
     return {
       ...authUser,
-      avatarUrl: extraData?.avatarUrl ?? null,
-      githubUsername: extraData?.githubUsername ?? null,
+      avatarUrl: extraData?.avatarUrl ?? authUser.avatarUrl ?? null,
+      githubUsername: extraData?.githubUsername ?? authUser.githubUsername ?? null,
       createdAt: authUser.createdAt,
     };
   });
@@ -41,14 +42,33 @@ export class ProfileFacade {
   constructor() {
     toObservable(this.user)
       .pipe(
-        filter((user) => Boolean(user)),
+        filter((user): user is AuthUser => !!user),
         take(1),
-        switchMap(() => forkJoin([this.profilesService.getProfile('me'), timer(DELAY_MS)])),
+        switchMap(() => {
+          if (this.profileData()) {
+            this.loading.set(false);
+            return EMPTY;
+          }
+          const authUser = this.authStore.user();
+          const isProfileNotLoaded =
+            authUser?.githubUsername === undefined || authUser.avatarUrl === undefined;
+
+          if (!isProfileNotLoaded) {
+            this.loading.set(false);
+            return EMPTY;
+          }
+
+          this.loading.set(true);
+          return forkJoin([this.profilesService.getProfile('me'), timer(DELAY_MS)]).pipe(
+            map(([profile]) => profile),
+          );
+        }),
         takeUntilDestroyed(this.destroyRef),
       )
       .subscribe({
-        next: ([profile]) => {
+        next: (profile) => {
           this.profileData.set(profile);
+          this.authStore.updateUser(profile);
           this.loading.set(false);
         },
         error: () => {
@@ -86,6 +106,7 @@ export class ProfileFacade {
         next: (updatedProfile) => {
           if (updatedProfile) {
             this.profileData.set(updatedProfile);
+            this.authStore.updateUser(updatedProfile);
           }
           this.modalService.open({
             title: 'Success',

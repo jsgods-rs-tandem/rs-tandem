@@ -6,11 +6,15 @@
   gap: var(--spacing-x5);
   align-items: center;
 
+  &__main {
+    display: flex;
+  }
+
   &__large {
-    width: 200px;
-    height: 200px;
+    aspect-ratio: 1/1;
     border-radius: var(--radius-xs);
     object-fit: cover;
+    background-color: #d6d6d6;
     @include m.transition(transform);
   }
 
@@ -42,13 +46,7 @@
     }
 
     &__button {
-      cursor: pointer;
-
-      padding: 0;
-      border: none;
       border-radius: var(--radius-xs);
-
-      background: none;
       @include m.transition(all);
 
       &:focus-visible {
@@ -85,6 +83,8 @@
       height: 60px;
       border: 2px solid transparent;
       border-radius: var(--radius-xs);
+
+      font-size: var(--font-size-xs);
 
       opacity: 0.7;
       object-fit: cover;

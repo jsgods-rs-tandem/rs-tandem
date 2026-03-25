@@ -1,6 +1,6 @@
 import { Component, computed, effect, inject, input, OnInit, output } from '@angular/core';
 import { NonNullableFormBuilder, ReactiveFormsModule } from '@angular/forms';
-import { AuthUser, ProfileFormData } from '../../models/profile.types';
+import type { ProfileFormData } from '../../models/profile.types';
 import { InputComponent } from '@/shared/ui/input/input.component';
 import { ButtonComponent } from '@/shared/ui';
 import { DEFAULT_AVATAR_URL } from '@/core/constants';
@@ -10,6 +10,7 @@ import {
   isControlInvalid,
 } from '../../utils/profile.utilities';
 import { AvatarEditComponent } from '../avatar-edit/avatar-edit.component';
+import type { AuthUser } from '@/shared/types';
 
 @Component({
   selector: 'app-profile-edit',

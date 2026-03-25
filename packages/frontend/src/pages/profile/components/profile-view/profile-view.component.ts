@@ -1,7 +1,7 @@
 import { Component, computed, input, output } from '@angular/core';
 import { ButtonComponent } from '@/shared/ui';
-import { AuthUser } from '../../models/profile.types';
 import { DEFAULT_AVATAR_URL } from '@/core/constants';
+import type { AuthUser } from '@/shared/types';
 
 @Component({
   selector: 'app-profile-view',

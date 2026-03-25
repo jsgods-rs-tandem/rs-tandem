@@ -1,8 +1,6 @@
-import type { UserDto, UserProfileDto } from '@rs-tandem/shared';
+import type { AuthUser } from '@/shared/types';
 
 export type ProfileState = 'view' | 'edit' | 'saving';
-
-export type AuthUser = UserDto & Partial<UserProfileDto>;
 
 export interface ProfileFormData extends Partial<AuthUser> {
   currentPassword?: string;

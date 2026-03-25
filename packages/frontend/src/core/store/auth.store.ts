@@ -1,8 +1,8 @@
+import type { AuthUser } from '@/shared/types';
 import { Injectable, computed, signal } from '@angular/core';
-import type { UpdateProfileDto, UserDto } from '@rs-tandem/shared';
 
 interface AuthState {
-  user: UserDto | null;
+  user: AuthUser | null;
   isLoading: boolean;
   error: string | null;
 }
@@ -17,7 +17,7 @@ const createInitialState = (): AuthState => ({
 export class AuthStore {
   private readonly _state = signal<AuthState>(createInitialState());
 
-  readonly user = computed<UserDto | null>(() => {
+  readonly user = computed<AuthUser | null>(() => {
     const user = this._state().user;
 
     return user ? { ...user } : null;
@@ -29,21 +29,15 @@ export class AuthStore {
   readonly isLoading = computed(() => this._state().isLoading);
   readonly error = computed(() => this._state().error);
 
-  setUser(user: UserDto): void {
+  setUser(user: AuthUser): void {
     this._state.set({ user, isLoading: false, error: null });
   }
 
-  updateUser(updatedFields: UpdateProfileDto): void {
-    this._state.update((state) => {
-      if (!state.user) return state;
-      return {
-        ...state,
-        user: {
-          ...state.user,
-          ...updatedFields,
-        },
-      };
-    });
+  updateUser(updatedFields: Partial<AuthUser>): void {
+    this._state.update((state) => ({
+      ...state,
+      user: state.user ? { ...state.user, ...updatedFields } : null,
+    }));
   }
 
   clearUser(): void {

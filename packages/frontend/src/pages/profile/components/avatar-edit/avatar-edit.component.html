@@ -1,7 +1,13 @@
 <div class="avatar-edit">
   @let selectedUrl = selectedAvatarUrl();
   <div class="avatar-edit__main" aria-live="polite">
-    <img [src]="selectedUrl" alt="Selected user avatar" class="avatar-edit__large" />
+    <img
+      [src]="selectedUrl"
+      alt="Selected user avatar"
+      class="avatar-edit__large"
+      width="200"
+      height="200"
+    />
   </div>
 
   <div
@@ -36,6 +42,8 @@
           >
             <img
               [src]="avatar"
+              width="60"
+              height="60"
               [attr.alt]="`Avatar option ${avatarIndex}`"
               class="carousel-items__small"
             />
