@@ -5,7 +5,7 @@ test.describe('Sign In Page', () => {
     await page.goto('#/sign-in#');
   });
 
-  test.only('should display page correctly', async ({ signInPage }) => {
+  test('should display page correctly', async ({ signInPage }) => {
     await expect(signInPage.title).toHaveText('Sign In');
 
     await expect(signInPage.form.emailInput).not.toHaveCount(0);
@@ -34,13 +34,14 @@ test.describe('Sign In Page', () => {
   test("should redirect to 'Sign Up' page", async ({ signInPage }) => {
     await signInPage.externalLinkRow.linkButton.click();
 
-    await expect(signInPage.page).toHaveURL(/sign-in/);
+    await expect(signInPage.page).toHaveURL(/sign-up/);
   });
 
   test('should login successfully with newly created user', async ({
     page,
     request,
     signInPage,
+    apiURL,
   }) => {
     const dateNowString = String(Date.now());
 
@@ -51,11 +52,8 @@ test.describe('Sign In Page', () => {
       password: 'StrongPassword1!',
     };
 
-    // Адрес бекенда, если в docker-compose он другой, его можно передать через process.env.API_URL
-    const apiUrl = process.env.API_URL ?? 'http://localhost:3000/api';
-
     // 2. Регистрируем его через API перед логином
-    const signupResponse = await request.post(`${apiUrl}/auth/register`, {
+    const signupResponse = await request.post(`${apiURL}/auth/register`, {
       data: testUser,
     });
 
@@ -76,11 +74,15 @@ test.describe('Sign In Page', () => {
       document.documentElement.setAttribute('data-theme', 'dark');
     });
 
+    await signInPage.form.submitButton.click();
+
     await expect(signInPage.container, "Verify 'Dark Theme' layout").toHaveScreenshot();
 
     await signInPage.page.evaluate(() => {
       document.documentElement.setAttribute('data-theme', 'light');
     });
+
+    await signInPage.form.submitButton.click();
 
     await expect(signInPage.container, "Verify 'Light Theme' layout").toHaveScreenshot();
   });

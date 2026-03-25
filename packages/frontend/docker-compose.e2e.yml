@@ -22,7 +22,7 @@ services:
     # --ignore-scripts — подавляет lifecycle-скрипты (включая prepare/husky)
     # PLAYWRIGHT_FLAGS — дополнительные аргументы для playwright test (например, -u для обновления снапшотов)
     command: >
-      bash -c "npm install --ignore-scripts && cd packages/frontend && npx playwright test $PLAYWRIGHT_FLAGS"
+      bash -c "npm install --ignore-scripts && cd packages/frontend && npx playwright test $$PLAYWRIGHT_FLAGS"
 
 volumes:
   node_modules:

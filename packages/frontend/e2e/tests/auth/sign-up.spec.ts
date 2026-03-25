@@ -21,10 +21,10 @@ test.describe('Sign Up Page', () => {
     signUpPage,
     modalPage,
     request,
+    apiURL,
   }) => {
     const dateNowString = String(Date.now());
 
-    const apiUrl = process.env.API_URL ?? 'http://localhost:3000/api';
     const testUser = {
       displayName: `e2e_dup_${dateNowString}`,
       email: `dup_${dateNowString}@example.com`,
@@ -32,7 +32,7 @@ test.describe('Sign Up Page', () => {
     };
 
     // Создаем пользователя через API, чтобы email был занят
-    const response = await request.post(`${apiUrl}/auth/register`, { data: testUser });
+    const response = await request.post(`${apiURL}/auth/register`, { data: testUser });
     expect(response.ok()).toBeTruthy();
 
     // Пытаемся зарегистрироваться с тем же email через UI
@@ -51,7 +51,7 @@ test.describe('Sign Up Page', () => {
     await expect(signUpPage.page).toHaveURL(/sign-in/);
   });
 
-  test('should register successfully', async ({ page, signUpPage }) => {
+  test('should register successfully', async ({ signUpPage }) => {
     const timestamp = String(Date.now());
 
     await signUpPage.form.usernameInput.fill(`e2e_user_${timestamp}`);
@@ -60,7 +60,7 @@ test.describe('Sign Up Page', () => {
     await signUpPage.form.submitButton.click();
 
     // После успешной регистрации происходит редирект на страницу логина
-    await expect(page).toHaveURL(/sign-in/);
+    await expect(signUpPage.page).toHaveURL(/sign-in/);
   });
 
   test('should verify page layout', async ({ signUpPage }) => {

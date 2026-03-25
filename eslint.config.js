@@ -158,5 +158,12 @@ export default defineConfig([
     },
   },
 
+  {
+    files: ['packages/frontend/e2e/**/*.ts'],
+    rules: {
+      'no-empty-pattern': 'off',
+    },
+  },
+
   prettierConfig,
 ]);
