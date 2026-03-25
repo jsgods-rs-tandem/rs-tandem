@@ -78,7 +78,7 @@ describe('AiService', () => {
 
       const result = await service.getMySettings('u1');
 
-      expect(result).toEqual({ providerId: 'ollama', hasKey: false });
+      expect(result).toEqual({ providerId: 'ollama', hasKey: false, apiKey: null });
     });
 
     it('returns hasKey true when apiKey is set', async () => {
@@ -112,7 +112,7 @@ describe('AiService', () => {
         apiKey: null,
         preserveExistingKey: false,
       });
-      expect(result).toEqual({ providerId: 'ollama', hasKey: false });
+      expect(result).toEqual({ providerId: 'ollama', hasKey: false, apiKey: null });
     });
 
     it('upserts with preserveExistingKey true for key-requiring provider', async () => {
