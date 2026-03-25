@@ -1,7 +1,4 @@
 {
   "extends": "./tsconfig.json",
-  "compilerOptions": {
-    "outDir": "./out-tsc/e2e"
-  },
   "include": ["e2e/**/*.ts", "playwright.config.ts"]
 }

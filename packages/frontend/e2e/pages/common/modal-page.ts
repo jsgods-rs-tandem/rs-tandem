@@ -8,7 +8,7 @@ class ModalPage {
   messages: Locator;
   actionButton: Locator;
 
-  constructor(public page: Page) {
+  constructor(page: Page) {
     this.modal = page.getByTestId('modal');
     this.backdrop = page.getByTestId('modal-backdrop');
     this.title = page.getByTestId('modal-title');

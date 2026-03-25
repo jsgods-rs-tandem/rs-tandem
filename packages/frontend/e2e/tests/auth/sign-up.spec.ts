@@ -70,9 +70,13 @@ test.describe('Sign Up Page', () => {
 
     await expect(signUpPage.container, "Verify 'Dark Theme' layout").toHaveScreenshot();
 
+    await signUpPage.form.submitButton.click();
+
     await signUpPage.page.evaluate(() => {
       document.documentElement.setAttribute('data-theme', 'light');
     });
+
+    await signUpPage.form.submitButton.click();
 
     await expect(signUpPage.container, "Verify 'Light Theme' layout").toHaveScreenshot();
   });

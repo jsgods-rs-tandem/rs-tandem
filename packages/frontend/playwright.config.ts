@@ -7,7 +7,7 @@ export default defineConfig({
   globalSetup: './e2e/global-setup.ts',
   fullyParallel: true,
   forbidOnly: IS_CI,
-  reporter: [['html', { outputFolder: 'playwright/report' }]],
+  reporter: [['html', { outputFolder: 'playwright/report' }], ['list']],
   outputDir: `playwright/artifacts`,
   use: {
     baseURL: process.env.BASE_URL ?? 'http://localhost:4200',
