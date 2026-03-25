@@ -77,3 +77,78 @@ jobs:
 
       - name: Build
         run: npm run build
+
+  e2e:
+    name: E2E Tests
+    needs: build
+    runs-on: ubuntu-latest
+    services:
+      db:
+        image: postgres:15-alpine
+        ports: ['5432:5432']
+        env:
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: qwe123
+          POSTGRES_DB: rs_tandem
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+    env:
+      NODE_ENV: development
+      PORT: 3000
+      FRONTEND_URL: http://localhost:4200
+      DB_HOST: localhost
+      DB_PORT: 5432
+      DB_USER: postgres
+      DB_PASSWORD: qwe123
+      DB_NAME: rs_tandem
+      DATABASE_URL: postgresql://postgres:qwe123@localhost:5432/rs_tandem
+      JWT_SECRET: ci-e2e-test-secret-key-not-for-production
+      JWT_EXPIRES_IN: 8h
+      IS_CI: true
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: 'package.json'
+          cache: 'npm'
+
+      - name: Setup NPM
+        run: npm install -g npm@11.10.1
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Install Playwright browsers
+        run: npx playwright install --with-deps chromium webkit
+        working-directory: packages/frontend
+
+      - name: Run migrations
+        run: npm run migrate:up -w @rs-tandem/backend
+
+      - name: Start services
+        run: npm start &
+
+      - name: Wait for services
+        run: |
+          echo "Waiting for frontend and backend..."
+          timeout 60 bash -c 'until curl -s http://localhost:4200 > /dev/null 2>&1; do sleep 2; done' || (echo "Frontend did not start" && exit 1)
+          timeout 60 bash -c 'until curl -s http://localhost:3000/api > /dev/null 2>&1; do sleep 2; done' || (echo "Backend did not start" && exit 1)
+          echo "Services are ready"
+
+      - name: Run E2E tests
+        run: npx playwright test
+        working-directory: packages/frontend
+
+      - name: Upload Playwright Report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: playwright-report
+          path: packages/frontend/playwright/report/
+          retention-days: 2

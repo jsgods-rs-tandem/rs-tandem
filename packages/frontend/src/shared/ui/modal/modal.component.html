@@ -4,20 +4,27 @@
   aria-modal="true"
   [attr.aria-labelledby]="modalTitleId"
   (document:keydown.escape)="onClose()"
+  data-testid="modal"
 >
-  <div class="modal__backdrop" (click)="onClose()" aria-hidden="true"></div>
+  <div
+    class="modal__backdrop"
+    (click)="onClose()"
+    aria-hidden="true"
+    data-testid="modal-backdrop"
+  ></div>
 
   <div class="modal__container">
     <div class="modal__header">
       <div class="modal__title-wrapper">
         <app-icon [name]="icon()" class="modal__icon" />
-        <h2 [id]="modalTitleId" class="modal__title">{{ title() }}</h2>
+        <h2 [id]="modalTitleId" class="modal__title" data-testid="modal-title">{{ title() }}</h2>
       </div>
       <app-icon-button
         icon="close"
         (click)="onClose()"
         ariaLabel="Close modal"
         class="modal__close-btn"
+        data-testid="modal-close-btn"
       />
     </div>
 
@@ -25,16 +32,21 @@
       @if (isMessageArray()) {
         <ul class="modal__messages">
           @for (msg of messageList(); track msg) {
-            <li class="modal__message-item">{{ msg }}</li>
+            <li class="modal__message-item" data-testid="modal-message">{{ msg }}</li>
           }
         </ul>
       } @else {
-        <p class="modal__message">{{ message() }}</p>
+        <p class="modal__message" data-testid="modal-message">{{ message() }}</p>
       }
     </div>
 
     <div class="modal__footer">
-      <app-button [text]="buttonText()" version="primary" (click)="onClose()" />
+      <app-button
+        [text]="buttonText()"
+        version="primary"
+        (click)="onClose()"
+        data-testid="modal-action-btn"
+      />
     </div>
   </div>
 </div>

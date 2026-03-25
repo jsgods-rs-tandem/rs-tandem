@@ -1,0 +1,32 @@
+services:
+  playwright:
+    build:
+      context: ../../
+      dockerfile: packages/frontend/Dockerfile-e2e
+    working_dir: /app
+    network_mode: 'host'
+    environment:
+      - HUSKY=0
+    volumes:
+      # Поднимаемся на два уровня вверх к корню монорепозитория,
+      # чтобы npm install корректно подтянул workspace'ы
+      - ../../:/app
+      # Именованные тома изолируют маковские бинарники от Linux
+      # и кешируют node_modules между запусками (npm install переиспользует их)
+      - node_modules:/app/node_modules
+      - backend_modules:/app/packages/backend/node_modules
+      - frontend_modules:/app/packages/frontend/node_modules
+      - shared_modules:/app/packages/shared/node_modules
+      - npm_cache:/root/.npm
+    # npm install (не ci!) — переиспользует уже установленные пакеты из именованных томов
+    # --ignore-scripts — подавляет lifecycle-скрипты (включая prepare/husky)
+    # PLAYWRIGHT_FLAGS — дополнительные аргументы для playwright test (например, -u для обновления снапшотов)
+    command: >
+      bash -c "npm install --ignore-scripts && cd packages/frontend && npx playwright test $PLAYWRIGHT_FLAGS"
+
+volumes:
+  node_modules:
+  backend_modules:
+  frontend_modules:
+  shared_modules:
+  npm_cache:

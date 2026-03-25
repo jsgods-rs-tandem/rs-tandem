@@ -1,8 +1,13 @@
-<section class="auth-page">
+<section class="auth-page" data-testid="auth-page-container">
   <h2 class="auth-page__heading h2">{{ heading() }}</h2>
   <ng-content></ng-content>
-  <p class="auth-page__switch">
+  <p class="auth-page__switch" data-testid="external-link-row__title">
     {{ switchText() }}
-    <a class="auth-page__switch-link" [routerLink]="switchRoute()">{{ switchLinkText() }}</a>
+    <a
+      class="auth-page__switch-link"
+      [routerLink]="switchRoute()"
+      data-testid="external-link-row__link-button"
+      >{{ switchLinkText() }}</a
+    >
   </p>
 </section>

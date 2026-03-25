@@ -38,6 +38,7 @@ export default defineConfig([
         project: [
           './packages/frontend/tsconfig.app.json',
           './packages/frontend/tsconfig.spec.json',
+          './packages/frontend/tsconfig.e2e.json',
           './packages/backend/tsconfig.json',
           './packages/shared/tsconfig.json',
         ],
@@ -94,6 +95,7 @@ export default defineConfig([
             './tsconfig.base.json',
             './packages/frontend/tsconfig.app.json',
             './packages/frontend/tsconfig.spec.json',
+            './packages/frontend/tsconfig.e2e.json',
             './packages/backend/tsconfig.json',
             './packages/shared/tsconfig.json',
           ],
