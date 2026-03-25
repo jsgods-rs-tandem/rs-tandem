@@ -25,33 +25,39 @@
       <span class="carousel-arrow" aria-hidden="true">&#10094;</span>
     </app-button>
 
-    <ul class="carousel-items" role="list" aria-label="Available avatar options">
-      @for (avatar of visibleAvatars(); track avatar; let i = $index) {
-        @let isSelected = avatar === selectedUrl;
-        @let avatarIndex = startIndex() + i + 1;
-        <li role="listitem" aria-roledescription="slide">
-          <app-button
-            type="button"
-            version="ghost"
-            class="carousel-items__button"
-            [class.selected]="isSelected"
-            (click)="selectAvatar(avatar)"
-            (keyup.enter)="selectAvatar(avatar)"
-            [attr.aria-current]="isSelected ? 'true' : null"
-            [ariaLabel]="`Select avatar option ${avatarIndex}`"
-          >
-            <img
-              [src]="avatar"
-              width="60"
-              height="60"
-              [attr.alt]="`Avatar option ${avatarIndex}`"
-              class="carousel-items__small"
-            />
-          </app-button>
-        </li>
-      }
-    </ul>
-
+    <div class="carousel-viewport">
+      <ul
+        class="carousel-items"
+        role="list"
+        aria-label="Available avatar options"
+        [style.transform]="'translateX(' + transformOffset() + 'px)'"
+      >
+        @for (avatar of avatars; track avatar; let i = $index) {
+          @let isSelected = avatar === selectedUrl;
+          @let avatarIndex = i + 1;
+          <li role="listitem" aria-roledescription="slide" class="carousel-item">
+            <app-button
+              type="button"
+              version="ghost"
+              class="carousel-items__button"
+              [class.selected]="isSelected"
+              (click)="selectAvatar(avatar)"
+              (keyup.enter)="selectAvatar(avatar)"
+              [attr.aria-current]="isSelected ? 'true' : null"
+              [ariaLabel]="`Select avatar option ${avatarIndex}`"
+            >
+              <img
+                [src]="avatar"
+                width="60"
+                height="60"
+                [attr.alt]="`Avatar option ${avatarIndex}`"
+                class="carousel-items__small text-xs"
+              />
+            </app-button>
+          </li>
+        }
+      </ul>
+    </div>
     <app-button
       version="ghost"
       [disabled]="!canGoNext()"

@@ -56,6 +56,7 @@
   --middle-color: #cfd8dc;
   --junior-color: #ffab91;
   --trainee-color: #f48fb1;
+  --img-placeholder-color: #d6d6d6;
   color-scheme: light;
   @include m.media('s') {
     --footer-height: 103.81px;
@@ -81,6 +82,7 @@
   --middle-color: #54646b;
   --junior-color: #d53706;
   --trainee-color: #ad1457;
+  --img-placeholder-color: #454545;
   color-scheme: dark;
 }
 

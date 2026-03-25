@@ -48,7 +48,7 @@
   aspect-ratio: 1/1;
   height: 240px;
   border-radius: var(--radius-xs);
-  background-color: #d6d6d6;
+  background-color: var(--img-placeholder-color);
   @include m.media('xs') {
     height: 200px;
   }

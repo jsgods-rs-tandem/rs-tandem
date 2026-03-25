@@ -16,13 +16,11 @@ export class AvatarEditComponent {
   readonly avatars = AVATAR_POOL;
   readonly startIndex = signal(0);
   readonly itemsToShow = 3;
-
-  readonly visibleAvatars = computed(() => {
-    return this.avatars.slice(this.startIndex(), this.startIndex() + this.itemsToShow);
-  });
+  readonly itemWidth = 76;
 
   readonly canGoPrev = computed(() => this.startIndex() > 0);
   readonly canGoNext = computed(() => this.startIndex() + this.itemsToShow < this.avatars.length);
+  readonly transformOffset = computed(() => -(this.startIndex() * this.itemWidth));
 
   constructor() {
     effect(() => {
