@@ -5,7 +5,6 @@ import { AuthPageComponent } from '@/shared/ui/auth-page/auth-page.component';
 import { InputComponent } from '@/shared/ui/input/input.component';
 import { ButtonComponent } from '@/shared/ui';
 import { AuthService } from '@/core/services/auth.service';
-import { AuthStore } from '@/core/store/auth.store';
 import { ROUTE_PATHS } from '@/core/constants';
 import { HttpErrorResponse } from '@angular/common/http';
 import { ModalService } from '@/core/services/modal.service';
@@ -22,7 +21,6 @@ import { AUTH_ERROR_MESSAGES } from '@/shared/utils/auth-error-messages.constant
 export class SignUpComponent {
   private authService = inject(AuthService);
   private router = inject(Router);
-  private authStore = inject(AuthStore);
   private modalService = inject(ModalService);
 
   protected isLoading = signal(false);
@@ -56,9 +54,8 @@ export class SignUpComponent {
         password: formValue.password,
       })
       .subscribe({
-        next: (user) => {
+        next: () => {
           this.isLoading.set(false);
-          this.authStore.setUser(user);
           void this.router.navigate([ROUTE_PATHS.signIn]);
         },
         error: (error: HttpErrorResponse) => {
