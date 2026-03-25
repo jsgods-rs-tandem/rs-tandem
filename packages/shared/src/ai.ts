@@ -1,5 +1,7 @@
+export type AiMessageRole = 'user' | 'assistant' | 'system';
+
 export interface AiMessage {
-  role: 'user' | 'assistant' | 'system';
+  role: AiMessageRole;
   content: string;
 }
 
