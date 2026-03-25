@@ -22,7 +22,7 @@ jobs:
 
       - name: Verify lockfile is up to date
         run: |
-          npm install --package-lock-only
+          npm install --package-lock-only --ignore-scripts
           git diff --exit-code package-lock.json
 
       - name: Install dependencies
