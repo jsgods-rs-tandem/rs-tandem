@@ -1,15 +1,19 @@
 import { BadGatewayException, BadRequestException, Injectable, Logger } from '@nestjs/common';
-import type { AiChatResponseDto, AiProviderDto, AiSettingsDto } from '@rs-tandem/shared';
+import type { AiChatResponseDto, AiMessage, AiProviderDto, AiSettingsDto } from '@rs-tandem/shared';
 import { AiSettingsRepository } from './ai-settings.repository.js';
 import { AI_PROVIDERS, findProvider } from './providers/ai-provider.registry.js';
 import type { AiChatDto } from './dto/ai-chat.dto.js';
 import type { UpdateAiSettingsDto } from './dto/update-ai-settings.dto.js';
+import { ChatHistoryService } from '../chat-history/chat-history.service.js';
 
 @Injectable()
 export class AiService {
   private readonly logger = new Logger(AiService.name);
 
-  constructor(private readonly aiSettingsRepository: AiSettingsRepository) {}
+  constructor(
+    private readonly aiSettingsRepository: AiSettingsRepository,
+    private readonly chatHistoryService: ChatHistoryService,
+  ) {}
 
   getProviders(): AiProviderDto[] {
     return AI_PROVIDERS.map((p) => ({
@@ -29,6 +33,7 @@ export class AiService {
     return {
       providerId: settings.providerId,
       hasKey: settings.apiKey !== null,
+      apiKey: settings.apiKey,
     };
   }
 
@@ -51,16 +56,11 @@ export class AiService {
     return {
       providerId: settings.providerId,
       hasKey: settings.apiKey !== null,
+      apiKey: settings.apiKey,
     };
   }
 
-  async streamChat(userId: string, dto: AiChatDto): Promise<AsyncIterable<string>> {
-    const settings = await this.aiSettingsRepository.findByUserId(userId);
-
-    if (!settings) {
-      throw new BadRequestException('No AI provider selected');
-    }
-
+  getMyProvider(settings: AiSettingsDto) {
     const provider = findProvider(settings.providerId);
 
     if (!provider) {
@@ -71,9 +71,36 @@ export class AiService {
       throw new BadRequestException('API key required for this provider');
     }
 
+    return provider;
+  }
+
+  async saveMessage(userId: string, message: AiMessage) {
+    await this.chatHistoryService.pushMessage(userId, message);
+  }
+
+  async getPrompt(userId: string) {
+    return await this.chatHistoryService.getHistory(userId);
+  }
+
+  async *streamChat(userId: string, message: AiMessage): AsyncIterable<string> {
+    await this.saveMessage(userId, message);
+    const messages = await this.getPrompt(userId);
+    const settings = await this.getMySettings(userId);
+    const provider = this.getMyProvider(settings);
+
     try {
-      const stream = await provider.streamChat(dto.messages, settings.apiKey);
-      return stream;
+      const stream = await provider.streamChat(messages, settings.apiKey);
+      let content = '';
+      for await (const chunk of stream) {
+        content = `${content}${chunk}`;
+        yield chunk;
+      }
+
+      const message: AiMessage = {
+        role: 'assistant',
+        content,
+      };
+      await this.saveMessage(userId, message);
     } catch (error) {
       this.logger.error('AI provider error', error instanceof Error ? error.stack : String(error));
       throw new BadGatewayException('AI provider unavailable');
