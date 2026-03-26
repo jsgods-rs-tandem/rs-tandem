@@ -14,7 +14,6 @@
       placeholder="Enter your email"
       [hasError]="signInForm.controls.email.touched && signInForm.controls.email.invalid"
       [errorText]="getErrorText('email')"
-      dataTestId="email-input"
     />
 
     <app-input
@@ -25,7 +24,6 @@
       placeholder="Enter your password"
       [hasError]="signInForm.controls.password.touched && signInForm.controls.password.invalid"
       [errorText]="getErrorText('password')"
-      dataTestId="password-input"
     />
 
     <app-button type="submit" text="Sign In" [loading]="isLoading()" data-testid="submit-btn" />

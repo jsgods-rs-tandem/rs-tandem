@@ -36,8 +36,6 @@ export class InputComponent implements ControlValueAccessor {
 
   computedName = computed(() => this.name() ?? this.inputId());
 
-  dataTestId = input<string>('');
-
   onChange: (value: string) => void = () => {
     /* noop */
   };
