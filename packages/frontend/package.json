@@ -7,10 +7,12 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test --no-watch",
-    "test:ui:coverage": "ng test --ui --coverage"
+    "test:ui:coverage": "ng test --ui --coverage",
+    "e2e": "docker-compose -f docker-compose.e2e.yml run --rm playwright",
+    "e2e:update": "docker-compose -f docker-compose.e2e.yml run --rm -e PLAYWRIGHT_FLAGS=-u playwright",
+    "e2e:show-report": "npx playwright show-report playwright/report"
   },
   "private": true,
-  "packageManager": "npm@10.9.2",
   "dependencies": {
     "@angular/cdk": "~21.1.4",
     "@angular/common": "^21.1.0",
@@ -30,6 +32,8 @@
     "@angular/build": "^21.1.4",
     "@angular/cli": "^21.1.4",
     "@angular/compiler-cli": "^21.1.0",
+    "@playwright/test": "^1.58.2",
+    "@types/node": "^25.5.0",
     "@types/prismjs": "^1.26.6",
     "@vitest/coverage-v8": "^4.1.0",
     "@vitest/ui": "^4.1.0",

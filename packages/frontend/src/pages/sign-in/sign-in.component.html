@@ -3,6 +3,7 @@
   switchText="Don’t have an account?"
   [switchRoute]="ROUTE_PATHS.signUp"
   switchLinkText="Sign Up"
+  data-testid="page-container"
 >
   <form [formGroup]="signInForm" (ngSubmit)="onSubmit()">
     <app-input
@@ -25,6 +26,6 @@
       [errorText]="getErrorText('password')"
     />
 
-    <app-button type="submit" text="Sign In" [loading]="isLoading()" />
+    <app-button type="submit" text="Sign In" [loading]="isLoading()" data-testid="submit-btn" />
   </form>
 </app-auth-page>
