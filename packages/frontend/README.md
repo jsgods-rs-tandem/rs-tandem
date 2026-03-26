@@ -25,13 +25,13 @@ E2E тесты запускаются через [Playwright](https://playwright
 
 1. **Поднять стенд** — перед запуском E2E тестов необходимо **самостоятельно** запустить backend и frontend локально:
 
-2. **Docker** — необходим для запуска Playwright в Linux-контейнере (критично для macOS, где Playwright не поддерживает WebKit нативно).
+2. **Docker Desktop** — необходим для запуска Playwright в Linux-контейнере (критично для macOS/Windows, где Playwright не поддерживает WebKit нативно).
 
-### Настройка Docker на macOS
+### Настройка Docker Desktop на macOS
 
 Тесты используют `network_mode: 'host'`, чтобы контейнер мог обращаться к сервисам на `localhost`.
 
-- **[OrbStack](https://orbstack.dev/)** (рекомендуется) — host networking работает из коробки, дополнительных настроек не требуется.
+- **[OrbStack](https://orbstack.dev/)** (рекомендуется для macOS) — host networking работает из коробки, дополнительных настроек не требуется.
 - **Docker Desktop** — необходимо вручную включить поддержку host networking:
   `Settings → Resources → Network → ✅ Enable host networking`
 
