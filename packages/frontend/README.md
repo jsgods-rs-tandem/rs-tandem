@@ -27,7 +27,7 @@ E2E тесты запускаются через [Playwright](https://playwright
 
 2. **Docker Desktop** — необходим для запуска Playwright в Linux-контейнере (критично для macOS/Windows, где Playwright не поддерживает WebKit нативно).
 
-### Настройка Docker Desktop на macOS
+### Настройка Docker Desktop на macOS/Windows
 
 Тесты используют `network_mode: 'host'`, чтобы контейнер мог обращаться к сервисам на `localhost`.
 
