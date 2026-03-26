@@ -1,7 +1,11 @@
 import { Inject, Injectable } from '@nestjs/common';
 import { Pool } from 'pg';
 import { PG_POOL } from '../database/database.constants.js';
-import type { CreateUserProfileInput, UserProfileRow } from './profile.entity.js';
+import {
+  type CreateUserProfileInput,
+  type UpdateProfileInput,
+  type UserProfileRow,
+} from './profile.entity.js';
 
 interface UserProfileDatabaseRow extends Record<string, unknown> {
   user_id: string;
@@ -12,6 +16,8 @@ interface UserProfileDatabaseRow extends Record<string, unknown> {
   longest_streak: number;
   last_solved_at: Date | null;
   updated_at: Date;
+  avatar_url: string | null;
+  github_username: string | null;
 }
 
 function isUserProfileDatabaseRow(row: Record<string, unknown>): row is UserProfileDatabaseRow {
@@ -23,7 +29,9 @@ function isUserProfileDatabaseRow(row: Record<string, unknown>): row is UserProf
     typeof row.current_streak === 'number' &&
     typeof row.longest_streak === 'number' &&
     (row.last_solved_at === null || row.last_solved_at instanceof Date) &&
-    row.updated_at instanceof Date
+    row.updated_at instanceof Date &&
+    (row.avatar_url === null || typeof row.avatar_url === 'string') &&
+    (row.github_username === null || typeof row.github_username === 'string')
   );
 }
 
@@ -41,6 +49,8 @@ function toUserProfileRow(row: Record<string, unknown>): UserProfileRow {
     longestStreak: row.longest_streak,
     lastSolvedAt: row.last_solved_at,
     updatedAt: row.updated_at,
+    avatarUrl: row.avatar_url,
+    githubUsername: row.github_username,
   };
 }
 
@@ -50,7 +60,7 @@ export class ProfileRepository {
 
   async findByUserId(userId: string): Promise<UserProfileRow | undefined> {
     const result = await this.pool.query<Record<string, unknown>>(
-      `SELECT user_id, total_xp, level, problems_solved, current_streak, longest_streak, last_solved_at, updated_at
+      `SELECT user_id, total_xp, level, problems_solved, current_streak, longest_streak, last_solved_at, updated_at, avatar_url, github_username
        FROM user_profiles
        WHERE user_id = $1`,
       [userId],
@@ -65,7 +75,7 @@ export class ProfileRepository {
     const result = await this.pool.query<Record<string, unknown>>(
       `INSERT INTO user_profiles (user_id)
        VALUES ($1)
-       RETURNING user_id, total_xp, level, problems_solved, current_streak, longest_streak, last_solved_at, updated_at`,
+       RETURNING user_id, total_xp, level, problems_solved, current_streak, longest_streak, last_solved_at, updated_at, avatar_url, github_username`,
       [input.userId],
     );
 
@@ -73,6 +83,52 @@ export class ProfileRepository {
 
     if (!row) {
       throw new Error('Insert returned no rows');
+    }
+
+    return toUserProfileRow(row);
+  }
+
+  async update(userId: string, input: UpdateProfileInput): Promise<UserProfileRow> {
+    const setClauses: string[] = [];
+    const values: unknown[] = [];
+    let parameterIndex = 1;
+
+    if (input.avatarUrl !== undefined) {
+      setClauses.push(`avatar_url = $${String(parameterIndex)}`);
+      values.push(input.avatarUrl);
+      parameterIndex += 1;
+    }
+
+    if (input.githubUsername !== undefined) {
+      setClauses.push(`github_username = $${String(parameterIndex)}`);
+      values.push(input.githubUsername);
+      parameterIndex += 1;
+    }
+
+    if (setClauses.length === 0) {
+      const currentProfile = await this.findByUserId(userId);
+      if (!currentProfile) {
+        throw new Error('Profile not found');
+      }
+      return currentProfile;
+    }
+
+    setClauses.push('updated_at = NOW()');
+
+    values.push(userId);
+
+    const result = await this.pool.query<Record<string, unknown>>(
+      `UPDATE user_profiles
+       SET ${setClauses.join(', ')}
+       WHERE user_id = $${String(parameterIndex)}
+       RETURNING user_id, total_xp, level, problems_solved, current_streak, longest_streak, last_solved_at, updated_at, avatar_url, github_username`,
+      values,
+    );
+
+    const row = result.rows[0];
+
+    if (!row) {
+      throw new Error('Update returned no rows');
     }
 
     return toUserProfileRow(row);

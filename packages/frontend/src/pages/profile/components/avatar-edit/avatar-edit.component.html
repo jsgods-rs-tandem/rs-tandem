@@ -1,0 +1,70 @@
+<div class="avatar-edit">
+  @let selectedUrl = selectedAvatarUrl();
+  <div class="avatar-edit__main" aria-live="polite">
+    <img
+      [src]="selectedUrl"
+      alt="Selected user avatar"
+      class="avatar-edit__large"
+      width="200"
+      height="200"
+    />
+  </div>
+
+  <div
+    class="avatar-edit__carousel"
+    role="region"
+    aria-roledescription="carousel"
+    aria-label="Avatar options"
+  >
+    <app-button
+      version="ghost"
+      [disabled]="!canGoPrev()"
+      (click)="prev()"
+      ariaLabel="Go to previous avatars"
+    >
+      <span class="carousel-arrow" aria-hidden="true">&#10094;</span>
+    </app-button>
+
+    <div class="carousel-viewport">
+      <ul
+        class="carousel-items"
+        role="list"
+        aria-label="Available avatar options"
+        [style.transform]="'translateX(' + transformOffset() + 'px)'"
+      >
+        @for (avatar of avatars; track avatar; let i = $index) {
+          @let isSelected = avatar === selectedUrl;
+          @let avatarIndex = i + 1;
+          <li role="listitem" aria-roledescription="slide" class="carousel-item">
+            <app-button
+              type="button"
+              version="ghost"
+              class="carousel-items__button"
+              [class.selected]="isSelected"
+              (click)="selectAvatar(avatar)"
+              (keyup.enter)="selectAvatar(avatar)"
+              [attr.aria-current]="isSelected ? 'true' : null"
+              [ariaLabel]="`Select avatar option ${avatarIndex}`"
+            >
+              <img
+                [src]="avatar"
+                width="60"
+                height="60"
+                [attr.alt]="`Avatar option ${avatarIndex}`"
+                class="carousel-items__small text-xs"
+              />
+            </app-button>
+          </li>
+        }
+      </ul>
+    </div>
+    <app-button
+      version="ghost"
+      [disabled]="!canGoNext()"
+      (click)="next()"
+      ariaLabel="Go to next avatars"
+    >
+      <span class="carousel-arrow" aria-hidden="true">&#10095;</span>
+    </app-button>
+  </div>
+</div>

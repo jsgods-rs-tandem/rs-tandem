@@ -50,4 +50,11 @@ export class AuthService {
   getMe(): Observable<UserDto> {
     return this.http.get<UserDto>(`${environment.apiUrl}/auth/me`);
   }
+
+  changePassword(currentPassword: string, newPassword: string): Observable<unknown> {
+    return this.http.patch<unknown>(`${environment.apiUrl}/auth/change-password`, {
+      currentPassword,
+      newPassword,
+    });
+  }
 }

@@ -1,0 +1,55 @@
+@use 'assets/styles/mixins' as m;
+
+.user {
+  &__wrapper {
+    display: flex;
+    flex-direction: row;
+    gap: var(--spacing-x5);
+    align-items: flex-end;
+    @include m.media('s') {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+
+  &__avatar,
+  &__info-section {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-x2);
+    max-width: 240px;
+    @include m.media('xs') {
+      max-width: 200px;
+    }
+  }
+
+  &__avatar {
+    display: flex;
+  }
+
+  &__name {
+    margin-bottom: var(--spacing-x5);
+    font-weight: var(--fw-medium);
+    overflow-wrap: anywhere;
+  }
+
+  &__email,
+  &__github {
+    overflow-wrap: anywhere;
+  }
+
+  &__button-section {
+    align-self: flex-start;
+    margin-left: auto;
+  }
+}
+
+.avatar {
+  aspect-ratio: 1/1;
+  height: 240px;
+  border-radius: var(--radius-xs);
+  background-color: var(--img-placeholder-color);
+  @include m.media('xs') {
+    height: 200px;
+  }
+}

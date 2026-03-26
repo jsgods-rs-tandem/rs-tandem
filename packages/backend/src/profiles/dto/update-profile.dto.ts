@@ -11,4 +11,13 @@ export class UpdateProfileDto implements IUpdateProfileDto {
   @IsOptional()
   @IsEmail()
   email?: string;
+
+  @IsOptional()
+  @IsString()
+  avatarUrl?: string | null;
+
+  @IsOptional()
+  @IsString()
+  @MaxLength(50)
+  githubUsername?: string | null;
 }
