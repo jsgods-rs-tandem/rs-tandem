@@ -1,0 +1,83 @@
+<div class="user__wrapper">
+  <div class="user__avatar-section">
+    <div class="user__avatar">
+      <app-avatar-edit [currentAvatar]="formAvatar()" (avatarSelected)="onAvatarSelect($event)" />
+    </div>
+  </div>
+
+  <div class="user__info-section">
+    <form [formGroup]="profileForm" class="user__form" (ngSubmit)="onSave()">
+      <div class="user__edit-section">
+        <app-input
+          formControlName="displayName"
+          label="Username"
+          placeholder="Enter your username"
+          [required]="true"
+          [hasError]="isInvalid('displayName')"
+          [errorText]="getError('displayName')"
+        />
+        <app-input
+          formControlName="email"
+          targetType="email"
+          label="Email"
+          placeholder="Enter your email"
+          [required]="true"
+          [hasError]="isInvalid('email')"
+          [errorText]="getError('email')"
+        />
+        <app-input
+          formControlName="githubUsername"
+          label="GitHub Username"
+          placeholder="Enter your GitHub username"
+          [hasError]="isInvalid('githubUsername')"
+          [errorText]="getError('githubUsername')"
+        />
+
+        <hr class="divider" />
+        <div class="text__info">
+          @if (!profileForm.value.currentPassword && !profileForm.value.newPassword) {
+            <p class="text-xs" aria-live="polite">Leave blank to keep current</p>
+          }
+          @if (profileForm.hasError('incompletePasswordChange')) {
+            <p class="text-xs" aria-live="polite">Fill out both fields to change your password.</p>
+          }
+        </div>
+        <app-input
+          formControlName="currentPassword"
+          targetType="password"
+          label="Current Password"
+          placeholder="Enter your password"
+          [hasError]="isInvalid('currentPassword')"
+          [errorText]="getError('currentPassword')"
+          autoComplete="off"
+        />
+        <app-input
+          formControlName="newPassword"
+          targetType="password"
+          label="New Password"
+          placeholder="Enter new password"
+          [hasError]="isInvalid('newPassword')"
+          [errorText]="getError('newPassword')"
+          autoComplete="new-password"
+        />
+      </div>
+      <div class="user__button-section">
+        <app-button
+          type="button"
+          [isSmallButton]="true"
+          version="ghost"
+          text="Cancel"
+          (click)="cancelClicked.emit()"
+        />
+        <app-button
+          type="submit"
+          [isSmallButton]="true"
+          version="primary"
+          text="Save"
+          [disabled]="profileForm.invalid || isSaving()"
+          [loading]="isSaving()"
+        />
+      </div>
+    </form>
+  </div>
+</div>

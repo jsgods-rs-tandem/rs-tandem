@@ -1,0 +1,30 @@
+@use 'assets/styles/mixins' as m;
+
+.user__content {
+  display: flex;
+  flex-direction: column;
+
+  margin-top: var(--spacing-x10);
+  padding: var(--spacing-x5) var(--spacing-x4);
+  border: var(--card-border);
+  border-radius: var(--radius-sm);
+
+  box-shadow: var(--shadow);
+
+  @include m.media('s') {
+    margin: var(--spacing-x10) auto 0;
+    padding: var(--spacing-x5) var(--spacing-x13);
+  }
+
+  @include m.media('xs') {
+    margin: var(--spacing-x10) auto 0;
+    padding: var(--spacing-x5) var(--spacing-x5);
+  }
+}
+
+.spin__wrapper {
+  display: flex;
+  flex-grow: 1;
+  align-items: center;
+  justify-content: center;
+}

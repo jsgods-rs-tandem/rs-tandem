@@ -1,0 +1,37 @@
+<div class="user__wrapper">
+  <div class="user__avatar-section">
+    <div class="user__avatar">
+      <img [src]="avatarUrl()" alt="User profile avatar" class="avatar" />
+      @let github = githubUsername();
+      @if (github) {
+        <app-button
+          class="github-link user__github"
+          version="ghost"
+          iconColor="brand"
+          icon="github"
+          [text]="github"
+          [href]="linkUrl()"
+          [external]="true"
+          [ariaLabel]="ariaLabel()"
+        />
+      }
+    </div>
+  </div>
+
+  <div class="user__info-section">
+    <p class="text-3xl user__name">{{ userName() }}</p>
+    <p class="text-lg user__email">{{ userEmail() }}</p>
+    <p class="text-sm">{{ joinedDateText() }}</p>
+  </div>
+
+  <div class="user__button-section">
+    <app-button
+      type="button"
+      [isSmallButton]="true"
+      version="primary"
+      text="Edit"
+      ariaLabel="Edit profile"
+      (click)="editClicked.emit()"
+    />
+  </div>
+</div>

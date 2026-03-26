@@ -17,6 +17,8 @@ const validDatabaseRow = {
   longest_streak: 7,
   last_solved_at: now,
   updated_at: now,
+  avatar_url: null,
+  github_username: null,
 };
 
 const expectedProfileRow = {
@@ -28,6 +30,8 @@ const expectedProfileRow = {
   longestStreak: 7,
   lastSolvedAt: now,
   updatedAt: now,
+  avatarUrl: null,
+  githubUsername: null,
 };
 
 describe('ProfileRepository', () => {

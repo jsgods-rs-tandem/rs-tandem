@@ -23,6 +23,14 @@ export const authInterceptor: HttpInterceptorFn = (request, next) => {
   return next(request).pipe(
     catchError((error: HttpErrorResponse) => {
       if (error.status === 401) {
+        const errorBody: unknown = error.error;
+        if (errorBody && typeof errorBody === 'object' && 'message' in errorBody) {
+          const message = errorBody.message;
+          if (typeof message === 'string' && message.includes('Current password is incorrect')) {
+            return throwError(() => error);
+          }
+        }
+
         if (authService.isAuthenticated() && !router.url.includes('auth')) {
           authService.logout();
 

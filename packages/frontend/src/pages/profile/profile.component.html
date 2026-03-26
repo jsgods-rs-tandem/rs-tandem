@@ -1,0 +1,23 @@
+<section class="profile">
+  <h1 class="h2">{{ title }}</h1>
+
+  <div class="user__content">
+    @let currentUser = facade.user();
+    @if (facade.loading()) {
+      <div class="spin__wrapper">
+        <app-spin size="large" theme="light" />
+      </div>
+    } @else if (currentUser) {
+      @if (isViewing()) {
+        <app-profile-view [user]="currentUser" (editClicked)="facade.state.set('edit')" />
+      } @else {
+        <app-profile-edit
+          [user]="currentUser"
+          [isSaving]="isSaving()"
+          (cancelClicked)="facade.state.set('view')"
+          (saveClicked)="facade.saveProfile($event)"
+        />
+      }
+    }
+  </div>
+</section>

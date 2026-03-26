@@ -1,0 +1,2 @@
+ALTER TABLE user_profiles ADD COLUMN IF NOT EXISTS avatar_url VARCHAR(255);
+ALTER TABLE user_profiles ADD COLUMN IF NOT EXISTS github_username VARCHAR(50);
