@@ -99,8 +99,10 @@ export class AiService {
 
   async *streamChat(userId: string, message: AiMessage): AsyncIterable<string> {
     await this.saveMessage(userId, message);
-    const messages = await this.getPrompt(userId);
-    const settings = await this.getMySettings(userId);
+    const [messages, settings] = await Promise.all([
+      this.getPrompt(userId),
+      this.getMySettings(userId),
+    ]);
     const provider = this.getMyProvider(settings);
 
     try {
