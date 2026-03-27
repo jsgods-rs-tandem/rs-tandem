@@ -23,11 +23,26 @@ export class AiService {
     }));
   }
 
+  private async setDefaultSettings(userId: string): Promise<AiSettingsDto> {
+    await this.updateMySettings(userId, { providerId: 'ollama' });
+    const settings = await this.aiSettingsRepository.findByUserId(userId);
+    if (!settings) {
+      throw new BadRequestException('No AI provider selected');
+    }
+
+    return {
+      providerId: settings.providerId,
+      hasKey: settings.apiKey !== null,
+      apiKey: settings.apiKey,
+    };
+  }
+
   async getMySettings(userId: string): Promise<AiSettingsDto> {
     const settings = await this.aiSettingsRepository.findByUserId(userId);
 
     if (!settings) {
-      throw new BadRequestException('No AI provider selected');
+      // Remove default settings after implementing the model selection functionality
+      return this.setDefaultSettings(userId);
     }
 
     return {

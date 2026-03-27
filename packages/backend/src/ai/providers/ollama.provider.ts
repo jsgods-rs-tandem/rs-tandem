@@ -23,7 +23,7 @@ function isOllamaChatResponse(value: unknown): value is OllamaChatResponse {
 export class OllamaProvider implements IAiProvider {
   constructor(
     private readonly baseUrl = process.env.OLLAMA_BASE_URL ?? 'http://localhost:11434',
-    private readonly model = process.env.OLLAMA_MODEL ?? 'gemma3:1b',
+    private readonly model = process.env.OLLAMA_MODEL ?? 'qwen2.5:0.5b',
   ) {}
 
   readonly meta: AiProviderMeta = {
