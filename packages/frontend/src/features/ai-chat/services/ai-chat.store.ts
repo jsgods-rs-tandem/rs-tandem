@@ -3,7 +3,8 @@ import { IMessage } from '../models/llm-message-model';
 import { ChatStatus } from '../models/ai-chat-status';
 import { AiSocketService } from './ai-socket-service';
 import { Subscription } from 'rxjs';
-import { AiChatResponseDto } from '@rs-tandem/shared';
+import { AiChatResponseDto, AiMessage } from '@rs-tandem/shared';
+import { AiHttpService } from './ai-http-service';
 
 @Injectable({
   providedIn: 'root',
@@ -11,7 +12,8 @@ import { AiChatResponseDto } from '@rs-tandem/shared';
 export class AiChatStore {
   private _messages = signal<IMessage[]>([]);
   private _status = signal<ChatStatus>('connecting');
-  private service = inject(AiSocketService);
+  private wsApi = inject(AiSocketService);
+  private httpApi = inject(AiHttpService);
   private socketSubscriptions: Subscription[] = [];
   private zone = inject(NgZone);
 
@@ -19,12 +21,16 @@ export class AiChatStore {
   readonly messagesLength = computed(() => this._messages().length);
   readonly status = this._status.asReadonly();
 
+  constructor() {
+    this.loadHistory();
+  }
+
   sendPrompt(text: string) {
     if (this.status() === 'default' || this.status() === 'error') {
       const message: IMessage = { role: 'user', content: text };
       this._messages.update((array) => [...array, message]);
       this._status.set('pending');
-      this.service.emit('chat', message);
+      this.wsApi.emit('chat', message);
     }
   }
 
@@ -45,11 +51,33 @@ export class AiChatStore {
       listener.unsubscribe();
     });
     this.socketSubscriptions = [];
-    this.service.disconnect();
+    this.wsApi.disconnect();
+  }
+
+  clearHistory() {
+    this.httpApi.deleteHistory().subscribe({
+      next: () => { this.deleteMessages(); },
+      error: (error) => { console.error(error); },
+    });
+  }
+
+  private loadHistory() {
+    this.httpApi.getHistory().subscribe({
+      next: (messages) => { this.unpdateMessages(messages); },
+      error: (error) => { console.error(error); },
+    });
+  }
+
+  private deleteMessages() {
+    this._messages.set([]);
+  }
+
+  private unpdateMessages(messages: AiMessage[]) {
+    this._messages.update((array) => [...array, ...messages]);
   }
 
   private subscribeToEvent(event: string, handler: (data: unknown) => void) {
-    const sub = this.service.listen(event).subscribe(handler);
+    const sub = this.wsApi.listen(event).subscribe(handler);
     this.socketSubscriptions.push(sub);
   }
 
