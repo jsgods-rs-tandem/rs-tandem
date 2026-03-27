@@ -1,31 +1,46 @@
-<app-auth-page
-  heading="Sign In"
-  switchText="Don’t have an account?"
-  [switchRoute]="ROUTE_PATHS.signUp"
-  switchLinkText="Sign Up"
-  data-testid="page-container"
->
-  <form [formGroup]="signInForm" (ngSubmit)="onSubmit()">
-    <app-input
-      id="email"
-      targetType="email"
-      formControlName="email"
-      label="Email"
-      placeholder="Enter your email"
-      [hasError]="signInForm.controls.email.touched && signInForm.controls.email.invalid"
-      [errorText]="getErrorText('email')"
-    />
+<ng-container *transloco="let t; prefix: 'auth'">
+  <app-auth-page
+    [heading]="t('signIn.title')"
+    [switchText]="t('signIn.switchLink.title')"
+    [switchRoute]="ROUTE_PATHS.signUp"
+    [switchLinkText]="t('signIn.switchLink.button')"
+    data-testid="page-container"
+  >
+    <form [formGroup]="signInForm" (ngSubmit)="onSubmit()">
+      <app-input
+        id="email"
+        targetType="email"
+        formControlName="email"
+        [label]="t('signIn.form.email.label')"
+        [placeholder]="t('signIn.form.email.placeholder')"
+        [hasError]="signInForm.controls.email.touched && signInForm.controls.email.invalid"
+        [errorText]="
+          getValidationErrorKey('email')
+            ? t('validation.' + getValidationErrorKey('email'), { min: 8 })
+            : ''
+        "
+      />
 
-    <app-input
-      id="password"
-      targetType="password"
-      formControlName="password"
-      label="Password"
-      placeholder="Enter your password"
-      [hasError]="signInForm.controls.password.touched && signInForm.controls.password.invalid"
-      [errorText]="getErrorText('password')"
-    />
+      <app-input
+        id="password"
+        targetType="password"
+        formControlName="password"
+        [label]="t('signIn.form.password.label')"
+        [placeholder]="t('signIn.form.password.placeholder')"
+        [hasError]="signInForm.controls.password.touched && signInForm.controls.password.invalid"
+        [errorText]="
+          getValidationErrorKey('password')
+            ? t('validation.' + getValidationErrorKey('password'), { min: 8 })
+            : ''
+        "
+      />
 
-    <app-button type="submit" text="Sign In" [loading]="isLoading()" data-testid="submit-btn" />
-  </form>
-</app-auth-page>
+      <app-button
+        type="submit"
+        [text]="t('signIn.form.submit')"
+        [loading]="isLoading()"
+        data-testid="submit-btn"
+      />
+    </form>
+  </app-auth-page>
+</ng-container>

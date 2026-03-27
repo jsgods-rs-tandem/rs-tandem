@@ -1,5 +1,6 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { isErrorWithMessage } from '@/core/guards/is-error-with-message';
+import type { TranslationKey } from '@/shared/types/i18n.generated';
 
 function extractRawMessages(error: HttpErrorResponse): string | string[] | null {
   if (!isErrorWithMessage(error.error)) {
@@ -19,21 +20,21 @@ function extractRawMessages(error: HttpErrorResponse): string | string[] | null 
   return null;
 }
 
-function mapMessage(raw: string, messageMap?: Record<string, string>): string {
+function mapMessage(raw: string, messageMap?: Record<string, TranslationKey>): string {
   return messageMap?.[raw] ?? raw;
 }
 
-export function getHttpErrorMessage(
+export function getHttpErrorMessageTKey(
   error: HttpErrorResponse,
-  fallback: string,
-  messageMap?: Record<string, string>,
-): string | string[] {
+  fallback: TranslationKey,
+  messageMap?: Record<string, TranslationKey>,
+): TranslationKey | TranslationKey[] {
   if (error.status === 0) {
-    return 'Unable to connect to the server. Please check your internet connection.';
+    return 'errors.noConnection';
   }
 
   if (error.status >= 500) {
-    return 'Server error. Please try again later.';
+    return 'errors.serverError';
   }
 
   const messages = extractRawMessages(error);
@@ -43,8 +44,8 @@ export function getHttpErrorMessage(
   }
 
   if (Array.isArray(messages)) {
-    return messages.map((message) => mapMessage(message, messageMap));
+    return messages.map((message) => mapMessage(message, messageMap)) as TranslationKey[];
   }
 
-  return mapMessage(messages, messageMap);
+  return mapMessage(messages, messageMap) as TranslationKey;
 }

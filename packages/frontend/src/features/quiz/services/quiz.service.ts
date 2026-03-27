@@ -6,7 +6,8 @@ import { environment } from '@/environments/environment';
 
 import { ModalService } from '@/core/services/modal.service';
 
-import { getHttpErrorMessage } from '@/shared/utils/http-error.utilities';
+import { getHttpErrorMessageTKey } from '@/shared/utils/http-error.utilities';
+import { injectTranslate } from '@/shared/utils/translate.helper';
 
 import type {
   GetCategoriesResponseDto,
@@ -24,6 +25,7 @@ import type { QuizState } from './quiz.types';
 export class QuizService {
   private readonly _http = inject(HttpClient);
   private readonly _modalService = inject(ModalService);
+  private readonly _t = injectTranslate();
 
   private readonly _state = signal<QuizState>({
     data: {
@@ -261,9 +263,13 @@ export class QuizService {
   }
 
   private _showError(error: CustomHttpError) {
+    const messageKey = getHttpErrorMessageTKey(error, 'errors.unexpected');
+
     this._modalService.open({
       title: `${String(error.error.statusCode || 0)} — ${error.error.error || 'Network Error'}`,
-      message: getHttpErrorMessage(error, 'Unexpected Error'),
+      message: Array.isArray(messageKey)
+        ? messageKey.map((key) => this._t(key))
+        : this._t(messageKey),
       icon: 'info-outline',
     });
   }

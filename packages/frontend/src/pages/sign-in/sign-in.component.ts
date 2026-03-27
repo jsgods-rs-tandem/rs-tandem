@@ -10,21 +10,31 @@ import { switchMap } from 'rxjs';
 import { HttpErrorResponse } from '@angular/common/http';
 import { ROUTE_PATHS } from '@/core/constants';
 import { ModalService } from '@/core/services/modal.service';
-import { getHttpErrorMessage } from '@/shared/utils/http-error.utilities';
+import { getHttpErrorMessageTKey } from '@/shared/utils/http-error.utilities';
 import { AUTH_ERROR_MESSAGES } from '@/shared/utils/auth-error-messages.constants';
+import { injectTranslate } from '@/shared/utils/translate.helper';
+import { TRANSLOCO_SCOPE, TranslocoDirective } from '@jsverse/transloco';
 
 @Component({
   selector: 'app-sign-in',
   standalone: true,
-  imports: [AuthPageComponent, ReactiveFormsModule, InputComponent, ButtonComponent],
+  imports: [
+    AuthPageComponent,
+    ReactiveFormsModule,
+    InputComponent,
+    ButtonComponent,
+    TranslocoDirective,
+  ],
   templateUrl: './sign-in.component.html',
   styleUrl: './sign-in.component.scss',
+  providers: [{ provide: TRANSLOCO_SCOPE, useValue: 'auth' }],
 })
 export class SignInComponent {
   private authService = inject(AuthService);
   private router = inject(Router);
   private authStore = inject(AuthStore);
   private modalService = inject(ModalService);
+  private t = injectTranslate();
 
   protected isLoading = signal(false);
 
@@ -63,23 +73,30 @@ export class SignInComponent {
         },
         error: (error: HttpErrorResponse) => {
           this.isLoading.set(false);
+          const messageKey = getHttpErrorMessageTKey(
+            error,
+            'auth.errorMessages.defaultLogin',
+            AUTH_ERROR_MESSAGES,
+          );
 
           this.modalService.open({
-            title: 'Login Error',
-            message: getHttpErrorMessage(error, 'Invalid email or password.', AUTH_ERROR_MESSAGES),
+            title: this.t('auth.errorMessages.loginTitle'),
+            message: Array.isArray(messageKey)
+              ? messageKey.map((key) => this.t(key))
+              : this.t(messageKey),
             icon: 'info-outline',
           });
         },
       });
   }
 
-  getErrorText(controlName: string): string {
+  getValidationErrorKey(controlName: string): string | null {
     const control = this.signInForm.get(controlName);
 
-    if (!control) return '';
-    if (control.hasError('required')) return 'This field is required';
-    if (control.hasError('minlength')) return `Minimum length is 8 characters`;
-    if (control.hasError('email')) return 'Invalid email address';
-    return '';
+    if (!control) return null;
+    if (control.hasError('required')) return 'required';
+    if (control.hasError('minlength')) return 'minLength';
+    if (control.hasError('email')) return 'email';
+    return null;
   }
 }

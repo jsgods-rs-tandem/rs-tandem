@@ -1,9 +1,10 @@
-export const AUTH_ERROR_MESSAGES: Record<string, string> = {
-  'Invalid credentials': 'Invalid email or password. Please try again.',
-  'Email already registered': 'This email is already taken. Try signing in instead.',
-  'email must be an email': 'Please enter a valid email address.',
-  'password must be longer than or equal to 8 characters':
-    'Password must be at least 8 characters.',
+import type { TranslationKey } from '@/shared/types/i18n.generated';
+
+export const AUTH_ERROR_MESSAGES: Record<string, TranslationKey> = {
+  'Invalid credentials': 'auth.errorMessages.invalidCredentials',
+  'Email already registered': 'auth.errorMessages.emailAlreadyRegistered',
+  'email must be an email': 'auth.errorMessages.invalidEmail',
+  'password must be longer than or equal to 8 characters': 'auth.errorMessages.passwordTooShort',
   'displayName must be shorter than or equal to 50 characters':
-    'Display name must not exceed 50 characters.',
+    'auth.errorMessages.displayNameTooLong',
 };

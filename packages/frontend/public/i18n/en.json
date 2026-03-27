@@ -1,0 +1,15 @@
+{
+  "errors": {
+    "noConnection": "Unable to connect to the server. Please check your internet connection.",
+    "serverError": "Server error. Please try again later.",
+    "networkTitle": "Connection Error",
+    "serverTitle": "Server Error",
+    "unexpected": "Unexpected Error",
+    "updateFailed": "Update Failed",
+    "checkPasswordOrData": "Please check your current password or data"
+  },
+  "common": {
+    "success": "Success",
+    "profileUpdated": "Profile updated successfully!"
+  }
+}

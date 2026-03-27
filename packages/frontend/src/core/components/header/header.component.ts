@@ -10,6 +10,8 @@ import { ThemeService } from '@/core/services/theme.service';
 import { Router } from '@angular/router';
 import { AuthService } from '@/core/services/auth.service';
 import { ROUTE_PATHS } from '@/core/constants';
+import { TranslocoService } from '@jsverse/transloco';
+import { toSignal } from '@angular/core/rxjs-interop';
 
 @Component({
   selector: 'app-header',
@@ -28,17 +30,21 @@ import { ROUTE_PATHS } from '@/core/constants';
 export class HeaderComponent {
   private themeService = inject(ThemeService);
   private authService = inject(AuthService);
+  private translocoService = inject(TranslocoService);
   private router = inject(Router);
   mode = input<HeaderMode>('login');
   isMenuOpen = input(false);
   isDarkTheme = computed(() => this.themeService.theme() === 'dark');
-  isEngLanguage = input(true);
+  activeLang = toSignal(this.translocoService.langChanges$, {
+    initialValue: this.translocoService.getActiveLang(),
+  });
 
   menuToggled = output();
   languageClick = output();
 
   actionConfig = computed(() => HEADER_ACTIONS[this.mode()]);
-  langText = computed(() => (this.isEngLanguage() ? 'EN' : 'RU'));
+  isEngLanguage = computed(() => this.activeLang() === 'en');
+  langText = computed(() => (this.isEngLanguage() ? 'Ru' : 'En'));
   themeIcon = computed(() => (this.isDarkTheme() ? 'sun' : 'moon'));
   themeAriaLabel = computed(() =>
     this.isDarkTheme() ? 'Switch to light theme' : 'Switch to dark theme',
@@ -57,6 +63,10 @@ export class HeaderComponent {
 
   toggleTheme(): void {
     this.themeService.toggleTheme();
+  }
+
+  toggleLanguage(): void {
+    this.translocoService.setActiveLang(this.isEngLanguage() ? 'ru' : 'en');
   }
 
   handleLogout(): void {

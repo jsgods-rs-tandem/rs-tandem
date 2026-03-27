@@ -7,7 +7,8 @@ import { forkJoin, switchMap, take, timer, of, map, EMPTY, filter } from 'rxjs';
 import { takeUntilDestroyed, toObservable } from '@angular/core/rxjs-interop';
 import { HttpErrorResponse } from '@angular/common/http';
 import type { UserProfileDto } from '@rs-tandem/shared';
-import { getHttpErrorMessage } from '@/shared/utils/http-error.utilities';
+import { getHttpErrorMessageTKey } from '@/shared/utils/http-error.utilities';
+import { injectTranslate } from '@/shared/utils/translate.helper';
 import type { ProfileFormData, ProfileState } from '../models/profile.types';
 import { buildUpdateProfileDto } from '../utils/profile.mapper';
 import type { AuthUser } from '@/shared/types';
@@ -21,6 +22,7 @@ export class ProfileFacade {
   private profilesService = inject(ProfilesService);
   private authStore = inject(AuthStore);
   private modalService = inject(ModalService);
+  private t = injectTranslate();
 
   readonly loading = signal<boolean>(true);
   readonly state = signal<ProfileState>('view');
@@ -109,17 +111,22 @@ export class ProfileFacade {
             this.authStore.updateUser(updatedProfile);
           }
           this.modalService.open({
-            title: 'Success',
-            message: 'Profile updated successfully!',
+            title: this.t('common.success'),
+            message: this.t('common.profileUpdated'),
             icon: 'info-outline',
           });
           this.state.set('view');
         },
         error: (error: HttpErrorResponse) => {
           this.state.set('edit');
+
+          const messageKey = getHttpErrorMessageTKey(error, 'errors.checkPasswordOrData');
+
           this.modalService.open({
-            title: 'Update Failed',
-            message: getHttpErrorMessage(error, 'Please check your current password or data'),
+            title: this.t('errors.updateFailed'),
+            message: Array.isArray(messageKey)
+              ? messageKey.map((key) => this.t(key))
+              : this.t(messageKey),
             icon: 'info-outline',
           });
         },

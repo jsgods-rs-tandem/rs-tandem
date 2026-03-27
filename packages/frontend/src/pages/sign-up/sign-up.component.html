@@ -1,40 +1,59 @@
-<app-auth-page
-  heading="Sign Up"
-  switchText="Already have an account?"
-  [switchRoute]="ROUTE_PATHS.signIn"
-  switchLinkText="Sign In"
->
-  <form [formGroup]="signUpForm" (ngSubmit)="onSubmit()">
-    <app-input
-      id="username"
-      targetType="text"
-      formControlName="username"
-      label="Username"
-      placeholder="Enter your username"
-      [hasError]="signUpForm.controls.username.touched && signUpForm.controls.username.invalid"
-      [errorText]="getErrorText('username')"
-    />
+<ng-container *transloco="let t; prefix: 'auth'">
+  <app-auth-page
+    [heading]="t('signUp.title')"
+    [switchText]="t('signUp.switchLink.title')"
+    [switchRoute]="ROUTE_PATHS.signIn"
+    [switchLinkText]="t('signUp.switchLink.button')"
+  >
+    <form [formGroup]="signUpForm" (ngSubmit)="onSubmit()">
+      <app-input
+        id="username"
+        targetType="text"
+        formControlName="username"
+        [label]="t('signUp.form.username.label')"
+        [placeholder]="t('signUp.form.username.placeholder')"
+        [hasError]="signUpForm.controls.username.touched && signUpForm.controls.username.invalid"
+        [errorText]="
+          getValidationErrorKey('username')
+            ? t('validation.' + getValidationErrorKey('username'), { min: 3 })
+            : ''
+        "
+      />
 
-    <app-input
-      id="email"
-      targetType="email"
-      formControlName="email"
-      label="Email"
-      placeholder="Enter your email"
-      [hasError]="signUpForm.controls.email.touched && signUpForm.controls.email.invalid"
-      [errorText]="getErrorText('email')"
-    />
+      <app-input
+        id="email"
+        targetType="email"
+        formControlName="email"
+        [label]="t('signUp.form.email.label')"
+        [placeholder]="t('signUp.form.email.placeholder')"
+        [hasError]="signUpForm.controls.email.touched && signUpForm.controls.email.invalid"
+        [errorText]="
+          getValidationErrorKey('email')
+            ? t('validation.' + getValidationErrorKey('email'), { min: 8 })
+            : ''
+        "
+      />
 
-    <app-input
-      id="password"
-      targetType="password"
-      formControlName="password"
-      label="Password"
-      placeholder="Enter your password"
-      [hasError]="signUpForm.controls.password.touched && signUpForm.controls.password.invalid"
-      [errorText]="getErrorText('password')"
-    />
+      <app-input
+        id="password"
+        targetType="password"
+        formControlName="password"
+        [label]="t('signUp.form.password.label')"
+        [placeholder]="t('signUp.form.password.placeholder')"
+        [hasError]="signUpForm.controls.password.touched && signUpForm.controls.password.invalid"
+        [errorText]="
+          getValidationErrorKey('password')
+            ? t('validation.' + getValidationErrorKey('password'), { min: 8 })
+            : ''
+        "
+      />
 
-    <app-button type="submit" text="Sign Up" [loading]="isLoading()" data-testid="submit-btn" />
-  </form>
-</app-auth-page>
+      <app-button
+        type="submit"
+        [text]="t('signUp.form.submit')"
+        [loading]="isLoading()"
+        data-testid="submit-btn"
+      />
+    </form>
+  </app-auth-page>
+</ng-container>

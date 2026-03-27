@@ -71,10 +71,10 @@ describe('SignUpComponent', () => {
     const passControl = component.signUpForm.get('password')!;
 
     passControl.markAsTouched();
-    expect(component.getErrorText('password')).toBe('This field is required');
+    expect(component.getValidationErrorKey('password')).toBe('required');
 
     passControl.setValue('short');
-    expect(component.getErrorText('password')).toBe('Minimum length is 8 characters');
+    expect(component.getValidationErrorKey('password')).toBe('minlength');
   });
 
   it('should not submit if form is invalid', () => {
