@@ -8,7 +8,7 @@ describe('OllamaProvider', () => {
   let fetchSpy: jest.SpyInstance;
 
   beforeEach(() => {
-    provider = new OllamaProvider('http://localhost:11434', 'gemma3:1b');
+    provider = new OllamaProvider();
     fetchSpy = jest.spyOn(global, 'fetch');
   });
 
@@ -48,7 +48,7 @@ describe('OllamaProvider', () => {
         'http://localhost:11434/api/chat',
         expect.objectContaining({
           method: 'POST',
-          body: JSON.stringify({ model: 'gemma3:1b', messages, stream: false }),
+          body: JSON.stringify({ model: 'qwen2.5:0.5b', messages, stream: false }),
         }),
       );
     });
