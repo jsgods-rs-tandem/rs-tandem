@@ -26,7 +26,7 @@ const providersFixture: AiProviderDto[] = [
   { id: 'ollama', label: 'Ollama (local)', requiresKey: false },
 ];
 
-const settingsFixture: AiSettingsDto = { providerId: 'ollama', hasKey: false };
+const settingsFixture: AiSettingsDto = { providerId: 'ollama', apiKey: null };
 
 describe('AiController', () => {
   let controller: AiController;

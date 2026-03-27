@@ -8,6 +8,7 @@ import { AuthModule } from './auth/auth.module.js';
 import { ProfilesModule } from './profiles/profiles.module.js';
 import { AiModule } from './ai/ai.module.js';
 import { QuizModule } from './quiz/quiz.module.js';
+import { ChatHistoryModule } from './chat-history/chat-history.module.js';
 
 @Module({
   imports: [
@@ -18,6 +19,7 @@ import { QuizModule } from './quiz/quiz.module.js';
     ProfilesModule,
     AiModule,
     QuizModule,
+    ChatHistoryModule,
   ],
   controllers: [AppController],
   providers: [AppService],

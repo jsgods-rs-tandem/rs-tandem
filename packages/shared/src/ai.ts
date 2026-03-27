@@ -1,5 +1,7 @@
+export type AiMessageRole = 'user' | 'assistant' | 'system';
+
 export interface AiMessage {
-  role: 'user' | 'assistant' | 'system';
+  role: AiMessageRole;
   content: string;
 }
 
@@ -11,7 +13,7 @@ export interface AiProviderDto {
 
 export interface AiSettingsDto {
   providerId: string;
-  hasKey: boolean;
+  apiKey: string | null;
 }
 
 export interface UpdateAiSettingsDto {
