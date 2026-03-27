@@ -61,6 +61,9 @@ export class AiGateway {
       if (error instanceof HttpException) {
         throw new WsException(error);
       }
+
+      console.error(error);
+      throw new WsException(`Unknown error`);
     }
   }
 }
