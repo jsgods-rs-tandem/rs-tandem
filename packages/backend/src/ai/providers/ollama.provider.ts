@@ -21,11 +21,6 @@ function isOllamaChatResponse(value: unknown): value is OllamaChatResponse {
 }
 
 export class OllamaProvider implements IAiProvider {
-  constructor(
-    private readonly baseUrl = process.env.OLLAMA_BASE_URL ?? 'http://localhost:11434',
-    private readonly model = process.env.OLLAMA_MODEL ?? 'gemma3:1b',
-  ) {}
-
   readonly meta: AiProviderMeta = {
     id: 'ollama',
     label: 'Ollama (local)',
@@ -63,11 +58,19 @@ export class OllamaProvider implements IAiProvider {
   }
 
   private sendPrompt(messages: AiMessage[], stream: boolean) {
-    return fetch(`${this.baseUrl}/api/chat`, {
+    return fetch(`${this.getBaseUrl()}/api/chat`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ model: this.model, messages, stream }),
+      body: JSON.stringify({ model: this.getModel(), messages, stream }),
       signal: AbortSignal.timeout(30_000),
     });
+  }
+
+  private getModel() {
+    return process.env.OLLAMA_MODEL ?? 'qwen2.5:0.5b';
+  }
+
+  private getBaseUrl() {
+    return process.env.OLLAMA_BASE_URL ?? 'http://localhost:11434';
   }
 }

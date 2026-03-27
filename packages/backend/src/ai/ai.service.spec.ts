@@ -17,6 +17,7 @@ import { BadGatewayException, BadRequestException, Logger } from '@nestjs/common
 import { AiService } from './ai.service.js';
 import { AiSettingsRepository } from './ai-settings.repository.js';
 import { AI_PROVIDERS, findProvider } from './providers/ai-provider.registry.js';
+import { ChatHistoryService } from '../chat-history/chat-history.service.js';
 
 const mockFindProvider = jest.mocked(findProvider);
 const ollamaProvider = AI_PROVIDERS[0]!;
@@ -26,6 +27,12 @@ const mockOllamaChat = jest.mocked(ollamaProvider.chat);
 const mockAiSettingsRepository = {
   findByUserId: jest.fn(),
   upsert: jest.fn(),
+};
+
+const mockChatHistoryService = {
+  getHistory: jest.fn(),
+  pushMessage: jest.fn(),
+  clearHistory: jest.fn(),
 };
 
 const now = new Date('2024-06-01T12:00:00.000Z');
@@ -45,7 +52,11 @@ describe('AiService', () => {
     jest.clearAllMocks();
     jest.spyOn(Logger.prototype, 'error').mockImplementation(() => undefined);
     const module: TestingModule = await Test.createTestingModule({
-      providers: [AiService, { provide: AiSettingsRepository, useValue: mockAiSettingsRepository }],
+      providers: [
+        AiService,
+        { provide: AiSettingsRepository, useValue: mockAiSettingsRepository },
+        { provide: ChatHistoryService, useValue: mockChatHistoryService },
+      ],
     }).compile();
     service = module.get(AiService);
   });
@@ -67,18 +78,7 @@ describe('AiService', () => {
 
       const result = await service.getMySettings('u1');
 
-      expect(result).toEqual({ providerId: 'ollama', hasKey: false });
-    });
-
-    it('returns hasKey true when apiKey is set', async () => {
-      mockAiSettingsRepository.findByUserId.mockResolvedValue({
-        ...ollamaSettings,
-        apiKey: 'secret',
-      });
-
-      const result = await service.getMySettings('u1');
-
-      expect(result.hasKey).toBe(true);
+      expect(result).toEqual({ providerId: 'ollama', apiKey: null });
     });
 
     it('throws BadRequestException when no settings found', async () => {
@@ -101,7 +101,7 @@ describe('AiService', () => {
         apiKey: null,
         preserveExistingKey: false,
       });
-      expect(result).toEqual({ providerId: 'ollama', hasKey: false });
+      expect(result).toEqual({ providerId: 'ollama', apiKey: null });
     });
 
     it('upserts with preserveExistingKey true for key-requiring provider', async () => {
