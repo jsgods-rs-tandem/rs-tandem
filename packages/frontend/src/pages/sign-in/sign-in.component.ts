@@ -10,12 +10,12 @@ import { switchMap } from 'rxjs';
 import { HttpErrorResponse } from '@angular/common/http';
 import { ROUTE_PATHS } from '@/core/constants';
 import { ModalService } from '@/core/services/modal.service';
-import { getHttpErrorMessageTKey } from '@/shared/utils/http-error.utilities';
-import { AUTH_ERROR_MESSAGES } from '@/shared/utils/auth-error-messages.constants';
+import { getHttpErrorMessage } from '@/shared/utils/http-error.utilities';
 import { injectTranslate } from '@/shared/utils/translate.helper';
 import { marker } from '@jsverse/transloco-keys-manager/marker';
 import type { AppTranslationKey } from '@/shared/types/translation-keys';
 import { TypedTranslocoPipe } from '@/shared/pipes/typed-transloco.pipe';
+import { AUTH_ERROR_MESSAGES } from '@/shared/utils/auth-error-messages.constants';
 
 @Component({
   selector: 'app-sign-in',
@@ -74,17 +74,10 @@ export class SignInComponent {
         },
         error: (error: HttpErrorResponse) => {
           this.isLoading.set(false);
-          const messageKey = getHttpErrorMessageTKey(
-            error,
-            marker('auth.errorMessages.defaultLogin') as AppTranslationKey,
-            AUTH_ERROR_MESSAGES,
-          );
 
           this.modalService.open({
             title: this.t(marker('auth.errorMessages.loginTitle') as AppTranslationKey),
-            message: Array.isArray(messageKey)
-              ? messageKey.map((key) => this.t(key))
-              : this.t(messageKey),
+            message: getHttpErrorMessage(error, 'Invalid email or password.', AUTH_ERROR_MESSAGES),
             icon: 'info-outline',
           });
         },

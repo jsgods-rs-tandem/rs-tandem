@@ -8,12 +8,12 @@ import { AuthService } from '@/core/services/auth.service';
 import { ROUTE_PATHS } from '@/core/constants';
 import { HttpErrorResponse } from '@angular/common/http';
 import { ModalService } from '@/core/services/modal.service';
-import { getHttpErrorMessageTKey } from '@/shared/utils/http-error.utilities';
-import { AUTH_ERROR_MESSAGES } from '@/shared/utils/auth-error-messages.constants';
+import { getHttpErrorMessage } from '@/shared/utils/http-error.utilities';
 import { injectTranslate } from '@/shared/utils/translate.helper';
 import { marker } from '@jsverse/transloco-keys-manager/marker';
 import type { AppTranslationKey } from '@/shared/types/translation-keys';
 import { TypedTranslocoPipe } from '@/shared/pipes/typed-transloco.pipe';
+import { AUTH_ERROR_MESSAGES } from '@/shared/utils/auth-error-messages.constants';
 
 @Component({
   selector: 'app-sign-up',
@@ -72,17 +72,13 @@ export class SignUpComponent {
         error: (error: HttpErrorResponse) => {
           this.isLoading.set(false);
 
-          const messageKey = getHttpErrorMessageTKey(
-            error,
-            marker('auth.errorMessages.defaultRegistration') as AppTranslationKey,
-            AUTH_ERROR_MESSAGES,
-          );
-
           this.modalService.open({
             title: this.t(marker('auth.errorMessages.registrationTitle') as AppTranslationKey),
-            message: Array.isArray(messageKey)
-              ? messageKey.map((key) => this.t(key))
-              : this.t(messageKey),
+            message: getHttpErrorMessage(
+              error,
+              'Failed to create an account. Please try again later or use a different email.',
+              AUTH_ERROR_MESSAGES,
+            ),
             icon: 'info-outline',
           });
         },

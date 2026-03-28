@@ -1,10 +1,4 @@
 {
-  "errors": {
-    "noConnection": "Unable to connect to the server. Please check your internet connection.",
-    "serverError": "Server error. Please try again later.",
-    "unexpected": "Unexpected Error",
-    "checkPasswordOrData": "Please check your current password or data"
-  },
   "auth": {
     "signIn": {
       "title": "Sign in",
@@ -53,14 +47,7 @@
     },
     "errorMessages": {
       "loginTitle": "Login Error",
-      "registrationTitle": "Registration Error",
-      "invalidCredentials": "Invalid email or password. Please try again.",
-      "emailAlreadyRegistered": "This email is already taken. Try signing in instead.",
-      "invalidEmail": "Please enter a valid email address.",
-      "passwordTooShort": "Password must be at least 8 characters.",
-      "displayNameTooLong": "Display name must not exceed 50 characters.",
-      "defaultLogin": "Invalid email or password.",
-      "defaultRegistration": "Failed to create an account. Please try again later or use a different email."
+      "registrationTitle": "Registration Error"
     }
   }
 }

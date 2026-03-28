@@ -1,7 +1,5 @@
 import { HttpErrorResponse } from '@angular/common/http';
-import { marker } from '@jsverse/transloco-keys-manager/marker';
 import { isErrorWithMessage } from '@/core/guards/is-error-with-message';
-import type { AppTranslationKey } from '@/shared/types/translation-keys';
 
 function extractRawMessages(error: HttpErrorResponse): string | string[] | null {
   if (!isErrorWithMessage(error.error)) {
@@ -21,21 +19,21 @@ function extractRawMessages(error: HttpErrorResponse): string | string[] | null 
   return null;
 }
 
-function mapMessage(raw: string, messageMap?: Record<string, AppTranslationKey>): string {
+function mapMessage(raw: string, messageMap?: Record<string, string>): string {
   return messageMap?.[raw] ?? raw;
 }
 
-export function getHttpErrorMessageTKey(
+export function getHttpErrorMessage(
   error: HttpErrorResponse,
-  fallback: AppTranslationKey,
-  messageMap?: Record<string, AppTranslationKey>,
-): AppTranslationKey | AppTranslationKey[] {
+  fallback: string,
+  messageMap?: Record<string, string>,
+): string | string[] {
   if (error.status === 0) {
-    return marker('errors.noConnection') as AppTranslationKey;
+    return 'Unable to connect to the server. Please check your internet connection.';
   }
 
   if (error.status >= 500) {
-    return marker('errors.serverError') as AppTranslationKey;
+    return 'Server error. Please try again later.';
   }
 
   const messages = extractRawMessages(error);
@@ -45,8 +43,8 @@ export function getHttpErrorMessageTKey(
   }
 
   if (Array.isArray(messages)) {
-    return messages.map((message) => mapMessage(message, messageMap)) as AppTranslationKey[];
+    return messages.map((message) => mapMessage(message, messageMap));
   }
 
-  return mapMessage(messages, messageMap) as AppTranslationKey;
+  return mapMessage(messages, messageMap);
 }

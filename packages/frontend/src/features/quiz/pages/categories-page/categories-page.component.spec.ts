@@ -2,7 +2,6 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { provideRouter } from '@angular/router';
 
 import { CategoriesPageComponent } from './categories-page.component';
-import { provideAppTranslocoTesting } from '@/testing/provide-transloco-testing';
 
 describe('CategoriesPageComponent', () => {
   let component: CategoriesPageComponent;
@@ -11,7 +10,7 @@ describe('CategoriesPageComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [CategoriesPageComponent],
-      providers: [provideRouter([]), provideAppTranslocoTesting()],
+      providers: [provideRouter([])],
     }).compileComponents();
 
     fixture = TestBed.createComponent(CategoriesPageComponent);

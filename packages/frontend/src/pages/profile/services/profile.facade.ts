@@ -7,13 +7,10 @@ import { forkJoin, switchMap, take, timer, of, map, EMPTY, filter } from 'rxjs';
 import { takeUntilDestroyed, toObservable } from '@angular/core/rxjs-interop';
 import { HttpErrorResponse } from '@angular/common/http';
 import type { UserProfileDto } from '@rs-tandem/shared';
-import { getHttpErrorMessageTKey } from '@/shared/utils/http-error.utilities';
-import { injectTranslate } from '@/shared/utils/translate.helper';
-import { marker } from '@jsverse/transloco-keys-manager/marker';
+import { getHttpErrorMessage } from '@/shared/utils/http-error.utilities';
 import type { ProfileFormData, ProfileState } from '../models/profile.types';
 import { buildUpdateProfileDto } from '../utils/profile.mapper';
 import type { AuthUser } from '@/shared/types';
-import type { AppTranslationKey } from '@/shared/types/translation-keys';
 
 const DELAY_MS = 300;
 
@@ -24,7 +21,6 @@ export class ProfileFacade {
   private profilesService = inject(ProfilesService);
   private authStore = inject(AuthStore);
   private modalService = inject(ModalService);
-  private t = injectTranslate();
 
   readonly loading = signal<boolean>(true);
   readonly state = signal<ProfileState>('view');
@@ -121,17 +117,9 @@ export class ProfileFacade {
         },
         error: (error: HttpErrorResponse) => {
           this.state.set('edit');
-
-          const messageKey = getHttpErrorMessageTKey(
-            error,
-            marker('errors.checkPasswordOrData') as AppTranslationKey,
-          );
-
           this.modalService.open({
             title: 'Update Failed',
-            message: Array.isArray(messageKey)
-              ? messageKey.map((key) => this.t(key))
-              : this.t(messageKey),
+            message: getHttpErrorMessage(error, 'Please check your current password or data'),
             icon: 'info-outline',
           });
         },
