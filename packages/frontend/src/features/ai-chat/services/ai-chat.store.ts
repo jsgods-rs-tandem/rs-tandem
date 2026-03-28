@@ -2,7 +2,7 @@ import { Injectable, signal, computed, inject, NgZone } from '@angular/core';
 import { IMessage } from '../models/llm-message-model';
 import { ChatStatus } from '../models/ai-chat-status';
 import { AiSocketService } from './ai-socket-service';
-import { Subscription } from 'rxjs';
+import { finalize, Subscription } from 'rxjs';
 import { AiChatResponseDto, AiMessage } from '@rs-tandem/shared';
 import { AiHttpService } from './ai-http-service';
 
@@ -11,7 +11,7 @@ import { AiHttpService } from './ai-http-service';
 })
 export class AiChatStore {
   private _messages = signal<IMessage[]>([]);
-  private _status = signal<ChatStatus>('connecting');
+  private _status = signal<ChatStatus>('loading');
   private wsApi = inject(AiSocketService);
   private httpApi = inject(AiHttpService);
   private socketSubscriptions: Subscription[] = [];
@@ -56,16 +56,35 @@ export class AiChatStore {
 
   clearHistory() {
     this.httpApi.deleteHistory().subscribe({
-      next: () => { this.deleteMessages(); },
-      error: (error) => { console.error(error); },
+      next: () => {
+        this.deleteMessages();
+      },
+      error: (error) => {
+        console.error(error);
+      },
     });
   }
 
   private loadHistory() {
-    this.httpApi.getHistory().subscribe({
-      next: (messages) => { this.unpdateMessages(messages); },
-      error: (error) => { console.error(error); },
-    });
+    this.httpApi
+      .getHistory()
+      .pipe(
+        finalize(() => {
+          if (this.wsApi.isOpened()) {
+            this.updateStatus('default');
+          } else {
+            this.updateStatus('connecting');
+          }
+        }),
+      )
+      .subscribe({
+        next: (messages) => {
+          this.unpdateMessages(messages);
+        },
+        error: (error) => {
+          console.error(error);
+        },
+      });
   }
 
   private deleteMessages() {
@@ -118,7 +137,9 @@ export class AiChatStore {
 
   private handleConnect = () => {
     this.zone.run(() => {
-      this.updateStatus('default');
+      if (this.status() === 'connecting') {
+        this.updateStatus('default');
+      }
     });
   };
 

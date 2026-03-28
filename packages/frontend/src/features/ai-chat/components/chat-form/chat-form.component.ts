@@ -1,13 +1,4 @@
-import {
-  Component,
-  effect,
-  ElementRef,
-  inject,
-  OnDestroy,
-  OnInit,
-  output,
-  signal,
-} from '@angular/core';
+import { Component, effect, ElementRef, inject, output, signal } from '@angular/core';
 import { ReactiveFormsModule, FormGroup, FormControl } from '@angular/forms';
 import { IconButtonComponent } from '@/shared/ui';
 import { AiChatStore } from '../../services/ai-chat.store';
@@ -22,7 +13,7 @@ const baseTextAreaHeight = padding * 2 + lineHeight;
   templateUrl: './chat-form.component.html',
   styleUrl: './chat-form.component.scss',
 })
-export class ChatFormComponent implements OnInit, OnDestroy {
+export class ChatFormComponent {
   readonly sendMessageEvent = output<string>();
   protected readonly store = inject(AiChatStore);
   protected messageForm = new FormGroup({
@@ -41,14 +32,6 @@ export class ChatFormComponent implements OnInit, OnDestroy {
         this.removeFocus();
       }
     });
-  }
-
-  ngOnInit(): void {
-    this.store.initSocketListeners();
-  }
-
-  ngOnDestroy(): void {
-    this.store.destroySocketListeners();
   }
 
   protected autoResize(textarea: HTMLTextAreaElement) {

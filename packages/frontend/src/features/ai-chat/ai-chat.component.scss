@@ -4,6 +4,13 @@
   height: calc(100vh - var(--header-height) - var(--footer-height));
 }
 
+.spin-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
 .chat-wrapper {
   display: flex;
   flex-direction: column;

@@ -31,4 +31,9 @@ export class AiSocketService {
   disconnect() {
     this.socket.disconnect();
   }
+
+  isOpened() {
+    if (this.socket.connected) return true;
+    return false;
+  }
 }
