@@ -4,6 +4,7 @@ import {
   withInMemoryScrolling,
   withComponentInputBinding,
   withHashLocation,
+  withViewTransitions,
 } from '@angular/router';
 import { provideHttpClient, withInterceptors } from '@angular/common/http';
 import { routes } from './app.routes';
@@ -13,9 +14,12 @@ import { TranslocoHttpLoader } from './transloco-loader';
 import { provideTransloco } from '@jsverse/transloco';
 import { getInitialLang } from '@/core/utils/i18n.utils';
 import { APP_LANGUAGES, AppLanguage } from '@/core/constants/i18n.constants';
+import { onViewTransitionCreated } from '@/core/configs/view-transitions.config';
+import { provideConsoleFilter } from '@/core/configs/console-filter.provider';
 
 export const appConfig: ApplicationConfig = {
   providers: [
+    provideConsoleFilter(),
     provideRouter(
       routes,
       withInMemoryScrolling({
@@ -24,6 +28,10 @@ export const appConfig: ApplicationConfig = {
       }),
       withComponentInputBinding(),
       withHashLocation(),
+      withViewTransitions({
+        skipInitialTransition: true,
+        onViewTransitionCreated,
+      }),
     ),
     provideHttpClient(withInterceptors([authInterceptor])),
     provideAppInitializer(initializeAuth),
