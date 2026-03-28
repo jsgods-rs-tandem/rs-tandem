@@ -11,6 +11,8 @@ import { authInterceptor } from '@/core/interceptors/auth.interceptor';
 import { initializeAuth } from '@/core/initializers/auth.initializer';
 import { TranslocoHttpLoader } from './transloco-loader';
 import { provideTransloco } from '@jsverse/transloco';
+import { getInitialLang } from '@/core/utils/i18n.utils';
+import { APP_LANGUAGES, AppLanguage } from '@/core/constants/i18n.constants';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -27,8 +29,8 @@ export const appConfig: ApplicationConfig = {
     provideAppInitializer(initializeAuth),
     provideTransloco({
       config: {
-        availableLangs: ['en', 'ru'],
-        defaultLang: navigator.language.startsWith('ru') ? 'ru' : 'en',
+        availableLangs: APP_LANGUAGES as unknown as AppLanguage[],
+        defaultLang: getInitialLang(),
         reRenderOnLangChange: true,
         prodMode: !isDevMode(),
       },

@@ -12,6 +12,8 @@ import { AuthService } from '@/core/services/auth.service';
 import { ROUTE_PATHS } from '@/core/constants';
 import { TranslocoService } from '@jsverse/transloco';
 import { toSignal } from '@angular/core/rxjs-interop';
+import { saveLang } from '@/core/utils/i18n.utils';
+import { AppLanguage } from '@/core/constants/i18n.constants';
 
 @Component({
   selector: 'app-header',
@@ -36,7 +38,7 @@ export class HeaderComponent {
   isMenuOpen = input(false);
   isDarkTheme = computed(() => this.themeService.theme() === 'dark');
   activeLang = toSignal(this.translocoService.langChanges$, {
-    initialValue: this.translocoService.getActiveLang(),
+    initialValue: this.translocoService.getActiveLang() as AppLanguage,
   });
 
   menuToggled = output();
@@ -66,7 +68,10 @@ export class HeaderComponent {
   }
 
   toggleLanguage(): void {
-    this.translocoService.setActiveLang(this.isEngLanguage() ? 'ru' : 'en');
+    const newLang = this.isEngLanguage() ? 'ru' : 'en';
+
+    this.translocoService.setActiveLang(newLang);
+    saveLang(newLang);
   }
 
   handleLogout(): void {

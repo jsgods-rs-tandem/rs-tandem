@@ -1,8 +1,9 @@
 import { TranslocoTestingModule } from '@jsverse/transloco';
+import { APP_LANGUAGES, DEFAULT_LANGUAGE, AppLanguage } from '@/core/constants/i18n.constants';
 
 /**
  * Provides a standardized Transloco testing module for use in unit tests.
- * This ensures that components using translations can be tested without
+ * This helper centralizes the Transloco testing configuration to prevent
  * missing provider errors.
  */
 export function provideAppTranslocoTesting() {
@@ -13,8 +14,8 @@ export function provideAppTranslocoTesting() {
         ru: {},
       },
       translocoConfig: {
-        availableLangs: ['en', 'ru'],
-        defaultLang: 'en',
+        availableLangs: APP_LANGUAGES as unknown as AppLanguage[],
+        defaultLang: DEFAULT_LANGUAGE,
       },
       preloadLangs: true,
     }).providers ?? []
