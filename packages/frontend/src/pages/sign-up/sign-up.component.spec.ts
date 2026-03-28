@@ -73,10 +73,10 @@ describe('SignUpComponent', () => {
     const passControl = component.signUpForm.get('password')!;
 
     passControl.markAsTouched();
-    expect(component.getValidationErrorKey('password')).toBe('required');
+    expect(component.getValidationErrorKey('password')).toBe('auth.validation.required');
 
     passControl.setValue('short');
-    expect(component.getValidationErrorKey('password')).toBe('minLength');
+    expect(component.getValidationErrorKey('password')).toBe('auth.validation.minLength');
   });
 
   it('should not submit if form is invalid', () => {

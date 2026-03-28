@@ -62,10 +62,10 @@ describe('SignInComponent', () => {
   it('should return error texts for invalid paths', () => {
     const emailControl = component.signInForm.get('email')!;
     emailControl.markAsTouched();
-    expect(component.getValidationErrorKey('email')).toBe('required');
+    expect(component.getValidationErrorKey('email')).toBe('auth.validation.required');
 
     emailControl.setValue('not-an-email');
-    expect(component.getValidationErrorKey('email')).toBe('email');
+    expect(component.getValidationErrorKey('email')).toBe('auth.validation.email');
   });
 
   it("shouldn't submit an invalid form", () => {
