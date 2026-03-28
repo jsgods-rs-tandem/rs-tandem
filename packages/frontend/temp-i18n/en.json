@@ -1,0 +1,17 @@
+{
+  "errors.noConnection": "Missing value for 'errors.noConnection'",
+  "errors.serverError": "Missing value for 'errors.serverError'",
+  "auth.validation.required": "Missing value for 'auth.validation.required'",
+  "auth.validation.email": "Missing value for 'auth.validation.email'",
+  "auth.validation.minLength": "Missing value for 'auth.validation.minLength'",
+  "auth.errorMessages.registrationTitle": "Missing value for 'auth.errorMessages.registrationTitle'",
+  "auth/validation.required": "Missing value for 'auth/validation.required'",
+  "auth/validation.email": "Missing value for 'auth/validation.email'",
+  "auth/validation.minLength": "Missing value for 'auth/validation.minLength'",
+  "auth/errorMessages.loginTitle": "Missing value for 'auth/errorMessages.loginTitle'",
+  "common.success": "Missing value for 'common.success'",
+  "common.profileUpdated": "Missing value for 'common.profileUpdated'",
+  "errors.checkPasswordOrData": "Missing value for 'errors.checkPasswordOrData'",
+  "errors.updateFailed": "Missing value for 'errors.updateFailed'",
+  "errors.unexpected": "Missing value for 'errors.unexpected'"
+}

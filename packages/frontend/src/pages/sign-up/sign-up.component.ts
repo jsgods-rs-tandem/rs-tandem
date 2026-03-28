@@ -11,7 +11,9 @@ import { ModalService } from '@/core/services/modal.service';
 import { getHttpErrorMessageTKey } from '@/shared/utils/http-error.utilities';
 import { AUTH_ERROR_MESSAGES } from '@/shared/utils/auth-error-messages.constants';
 import { injectTranslate } from '@/shared/utils/translate.helper';
-import { TRANSLOCO_SCOPE, TranslocoDirective } from '@jsverse/transloco';
+import { marker } from '@jsverse/transloco-keys-manager/marker';
+import type { AppTranslationKey } from '@/shared/types/translation-keys';
+import { TypedTranslocoPipe } from '@/shared/pipes/typed-transloco.pipe';
 
 @Component({
   selector: 'app-sign-up',
@@ -21,11 +23,10 @@ import { TRANSLOCO_SCOPE, TranslocoDirective } from '@jsverse/transloco';
     ReactiveFormsModule,
     InputComponent,
     ButtonComponent,
-    TranslocoDirective,
+    TypedTranslocoPipe,
   ],
   templateUrl: './sign-up.component.html',
   styleUrl: './sign-up.component.scss',
-  providers: [{ provide: TRANSLOCO_SCOPE, useValue: 'auth' }],
 })
 export class SignUpComponent {
   private authService = inject(AuthService);
@@ -73,12 +74,12 @@ export class SignUpComponent {
 
           const messageKey = getHttpErrorMessageTKey(
             error,
-            'auth.errorMessages.defaultRegistration',
+            marker('auth.errorMessages.defaultRegistration') as AppTranslationKey,
             AUTH_ERROR_MESSAGES,
           );
 
           this.modalService.open({
-            title: this.t('auth.errorMessages.registrationTitle'),
+            title: this.t(marker('auth.errorMessages.registrationTitle') as AppTranslationKey),
             message: Array.isArray(messageKey)
               ? messageKey.map((key) => this.t(key))
               : this.t(messageKey),
@@ -88,13 +89,15 @@ export class SignUpComponent {
       });
   }
 
-  getValidationErrorKey(controlName: string): string | null {
+  getValidationErrorKey(controlName: string): AppTranslationKey | null {
     const control = this.signUpForm.get(controlName);
 
     if (!control) return null;
-    if (control.hasError('required')) return 'required';
-    if (control.hasError('minlength')) return 'minLength';
-    if (control.hasError('email')) return 'email';
+    if (control.hasError('required'))
+      return marker('auth.validation.required') as AppTranslationKey;
+    if (control.hasError('minlength'))
+      return marker('auth.validation.minLength') as AppTranslationKey;
+    if (control.hasError('email')) return marker('auth.validation.email') as AppTranslationKey;
     return null;
   }
 }

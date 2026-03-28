@@ -8,6 +8,8 @@ import { ModalService } from '@/core/services/modal.service';
 
 import { getHttpErrorMessageTKey } from '@/shared/utils/http-error.utilities';
 import { injectTranslate } from '@/shared/utils/translate.helper';
+import { marker } from '@jsverse/transloco-keys-manager/marker';
+import type { AppTranslationKey } from '@/shared/types/translation-keys';
 
 import type {
   GetCategoriesResponseDto,
@@ -263,7 +265,10 @@ export class QuizService {
   }
 
   private _showError(error: CustomHttpError) {
-    const messageKey = getHttpErrorMessageTKey(error, 'errors.unexpected');
+    const messageKey = getHttpErrorMessageTKey(
+      error,
+      marker('errors.unexpected') as AppTranslationKey,
+    );
 
     this._modalService.open({
       title: `${String(error.error.statusCode || 0)} — ${error.error.error || 'Network Error'}`,

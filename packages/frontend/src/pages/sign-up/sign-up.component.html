@@ -1,59 +1,58 @@
-<ng-container *transloco="let t; prefix: 'auth'">
-  <app-auth-page
-    [heading]="t('signUp.title')"
-    [switchText]="t('signUp.switchLink.title')"
-    [switchRoute]="ROUTE_PATHS.signIn"
-    [switchLinkText]="t('signUp.switchLink.button')"
-  >
-    <form [formGroup]="signUpForm" (ngSubmit)="onSubmit()">
-      <app-input
-        id="username"
-        targetType="text"
-        formControlName="username"
-        [label]="t('signUp.form.username.label')"
-        [placeholder]="t('signUp.form.username.placeholder')"
-        [hasError]="signUpForm.controls.username.touched && signUpForm.controls.username.invalid"
-        [errorText]="
-          getValidationErrorKey('username')
-            ? t('validation.' + getValidationErrorKey('username'), { min: 3 })
-            : ''
-        "
-      />
+<app-auth-page
+  [heading]="'auth.signUp.title' | transloco"
+  [switchText]="'auth.signUp.switchLink.title' | transloco"
+  [switchRoute]="ROUTE_PATHS.signIn"
+  [switchLinkText]="'auth.signUp.switchLink.button' | transloco"
+  data-testid="page-container"
+>
+  <form [formGroup]="signUpForm" (ngSubmit)="onSubmit()">
+    <app-input
+      id="username"
+      targetType="text"
+      formControlName="username"
+      [label]="'auth.signUp.form.username.label' | transloco"
+      [placeholder]="'auth.signUp.form.username.placeholder' | transloco"
+      [hasError]="signUpForm.controls.username.touched && signUpForm.controls.username.invalid"
+      [errorText]="
+        getValidationErrorKey('username')
+          ? (getValidationErrorKey('username')! | transloco: { min: 3 })
+          : ''
+      "
+    />
 
-      <app-input
-        id="email"
-        targetType="email"
-        formControlName="email"
-        [label]="t('signUp.form.email.label')"
-        [placeholder]="t('signUp.form.email.placeholder')"
-        [hasError]="signUpForm.controls.email.touched && signUpForm.controls.email.invalid"
-        [errorText]="
-          getValidationErrorKey('email')
-            ? t('validation.' + getValidationErrorKey('email'), { min: 8 })
-            : ''
-        "
-      />
+    <app-input
+      id="email"
+      targetType="email"
+      formControlName="email"
+      [label]="'auth.signUp.form.email.label' | transloco"
+      [placeholder]="'auth.signUp.form.email.placeholder' | transloco"
+      [hasError]="signUpForm.controls.email.touched && signUpForm.controls.email.invalid"
+      [errorText]="
+        getValidationErrorKey('email')
+          ? (getValidationErrorKey('email')! | transloco: { min: 8 })
+          : ''
+      "
+    />
 
-      <app-input
-        id="password"
-        targetType="password"
-        formControlName="password"
-        [label]="t('signUp.form.password.label')"
-        [placeholder]="t('signUp.form.password.placeholder')"
-        [hasError]="signUpForm.controls.password.touched && signUpForm.controls.password.invalid"
-        [errorText]="
-          getValidationErrorKey('password')
-            ? t('validation.' + getValidationErrorKey('password'), { min: 8 })
-            : ''
-        "
-      />
+    <app-input
+      id="password"
+      targetType="password"
+      formControlName="password"
+      [label]="'auth.signUp.form.password.label' | transloco"
+      [placeholder]="'auth.signUp.form.password.placeholder' | transloco"
+      [hasError]="signUpForm.controls.password.touched && signUpForm.controls.password.invalid"
+      [errorText]="
+        getValidationErrorKey('password')
+          ? (getValidationErrorKey('password')! | transloco: { min: 8 })
+          : ''
+      "
+    />
 
-      <app-button
-        type="submit"
-        [text]="t('signUp.form.submit')"
-        [loading]="isLoading()"
-        data-testid="submit-btn"
-      />
-    </form>
-  </app-auth-page>
-</ng-container>
+    <app-button
+      type="submit"
+      [text]="'auth.signUp.form.submit' | transloco"
+      [loading]="isLoading()"
+      data-testid="submit-btn"
+    />
+  </form>
+</app-auth-page>

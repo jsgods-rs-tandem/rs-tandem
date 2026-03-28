@@ -2,8 +2,6 @@
   "errors": {
     "noConnection": "Unable to connect to the server. Please check your internet connection.",
     "serverError": "Server error. Please try again later.",
-    "networkTitle": "Connection Error",
-    "serverTitle": "Server Error",
     "unexpected": "Unexpected Error",
     "updateFailed": "Update Failed",
     "checkPasswordOrData": "Please check your current password or data"
@@ -11,5 +9,63 @@
   "common": {
     "success": "Success",
     "profileUpdated": "Profile updated successfully!"
+  },
+  "auth": {
+    "signIn": {
+      "title": "Sign in",
+      "form": {
+        "email": {
+          "label": "Email",
+          "placeholder": "Enter your email"
+        },
+        "password": {
+          "label": "Password",
+          "placeholder": "Enter your password"
+        },
+        "submit": "Sign in"
+      },
+      "switchLink": {
+        "title": "Don’t have an account?",
+        "button": "Sign up"
+      }
+    },
+    "signUp": {
+      "title": "Sign up",
+      "form": {
+        "username": {
+          "label": "Username",
+          "placeholder": "Enter your username"
+        },
+        "email": {
+          "label": "Email",
+          "placeholder": "Enter your email"
+        },
+        "password": {
+          "label": "Password",
+          "placeholder": "Enter your password"
+        },
+        "submit": "Sign up"
+      },
+      "switchLink": {
+        "title": "Already have an account?",
+        "button": "Sign in"
+      }
+    },
+    "validation": {
+      "required": "This field is required",
+      "email": "Invalid email address",
+      "minLength": "Minimum length is {{min}} characters"
+    },
+    "errorMessages": {
+      "loginTitle": "Login Error",
+      "registrationTitle": "Registration Error",
+      "invalidCredentials": "Invalid email or password. Please try again.",
+      "emailAlreadyRegistered": "This email is already taken. Try signing in instead.",
+      "invalidEmail": "Please enter a valid email address.",
+      "passwordTooShort": "Password must be at least 8 characters.",
+      "displayNameTooLong": "Display name must not exceed 50 characters.",
+      "defaultLogin": "Invalid email or password.",
+      "defaultRegistration": "Failed to create an account. Please try again later or use a different email."
+    }
   }
 }

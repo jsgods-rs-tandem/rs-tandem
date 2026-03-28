@@ -1,9 +1,9 @@
 import { inject } from '@angular/core';
 import { TranslocoService } from '@jsverse/transloco';
-import type { TranslationKey } from '@/shared/types/i18n.generated';
+import type { AppTranslationKey } from '@/shared/types/translation-keys';
 
 export function injectTranslate(): (
-  key: TranslationKey,
+  key: AppTranslationKey,
   parameters?: Record<string, unknown>,
 ) => string {
   const service = inject(TranslocoService);

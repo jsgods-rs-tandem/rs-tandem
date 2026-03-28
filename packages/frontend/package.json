@@ -12,7 +12,6 @@
     "e2e:update": "docker-compose -f docker-compose.e2e.yml run --rm -e PLAYWRIGHT_FLAGS=-u playwright",
     "e2e:show-report": "npx playwright show-report playwright/report",
     "i18n:find": "transloco-keys-manager find",
-    "i18n:extract": "transloco-keys-manager extract",
     "i18n:generate-types": "npx tsx scripts/generate-i18n-types.ts"
   },
   "private": true,

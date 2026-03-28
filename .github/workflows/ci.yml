@@ -37,6 +37,9 @@ jobs:
       - name: Typecheck
         run: npm run typecheck
 
+      - name: i18n keys check
+        run: npm run i18n:find -w @rs-tandem/frontend
+
   test:
     name: Test
     needs: lint

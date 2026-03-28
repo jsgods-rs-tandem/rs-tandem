@@ -9,9 +9,11 @@ import { HttpErrorResponse } from '@angular/common/http';
 import type { UserProfileDto } from '@rs-tandem/shared';
 import { getHttpErrorMessageTKey } from '@/shared/utils/http-error.utilities';
 import { injectTranslate } from '@/shared/utils/translate.helper';
+import { marker } from '@jsverse/transloco-keys-manager/marker';
 import type { ProfileFormData, ProfileState } from '../models/profile.types';
 import { buildUpdateProfileDto } from '../utils/profile.mapper';
 import type { AuthUser } from '@/shared/types';
+import type { AppTranslationKey } from '@/shared/types/translation-keys';
 
 const DELAY_MS = 300;
 
@@ -111,8 +113,8 @@ export class ProfileFacade {
             this.authStore.updateUser(updatedProfile);
           }
           this.modalService.open({
-            title: this.t('common.success'),
-            message: this.t('common.profileUpdated'),
+            title: 'Success',
+            message: 'Profile updated successfully!',
             icon: 'info-outline',
           });
           this.state.set('view');
@@ -120,10 +122,13 @@ export class ProfileFacade {
         error: (error: HttpErrorResponse) => {
           this.state.set('edit');
 
-          const messageKey = getHttpErrorMessageTKey(error, 'errors.checkPasswordOrData');
+          const messageKey = getHttpErrorMessageTKey(
+            error,
+            marker('errors.checkPasswordOrData') as AppTranslationKey,
+          );
 
           this.modalService.open({
-            title: this.t('errors.updateFailed'),
+            title: 'Update Failed',
             message: Array.isArray(messageKey)
               ? messageKey.map((key) => this.t(key))
               : this.t(messageKey),
