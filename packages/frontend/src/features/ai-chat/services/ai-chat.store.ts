@@ -11,7 +11,7 @@ import { AiHttpService } from './ai-http-service';
 })
 export class AiChatStore {
   private _messages = signal<IMessage[]>([]);
-  private _status = signal<ChatStatus>('loading');
+  private _status = signal<ChatStatus>('default');
   private wsApi = inject(AiSocketService);
   private httpApi = inject(AiHttpService);
   private socketSubscriptions: Subscription[] = [];
@@ -20,6 +20,10 @@ export class AiChatStore {
   readonly messages = this._messages.asReadonly();
   readonly messagesLength = computed(() => this._messages().length);
   readonly status = this._status.asReadonly();
+  readonly isReady = signal({
+    socket: false,
+    history: false,
+  });
 
   constructor() {
     this.loadHistory();
@@ -70,11 +74,7 @@ export class AiChatStore {
       .getHistory()
       .pipe(
         finalize(() => {
-          if (this.wsApi.isOpened()) {
-            this.updateStatus('default');
-          } else {
-            this.updateStatus('connecting');
-          }
+          this.isReady.update((state) => ({ ...state, history: true }));
         }),
       )
       .subscribe({
@@ -137,21 +137,19 @@ export class AiChatStore {
 
   private handleConnect = () => {
     this.zone.run(() => {
-      if (this.status() === 'connecting') {
-        this.updateStatus('default');
-      }
+      this.isReady.update((state) => ({ ...state, socket: true }));
     });
   };
 
   private handleDisconnect = () => {
     this.zone.run(() => {
-      this.updateStatus('connecting');
+      this.isReady.update((state) => ({ ...state, socket: false }));
     });
   };
 
   private handleConnectionError = () => {
     this.zone.run(() => {
-      this.updateStatus('connecting');
+      this.isReady.update((state) => ({ ...state, socket: false }));
     });
   };
 }

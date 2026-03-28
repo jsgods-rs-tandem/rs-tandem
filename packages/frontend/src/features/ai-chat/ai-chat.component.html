@@ -1,4 +1,4 @@
-@if (isLoaded()) {
+@if (this.store.isReady().history) {
   <div
     class="chat-wrapper"
     [class]="store.messagesLength() ? 'chat-wrapper_filled' : 'chat-wrapper_empty'"

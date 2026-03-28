@@ -1,4 +1,4 @@
-import { Component, effect, inject, OnDestroy, OnInit, signal } from '@angular/core';
+import { Component, inject, OnDestroy, OnInit } from '@angular/core';
 import { DialogueWindowComponent } from './components/dialogue-window/dialogue-window.component';
 import { ChatFormComponent } from './components/chat-form/chat-form.component';
 import { AiChatStore } from './services/ai-chat.store';
@@ -14,17 +14,6 @@ import { SpinComponent } from '@/shared/ui';
 export class AiChatComponent implements OnInit, OnDestroy {
   protected readonly store = inject(AiChatStore);
   protected readonly username = inject(AuthStore).name;
-  protected readonly isLoaded = signal(false);
-
-  constructor() {
-    effect(() => {
-      if (this.store.status() === 'loading') {
-        this.isLoaded.set(false);
-      } else {
-        this.isLoaded.set(true);
-      }
-    });
-  }
 
   ngOnInit(): void {
     this.store.initSocketListeners();
