@@ -73,7 +73,7 @@ export class SignUpComponent {
           this.isLoading.set(false);
 
           this.modalService.open({
-            title: this.t(marker('auth.errorMessages.registrationTitle') as AppTranslationKey),
+            title: this.t(marker('auth.errorMessages.registrationTitle')),
             message: getHttpErrorMessage(
               error,
               'Failed to create an account. Please try again later or use a different email.',
@@ -89,11 +89,9 @@ export class SignUpComponent {
     const control = this.signUpForm.get(controlName);
 
     if (!control) return null;
-    if (control.hasError('required'))
-      return marker('auth.validation.required') as AppTranslationKey;
-    if (control.hasError('minlength'))
-      return marker('auth.validation.minLength') as AppTranslationKey;
-    if (control.hasError('email')) return marker('auth.validation.email') as AppTranslationKey;
+    if (control.hasError('required')) return marker('auth.validation.required');
+    if (control.hasError('minlength')) return marker('auth.validation.minLength');
+    if (control.hasError('email')) return marker('auth.validation.email');
     return null;
   }
 }

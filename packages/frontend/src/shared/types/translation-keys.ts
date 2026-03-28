@@ -1,19 +1,15 @@
 import ruTranslations from '../../../public/i18n/ru.json';
 
-type Join<K, P> = K extends string | number
-  ? P extends string | number
-    ? `${K}${'' extends P ? '' : '.'}${P}`
-    : never
-  : never;
+type Primitive = string | number | boolean | null;
 
-type Previous = [never, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+type Join<K extends string, P extends string> = P extends '' ? K : `${K}.${P}`;
 
-type Paths<T, D extends number = 10> = [D] extends [never]
+type Depth = [never, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+type LeafPaths<T, D extends number = 10> = [D] extends [never]
   ? never
-  : T extends object
-    ? {
-        [K in keyof T]-?: K extends string | number ? Join<K, Paths<T[K], Previous[D]>> : never;
-      }[keyof T]
-    : '';
+  : T extends Primitive
+    ? ''
+    : { [K in keyof T & string]: Join<K, LeafPaths<T[K], Depth[D]>> }[keyof T & string];
 
-export type AppTranslationKey = Exclude<Paths<typeof ruTranslations>, ''>;
+export type AppTranslationKey = LeafPaths<typeof ruTranslations>;

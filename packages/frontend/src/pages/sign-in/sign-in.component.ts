@@ -76,7 +76,7 @@ export class SignInComponent {
           this.isLoading.set(false);
 
           this.modalService.open({
-            title: this.t(marker('auth.errorMessages.loginTitle') as AppTranslationKey),
+            title: this.t(marker('auth.errorMessages.loginTitle')),
             message: getHttpErrorMessage(error, 'Invalid email or password.', AUTH_ERROR_MESSAGES),
             icon: 'info-outline',
           });
@@ -88,11 +88,9 @@ export class SignInComponent {
     const control = this.signInForm.get(controlName);
 
     if (!control) return null;
-    if (control.hasError('required'))
-      return marker('auth.validation.required') as AppTranslationKey;
-    if (control.hasError('minlength'))
-      return marker('auth.validation.minLength') as AppTranslationKey;
-    if (control.hasError('email')) return marker('auth.validation.email') as AppTranslationKey;
+    if (control.hasError('required')) return marker('auth.validation.required');
+    if (control.hasError('minlength')) return marker('auth.validation.minLength');
+    if (control.hasError('email')) return marker('auth.validation.email');
     return null;
   }
 }
