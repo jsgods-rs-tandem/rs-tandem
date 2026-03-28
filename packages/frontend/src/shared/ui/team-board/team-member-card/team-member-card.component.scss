@@ -15,11 +15,13 @@
   box-shadow: var(--shadow);
 
   &_rotate {
-    transform: rotate(-11.201deg);
-    margin-left: var(--spacing-x2);
-    @include m.media('s') {
-      margin-top: var(--spacing-x1);
-      margin-left: var(--spacing-x1);
+    transform: rotate(0deg);
+    margin-left: 0;
+
+    &.is-in-view {
+      transform-origin: top center;
+      animation: swing-in-card var(--transition-duration-card) cubic-bezier(0.45, 0.05, 0.55, 0.95)
+        both;
     }
   }
 
@@ -48,5 +50,35 @@
       line-height: 1.4;
       text-transform: lowercase;
     }
+  }
+}
+
+@keyframes swing-in-card {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  25% {
+    transform: rotate(-7deg);
+  }
+
+  45% {
+    transform: rotate(-2deg);
+  }
+
+  65% {
+    transform: rotate(-6.5deg);
+  }
+
+  80% {
+    transform: rotate(-5deg);
+  }
+
+  92% {
+    transform: rotate(-5.5deg);
+  }
+
+  100% {
+    transform: rotate(-6deg);
   }
 }
