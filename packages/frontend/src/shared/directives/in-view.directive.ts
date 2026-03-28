@@ -1,4 +1,14 @@
-import { Directive, ElementRef, OnDestroy, output, input, inject, effect } from '@angular/core';
+import { isPlatformBrowser, DOCUMENT } from '@angular/common';
+import {
+  Directive,
+  ElementRef,
+  OnDestroy,
+  output,
+  input,
+  inject,
+  effect,
+  PLATFORM_ID,
+} from '@angular/core';
 
 @Directive({
   selector: '[appInView]',
@@ -6,6 +16,8 @@ import { Directive, ElementRef, OnDestroy, output, input, inject, effect } from 
 })
 export class InViewDirective implements OnDestroy {
   private readonly element = inject<ElementRef<HTMLElement>>(ElementRef);
+  private readonly platformId = inject(PLATFORM_ID);
+  private readonly window = inject(DOCUMENT).defaultView;
   /**
    * Percentage of the element's visibility (0.0 to 1.0) required to trigger the observer
    */
@@ -19,6 +31,9 @@ export class InViewDirective implements OnDestroy {
 
   constructor() {
     effect(() => {
+      if (!isPlatformBrowser(this.platformId) || !this.window?.IntersectionObserver) {
+        return;
+      }
       const currentThreshold = this.threshold();
 
       this.cleanup();
