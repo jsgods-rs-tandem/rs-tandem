@@ -43,6 +43,7 @@ export class AiChatStore {
   }
 
   initSocketListeners() {
+    this.wsApi.connect();
     this.subscribeToEvent('chat_chunk', this.handleNewChunk);
     this.subscribeToEvent('chat_end', this.handleChatEnd);
     this.subscribeToEvent('connect', this.handleConnect);

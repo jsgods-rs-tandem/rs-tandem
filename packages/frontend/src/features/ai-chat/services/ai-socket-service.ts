@@ -31,4 +31,8 @@ export class AiSocketService {
   disconnect() {
     this.socket.disconnect();
   }
+
+  connect() {
+    this.socket.connect();
+  }
 }
