@@ -9,11 +9,12 @@ import { ROUTE_PATHS } from '@/core/constants';
 import { HttpErrorResponse } from '@angular/common/http';
 import { ModalService } from '@/core/services/modal.service';
 import { getHttpErrorMessage } from '@/shared/utils/http-error.utilities';
-import { injectTranslate } from '@/shared/utils/translate.helper';
+import { injectTranslate } from '@/shared/utils/translate.utilities';
 import { marker } from '@jsverse/transloco-keys-manager/marker';
 import type { AppTranslationKey } from '@/shared/types/translation-keys';
 import { TypedTranslocoPipe } from '@/shared/pipes/typed-transloco.pipe';
-import { AUTH_ERROR_MESSAGES } from '@/shared/utils/auth-error-messages.constants';
+import { AUTH_ERROR_MESSAGES } from '@/shared/constants/auth-error-messages.constants';
+import { getValidationErrorKey } from '@/shared/utils/form-validation.utilities';
 
 @Component({
   selector: 'app-sign-up',
@@ -86,12 +87,6 @@ export class SignUpComponent {
   }
 
   getValidationErrorKey(controlName: string): AppTranslationKey | null {
-    const control = this.signUpForm.get(controlName);
-
-    if (!control) return null;
-    if (control.hasError('required')) return marker('auth.validation.required');
-    if (control.hasError('minlength')) return marker('auth.validation.minLength');
-    if (control.hasError('email')) return marker('auth.validation.email');
-    return null;
+    return getValidationErrorKey(this.signUpForm.get(controlName));
   }
 }

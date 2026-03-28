@@ -12,7 +12,7 @@ import { AuthService } from '@/core/services/auth.service';
 import { ROUTE_PATHS } from '@/core/constants';
 import { TranslocoService } from '@jsverse/transloco';
 import { toSignal } from '@angular/core/rxjs-interop';
-import { saveLang } from '@/core/utils/i18n.utils';
+import { saveLanguage } from '@/core/utils/i18n.utils';
 import { AppLanguage } from '@/core/constants/i18n.constants';
 
 @Component({
@@ -46,7 +46,7 @@ export class HeaderComponent {
 
   actionConfig = computed(() => HEADER_ACTIONS[this.mode()]);
   isEngLanguage = computed(() => this.activeLang() === 'en');
-  langText = computed(() => (this.isEngLanguage() ? 'Ru' : 'En'));
+  languageText = computed(() => (this.isEngLanguage() ? 'Ru' : 'En'));
   themeIcon = computed(() => (this.isDarkTheme() ? 'sun' : 'moon'));
   themeAriaLabel = computed(() =>
     this.isDarkTheme() ? 'Switch to light theme' : 'Switch to dark theme',
@@ -68,10 +68,10 @@ export class HeaderComponent {
   }
 
   toggleLanguage(): void {
-    const newLang = this.isEngLanguage() ? 'ru' : 'en';
+    const newLanguage = this.isEngLanguage() ? 'ru' : 'en';
 
-    this.translocoService.setActiveLang(newLang);
-    saveLang(newLang);
+    this.translocoService.setActiveLang(newLanguage);
+    saveLanguage(newLanguage);
   }
 
   handleLogout(): void {

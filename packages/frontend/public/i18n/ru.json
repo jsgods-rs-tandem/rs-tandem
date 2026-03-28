@@ -26,8 +26,8 @@
           "placeholder": "Введите имя пользователя"
         },
         "email": {
-          "label": "Имейл",
-          "placeholder": "Введите ваш имейл"
+          "label": "Почта",
+          "placeholder": "Введите ваш email"
         },
         "password": {
           "label": "Пароль",
