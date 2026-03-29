@@ -52,7 +52,7 @@
   },
   "errors": {
     "auth": {
-      "invalid_credentials": "Invalid email or password",
+      "invalid_credentials": "Invalid email or password. Please try again.",
       "email_exists": "This email is already taken",
       "token_invalid": "Invalid token",
       "password_same_as_current": "New password must differ from the current password"
