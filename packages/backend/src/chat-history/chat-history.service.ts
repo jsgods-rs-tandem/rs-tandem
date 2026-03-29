@@ -30,7 +30,7 @@ export class ChatHistoryService {
       return history.map((row) => toAiMessage(row));
     } catch (error) {
       this.logger.error(error);
-      throw new InternalServerErrorException('Failed request to the database');
+      throw new InternalServerErrorException('db.request_failed');
     }
   }
 
@@ -44,7 +44,7 @@ export class ChatHistoryService {
       return toAiMessage(row);
     } catch (error) {
       this.logger.error(error);
-      throw new InternalServerErrorException('Failed request to the database');
+      throw new InternalServerErrorException('db.request_failed');
     }
   }
 
@@ -53,7 +53,7 @@ export class ChatHistoryService {
       await this.chatHistoryRepository.deleteByUserId(userId);
     } catch (error) {
       this.logger.error(error);
-      throw new InternalServerErrorException('Failed request to the database');
+      throw new InternalServerErrorException('db.request_failed');
     }
   }
 }

@@ -49,5 +49,45 @@
       "loginTitle": "Ошибка входа",
       "registrationTitle": "Ошибка регистрации"
     }
+  },
+  "errors": {
+    "auth": {
+      "invalid_credentials": "Неверный имейл или пароль",
+      "email_exists": "Этот имейл уже занят",
+      "token_invalid": "Неверный токен",
+      "password_same_as_current": "Новый пароль должен отличаться от текущего"
+    },
+    "profile": {
+      "not_found": "Профиль не найден",
+      "email_in_use": "Этот имейл уже используется",
+      "password_incorrect": "Проверьте текущий пароль или данные"
+    },
+    "quiz": {
+      "category_not_found": "Категория не найдена",
+      "topic_not_found": "Топик не найден",
+      "no_active_session": "Нет активной сессии квиза",
+      "answer_not_found": "Ответ не найден",
+      "no_completed_attempt": "Нет завершённых попыток"
+    },
+    "ai": {
+      "provider_not_selected": "AI провайдер не выбран",
+      "provider_unknown": "Неизвестный AI провайдер",
+      "api_key_required": "Для этого провайдера требуется API ключ",
+      "provider_unavailable": "AI провайдер недоступен"
+    },
+    "db": {
+      "request_failed": "Ошибка запроса к базе данных"
+    },
+    "validation": {
+      "email_invalid": "Невалидный имейл адрес",
+      "required": "Это поле обязательное"
+    },
+    "network": {
+      "connection": "Не удалось подключиться к серверу. Проверьте подключение к интернету.",
+      "server": "Ошибка сервера. Попробуйте позже."
+    },
+    "common": {
+      "unexpected": "Неожиданная ошибка"
+    }
   }
 }

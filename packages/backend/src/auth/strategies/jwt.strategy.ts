@@ -2,7 +2,7 @@ import { Injectable, UnauthorizedException } from '@nestjs/common';
 import { PassportStrategy } from '@nestjs/passport';
 import { ExtractJwt, Strategy } from 'passport-jwt';
 import { ConfigService } from '@nestjs/config';
-import type { UserDto } from '@rs-tandem/shared';
+import { type UserDto } from '@rs-tandem/shared';
 import { UsersService } from '../../users/users.service.js';
 
 @Injectable()
@@ -22,7 +22,7 @@ export class JwtStrategy extends PassportStrategy(Strategy) {
     const user = await this.usersService.findById(payload.sub);
 
     if (!user) {
-      throw new UnauthorizedException();
+      throw new UnauthorizedException('auth.token_invalid');
     }
 
     return user;

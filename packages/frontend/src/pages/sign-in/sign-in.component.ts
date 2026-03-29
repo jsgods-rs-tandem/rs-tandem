@@ -15,7 +15,6 @@ import { injectTranslate } from '@/shared/utils/translate.utilities';
 import { marker } from '@jsverse/transloco-keys-manager/marker';
 import type { AppTranslationKey } from '@/shared/types/translation-keys';
 import { TypedTranslocoPipe } from '@/shared/pipes/typed-transloco.pipe';
-import { AUTH_ERROR_MESSAGES } from '@/shared/constants/auth-error-messages.constants';
 import { getValidationErrorKey } from '@/shared/utils/form-validation.utilities';
 
 @Component({
@@ -76,9 +75,15 @@ export class SignInComponent {
         error: (error: HttpErrorResponse) => {
           this.isLoading.set(false);
 
+          const errorMessage = getHttpErrorMessage(error, 'errors.auth.invalid_credentials');
+          const translateKey = (message: string) => this.t(marker(message as AppTranslationKey));
+          const translatedMessage = Array.isArray(errorMessage)
+            ? errorMessage.map(translateKey)
+            : translateKey(errorMessage);
+
           this.modalService.open({
             title: this.t(marker('auth.errorMessages.loginTitle')),
-            message: getHttpErrorMessage(error, 'Invalid email or password.', AUTH_ERROR_MESSAGES),
+            message: translatedMessage,
             icon: 'info-outline',
           });
         },

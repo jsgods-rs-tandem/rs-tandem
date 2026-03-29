@@ -1,7 +1,10 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { isErrorWithMessage } from '@/core/guards/is-error-with-message';
+import { isAppTranslationKey, type AppTranslationKey } from '@/shared/types/translation-keys';
 
-function extractRawMessages(error: HttpErrorResponse): string | string[] | null {
+function extractRawMessages(
+  error: HttpErrorResponse,
+): AppTranslationKey | AppTranslationKey[] | null {
   if (!isErrorWithMessage(error.error)) {
     return null;
   }
@@ -9,31 +12,30 @@ function extractRawMessages(error: HttpErrorResponse): string | string[] | null 
   const { message } = error.error;
 
   if (typeof message === 'string') {
-    return message;
+    return isAppTranslationKey(message) ? message : null;
   }
 
-  if (message.length > 0) {
-    return message;
+  const validKeys = message.filter((message_): message_ is AppTranslationKey =>
+    isAppTranslationKey(message_),
+  );
+
+  if (validKeys.length > 0) {
+    return validKeys;
   }
 
   return null;
 }
 
-function mapMessage(raw: string, messageMap?: Record<string, string>): string {
-  return messageMap?.[raw] ?? raw;
-}
-
 export function getHttpErrorMessage(
   error: HttpErrorResponse,
-  fallback: string,
-  messageMap?: Record<string, string>,
-): string | string[] {
+  fallback: AppTranslationKey = 'errors.common.unexpected',
+): AppTranslationKey | AppTranslationKey[] {
   if (error.status === 0) {
-    return 'Unable to connect to the server. Please check your internet connection.';
+    return 'errors.network.connection';
   }
 
   if (error.status >= 500) {
-    return 'Server error. Please try again later.';
+    return 'errors.network.server';
   }
 
   const messages = extractRawMessages(error);
@@ -43,8 +45,8 @@ export function getHttpErrorMessage(
   }
 
   if (Array.isArray(messages)) {
-    return messages.map((message) => mapMessage(message, messageMap));
+    return messages;
   }
 
-  return mapMessage(messages, messageMap);
+  return fallback;
 }

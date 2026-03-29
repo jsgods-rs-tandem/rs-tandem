@@ -76,6 +76,9 @@
     "transform": {
       "^.+\\.(t|j)s$": "ts-jest"
     },
+    "transformIgnorePatterns": [
+      "node_modules/(?!(@rs-tandem/shared)/)"
+    ],
     "collectCoverageFrom": [
       "**/*.(t|j)s"
     ],

@@ -1,11 +1,11 @@
 import { BadRequestException, Injectable, NotFoundException } from '@nestjs/common';
-import type {
-  GetCategoriesResponseDto,
-  GetCategoryResponseDto,
-  GetTopicResponseDto,
-  GetResultsResponseDto,
-  SubmitAnswerResponseDto,
-  StartTopicResponseDto,
+import {
+  type GetCategoriesResponseDto,
+  type GetCategoryResponseDto,
+  type GetTopicResponseDto,
+  type GetResultsResponseDto,
+  type SubmitAnswerResponseDto,
+  type StartTopicResponseDto,
 } from '@rs-tandem/shared';
 import { QuizRepository } from './quiz.repository.js';
 import type { SubmitAnswerDto } from './dto/submit-answer.dto.js';
@@ -28,7 +28,7 @@ export class QuizService {
     const category = await this.quizRepository.findCategoryById(id, userId, lang);
 
     if (!category) {
-      throw new NotFoundException(`Category ${id} not found`);
+      throw new NotFoundException('quiz.category_not_found');
     }
 
     return category;
@@ -41,7 +41,7 @@ export class QuizService {
     ]);
 
     if (!topic) {
-      throw new NotFoundException(`Topic ${id} not found`);
+      throw new NotFoundException('quiz.topic_not_found');
     }
 
     const step = latestAttempt?.completedAt === null ? latestAttempt.currentStep : 0;
@@ -56,7 +56,7 @@ export class QuizService {
     ]);
 
     if (!exists) {
-      throw new NotFoundException(`Topic ${id} not found`);
+      throw new NotFoundException('quiz.topic_not_found');
     }
 
     if (latestAttempt?.completedAt === null) {
@@ -78,7 +78,7 @@ export class QuizService {
     const attempt = await this.quizRepository.findLatestAttempt(userId, topicId);
 
     if (attempt?.completedAt !== null) {
-      throw new BadRequestException('No active quiz session');
+      throw new BadRequestException('quiz.no_active_session');
     }
 
     let isCorrect: boolean;
@@ -92,7 +92,7 @@ export class QuizService {
       const answer = await this.quizRepository.findAnswerById(dto.answerId);
 
       if (!answer) {
-        throw new BadRequestException('Answer not found');
+        throw new BadRequestException('quiz.answer_not_found');
       }
 
       isCorrect = answer.isCorrect;
@@ -116,7 +116,7 @@ export class QuizService {
     const attempt = await this.quizRepository.findLatestCompletedAttempt(userId, topicId);
 
     if (!attempt) {
-      throw new NotFoundException('No completed quiz found');
+      throw new NotFoundException('quiz.no_completed_attempt');
     }
 
     const [correct, total, links] = await Promise.all([
