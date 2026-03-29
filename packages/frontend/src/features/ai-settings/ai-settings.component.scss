@@ -1,3 +1,13 @@
+@use 'assets/styles/mixins.scss' as m;
+@use 'assets/styles/functions' as fn;
+
+:host,
+.provider-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-x3);
+}
+
 .title {
   margin-top: 1rem;
 }
@@ -7,4 +17,42 @@
   gap: var(--spacing-x3);
   padding-top: var(--spacing-x3);
   padding-bottom: var(--spacing-x3);
+}
+
+.select {
+  cursor: pointer;
+
+  width: 100%;
+  min-height: 52px;
+  margin-top: var(--spacing-x2);
+  padding: var(--spacing-x2) var(--spacing-x3);
+  border: 1px solid var(--secondary-color);
+  border-top-left-radius: var(--radius-md);
+  border-top-right-radius: var(--radius-md);
+
+  font-family: var(--font-main);
+  font-size: fn.to-rem(16px);
+  line-height: 1.5;
+  color: var(--text-primary);
+
+  background-color: transparent;
+  outline: none;
+  @include m.transition((border-color, box-shadow));
+
+  option {
+    color: var(--secondary-color);
+    background-color: var(--primary-color);
+  }
+}
+
+.disabled {
+  pointer-events: none;
+  user-select: none;
+  opacity: 0.3;
+}
+
+.control-wrapper {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
 }

@@ -1,8 +1,32 @@
 <h2 class="h3 title">{{ title }}</h2>
 <app-line-break></app-line-break>
-<h3 class="h4">Provider</h3>
 <div class="row">
-  <p>Ollama</p>
-  <app-switcher (toggledEvent)="toggleProvider($event)"></app-switcher>
-  <p>Open Router</p>
+  <h3 class="h4">Use remote provider?</h3>
+  <app-switcher
+    (toggledEvent)="toggleProvider($event)"
+    [initialStatus]="useRemoteProvider()"
+  ></app-switcher>
+</div>
+
+<div class="provider-wrapper" [ngClass]="useRemoteProvider() ? 'enabled' : 'disabled'">
+  <h3>Provider</h3>
+  <select name="provider" id="model" class="select">
+    @for (provider of providers; track provider.value) {
+      <option
+        value="{{ provider.value }}"
+        [selected]="providerSettings().provider.value === provider.value"
+      >
+        {{ provider.label }}
+      </option>
+    }
+  </select>
+  <h3>Model</h3>
+  <app-input [placeholder]="providerSettings().model"></app-input>
+  <h3>API key</h3>
+  <app-input [placeholder]="'API key'" class="input"></app-input>
+</div>
+
+<div class="control-wrapper">
+  <app-button>Update settings</app-button>
+  <app-button>Reset chat history</app-button>
 </div>
