@@ -15,3 +15,14 @@ type LeafPaths<T, D extends number = 10> = [D] extends [never]
       : { [K in keyof T & string]: Join<K, LeafPaths<T[K], Depth[D]>> }[keyof T & string];
 
 export type AppTranslationKey = LeafPaths<typeof ruTranslations>;
+
+export function isAppTranslationKey(message: string): message is AppTranslationKey {
+  const result = message.split('.').reduce<unknown>((acc, key) => {
+    if (acc && typeof acc === 'object' && key in acc) {
+      return (acc as Record<string, unknown>)[key];
+    }
+    return undefined;
+  }, ruTranslations);
+
+  return result !== undefined;
+}

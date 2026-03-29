@@ -264,7 +264,7 @@ export class QuizService {
   }
 
   private _showError(error: CustomHttpError) {
-    const errorMessage = getHttpErrorMessage(error, 'errors.common.unexpected');
+    const errorMessage = getHttpErrorMessage(error);
     const translateKey = (message: string) => this._t(marker(message as AppTranslationKey));
     const translatedMessage = Array.isArray(errorMessage)
       ? errorMessage.map(translateKey)

@@ -1,12 +1,10 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { isErrorWithMessage } from '@/core/guards/is-error-with-message';
-import type { AppTranslationKey } from '@/shared/types/translation-keys';
+import { isAppTranslationKey, type AppTranslationKey } from '@/shared/types/translation-keys';
 
-function isErrorCode(key: string): boolean {
-  return key.includes('.');
-}
-
-function extractRawMessages(error: HttpErrorResponse): string | string[] | null {
+function extractRawMessages(
+  error: HttpErrorResponse,
+): AppTranslationKey | AppTranslationKey[] | null {
   if (!isErrorWithMessage(error.error)) {
     return null;
   }
@@ -14,11 +12,15 @@ function extractRawMessages(error: HttpErrorResponse): string | string[] | null 
   const { message } = error.error;
 
   if (typeof message === 'string') {
-    return message;
+    return isAppTranslationKey(message) ? message : null;
   }
 
-  if (message.length > 0) {
-    return message;
+  const validKeys = message.filter((message_): message_ is AppTranslationKey =>
+    isAppTranslationKey(message_),
+  );
+
+  if (validKeys.length > 0) {
+    return validKeys;
   }
 
   return null;
@@ -26,8 +28,8 @@ function extractRawMessages(error: HttpErrorResponse): string | string[] | null 
 
 export function getHttpErrorMessage(
   error: HttpErrorResponse,
-  fallback: AppTranslationKey,
-): string | string[] {
+  fallback: AppTranslationKey = 'errors.common.unexpected',
+): AppTranslationKey | AppTranslationKey[] {
   if (error.status === 0) {
     return 'errors.network.connection';
   }
@@ -43,10 +45,6 @@ export function getHttpErrorMessage(
   }
 
   if (Array.isArray(messages)) {
-    return messages.map((message) => (isErrorCode(message) ? message : fallback));
-  }
-
-  if (isErrorCode(messages)) {
     return messages;
   }
 
