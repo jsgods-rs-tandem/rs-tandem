@@ -3,6 +3,7 @@ import { HeaderComponent } from './header.component';
 import { provideRouter } from '@angular/router';
 import { ThemeService } from '@/core/services/theme.service';
 import { signal } from '@angular/core';
+import { provideAppTranslocoTesting } from '@/testing/provide-transloco-testing';
 
 describe('HeaderComponent', () => {
   let component: HeaderComponent;
@@ -15,7 +16,11 @@ describe('HeaderComponent', () => {
     };
     await TestBed.configureTestingModule({
       imports: [HeaderComponent],
-      providers: [provideRouter([]), { provide: ThemeService, useValue: themeServiceMock }],
+      providers: [
+        provideAppTranslocoTesting(),
+        provideRouter([]),
+        { provide: ThemeService, useValue: themeServiceMock },
+      ],
     }).compileComponents();
 
     fixture = TestBed.createComponent(HeaderComponent);

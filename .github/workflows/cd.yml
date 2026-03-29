@@ -44,6 +44,9 @@ jobs:
   deploy-backend:
     name: Deploy BE
     runs-on: ubuntu-latest
+    environment:
+      name: railway-production
+      url: https://rs-tandem-production.up.railway.app
     steps:
       - name: Checkout
         uses: actions/checkout@v4

@@ -10,7 +10,8 @@
     "test:ui:coverage": "ng test --ui --coverage",
     "e2e": "docker-compose -f docker-compose.e2e.yml run --rm playwright",
     "e2e:update": "docker-compose -f docker-compose.e2e.yml run --rm -e PLAYWRIGHT_FLAGS=-u playwright",
-    "e2e:show-report": "npx playwright show-report playwright/report"
+    "e2e:show-report": "npx playwright show-report playwright/report",
+    "i18n:find": "transloco-keys-manager find"
   },
   "private": true,
   "dependencies": {
@@ -19,7 +20,6 @@
     "@angular/compiler": "^21.1.0",
     "@angular/core": "^21.1.0",
     "@angular/forms": "^21.1.0",
-    "@angular/localize": "~21.1.4",
     "@angular/material": "~21.1.4",
     "@angular/platform-browser": "^21.1.0",
     "@angular/router": "^21.1.0",
@@ -32,17 +32,19 @@
     "@angular/build": "^21.1.4",
     "@angular/cli": "^21.1.4",
     "@angular/compiler-cli": "^21.1.0",
+    "@jsverse/transloco": "^8.2.1",
+    "@jsverse/transloco-keys-manager": "^8.1.0",
     "@playwright/test": "^1.58.2",
     "@types/node": "^25.5.0",
     "@types/prismjs": "^1.26.6",
     "@vitest/coverage-v8": "^4.1.0",
     "@vitest/ui": "^4.1.0",
     "jsdom": "^27.1.0",
+    "socket.io-client": "^4.8.3",
     "stylelint": "^17.3.0",
     "stylelint-config-clean-order": "^8.0.1",
     "stylelint-config-prettier-scss": "^1.0.0",
     "stylelint-config-standard-scss": "^17.0.0",
-    "vitest": "^4.0.8",
-    "socket.io-client": "^4.8.3"
+    "vitest": "^4.0.8"
   }
 }

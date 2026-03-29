@@ -11,12 +11,23 @@ import { HttpErrorResponse } from '@angular/common/http';
 import { ROUTE_PATHS } from '@/core/constants';
 import { ModalService } from '@/core/services/modal.service';
 import { getHttpErrorMessage } from '@/shared/utils/http-error.utilities';
-import { AUTH_ERROR_MESSAGES } from '@/shared/utils/auth-error-messages.constants';
+import { injectTranslate } from '@/shared/utils/translate.utilities';
+import { marker } from '@jsverse/transloco-keys-manager/marker';
+import type { AppTranslationKey } from '@/shared/types/translation-keys';
+import { TypedTranslocoPipe } from '@/shared/pipes/typed-transloco.pipe';
+import { AUTH_ERROR_MESSAGES } from '@/shared/constants/auth-error-messages.constants';
+import { getValidationErrorKey } from '@/shared/utils/form-validation.utilities';
 
 @Component({
   selector: 'app-sign-in',
   standalone: true,
-  imports: [AuthPageComponent, ReactiveFormsModule, InputComponent, ButtonComponent],
+  imports: [
+    AuthPageComponent,
+    ReactiveFormsModule,
+    InputComponent,
+    ButtonComponent,
+    TypedTranslocoPipe,
+  ],
   templateUrl: './sign-in.component.html',
   styleUrl: './sign-in.component.scss',
 })
@@ -25,6 +36,7 @@ export class SignInComponent {
   private router = inject(Router);
   private authStore = inject(AuthStore);
   private modalService = inject(ModalService);
+  private t = injectTranslate();
 
   protected isLoading = signal(false);
 
@@ -65,7 +77,7 @@ export class SignInComponent {
           this.isLoading.set(false);
 
           this.modalService.open({
-            title: 'Login Error',
+            title: this.t(marker('auth.errorMessages.loginTitle')),
             message: getHttpErrorMessage(error, 'Invalid email or password.', AUTH_ERROR_MESSAGES),
             icon: 'info-outline',
           });
@@ -73,13 +85,7 @@ export class SignInComponent {
       });
   }
 
-  getErrorText(controlName: string): string {
-    const control = this.signInForm.get(controlName);
-
-    if (!control) return '';
-    if (control.hasError('required')) return 'This field is required';
-    if (control.hasError('minlength')) return `Minimum length is 8 characters`;
-    if (control.hasError('email')) return 'Invalid email address';
-    return '';
+  getValidationErrorKey(controlName: string): AppTranslationKey | null {
+    return getValidationErrorKey(this.signInForm.get(controlName));
   }
 }

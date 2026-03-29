@@ -1,40 +1,58 @@
 <app-auth-page
-  heading="Sign Up"
-  switchText="Already have an account?"
+  [heading]="'auth.signUp.title' | transloco"
+  [switchText]="'auth.signUp.switchLink.title' | transloco"
   [switchRoute]="ROUTE_PATHS.signIn"
-  switchLinkText="Sign In"
+  [switchLinkText]="'auth.signUp.switchLink.button' | transloco"
+  data-testid="page-container"
 >
   <form [formGroup]="signUpForm" (ngSubmit)="onSubmit()">
     <app-input
       id="username"
       targetType="text"
       formControlName="username"
-      label="Username"
-      placeholder="Enter your username"
+      [label]="'auth.signUp.form.username.label' | transloco"
+      [placeholder]="'auth.signUp.form.username.placeholder' | transloco"
       [hasError]="signUpForm.controls.username.touched && signUpForm.controls.username.invalid"
-      [errorText]="getErrorText('username')"
+      [errorText]="
+        getValidationErrorKey('username')
+          ? (getValidationErrorKey('username')! | transloco: { min: 3 })
+          : ''
+      "
     />
 
     <app-input
       id="email"
       targetType="email"
       formControlName="email"
-      label="Email"
-      placeholder="Enter your email"
+      [label]="'auth.signUp.form.email.label' | transloco"
+      [placeholder]="'auth.signUp.form.email.placeholder' | transloco"
       [hasError]="signUpForm.controls.email.touched && signUpForm.controls.email.invalid"
-      [errorText]="getErrorText('email')"
+      [errorText]="
+        getValidationErrorKey('email')
+          ? (getValidationErrorKey('email')! | transloco: { min: 8 })
+          : ''
+      "
     />
 
     <app-input
       id="password"
       targetType="password"
       formControlName="password"
-      label="Password"
-      placeholder="Enter your password"
+      [label]="'auth.signUp.form.password.label' | transloco"
+      [placeholder]="'auth.signUp.form.password.placeholder' | transloco"
       [hasError]="signUpForm.controls.password.touched && signUpForm.controls.password.invalid"
-      [errorText]="getErrorText('password')"
+      [errorText]="
+        getValidationErrorKey('password')
+          ? (getValidationErrorKey('password')! | transloco: { min: 8 })
+          : ''
+      "
     />
 
-    <app-button type="submit" text="Sign Up" [loading]="isLoading()" data-testid="submit-btn" />
+    <app-button
+      type="submit"
+      [text]="'auth.signUp.form.submit' | transloco"
+      [loading]="isLoading()"
+      data-testid="submit-btn"
+    />
   </form>
 </app-auth-page>

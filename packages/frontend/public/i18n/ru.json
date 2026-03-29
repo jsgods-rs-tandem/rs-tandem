@@ -1,0 +1,53 @@
+{
+  "auth": {
+    "signIn": {
+      "title": "Войти",
+      "form": {
+        "email": {
+          "label": "Имейл",
+          "placeholder": "Введите ваш имейл"
+        },
+        "password": {
+          "label": "Пароль",
+          "placeholder": "Введите ваш пароль"
+        },
+        "submit": "Войти"
+      },
+      "switchLink": {
+        "title": "Нет аккаунта?",
+        "button": "Зарегистрироваться"
+      }
+    },
+    "signUp": {
+      "title": "Зарегистрироваться",
+      "form": {
+        "username": {
+          "label": "Имя пользователя",
+          "placeholder": "Введите имя пользователя"
+        },
+        "email": {
+          "label": "Почта",
+          "placeholder": "Введите ваш email"
+        },
+        "password": {
+          "label": "Пароль",
+          "placeholder": "Введите ваш пароль"
+        },
+        "submit": "Зарегистрироваться"
+      },
+      "switchLink": {
+        "title": "Уже есть аккаунт?",
+        "button": "Войти"
+      }
+    },
+    "validation": {
+      "required": "Это поле обязательное",
+      "email": "Невалидный имейл адрес",
+      "minLength": "Минимальная длина {{min}} символов"
+    },
+    "errorMessages": {
+      "loginTitle": "Ошибка входа",
+      "registrationTitle": "Ошибка регистрации"
+    }
+  }
+}

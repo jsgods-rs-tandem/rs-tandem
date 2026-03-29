@@ -6,14 +6,14 @@ test.describe('Sign In Page', () => {
   });
 
   test('should display page correctly', async ({ signInPage }) => {
-    await expect(signInPage.title).toHaveText('Sign In');
+    await expect(signInPage.title).toHaveText('Sign in');
 
     await expect(signInPage.form.emailInput).not.toHaveCount(0);
     await expect(signInPage.form.passwordInput).not.toHaveCount(0);
     await expect(signInPage.form.submitButton).not.toHaveCount(0);
 
     await expect(signInPage.externalLinkRow.title).toContainText('Don’t have an account?');
-    await expect(signInPage.externalLinkRow.linkButton).toHaveText('Sign Up');
+    await expect(signInPage.externalLinkRow.linkButton).toHaveText('Sign up');
   });
 
   test("shouldn't login with incorrect credentials", async ({ signInPage, modalPage }) => {

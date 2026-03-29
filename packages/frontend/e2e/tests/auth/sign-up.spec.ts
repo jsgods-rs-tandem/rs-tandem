@@ -6,7 +6,7 @@ test.describe('Sign Up Page', () => {
   });
 
   test('should display page correctly', async ({ signUpPage }) => {
-    await expect(signUpPage.title).toHaveText('Sign Up');
+    await expect(signUpPage.title).toHaveText('Sign up');
 
     await expect(signUpPage.form.usernameInput).not.toHaveCount(0);
     await expect(signUpPage.form.emailInput).not.toHaveCount(0);
@@ -14,7 +14,7 @@ test.describe('Sign Up Page', () => {
     await expect(signUpPage.form.submitButton).not.toHaveCount(0);
 
     await expect(signUpPage.externalLinkRow.title).toContainText('Already have an account?');
-    await expect(signUpPage.externalLinkRow.linkButton).toHaveText('Sign In');
+    await expect(signUpPage.externalLinkRow.linkButton).toHaveText('Sign in');
   });
 
   test('should show modal on registration error (duplicate email)', async ({

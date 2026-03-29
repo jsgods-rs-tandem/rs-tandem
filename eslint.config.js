@@ -21,6 +21,7 @@ export default defineConfig([
       'package-lock.json',
       'eslint.config.js',
       '.validate-branch-name.js',
+      '**/transloco.config.ts',
     ],
   },
 
@@ -39,6 +40,7 @@ export default defineConfig([
           './packages/frontend/tsconfig.app.json',
           './packages/frontend/tsconfig.spec.json',
           './packages/frontend/tsconfig.e2e.json',
+          './packages/frontend/tsconfig.node.json',
           './packages/backend/tsconfig.json',
           './packages/shared/tsconfig.json',
         ],
@@ -96,6 +98,7 @@ export default defineConfig([
             './packages/frontend/tsconfig.app.json',
             './packages/frontend/tsconfig.spec.json',
             './packages/frontend/tsconfig.e2e.json',
+            './packages/frontend/tsconfig.node.json',
             './packages/backend/tsconfig.json',
             './packages/shared/tsconfig.json',
           ],
@@ -162,6 +165,13 @@ export default defineConfig([
     files: ['packages/frontend/e2e/**/*.ts'],
     rules: {
       'no-empty-pattern': 'off',
+    },
+  },
+
+  {
+    files: ['packages/frontend/scripts/**/*.ts'],
+    rules: {
+      'no-console': 'off',
     },
   },
 

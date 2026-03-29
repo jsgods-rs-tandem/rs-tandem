@@ -25,12 +25,12 @@
 
 <ng-template #systemButtons>
   <app-button
-    [text]="langText()"
+    [text]="languageText()"
     version="ghost"
     icon="language"
     iconColor="neutral"
     [ariaLabel]="languageAriaLabel()"
-    (click)="languageClick.emit()"
+    (click)="toggleLanguage()"
   />
   <app-icon-button [icon]="themeIcon()" [ariaLabel]="themeAriaLabel()" (click)="toggleTheme()" />
 </ng-template>

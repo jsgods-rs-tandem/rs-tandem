@@ -1,8 +1,8 @@
 <app-auth-page
-  heading="Sign In"
-  switchText="Don’t have an account?"
+  [heading]="'auth.signIn.title' | transloco"
+  [switchText]="'auth.signIn.switchLink.title' | transloco"
   [switchRoute]="ROUTE_PATHS.signUp"
-  switchLinkText="Sign Up"
+  [switchLinkText]="'auth.signIn.switchLink.button' | transloco"
   data-testid="page-container"
 >
   <form [formGroup]="signInForm" (ngSubmit)="onSubmit()">
@@ -10,22 +10,35 @@
       id="email"
       targetType="email"
       formControlName="email"
-      label="Email"
-      placeholder="Enter your email"
+      [label]="'auth.signIn.form.email.label' | transloco"
+      [placeholder]="'auth.signIn.form.email.placeholder' | transloco"
       [hasError]="signInForm.controls.email.touched && signInForm.controls.email.invalid"
-      [errorText]="getErrorText('email')"
+      [errorText]="
+        getValidationErrorKey('email')
+          ? (getValidationErrorKey('email')! | transloco: { min: 8 })
+          : ''
+      "
     />
 
     <app-input
       id="password"
       targetType="password"
       formControlName="password"
-      label="Password"
-      placeholder="Enter your password"
+      [label]="'auth.signIn.form.password.label' | transloco"
+      [placeholder]="'auth.signIn.form.password.placeholder' | transloco"
       [hasError]="signInForm.controls.password.touched && signInForm.controls.password.invalid"
-      [errorText]="getErrorText('password')"
+      [errorText]="
+        getValidationErrorKey('password')
+          ? (getValidationErrorKey('password')! | transloco: { min: 8 })
+          : ''
+      "
     />
 
-    <app-button type="submit" text="Sign In" [loading]="isLoading()" data-testid="submit-btn" />
+    <app-button
+      type="submit"
+      [text]="'auth.signIn.form.submit' | transloco"
+      [loading]="isLoading()"
+      data-testid="submit-btn"
+    />
   </form>
 </app-auth-page>

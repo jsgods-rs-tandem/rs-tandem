@@ -9,12 +9,23 @@ import { ROUTE_PATHS } from '@/core/constants';
 import { HttpErrorResponse } from '@angular/common/http';
 import { ModalService } from '@/core/services/modal.service';
 import { getHttpErrorMessage } from '@/shared/utils/http-error.utilities';
-import { AUTH_ERROR_MESSAGES } from '@/shared/utils/auth-error-messages.constants';
+import { injectTranslate } from '@/shared/utils/translate.utilities';
+import { marker } from '@jsverse/transloco-keys-manager/marker';
+import type { AppTranslationKey } from '@/shared/types/translation-keys';
+import { TypedTranslocoPipe } from '@/shared/pipes/typed-transloco.pipe';
+import { AUTH_ERROR_MESSAGES } from '@/shared/constants/auth-error-messages.constants';
+import { getValidationErrorKey } from '@/shared/utils/form-validation.utilities';
 
 @Component({
   selector: 'app-sign-up',
   standalone: true,
-  imports: [AuthPageComponent, ReactiveFormsModule, InputComponent, ButtonComponent],
+  imports: [
+    AuthPageComponent,
+    ReactiveFormsModule,
+    InputComponent,
+    ButtonComponent,
+    TypedTranslocoPipe,
+  ],
   templateUrl: './sign-up.component.html',
   styleUrl: './sign-up.component.scss',
 })
@@ -22,6 +33,7 @@ export class SignUpComponent {
   private authService = inject(AuthService);
   private router = inject(Router);
   private modalService = inject(ModalService);
+  private t = injectTranslate();
 
   protected isLoading = signal(false);
 
@@ -62,7 +74,7 @@ export class SignUpComponent {
           this.isLoading.set(false);
 
           this.modalService.open({
-            title: 'Registration Error',
+            title: this.t(marker('auth.errorMessages.registrationTitle')),
             message: getHttpErrorMessage(
               error,
               'Failed to create an account. Please try again later or use a different email.',
@@ -74,14 +86,7 @@ export class SignUpComponent {
       });
   }
 
-  getErrorText(controlName: string): string {
-    const control = this.signUpForm.get(controlName);
-
-    if (!control) return '';
-    if (control.hasError('required')) return 'This field is required';
-    if (control.hasError('minlength'))
-      return `Minimum length is ${controlName === 'username' ? '3' : '8'} characters`;
-    if (control.hasError('email')) return 'Invalid email address';
-    return '';
+  getValidationErrorKey(controlName: string): AppTranslationKey | null {
+    return getValidationErrorKey(this.signUpForm.get(controlName));
   }
 }

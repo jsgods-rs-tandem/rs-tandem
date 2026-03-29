@@ -15,6 +15,7 @@
 
   &__heading {
     margin-bottom: var(--spacing-x10);
+    text-transform: capitalize;
   }
 
   &__switch {
@@ -30,6 +31,7 @@
   &__switch-link {
     color: var(--accent-color);
     text-decoration: none;
+    text-transform: capitalize;
 
     &:hover {
       cursor: pointer;
