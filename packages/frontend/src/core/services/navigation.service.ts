@@ -15,6 +15,7 @@ export class NavService {
   private readonly authLinks: NavLink[] = [
     { label: marker('nav.auth.profile'), path: ROUTE_PATHS.profile, isAnchor: false },
     { label: marker('nav.auth.library'), path: ROUTE_PATHS.library, isAnchor: false },
+    { label: marker('nav.auth.settings'), path: ROUTE_PATHS.settings, isAnchor: false },
   ];
 
   private isAuthenticated = signal<boolean>(false);

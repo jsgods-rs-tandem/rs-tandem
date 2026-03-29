@@ -18,8 +18,15 @@ import { authGuard } from '@/core/guards';
 import { NotFoundComponent } from '@/pages/not-found/not-found.component';
 import { AiChatComponent } from '@/features/ai-chat/ai-chat.component';
 import { ProfileComponent } from '@/pages/profile/profile.component';
+import { SettingsComponent } from '@/pages/ai-settings/settings.component';
 
 export const routes: Routes = [
+  {
+    path: ROUTES.settings,
+    component: SettingsComponent,
+    canActivate: [authGuard],
+    data: { layout: { mode: 'logout', sidebar: true, auth: true } },
+  },
   {
     path: ROUTES.aiChat,
     component: AiChatComponent,
