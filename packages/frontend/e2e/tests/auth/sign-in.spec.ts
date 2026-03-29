@@ -12,7 +12,7 @@ test.describe('Sign In Page', () => {
     await expect(signInPage.form.passwordInput).not.toHaveCount(0);
     await expect(signInPage.form.submitButton).not.toHaveCount(0);
 
-    await expect(signInPage.externalLinkRow.title).toContainText('Don’t have an account?');
+    await expect(signInPage.externalLinkRow.title).toContainText("Don't have an account?");
     await expect(signInPage.externalLinkRow.linkButton).toHaveText('Sign up');
   });
 
