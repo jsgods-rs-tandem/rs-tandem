@@ -17,6 +17,7 @@
     [attr.aria-label]="'profile.avatarEdit.carouselLabel' | transloco"
   >
     <app-button
+      class="button_prev"
       version="ghost"
       [disabled]="!canGoPrev()"
       (click)="prev()"
@@ -61,6 +62,7 @@
       </ul>
     </div>
     <app-button
+      class="button_next"
       version="ghost"
       [disabled]="!canGoNext()"
       (click)="next()"
