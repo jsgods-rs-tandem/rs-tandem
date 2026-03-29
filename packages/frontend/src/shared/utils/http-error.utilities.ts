@@ -27,7 +27,7 @@ function extractRawMessages(error: HttpErrorResponse): string | string[] | null 
 export function getHttpErrorMessage(
   error: HttpErrorResponse,
   fallback: AppTranslationKey,
-): AppTranslationKey | AppTranslationKey[] {
+): string | string[] {
   if (error.status === 0) {
     return 'errors.network.connection';
   }

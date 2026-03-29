@@ -5,9 +5,10 @@ import { finalize } from 'rxjs';
 import { environment } from '@/environments/environment';
 
 import { ModalService } from '@/core/services/modal.service';
-import { TranslocoService } from '@jsverse/transloco';
-
 import { getHttpErrorMessage } from '@/shared/utils/http-error.utilities';
+import { injectTranslate } from '@/shared/utils/translate.utilities';
+import { marker } from '@jsverse/transloco-keys-manager/marker';
+import type { AppTranslationKey } from '@/shared/types/translation-keys';
 
 import type {
   GetCategoriesResponseDto,
@@ -25,7 +26,7 @@ import type { QuizState } from './quiz.types';
 export class QuizService {
   private readonly _http = inject(HttpClient);
   private readonly _modalService = inject(ModalService);
-  private readonly _transloco = inject(TranslocoService);
+  private readonly _t = injectTranslate();
 
   private readonly _state = signal<QuizState>({
     data: {
@@ -263,11 +264,11 @@ export class QuizService {
   }
 
   private _showError(error: CustomHttpError) {
-    const errorMessage = getHttpErrorMessage(error, 'Unexpected Error');
-    const translateWithPrefix = (message: string) => this._transloco.translate(`errors.${message}`);
+    const errorMessage = getHttpErrorMessage(error, 'errors.common.unexpected');
+    const translateKey = (message: string) => this._t(marker(message as AppTranslationKey));
     const translatedMessage = Array.isArray(errorMessage)
-      ? errorMessage.map(translateWithPrefix)
-      : translateWithPrefix(errorMessage);
+      ? errorMessage.map(translateKey)
+      : translateKey(errorMessage);
 
     this._modalService.open({
       title: `${String(error.error.statusCode || 0)} — ${error.error.error || 'Network Error'}`,

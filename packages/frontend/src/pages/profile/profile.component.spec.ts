@@ -7,6 +7,7 @@ import { ProfilesService } from '@/core/services/profile.service';
 import { AuthService } from '@/core/services/auth.service';
 import { ModalService } from '@/core/services/modal.service';
 import { By } from '@angular/platform-browser';
+import { provideAppTranslocoTesting } from '@/testing/provide-transloco-testing';
 
 describe('ProfileComponent', () => {
   let component: ProfileComponent;
@@ -37,6 +38,7 @@ describe('ProfileComponent', () => {
     await TestBed.configureTestingModule({
       imports: [ProfileComponent],
       providers: [
+        ...provideAppTranslocoTesting(),
         { provide: AuthStore, useValue: mockAuthStore },
         { provide: ProfilesService, useValue: mockProfilesService },
         { provide: AuthService, useValue: { changePassword: vi.fn() } },

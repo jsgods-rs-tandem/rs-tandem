@@ -84,6 +84,12 @@
     "network": {
       "connection": "Unable to connect to the server. Please check your internet connection.",
       "server": "Server error. Please try again later."
+    },
+    "common": {
+      "unexpected": "Unexpected Error"
+    },
+    "profile": {
+      "password_incorrect": "Please check your current password or data"
     }
   }
 }
