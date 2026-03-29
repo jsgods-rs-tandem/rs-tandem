@@ -2,8 +2,10 @@ import { SwitcherComponent } from '@/shared/switcher/switcher.component';
 import { InputComponent } from '@/shared/ui/input/input.component';
 import { LineBreakComponent } from '@/shared/ui/line-break/line-break.component';
 import { NgClass } from '@angular/common';
-import { Component, signal } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
 import { ButtonComponent } from '@/shared/ui';
+import { AiHttpService } from '../ai-chat/services/ai-http-service';
+import { ModalService } from '@/core/services/modal.service';
 
 const mockProviders = [
   {
@@ -40,8 +42,30 @@ export class AiSettingsComponent {
   protected providers = mockProviders;
   protected useRemoteProvider = signal(false);
   protected providerSettings = signal(mockProviderSettings);
+  private chatHistoryAPI = inject(AiHttpService);
+  private modal = inject(ModalService);
 
   toggleProvider(event: boolean) {
     this.useRemoteProvider.set(event);
+  }
+
+  protected resetChatHistory() {
+    this.chatHistoryAPI.deleteHistory().subscribe({
+      next: () => {
+        this.modal.open({
+          title: 'Chat History Reset',
+          message: 'Your chat history has been successfully reset.',
+          buttonText: 'OK',
+        });
+      },
+      error: (error: unknown) => {
+        console.error('Error resetting chat history:', error);
+        this.modal.open({
+          title: 'Error',
+          message: 'Failed to reset chat history. Please try again.',
+          buttonText: 'OK',
+        });
+      },
+    });
   }
 }
