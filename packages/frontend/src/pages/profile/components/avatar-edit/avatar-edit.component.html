@@ -3,7 +3,7 @@
   <div class="avatar-edit__main" aria-live="polite">
     <img
       [src]="selectedUrl"
-      alt="Selected user avatar"
+      [alt]="'profile.avatarEdit.selectedAlt' | transloco"
       class="avatar-edit__large"
       width="200"
       height="200"
@@ -14,13 +14,13 @@
     class="avatar-edit__carousel"
     role="region"
     aria-roledescription="carousel"
-    aria-label="Avatar options"
+    [attr.aria-label]="'profile.avatarEdit.carouselLabel' | transloco"
   >
     <app-button
       version="ghost"
       [disabled]="!canGoPrev()"
       (click)="prev()"
-      ariaLabel="Go to previous avatars"
+      [ariaLabel]="'profile.avatarEdit.prev' | transloco"
     >
       <span class="carousel-arrow" aria-hidden="true">&#10094;</span>
     </app-button>
@@ -29,7 +29,7 @@
       <ul
         class="carousel-items"
         role="list"
-        aria-label="Available avatar options"
+        [attr.aria-label]="'profile.avatarEdit.listLabel' | transloco"
         [style.transform]="'translateX(' + transformOffset() + 'px)'"
       >
         @for (avatar of avatars; track avatar; let i = $index) {
@@ -44,13 +44,15 @@
               (click)="selectAvatar(avatar)"
               (keyup.enter)="selectAvatar(avatar)"
               [attr.aria-current]="isSelected ? 'true' : null"
-              [ariaLabel]="`Select avatar option ${avatarIndex}`"
+              [ariaLabel]="'profile.avatarEdit.selectAvatar' | transloco: { index: avatarIndex }"
             >
               <img
                 [src]="avatar"
                 width="60"
                 height="60"
-                [attr.alt]="`Avatar option ${avatarIndex}`"
+                [attr.alt]="
+                  'profile.avatarEdit.avatarOptionAlt' | transloco: { index: avatarIndex }
+                "
                 class="carousel-items__small text-xs"
               />
             </app-button>
@@ -62,7 +64,7 @@
       version="ghost"
       [disabled]="!canGoNext()"
       (click)="next()"
-      ariaLabel="Go to next avatars"
+      [ariaLabel]="'profile.avatarEdit.next' | transloco"
     >
       <span class="carousel-arrow" aria-hidden="true">&#10095;</span>
     </app-button>

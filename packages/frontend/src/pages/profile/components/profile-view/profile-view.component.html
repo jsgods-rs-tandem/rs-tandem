@@ -1,7 +1,7 @@
 <div class="user__wrapper">
   <div class="user__avatar-section">
     <div class="user__avatar">
-      <img [src]="avatarUrl()" alt="User profile avatar" class="avatar" />
+      <img [src]="avatarUrl()" [alt]="'profile.view.avatarAlt' | transloco" class="avatar" />
       @let github = githubUsername();
       @if (github) {
         <app-button
@@ -12,7 +12,7 @@
           [text]="github"
           [href]="linkUrl()"
           [external]="true"
-          [ariaLabel]="ariaLabel()"
+          [ariaLabel]="ariaLabelKey() | transloco: githubAriaParams()"
         />
       }
     </div>
@@ -21,7 +21,8 @@
   <div class="user__info-section">
     <p class="text-3xl user__name">{{ userName() }}</p>
     <p class="text-lg user__email">{{ userEmail() }}</p>
-    <p class="text-sm">{{ joinedDateText() }}</p>
+    @let dateInfo = joinedDateText();
+    <p class="text-sm">{{ dateInfo.key | transloco: dateInfo.params }}</p>
   </div>
 
   <div class="user__button-section">
@@ -29,8 +30,8 @@
       type="button"
       [isSmallButton]="true"
       version="primary"
-      text="Edit"
-      ariaLabel="Edit profile"
+      [text]="'profile.view.editButton' | transloco"
+      [ariaLabel]="'profile.view.editAriaLabel' | transloco"
       (click)="editClicked.emit()"
     />
   </div>

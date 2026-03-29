@@ -1,4 +1,65 @@
 {
+  "profile": {
+    "title": "Профиль",
+    "view": {
+      "avatarAlt": "Аватар профиля пользователя",
+      "editButton": "Редактировать",
+      "editAriaLabel": "Редактировать профиль",
+      "githubAriaLabel": "Ссылка на GitHub-профиль {{github}}",
+      "githubAriaLabelDefault": "Ссылка на GitHub-профиль",
+      "joinedDateUnknown": "Дата регистрации неизвестна",
+      "joinedDate": "На платформе с {{formattedDate}}"
+    },
+    "form": {
+      "displayName": {
+        "label": "Имя пользователя",
+        "placeholder": "Введите имя пользователя"
+      },
+      "email": {
+        "label": "Почта",
+        "placeholder": "Введите вашу почту"
+      },
+      "githubUsername": {
+        "label": "Никнейм GitHub",
+        "placeholder": "Введите ваш GitHub никнейм"
+      },
+      "password": {
+        "keepCurrentInfo": "Оставьте поля пустыми, если не хотите менять пароль",
+        "incompleteChange": "Заполните оба поля, чтобы изменить пароль."
+      },
+      "currentPassword": {
+        "label": "Текущий пароль",
+        "placeholder": "Введите текущий пароль"
+      },
+      "newPassword": {
+        "label": "Новый пароль",
+        "placeholder": "Введите новый пароль"
+      },
+      "buttons": {
+        "cancel": "Отмена",
+        "save": "Сохранить"
+      }
+    },
+    "avatarEdit": {
+      "selectedAlt": "Выбранный аватар пользователя",
+      "carouselLabel": "Выбор аватара",
+      "listLabel": "Доступные варианты аватаров",
+      "prev": "Предыдущий аватар",
+      "next": "Следующий аватар",
+      "selectAvatar": "Выбрать вариант аватара {{index}}",
+      "avatarOptionAlt": "Вариант аватара {{index}}"
+    },
+    "modals": {
+      "success": {
+        "title": "Успешно",
+        "message": "Профиль успешно обновлен!"
+      },
+      "error": {
+        "title": "Ошибка обновления",
+        "fallbackMessage": "Пожалуйста, проверьте текущий пароль или введенные данные"
+      }
+    }
+  },
   "notFound": {
     "title": "404",
     "text": "Мы не нашли эту страницу. Похоже, она решила поиграть с нами в прятки.",
@@ -51,7 +112,8 @@
     "validation": {
       "required": "Это поле обязательное",
       "email": "Невалидный имейл адрес",
-      "minLength": "Минимальная длина {{min}} символов"
+      "minLength": "Минимальная длина {{min}} символов",
+      "maxLength": "Максимальная длина {{max}} символов"
     },
     "errorMessages": {
       "loginTitle": "Ошибка входа",

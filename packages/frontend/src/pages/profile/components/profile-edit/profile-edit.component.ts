@@ -3,7 +3,12 @@ import { NonNullableFormBuilder, ReactiveFormsModule } from '@angular/forms';
 import type { ProfileFormData } from '../../models/profile.types';
 import { InputComponent } from '@/shared/ui/input/input.component';
 import { ButtonComponent } from '@/shared/ui';
-import { DEFAULT_AVATAR_URL } from '@/core/constants';
+import {
+  DEFAULT_AVATAR_URL,
+  MAX_INPUT_LENGTH,
+  MIN_LENGTH_PASSWORD,
+  MIN_LENGTH_USERNAME,
+} from '@/core/constants';
 import {
   buildProfileForm,
   getProfileFieldError,
@@ -11,14 +16,25 @@ import {
 } from '../../utils/profile.utilities';
 import { AvatarEditComponent } from '../avatar-edit/avatar-edit.component';
 import type { AuthUser } from '@/shared/types';
+import { TypedTranslocoPipe } from '@/shared/pipes/typed-transloco.pipe';
+import { AppTranslationKey } from '@/shared/types/translation-keys';
 
 @Component({
   selector: 'app-profile-edit',
-  imports: [InputComponent, ButtonComponent, ReactiveFormsModule, AvatarEditComponent],
+  imports: [
+    InputComponent,
+    ButtonComponent,
+    ReactiveFormsModule,
+    AvatarEditComponent,
+    TypedTranslocoPipe,
+  ],
   templateUrl: './profile-edit.component.html',
   styleUrl: './profile-edit.component.scss',
 })
 export class ProfileEditComponent implements OnInit {
+  protected readonly MIN_LENGTH_USERNAME = MIN_LENGTH_USERNAME;
+  protected readonly MIN_LENGTH_PASSWORD = MIN_LENGTH_PASSWORD;
+  protected readonly MAX_INPUT_LENGTH = MAX_INPUT_LENGTH;
   user = input.required<AuthUser>();
   isSaving = input<boolean>(false);
 
@@ -67,7 +83,7 @@ export class ProfileEditComponent implements OnInit {
     return isControlInvalid(this.profileForm.get(field));
   }
 
-  getError(field: string): string {
-    return getProfileFieldError(this.profileForm.get(field), field);
+  getValidationKey(field: string): AppTranslationKey | null {
+    return getProfileFieldError(this.profileForm.get(field));
   }
 }
