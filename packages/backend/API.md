@@ -433,3 +433,36 @@ Authorization: Bearer <токен>
 ```json
 { "status": "ok" }
 ```
+
+### GET `/chat-history/history`
+
+Получить историю сообщений. Требует токен.
+
+**Ответ `200`:**
+
+```json
+[
+  {
+    "role": "user",
+    "content": "Hi"
+  },
+  {
+    "role": "assistant",
+    "content": "Hi there! How’s your day going so far? 😊 \n\nIs the…at about, or anything I can help you with today?\n"
+  }
+]
+```
+
+**Ответ `500`:** - внутренняя ошибка сервра
+
+### DELETE `/chat-history/history`
+
+Удалить историю сообщений. Требует токен.
+
+**Ответ `200`:**
+
+```json
+null
+```
+
+**Ответ `500`:** - внутренняя ошибка сервра

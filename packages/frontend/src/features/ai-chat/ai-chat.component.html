@@ -1,15 +1,21 @@
-<div
-  class="chat-wrapper"
-  [class]="store.messagesLength() ? 'chat-wrapper_filled' : 'chat-wrapper_empty'"
->
-  @if (store.messagesLength()) {
-    <p class="greeting">
-      Hi, <span class="user-name">{{ username() }}</span
-      >!
-    </p>
-    <app-dialogue-window class="dialogue-window"></app-dialogue-window>
-  } @else {
-    <h1 class="title">How can I help you?</h1>
-  }
-  <app-chat-form class="chat-form" (sendMessageEvent)="sendPrompt($event)"></app-chat-form>
-</div>
+@if (this.store.isReady().history) {
+  <div
+    class="chat-wrapper"
+    [class]="store.messagesLength() ? 'chat-wrapper_filled' : 'chat-wrapper_empty'"
+  >
+    @if (store.messagesLength()) {
+      <p class="greeting">
+        Hi, <span class="user-name">{{ username() }}</span
+        >!
+      </p>
+      <app-dialogue-window class="dialogue-window"></app-dialogue-window>
+    } @else {
+      <h1 class="title">How can I help you?</h1>
+    }
+    <app-chat-form class="chat-form" (sendMessageEvent)="sendPrompt($event)"></app-chat-form>
+  </div>
+} @else {
+  <div class="spin-wrapper">
+    <app-spin [size]="'large'" [theme]="'light'"></app-spin>
+  </div>
+}

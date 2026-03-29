@@ -109,6 +109,8 @@ export class AiService {
         content = `${content}${chunk}`;
         yield chunk;
       }
+      content = `${content}\n`;
+      yield '\n';
 
       const message: AiMessage = {
         role: 'assistant',
