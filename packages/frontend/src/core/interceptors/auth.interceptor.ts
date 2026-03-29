@@ -6,6 +6,8 @@ import { Router } from '@angular/router';
 import { ModalService } from '../services/modal.service';
 import { ROUTE_PATHS } from '../constants';
 
+const SAFE_401_ERRORS = ['profile.password_incorrect', 'profile.not_found'];
+
 export const authInterceptor: HttpInterceptorFn = (request, next) => {
   const authService = inject(AuthService);
   const router = inject(Router);
@@ -26,7 +28,7 @@ export const authInterceptor: HttpInterceptorFn = (request, next) => {
         const errorBody: unknown = error.error;
         if (errorBody && typeof errorBody === 'object' && 'message' in errorBody) {
           const message = errorBody.message;
-          if (typeof message === 'string' && message.includes('Current password is incorrect')) {
+          if (typeof message === 'string' && SAFE_401_ERRORS.includes(message)) {
             return throwError(() => error);
           }
         }
