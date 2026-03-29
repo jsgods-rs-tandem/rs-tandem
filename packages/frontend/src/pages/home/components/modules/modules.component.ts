@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
 import { ButtonComponent, CardComponent } from '@/shared/ui';
 import { ROUTE_PATHS } from '@/core/constants';
+import { InViewDirective } from '@/shared/directives/in-view.directive';
 
 @Component({
   selector: 'app-modules',
-  imports: [ButtonComponent, CardComponent],
+  imports: [ButtonComponent, CardComponent, InViewDirective],
   templateUrl: './modules.component.html',
   styleUrl: './modules.component.scss',
 })

@@ -20,8 +20,8 @@
 
     &.is-in-view {
       transform-origin: top center;
-      animation: swing-in-card var(--transition-duration-card) cubic-bezier(0.45, 0.05, 0.55, 0.95)
-        both;
+      animation: swing-in-card var(--transition-duration-extra-slow)
+        cubic-bezier(0.45, 0.05, 0.55, 0.95) both;
     }
   }
 

@@ -33,6 +33,27 @@
     }
   }
 
+  &__item {
+    transform: translateY(30px) scale(0.95);
+    opacity: 0;
+    @include m.transition(
+      (opacity, transform),
+      var(--transition-duration-slow),
+      cubic-bezier(0.25, 0.46, 0.45, 0.94)
+    );
+
+    &.is-in-view {
+      transform: translateY(0) scale(1);
+      opacity: 1;
+    }
+
+    @for $i from 1 through 4 {
+      &:nth-child(#{$i}) {
+        transition-delay: #{$i * 0.1}s;
+      }
+    }
+  }
+
   &__button {
     align-self: flex-end;
   }
