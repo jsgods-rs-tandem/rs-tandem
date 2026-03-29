@@ -18,7 +18,7 @@ import { authGuard } from '@/core/guards';
 import { NotFoundComponent } from '@/pages/not-found/not-found.component';
 import { AiChatComponent } from '@/features/ai-chat/ai-chat.component';
 import { ProfileComponent } from '@/pages/profile/profile.component';
-import { SettingsComponent } from '@/pages/ai-settings/settings.component';
+import { SettingsComponent } from '@/pages/settings/settings.component';
 
 export const routes: Routes = [
   {
