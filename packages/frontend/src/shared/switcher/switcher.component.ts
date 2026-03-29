@@ -1,5 +1,5 @@
 import { NgClass } from '@angular/common';
-import { Component, output, signal } from '@angular/core';
+import { Component, input, OnInit, output, signal } from '@angular/core';
 
 @Component({
   selector: 'app-switcher',
@@ -7,9 +7,15 @@ import { Component, output, signal } from '@angular/core';
   templateUrl: './switcher.component.html',
   styleUrl: './switcher.component.scss',
 })
-export class SwitcherComponent {
+export class SwitcherComponent implements OnInit {
+  initialStatus = input<boolean>(false);
+
   protected isActive = signal(false);
-  toggledEvent = output<boolean>();
+  protected toggledEvent = output<boolean>();
+
+  ngOnInit() {
+    this.isActive.set(this.initialStatus());
+  }
 
   protected toggle() {
     this.isActive.set(!this.isActive());
