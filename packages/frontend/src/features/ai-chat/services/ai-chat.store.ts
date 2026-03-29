@@ -67,6 +67,7 @@ export class AiChatStore {
   }
 
   loadHistory() {
+    this.isReady.update((state) => ({ ...state, history: false }));
     this._messages.set([]);
     this.httpApi
       .getHistory()
