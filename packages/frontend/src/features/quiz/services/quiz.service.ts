@@ -5,6 +5,7 @@ import { finalize } from 'rxjs';
 import { environment } from '@/environments/environment';
 
 import { ModalService } from '@/core/services/modal.service';
+import { TranslocoService } from '@jsverse/transloco';
 
 import { getHttpErrorMessage } from '@/shared/utils/http-error.utilities';
 
@@ -24,6 +25,7 @@ import type { QuizState } from './quiz.types';
 export class QuizService {
   private readonly _http = inject(HttpClient);
   private readonly _modalService = inject(ModalService);
+  private readonly _transloco = inject(TranslocoService);
 
   private readonly _state = signal<QuizState>({
     data: {
@@ -261,9 +263,15 @@ export class QuizService {
   }
 
   private _showError(error: CustomHttpError) {
+    const errorMessage = getHttpErrorMessage(error, 'Unexpected Error');
+    const translateWithPrefix = (message: string) => this._transloco.translate(`errors.${message}`);
+    const translatedMessage = Array.isArray(errorMessage)
+      ? errorMessage.map(translateWithPrefix)
+      : translateWithPrefix(errorMessage);
+
     this._modalService.open({
       title: `${String(error.error.statusCode || 0)} — ${error.error.error || 'Network Error'}`,
-      message: getHttpErrorMessage(error, 'Unexpected Error'),
+      message: translatedMessage,
       icon: 'info-outline',
     });
   }

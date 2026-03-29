@@ -1,6 +1,10 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { isErrorWithMessage } from '@/core/guards/is-error-with-message';
 
+function isErrorCode(key: string): boolean {
+  return key.includes('.');
+}
+
 function extractRawMessages(error: HttpErrorResponse): string | string[] | null {
   if (!isErrorWithMessage(error.error)) {
     return null;
@@ -19,15 +23,7 @@ function extractRawMessages(error: HttpErrorResponse): string | string[] | null 
   return null;
 }
 
-function mapMessage(raw: string, messageMap?: Record<string, string>): string {
-  return messageMap?.[raw] ?? raw;
-}
-
-export function getHttpErrorMessage(
-  error: HttpErrorResponse,
-  fallback: string,
-  messageMap?: Record<string, string>,
-): string | string[] {
+export function getHttpErrorMessage(error: HttpErrorResponse, fallback: string): string | string[] {
   if (error.status === 0) {
     return 'Unable to connect to the server. Please check your internet connection.';
   }
@@ -43,8 +39,12 @@ export function getHttpErrorMessage(
   }
 
   if (Array.isArray(messages)) {
-    return messages.map((message) => mapMessage(message, messageMap));
+    return messages;
   }
 
-  return mapMessage(messages, messageMap);
+  if (isErrorCode(messages)) {
+    return messages;
+  }
+
+  return messages;
 }

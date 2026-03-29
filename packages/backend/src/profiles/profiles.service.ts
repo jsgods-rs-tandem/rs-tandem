@@ -51,7 +51,7 @@ export class ProfilesService {
     ]);
 
     if (!profile || !user) {
-      throw new NotFoundException('Profile not found');
+      throw new NotFoundException('profile.not_found');
     }
 
     return toUserProfileDto(profile, user.displayName, user.email);
@@ -64,7 +64,7 @@ export class ProfilesService {
     ]);
 
     if (!profile || !user) {
-      throw new NotFoundException('Profile not found');
+      throw new NotFoundException('profile.not_found');
     }
 
     return toPublicUserProfileDto(profile, user.displayName);
@@ -75,7 +75,7 @@ export class ProfilesService {
       const existing = await this.userRepository.findByEmail(dto.email);
 
       if (existing && existing.id !== userId) {
-        throw new ConflictException('Email is already in use');
+        throw new ConflictException('profile.email_in_use');
       }
     }
 

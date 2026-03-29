@@ -13,7 +13,6 @@ import { injectTranslate } from '@/shared/utils/translate.utilities';
 import { marker } from '@jsverse/transloco-keys-manager/marker';
 import type { AppTranslationKey } from '@/shared/types/translation-keys';
 import { TypedTranslocoPipe } from '@/shared/pipes/typed-transloco.pipe';
-import { AUTH_ERROR_MESSAGES } from '@/shared/constants/auth-error-messages.constants';
 import { getValidationErrorKey } from '@/shared/utils/form-validation.utilities';
 
 @Component({
@@ -73,13 +72,16 @@ export class SignUpComponent {
         error: (error: HttpErrorResponse) => {
           this.isLoading.set(false);
 
+          const errorMessage = getHttpErrorMessage(error, 'errors.auth.email_exists');
+          const translateWithPrefix = (message: string) =>
+            this.t(marker(`errors.${message}` as AppTranslationKey));
+          const translatedMessage = Array.isArray(errorMessage)
+            ? errorMessage.map(translateWithPrefix)
+            : translateWithPrefix(errorMessage);
+
           this.modalService.open({
             title: this.t(marker('auth.errorMessages.registrationTitle')),
-            message: getHttpErrorMessage(
-              error,
-              'Failed to create an account. Please try again later or use a different email.',
-              AUTH_ERROR_MESSAGES,
-            ),
+            message: translatedMessage,
             icon: 'info-outline',
           });
         },

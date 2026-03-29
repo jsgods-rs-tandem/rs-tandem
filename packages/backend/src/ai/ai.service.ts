@@ -1,5 +1,10 @@
 import { BadGatewayException, BadRequestException, Injectable, Logger } from '@nestjs/common';
-import type { AiChatResponseDto, AiMessage, AiProviderDto, AiSettingsDto } from '@rs-tandem/shared';
+import {
+  type AiChatResponseDto,
+  type AiMessage,
+  type AiProviderDto,
+  type AiSettingsDto,
+} from '@rs-tandem/shared';
 import { AiSettingsRepository } from './ai-settings.repository.js';
 import { AI_PROVIDERS, findProvider } from './providers/ai-provider.registry.js';
 import type { AiChatDto } from './dto/ai-chat.dto.js';
@@ -27,7 +32,7 @@ export class AiService {
     await this.updateMySettings(userId, { providerId: 'ollama' });
     const settings = await this.aiSettingsRepository.findByUserId(userId);
     if (!settings) {
-      throw new BadRequestException('No AI provider selected');
+      throw new BadRequestException('ai.provider_not_selected');
     }
 
     return {
@@ -54,7 +59,7 @@ export class AiService {
     const provider = findProvider(dto.providerId);
 
     if (!provider) {
-      throw new BadRequestException('Unknown AI provider');
+      throw new BadRequestException('ai.provider_unknown');
     }
 
     const settings = await this.aiSettingsRepository.upsert({
@@ -76,11 +81,11 @@ export class AiService {
     const provider = findProvider(settings.providerId);
 
     if (!provider) {
-      throw new BadRequestException('No AI provider selected');
+      throw new BadRequestException('ai.provider_not_selected');
     }
 
     if (provider.meta.requiresKey && settings.apiKey === null) {
-      throw new BadRequestException('API key required for this provider');
+      throw new BadRequestException('ai.api_key_required');
     }
 
     return provider;
@@ -117,7 +122,7 @@ export class AiService {
       await this.saveMessage(userId, message);
     } catch (error) {
       this.logger.error('AI provider error', error instanceof Error ? error.stack : String(error));
-      throw new BadGatewayException('AI provider unavailable');
+      throw new BadGatewayException('ai.provider_unavailable');
     }
   }
 
@@ -125,17 +130,17 @@ export class AiService {
     const settings = await this.aiSettingsRepository.findByUserId(userId);
 
     if (!settings) {
-      throw new BadRequestException('No AI provider selected');
+      throw new BadRequestException('ai.provider_not_selected');
     }
 
     const provider = findProvider(settings.providerId);
 
     if (!provider) {
-      throw new BadRequestException('No AI provider selected');
+      throw new BadRequestException('ai.provider_not_selected');
     }
 
     if (provider.meta.requiresKey && settings.apiKey === null) {
-      throw new BadRequestException('API key required for this provider');
+      throw new BadRequestException('ai.api_key_required');
     }
 
     try {
@@ -144,7 +149,7 @@ export class AiService {
       return content;
     } catch (error) {
       this.logger.error('AI provider error', error instanceof Error ? error.stack : String(error));
-      throw new BadGatewayException('AI provider unavailable');
+      throw new BadGatewayException('ai.provider_unavailable');
     }
   }
 }
