@@ -59,7 +59,8 @@
     },
     "profile": {
       "not_found": "Профиль не найден",
-      "email_in_use": "Этот имейл уже используется"
+      "email_in_use": "Этот имейл уже используется",
+      "password_incorrect": "Проверьте текущий пароль или данные"
     },
     "quiz": {
       "category_not_found": "Категория не найдена",
@@ -78,8 +79,8 @@
       "request_failed": "Ошибка запроса к базе данных"
     },
     "validation": {
-      "email_invalid": "Invalid email address",
-      "required": "This field is required"
+      "email_invalid": "Невалидный имейл адрес",
+      "required": "Это поле обязательное"
     },
     "network": {
       "connection": "Не удалось подключиться к серверу. Проверьте подключение к интернету.",
@@ -87,9 +88,6 @@
     },
     "common": {
       "unexpected": "Неожиданная ошибка"
-    },
-    "profile": {
-      "password_incorrect": "Проверьте текущий пароль или данные"
     }
   }
 }

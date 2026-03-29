@@ -59,7 +59,8 @@
     },
     "profile": {
       "not_found": "Profile not found",
-      "email_in_use": "This email is already in use"
+      "email_in_use": "This email is already in use",
+      "password_incorrect": "Please check your current password or data"
     },
     "quiz": {
       "category_not_found": "Category not found",
@@ -87,9 +88,6 @@
     },
     "common": {
       "unexpected": "Unexpected Error"
-    },
-    "profile": {
-      "password_incorrect": "Please check your current password or data"
     }
   }
 }
