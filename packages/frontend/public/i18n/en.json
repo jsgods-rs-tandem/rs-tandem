@@ -80,6 +80,10 @@
     "validation": {
       "email_invalid": "Invalid email address",
       "required": "This field is required"
+    },
+    "network": {
+      "connection": "Unable to connect to the server. Please check your internet connection.",
+      "server": "Server error. Please try again later."
     }
   }
 }

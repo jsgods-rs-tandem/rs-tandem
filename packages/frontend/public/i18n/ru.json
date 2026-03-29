@@ -78,8 +78,12 @@
       "request_failed": "Ошибка запроса к базе данных"
     },
     "validation": {
-      "email_invalid": "Невалидный имейл адрес",
-      "required": "Это поле обязательное"
+      "email_invalid": "Invalid email address",
+      "required": "This field is required"
+    },
+    "network": {
+      "connection": "Не удалось подключиться к серверу. Проверьте подключение к интернету.",
+      "server": "Ошибка сервера. Попробуйте позже."
     }
   }
 }

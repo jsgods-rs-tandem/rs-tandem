@@ -10,6 +10,8 @@ type LeafPaths<T, D extends number = 10> = [D] extends [never]
   ? never
   : T extends JsonLeaf
     ? ''
-    : { [K in keyof T & string]: Join<K, LeafPaths<T[K], Depth[D]>> }[keyof T & string];
+    : T extends unknown[]
+      ? never
+      : { [K in keyof T & string]: Join<K, LeafPaths<T[K], Depth[D]>> }[keyof T & string];
 
 export type AppTranslationKey = LeafPaths<typeof ruTranslations>;

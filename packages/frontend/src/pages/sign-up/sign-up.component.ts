@@ -73,11 +73,10 @@ export class SignUpComponent {
           this.isLoading.set(false);
 
           const errorMessage = getHttpErrorMessage(error, 'errors.auth.email_exists');
-          const translateWithPrefix = (message: string) =>
-            this.t(marker(`errors.${message}` as AppTranslationKey));
+          const translateKey = (message: string) => this.t(marker(message as AppTranslationKey));
           const translatedMessage = Array.isArray(errorMessage)
-            ? errorMessage.map(translateWithPrefix)
-            : translateWithPrefix(errorMessage);
+            ? errorMessage.map(translateKey)
+            : translateKey(errorMessage);
 
           this.modalService.open({
             title: this.t(marker('auth.errorMessages.registrationTitle')),

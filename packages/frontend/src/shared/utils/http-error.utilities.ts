@@ -1,5 +1,6 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { isErrorWithMessage } from '@/core/guards/is-error-with-message';
+import type { AppTranslationKey } from '@/shared/types/translation-keys';
 
 function isErrorCode(key: string): boolean {
   return key.includes('.');
@@ -23,13 +24,16 @@ function extractRawMessages(error: HttpErrorResponse): string | string[] | null 
   return null;
 }
 
-export function getHttpErrorMessage(error: HttpErrorResponse, fallback: string): string | string[] {
+export function getHttpErrorMessage(
+  error: HttpErrorResponse,
+  fallback: AppTranslationKey,
+): AppTranslationKey | AppTranslationKey[] {
   if (error.status === 0) {
-    return 'Unable to connect to the server. Please check your internet connection.';
+    return 'errors.network.connection';
   }
 
   if (error.status >= 500) {
-    return 'Server error. Please try again later.';
+    return 'errors.network.server';
   }
 
   const messages = extractRawMessages(error);
@@ -39,12 +43,12 @@ export function getHttpErrorMessage(error: HttpErrorResponse, fallback: string):
   }
 
   if (Array.isArray(messages)) {
-    return messages;
+    return messages.map((message) => (isErrorCode(message) ? message : fallback));
   }
 
   if (isErrorCode(messages)) {
     return messages;
   }
 
-  return messages;
+  return fallback;
 }
