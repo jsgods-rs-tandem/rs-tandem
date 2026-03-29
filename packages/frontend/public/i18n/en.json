@@ -1,4 +1,12 @@
 {
+  "notFound": {
+    "title": "404",
+    "text": "We couldn't find that page. Maybe it's playing hide and seek?",
+    "buttons": {
+      "backToLibrary": "Back to Library",
+      "goHome": "Go Home"
+    }
+  },
   "auth": {
     "signIn": {
       "title": "Sign in",
