@@ -1,3 +1,10 @@
 .title {
   margin-top: 1rem;
 }
+
+.row {
+  display: flex;
+  gap: var(--spacing-x3);
+  padding-top: var(--spacing-x3);
+  padding-bottom: var(--spacing-x3);
+}

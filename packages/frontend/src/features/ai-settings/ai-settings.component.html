@@ -1,2 +1,8 @@
 <h2 class="h3 title">{{ title }}</h2>
 <app-line-break></app-line-break>
+<h3 class="h4">Provider</h3>
+<div class="row">
+  <p>Ollama</p>
+  <app-switcher (toggledEvent)="toggleProvider($event)"></app-switcher>
+  <p>Open Router</p>
+</div>
