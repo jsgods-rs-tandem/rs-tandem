@@ -58,11 +58,18 @@ export class OllamaProvider implements IAiProvider {
   }
 
   private sendPrompt(messages: AiMessage[], stream: boolean) {
+    const controller = new AbortController();
+    const timeoutID = setTimeout(() => {
+      controller.abort();
+    }, 30_000);
     return fetch(`${this.getBaseUrl()}/api/chat`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ model: this.getModel(), messages, stream }),
-      signal: AbortSignal.timeout(30_000),
+      signal: controller.signal,
+    }).then((response) => {
+      clearTimeout(timeoutID);
+      return response;
     });
   }
 
