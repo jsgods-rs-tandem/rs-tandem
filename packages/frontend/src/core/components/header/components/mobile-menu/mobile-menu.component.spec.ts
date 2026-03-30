@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { MobileMenuComponent } from './mobile-menu.component';
+import { provideAppTranslocoTesting } from '@/testing/provide-transloco-testing';
 
 describe('MobileMenuComponent', () => {
   let component: MobileMenuComponent;
@@ -9,6 +10,7 @@ describe('MobileMenuComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [MobileMenuComponent],
+      providers: [provideAppTranslocoTesting()],
     }).compileComponents();
 
     fixture = TestBed.createComponent(MobileMenuComponent);
