@@ -31,6 +31,7 @@ export class InputComponent implements ControlValueAccessor {
   required = input<boolean>(false);
 
   label = input<string>('');
+  hint = input<string>('');
   errorText = input<string>('');
   hasError = input<boolean>(false);
 

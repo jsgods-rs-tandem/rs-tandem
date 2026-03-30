@@ -9,7 +9,8 @@
         },
         "password": {
           "label": "Password",
-          "placeholder": "Enter your password"
+          "placeholder": "Enter your password",
+          "hint": "Minimum 8 characters"
         },
         "submit": "Sign in"
       },
@@ -23,7 +24,8 @@
       "form": {
         "username": {
           "label": "Username",
-          "placeholder": "Enter your username"
+          "placeholder": "Enter your username",
+          "hint": "Minimum 3 characters"
         },
         "email": {
           "label": "Email",
@@ -31,7 +33,8 @@
         },
         "password": {
           "label": "Password",
-          "placeholder": "Enter your password"
+          "placeholder": "Enter your password",
+          "hint": "Minimum 8 characters"
         },
         "submit": "Sign up"
       },

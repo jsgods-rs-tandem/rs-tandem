@@ -6,6 +6,13 @@
       @if (required()) {
         <span class="required-asterisk" aria-hidden="true">*</span>
       }
+
+      @if (hint()) {
+        <div class="input-hint-wrapper">
+          <span class="material-icons input-hint-icon" [attr.aria-label]="hint()">help</span>
+          <div class="input-hint-popover">{{ hint() }}</div>
+        </div>
+      }
     </label>
   }
 
