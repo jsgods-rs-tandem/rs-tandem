@@ -8,6 +8,7 @@ import { AiHttpService } from '../ai-chat/services/ai-http-service';
 import { ModalService } from '@/core/services/modal.service';
 import { AiSettingsHttpService } from './ai-settings-http.service';
 import { AiProviderDto, AiSettingsDto } from '@rs-tandem/shared';
+import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 
 interface ISettings {
   useRemoteProvider: boolean;
@@ -36,6 +37,7 @@ const initialProviders: AiProviderDto[] = [
     NgClass,
     ButtonComponent,
     SpinComponent,
+    ReactiveFormsModule,
   ],
   templateUrl: './ai-settings.component.html',
   styleUrl: './ai-settings.component.scss',
@@ -45,6 +47,11 @@ export class AiSettingsComponent {
   protected providers = signal<AiProviderDto[]>(initialProviders);
   protected isLoading = signal(true);
   protected settings = signal<ISettings>(initialSettings);
+  protected settingsForm = new FormGroup({
+    provider: new FormControl(''),
+    model: new FormControl(''),
+    apiKey: new FormControl(''),
+  });
 
   private chatHistoryAPI = inject(AiHttpService);
   private settingsAPI = inject(AiSettingsHttpService);
@@ -53,6 +60,47 @@ export class AiSettingsComponent {
   constructor() {
     this.loadProviders();
     this.loadSettings();
+  }
+
+  protected handleSubmit() {
+    let newSettings: AiSettingsDto;
+    if (!this.settings().useRemoteProvider) {
+      newSettings = {
+        providerId: 'ollama',
+        model: null,
+        apiKey: null,
+      };
+      this.saveSettings(newSettings);
+    } else {
+      const formValue = this.settingsForm.value;
+      newSettings = {
+        providerId: formValue.provider ?? '',
+        model: formValue.model ?? null,
+        apiKey: formValue.apiKey ?? null,
+      };
+      if (this.isValidData(newSettings)) this.saveSettings(newSettings);
+    }
+  }
+
+  private saveSettings(settings: AiSettingsDto) {
+    this.settingsAPI.updateMySettings(settings).subscribe({
+      next: () => {
+        this.updateSettings(settings);
+        this.modal.open({
+          title: 'Settings Updated',
+          message: 'Your AI settings have been successfully updated.',
+          buttonText: 'OK',
+        });
+      },
+      error: (error: unknown) => {
+        console.error('Error updating AI settings:', error);
+        this.modal.open({
+          title: 'Error',
+          message: 'Failed to update AI settings. Please try again.',
+          buttonText: 'OK',
+        });
+      },
+    });
   }
 
   private loadProviders() {
@@ -126,6 +174,30 @@ export class AiSettingsComponent {
           buttonText: 'OK',
         });
       },
+    });
+  }
+
+  private isValidData(settings: AiSettingsDto): boolean {
+    if (!settings.providerId) {
+      this.showValidationError('Provider');
+      return false;
+    }
+    if (!settings.model && !this.settings().model) {
+      this.showValidationError('Model');
+      return false;
+    }
+    if (!settings.apiKey && !this.settings().apiKey) {
+      this.showValidationError('API Key');
+      return false;
+    }
+    return true;
+  }
+
+  private showValidationError(field: string) {
+    this.modal.open({
+      title: 'Validation Error',
+      message: `The field "${field}" is required when using a remote provider.`,
+      buttonText: 'OK',
     });
   }
 }

@@ -67,13 +67,10 @@ export class AiService {
     const settings = await this.aiSettingsRepository.upsert({
       userId,
       providerId: dto.providerId,
-      model: null,
-      apiKey: null,
-      // For key-requiring providers, preserve the existing key rather than clobber it on a
-      // provider-only update. Callers must use a dedicated key-update endpoint to change the key.
+      model: dto.model,
+      apiKey: dto.apiKey,
       preserveExistingKey: provider.meta.requiresKey,
     });
-
     return {
       providerId: settings.providerId,
       model: settings.model,

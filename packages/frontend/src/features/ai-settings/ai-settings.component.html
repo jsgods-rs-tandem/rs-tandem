@@ -6,31 +6,42 @@
     <app-spin [size]="'large'" [theme]="'light'"></app-spin>
   </div>
 } @else {
-  <div class="row">
-    <h3 class="h4">Use remote provider?</h3>
-    <app-switcher
-      (toggledEvent)="toggleProvider($event)"
-      [initialStatus]="settings().useRemoteProvider"
-    ></app-switcher>
-  </div>
+  <form [formGroup]="settingsForm" class="form" (ngSubmit)="handleSubmit()">
+    <div class="row">
+      <h3 class="h4">Use remote provider?</h3>
+      <app-switcher
+        (toggledEvent)="toggleProvider($event)"
+        [initialStatus]="settings().useRemoteProvider"
+      ></app-switcher>
+    </div>
 
-  <div class="provider-wrapper" [ngClass]="settings().useRemoteProvider ? 'enabled' : 'disabled'">
-    <h3>Provider</h3>
-    <select name="provider" id="model" class="select">
-      @for (provider of providers(); track provider) {
-        <option value="{{ provider.id }}" [selected]="settings().provider === provider.id">
-          {{ provider.label }}
-        </option>
-      }
-    </select>
-    <h3>Model</h3>
-    <app-input [placeholder]="settings().model ?? 'Model'"></app-input>
-    <h3>API key</h3>
-    <app-input [placeholder]="settings().apiKey ?? 'API key'" class="input"></app-input>
-  </div>
+    <div class="provider-wrapper" [ngClass]="settings().useRemoteProvider ? 'enabled' : 'disabled'">
+      <h3>Provider</h3>
+      <select name="provider" id="model" class="select" formControlName="provider">
+        @for (provider of providers(); track provider) {
+          <option value="{{ provider.id }}" [selected]="settings().provider === provider.id">
+            {{ provider.label }}
+          </option>
+        }
+      </select>
+      <h3>Model</h3>
+      <app-input
+        [placeholder]="settings().model ?? 'Model'"
+        formControlName="model"
+        [targetType]="'text'"
+      ></app-input>
+      <h3>API key</h3>
+      <app-input
+        [placeholder]="settings().apiKey ?? 'API key'"
+        class="input"
+        formControlName="apiKey"
+        [targetType]="'password'"
+      ></app-input>
+    </div>
 
-  <div class="control-wrapper">
-    <app-button>Update settings</app-button>
-    <app-button (click)="resetChatHistory()">Reset chat history</app-button>
-  </div>
+    <div class="control-wrapper">
+      <app-button type="submit">Update settings</app-button>
+      <app-button (click)="resetChatHistory()">Reset chat history</app-button>
+    </div>
+  </form>
 }
