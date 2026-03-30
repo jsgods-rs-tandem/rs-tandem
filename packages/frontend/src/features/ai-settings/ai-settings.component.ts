@@ -73,10 +73,18 @@ export class AiSettingsComponent {
       this.saveSettings(newSettings);
     } else {
       const formValue = this.settingsForm.value;
+      let model = formValue.model;
+      if (model === '' || model === null || model === undefined) {
+        model = this.settings().model;
+      }
+      let apiKey = formValue.apiKey;
+      if (apiKey === '' || apiKey === null || apiKey === undefined) {
+        apiKey = this.settings().apiKey;
+      }
       newSettings = {
         providerId: formValue.provider ?? '',
-        model: formValue.model ?? null,
-        apiKey: formValue.apiKey ?? null,
+        model,
+        apiKey,
       };
       if (this.isValidData(newSettings)) this.saveSettings(newSettings);
     }
