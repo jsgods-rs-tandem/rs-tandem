@@ -112,7 +112,7 @@ export class AiService {
     const provider = this.getMyProvider(settings);
 
     try {
-      const stream = await provider.streamChat(messages, settings.apiKey);
+      const stream = await provider.streamChat(messages, settings.model, settings.apiKey);
       let content = '';
       for await (const chunk of stream) {
         content = `${content}${chunk}`;
@@ -150,7 +150,7 @@ export class AiService {
     }
 
     try {
-      const content = await provider.chat(dto.messages, settings.apiKey);
+      const content = await provider.chat(dto.messages, settings.model, settings.apiKey);
 
       return content;
     } catch (error) {
