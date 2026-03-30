@@ -37,6 +37,7 @@ export class AiService {
 
     return {
       providerId: settings.providerId,
+      model: settings.model,
       apiKey: settings.apiKey,
     };
   }
@@ -51,6 +52,7 @@ export class AiService {
 
     return {
       providerId: settings.providerId,
+      model: settings.model,
       apiKey: settings.apiKey,
     };
   }
@@ -74,6 +76,7 @@ export class AiService {
 
     return {
       providerId: settings.providerId,
+      model: settings.model,
       apiKey: settings.apiKey,
     };
   }

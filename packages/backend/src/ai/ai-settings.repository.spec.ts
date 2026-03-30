@@ -9,6 +9,7 @@ const now = new Date('2024-06-01T12:00:00.000Z');
 const validDatabaseRow = {
   user_id: 'u1',
   provider_id: 'ollama',
+  model: null,
   api_key: null,
   created_at: now,
   updated_at: now,
@@ -17,6 +18,7 @@ const validDatabaseRow = {
 const expectedRow = {
   userId: 'u1',
   providerId: 'ollama',
+  model: null,
   apiKey: null,
   createdAt: now,
   updatedAt: now,
@@ -93,6 +95,7 @@ describe('AiSettingsRepository', () => {
       expect(mockPool.query).toHaveBeenCalledWith(expect.any(String), [
         'u1',
         'ollama',
+        null,
         'secret',
         true,
       ]);

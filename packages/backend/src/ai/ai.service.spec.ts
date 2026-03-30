@@ -40,6 +40,7 @@ const now = new Date('2024-06-01T12:00:00.000Z');
 const ollamaSettings = {
   userId: 'u1',
   providerId: 'ollama',
+  model: null,
   apiKey: null,
   createdAt: now,
   updatedAt: now,
@@ -78,7 +79,7 @@ describe('AiService', () => {
 
       const result = await service.getMySettings('u1');
 
-      expect(result).toEqual({ providerId: 'ollama', apiKey: null });
+      expect(result).toEqual({ providerId: 'ollama', model: null, apiKey: null });
     });
 
     it('throws BadRequestException when no settings found', async () => {
@@ -102,10 +103,11 @@ describe('AiService', () => {
       expect(mockAiSettingsRepository.upsert).toHaveBeenCalledWith({
         userId: 'u1',
         providerId: 'ollama',
+        model: null,
         apiKey: null,
         preserveExistingKey: false,
       });
-      expect(result).toEqual({ providerId: 'ollama', apiKey: null });
+      expect(result).toEqual({ providerId: 'ollama', model: null, apiKey: null });
     });
 
     it('upserts with preserveExistingKey true for key-requiring provider', async () => {

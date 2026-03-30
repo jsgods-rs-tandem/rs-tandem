@@ -13,6 +13,7 @@ export interface AiProviderDto {
 
 export interface AiSettingsDto {
   providerId: string;
+  model: string | null;
   apiKey: string | null;
 }
 
