@@ -18,6 +18,8 @@ export interface AiSettingsDto {
 
 export interface UpdateAiSettingsDto {
   providerId: string;
+  model: string | null;
+  apiKey: string | null;
 }
 
 export interface AiChatRequestDto {

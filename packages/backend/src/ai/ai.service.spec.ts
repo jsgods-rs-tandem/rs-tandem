@@ -93,7 +93,11 @@ describe('AiService', () => {
       mockFindProvider.mockReturnValue(ollamaProvider);
       mockAiSettingsRepository.upsert.mockResolvedValue(ollamaSettings);
 
-      const result = await service.updateMySettings('u1', { providerId: 'ollama' });
+      const result = await service.updateMySettings('u1', {
+        providerId: 'ollama',
+        model: null,
+        apiKey: null,
+      });
 
       expect(mockAiSettingsRepository.upsert).toHaveBeenCalledWith({
         userId: 'u1',
@@ -112,7 +116,11 @@ describe('AiService', () => {
         apiKey: 'existing-key',
       });
 
-      await service.updateMySettings('u1', { providerId: 'paid-provider' });
+      await service.updateMySettings('u1', {
+        providerId: 'paid-provider',
+        model: null,
+        apiKey: null,
+      });
 
       expect(mockAiSettingsRepository.upsert).toHaveBeenCalledWith(
         expect.objectContaining({ preserveExistingKey: true }),
@@ -122,9 +130,9 @@ describe('AiService', () => {
     it('throws BadRequestException for unknown provider', async () => {
       mockFindProvider.mockReturnValue(undefined);
 
-      await expect(service.updateMySettings('u1', { providerId: 'unknown' })).rejects.toThrow(
-        BadRequestException,
-      );
+      await expect(
+        service.updateMySettings('u1', { providerId: 'unknown', model: null, apiKey: null }),
+      ).rejects.toThrow(BadRequestException);
       expect(mockAiSettingsRepository.upsert).not.toHaveBeenCalled();
     });
   });

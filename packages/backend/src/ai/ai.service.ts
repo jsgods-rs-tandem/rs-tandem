@@ -29,7 +29,7 @@ export class AiService {
   }
 
   private async setDefaultSettings(userId: string): Promise<AiSettingsDto> {
-    await this.updateMySettings(userId, { providerId: 'ollama' });
+    await this.updateMySettings(userId, { providerId: 'ollama', model: null, apiKey: null });
     const settings = await this.aiSettingsRepository.findByUserId(userId);
     if (!settings) {
       throw new BadRequestException('ai.provider_not_selected');
@@ -65,6 +65,7 @@ export class AiService {
     const settings = await this.aiSettingsRepository.upsert({
       userId,
       providerId: dto.providerId,
+      model: null,
       apiKey: null,
       // For key-requiring providers, preserve the existing key rather than clobber it on a
       // provider-only update. Callers must use a dedicated key-update endpoint to change the key.

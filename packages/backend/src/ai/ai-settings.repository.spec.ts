@@ -71,6 +71,7 @@ describe('AiSettingsRepository', () => {
       const result = await repository.upsert({
         userId: 'u1',
         providerId: 'ollama',
+        model: null,
         apiKey: null,
         preserveExistingKey: false,
       });
@@ -84,6 +85,7 @@ describe('AiSettingsRepository', () => {
       await repository.upsert({
         userId: 'u1',
         providerId: 'ollama',
+        model: null,
         apiKey: 'secret',
         preserveExistingKey: true,
       });
@@ -103,6 +105,7 @@ describe('AiSettingsRepository', () => {
         repository.upsert({
           userId: 'u1',
           providerId: 'ollama',
+          model: null,
           apiKey: null,
           preserveExistingKey: false,
         }),
