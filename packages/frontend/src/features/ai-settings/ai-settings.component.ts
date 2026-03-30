@@ -7,7 +7,7 @@ import { ButtonComponent, SpinComponent } from '@/shared/ui';
 import { AiHttpService } from '../ai-chat/services/ai-http-service';
 import { ModalService } from '@/core/services/modal.service';
 import { AiSettingsHttpService } from './ai-settings-http.service';
-import { AiSettingsDto } from '@rs-tandem/shared';
+import { AiProviderDto, AiSettingsDto } from '@rs-tandem/shared';
 
 interface ISettings {
   useRemoteProvider: boolean;
@@ -15,20 +15,6 @@ interface ISettings {
   model: string | null;
   apiKey: string | null;
 }
-const mockProviders = [
-  {
-    label: 'Open Router',
-    value: 'open-router',
-  },
-  {
-    label: 'OpenAI',
-    value: 'openai',
-  },
-  {
-    label: 'Gemini',
-    value: 'gemini',
-  },
-];
 
 const initialSettings: ISettings = {
   useRemoteProvider: false,
@@ -36,6 +22,10 @@ const initialSettings: ISettings = {
   model: null,
   apiKey: null,
 };
+
+const initialProviders: AiProviderDto[] = [
+  { id: 'loading', label: 'Loading providers...', requiresKey: false },
+];
 
 @Component({
   selector: 'app-ai-settings',
@@ -52,7 +42,7 @@ const initialSettings: ISettings = {
 })
 export class AiSettingsComponent {
   protected title = 'AI';
-  protected providers = mockProviders;
+  protected providers = signal<AiProviderDto[]>(initialProviders);
   protected isLoading = signal(true);
   protected settings = signal<ISettings>(initialSettings);
 
@@ -61,6 +51,30 @@ export class AiSettingsComponent {
   private modal = inject(ModalService);
 
   constructor() {
+    this.loadProviders();
+    this.loadSettings();
+  }
+
+  private loadProviders() {
+    this.settingsAPI.getProviders().subscribe({
+      next: (providers) => {
+        this.updateProviders(providers);
+      },
+      error: (error: unknown) => {
+        console.error('Error fetching AI providers:', error);
+        this.providers.set([
+          { id: 'error', label: 'Failed to load providers', requiresKey: false },
+        ]);
+        this.modal.open({
+          title: 'Error',
+          message: 'Failed to load AI providers',
+          buttonText: 'OK',
+        });
+      },
+    });
+  }
+
+  private loadSettings() {
     this.settingsAPI.getMySttings().subscribe({
       next: (settings) => {
         this.updateSettings(settings);
@@ -76,6 +90,10 @@ export class AiSettingsComponent {
         });
       },
     });
+  }
+
+  private updateProviders(providers: AiProviderDto[]) {
+    this.providers.set(providers.filter((provider) => provider.id !== 'ollama'));
   }
 
   private updateSettings(settings: AiSettingsDto) {

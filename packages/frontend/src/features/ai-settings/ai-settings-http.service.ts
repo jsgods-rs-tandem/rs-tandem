@@ -1,7 +1,7 @@
 import { inject, Injectable } from '@angular/core';
 import { environment } from '@/environments/environment';
 import { HttpClient } from '@angular/common/http';
-import { AiSettingsDto } from '@rs-tandem/shared';
+import { AiProviderDto, AiSettingsDto } from '@rs-tandem/shared';
 
 @Injectable({
   providedIn: 'root',
@@ -15,5 +15,9 @@ export class AiSettingsHttpService {
 
   updateMySettings(settings: AiSettingsDto) {
     return this.http.put<AiSettingsDto>(`${environment.apiUrl}/ai/settings/me`, settings);
+  }
+
+  getProviders() {
+    return this.http.get<AiProviderDto[]>(`${environment.apiUrl}/ai/providers`);
   }
 }

@@ -17,8 +17,8 @@
   <div class="provider-wrapper" [ngClass]="settings().useRemoteProvider ? 'enabled' : 'disabled'">
     <h3>Provider</h3>
     <select name="provider" id="model" class="select">
-      @for (provider of providers; track provider.value) {
-        <option value="{{ provider.value }}" [selected]="settings().provider === provider.value">
+      @for (provider of providers(); track provider) {
+        <option value="{{ provider.id }}" [selected]="settings().provider === provider.id">
           {{ provider.label }}
         </option>
       }
