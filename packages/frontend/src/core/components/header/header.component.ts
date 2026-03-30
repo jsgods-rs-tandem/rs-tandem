@@ -11,9 +11,10 @@ import { Router } from '@angular/router';
 import { AuthService } from '@/core/services/auth.service';
 import { ROUTE_PATHS } from '@/core/constants';
 import { TranslocoService } from '@jsverse/transloco';
-import { toSignal } from '@angular/core/rxjs-interop';
 import { saveLanguage } from '@/core/utils/i18n.utils';
-import { AppLanguage } from '@/core/constants/i18n.constants';
+import { injectActiveLang } from '@/shared/utils/translate.utilities';
+import { marker } from '@jsverse/transloco-keys-manager/marker';
+import { TypedTranslocoPipe } from '@/shared/pipes/typed-transloco.pipe';
 
 @Component({
   selector: 'app-header',
@@ -24,6 +25,7 @@ import { AppLanguage } from '@/core/constants/i18n.constants';
     ButtonComponent,
     MobileMenuComponent,
     NgTemplateOutlet,
+    TypedTranslocoPipe,
   ],
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss',
@@ -34,12 +36,10 @@ export class HeaderComponent {
   private authService = inject(AuthService);
   private translocoService = inject(TranslocoService);
   private router = inject(Router);
+  private activeLang = injectActiveLang();
   mode = input<HeaderMode>('login');
   isMenuOpen = input(false);
   isDarkTheme = computed(() => this.themeService.theme() === 'dark');
-  activeLang = toSignal(this.translocoService.langChanges$, {
-    initialValue: this.translocoService.getActiveLang() as AppLanguage,
-  });
 
   menuToggled = output();
   languageClick = output();
@@ -49,18 +49,21 @@ export class HeaderComponent {
   languageText = computed(() => (this.isEngLanguage() ? 'Ru' : 'En'));
   themeIcon = computed(() => (this.isDarkTheme() ? 'sun' : 'moon'));
   themeAriaLabel = computed(() =>
-    this.isDarkTheme() ? 'Switch to light theme' : 'Switch to dark theme',
+    this.isDarkTheme() ? marker('header.aria.themeLight') : marker('header.aria.themeDark'),
   );
+
   languageAriaLabel = computed(() =>
-    this.isEngLanguage() ? 'Switch to Russian language' : 'Switch to English language',
+    this.isEngLanguage() ? marker('header.aria.langRu') : marker('header.aria.langEn'),
   );
-  // change ROUTE_PATHS.library to ROUTE_PATHS.dashboard when available
+
   readonly logoLink = computed(() =>
     this.authService.isAuthenticated() ? ROUTE_PATHS.library : ROUTE_PATHS.home,
   );
 
-  readonly logoAriaLabel = computed(() =>
-    this.authService.isAuthenticated() ? 'Go to the library' : 'Go to the home page',
+  logoAriaLabel = computed(() =>
+    this.authService.isAuthenticated()
+      ? marker('header.aria.logoLibrary')
+      : marker('header.aria.logoHome'),
   );
 
   toggleTheme(): void {

@@ -1,4 +1,10 @@
 {
+  "mobileMenu": {
+    "aria": {
+      "close": "Close menu",
+      "open": "Open menu"
+    }
+  },
   "footer": {
     "copy": "RS Tandem",
     "credits": "Designed & Developed by",
@@ -16,6 +22,21 @@
     "auth": {
       "profile": "Profile",
       "library": "Library"
+    }
+  },
+  "header": {
+    "actions": {
+      "signIn": "Sign in",
+      "home": "Home",
+      "signOut": "Sign out"
+    },
+    "aria": {
+      "logoHome": "Go to the home page",
+      "logoLibrary": "Go to the library",
+      "themeLight": "Switch to light theme",
+      "themeDark": "Switch to dark theme",
+      "langRu": "Switch to Russian language",
+      "langEn": "Switch to English language"
     }
   },
   "profile": {

@@ -1,5 +1,5 @@
 <header class="header">
-  <app-button [link]="logoLink()" version="logo" [ariaLabel]="logoAriaLabel()">
+  <app-button [link]="logoLink()" version="logo" [ariaLabel]="logoAriaLabel() | transloco">
     <app-logo size="m" class="header__logo" />
   </app-button>
 
@@ -29,16 +29,21 @@
     version="ghost"
     icon="language"
     iconColor="neutral"
-    [ariaLabel]="languageAriaLabel()"
+    [ariaLabel]="languageAriaLabel() | transloco"
     (click)="toggleLanguage()"
   />
-  <app-icon-button [icon]="themeIcon()" [ariaLabel]="themeAriaLabel()" (click)="toggleTheme()" />
+  <app-icon-button
+    [icon]="themeIcon()"
+    [ariaLabel]="themeAriaLabel() | transloco"
+    (click)="toggleTheme()"
+  />
 </ng-template>
 
 <ng-template #mainAction>
   @let config = actionConfig();
   <app-button
-    [text]="config.text"
+    [text]="config.text | transloco"
+    [ariaLabel]="config.text | transloco"
     [icon]="config.icon"
     iconPosition="end"
     [link]="config.link"
