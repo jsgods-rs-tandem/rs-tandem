@@ -33,10 +33,15 @@
   }
 }
 
+.input-container {
+  position: relative;
+  width: 100%;
+  margin-top: var(--spacing-x2);
+}
+
 .input-element {
   width: 100%;
   min-height: 52px;
-  margin-top: var(--spacing-x2);
   padding: var(--spacing-x2) var(--spacing-x3);
   border: 1px solid var(--secondary-color);
   border-radius: var(--radius-md);
@@ -48,10 +53,13 @@
 
   background-color: transparent;
   outline: none;
-  @include m.transition((border-color, box-shadow));
 
   &::placeholder {
     color: var(--text-secondary);
+  }
+
+  &.has-toggle {
+    padding-right: fn.to-rem(48px);
   }
 
   &:focus {
@@ -61,6 +69,37 @@
   &:disabled {
     cursor: not-allowed;
     background-color: rgb(255 255 255 / 5%);
+  }
+  @include m.transition((border-color, box-shadow));
+}
+
+.password-toggle-btn {
+  cursor: pointer;
+
+  position: absolute;
+  top: 50%;
+  right: var(--spacing-x3);
+  transform: translateY(-50%);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: none;
+
+  color: var(--text-secondary);
+
+  background: transparent;
+  outline: none;
+  @include m.transition((color));
+
+  &:hover,
+  &:focus-visible {
+    color: var(--accent-color);
+  }
+
+  .material-icons {
+    font-size: fn.to-rem(20px);
   }
 }
 

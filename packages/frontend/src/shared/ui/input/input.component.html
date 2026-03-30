@@ -9,19 +9,36 @@
     </label>
   }
 
-  <input
-    class="input-element"
-    [value]="value"
-    [id]="inputId()"
-    [name]="computedName()"
-    [type]="targetType()"
-    [placeholder]="placeholder()"
-    [disabled]="disabled()"
-    [autocomplete]="autoComplete()"
-    [required]="required()"
-    (input)="onInputChange($event)"
-    (blur)="onTouched()"
-  />
+  <div class="input-container">
+    <input
+      class="input-element"
+      [class.has-toggle]="targetType() === 'password'"
+      [value]="value"
+      [id]="inputId()"
+      [name]="computedName()"
+      [type]="computedType()"
+      [placeholder]="placeholder()"
+      [disabled]="disabled()"
+      [autocomplete]="autoComplete()"
+      [required]="required()"
+      (input)="onInputChange($event)"
+      (blur)="onTouched()"
+    />
+
+    @if (targetType() === 'password') {
+      <button
+        type="button"
+        class="password-toggle-btn"
+        (click)="togglePasswordVisibility()"
+        tabindex="-1"
+        [attr.aria-label]="isPasswordVisible() ? 'Hide password' : 'Show password'"
+      >
+        <span class="material-icons" aria-hidden="true">
+          {{ isPasswordVisible() ? 'visibility_off' : 'visibility' }}
+        </span>
+      </button>
+    }
+  </div>
 
   <div class="input-error-wrapper">
     @if (hasError()) {

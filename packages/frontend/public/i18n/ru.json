@@ -1,7 +1,7 @@
 {
   "auth": {
     "signIn": {
-      "title": "Войти",
+      "title": "Создать аккаунт",
       "form": {
         "email": {
           "label": "Имейл",
@@ -19,15 +19,15 @@
       }
     },
     "signUp": {
-      "title": "Зарегистрироваться",
+      "title": "Регистрация",
       "form": {
         "username": {
           "label": "Имя пользователя",
           "placeholder": "Введите имя пользователя"
         },
         "email": {
-          "label": "Почта",
-          "placeholder": "Введите ваш email"
+          "label": "Электронная почта",
+          "placeholder": "Введите вашу почту"
         },
         "password": {
           "label": "Пароль",
