@@ -15,17 +15,9 @@ export class HeroComponent {
   readonly titleKey = marker('hero.title');
   readonly subtitleKey = marker('hero.subtitle');
   readonly buttonKey = marker('hero.button');
-  // readonly title = 'Tech \n Interview';
-  // readonly subtitle = 'Crush Your Next';
   readonly features = [
     { icon: 'cube', textKey: marker('hero.features.modules') },
     { icon: 'code', textKey: marker('hero.features.cases') },
     { icon: 'ai', textKey: marker('hero.features.ai') },
   ] as const;
-  // readonly features = [
-  //   { icon: 'cube', text: '4 Core Modules' },
-  //   { icon: 'code', text: 'Real-Interview Cases' },
-  //   { icon: 'ai', text: 'Smart AI Review' },
-  // ] as const;
-  // readonly buttonText = 'Start preparation';
 }
