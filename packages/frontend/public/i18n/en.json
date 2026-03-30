@@ -1,4 +1,11 @@
 {
+  "footer": {
+    "copy": "RS Tandem",
+    "credits": "Designed & Developed by",
+    "ariaLabel": {
+      "github": "Project Repository"
+    }
+  },
   "profile": {
     "title": "Profile",
     "view": {

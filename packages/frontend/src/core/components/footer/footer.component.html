@@ -1,11 +1,11 @@
 <footer class="footer">
   <div class="footer__content">
     <span class="footer__copy text-xs-fluid">
-      <span class="copy-symbol">&copy;</span> 2026 RS Tandem
+      <span class="copy-symbol">&copy;</span> 2026 {{ 'footer.copy' | transloco }}
     </span>
     <span class="footer__credits text-xs-fluid">
       <span aria-hidden="true" class="footer__credits_divider">|</span>
-      Designed & Developed by&nbsp;<strong>JSGods</strong>
+      {{ 'footer.credits' | transloco }}&nbsp;<strong>JSGods</strong>
     </span>
   </div>
 
@@ -14,7 +14,7 @@
     iconColor="neutral"
     [href]="githubUrl"
     [external]="true"
-    [ariaLabel]="buttonAriaLabel"
+    [ariaLabel]="githubAriaKey | transloco"
     version="ghost"
   />
 </footer>
