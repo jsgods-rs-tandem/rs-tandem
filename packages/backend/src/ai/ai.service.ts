@@ -69,7 +69,7 @@ export class AiService {
       providerId: dto.providerId,
       model: dto.model,
       apiKey: dto.apiKey,
-      preserveExistingKey: provider.meta.requiresKey,
+      preserveExistingKey: !provider.meta.requiresKey,
     });
     return {
       providerId: settings.providerId,
