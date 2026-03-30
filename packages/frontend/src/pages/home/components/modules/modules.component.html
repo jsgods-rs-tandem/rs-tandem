@@ -2,7 +2,7 @@
   <h2 class="h2">{{ title }}</h2>
   <ul class="modules__list">
     @for (module of modules; track module.text) {
-      <li class="modules__item">
+      <li class="modules__item" appInView>
         <app-card [title]="module.title">
           <p class="text-base-fluid">{{ module.text }}</p>
         </app-card>

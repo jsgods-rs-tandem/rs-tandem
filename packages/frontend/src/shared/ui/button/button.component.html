@@ -1,5 +1,5 @@
 @let isLoading = loading();
-
+@let fragValue = fragment();
 <ng-template #content>
   @if (icon()) {
     <app-icon [name]="icon()!" size="m" class="button__icon" [color]="iconColor()" />
@@ -8,6 +8,12 @@
     <span class="button__text">{{ text() }}</span>
   }
   <ng-content />
+</ng-template>
+
+<ng-template #inner>
+  <span class="button__wrapper button__wrapper_icon-{{ iconPosition() }}">
+    <ng-container *ngTemplateOutlet="content" />
+  </span>
 </ng-template>
 
 @if (href() && !disabled()) {
@@ -19,22 +25,29 @@
     [attr.aria-label]="displayAriaLabel()"
     [aria-current]="ariaCurrent()"
   >
-    <span class="button__wrapper button__wrapper_icon-{{ iconPosition() }}">
-      <ng-container *ngTemplateOutlet="content"></ng-container>
-    </span>
+    <ng-container *ngTemplateOutlet="inner" />
   </a>
 } @else if (link() && !disabled()) {
-  <a
-    [routerLink]="link()"
-    [fragment]="fragment() ?? ''"
-    [class]="classes()"
-    [attr.aria-label]="displayAriaLabel()"
-    [aria-current]="ariaCurrent()"
-  >
-    <span class="button__wrapper button__wrapper_icon-{{ iconPosition() }}">
-      <ng-container *ngTemplateOutlet="content"></ng-container>
-    </span>
-  </a>
+  @if (fragValue) {
+    <a
+      [routerLink]="link()"
+      [fragment]="fragValue"
+      [class]="classes()"
+      [attr.aria-label]="displayAriaLabel()"
+      [aria-current]="ariaCurrent()"
+    >
+      <ng-container *ngTemplateOutlet="inner" />
+    </a>
+  } @else {
+    <a
+      [routerLink]="link()"
+      [class]="classes()"
+      [attr.aria-label]="displayAriaLabel()"
+      [aria-current]="ariaCurrent()"
+    >
+      <ng-container *ngTemplateOutlet="inner" />
+    </a>
+  }
 } @else {
   <button
     [type]="type()"
@@ -45,10 +58,10 @@
     [attr.aria-busy]="isLoading ? 'true' : null"
     [aria-current]="ariaCurrent()"
   >
-    <span class="button__wrapper button__wrapper_icon-{{ iconPosition() }}">
-      <ng-container *ngTemplateOutlet="content"></ng-container>
-    </span>
+    <ng-container *ngTemplateOutlet="inner" />
 
-    <app-spin class="button__spin" theme="button" />
+    @if (isLoading) {
+      <app-spin class="button__spin" theme="button" />
+    }
   </button>
 }

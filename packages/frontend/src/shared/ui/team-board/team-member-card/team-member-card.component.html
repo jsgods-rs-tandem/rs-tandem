@@ -1,7 +1,7 @@
 @let memberName = name();
 @let link = linkUrl();
 
-<article class="team-card" [class.team-card_rotate]="isRotate()">
+<article class="team-card" [class.team-card_rotate]="isRotate()" appInView [threshold]="0.8">
   <header class="team-card__header">
     <img [src]="avatarUrl()" alt="{{ memberName }} avatar" class="team-card__avatar" />
   </header>

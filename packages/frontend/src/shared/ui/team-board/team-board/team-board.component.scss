@@ -5,7 +5,12 @@
   flex-flow: row wrap;
   gap: var(--spacing-x4) var(--spacing-x8);
 
+  @include m.media('m') {
+    gap: var(--spacing-x4) var(--spacing-x6);
+  }
+
   @include m.media('s') {
+    gap: var(--spacing-x4);
     justify-content: center;
   }
 }
