@@ -1,5 +1,7 @@
+import { AppTranslationKey } from '@/shared/types/translation-keys';
+
 export interface NavLink {
-  label: string;
+  label: AppTranslationKey;
   path: string;
   isAnchor?: boolean;
 }

@@ -6,6 +6,18 @@
       "github": "Репозиторий проекта"
     }
   },
+  "nav": {
+    "guest": {
+      "about": "О проекте",
+      "modules": "Модули",
+      "faq": "FAQ",
+      "team": "Команда"
+    },
+    "auth": {
+      "profile": "Профиль",
+      "library": "Библиотека"
+    }
+  },
   "profile": {
     "title": "Профиль",
     "view": {

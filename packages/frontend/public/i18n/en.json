@@ -6,6 +6,18 @@
       "github": "Project Repository"
     }
   },
+  "nav": {
+    "guest": {
+      "about": "About",
+      "modules": "Modules",
+      "faq": "FAQ",
+      "team": "Team"
+    },
+    "auth": {
+      "profile": "Profile",
+      "library": "Library"
+    }
+  },
   "profile": {
     "title": "Profile",
     "view": {

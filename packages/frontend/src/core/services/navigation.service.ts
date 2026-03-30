@@ -1,20 +1,20 @@
 import { computed, Injectable, signal } from '@angular/core';
 import { NavLink } from '../components/navigation/navigation.types';
 import { ROUTE_PATHS } from '@/core/constants';
+import { marker } from '@jsverse/transloco-keys-manager/marker';
 
 @Injectable({ providedIn: 'root' })
 export class NavService {
   private readonly guestLinks: NavLink[] = [
-    { label: 'About', path: 'about', isAnchor: true },
-    { label: 'Modules', path: 'modules', isAnchor: true },
-    { label: 'FAQ', path: 'faq', isAnchor: true },
-    { label: 'Team', path: 'team', isAnchor: true },
+    { label: marker('nav.guest.about'), path: 'about', isAnchor: true },
+    { label: marker('nav.guest.modules'), path: 'modules', isAnchor: true },
+    { label: marker('nav.guest.faq'), path: 'faq', isAnchor: true },
+    { label: marker('nav.guest.team'), path: 'team', isAnchor: true },
   ];
 
   private readonly authLinks: NavLink[] = [
-    { label: 'Profile', path: ROUTE_PATHS.profile, isAnchor: false },
-    { label: 'Library', path: ROUTE_PATHS.library, isAnchor: false },
-    { label: 'Dashboard', path: ROUTE_PATHS.dashboard, isAnchor: false },
+    { label: marker('nav.auth.profile'), path: ROUTE_PATHS.profile, isAnchor: false },
+    { label: marker('nav.auth.library'), path: ROUTE_PATHS.library, isAnchor: false },
   ];
 
   private isAuthenticated = signal<boolean>(false);
