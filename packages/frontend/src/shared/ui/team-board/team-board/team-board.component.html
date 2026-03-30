@@ -1,7 +1,7 @@
 <div class="team-members__wrapper">
-  @for (member of teamMembers; track member.name) {
+  @for (member of teamMembers; track member.nameKey) {
     <app-team-member-card
-      [name]="member.name"
+      [nameKey]="member.nameKey"
       [avatarUrl]="member.avatarUrl"
       [linkText]="member.linkText"
       [linkUrl]="member.linkUrl"

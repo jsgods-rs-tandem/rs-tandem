@@ -1,15 +1,15 @@
 <section class="about">
-  <h2 class="h2">{{ title }}</h2>
+  <h2 class="h2">{{ 'home.about.title' | transloco }}</h2>
   <div class="about__description">
     <p class="text-base-fluid">
-      <span class="text_brand">{{ highlightBrand }}</span>
-      {{ firstParagraph }}
+      <span class="text_brand">{{ 'home.about.brand' | transloco }}</span>
+      {{ 'home.about.description.part1' | transloco }}
     </p>
-    <p class="text-base-fluid">{{ secondParagraph }}</p>
+    <p class="text-base-fluid">{{ 'home.about.description.part2' | transloco }}</p>
   </div>
   <app-button
     [link]="ROUTE_PATHS.signIn"
-    [text]="buttonText"
+    [text]="'home.about.button' | transloco"
     version="primary"
     icon="arrow-up"
     iconColor="secondary"
