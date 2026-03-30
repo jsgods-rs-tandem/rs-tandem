@@ -1,5 +1,7 @@
+import { AppTranslationKey } from './translation-keys';
+
 export interface TeamMember {
-  name: string;
+  nameKey: AppTranslationKey;
   avatarUrl: string;
   linkText?: string;
   linkUrl?: string;

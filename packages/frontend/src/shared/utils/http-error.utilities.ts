@@ -12,7 +12,7 @@ function extractRawMessages(
   const { message } = error.error;
 
   if (typeof message === 'string') {
-    return isAppTranslationKey(message) ? message : null;
+    return message as AppTranslationKey;
   }
 
   const validKeys = message.filter((message_): message_ is AppTranslationKey =>
@@ -44,8 +44,12 @@ export function getHttpErrorMessage(
     return fallback;
   }
 
+  if (typeof messages === 'string') {
+    return `errors.${messages}` as AppTranslationKey;
+  }
+
   if (Array.isArray(messages)) {
-    return messages;
+    return messages.map((message) => `errors.${message}` as AppTranslationKey);
   }
 
   return fallback;

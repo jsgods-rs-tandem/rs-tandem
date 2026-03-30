@@ -2,33 +2,36 @@ import { Component } from '@angular/core';
 import { ButtonComponent, CardComponent } from '@/shared/ui';
 import { ROUTE_PATHS } from '@/core/constants';
 import { InViewDirective } from '@/shared/directives/in-view.directive';
+import { marker } from '@jsverse/transloco-keys-manager/marker';
+import { TypedTranslocoPipe } from '@/shared/pipes/typed-transloco.pipe';
 
 @Component({
   selector: 'app-modules',
-  imports: [ButtonComponent, CardComponent, InViewDirective],
+  imports: [ButtonComponent, CardComponent, InViewDirective, TypedTranslocoPipe],
   templateUrl: './modules.component.html',
   styleUrl: './modules.component.scss',
 })
 export class ModulesComponent {
   readonly ROUTE_PATHS = ROUTE_PATHS;
-  readonly title = 'Modules';
+  readonly titleKey = marker('modules.title');
+  readonly buttonKey = marker('modules.button');
+
   readonly modules = [
     {
-      title: 'Basic JavaScript',
-      text: 'The foundation of web development. Dive into syntax, basic data types, functions, arrays, objects, and DOM interaction basics.',
+      titleKey: marker('modules.list.basicJs.title'),
+      textKey: marker('modules.list.basicJs.text'),
     },
     {
-      title: 'Advanced JavaScript',
-      text: 'Complex language concepts under the hood. In-depth analysis of execution context (this), closures, prototypal inheritance, and async.',
+      titleKey: marker('modules.list.advancedJs.title'),
+      textKey: marker('modules.list.advancedJs.text'),
     },
     {
-      title: 'Algorithms & Data Structures',
-      text: 'Logical thinking training for algorithmic interview sections. Study data structures, evaluate algorithm time complexity (Big O).',
+      titleKey: marker('modules.list.algorithms.title'),
+      textKey: marker('modules.list.algorithms.text'),
     },
     {
-      title: 'TypeScript',
-      text: 'The modern typing standard. Learn static types, interfaces, generics, and advanced language features to write reliable code.',
+      titleKey: marker('modules.list.typescript.title'),
+      textKey: marker('modules.list.typescript.text'),
     },
   ] as const;
-  readonly buttonText = 'Explore';
 }

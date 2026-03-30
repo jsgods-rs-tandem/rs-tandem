@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { TeamComponent } from './team.component';
+import { provideAppTranslocoTesting } from '@/testing/provide-transloco-testing';
 
 describe('TeamComponent', () => {
   let component: TeamComponent;
@@ -9,6 +10,7 @@ describe('TeamComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [TeamComponent],
+      providers: [provideAppTranslocoTesting()],
     }).compileComponents();
 
     fixture = TestBed.createComponent(TeamComponent);

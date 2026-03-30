@@ -1,10 +1,11 @@
 import { Component, computed, effect, input, output, signal } from '@angular/core';
 import { AVATAR_POOL, DEFAULT_AVATAR_URL } from '@/core/constants';
 import { ButtonComponent } from '@/shared/ui';
+import { TypedTranslocoPipe } from '@/shared/pipes/typed-transloco.pipe';
 
 @Component({
   selector: 'app-avatar-edit',
-  imports: [ButtonComponent],
+  imports: [ButtonComponent, TypedTranslocoPipe],
   templateUrl: './avatar-edit.component.html',
   styleUrl: './avatar-edit.component.scss',
 })

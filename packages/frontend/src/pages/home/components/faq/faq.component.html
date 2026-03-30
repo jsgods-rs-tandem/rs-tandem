@@ -1,12 +1,12 @@
 <section class="faq">
-  <h2 class="h2">{{ title }}</h2>
+  <h2 class="h2">{{ titleKey | transloco }}</h2>
   <div class="faq__accordion">
     <app-accordion [multi]="false">
       @for (element of faqData; track element.question; let isFirst = $first) {
         <app-accordion-item
-          [title]="element.question"
+          [title]="element.question | transloco"
           [isOpen]="isFirst"
-          [description]="element.answer"
+          [description]="element.answer | transloco"
         />
       }
     </app-accordion>

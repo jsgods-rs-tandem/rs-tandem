@@ -1,4 +1,192 @@
 {
+  "team": {
+    "aria": {
+      "avatarAlt": "{{name}} avatar",
+      "memberLink": "Link for {{name}}"
+    },
+    "members": {
+      "diana": "Diana Dukhovskaya",
+      "boris": "Boris Zashliapin",
+      "daniil": "Daniil Mikhalenka",
+      "mikita": "Mikita Kern",
+      "ales": "Ales Drobysh",
+      "rss": "The RS School"
+    },
+    "title": "Team"
+  },
+  "home": {
+    "about": {
+      "title": "About",
+      "brand": "RS-Tandem",
+      "description": {
+        "part1": "{{brand}} is an interactive educational platform designed to gamify technical interview preparation. The platform helps build a clear learning structure and turns routine material review into an engaging process.",
+        "part2": "We created an environment where you can systematically level up your coding skills and gain confidence for real interviews."
+      },
+      "button": "Start your journey"
+    }
+  },
+  "modules": {
+    "title": "Modules",
+    "button": "Explore",
+    "list": {
+      "basicJs": {
+        "title": "Basic JavaScript",
+        "text": "The foundation of web development. Dive into syntax, basic data types, functions, arrays, objects, and DOM interaction basics."
+      },
+      "advancedJs": {
+        "title": "Advanced JavaScript",
+        "text": "Complex language concepts under the hood. In-depth analysis of execution context (this), closures, prototypal inheritance, and async."
+      },
+      "algorithms": {
+        "title": "Algorithms & Data Structures",
+        "text": "Logical thinking training for algorithmic interview sections. Study data structures, evaluate algorithm time complexity (Big O)."
+      },
+      "typescript": {
+        "title": "TypeScript",
+        "text": "The modern typing standard. Learn static types, interfaces, generics, and advanced language features to write reliable code."
+      }
+    }
+  },
+  "hero": {
+    "title": "Tech \n Interview",
+    "subtitle": "Crush Your Next",
+    "button": "Start preparation",
+    "features": {
+      "modules": "4 Core Modules",
+      "cases": "Real-Interview Cases",
+      "ai": "AI-Chat"
+    }
+  },
+  "faq": {
+    "questions": {
+      "audience": {
+        "q": "Q: Who is RS-Tandem for?",
+        "a": "A: The platform is suitable for both beginner developers building their foundation and experienced professionals looking to brush up on complex concepts and algorithms before technical interviews."
+      },
+      "feature": {
+        "q": "Q: What is the main feature of the platform?",
+        "a": "A: We use gamification. Instead of dryly reading documentation, you solve interactive exercises that simulate real interview tasks, making routine preparation engaging."
+      },
+      "process": {
+        "q": "Q: How does the learning process work?",
+        "a": "A: You decide how you want to learn: through interactive quizzes to check your skills or AI-powered chat for deep theoretical exploration. By opting for a quiz, you choose a topic, complete a series of practical tasks, and get a comprehensive summary of your progress and recommendations at the end."
+      },
+      "free": {
+        "q": "Q: Is it free to use?",
+        "a": "A: Absolutely! RS-Tandem is completely free. You get full access to all features, including AI-powered consultations and interactive quizzes, with no hidden costs or premium subscriptions."
+      }
+    },
+    "title": "FAQ"
+  },
+  "mobileMenu": {
+    "aria": {
+      "close": "Close menu",
+      "open": "Open menu"
+    }
+  },
+  "footer": {
+    "copy": "RS Tandem",
+    "credits": "Designed & Developed by",
+    "ariaLabel": {
+      "github": "Project Repository"
+    }
+  },
+  "nav": {
+    "guest": {
+      "about": "About",
+      "modules": "Modules",
+      "faq": "FAQ",
+      "team": "Team"
+    },
+    "auth": {
+      "profile": "Profile",
+      "library": "Library"
+    }
+  },
+  "header": {
+    "actions": {
+      "signIn": "Sign in",
+      "home": "Home",
+      "signOut": "Sign out"
+    },
+    "aria": {
+      "logoHome": "Go to the home page",
+      "logoLibrary": "Go to the library",
+      "themeLight": "Switch to light theme",
+      "themeDark": "Switch to dark theme",
+      "langRu": "Switch to Russian language",
+      "langEn": "Switch to English language"
+    }
+  },
+  "profile": {
+    "title": "Profile",
+    "view": {
+      "avatarAlt": "User profile avatar",
+      "editButton": "Edit",
+      "editAriaLabel": "Edit profile",
+      "githubAriaLabel": "Link for {{github}} GitHub profile",
+      "githubAriaLabelDefault": "GitHub profile link",
+      "joinedDateUnknown": "Joined date unknown",
+      "joinedDate": "Joined {{formattedDate}}"
+    },
+    "form": {
+      "displayName": {
+        "label": "Username",
+        "placeholder": "Enter your username"
+      },
+      "email": {
+        "label": "Email",
+        "placeholder": "Enter your email"
+      },
+      "githubUsername": {
+        "label": "GitHub Username",
+        "placeholder": "Enter your GitHub username"
+      },
+      "password": {
+        "keepCurrentInfo": "Leave blank to keep current",
+        "incompleteChange": "Fill out both fields to change your password."
+      },
+      "currentPassword": {
+        "label": "Current Password",
+        "placeholder": "Enter your password"
+      },
+      "newPassword": {
+        "label": "New Password",
+        "placeholder": "Enter new password"
+      },
+      "buttons": {
+        "cancel": "Cancel",
+        "save": "Save"
+      }
+    },
+    "avatarEdit": {
+      "selectedAlt": "Selected user avatar",
+      "carouselLabel": "Avatar options",
+      "listLabel": "Available avatar options",
+      "prev": "Go to previous avatars",
+      "next": "Go to next avatars",
+      "selectAvatar": "Select avatar option {{index}}",
+      "avatarOptionAlt": "Avatar option {{index}}"
+    },
+    "modals": {
+      "success": {
+        "title": "Success",
+        "message": "Profile updated successfully!"
+      },
+      "error": {
+        "title": "Update Failed",
+        "fallbackMessage": "Please check your current password or data"
+      }
+    }
+  },
+  "notFound": {
+    "title": "404",
+    "text": "We couldn't find that page. Maybe it's playing hide and seek?",
+    "buttons": {
+      "backToLibrary": "Back to Library",
+      "goHome": "Go Home"
+    }
+  },
   "auth": {
     "signIn": {
       "title": "Sign in",
@@ -43,7 +231,8 @@
     "validation": {
       "required": "This field is required",
       "email": "Invalid email address",
-      "minLength": "Minimum length is {{min}} characters"
+      "minLength": "Minimum length is {{min}} characters",
+      "maxLength": "Maximum length is {{max}} characters"
     },
     "errorMessages": {
       "loginTitle": "Login Error",

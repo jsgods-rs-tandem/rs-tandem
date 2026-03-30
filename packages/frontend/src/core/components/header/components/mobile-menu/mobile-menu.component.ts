@@ -13,9 +13,10 @@ import {
 import { NavService } from '@/core/services/navigation.service';
 import { LayoutService } from '@/core/services/layout.service';
 import { NavigationComponent } from '@/core/components/navigation/navigation.component';
+import { TypedTranslocoPipe } from '@/shared/pipes/typed-transloco.pipe';
 @Component({
   selector: 'app-mobile-menu',
-  imports: [ButtonComponent, NavigationComponent],
+  imports: [ButtonComponent, NavigationComponent, TypedTranslocoPipe],
   templateUrl: './mobile-menu.component.html',
   styleUrl: './mobile-menu.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,

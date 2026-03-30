@@ -20,6 +20,7 @@ describe('HeaderComponent', () => {
         provideAppTranslocoTesting(),
         provideRouter([]),
         { provide: ThemeService, useValue: themeServiceMock },
+        provideAppTranslocoTesting(),
       ],
     }).compileComponents();
 

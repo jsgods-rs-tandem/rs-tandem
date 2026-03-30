@@ -1,11 +1,11 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { NotFoundComponent } from './not-found.component';
 import { provideRouter } from '@angular/router';
 import { AuthService } from '@/core/services/auth.service';
 import { ROUTE_PATHS } from '@/core/constants';
 import { By } from '@angular/platform-browser';
 import { ButtonComponent } from '@/shared/ui';
+import { provideAppTranslocoTesting } from '@/testing/provide-transloco-testing';
 
 describe('NotFoundComponent', () => {
   let component: NotFoundComponent;
@@ -16,7 +16,11 @@ describe('NotFoundComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [NotFoundComponent],
-      providers: [provideRouter([]), { provide: AuthService, useValue: authServiceMock }],
+      providers: [
+        provideRouter([]),
+        { provide: AuthService, useValue: authServiceMock },
+        provideAppTranslocoTesting(),
+      ],
     }).compileComponents();
 
     fixture = TestBed.createComponent(NotFoundComponent);
@@ -37,8 +41,8 @@ describe('NotFoundComponent', () => {
     const p: unknown = fixture.debugElement.query(By.css('.not-found__text')).nativeElement;
 
     if (h1 instanceof HTMLElement && p instanceof HTMLElement) {
-      expect(h1.textContent).toBe('404');
-      expect(p.textContent).toContain("We couldn't find that page");
+      expect(h1.textContent).toBe('notFound.title');
+      expect(p.textContent).toBe('notFound.text');
     } else {
       throw new Error('Elements not found or not HTMLElements');
     }
@@ -48,7 +52,7 @@ describe('NotFoundComponent', () => {
     authServiceMock.isAuthenticated.mockReturnValue(false);
     fixture.detectChanges();
 
-    expect(component.buttonText()).toBe('Go Home');
+    expect(component.buttonTextKey()).toBe('notFound.buttons.goHome');
     expect(component.buttonPath()).toBe(ROUTE_PATHS.home);
 
     const button = fixture.debugElement.query(By.css('app-button'));
@@ -56,7 +60,7 @@ describe('NotFoundComponent', () => {
     if (button.componentInstance instanceof ButtonComponent) {
       const instance = button.componentInstance;
 
-      expect(instance.text()).toBe('Go Home');
+      expect(instance.text()).toBe('notFound.buttons.goHome');
       expect(instance.link()).toBe(ROUTE_PATHS.home);
     } else {
       throw new Error('ButtonComponent not found or has wrong type');
@@ -67,7 +71,7 @@ describe('NotFoundComponent', () => {
     authServiceMock.isAuthenticated.mockReturnValue(true);
     fixture.detectChanges();
 
-    expect(component.buttonText()).toBe('Back to Library');
+    expect(component.buttonTextKey()).toBe('notFound.buttons.backToLibrary');
     expect(component.buttonPath()).toBe(ROUTE_PATHS.library);
 
     const button = fixture.debugElement.query(By.css('app-button'));
@@ -75,7 +79,7 @@ describe('NotFoundComponent', () => {
     if (button.componentInstance instanceof ButtonComponent) {
       const instance = button.componentInstance;
 
-      expect(instance.text()).toBe('Back to Library');
+      expect(instance.text()).toBe('notFound.buttons.backToLibrary');
       expect(instance.link()).toBe(ROUTE_PATHS.library);
     } else {
       throw new Error('ButtonComponent not found or has wrong type');

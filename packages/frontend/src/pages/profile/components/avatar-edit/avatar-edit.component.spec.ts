@@ -2,6 +2,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { AvatarEditComponent } from './avatar-edit.component';
 import { AVATAR_POOL, DEFAULT_AVATAR_URL } from '@/core/constants';
+import { provideAppTranslocoTesting } from '@/testing/provide-transloco-testing';
 
 describe('AvatarEditComponent', () => {
   let component: AvatarEditComponent;
@@ -10,6 +11,7 @@ describe('AvatarEditComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [AvatarEditComponent],
+      providers: [provideAppTranslocoTesting()],
     }).compileComponents();
 
     fixture = TestBed.createComponent(AvatarEditComponent);
@@ -29,7 +31,7 @@ describe('AvatarEditComponent', () => {
 
   it('should change index and offset when "next" is clicked', () => {
     expect(component.startIndex()).toBe(0);
-    const nextButton = element.querySelector<HTMLButtonElement>('[ariaLabel="Go to next avatars"]');
+    const nextButton = element.querySelector<HTMLButtonElement>('.button_next');
     nextButton?.click();
     fixture.detectChanges();
     expect(component.startIndex()).toBe(1);
@@ -40,9 +42,7 @@ describe('AvatarEditComponent', () => {
     component.startIndex.set(3);
     fixture.detectChanges();
     expect(component.startIndex()).toBe(3);
-    const previousButton = element.querySelector<HTMLButtonElement>(
-      '[ariaLabel="Go to previous avatars"]',
-    );
+    const previousButton = element.querySelector<HTMLButtonElement>('.button_prev');
     previousButton?.click();
     expect(component.startIndex()).toBe(2);
     expect(component.transformOffset()).toBe(-152);
@@ -52,9 +52,7 @@ describe('AvatarEditComponent', () => {
     component.startIndex.set(1);
     fixture.detectChanges();
     expect(component.startIndex()).toBe(1);
-    const buttonHost = element.querySelector<HTMLButtonElement>(
-      '[ariaLabel="Go to previous avatars"]',
-    );
+    const buttonHost = element.querySelector<HTMLButtonElement>('.button_prev');
     const nativeButton = buttonHost?.querySelector('button');
     buttonHost?.click();
     fixture.detectChanges();

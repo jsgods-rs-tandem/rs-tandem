@@ -2,6 +2,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { NavigationComponent } from './navigation.component';
 import { provideRouter } from '@angular/router';
 import { ScrollSpyService } from '@/shared/services/scroll-spy.service';
+import { provideAppTranslocoTesting } from '@/testing/provide-transloco-testing';
 
 describe('NavigationComponent', () => {
   let component: NavigationComponent;
@@ -16,6 +17,7 @@ describe('NavigationComponent', () => {
           provide: ScrollSpyService,
           useValue: { activeAnchor: () => '' },
         },
+        provideAppTranslocoTesting(),
       ],
     }).compileComponents();
 

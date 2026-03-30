@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { ProfileViewComponent } from './profile-view.component';
 import { AuthUser } from '@/shared/types';
+import { provideAppTranslocoTesting } from '@/testing/provide-transloco-testing';
 
 const mockUser: AuthUser = {
   id: '1',
@@ -19,6 +20,7 @@ describe('ProfileViewComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [ProfileViewComponent],
+      providers: [provideAppTranslocoTesting()],
     }).compileComponents();
 
     fixture = TestBed.createComponent(ProfileViewComponent);

@@ -2,6 +2,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { FaqComponent } from './faq.component';
 import { provideRouter } from '@angular/router';
+import { provideAppTranslocoTesting } from '@/testing/provide-transloco-testing';
 
 describe('FaqComponent', () => {
   let component: FaqComponent;
@@ -10,7 +11,7 @@ describe('FaqComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [FaqComponent],
-      providers: [provideRouter([])],
+      providers: [provideRouter([]), provideAppTranslocoTesting()],
     }).compileComponents();
 
     fixture = TestBed.createComponent(FaqComponent);

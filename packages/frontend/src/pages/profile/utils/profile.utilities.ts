@@ -1,6 +1,7 @@
 import { AbstractControl, NonNullableFormBuilder, Validators } from '@angular/forms';
 import { passwordMatchValidator } from './profile.validators';
 import { MAX_INPUT_LENGTH, MIN_LENGTH_PASSWORD, MIN_LENGTH_USERNAME } from '@/core/constants';
+import { AppTranslationKey } from '@/shared/types/translation-keys';
 
 export function buildProfileForm(fb: NonNullableFormBuilder) {
   return fb.group(
@@ -27,27 +28,26 @@ export function isControlInvalid(control: AbstractControl | null): boolean {
   return Boolean(control && control.invalid && (control.dirty || control.touched));
 }
 
-export function getProfileFieldError(control: AbstractControl | null, fieldName: string): string {
+export function getProfileFieldError(control: AbstractControl | null): AppTranslationKey | null {
   if (!control?.errors) {
-    return '';
+    return null;
   }
 
   if (control.hasError('required')) {
-    return 'This field is required';
+    return 'auth.validation.required';
   }
 
   if (control.hasError('email')) {
-    return 'Invalid email address';
+    return 'auth.validation.email';
   }
 
   if (control.hasError('minlength')) {
-    const minLength = fieldName === 'displayName' ? MIN_LENGTH_USERNAME : MIN_LENGTH_PASSWORD;
-    return `Minimum length is ${minLength.toString()} characters`;
+    return 'auth.validation.minLength';
   }
 
   if (control.hasError('maxlength')) {
-    return `Maximum length is ${MAX_INPUT_LENGTH.toString()} characters`;
+    return 'auth.validation.maxLength';
   }
 
-  return '';
+  return null;
 }

@@ -43,6 +43,7 @@ describe('ProfileComponent', () => {
         { provide: ProfilesService, useValue: mockProfilesService },
         { provide: AuthService, useValue: { changePassword: vi.fn() } },
         { provide: ModalService, useValue: { open: vi.fn() } },
+        provideAppTranslocoTesting(),
       ],
     }).compileComponents();
 
@@ -60,7 +61,7 @@ describe('ProfileComponent', () => {
     fixture.detectChanges();
     const h1 = element.querySelector('h1');
     expect(h1).not.toBeNull();
-    expect(h1?.textContent).toContain('Profile');
+    expect(h1?.textContent).toBe('profile.title');
   });
 
   it('should show spinner when loading is true', () => {
