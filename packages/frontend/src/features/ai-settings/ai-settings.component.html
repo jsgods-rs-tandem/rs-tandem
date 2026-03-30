@@ -19,20 +19,16 @@
       <h3>Provider</h3>
       <select name="provider" id="model" class="select" formControlName="provider">
         @for (provider of providers(); track provider) {
-          <option value="{{ provider.id }}" [selected]="settings().provider === provider.id">
+          <option value="{{ provider.id }}">
             {{ provider.label }}
           </option>
         }
       </select>
       <h3>Model</h3>
-      <app-input
-        [placeholder]="settings().model ?? 'Model'"
-        formControlName="model"
-        [targetType]="'text'"
-      ></app-input>
+      <app-input [placeholder]="'Model'" formControlName="model" [targetType]="'text'"></app-input>
       <h3>API key</h3>
       <app-input
-        [placeholder]="settings().apiKey ?? 'API key'"
+        [placeholder]="'API key'"
         class="input"
         formControlName="apiKey"
         [targetType]="'password'"

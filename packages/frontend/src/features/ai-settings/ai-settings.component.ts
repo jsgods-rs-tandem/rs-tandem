@@ -135,6 +135,11 @@ export class AiSettingsComponent {
       next: (settings) => {
         this.updateSettings(settings);
         this.isLoading.set(false);
+        this.settingsForm.setValue({
+          provider: settings.providerId,
+          model: settings.model ?? '',
+          apiKey: settings.apiKey ?? '',
+        });
       },
       error: (error: unknown) => {
         console.error('Error fetching AI settings:', error);
