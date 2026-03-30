@@ -1,32 +1,36 @@
 <h2 class="h3 title">{{ title }}</h2>
 <app-line-break></app-line-break>
-<div class="row">
-  <h3 class="h4">Use remote provider?</h3>
-  <app-switcher
-    (toggledEvent)="toggleProvider($event)"
-    [initialStatus]="useRemoteProvider()"
-  ></app-switcher>
-</div>
 
-<div class="provider-wrapper" [ngClass]="useRemoteProvider() ? 'enabled' : 'disabled'">
-  <h3>Provider</h3>
-  <select name="provider" id="model" class="select">
-    @for (provider of providers; track provider.value) {
-      <option
-        value="{{ provider.value }}"
-        [selected]="providerSettings().provider.value === provider.value"
-      >
-        {{ provider.label }}
-      </option>
-    }
-  </select>
-  <h3>Model</h3>
-  <app-input [placeholder]="providerSettings().model"></app-input>
-  <h3>API key</h3>
-  <app-input [placeholder]="'API key'" class="input"></app-input>
-</div>
+@if (isLoading()) {
+  <div class="loading-wrapper">
+    <app-spin [size]="'large'" [theme]="'light'"></app-spin>
+  </div>
+} @else {
+  <div class="row">
+    <h3 class="h4">Use remote provider?</h3>
+    <app-switcher
+      (toggledEvent)="toggleProvider($event)"
+      [initialStatus]="settings().useRemoteProvider"
+    ></app-switcher>
+  </div>
 
-<div class="control-wrapper">
-  <app-button>Update settings</app-button>
-  <app-button (click)="resetChatHistory()">Reset chat history</app-button>
-</div>
+  <div class="provider-wrapper" [ngClass]="settings().useRemoteProvider ? 'enabled' : 'disabled'">
+    <h3>Provider</h3>
+    <select name="provider" id="model" class="select">
+      @for (provider of providers; track provider.value) {
+        <option value="{{ provider.value }}" [selected]="settings().provider === provider.value">
+          {{ provider.label }}
+        </option>
+      }
+    </select>
+    <h3>Model</h3>
+    <app-input [placeholder]="settings().model ?? 'Model'"></app-input>
+    <h3>API key</h3>
+    <app-input [placeholder]="settings().apiKey ?? 'API key'" class="input"></app-input>
+  </div>
+
+  <div class="control-wrapper">
+    <app-button>Update settings</app-button>
+    <app-button (click)="resetChatHistory()">Reset chat history</app-button>
+  </div>
+}

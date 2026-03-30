@@ -3,10 +3,18 @@ import { InputComponent } from '@/shared/ui/input/input.component';
 import { LineBreakComponent } from '@/shared/ui/line-break/line-break.component';
 import { NgClass } from '@angular/common';
 import { Component, inject, signal } from '@angular/core';
-import { ButtonComponent } from '@/shared/ui';
+import { ButtonComponent, SpinComponent } from '@/shared/ui';
 import { AiHttpService } from '../ai-chat/services/ai-http-service';
 import { ModalService } from '@/core/services/modal.service';
+import { AiSettingsHttpService } from './ai-settings-http.service';
+import { AiSettingsDto } from '@rs-tandem/shared';
 
+interface ISettings {
+  useRemoteProvider: boolean;
+  provider: string;
+  model: string | null;
+  apiKey: string | null;
+}
 const mockProviders = [
   {
     label: 'Open Router',
@@ -22,31 +30,65 @@ const mockProviders = [
   },
 ];
 
-const mockProviderSettings = {
-  provider: {
-    label: 'Open Router',
-    value: 'open-router',
-  },
-  model: 'gpt-4o',
-  apiKey: '21984uhrfsdfhuh8hfuhefshdfsihfiuhdfuihadf',
+const initialSettings: ISettings = {
+  useRemoteProvider: false,
+  provider: 'open-router',
+  model: null,
+  apiKey: null,
 };
 
 @Component({
   selector: 'app-ai-settings',
-  imports: [LineBreakComponent, SwitcherComponent, InputComponent, NgClass, ButtonComponent],
+  imports: [
+    LineBreakComponent,
+    SwitcherComponent,
+    InputComponent,
+    NgClass,
+    ButtonComponent,
+    SpinComponent,
+  ],
   templateUrl: './ai-settings.component.html',
   styleUrl: './ai-settings.component.scss',
 })
 export class AiSettingsComponent {
   protected title = 'AI';
   protected providers = mockProviders;
-  protected useRemoteProvider = signal(false);
-  protected providerSettings = signal(mockProviderSettings);
+  protected isLoading = signal(true);
+  protected settings = signal<ISettings>(initialSettings);
+
   private chatHistoryAPI = inject(AiHttpService);
+  private settingsAPI = inject(AiSettingsHttpService);
   private modal = inject(ModalService);
 
+  constructor() {
+    this.settingsAPI.getMySttings().subscribe({
+      next: (settings) => {
+        this.updateSettings(settings);
+        this.isLoading.set(false);
+      },
+      error: (error: unknown) => {
+        console.error('Error fetching AI settings:', error);
+        this.isLoading.set(false);
+        this.modal.open({
+          title: 'Error',
+          message: 'Failed to load AI settings',
+          buttonText: 'OK',
+        });
+      },
+    });
+  }
+
+  private updateSettings(settings: AiSettingsDto) {
+    this.settings.set({
+      useRemoteProvider: settings.providerId !== 'ollama',
+      provider: settings.providerId,
+      model: settings.model,
+      apiKey: settings.apiKey,
+    });
+  }
+
   toggleProvider(event: boolean) {
-    this.useRemoteProvider.set(event);
+    this.settings.update((current) => ({ ...current, useRemoteProvider: event }));
   }
 
   protected resetChatHistory() {

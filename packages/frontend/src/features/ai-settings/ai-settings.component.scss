@@ -19,6 +19,15 @@
   padding-bottom: var(--spacing-x3);
 }
 
+.loading-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+  height: 50vh;
+}
+
 .select {
   cursor: pointer;
 
