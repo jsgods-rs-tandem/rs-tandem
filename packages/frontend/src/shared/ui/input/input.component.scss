@@ -38,7 +38,6 @@
     align-items: center;
 
     .input-hint-icon {
-      cursor: help;
       font-size: fn.to-rem(16px);
       color: var(--text-secondary);
       @include m.transition((color));
