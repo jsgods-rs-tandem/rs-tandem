@@ -74,7 +74,14 @@ export class SignUpComponent {
       .subscribe({
         next: () => {
           this.isLoading.set(false);
-          void this.router.navigate([ROUTE_PATHS.signIn]);
+          this.modalService.open({
+            title: this.t(marker('auth.signUp.modals.success.title')),
+            message: this.t(marker('auth.signUp.modals.success.message')),
+            icon: 'info-outline',
+            onClose: () => {
+              void this.router.navigate([ROUTE_PATHS.signIn]);
+            },
+          });
         },
         error: (error: HttpErrorResponse) => {
           this.isLoading.set(false);

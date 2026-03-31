@@ -209,6 +209,12 @@
     },
     "signUp": {
       "title": "Sign up",
+      "modals": {
+        "success": {
+          "title": "Successful registration",
+          "message": "Your account has been created successfully. You can now sign in."
+        }
+      },
       "form": {
         "username": {
           "label": "Username",
