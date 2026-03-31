@@ -26,6 +26,10 @@
     justify-content: space-between;
 
     width: 100%;
+
+    ::ng-deep .input-element::placeholder {
+      font-size: 0.8rem;
+    }
     @include m.media('s') {
       flex-direction: column;
     }

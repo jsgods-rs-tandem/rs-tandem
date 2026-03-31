@@ -3,7 +3,7 @@
 .user {
   &__wrapper {
     display: flex;
-    flex-direction: row;
+    flex-flow: row wrap;
     gap: var(--spacing-x5);
     align-items: flex-end;
     @include m.media('s') {
