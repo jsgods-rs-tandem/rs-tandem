@@ -13,7 +13,7 @@
       [label]="'auth.signUp.form.username.label' | transloco"
       [placeholder]="'auth.signUp.form.username.placeholder' | transloco"
       [hint]="'auth.signUp.form.username.hint' | transloco"
-      [hasError]="signUpForm.controls.username.touched && signUpForm.controls.username.invalid"
+      [hasError]="isSubmitted() && signUpForm.controls.username.invalid"
       [errorText]="
         getValidationErrorKey('username')
           ? (getValidationErrorKey('username')! | transloco: { min: 3 })
@@ -27,7 +27,7 @@
       formControlName="email"
       [label]="'auth.signUp.form.email.label' | transloco"
       [placeholder]="'auth.signUp.form.email.placeholder' | transloco"
-      [hasError]="signUpForm.controls.email.touched && signUpForm.controls.email.invalid"
+      [hasError]="isSubmitted() && signUpForm.controls.email.invalid"
       [errorText]="
         getValidationErrorKey('email')
           ? (getValidationErrorKey('email')! | transloco: { min: 8 })
@@ -42,7 +42,7 @@
       [label]="'auth.signUp.form.password.label' | transloco"
       [placeholder]="'auth.signUp.form.password.placeholder' | transloco"
       [hint]="'auth.signUp.form.password.hint' | transloco"
-      [hasError]="signUpForm.controls.password.touched && signUpForm.controls.password.invalid"
+      [hasError]="isSubmitted() && signUpForm.controls.password.invalid"
       [errorText]="
         getValidationErrorKey('password')
           ? (getValidationErrorKey('password')! | transloco: { min: 8 })

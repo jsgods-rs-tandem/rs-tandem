@@ -38,6 +38,7 @@ export class SignInComponent {
   private t = injectTranslate();
 
   protected isLoading = signal(false);
+  protected isSubmitted = signal(false);
 
   readonly ROUTE_PATHS = ROUTE_PATHS;
 
@@ -47,6 +48,8 @@ export class SignInComponent {
   });
 
   onSubmit() {
+    this.isSubmitted.set(true);
+
     if (this.signInForm.invalid) {
       this.signInForm.markAllAsTouched();
       return;

@@ -35,6 +35,7 @@ export class SignUpComponent {
   private t = injectTranslate();
 
   protected isLoading = signal(false);
+  protected isSubmitted = signal(false);
 
   readonly ROUTE_PATHS = ROUTE_PATHS;
 
@@ -45,6 +46,8 @@ export class SignUpComponent {
   });
 
   onSubmit() {
+    this.isSubmitted.set(true);
+
     if (this.signUpForm.invalid) {
       this.signUpForm.markAllAsTouched();
       return;
