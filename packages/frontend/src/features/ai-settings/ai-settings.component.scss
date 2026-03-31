@@ -64,4 +64,9 @@
   display: flex;
   justify-content: space-around;
   width: 100%;
+
+  @include m.media('s') {
+    flex-direction: column;
+    gap: var(--spacing-x2);
+  }
 }
