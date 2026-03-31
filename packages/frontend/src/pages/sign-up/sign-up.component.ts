@@ -1,4 +1,4 @@
-import { Component, inject, signal } from '@angular/core';
+import { Component, computed, inject, signal } from '@angular/core';
 import { FormControl, ReactiveFormsModule, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthPageComponent } from '@/shared/ui/auth-page/auth-page.component';
@@ -14,6 +14,7 @@ import { marker } from '@jsverse/transloco-keys-manager/marker';
 import type { AppTranslationKey } from '@/shared/types/translation-keys';
 import { TypedTranslocoPipe } from '@/shared/pipes/typed-transloco.pipe';
 import { getValidationErrorKey } from '@/shared/utils/form-validation.utilities';
+import { toSignal } from '@angular/core/rxjs-interop';
 
 @Component({
   selector: 'app-sign-up',
@@ -46,7 +47,11 @@ export class SignUpComponent {
       Validators.maxLength(50),
     ]),
     email: new FormControl('', [Validators.required, Validators.email]),
-    password: new FormControl('', [Validators.required, Validators.minLength(8)]),
+    password: new FormControl('', [
+      Validators.required,
+      Validators.minLength(8),
+      Validators.pattern(/^(?=.*[A-Z])(?=.*\d)(?=.*[^A-Za-z0-9]).*$/),
+    ]),
   });
 
   onSubmit() {
@@ -104,4 +109,31 @@ export class SignUpComponent {
   getValidationErrorKey(controlName: string): AppTranslationKey | null {
     return getValidationErrorKey(this.signUpForm.get(controlName));
   }
+
+  private passwordValue = toSignal(this.signUpForm.controls.password.valueChanges, {
+    initialValue: '',
+  });
+
+  protected readonly passwordRules = computed(() => {
+    const value = this.passwordValue() ?? '';
+
+    return [
+      {
+        key: 'auth.validation.progressive.minLength',
+        valid: value.length >= 8,
+      },
+      {
+        key: 'auth.validation.progressive.uppercase',
+        valid: /[A-Z]/.test(value),
+      },
+      {
+        key: 'auth.validation.progressive.number',
+        valid: /\d/.test(value),
+      },
+      {
+        key: 'auth.validation.progressive.specialChar',
+        valid: /[^A-Za-z0-9]/.test(value),
+      },
+    ];
+  });
 }

@@ -41,14 +41,19 @@
       formControlName="password"
       [label]="'auth.signUp.form.password.label' | transloco"
       [placeholder]="'auth.signUp.form.password.placeholder' | transloco"
-      [hint]="'auth.signUp.form.password.hint' | transloco"
       [hasError]="isSubmitted() && signUpForm.controls.password.invalid"
-      [errorText]="
-        getValidationErrorKey('password')
-          ? (getValidationErrorKey('password')! | transloco: { min: 8 })
-          : ''
-      "
     />
+
+    <ul class="progressive-validation">
+      @for (rule of passwordRules(); track rule.key) {
+        <li [class.is-valid]="rule.valid" [class.is-invalid]="isSubmitted() && !rule.valid">
+          <span class="material-icons">
+            {{ rule.valid ? 'check_circle' : isSubmitted() ? 'cancel' : 'radio_button_unchecked' }}
+          </span>
+          {{ rule.key | transloco }}
+        </li>
+      }
+    </ul>
 
     <app-button
       type="submit"
