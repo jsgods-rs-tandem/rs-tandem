@@ -213,7 +213,7 @@
         "username": {
           "label": "Username",
           "placeholder": "john_doe",
-          "hint": "Minimum 3 characters"
+          "hint": "From 3 to 50 characters"
         },
         "email": {
           "label": "Email",

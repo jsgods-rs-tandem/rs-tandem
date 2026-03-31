@@ -214,7 +214,7 @@
         "username": {
           "label": "Имя пользователя",
           "placeholder": "ivan_ivanov",
-          "hint": "Минимум 3 символа"
+          "hint": "От 3 до 50 символов"
         },
         "email": {
           "label": "Почта",
