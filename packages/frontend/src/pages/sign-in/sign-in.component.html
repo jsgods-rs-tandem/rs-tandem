@@ -24,6 +24,7 @@
       id="password"
       targetType="password"
       formControlName="password"
+      testId="password-input"
       [label]="'auth.signIn.form.password.label' | transloco"
       [placeholder]="'auth.signIn.form.password.placeholder' | transloco"
       [hasError]="isSubmitted() && signInForm.controls.password.invalid"

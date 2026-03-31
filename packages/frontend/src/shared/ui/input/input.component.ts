@@ -34,6 +34,7 @@ export class InputComponent implements ControlValueAccessor {
   hint = input<string>('');
   errorText = input<string>('');
   hasError = input<boolean>(false);
+  testId = input<string | null>(null);
 
   computedName = computed(() => this.name() ?? this.inputId());
 

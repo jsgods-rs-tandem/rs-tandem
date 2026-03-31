@@ -51,7 +51,7 @@ test.describe('Sign Up Page', () => {
     await expect(signUpPage.page).toHaveURL(/sign-in/);
   });
 
-  test('should register successfully', async ({ signUpPage }) => {
+  test('should register successfully', async ({ signUpPage, modalPage }) => {
     const timestamp = String(Date.now());
 
     await signUpPage.form.usernameInput.fill(`e2e_user_${timestamp}`);
@@ -59,7 +59,11 @@ test.describe('Sign Up Page', () => {
     await signUpPage.form.passwordInput.fill('StrongPassword1!');
     await signUpPage.form.submitButton.click();
 
-    // После успешной регистрации происходит редирект на страницу логина
+    await expect(modalPage.modal).toBeVisible();
+    await expect(modalPage.title).toHaveText('Successful registration');
+
+    // После успешной регистрации и закрытия модалки происходит редирект на страницу логина
+    await modalPage.actionButton.click();
     await expect(signUpPage.page).toHaveURL(/sign-in/);
   });
 

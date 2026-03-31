@@ -39,6 +39,7 @@
       id="password"
       targetType="password"
       formControlName="password"
+      testId="password-input"
       [label]="'auth.signUp.form.password.label' | transloco"
       [placeholder]="'auth.signUp.form.password.placeholder' | transloco"
       [hasError]="isSubmitted() && signUpForm.controls.password.invalid"
