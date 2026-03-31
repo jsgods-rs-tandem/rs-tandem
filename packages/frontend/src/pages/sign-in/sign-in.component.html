@@ -26,7 +26,6 @@
       formControlName="password"
       [label]="'auth.signIn.form.password.label' | transloco"
       [placeholder]="'auth.signIn.form.password.placeholder' | transloco"
-      [hint]="'auth.signIn.form.password.hint' | transloco"
       [hasError]="isSubmitted() && signInForm.controls.password.invalid"
       [errorText]="
         getValidationErrorKey('password')
