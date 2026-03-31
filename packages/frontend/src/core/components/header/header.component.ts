@@ -46,7 +46,7 @@ export class HeaderComponent {
 
   actionConfig = computed(() => HEADER_ACTIONS[this.mode()]);
   isEngLanguage = computed(() => this.activeLang() === 'en');
-  languageText = computed(() => (this.isEngLanguage() ? 'Ru' : 'En'));
+  languageText = computed(() => (this.isEngLanguage() ? 'Русский' : 'English'));
   themeIcon = computed(() => (this.isDarkTheme() ? 'sun' : 'moon'));
   themeAriaLabel = computed(() =>
     this.isDarkTheme() ? marker('header.aria.themeLight') : marker('header.aria.themeDark'),

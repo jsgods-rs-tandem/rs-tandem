@@ -189,11 +189,11 @@
   },
   "auth": {
     "signIn": {
-      "title": "Регистрация",
+      "title": "Логин",
       "form": {
         "email": {
-          "label": "Имейл",
-          "placeholder": "Введите ваш имейл",
+          "label": "Почта",
+          "placeholder": "name@example.com",
           "hint": "Введите корректный email адрес"
         },
         "password": {
@@ -213,12 +213,12 @@
       "form": {
         "username": {
           "label": "Имя пользователя",
-          "placeholder": "Введите имя пользователя",
+          "placeholder": "ivan_ivanov",
           "hint": "Минимум 3 символа"
         },
         "email": {
-          "label": "Электронная почта",
-          "placeholder": "Введите вашу почту",
+          "label": "Почта",
+          "placeholder": "name@example.com",
           "hint": "Введите корректный email адрес"
         },
         "password": {
