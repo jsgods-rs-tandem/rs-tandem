@@ -2,11 +2,13 @@ import { ButtonComponent } from '@/shared/ui';
 import {
   ChangeDetectionStrategy,
   Component,
+  DestroyRef,
   DOCUMENT,
   effect,
   HostListener,
   inject,
   input,
+  OnInit,
   output,
   Renderer2,
 } from '@angular/core';
@@ -14,6 +16,9 @@ import { NavService } from '@/core/services/navigation.service';
 import { LayoutService } from '@/core/services/layout.service';
 import { NavigationComponent } from '@/core/components/navigation/navigation.component';
 import { TypedTranslocoPipe } from '@/shared/pipes/typed-transloco.pipe';
+import { filter } from 'rxjs';
+import { NavigationEnd, Router } from '@angular/router';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 @Component({
   selector: 'app-mobile-menu',
   imports: [ButtonComponent, NavigationComponent, TypedTranslocoPipe],
@@ -21,9 +26,12 @@ import { TypedTranslocoPipe } from '@/shared/pipes/typed-transloco.pipe';
   styleUrl: './mobile-menu.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class MobileMenuComponent {
+export class MobileMenuComponent implements OnInit {
   private renderer = inject(Renderer2);
   private document = inject(DOCUMENT);
+  private router = inject(Router);
+  private destroyRef = inject(DestroyRef);
+
   layoutService = inject(LayoutService);
   navService = inject(NavService);
   isOpen = input<boolean>(false);
@@ -50,6 +58,20 @@ export class MobileMenuComponent {
       this.onToggle();
     }
   }
+
+  ngOnInit(): void {
+    this.router.events
+      .pipe(
+        filter((event): event is NavigationEnd => event instanceof NavigationEnd),
+        takeUntilDestroyed(this.destroyRef),
+      )
+      .subscribe(() => {
+        if (this.isOpen()) {
+          this.onToggle();
+        }
+      });
+  }
+
   onToggle(): void {
     this.menuToggled.emit();
   }
