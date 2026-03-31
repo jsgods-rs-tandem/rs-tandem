@@ -1,17 +1,17 @@
 <section class="hero">
-  <p class="text-xl-fluid">{{ subtitle }}</p>
-  <h1 class="h1">{{ title }}</h1>
+  <p class="text-xl-fluid">{{ subtitleKey | transloco }}</p>
+  <h1 class="h1">{{ titleKey | transloco }}</h1>
   <div class="feature__wrapper">
-    @for (feature of features; track feature.text) {
+    @for (feature of features; track feature.textKey) {
       <div class="feature__item">
         <app-icon [name]="feature.icon" color="brand" size="m" />
-        <p class="text-sm-fluid">{{ feature.text }}</p>
+        <p class="text-sm-fluid">{{ feature.textKey | transloco }}</p>
       </div>
     }
   </div>
   <app-button
     [link]="ROUTE_PATHS.signIn"
-    [text]="buttonText"
+    [text]="buttonKey | transloco"
     version="primary"
     icon="arrow-up"
     iconColor="secondary"

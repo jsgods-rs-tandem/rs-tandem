@@ -6,7 +6,7 @@
         link="/"
         [fragment]="link.path"
         class="nav__item"
-        [text]="link.label"
+        [text]="link.label | transloco"
         [class.active]="scrollSpy.activeAnchor() === link.path"
         (click)="onAnchorClick(link.path)"
       />
@@ -15,7 +15,7 @@
         version="ghost"
         [link]="link.path"
         class="nav__item"
-        [text]="link.label"
+        [text]="link.label | transloco"
         routerLinkActive="active"
         (click)="linkClicked.emit()"
       />

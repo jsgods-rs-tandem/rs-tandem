@@ -113,8 +113,8 @@ export class ProfileFacade {
             this.authStore.updateUser(updatedProfile);
           }
           this.modalService.open({
-            title: 'Success',
-            message: 'Profile updated successfully!',
+            title: this.t(marker('profile.modals.success.title')),
+            message: this.t(marker('profile.modals.success.message')),
             icon: 'info-outline',
           });
           this.state.set('view');
@@ -127,7 +127,7 @@ export class ProfileFacade {
             ? errorMessage.map(translateKey)
             : translateKey(errorMessage);
           this.modalService.open({
-            title: 'Update Failed',
+            title: this.t(marker('profile.modals.error.title')),
             message: translatedMessage,
             icon: 'info-outline',
           });

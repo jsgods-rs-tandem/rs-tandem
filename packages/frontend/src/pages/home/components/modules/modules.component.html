@@ -1,10 +1,10 @@
 <section class="modules">
-  <h2 class="h2">{{ title }}</h2>
+  <h2 class="h2">{{ titleKey | transloco }}</h2>
   <ul class="modules__list">
-    @for (module of modules; track module.text) {
+    @for (module of modules; track module.titleKey) {
       <li class="modules__item" appInView>
-        <app-card [title]="module.title">
-          <p class="text-base-fluid">{{ module.text }}</p>
+        <app-card [title]="module.titleKey | transloco">
+          <p class="text-base-fluid">{{ module.textKey | transloco }}</p>
         </app-card>
       </li>
     }
@@ -12,7 +12,7 @@
   <app-button
     class="modules__button"
     [link]="ROUTE_PATHS.signIn"
-    [text]="buttonText"
+    [text]="buttonKey | transloco"
     version="primary"
     icon="arrow-up"
     iconColor="secondary"

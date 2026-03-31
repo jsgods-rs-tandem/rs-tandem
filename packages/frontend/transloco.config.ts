@@ -7,6 +7,7 @@ const config: TranslocoGlobalConfig = {
     input: 'src',
     output: 'public/i18n',
     marker: 't',
+    unflat: true,
   },
 };
 

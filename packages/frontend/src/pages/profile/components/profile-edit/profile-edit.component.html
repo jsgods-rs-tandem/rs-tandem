@@ -8,56 +8,71 @@
   <div class="user__info-section">
     <form [formGroup]="profileForm" class="user__form" (ngSubmit)="onSave()">
       <div class="user__edit-section">
+        @let nameKey = getValidationKey('displayName');
         <app-input
           formControlName="displayName"
-          label="Username"
-          placeholder="Enter your username"
+          [label]="'profile.form.displayName.label' | transloco"
+          [placeholder]="'profile.form.displayName.placeholder' | transloco"
           [required]="true"
           [hasError]="isInvalid('displayName')"
-          [errorText]="getError('displayName')"
+          [errorText]="
+            nameKey
+              ? (nameKey | transloco: { min: MIN_LENGTH_USERNAME, max: MAX_INPUT_LENGTH })
+              : ''
+          "
         />
+        @let emailKey = getValidationKey('email');
         <app-input
           formControlName="email"
           targetType="email"
-          label="Email"
-          placeholder="Enter your email"
+          [label]="'profile.form.email.label' | transloco"
+          [placeholder]="'profile.form.email.placeholder' | transloco"
           [required]="true"
           [hasError]="isInvalid('email')"
-          [errorText]="getError('email')"
+          [errorText]="emailKey ? (emailKey | transloco) : ''"
         />
+        @let githubKey = getValidationKey('githubUsername');
         <app-input
           formControlName="githubUsername"
-          label="GitHub Username"
-          placeholder="Enter your GitHub username"
+          [label]="'profile.form.githubUsername.label' | transloco"
+          [placeholder]="'profile.form.githubUsername.placeholder' | transloco"
           [hasError]="isInvalid('githubUsername')"
-          [errorText]="getError('githubUsername')"
+          [errorText]="githubKey ? (githubKey | transloco: { max: MAX_INPUT_LENGTH }) : ''"
         />
 
         <hr class="divider" />
         <div class="text__info">
           @if (!profileForm.value.currentPassword && !profileForm.value.newPassword) {
-            <p class="text-xs" aria-live="polite">Leave blank to keep current</p>
+            <p class="text-xs" aria-live="polite">
+              {{ 'profile.form.password.keepCurrentInfo' | transloco }}
+            </p>
           }
           @if (profileForm.hasError('incompletePasswordChange')) {
-            <p class="text-xs" aria-live="polite">Fill out both fields to change your password.</p>
+            <p class="text-xs" aria-live="polite">
+              {{ 'profile.form.password.incompleteChange' | transloco }}
+            </p>
           }
         </div>
+        @let currentPassKey = getValidationKey('currentPassword');
         <app-input
           formControlName="currentPassword"
           targetType="password"
-          label="Current Password"
-          placeholder="Enter your password"
+          [label]="'profile.form.currentPassword.label' | transloco"
+          [placeholder]="'profile.form.currentPassword.placeholder' | transloco"
           [hasError]="isInvalid('currentPassword')"
-          [errorText]="getError('currentPassword')"
+          [errorText]="
+            currentPassKey ? (currentPassKey | transloco: { min: MIN_LENGTH_PASSWORD }) : ''
+          "
           autoComplete="off"
         />
+        @let newPassKey = getValidationKey('newPassword');
         <app-input
           formControlName="newPassword"
           targetType="password"
-          label="New Password"
-          placeholder="Enter new password"
+          [label]="'profile.form.newPassword.label' | transloco"
+          [placeholder]="'profile.form.newPassword.placeholder' | transloco"
           [hasError]="isInvalid('newPassword')"
-          [errorText]="getError('newPassword')"
+          [errorText]="newPassKey ? (newPassKey | transloco: { min: MIN_LENGTH_PASSWORD }) : ''"
           autoComplete="new-password"
         />
       </div>
@@ -66,14 +81,14 @@
           type="button"
           [isSmallButton]="true"
           version="ghost"
-          text="Cancel"
+          [text]="'profile.form.buttons.cancel' | transloco"
           (click)="cancelClicked.emit()"
         />
         <app-button
           type="submit"
           [isSmallButton]="true"
           version="primary"
-          text="Save"
+          [text]="'profile.form.buttons.save' | transloco"
           [disabled]="profileForm.invalid || isSaving()"
           [loading]="isSaving()"
         />

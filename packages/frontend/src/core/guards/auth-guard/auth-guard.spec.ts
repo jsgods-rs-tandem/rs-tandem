@@ -12,6 +12,7 @@ import { SignInComponent } from '@/pages/sign-in/sign-in.component';
 import { ScrollSpyService } from '@/shared/services/scroll-spy.service';
 
 import { ROUTES, ROUTE_PATHS } from '@/core/constants';
+import { provideAppTranslocoTesting } from '@/testing/provide-transloco-testing';
 
 describe('authGuard', () => {
   beforeEach(async () => {
@@ -28,6 +29,7 @@ describe('authGuard', () => {
           { path: ROUTES.library, component: LibraryComponent, canActivate: [authGuard] },
           { path: ROUTES.signIn, component: SignInComponent, canActivate: [authGuard] },
         ]),
+        provideAppTranslocoTesting(),
       ],
     }).compileComponents();
   });

@@ -45,13 +45,13 @@ export class AuthService {
     const user = await this.userRepository.findByIdWithPassword(userId);
 
     if (!user) {
-      throw new UnauthorizedException('auth.invalid_credentials');
+      throw new UnauthorizedException('profile.not_found');
     }
 
     const valid = await bcrypt.compare(dto.currentPassword, user.passwordHash);
 
     if (!valid) {
-      throw new UnauthorizedException('auth.invalid_credentials');
+      throw new UnauthorizedException('profile.password_incorrect');
     }
 
     if (dto.currentPassword === dto.newPassword) {

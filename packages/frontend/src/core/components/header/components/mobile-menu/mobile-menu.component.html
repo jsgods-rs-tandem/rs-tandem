@@ -4,7 +4,7 @@
   class="mobile-menu__trigger"
   [class.open]="isOpen()"
   [attr.aria-expanded]="isOpen()"
-  [attr.aria-label]="isOpen() ? 'Close menu' : 'Open menu'"
+  [attr.aria-label]="(isOpen() ? 'mobileMenu.aria.close' : 'mobileMenu.aria.open') | transloco"
   aria-controls="mobile-navigation"
   (click)="onToggle()"
 >
