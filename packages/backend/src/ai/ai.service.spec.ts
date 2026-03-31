@@ -105,7 +105,7 @@ describe('AiService', () => {
         providerId: 'ollama',
         model: null,
         apiKey: null,
-        preserveExistingKey: false,
+        preserveExistingKey: true,
       });
       expect(result).toEqual({ providerId: 'ollama', model: null, apiKey: null });
     });
@@ -125,7 +125,7 @@ describe('AiService', () => {
       });
 
       expect(mockAiSettingsRepository.upsert).toHaveBeenCalledWith(
-        expect.objectContaining({ preserveExistingKey: true }),
+        expect.objectContaining({ preserveExistingKey: false }),
       );
     });
 
@@ -163,7 +163,7 @@ describe('AiService', () => {
 
       await service.chat('u1', { messages });
 
-      expect(mockOllamaChat).toHaveBeenCalledWith(messages, 'key');
+      expect(mockOllamaChat).toHaveBeenCalledWith(messages, null, 'key');
     });
 
     it('throws BadRequestException when no settings found', async () => {
