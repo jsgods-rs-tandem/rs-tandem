@@ -1,4 +1,4 @@
-import { Component, computed, inject, signal } from '@angular/core';
+import { Component, computed, inject, Signal, signal } from '@angular/core';
 import { FormControl, ReactiveFormsModule, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthPageComponent } from '@/shared/ui/auth-page/auth-page.component';
@@ -15,6 +15,11 @@ import type { AppTranslationKey } from '@/shared/types/translation-keys';
 import { TypedTranslocoPipe } from '@/shared/pipes/typed-transloco.pipe';
 import { getValidationErrorKey } from '@/shared/utils/form-validation.utilities';
 import { toSignal } from '@angular/core/rxjs-interop';
+
+interface PasswordRule {
+  key: AppTranslationKey;
+  valid: boolean;
+}
 
 @Component({
   selector: 'app-sign-up',
@@ -111,27 +116,27 @@ export class SignUpComponent {
   }
 
   private passwordValue = toSignal(this.signUpForm.controls.password.valueChanges, {
-    initialValue: '',
+    initialValue: this.signUpForm.controls.password.value ?? '',
   });
 
-  protected readonly passwordRules = computed(() => {
+  protected readonly passwordRules: Signal<PasswordRule[]> = computed(() => {
     const value = this.passwordValue() ?? '';
 
     return [
       {
-        key: 'auth.validation.progressive.minLength',
+        key: marker('auth.validation.progressive.minLength'),
         valid: value.length >= 8,
       },
       {
-        key: 'auth.validation.progressive.uppercase',
+        key: marker('auth.validation.progressive.uppercase'),
         valid: /[A-Z]/.test(value),
       },
       {
-        key: 'auth.validation.progressive.number',
+        key: marker('auth.validation.progressive.number'),
         valid: /\d/.test(value),
       },
       {
-        key: 'auth.validation.progressive.specialChar',
+        key: marker('auth.validation.progressive.specialChar'),
         valid: /[^A-Za-z0-9]/.test(value),
       },
     ];
