@@ -29,6 +29,7 @@ https://rs-tandem-production.up.railway.app/api/health
 - [🔗 Meeting Notes - Meeting #3 (Feb 15, Sunday)](https://github.com/jsgods-rs-tandem/rs-tandem/issues/2#issue-3937972932)
 - [🔗 Meeting Notes - Meeting #4 (Feb 18, Wednesday)](https://github.com/jsgods-rs-tandem/rs-tandem/issues/4#issue-3944841485)
 - [🔗 Meeting Notes - Meeting #5 (March 23, Monday)](https://github.com/jsgods-rs-tandem/rs-tandem/issues/9#issue-3959693160)
+- [🔗 Meeting Notes - Meeting #6 (April 1, Wednesday)](https://github.com/jsgods-rs-tandem/rs-tandem/issues/176#issue-4123820003)
 
 ---
 
