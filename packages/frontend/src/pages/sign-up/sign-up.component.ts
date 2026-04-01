@@ -14,6 +14,10 @@ import { marker } from '@jsverse/transloco-keys-manager/marker';
 import type { AppTranslationKey } from '@/shared/types/translation-keys';
 import { TypedTranslocoPipe } from '@/shared/pipes/typed-transloco.pipe';
 import { getValidationErrorKey } from '@/shared/utils/form-validation.utilities';
+import {
+  PASSWORD_PATTERN_REGEX,
+  PASSWORD_SPECIAL_CHAR_REGEX,
+} from '@/shared/utils/password-validation.utilities';
 import { toSignal } from '@angular/core/rxjs-interop';
 
 interface PasswordRule {
@@ -55,7 +59,7 @@ export class SignUpComponent {
     password: new FormControl('', [
       Validators.required,
       Validators.minLength(8),
-      Validators.pattern(/^(?=.*[A-Z])(?=.*\d)(?=.*[^A-Za-z0-9]).*$/),
+      Validators.pattern(PASSWORD_PATTERN_REGEX),
     ]),
   });
 
@@ -137,7 +141,7 @@ export class SignUpComponent {
       },
       {
         key: marker('auth.validation.progressive.specialChar'),
-        valid: /[^A-Za-z0-9]/.test(value),
+        valid: PASSWORD_SPECIAL_CHAR_REGEX.test(value),
       },
     ];
   });
