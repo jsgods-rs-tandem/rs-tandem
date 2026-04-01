@@ -7,29 +7,33 @@
 
 |**Category**|**Feature**|**Description**|**PR Link**|**Score**|
 |---|---|---|---|---|
-|**Setup**|Monorepo Setup (NPM Workspaces)|Orchestrated the project structure for seamless Front/Back development.|[Link]|—|
-|**My Components**|**Rich UI Screen**: Home page + 404|Designed and implemented the home and not found page.|[Link]|+20|
-|—|Button component|Reusable UI button with multiple variants.|[Link]|—|
-|—|Accordion component|Expandable UI sections for FAQ.|[Link]|—|
-|—|Logo component|Branding component.|[Link]|—|
-|—|Header component|Top bar with logo and language, theme controls.|[Link]|—|
-|—|Footer component|Informational footer with credentials and github link to the project.|[Link]|—|
-|**My Components**|**Rich UI Screen**: Profile page|User profile with ability edit name, email, password and choose avatar.|[Link]|+20|
-|**My Components**|**Rich UI Screen**: Nav + Sidebar + Mobile Menu|Responsive navigation system with layout-aware states.|[Link]|+20|
-|**My Components**|**Rich UI Screen**: Card component + Team Board|Reusable card component. And built the team section/team page.|[Link]|+20|
-|**Backend & Data**|**Custom Backend**: SQL Migrations|Database schema expansion and data synchronization logic. Implemented `ProfilesService` for business logic processing.|[Link]|+30|
-|**Backend & Data**|**Backend Framework**: NestJS | Usage of NestJS|[Link]|+10|
+|**Setup**|Monorepo Setup (NPM Workspaces)|Orchestrated the project structure for seamless Front/Back development.|[PR #6](https://github.com/jsgods-rs-tandem/rs-tandem/pull/6#issue-3953486564)|—|
+|**My Components**|**Rich UI Screen**: Home page + 404|Designed and implemented the home and not found page.|[PR #90](https://github.com/jsgods-rs-tandem/rs-tandem/pull/90#issue-4041335360) [PR #113](https://github.com/jsgods-rs-tandem/rs-tandem/pull/113#issue-4073936925) [PR #141](https://github.com/jsgods-rs-tandem/rs-tandem/pull/141#issue-4084815475)|+20|
+|—|Button component|Reusable UI button with multiple variants.|[PR #51](https://github.com/jsgods-rs-tandem/rs-tandem/pull/51#issue-3992409296)|—|
+|—|Accordion component|Expandable UI sections for FAQ.|[PR #111](https://github.com/jsgods-rs-tandem/rs-tandem/pull/111#issue-4071915924)|—|
+|—|Logo component|Branding component.|[PR #44](https://github.com/jsgods-rs-tandem/rs-tandem/pull/44#issue-3984832564)|—|
+|—|Footer component|Informational footer with credentials and github link to the project.|[PR #74](https://github.com/jsgods-rs-tandem/rs-tandem/pull/74#issue-4017856525)|—|
+|**My Components**|**Rich UI Screen**: Profile page|User profile with ability edit name, email, password and choose avatar.|[PR #168](https://github.com/jsgods-rs-tandem/rs-tandem/pull/168#issue-4115829300)|+20|
+|**My Components**|**Rich UI Screen**: Header + Nav + Sidebar + Mobile Menu|Top bar with logo and language, theme controls. Responsive navigation system with layout-aware states.|[PR #54](https://github.com/jsgods-rs-tandem/rs-tandem/pull/54#issue-3997003823) [PR #70](https://github.com/jsgods-rs-tandem/rs-tandem/pull/70#issue-4016772095) [PR #83](https://github.com/jsgods-rs-tandem/rs-tandem/pull/83#issue-4038287245) [PR #203](https://github.com/jsgods-rs-tandem/rs-tandem/pull/203#issue-4182215878)|+20|
+|**My Components**|**Rich UI Screen**: Card component + Team Board|Reusable card component. And built the team section/team page.|[PR #93](https://github.com/jsgods-rs-tandem/rs-tandem/pull/93#issue-4042257707) [PR #98](https://github.com/jsgods-rs-tandem/rs-tandem/pull/98#issue-4045711429)|+20|
+|**Backend & Data**|**Custom Backend**: SQL Migrations|Database schema expansion and data synchronization logic. Implemented `ProfilesService` for business logic processing.|[PR #168](https://github.com/jsgods-rs-tandem/rs-tandem/pull/168#issue-4115829300)|+30|
+|**Backend & Data**|**Backend Framework**: NestJS | Usage of NestJS|[PR #168](https://github.com/jsgods-rs-tandem/rs-tandem/pull/168#issue-4115829300)|+10|
 |**Frameworks**|**Angular**|Usage of Angular.|—|+10|
-|**UI & Interaction**|**Theme Switcher**|Light/Dark mode toggle using CSS variables.|[Link]|+10|
-|**UI & Interaction**|**Responsive Design**|Full mobile optimization (down to 320px).|[Link]|+5|
-|**UI & Interaction**|**Accessibility (a11y)**|Keyboard navigation and ARIA labels implementation.|[Link]|+10|
-|**UI & Interaction**|**Advanced Animations**|Interactive UI elements and smooth page transitions.|[Link]|+10|
-|**UI & Interaction**|**i18n**|Multi-language (ru/en) support.|[Link]|+10|
-|**Architecture**|**API Layer**|Abstracted service layer to decouple UI from API logic.|[Link]|+10|
-|**Architecture**|**Design Patterns**: Facade Pattern|Used the Facade pattern to simplify state management.|[Link]|+10|
-|**Quality**|**Unit Tests (Basic)**|20%+ test coverage for core personal logic.|[Link]|+10|
-|**Quality**|**Unit Tests (Full)**|50%+ test coverage including edge cases.|[Link]|+10|
+|**UI & Interaction**|**Theme Switcher**|Light/Dark mode toggle using CSS variables.|[PR #73](https://github.com/jsgods-rs-tandem/rs-tandem/pull/73#issue-4017839235)|+10|
+|**UI & Interaction**|**Responsive Design**|Full mobile optimization (down to 320px).|—|+5|
+|**UI & Interaction**|**Accessibility (a11y)**|Keyboard navigation and ARIA labels implementation.|—|+10|
+|**UI & Interaction**|**Advanced Animations**|Interactive UI elements and smooth page transitions.|[PR #179](https://github.com/jsgods-rs-tandem/rs-tandem/pull/179#issue-4130595410) [PR #190](https://github.com/jsgods-rs-tandem/rs-tandem/pull/190#issue-4161672622)|+10|
+|**UI & Interaction**|**i18n**|Multi-language (ru/en) support.|[PR #199](https://github.com/jsgods-rs-tandem/rs-tandem/pull/199#issue-4173516887)|+10|
+|**Architecture**|**API Layer**|Abstracted service layer to decouple UI from API logic.|—|+10|
+|**Architecture**|**Design Patterns**: Facade Pattern|Used the Facade pattern to simplify state management.|[PR #168](https://github.com/jsgods-rs-tandem/rs-tandem/pull/168#issue-4115829300) [PR #199](https://github.com/jsgods-rs-tandem/rs-tandem/pull/199#issue-4173516887)|+10|
+|**Quality**|**Unit Tests (Basic)**|20%+ test coverage for core personal logic.|—|+10|
+|**Quality**|**Unit Tests (Full)**|50%+ test coverage including edge cases.|—|+10|
 |**TOTAL**||||**215**|
+
+
+## 🛠 Unit Tests Coverage
+<img width="650" height="371" alt="Average Coverage (%)" src="https://github.com/user-attachments/assets/83b2d629-c858-4bf2-a83f-3f363568803d" />
+<img width="623" height="714" alt="image" src="https://github.com/user-attachments/assets/b507a4e9-8970-47a9-a414-a53804a640a4" />
 
 
 ## 🛠 Work Description & Feature Components
@@ -47,7 +51,7 @@
 
 ### 2. Дизайн и UI-Kit
 
-- **Проектирование:** Разработала в Figma полный дизайн-макет лендинга, и др. Подготовила Style Guide (цвета, типографика, переменные). Описала все переменные в соответствующих scss файлах.
+- **Проектирование:** Разработала в Figma полный [дизайн-макет](https://www.figma.com/design/eK5bfZBxMZEyRYodB8GXZl/Final?node-id=0-1&t=Tk0FvdcgD7aP5Tt5-1) лендинга, и др. Подготовила Style Guide (цвета, типографика, переменные). Описала все переменные в соответствующих scss файлах [PR #39](https://github.com/jsgods-rs-tandem/rs-tandem/pull/39#issue-3977829216) [PR #162](https://github.com/jsgods-rs-tandem/rs-tandem/pull/162#issue-4108706856).
 - **Разработка UI-компонентов:**
     - Реализовала «умный» компонент **Button**, автоматически меняющий тег (`button`/`a`) и стили в зависимости от контекста. Решила проблему доступности (A11y) и блокировки неактивных ссылок.
     - Создала переиспользуемые компоненты: **Accordion**, **Logo**, **Card**, **Header** и **Footer**.
@@ -75,7 +79,7 @@
 
 ### 5. Контроль качества и командная работа
 
-- **Unit-тестирование:** Обеспечила покрытие более **50%** личного кода тестами на базе **Vitest**. Настроила интерактивную визуализацию покрытия через **Vitest UI**, что помогло оперативно выявлять и закрывать «слепые зоны» в логике.
+- **Unit-тестирование:** Обеспечила покрытие более **50%** личного кода тестами на базе **Vitest**. Настроила интерактивную визуализацию покрытия через **Vitest UI**, что помогло оперативно выявлять и закрывать «слепые зоны» в логике. [PR #104](https://github.com/jsgods-rs-tandem/rs-tandem/pull/104#issue-4065869410)
 - **Code Review:** Провела серию тщательных ревью для команды, фокусируясь на архитектурной чистоте, переиспользовании стилей и доступности.
 - **Team Management (Team Lead):**
     - Координировала выбор технологического стека и декомпозицию задач.
