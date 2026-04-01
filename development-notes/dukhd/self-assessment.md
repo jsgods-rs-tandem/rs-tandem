@@ -1,6 +1,6 @@
 # Self-Assessment: Diana Dukhovskaya
 **GitHub:** [dukhd](https://github.com/dukhd)  
-**Pull Request Link:** [link](link)  
+**Pull Request:** [link](https://github.com/jsgods-rs-tandem/rs-tandem/pull/205)  
 **Total self score:** 215
 
 ## 📋 Personal Features Table
