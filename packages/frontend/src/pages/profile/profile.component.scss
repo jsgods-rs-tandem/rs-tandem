@@ -1,5 +1,9 @@
 @use 'assets/styles/mixins' as m;
 
+.profile {
+  margin-block-start: var(--spacing-x13);
+}
+
 .user__content {
   display: flex;
   flex-direction: column;

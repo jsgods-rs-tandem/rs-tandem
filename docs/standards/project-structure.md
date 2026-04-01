@@ -24,7 +24,7 @@ src/
 │     ├─ services/       # Feature-specific stores and API logic
 │     └─ models/         # Interfaces and types for the feature
 ├─ shared/               # Reusable Resources: "Dumb" components and utils
-│  ├─ ui/                # UI-kit (wrappers for Angular Material, etc.)
+│  ├─ ui/                # UI-kit
 │  ├─ pipes/             # Common pipes (date-format, currency)
 │  ├─ directives/        # Common directives
 │  └─ services/          # Helpers, validators, common API clients
