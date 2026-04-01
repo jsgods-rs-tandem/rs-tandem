@@ -9,7 +9,7 @@ import { AiProviderDto, AiSettingsDto, UpdateAiSettingsDto } from '@rs-tandem/sh
 export class AiSettingsHttpService {
   private http = inject(HttpClient);
 
-  getMySttings() {
+  getMySettings() {
     return this.http.get<AiSettingsDto>(`${environment.apiUrl}/ai/settings/me`);
   }
 

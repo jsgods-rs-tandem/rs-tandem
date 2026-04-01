@@ -131,7 +131,7 @@ export class AiSettingsComponent {
   }
 
   private loadSettings() {
-    this.settingsAPI.getMySttings().subscribe({
+    this.settingsAPI.getMySettings().subscribe({
       next: (settings) => {
         this.updateSettings(settings);
         this.isLoading.set(false);
