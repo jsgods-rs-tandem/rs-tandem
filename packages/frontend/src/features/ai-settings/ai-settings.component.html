@@ -8,7 +8,7 @@
 } @else {
   <form [formGroup]="settingsForm" class="form" (ngSubmit)="handleSubmit()">
     <div class="row">
-      <h3 class="h4">Use remote provider?</h3>
+      <h3>Use remote provider?</h3>
       <app-switcher
         (toggledEvent)="toggleProvider($event)"
         [initialStatus]="settings().useRemoteProvider"
