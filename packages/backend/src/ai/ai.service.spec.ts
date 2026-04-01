@@ -40,6 +40,7 @@ const now = new Date('2024-06-01T12:00:00.000Z');
 const ollamaSettings = {
   userId: 'u1',
   providerId: 'ollama',
+  model: null,
   apiKey: null,
   createdAt: now,
   updatedAt: now,
@@ -78,7 +79,7 @@ describe('AiService', () => {
 
       const result = await service.getMySettings('u1');
 
-      expect(result).toEqual({ providerId: 'ollama', apiKey: null });
+      expect(result).toEqual({ providerId: 'ollama', model: null, apiKey: null });
     });
 
     it('throws BadRequestException when no settings found', async () => {
@@ -93,15 +94,20 @@ describe('AiService', () => {
       mockFindProvider.mockReturnValue(ollamaProvider);
       mockAiSettingsRepository.upsert.mockResolvedValue(ollamaSettings);
 
-      const result = await service.updateMySettings('u1', { providerId: 'ollama' });
+      const result = await service.updateMySettings('u1', {
+        providerId: 'ollama',
+        model: null,
+        apiKey: null,
+      });
 
       expect(mockAiSettingsRepository.upsert).toHaveBeenCalledWith({
         userId: 'u1',
         providerId: 'ollama',
+        model: null,
         apiKey: null,
-        preserveExistingKey: false,
+        preserveExistingKey: true,
       });
-      expect(result).toEqual({ providerId: 'ollama', apiKey: null });
+      expect(result).toEqual({ providerId: 'ollama', model: null, apiKey: null });
     });
 
     it('upserts with preserveExistingKey true for key-requiring provider', async () => {
@@ -112,19 +118,23 @@ describe('AiService', () => {
         apiKey: 'existing-key',
       });
 
-      await service.updateMySettings('u1', { providerId: 'paid-provider' });
+      await service.updateMySettings('u1', {
+        providerId: 'paid-provider',
+        model: null,
+        apiKey: null,
+      });
 
       expect(mockAiSettingsRepository.upsert).toHaveBeenCalledWith(
-        expect.objectContaining({ preserveExistingKey: true }),
+        expect.objectContaining({ preserveExistingKey: false }),
       );
     });
 
     it('throws BadRequestException for unknown provider', async () => {
       mockFindProvider.mockReturnValue(undefined);
 
-      await expect(service.updateMySettings('u1', { providerId: 'unknown' })).rejects.toThrow(
-        BadRequestException,
-      );
+      await expect(
+        service.updateMySettings('u1', { providerId: 'unknown', model: null, apiKey: null }),
+      ).rejects.toThrow(BadRequestException);
       expect(mockAiSettingsRepository.upsert).not.toHaveBeenCalled();
     });
   });
@@ -153,7 +163,7 @@ describe('AiService', () => {
 
       await service.chat('u1', { messages });
 
-      expect(mockOllamaChat).toHaveBeenCalledWith(messages, 'key');
+      expect(mockOllamaChat).toHaveBeenCalledWith(messages, null, 'key');
     });
 
     it('throws BadRequestException when no settings found', async () => {

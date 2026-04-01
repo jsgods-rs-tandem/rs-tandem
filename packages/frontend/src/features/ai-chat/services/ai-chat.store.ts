@@ -25,10 +25,6 @@ export class AiChatStore {
     history: false,
   });
 
-  constructor() {
-    this.loadHistory();
-  }
-
   sendPrompt(text: string) {
     if (this.status() === 'default' || this.status() === 'error') {
       const message: IMessage = { role: 'user', content: text };
@@ -70,7 +66,9 @@ export class AiChatStore {
     });
   }
 
-  private loadHistory() {
+  loadHistory() {
+    this.isReady.update((state) => ({ ...state, history: false }));
+    this._messages.set([]);
     this.httpApi
       .getHistory()
       .pipe(
