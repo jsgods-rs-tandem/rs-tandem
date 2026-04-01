@@ -164,11 +164,11 @@
 }
 
 .slide-in {
-  animation: slideIn 0.7s cubic-bezier(0.77, 0.2, 0.05, 1);
+  animation: slideIn var(--transition-duration-slow) cubic-bezier(0.77, 0.2, 0.05, 1);
 }
 
 .slide-out {
-  animation: slideOut 0.7s cubic-bezier(0.77, 0.2, 0.05, 1);
+  animation: slideOut var(--transition-duration-basic) cubic-bezier(0.77, 0.2, 0.05, 1);
 }
 
 @keyframes slideIn {
