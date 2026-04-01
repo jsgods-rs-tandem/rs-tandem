@@ -1,0 +1,33 @@
+.switcher {
+  cursor: pointer;
+
+  position: relative;
+
+  width: 40px;
+  height: 20px;
+  border-radius: 10px;
+
+  background-color: var(--error-color);
+}
+
+.pin {
+  position: absolute;
+  top: 1px;
+  left: 1px;
+
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+
+  background-color: #fff;
+
+  transition-duration: 0.3s;
+}
+
+.enabled {
+  background-color: var(--success-color);
+
+  .pin {
+    transform: translateX(calc(100% + 2px));
+  }
+}

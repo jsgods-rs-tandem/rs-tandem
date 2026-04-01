@@ -17,6 +17,7 @@ export class AiChatComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.store.initSocketListeners();
+    this.store.loadHistory();
   }
 
   ngOnDestroy(): void {

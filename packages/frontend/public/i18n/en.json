@@ -100,7 +100,8 @@
     },
     "auth": {
       "profile": "Profile",
-      "library": "Library"
+      "library": "Library",
+      "settings": "Settings"
     }
   },
   "header": {

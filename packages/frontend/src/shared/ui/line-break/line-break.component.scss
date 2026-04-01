@@ -1,0 +1,19 @@
+.line-break {
+  display: block;
+  width: 100%;
+  height: 1px;
+
+  &_theme {
+    &_accent {
+      background-color: var(--accent-color);
+    }
+
+    &_strong {
+      background-color: var(--secondary-color);
+    }
+
+    &_inert {
+      background-color: var(--code-bg-color);
+    }
+  }
+}

@@ -29,7 +29,7 @@ export class AiService {
   }
 
   private async setDefaultSettings(userId: string): Promise<AiSettingsDto> {
-    await this.updateMySettings(userId, { providerId: 'ollama' });
+    await this.updateMySettings(userId, { providerId: 'ollama', model: null, apiKey: null });
     const settings = await this.aiSettingsRepository.findByUserId(userId);
     if (!settings) {
       throw new BadRequestException('ai.provider_not_selected');
@@ -37,6 +37,7 @@ export class AiService {
 
     return {
       providerId: settings.providerId,
+      model: settings.model,
       apiKey: settings.apiKey,
     };
   }
@@ -51,6 +52,7 @@ export class AiService {
 
     return {
       providerId: settings.providerId,
+      model: settings.model,
       apiKey: settings.apiKey,
     };
   }
@@ -65,14 +67,13 @@ export class AiService {
     const settings = await this.aiSettingsRepository.upsert({
       userId,
       providerId: dto.providerId,
-      apiKey: null,
-      // For key-requiring providers, preserve the existing key rather than clobber it on a
-      // provider-only update. Callers must use a dedicated key-update endpoint to change the key.
-      preserveExistingKey: provider.meta.requiresKey,
+      model: dto.model,
+      apiKey: dto.apiKey,
+      preserveExistingKey: !provider.meta.requiresKey,
     });
-
     return {
       providerId: settings.providerId,
+      model: settings.model,
       apiKey: settings.apiKey,
     };
   }
@@ -108,7 +109,7 @@ export class AiService {
     const provider = this.getMyProvider(settings);
 
     try {
-      const stream = await provider.streamChat(messages, settings.apiKey);
+      const stream = await provider.streamChat(messages, settings.model, settings.apiKey);
       let content = '';
       for await (const chunk of stream) {
         content = `${content}${chunk}`;
@@ -146,7 +147,7 @@ export class AiService {
     }
 
     try {
-      const content = await provider.chat(dto.messages, settings.apiKey);
+      const content = await provider.chat(dto.messages, settings.model, settings.apiKey);
 
       return content;
     } catch (error) {

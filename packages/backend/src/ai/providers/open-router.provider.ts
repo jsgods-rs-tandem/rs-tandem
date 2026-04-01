@@ -3,19 +3,14 @@ import type { AiProviderMeta, IAiProvider } from './ai-provider.interface.js';
 import { openrouterStreamToAsyncIterable } from '../utils/openrouter-stream-to-async-iterable.js';
 
 export class OpenRouterProvider implements IAiProvider {
-  constructor(
-    private readonly baseUrl = process.env.OPENROUTER_BASE_URL,
-    private readonly model = process.env.OPENROUTER_MODEL,
-  ) {}
-
   readonly meta: AiProviderMeta = {
     id: 'openrouter',
     label: 'Open Router',
     requiresKey: true,
   };
 
-  async chat(messages: AiMessage[], apiKey: string | null): Promise<string> {
-    const asyncIterable = await this.streamChat(messages, apiKey);
+  async chat(messages: AiMessage[], model: string | null, apiKey: string | null): Promise<string> {
+    const asyncIterable = await this.streamChat(messages, model, apiKey);
     let message = '';
     for await (const chunk of asyncIterable) {
       message += chunk;
@@ -24,11 +19,15 @@ export class OpenRouterProvider implements IAiProvider {
     return message;
   }
 
-  async streamChat(messages: AiMessage[], apiKey: string | null): Promise<AsyncIterable<string>> {
-    if (!this.baseUrl) {
+  async streamChat(
+    messages: AiMessage[],
+    model: string | null,
+    apiKey: string | null,
+  ): Promise<AsyncIterable<string>> {
+    if (!this.getBaseUrl()) {
       throw new Error('OPENROUTER_BASE_URL is not set');
     }
-    if (!this.model) {
+    if (!model) {
       throw new Error('OPENROUTER_MODEL is not set');
     }
     if (!apiKey) {
@@ -36,11 +35,11 @@ export class OpenRouterProvider implements IAiProvider {
     }
     let response;
     try {
-      response = await fetch(`${this.baseUrl}/v1/chat/completions`, {
+      response = await fetch(`${this.getBaseUrl()}/v1/chat/completions`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${apiKey}` },
         body: JSON.stringify({
-          model: this.model,
+          model,
           messages,
           reasoning: { enabled: true },
           stream: true,
@@ -61,5 +60,9 @@ export class OpenRouterProvider implements IAiProvider {
     }
 
     return openrouterStreamToAsyncIterable(Promise.resolve(response.body));
+  }
+
+  private getBaseUrl() {
+    return process.env.OPENROUTER_BASE_URL ?? 'http://localhost:11434';
   }
 }

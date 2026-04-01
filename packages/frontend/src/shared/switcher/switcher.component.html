@@ -1,0 +1,10 @@
+<div
+  tabindex="0"
+  class="switcher"
+  [ngClass]="isActive() ? 'enabled' : 'disabled'"
+  (click)="toggle()"
+  (keydown.enter)="toggle()"
+  (keydown.space)="toggle()"
+>
+  <div class="pin"></div>
+</div>

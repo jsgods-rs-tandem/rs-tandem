@@ -1,7 +1,8 @@
 import type { IAiProvider } from './ai-provider.interface.js';
 import { OllamaProvider } from './ollama.provider.js';
+import { OpenRouterProvider } from './open-router.provider.js';
 
-export const AI_PROVIDERS: IAiProvider[] = [new OllamaProvider()];
+export const AI_PROVIDERS: IAiProvider[] = [new OllamaProvider(), new OpenRouterProvider()];
 
 export const AI_PROVIDER_IDS: string[] = AI_PROVIDERS.map((p) => p.meta.id);
 
