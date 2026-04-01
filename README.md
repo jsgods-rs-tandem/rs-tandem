@@ -42,13 +42,12 @@ We used **GitHub Projects** with a **Kanban board** to manage tasks and track ou
 <img width="1897" height="901" alt="image" src="https://github.com/user-attachments/assets/be6dd4be-8e32-45aa-898f-06c10b962d18" />
 
 
-### Code Review (Top Pull Requests)
+### Top Pull Requests
 
 1. [🔗 PR #6: chore: setup project environment](https://github.com/jsgods-rs-tandem/rs-tandem/pull/6) — Project Foundation: Set up the core project structure for both frontend and backend. Initialized the monorepo architecture using npm workspaces for Angular and NestJS, strict linting (ESLint/Prettier), and automated Husky hooks for pre-commit checks and branch protection.
-2. [🔗 PR #77: feat: handle different llm response cases](https://github.com/jsgods-rs-tandem/rs-tandem/pull/77) — Smart AI Chat: Built a system that tracks the AI’s status (thinking, typing, or errors). It automatically disables the input field while the AI is busy, making the chat feel smooth and preventing user mistakes.
-3. [🔗 PR #118: feat: implement user store](https://github.com/jsgods-rs-tandem/rs-tandem/pull/118) — User Data Management: Created a central "source of truth" for user and login info. This makes user data instantly available to every part of the app without needing extra server requests or messy code.
-4. [🔗 PR #95: feat: implement quiz page](https://github.com/jsgods-rs-tandem/rs-tandem/pull/95) — Interactive Quiz Engine: Built a complete quiz page with a timer, code highlighting, and instant feedback. Created a library of reusable UI parts so that adding new types of quizzes in the future is fast and easy.
-
+2. [🔗 PR #118: feat: implement user store](https://github.com/jsgods-rs-tandem/rs-tandem/pull/118) — User Data Management: Created a central "source of truth" for user and login info. This makes user data instantly available to every part of the app without needing extra server requests or messy code.
+3. [🔗 PR #95: feat: implement quiz page](https://github.com/jsgods-rs-tandem/rs-tandem/pull/95) — Interactive Quiz Engine: Built a complete quiz page with a timer, code highlighting, and instant feedback. Created a library of reusable UI parts so that adding new types of quizzes in the future is fast and easy.
+4. [🔗 PR #202: feat: implement settings for ai chat](https://github.com/jsgods-rs-tandem/rs-tandem/pull/202) — Developed a dedicated settings page for the AI chat, enabling users to choose remote providers and manage their history.
 ---
 
 ## 📦 Monorepo Structure & Dependencie
