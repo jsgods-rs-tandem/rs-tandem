@@ -1,10 +1,7 @@
 @use 'assets/styles/mixins' as m;
 
 :host {
-  display: none;
-  @include m.media('s') {
-    display: block;
-  }
+  display: contents;
 }
 
 .mobile-menu {
@@ -14,14 +11,17 @@
     position: relative;
     z-index: 1001;
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    display: none;
 
     padding: 0;
     border: none;
 
     background: none;
+    @include m.media('s') {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
 
     .burger-icon {
       position: relative;

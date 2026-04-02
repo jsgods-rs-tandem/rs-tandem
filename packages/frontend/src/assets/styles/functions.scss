@@ -23,7 +23,7 @@
 
   @return clamp(
     $min-value-rem,
-    #{if($constant-rem != 0rem, $constant-rem + ' + ', '')}#{$vw-percent}vw,
+    #{if(sass($constant-rem != 0rem): $constant-rem + ' + ' ; else: '')}#{$vw-percent}vw,
     $max-value-rem
   );
 }

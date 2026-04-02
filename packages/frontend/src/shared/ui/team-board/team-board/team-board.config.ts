@@ -22,7 +22,7 @@ export const TEAM_MEMBERS: TeamMember[] = [
   },
   {
     nameKey: marker('team.members.mikita'),
-    avatarUrl: 'https://avatars.githubusercontent.com/u/56834272?v=4',
+    avatarUrl: 'assets/images/nck1969-team-card-avatar.jpg',
     linkText: 'nck1969',
     linkUrl: 'https://github.com/nck1969',
   },

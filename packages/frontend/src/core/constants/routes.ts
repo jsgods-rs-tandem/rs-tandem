@@ -10,7 +10,6 @@ export const ROUTES = {
   quizCategory: ':categoryId',
   quizTopic: 'topic/:topicId',
   quizResults: 'results',
-  dashboard: 'dashboard',
   notFound: '404',
   wildcard: '**',
 } as const;
@@ -24,6 +23,5 @@ export const ROUTE_PATHS = {
   aiChat: `/${ROUTES.aiChat}`,
   settings: `/${ROUTES.settings}`,
   quiz: `/${ROUTES.quiz}`,
-  dashboard: `/${ROUTES.dashboard}`,
   notFound: `/${ROUTES.notFound}`,
 } as const;
