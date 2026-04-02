@@ -12,19 +12,20 @@ interface ExternalLinkRow {
 }
 
 class SignInPage {
+  page: Page;
   container: Locator;
   title: Locator;
   form: SignInForm;
   externalLinkRow: ExternalLinkRow;
 
-  constructor(public page: Page) {
+  constructor(page: Page) {
     this.page = page;
 
     this.container = page.getByTestId('auth-page-container');
 
     this.form = {
       emailInput: page.getByLabel('Email'),
-      passwordInput: page.getByLabel('Password'),
+      passwordInput: page.getByTestId('password-input'),
       submitButton: page.getByTestId('submit-btn'),
     };
 

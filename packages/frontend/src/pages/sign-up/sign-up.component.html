@@ -12,7 +12,8 @@
       formControlName="username"
       [label]="'auth.signUp.form.username.label' | transloco"
       [placeholder]="'auth.signUp.form.username.placeholder' | transloco"
-      [hasError]="signUpForm.controls.username.touched && signUpForm.controls.username.invalid"
+      [hint]="'auth.signUp.form.username.hint' | transloco"
+      [hasError]="isSubmitted() && signUpForm.controls.username.invalid"
       [errorText]="
         getValidationErrorKey('username')
           ? (getValidationErrorKey('username')! | transloco: { min: 3 })
@@ -26,7 +27,7 @@
       formControlName="email"
       [label]="'auth.signUp.form.email.label' | transloco"
       [placeholder]="'auth.signUp.form.email.placeholder' | transloco"
-      [hasError]="signUpForm.controls.email.touched && signUpForm.controls.email.invalid"
+      [hasError]="isSubmitted() && signUpForm.controls.email.invalid"
       [errorText]="
         getValidationErrorKey('email')
           ? (getValidationErrorKey('email')! | transloco: { min: 8 })
@@ -38,15 +39,22 @@
       id="password"
       targetType="password"
       formControlName="password"
+      testId="password-input"
       [label]="'auth.signUp.form.password.label' | transloco"
       [placeholder]="'auth.signUp.form.password.placeholder' | transloco"
-      [hasError]="signUpForm.controls.password.touched && signUpForm.controls.password.invalid"
-      [errorText]="
-        getValidationErrorKey('password')
-          ? (getValidationErrorKey('password')! | transloco: { min: 8 })
-          : ''
-      "
+      [hasError]="isSubmitted() && signUpForm.controls.password.invalid"
     />
+
+    <ul class="progressive-validation">
+      @for (rule of passwordRules(); track rule.key) {
+        <li [class.is-valid]="rule.valid" [class.is-invalid]="isSubmitted() && !rule.valid">
+          <span class="material-icons">
+            {{ rule.valid ? 'check_circle' : isSubmitted() ? 'cancel' : 'radio_button_unchecked' }}
+          </span>
+          {{ rule.key | transloco }}
+        </li>
+      }
+    </ul>
 
     <app-button
       type="submit"

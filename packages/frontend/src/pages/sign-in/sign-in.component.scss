@@ -1,3 +1,5 @@
+@use 'assets/styles/mixins.scss' as m;
+
 :host {
   display: flex;
   flex: 1;
@@ -7,10 +9,17 @@
 form {
   display: flex;
   flex-direction: column;
-  gap: 8px;
-  min-width: 280px;
+  gap: 10px;
+
+  min-width: 360px;
+  max-width: 100%;
+
+  @include m.media('s') {
+    gap: 8px;
+    min-width: 280px;
+  }
 }
 
 app-button {
-  margin-top: var(--spacing-x13);
+  margin-top: 20px;
 }

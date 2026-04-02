@@ -31,12 +31,78 @@
   &.is-disabled {
     cursor: not-allowed;
   }
+
+  .input-hint-wrapper {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+
+    .input-hint-icon {
+      font-size: fn.to-rem(16px);
+      color: var(--text-secondary);
+      @include m.transition((color));
+    }
+
+    .input-hint-popover {
+      position: absolute;
+      z-index: 10;
+      bottom: 100%;
+      left: 50%;
+      transform: translateX(-50%) translateY(4px);
+
+      width: max-content;
+      max-width: fn.to-rem(250px);
+      margin-bottom: var(--spacing-x2);
+      padding: var(--spacing-x1) var(--spacing-x2);
+      border-radius: var(--radius-sm);
+
+      font-size: fn.to-rem(14px);
+      font-weight: var(--fw-regular);
+      line-height: 1.4;
+      color: var(--primary-color);
+
+      visibility: hidden;
+      opacity: 0;
+      background-color: var(--secondary-color);
+      box-shadow: var(--shadow);
+      @include m.transition((opacity, visibility, transform));
+
+      &::after {
+        content: '';
+
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        transform: translateX(-50%);
+
+        border: 4px solid transparent;
+        border-top-color: var(--secondary-color);
+      }
+    }
+
+    &:hover {
+      .input-hint-icon {
+        color: var(--accent-color);
+      }
+
+      .input-hint-popover {
+        transform: translateX(-50%) translateY(0);
+        visibility: visible;
+        opacity: 1;
+      }
+    }
+  }
+}
+
+.input-container {
+  position: relative;
+  width: 100%;
+  margin-top: var(--spacing-x2);
 }
 
 .input-element {
   width: 100%;
   min-height: 52px;
-  margin-top: var(--spacing-x2);
   padding: var(--spacing-x2) var(--spacing-x3);
   border: 1px solid var(--secondary-color);
   border-radius: var(--radius-md);
@@ -48,10 +114,13 @@
 
   background-color: transparent;
   outline: none;
-  @include m.transition((border-color, box-shadow));
 
   &::placeholder {
     color: var(--text-secondary);
+  }
+
+  &.has-toggle {
+    padding-right: fn.to-rem(56px);
   }
 
   &:focus {
@@ -61,6 +130,37 @@
   &:disabled {
     cursor: not-allowed;
     background-color: rgb(255 255 255 / 5%);
+  }
+  @include m.transition((border-color, box-shadow));
+}
+
+.password-toggle-btn {
+  cursor: pointer;
+
+  position: absolute;
+  top: 50%;
+  right: var(--spacing-x4);
+  transform: translateY(-50%);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: none;
+
+  color: var(--text-secondary);
+
+  background: transparent;
+  outline: none;
+  @include m.transition((color));
+
+  &:hover,
+  &:focus-visible {
+    color: var(--accent-color);
+  }
+
+  .material-icons {
+    font-size: fn.to-rem(20px);
   }
 }
 

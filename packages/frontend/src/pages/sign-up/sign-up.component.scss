@@ -1,3 +1,5 @@
+@use 'assets/styles/mixins.scss' as m;
+
 :host {
   display: flex;
   flex: 1;
@@ -7,10 +9,58 @@
 form {
   display: flex;
   flex-direction: column;
-  gap: 8px;
-  min-width: 280px;
+  gap: 10px;
+
+  min-width: 360px;
+  max-width: 100%;
+
+  @include m.media('s') {
+    gap: 8px;
+    min-width: 280px;
+  }
 }
 
 app-button {
-  margin-top: var(--spacing-x13);
+  margin-top: 20px;
+}
+
+.progressive-validation {
+  margin-top: -15px;
+  padding: 0;
+
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  list-style: none;
+
+  li {
+    display: flex;
+    gap: var(--spacing-x2);
+    align-items: center;
+
+    margin-bottom: var(--spacing-x2);
+
+    transition: color 0.3s;
+
+    .material-icons {
+      font-size: 1.1rem;
+      color: var(--text-secondary);
+      transition: color 0.3s;
+    }
+
+    &.is-valid {
+      color: var(--success-color);
+
+      .material-icons {
+        color: var(--success-color);
+      }
+    }
+
+    &.is-invalid {
+      color: var(--error-color);
+
+      .material-icons {
+        color: var(--error-color);
+      }
+    }
+  }
 }

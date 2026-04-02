@@ -1,4 +1,4 @@
-import { Component, inject, signal } from '@angular/core';
+import { Component, computed, inject, Signal, signal } from '@angular/core';
 import { FormControl, ReactiveFormsModule, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthPageComponent } from '@/shared/ui/auth-page/auth-page.component';
@@ -14,6 +14,16 @@ import { marker } from '@jsverse/transloco-keys-manager/marker';
 import type { AppTranslationKey } from '@/shared/types/translation-keys';
 import { TypedTranslocoPipe } from '@/shared/pipes/typed-transloco.pipe';
 import { getValidationErrorKey } from '@/shared/utils/form-validation.utilities';
+import {
+  PASSWORD_PATTERN_REGEX,
+  PASSWORD_SPECIAL_CHAR_REGEX,
+} from '@/shared/utils/password-validation.utilities';
+import { toSignal } from '@angular/core/rxjs-interop';
+
+interface PasswordRule {
+  key: AppTranslationKey;
+  valid: boolean;
+}
 
 @Component({
   selector: 'app-sign-up',
@@ -35,16 +45,27 @@ export class SignUpComponent {
   private t = injectTranslate();
 
   protected isLoading = signal(false);
+  protected isSubmitted = signal(false);
 
   readonly ROUTE_PATHS = ROUTE_PATHS;
 
   signUpForm = new FormGroup({
-    username: new FormControl('', [Validators.required, Validators.minLength(3)]),
+    username: new FormControl('', [
+      Validators.required,
+      Validators.minLength(3),
+      Validators.maxLength(50),
+    ]),
     email: new FormControl('', [Validators.required, Validators.email]),
-    password: new FormControl('', [Validators.required, Validators.minLength(8)]),
+    password: new FormControl('', [
+      Validators.required,
+      Validators.minLength(8),
+      Validators.pattern(PASSWORD_PATTERN_REGEX),
+    ]),
   });
 
   onSubmit() {
+    this.isSubmitted.set(true);
+
     if (this.signUpForm.invalid) {
       this.signUpForm.markAllAsTouched();
       return;
@@ -67,7 +88,14 @@ export class SignUpComponent {
       .subscribe({
         next: () => {
           this.isLoading.set(false);
-          void this.router.navigate([ROUTE_PATHS.signIn]);
+          this.modalService.open({
+            title: this.t(marker('auth.signUp.modals.success.title')),
+            message: this.t(marker('auth.signUp.modals.success.message')),
+            icon: 'info-outline',
+            onClose: () => {
+              void this.router.navigate([ROUTE_PATHS.signIn]);
+            },
+          });
         },
         error: (error: HttpErrorResponse) => {
           this.isLoading.set(false);
@@ -90,4 +118,31 @@ export class SignUpComponent {
   getValidationErrorKey(controlName: string): AppTranslationKey | null {
     return getValidationErrorKey(this.signUpForm.get(controlName));
   }
+
+  private passwordValue = toSignal(this.signUpForm.controls.password.valueChanges, {
+    initialValue: this.signUpForm.controls.password.value ?? '',
+  });
+
+  protected readonly passwordRules: Signal<PasswordRule[]> = computed(() => {
+    const value = this.passwordValue() ?? '';
+
+    return [
+      {
+        key: marker('auth.validation.progressive.minLength'),
+        valid: value.length >= 8,
+      },
+      {
+        key: marker('auth.validation.progressive.uppercase'),
+        valid: /[A-Z]/.test(value),
+      },
+      {
+        key: marker('auth.validation.progressive.number'),
+        valid: /\d/.test(value),
+      },
+      {
+        key: marker('auth.validation.progressive.specialChar'),
+        valid: PASSWORD_SPECIAL_CHAR_REGEX.test(value),
+      },
+    ];
+  });
 }

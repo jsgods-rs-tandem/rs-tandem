@@ -190,15 +190,17 @@
   },
   "auth": {
     "signIn": {
-      "title": "Войти",
+      "title": "Логин",
       "form": {
         "email": {
-          "label": "Имейл",
-          "placeholder": "Введите ваш имейл"
+          "label": "Почта",
+          "placeholder": "name@example.com",
+          "hint": "Введите корректный email адрес"
         },
         "password": {
           "label": "Пароль",
-          "placeholder": "Введите ваш пароль"
+          "placeholder": "Введите ваш пароль",
+          "hint": "Минимум 8 символов"
         },
         "submit": "Войти"
       },
@@ -208,19 +210,28 @@
       }
     },
     "signUp": {
-      "title": "Зарегистрироваться",
+      "title": "Регистрация",
+      "modals": {
+        "success": {
+          "title": "Успешная регистрация",
+          "message": "Ваш аккаунт был успешно создан. Теперь вы можете войти."
+        }
+      },
       "form": {
         "username": {
           "label": "Имя пользователя",
-          "placeholder": "Введите имя пользователя"
+          "placeholder": "ivan_ivanov",
+          "hint": "От 3 до 50 символов"
         },
         "email": {
           "label": "Почта",
-          "placeholder": "Введите ваш email"
+          "placeholder": "name@example.com",
+          "hint": "Введите корректный email адрес"
         },
         "password": {
           "label": "Пароль",
-          "placeholder": "Введите ваш пароль"
+          "placeholder": "Введите ваш пароль",
+          "hint": "Минимум 8 символов"
         },
         "submit": "Зарегистрироваться"
       },
@@ -233,7 +244,13 @@
       "required": "Это поле обязательное",
       "email": "Невалидный имейл адрес",
       "minLength": "Минимальная длина {{min}} символов",
-      "maxLength": "Максимальная длина {{max}} символов"
+      "maxLength": "Максимальная длина {{max}} символов",
+      "progressive": {
+        "minLength": "Минимум 8 символов",
+        "uppercase": "1 заглавная буква",
+        "number": "1 цифра",
+        "specialChar": "1 спецсимвол (!@#$%...)"
+      }
     },
     "errorMessages": {
       "loginTitle": "Ошибка входа",

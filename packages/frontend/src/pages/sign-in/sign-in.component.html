@@ -12,7 +12,7 @@
       formControlName="email"
       [label]="'auth.signIn.form.email.label' | transloco"
       [placeholder]="'auth.signIn.form.email.placeholder' | transloco"
-      [hasError]="signInForm.controls.email.touched && signInForm.controls.email.invalid"
+      [hasError]="isSubmitted() && signInForm.controls.email.invalid"
       [errorText]="
         getValidationErrorKey('email')
           ? (getValidationErrorKey('email')! | transloco: { min: 8 })
@@ -24,9 +24,10 @@
       id="password"
       targetType="password"
       formControlName="password"
+      testId="password-input"
       [label]="'auth.signIn.form.password.label' | transloco"
       [placeholder]="'auth.signIn.form.password.placeholder' | transloco"
-      [hasError]="signInForm.controls.password.touched && signInForm.controls.password.invalid"
+      [hasError]="isSubmitted() && signInForm.controls.password.invalid"
       [errorText]="
         getValidationErrorKey('password')
           ? (getValidationErrorKey('password')! | transloco: { min: 8 })

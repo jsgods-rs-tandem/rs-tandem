@@ -1,4 +1,4 @@
-import { Component, input, computed, forwardRef } from '@angular/core';
+import { Component, input, computed, forwardRef, signal } from '@angular/core';
 import { NgClass } from '@angular/common';
 import { NG_VALUE_ACCESSOR, ControlValueAccessor } from '@angular/forms';
 import type { InputType } from './input.types';
@@ -31,10 +31,22 @@ export class InputComponent implements ControlValueAccessor {
   required = input<boolean>(false);
 
   label = input<string>('');
+  hint = input<string>('');
   errorText = input<string>('');
   hasError = input<boolean>(false);
+  testId = input<string | null>(null);
 
   computedName = computed(() => this.name() ?? this.inputId());
+
+  isPasswordVisible = signal(false);
+
+  computedType = computed(() => {
+    if (this.targetType() === 'password') {
+      return this.isPasswordVisible() ? 'text' : 'password';
+    }
+
+    return this.targetType();
+  });
 
   onChange: (value: string) => void = () => {
     /* noop */
@@ -59,5 +71,9 @@ export class InputComponent implements ControlValueAccessor {
     const target = event.target as HTMLInputElement;
     this.value = target.value;
     this.onChange(this.value);
+  }
+
+  togglePasswordVisibility(): void {
+    this.isPasswordVisible.update((v) => !v);
   }
 }
