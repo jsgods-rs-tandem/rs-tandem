@@ -1,6 +1,8 @@
 import type { AiMessage } from '@rs-tandem/shared';
 import type { AiProviderMeta, IAiProvider } from './ai-provider.interface.js';
 import { openrouterStreamToAsyncIterable } from '../utils/openrouter-stream-to-async-iterable.js';
+import OpenRouterError from '../errors/openrouter-error.js';
+import { error } from '../errors/errors.js';
 
 export class OpenRouterProvider implements IAiProvider {
   readonly meta: AiProviderMeta = {
@@ -28,10 +30,10 @@ export class OpenRouterProvider implements IAiProvider {
       throw new Error('OPENROUTER_BASE_URL is not set');
     }
     if (!model) {
-      throw new Error('OPENROUTER_MODEL is not set');
+      throw new OpenRouterError('Model is not set', error.BadRequest);
     }
     if (!apiKey) {
-      throw new Error('API key is required for Open Router provider');
+      throw new OpenRouterError('Api key is required', error.Unauthorized);
     }
     let response;
     try {
@@ -45,18 +47,16 @@ export class OpenRouterProvider implements IAiProvider {
           stream: true,
         }),
       });
-    } catch (error) {
-      throw new Error(
-        `Failed to connect to Open Router API: ${error instanceof Error ? error.message : String(error)}`,
-      );
+    } catch {
+      throw new OpenRouterError(`Failed to connect`, error.ServiceUnavailable);
     }
 
     if (!response.ok) {
-      throw new Error(`Open Router responded with ${String(response.status)}`);
+      throw new OpenRouterError(`Responded with ${String(response.status)}`, response.status);
     }
 
     if (!response.body) {
-      throw new Error('Response body is null');
+      throw new OpenRouterError(`Response body is null`, error.ServiceUnavailable);
     }
 
     return openrouterStreamToAsyncIterable(Promise.resolve(response.body));
