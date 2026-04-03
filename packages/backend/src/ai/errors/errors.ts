@@ -1,3 +1,9 @@
+export type ErrorCode = 'OPENROUTER_ERROR';
+
+export const title: Record<ErrorCode, string> = {
+  OPENROUTER_ERROR: 'Open Router',
+};
+
 type keys =
   | 'BadRequest'
   | 'Unauthorized'
