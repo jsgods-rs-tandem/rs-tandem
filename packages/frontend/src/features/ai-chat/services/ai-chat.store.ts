@@ -54,6 +54,7 @@ export class AiChatStore {
     this.subscribeToEvent('connect', this.handleConnect);
     this.subscribeToEvent('disconnect', this.handleDisconnect);
     this.subscribeToEvent('connect_error', this.handleConnectionError);
+    this.subscribeToEvent('exception', this.handleUnknownError);
     this.subscribeToEvent('error', this.handleError);
   }
 
@@ -176,6 +177,12 @@ export class AiChatStore {
         }
       }
     }
+  }
+
+  private handleUnknownError(error: unknown) {
+    console.error(error);
+    this.updateErrorMessage(unknownError);
+    this.updateStatus('error');
   }
 
   private deleteMessages() {
