@@ -18,5 +18,8 @@
 }
 
 @if (store.status() === 'error') {
-  <div>Unable to get a response...</div>
+  <div class="error">
+    {{ store.errorMessage().title }} Error({{ store.errorMessage().status }}):
+    {{ store.errorMessage().message }}
+  </div>
 }

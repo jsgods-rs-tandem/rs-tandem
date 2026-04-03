@@ -5,6 +5,14 @@ import { AiSocketService } from './ai-socket-service';
 import { finalize, Subscription } from 'rxjs';
 import { AiChatResponseDto, AiMessage } from '@rs-tandem/shared';
 import { AiHttpService } from './ai-http-service';
+import { AiError } from '@rs-tandem/shared/src/ai';
+
+const unknownError: AiError = {
+  type: 'unknown_error',
+  title: 'Unknown',
+  message: 'Server response with unknown error',
+  status: 500,
+};
 
 @Injectable({
   providedIn: 'root',
@@ -17,6 +25,7 @@ export class AiChatStore {
   private socketSubscriptions: Subscription[] = [];
   private zone = inject(NgZone);
 
+  readonly errorMessage = signal<AiError>(unknownError);
   readonly messages = this._messages.asReadonly();
   readonly messagesLength = computed(() => this._messages().length);
   readonly status = this._status.asReadonly();
@@ -45,6 +54,7 @@ export class AiChatStore {
     this.subscribeToEvent('connect', this.handleConnect);
     this.subscribeToEvent('disconnect', this.handleDisconnect);
     this.subscribeToEvent('connect_error', this.handleConnectionError);
+    this.subscribeToEvent('error', this.handleError);
   }
 
   destroySocketListeners() {
@@ -84,6 +94,37 @@ export class AiChatStore {
           console.error(error);
         },
       });
+  }
+
+  private handleError = (response: unknown) => {
+    const error = response as AiError;
+    this.updateErrorMessage(error);
+    this.updateStatus('error');
+  };
+
+  private updateErrorMessage(error: AiError) {
+    if (error.type === 'provider_error') {
+      switch (error.status) {
+        case 400: {
+          this.errorMessage.set({
+            ...error,
+            message: 'Invalid or empty AI Model',
+          });
+          break;
+        }
+        case 401: {
+          this.errorMessage.set({
+            ...error,
+            message: 'Invalid or empty API key',
+          });
+          break;
+        }
+        default: {
+          console.error(error);
+          this.errorMessage.set(unknownError);
+        }
+      }
+    }
   }
 
   private deleteMessages() {

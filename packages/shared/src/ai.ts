@@ -32,7 +32,7 @@ export type AiChatResponseDto = string;
 export type UserMessageDto = Omit<AiMessage, 'role'>;
 
 export interface AiError {
-  type: 'provider_error';
+  type: 'provider_error' | 'unknown_error';
   title: string;
   message: string;
   status: number;
