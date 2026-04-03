@@ -176,6 +176,8 @@ export class AiChatStore {
           this.errorMessage.set(unknownError);
         }
       }
+    } else {
+      this.errorMessage.set(unknownError);
     }
   }
 
