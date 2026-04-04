@@ -294,5 +294,12 @@
     "common": {
       "unexpected": "Unexpected Error"
     }
+  },
+  "ai": {
+    "chat": {
+      "title": "How I can help you?",
+      "greeting": "Hi",
+      "placeholder": "Message"
+    }
   }
 }

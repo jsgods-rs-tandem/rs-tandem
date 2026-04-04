@@ -4,10 +4,11 @@ import { ChatFormComponent } from './components/chat-form/chat-form.component';
 import { AiChatStore } from './services/ai-chat.store';
 import { AuthStore } from '@/core/store/auth.store';
 import { SpinComponent } from '@/shared/ui';
+import { TranslocoPipe } from '@jsverse/transloco';
 
 @Component({
   selector: 'app-ai-chat',
-  imports: [DialogueWindowComponent, ChatFormComponent, SpinComponent],
+  imports: [DialogueWindowComponent, ChatFormComponent, SpinComponent, TranslocoPipe],
   templateUrl: './ai-chat.component.html',
   styleUrl: './ai-chat.component.scss',
 })

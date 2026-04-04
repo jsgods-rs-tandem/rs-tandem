@@ -12,7 +12,7 @@
     #messageTextarea
     (input)="autoResize(messageTextarea)"
     (keydown.enter)="submitOnEnter($event, messageTextarea)"
-    placeholder="Message"
+    [placeholder]="'ai.chat.placeholder' | transloco"
   ></textarea>
   <app-icon-button
     class="submit"
