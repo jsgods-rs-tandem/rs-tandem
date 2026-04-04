@@ -325,7 +325,33 @@
       "model": "Model",
       "apiKey": "API key",
       "update": "Update Settings",
-      "resetHistory": "Reset Chat History"
+      "resetHistory": "Reset Chat History",
+      "modal": {
+        "errorLoadSettings": {
+          "title": "Error",
+          "message": "Failed to load AI settings"
+        },
+        "settingsUpdateSucces": {
+          "title": "Settings Updated",
+          "message": "Your AI settings have been successfully updated."
+        },
+        "settingsUpdateError": {
+          "title": "Error",
+          "message": "Failed to update AI settings. Please try again."
+        },
+        "loadProvidersError": {
+          "title": "Error",
+          "message": "Failed to load AI providers"
+        },
+        "resetHistorySucces": {
+          "title": "Chat history cleared",
+          "message": "Your chat history has been successfully reset."
+        },
+        "resetHistoryError": {
+          "title": "Error",
+          "message": "Failed to reset chat history. Please try again."
+        }
+      }
     }
   }
 }

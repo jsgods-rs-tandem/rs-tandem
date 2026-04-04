@@ -10,6 +10,7 @@ import { AiSettingsHttpService } from './ai-settings-http.service';
 import { AiProviderDto, AiSettingsDto } from '@rs-tandem/shared';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { TranslocoPipe } from '@jsverse/transloco';
+import { injectTranslate } from '@/shared/utils/translate.utilities';
 
 interface ISettings {
   useRemoteProvider: boolean;
@@ -57,6 +58,7 @@ export class AiSettingsComponent {
   private chatHistoryAPI = inject(AiHttpService);
   private settingsAPI = inject(AiSettingsHttpService);
   private modal = inject(ModalService);
+  private readonly t = injectTranslate();
 
   constructor() {
     this.loadProviders();
@@ -96,16 +98,16 @@ export class AiSettingsComponent {
       next: () => {
         this.updateSettings(settings);
         this.modal.open({
-          title: 'Settings Updated',
-          message: 'Your AI settings have been successfully updated.',
+          title: this.t('settings.ai.modal.settingsUpdateSucces.title'),
+          message: this.t('settings.ai.modal.settingsUpdateSucces.message'),
           buttonText: 'OK',
         });
       },
       error: (error: unknown) => {
         console.error('Error updating AI settings:', error);
         this.modal.open({
-          title: 'Error',
-          message: 'Failed to update AI settings. Please try again.',
+          title: this.t('settings.ai.modal.settingsUpdateError.title'),
+          message: this.t('settings.ai.modal.settingsUpdateError.message'),
           buttonText: 'OK',
         });
       },
@@ -123,8 +125,8 @@ export class AiSettingsComponent {
           { id: 'error', label: 'Failed to load providers', requiresKey: false },
         ]);
         this.modal.open({
-          title: 'Error',
-          message: 'Failed to load AI providers',
+          title: this.t('settings.ai.modal.loadProvidersError.title'),
+          message: this.t('settings.ai.modal.loadProvidersError.message'),
           buttonText: 'OK',
         });
       },
@@ -146,8 +148,8 @@ export class AiSettingsComponent {
         console.error('Error fetching AI settings:', error);
         this.isLoading.set(false);
         this.modal.open({
-          title: 'Error',
-          message: 'Failed to load AI settings',
+          title: this.t('settings.ai.modal.errorLoadSettings.title'),
+          message: this.t('settings.ai.modal.errorLoadSettings.message'),
           buttonText: 'OK',
         });
       },
@@ -175,16 +177,16 @@ export class AiSettingsComponent {
     this.chatHistoryAPI.deleteHistory().subscribe({
       next: () => {
         this.modal.open({
-          title: 'Chat History Reset',
-          message: 'Your chat history has been successfully reset.',
+          title: this.t('settings.ai.modal.resetHistorySucces.title'),
+          message: this.t('settings.ai.modal.resetHistorySucces.message'),
           buttonText: 'OK',
         });
       },
       error: (error: unknown) => {
         console.error('Error resetting chat history:', error);
         this.modal.open({
-          title: 'Error',
-          message: 'Failed to reset chat history. Please try again.',
+          title: this.t('settings.ai.modal.resetHistoryError.title'),
+          message: this.t('settings.ai.modal.resetHistoryError.message'),
           buttonText: 'OK',
         });
       },
