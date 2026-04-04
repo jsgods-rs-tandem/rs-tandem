@@ -9,6 +9,7 @@ import { ModalService } from '@/core/services/modal.service';
 import { AiSettingsHttpService } from './ai-settings-http.service';
 import { AiProviderDto, AiSettingsDto } from '@rs-tandem/shared';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { TranslocoPipe } from '@jsverse/transloco';
 
 interface ISettings {
   useRemoteProvider: boolean;
@@ -38,12 +39,12 @@ const initialProviders: AiProviderDto[] = [
     ButtonComponent,
     SpinComponent,
     ReactiveFormsModule,
+    TranslocoPipe,
   ],
   templateUrl: './ai-settings.component.html',
   styleUrl: './ai-settings.component.scss',
 })
 export class AiSettingsComponent {
-  protected title = 'AI';
   protected providers = signal<AiProviderDto[]>(initialProviders);
   protected isLoading = signal(true);
   protected settings = signal<ISettings>(initialSettings);

@@ -303,5 +303,17 @@
       "greeting": "Привет",
       "placeholder": "Сообщение"
     }
+  },
+  "settings": {
+    "title": "Настройки",
+    "ai": {
+      "title": "ИИ",
+      "useRemoteProvider": "Использовать удаленный провайдер?",
+      "provider": "Провайдер",
+      "model": "Модель",
+      "apiKey": "API ключ",
+      "update": "Обновить настройки",
+      "resetHistory": "Очистить историю чата"
+    }
   }
 }

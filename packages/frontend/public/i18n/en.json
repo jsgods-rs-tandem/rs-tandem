@@ -301,5 +301,17 @@
       "greeting": "Hi",
       "placeholder": "Message"
     }
+  },
+  "settings": {
+    "title": "Settings",
+    "ai": {
+      "title": "AI",
+      "useRemoteProvider": "Use remote provider?",
+      "provider": "Provider",
+      "model": "Model",
+      "apiKey": "API key",
+      "update": "Update Settings",
+      "resetHistory": "Reset Chat History"
+    }
   }
 }
