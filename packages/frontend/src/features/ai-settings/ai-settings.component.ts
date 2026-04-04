@@ -211,8 +211,8 @@ export class AiSettingsComponent {
 
   private showValidationError(field: string) {
     this.modal.open({
-      title: 'Validation Error',
-      message: `The field "${field}" is required when using a remote provider.`,
+      title: this.t('settings.ai.modal.validationError.title'),
+      message: `${this.t('settings.ai.modal.validationError.startOfMessage')} "${field}" ${this.t('settings.ai.modal.validationError.endOfMessage')}`,
       buttonText: 'OK',
     });
   }

@@ -352,6 +352,11 @@
         "resetHistoryError": {
           "title": "Ошибка",
           "message": "Не удалось очистить историю чата. Пожалуйста, попробуйте снова"
+        },
+        "validationError": {
+          "title": "Ошибка валидации",
+          "startOfMessage": "Поле",
+          "endOfMessage": "является обязательным."
         }
       }
     }

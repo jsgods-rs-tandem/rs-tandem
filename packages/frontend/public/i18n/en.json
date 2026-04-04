@@ -350,6 +350,11 @@
         "resetHistoryError": {
           "title": "Error",
           "message": "Failed to reset chat history. Please try again."
+        },
+        "validationError": {
+          "title": "Validation Error",
+          "startOfMessage": "The field",
+          "endOfMessage": "is required when using a remote provider."
         }
       }
     }
