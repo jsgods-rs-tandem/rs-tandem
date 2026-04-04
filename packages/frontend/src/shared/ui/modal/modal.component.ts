@@ -19,7 +19,7 @@ export class ModalComponent {
   buttonText = input<string>('OK');
   icon = input<IconName>('info-outline');
 
-  protected readonly modalTitleId = `modal-title-${String(nextUniqueId++)}`;
+  readonly modalTitleId = `modal-title-${String(nextUniqueId++)}`;
 
   closed = output();
 
