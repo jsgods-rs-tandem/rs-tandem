@@ -1,4 +1,4 @@
-import { BadGatewayException, BadRequestException, Injectable, Logger } from '@nestjs/common';
+import { BadRequestException, Injectable, Logger } from '@nestjs/common';
 import {
   type AiChatResponseDto,
   type AiMessage,
@@ -125,7 +125,7 @@ export class AiService {
       await this.saveMessage(userId, message);
     } catch (error) {
       this.logger.error('AI provider error', error instanceof Error ? error.stack : String(error));
-      throw new BadGatewayException('ai.provider_unavailable');
+      throw error;
     }
   }
 
@@ -152,7 +152,7 @@ export class AiService {
       return content;
     } catch (error) {
       this.logger.error('AI provider error', error instanceof Error ? error.stack : String(error));
-      throw new BadGatewayException('ai.provider_unavailable');
+      throw error;
     }
   }
 }

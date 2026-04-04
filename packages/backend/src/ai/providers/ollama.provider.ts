@@ -1,6 +1,8 @@
 import type { AiMessage } from '@rs-tandem/shared';
 import type { AiProviderMeta, IAiProvider } from './ai-provider.interface.js';
 import { ollamaStreamToAsyncIterable } from '../utils/ollama-stream-to-async-iterable.js';
+import OllamaError from '../errors/ollama-error.js';
+import { error } from '../errors/errors.js';
 
 interface OllamaChatResponse {
   message: {
@@ -28,14 +30,22 @@ export class OllamaProvider implements IAiProvider {
   };
 
   async streamChat(messages: AiMessage[]): Promise<AsyncIterable<string>> {
-    const response = await this.sendPrompt(messages, true);
+    let response;
+    try {
+      response = await this.sendPrompt(messages, true);
+    } catch {
+      throw new OllamaError('Failed to connect to Ollama', error.ServiceUnavailable);
+    }
 
     if (!response.ok) {
-      throw new Error(`Ollama responded with ${String(response.status)}`);
+      throw new OllamaError(
+        `Ollama responsed with status ${String(response.status)}`,
+        response.status,
+      );
     }
 
     if (!response.body) {
-      throw new Error('Response body is null');
+      throw new OllamaError('Response body is null', error.InternalServerError);
     }
 
     return ollamaStreamToAsyncIterable(Promise.resolve(response.body));
@@ -45,13 +55,16 @@ export class OllamaProvider implements IAiProvider {
     const response = await this.sendPrompt(messages, false);
 
     if (!response.ok) {
-      throw new Error(`Ollama responded with ${String(response.status)}`);
+      throw new OllamaError(
+        `Ollama responsed with status ${String(response.status)}`,
+        response.status,
+      );
     }
 
     const data: unknown = await response.json();
 
     if (!isOllamaChatResponse(data)) {
-      throw new Error('Unexpected Ollama response shape');
+      throw new OllamaError('Unexpected Ollama response shape', error.InternalServerError);
     }
 
     return data.message.content;

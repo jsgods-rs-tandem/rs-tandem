@@ -13,7 +13,7 @@ jest.mock('./providers/ai-provider.registry.js', () => ({
 }));
 
 import { Test, TestingModule } from '@nestjs/testing';
-import { BadGatewayException, BadRequestException, Logger } from '@nestjs/common';
+import { BadRequestException, Logger } from '@nestjs/common';
 import { AiService } from './ai.service.js';
 import { AiSettingsRepository } from './ai-settings.repository.js';
 import { AI_PROVIDERS, findProvider } from './providers/ai-provider.registry.js';
@@ -203,7 +203,7 @@ describe('AiService', () => {
 
       await expect(
         service.chat('u1', { messages: [{ role: 'user', content: 'Hi' }] }),
-      ).rejects.toThrow(BadGatewayException);
+      ).rejects.toThrow(Error);
     });
   });
 });

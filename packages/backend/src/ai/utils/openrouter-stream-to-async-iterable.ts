@@ -1,3 +1,6 @@
+import { error } from '../errors/errors';
+import OpenRouterError from '../errors/openrouter-error';
+
 interface ChoiceDelta {
   content?: string;
 }
@@ -50,12 +53,15 @@ export async function* openrouterStreamToAsyncIterable(
       try {
         const json: unknown = JSON.parse(data);
         if (!isChatCompletionChunk(json)) {
-          throw new Error('Invalid content structure in chunk of stream');
+          throw new OpenRouterError(
+            'Invalid content structure in chunk of stream',
+            error.InternalServerError,
+          );
         }
         const text = json.choices[0]?.delta.content;
         if (text) yield text;
       } catch {
-        throw new Error('Failed to parse chunk of stream');
+        throw new OpenRouterError('Failed to parse chunk of stream', error.InternalServerError);
       }
     }
   }
@@ -64,12 +70,15 @@ export async function* openrouterStreamToAsyncIterable(
     try {
       const json: unknown = JSON.parse(buffer.replace('data: ', '').trim());
       if (!isChatCompletionChunk(json)) {
-        throw new Error('Invalid content structure in final chunk of stream');
+        throw new OpenRouterError(
+          'Invalid content structure in final chunk of stream',
+          error.InternalServerError,
+        );
       }
       const text = json.choices[0]?.delta.content;
       if (text) yield text;
     } catch {
-      throw new Error('Failed to parse final chunk of stream');
+      throw new OpenRouterError('Failed to parse final chunk of stream', error.InternalServerError);
     }
   }
 }

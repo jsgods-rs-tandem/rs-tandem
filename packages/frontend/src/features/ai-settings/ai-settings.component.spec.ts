@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { AiSettingsComponent } from './ai-settings.component';
+import { provideAppTranslocoTesting } from '@/testing/provide-transloco-testing';
 
 describe('AiSettingsComponent', () => {
   let component: AiSettingsComponent;
@@ -9,6 +10,7 @@ describe('AiSettingsComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [AiSettingsComponent],
+      providers: [provideAppTranslocoTesting()],
     }).compileComponents();
 
     fixture = TestBed.createComponent(AiSettingsComponent);

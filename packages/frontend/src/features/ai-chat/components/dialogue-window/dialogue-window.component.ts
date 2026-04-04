@@ -2,10 +2,11 @@ import { Component, effect, ElementRef, inject } from '@angular/core';
 import { MarkdownDirective } from '@/shared/directives/markdown.directive';
 import { ChatStatus } from '../../models/ai-chat-status';
 import { AiChatStore } from '../../services/ai-chat.store';
+import { TranslocoPipe } from '@jsverse/transloco';
 
 @Component({
   selector: 'app-dialogue-window',
-  imports: [MarkdownDirective],
+  imports: [MarkdownDirective, TranslocoPipe],
   templateUrl: './dialogue-window.component.html',
   styleUrl: './dialogue-window.component.scss',
 })

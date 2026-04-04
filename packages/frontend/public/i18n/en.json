@@ -294,5 +294,69 @@
     "common": {
       "unexpected": "Unexpected Error"
     }
+  },
+  "ai": {
+    "chat": {
+      "title": "How I can help you?",
+      "greeting": "Hi",
+      "placeholder": "Message"
+    },
+    "error": {
+      "title": "Error",
+      "400": "Invalid or empty AI Model",
+      "401": "Invalid or empty API key",
+      "402": "Limit for this API key exceeded",
+      "403": "You does not have access to this model",
+      "404": "Not found model or this model does not exist",
+      "408": "Request timeout. Try to clear chat history",
+      "422": "Failed to process your request. Try to clear chat history",
+      "429": "To many requests. Try again later",
+      "500": "Internal Server Error. Try to change model or try again later",
+      "503": "Failed to connect. Try again later...",
+      "unknown": "Server responsed with unknown error. Try again later"
+    }
+  },
+  "settings": {
+    "title": "Settings",
+    "ai": {
+      "title": "AI",
+      "useRemoteProvider": "Use remote provider?",
+      "provider": "Provider",
+      "model": "Model",
+      "apiKey": "API key",
+      "update": "Update Settings",
+      "resetHistory": "Reset Chat History",
+      "modal": {
+        "errorLoadSettings": {
+          "title": "Error",
+          "message": "Failed to load AI settings"
+        },
+        "settingsUpdateSucces": {
+          "title": "Settings Updated",
+          "message": "Your AI settings have been successfully updated."
+        },
+        "settingsUpdateError": {
+          "title": "Error",
+          "message": "Failed to update AI settings. Please try again."
+        },
+        "loadProvidersError": {
+          "title": "Error",
+          "message": "Failed to load AI providers"
+        },
+        "resetHistorySucces": {
+          "title": "Chat history cleared",
+          "message": "Your chat history has been successfully reset."
+        },
+        "resetHistoryError": {
+          "title": "Error",
+          "message": "Failed to reset chat history. Please try again."
+        },
+        "validationError": {
+          "title": "Validation Error",
+          "startOfMessage": "The field",
+          "endOfMessage": "is required when using a remote provider."
+        }
+      }
+    }
   }
 }

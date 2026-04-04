@@ -2,6 +2,7 @@ import { Component, effect, ElementRef, inject, output, signal } from '@angular/
 import { ReactiveFormsModule, FormGroup, FormControl } from '@angular/forms';
 import { IconButtonComponent } from '@/shared/ui';
 import { AiChatStore } from '../../services/ai-chat.store';
+import { TranslocoPipe } from '@jsverse/transloco';
 
 const padding = 12;
 const lineHeight = 16;
@@ -9,7 +10,7 @@ const baseTextAreaHeight = padding * 2 + lineHeight;
 
 @Component({
   selector: 'app-chat-form',
-  imports: [ReactiveFormsModule, IconButtonComponent],
+  imports: [ReactiveFormsModule, IconButtonComponent, TranslocoPipe],
   templateUrl: './chat-form.component.html',
   styleUrl: './chat-form.component.scss',
 })
