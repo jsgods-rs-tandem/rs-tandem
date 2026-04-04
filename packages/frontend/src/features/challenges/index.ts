@@ -1,1 +1,1 @@
-export { CategoriesPageComponent, CategoryPageComponent } from './pages';
+export { CategoriesPageComponent, CategoryPageComponent, CodeEditorPageComponent } from './pages';

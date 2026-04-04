@@ -1,10 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, inject, type OnInit } from '@angular/core';
 
 import { LayoutComponent } from '@/pages/layout';
 import { ProgressComponent } from '@/shared/ui';
 import { ChallengePreviewCardComponent } from '../../ui';
 
-import mock from '../../data/topics-js-core.json';
+import { ChallengesService } from '../../services';
 
 @Component({
   selector: 'app-category-page',
@@ -13,6 +13,10 @@ import mock from '../../data/topics-js-core.json';
   styleUrl: './category-page.component.scss',
   standalone: true,
 })
-export class CategoryPageComponent {
-  readonly category = mock;
+export class CategoryPageComponent implements OnInit {
+  readonly challengesService = inject(ChallengesService);
+
+  ngOnInit(): void {
+    this.challengesService.getCategory();
+  }
 }

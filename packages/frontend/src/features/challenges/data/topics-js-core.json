@@ -1,6 +1,7 @@
 {
   "id": "cat_js_core_001",
-  "categoryName": "JavaScript Core",
+  "name": "JavaScript Core",
+  "description": "Pop the hood of the runtime. Master closures, prototypes, and execution context to understand exactly how your code behaves",
   "topicsCount": 12,
   "topicsCompleteCount": 2,
   "progress": 16,

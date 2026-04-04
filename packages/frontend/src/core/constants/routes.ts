@@ -8,6 +8,7 @@ export const ROUTES = {
   settings: 'settings',
   challenges: 'challenges',
   challengesCategory: ':categoryId',
+  challengesTopic: 'topic/:topicId',
   quiz: 'quiz',
   quizCategory: ':categoryId',
   quizTopic: 'topic/:topicId',
