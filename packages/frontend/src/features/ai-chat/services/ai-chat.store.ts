@@ -39,7 +39,18 @@ export class AiChatStore {
       const message: IMessage = { role: 'user', content: text };
       this._messages.update((array) => [...array, message]);
       this._status.set('pending');
-      this.wsApi.emit('chat', message);
+      if (this.isReady().socket) {
+        this.wsApi.emit('chat', message);
+      } else {
+        const errorMessage = {
+          type: 'server_error',
+          title: 'Server',
+          message: 'no connection to socket',
+          status: 503,
+        };
+        console.error(errorMessage);
+        this.handleError(errorMessage);
+      }
     }
   }
 
@@ -104,7 +115,7 @@ export class AiChatStore {
   };
 
   private updateErrorMessage(error: AiError) {
-    if (error.type === 'provider_error') {
+    if (error.type === 'provider_error' || error.type === 'server_error') {
       switch (error.status) {
         case 400: {
           this.errorMessage.set({
@@ -175,7 +186,7 @@ export class AiChatStore {
         case 503: {
           this.errorMessage.set({
             ...error,
-            message: 'Failed to connect to the provider',
+            message: 'Failed to connect. Try again later...',
           });
           break;
         }
