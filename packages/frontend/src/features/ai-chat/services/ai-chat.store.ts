@@ -10,7 +10,7 @@ import { AiError } from '@rs-tandem/shared/src/ai';
 const unknownError: AiError = {
   type: 'unknown_error',
   title: 'Unknown',
-  message: 'Server responsed with unknown error. Try again later',
+  message: 'ai.errpr.unknown',
   status: 500,
 };
 

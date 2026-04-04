@@ -312,7 +312,8 @@
       "422": "Failed to process your request. Try to clear chat history",
       "429": "To many requests. Try again later",
       "500": "Internal Server Error. Try to change model or try again later",
-      "503": "Failed to connect. Try again later..."
+      "503": "Failed to connect. Try again later...",
+      "unknown": "Server responsed with unknown error. Try again later"
     }
   },
   "settings": {
