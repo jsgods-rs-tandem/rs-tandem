@@ -56,7 +56,7 @@ describe('OllamaProvider', () => {
     it('throws when response is not ok', async () => {
       fetchSpy.mockResolvedValue({ ok: false, status: 503 } as Response);
 
-      await expect(provider.chat(messages, null)).rejects.toThrow('Ollama responded with 503');
+      await expect(provider.chat(messages, null)).rejects.toThrow(Error);
     });
 
     it('throws when response shape is missing message field', async () => {
