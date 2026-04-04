@@ -1,4 +1,6 @@
 import { AiMessage } from '@rs-tandem/shared';
+import OllamaError from '../errors/ollama-error';
+import { error } from '../errors/errors';
 
 interface ChatChunk {
   message: AiMessage;
@@ -31,7 +33,7 @@ export async function* ollamaStreamToAsyncIterable(
     const data = decoder.decode(value, { stream: true });
     const chunk: unknown = JSON.parse(data);
     if (!isChatChunk(chunk)) {
-      throw new Error(`Invalid chunk format`);
+      throw new OllamaError(`Invalid chunk format`, error.InternalServerError);
     }
     yield chunk.message.content;
   }
