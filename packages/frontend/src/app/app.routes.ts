@@ -8,6 +8,7 @@ import { ROUTES } from '@/core/constants';
 import {
   CategoriesPageComponent as ChallengesCategoriesPageComponent,
   CategoryPageComponent as ChallengesCategoryPageComponent,
+  CodeEditorPageComponent,
 } from '@/features/challenges';
 
 import {
@@ -49,7 +50,7 @@ export const routes: Routes = [
   },
   {
     path: ROUTES.challenges,
-    data: { breadcrumb: 'Challenges' },
+    data: { layout: { mode: 'logout', sidebar: true, auth: true }, breadcrumb: 'Challenges' },
     canActivate: [authGuard],
     children: [
       {
@@ -65,6 +66,17 @@ export const routes: Routes = [
             path: '',
             data: { breadcrumb: null },
             component: ChallengesCategoryPageComponent,
+          },
+          {
+            path: ROUTES.challengesTopic,
+            data: { breadcrumb: 'Topic' },
+            children: [
+              {
+                path: '',
+                data: { breadcrumb: null },
+                component: CodeEditorPageComponent,
+              },
+            ],
           },
         ],
       },

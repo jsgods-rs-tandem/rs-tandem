@@ -1,0 +1,148 @@
+@let codeEditor = challengesService.codeEditor();
+@let terminateStateValue = terminateState();
+@let logsValue = logs();
+@let testsValue = tests();
+@let areInstructionsShownValue = areInstructionsShown();
+
+<app-layout>
+  @if (codeEditor) {
+    <header>
+      <h1 class="code-editor-page__heading h2">{{ codeEditor.name }}</h1>
+    </header>
+
+    <div class="code-editor-page__body">
+      <div class="code-editor-page__editor">
+        <div class="code-editor-page__editor-header">
+          <h2 class="h3">Code</h2>
+        </div>
+
+        <div class="code-editor-page__editor-wrapper">
+          <ngx-monaco-editor
+            style="height: calc(100% - var(--spacing-x9))"
+            [options]="editorOptions"
+            [(ngModel)]="codeEditor.starterCode"
+            (onInit)="(onEditorInit)"
+          >
+          </ngx-monaco-editor>
+
+          <ul class="footer__text code-editor-page__editor-footer">
+            <li class="code-editor-page__editor-footer-item">JavaScript</li>
+
+            <li class="code-editor-page__editor-footer-item">UTF-8</li>
+          </ul>
+        </div>
+
+        <div
+          class="code-editor-page__editor-instructions"
+          [class.code-editor-page__editor-instructions_shown]="areInstructionsShownValue"
+        >
+          <h2 class="h3 code-editor-page__editor-instructions-heading">Instructions</h2>
+
+          <div class="text code-editor-page__editor-instructions-body">
+            {{ codeEditor.description }}
+          </div>
+        </div>
+      </div>
+
+      <div class="footer__text code-editor-page__terminal">
+        <div class="code-editor-page__terminal-tabs" role="tablist">
+          <button
+            id="tab-console"
+            class="text code-editor-page__terminal-tab"
+            [class.code-editor-page__terminal-tab_active]="terminateStateValue.isConsoleActive"
+            type="button"
+            role="tab"
+            aria-controls="panel-console"
+            [ariaSelected]="terminateStateValue.isConsoleActive"
+            (click)="onTerminalTabButtonClick('console')"
+          >
+            Console
+          </button>
+
+          <button
+            id="tab-tests"
+            class="text code-editor-page__terminal-tab"
+            [class.code-editor-page__terminal-tab_active]="terminateStateValue.areTestsActive"
+            type="button"
+            role="tab"
+            aria-controls="panel-tests"
+            [ariaSelected]="terminateStateValue.areTestsActive"
+            (click)="onTerminalTabButtonClick('tests')"
+          >
+            Test results
+          </button>
+        </div>
+
+        <div class="code-editor-page__terminal-panel">
+          @if (terminateStateValue.isConsoleActive) {
+            <div
+              id="panel-console"
+              class="footer__text code-editor-page__console"
+              role="tabpanel"
+              aria-labelledby="tab-console"
+            >
+              @for (log of logsValue; track $index) {
+                <div class="code-editor-page__console code-editor-page__console_{{ log.type }}">
+                  {{ log.value }}
+                </div>
+              }
+            </div>
+          } @else if (terminateStateValue.areTestsActive) {
+            <div
+              id="panel-tests"
+              class="footer__text code-editor-page__tests"
+              role="tabpanel"
+              aria-labelledby="tab-tests"
+            >
+              @for (row of testsValue; track $index) {
+                @if (row.kind === 'console') {
+                  <div class="code-editor-page__console code-editor-page__console_{{ row.type }}">
+                    {{ row.value }}
+                  </div>
+                } @else {
+                  <div class="code-editor-page__console code-editor-page__console_{{ row.type }}">
+                    <div class="code-editor-page__console-item">
+                      <span>[{{ row.type | titlecase }}]</span>
+
+                      <span>{{ row.description }}</span>
+                    </div>
+
+                    <div class="code-editor-page__console-item">
+                      <span>expected: {{ row.expected || 'undefined' }};</span>
+
+                      <span>actual: {{ row.actual || 'undefined' }}</span>
+                    </div>
+                  </div>
+                }
+              }
+            </div>
+          }
+        </div>
+      </div>
+
+      <div class="code-editor-page__actions">
+        <app-button [isSmallButton]="true" (click)="onInstructionsButtonClick()"
+          >{{ areInstructionsShownValue ? 'Hide' : 'Show' }} instructions</app-button
+        >
+
+        <div class="code-editor-page__submit-actions">
+          <app-button
+            class="code-editor-page__submit-action"
+            [isSmallButton]="true"
+            [disabled]="isCodeExecuting()"
+            (click)="onLogButtonClick()"
+            >Run</app-button
+          >
+
+          <app-button
+            class="code-editor-page__submit-action"
+            [isSmallButton]="true"
+            [disabled]="isCodeExecuting()"
+            (click)="onTestButtonClick()"
+            >Test</app-button
+          >
+        </div>
+      </div>
+    </div>
+  }
+</app-layout>

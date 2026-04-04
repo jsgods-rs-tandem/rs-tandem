@@ -1,7 +1,9 @@
+@let category = challengesService.category();
+
 <app-layout>
   @if (category) {
     <header class="category-page__header">
-      <h1 class="h2">{{ category.categoryName }}</h1>
+      <h1 class="h2">{{ category.name }}</h1>
 
       <app-progress
         class="category-page__progress"

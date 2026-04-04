@@ -7,6 +7,7 @@ export const ROUTES = {
   aiChat: 'ai-chat',
   challenges: 'challenges',
   challengesCategory: ':categoryId',
+  challengesTopic: 'topic/:topicId',
   quiz: 'quiz',
   quizCategory: ':categoryId',
   quizTopic: 'topic/:topicId',
