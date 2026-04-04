@@ -171,6 +171,14 @@ export class AiChatStore {
           });
           break;
         }
+
+        case 503: {
+          this.errorMessage.set({
+            ...error,
+            message: 'Failed to connect to the provider',
+          });
+          break;
+        }
         default: {
           console.error(error);
           this.errorMessage.set(unknownError);
