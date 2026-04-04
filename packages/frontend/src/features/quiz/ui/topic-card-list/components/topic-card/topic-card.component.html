@@ -1,6 +1,5 @@
-@let progressScore = score();
-@let hasProgressScore = typeof progressScore === 'number';
-@let progressStatus = status();
+@let badgeRewardLevelValue = badgeRewardLevel();
+@let inProgressValue = inProgress();
 
 <article class="topic-card">
   <header class="topic-card__header">
@@ -8,17 +7,22 @@
 
     <p class="topic-card__subheading">{{ subheading() }}</p>
 
-    @if (progressStatus || hasProgressScore) {
+    @if (inProgressValue || badgeRewardLevelValue) {
       <ul class="topic-card__badges">
-        @if (progressStatus) {
+        @if (inProgressValue) {
           <li>
-            <app-badge [status]="progressStatus" />
+            <app-badge text="In progress" color="info" />
           </li>
         }
 
-        @if (hasProgressScore) {
+        @if (badgeRewardLevelValue) {
           <li>
-            <app-badge [score]="progressScore" />
+            <app-badge
+              class="topic-card__badge"
+              [text]="badgeRewardLevelValue"
+              [popoverContent]="'90%+ Senior\n70%+ Middle\n50%+ Junior'"
+              [color]="badgeRewardLevelColor()"
+            />
           </li>
         }
       </ul>

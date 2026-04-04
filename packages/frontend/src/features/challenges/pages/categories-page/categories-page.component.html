@@ -1,0 +1,10 @@
+<app-layout>
+  <header class="categories-page__header">
+    <h1 class="h2">Challenges</h1>
+  </header>
+
+  <app-category-card-list
+    class="categories-page__category-card-list"
+    [categories]="challengesService.categories()"
+  />
+</app-layout>

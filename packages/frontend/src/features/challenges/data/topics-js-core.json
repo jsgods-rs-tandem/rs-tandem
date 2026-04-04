@@ -1,0 +1,118 @@
+{
+  "id": "cat_js_core_001",
+  "name": "JavaScript Core",
+  "description": "Pop the hood of the runtime. Master closures, prototypes, and execution context to understand exactly how your code behaves",
+  "topicsCount": 12,
+  "topicsCompleteCount": 2,
+  "progress": 16,
+  "topics": [
+    {
+      "id": "core_001_map",
+      "name": "Array.prototype.map",
+      "description": "Transform arrays manually. Recreate .map() to project data into a new array without mutating the original",
+      "difficulty": "easy",
+      "tags": ["Polyfill", "Array", "Callback"],
+      "inProgress": true,
+      "isComplete": false
+    },
+    {
+      "id": "core_002_filter",
+      "name": "Array.prototype.filter",
+      "description": "Sift through data. Build a function that returns a subset of elements matching a specific condition",
+      "difficulty": "easy",
+      "tags": ["Polyfill", "Array"],
+      "inProgress": false,
+      "isComplete": true
+    },
+    {
+      "id": "core_003_reduce",
+      "name": "Array.prototype.reduce",
+      "description": "The ultimate accumulator. Implement the most powerful array method to boil down a list into a single value",
+      "difficulty": "hard",
+      "tags": ["Polyfill", "Array", "Accumulator"],
+      "inProgress": false,
+      "isComplete": false
+    },
+    {
+      "id": "core_004_bind",
+      "name": "Function.prototype.bind",
+      "description": "Lock the context. Recreate .bind() to explicitly set 'this' for a function regardless of how it is called later",
+      "difficulty": "medium",
+      "tags": ["Polyfill", "This", "Context"],
+      "inProgress": false,
+      "isComplete": false
+    },
+    {
+      "id": "core_005_deep_clone",
+      "name": "Deep Clone",
+      "description": "Clone without references. Traverse a nested structure to create a fully independent copy of complex objects",
+      "difficulty": "medium",
+      "tags": ["Recursion", "Object", "Reference"],
+      "inProgress": false,
+      "isComplete": false
+    },
+    {
+      "id": "core_006_flatten",
+      "name": "Flatten Array",
+      "description": "Flatten the hierarchy. Recursively lift nested elements to create a single-level array from a deep tree",
+      "difficulty": "medium",
+      "tags": ["Recursion", "Array"],
+      "inProgress": false,
+      "isComplete": false
+    },
+    {
+      "id": "core_007_curry",
+      "name": "Currying Function",
+      "description": "Transform arity. Convert a function taking multiple arguments into a sequence of nested unary functions",
+      "difficulty": "hard",
+      "tags": ["Functional", "Closure", "Arity"],
+      "inProgress": false,
+      "isComplete": false
+    },
+    {
+      "id": "core_008_object_assign",
+      "name": "Object.assign Polyfill",
+      "description": "Merge properties. Manually copy enumerable keys from source objects to a target object",
+      "difficulty": "easy",
+      "tags": ["Polyfill", "Object"],
+      "inProgress": false,
+      "isComplete": false
+    },
+    {
+      "id": "core_009_memoize",
+      "name": "Memoization Utility",
+      "description": "Cache the results. Build a wrapper that remembers previous inputs to skip expensive recalculations",
+      "difficulty": "medium",
+      "tags": ["Optimization", "Closure", "Cache"],
+      "inProgress": false,
+      "isComplete": false
+    },
+    {
+      "id": "core_010_instanceof",
+      "name": "Instanceof Operator",
+      "description": "Walk the prototype chain. Manually verify if an object inherits from a specific constructor's prototype",
+      "difficulty": "hard",
+      "tags": ["Prototype", "Inheritance"],
+      "inProgress": false,
+      "isComplete": false
+    },
+    {
+      "id": "core_011_get_path",
+      "name": "Get Value by Path",
+      "description": "Navigate safely. Retrieve nested properties using a string path like 'user.profile.name' without crashing",
+      "difficulty": "easy",
+      "tags": ["String", "Object", "Utility"],
+      "inProgress": false,
+      "isComplete": false
+    },
+    {
+      "id": "core_012_typeof_exact",
+      "name": "Typeof Exact",
+      "description": "Fix the types. Distinguish between null, array, object, and date better than the native typeof operator",
+      "difficulty": "easy",
+      "tags": ["Types", "Coercion"],
+      "inProgress": false,
+      "isComplete": false
+    }
+  ]
+}

@@ -1,9 +1,9 @@
 import { Component, input, computed } from '@angular/core';
 
-import { ButtonComponent } from '@/shared/ui';
-import { BadgeComponent } from '../../../badge/badge.component';
+import { BadgeComponent, ButtonComponent } from '@/shared/ui';
 
-import { computeQuestionsCount } from './topic-card.utilities';
+import { computeRewardLevel } from '@/features/quiz/utilities';
+import { computeQuestionsCount, computeBadgeRewardLevelColor } from './topic-card.utilities';
 
 @Component({
   selector: 'app-topic-card',
@@ -20,5 +20,14 @@ export class TopicCardComponent {
   readonly subheading = computed(() => computeQuestionsCount(this.questionsCount()));
   readonly description = input.required<string>();
   readonly score = input<number | null>();
-  readonly status = input<ReturnType<BadgeComponent['status']>>();
+  readonly inProgress = input<boolean>();
+
+  readonly badgeRewardLevel = computed(() => {
+    const s = this.score();
+
+    return typeof s === 'number' ? computeRewardLevel(s) : null;
+  });
+  readonly badgeRewardLevelColor = computed(() =>
+    computeBadgeRewardLevelColor(this.badgeRewardLevel()),
+  );
 }
