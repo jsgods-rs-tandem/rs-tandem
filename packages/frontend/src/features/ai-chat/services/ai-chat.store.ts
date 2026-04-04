@@ -115,86 +115,12 @@ export class AiChatStore {
   };
 
   private updateErrorMessage(error: AiError) {
-    if (error.type === 'provider_error' || error.type === 'server_error') {
-      switch (error.status) {
-        case 400: {
-          this.errorMessage.set({
-            ...error,
-            message: 'Invalid or empty AI Model',
-          });
-          break;
-        }
-        case 401: {
-          this.errorMessage.set({
-            ...error,
-            message: 'Invalid or empty API key',
-          });
-          break;
-        }
-        case 402: {
-          this.errorMessage.set({
-            ...error,
-            message: 'Limit for this API key exceeded',
-          });
-          break;
-        }
-        case 403: {
-          this.errorMessage.set({
-            ...error,
-            message: 'You does not have access to this model',
-          });
-          break;
-        }
-        case 404: {
-          this.errorMessage.set({
-            ...error,
-            message: 'Not found model or this model does not exist',
-          });
-          break;
-        }
-        case 408: {
-          this.errorMessage.set({
-            ...error,
-            message: 'Request timeout. Try to clear chat history',
-          });
-          break;
-        }
-        case 422: {
-          this.errorMessage.set({
-            ...error,
-            message: 'Failed to process your request. Try to clear chat history',
-          });
-          break;
-        }
-
-        case 429: {
-          this.errorMessage.set({
-            ...error,
-            message: 'To many requests. Try again later',
-          });
-          break;
-        }
-
-        case 500: {
-          this.errorMessage.set({
-            ...error,
-            message: 'Internal Server Error. Try to change model or try again later',
-          });
-          break;
-        }
-
-        case 503: {
-          this.errorMessage.set({
-            ...error,
-            message: 'Failed to connect. Try again later...',
-          });
-          break;
-        }
-        default: {
-          console.error(error);
-          this.errorMessage.set(unknownError);
-        }
-      }
+    const knownErrors = new Set([400, 401, 402, 403, 404, 408, 422, 429, 500, 503]);
+    if (knownErrors.has(error.status)) {
+      this.errorMessage.set({
+        ...error,
+        message: `ai.error.${String(error.status)}`,
+      });
     } else {
       this.errorMessage.set(unknownError);
     }
