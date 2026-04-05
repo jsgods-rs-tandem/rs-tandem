@@ -10,8 +10,18 @@ interface LocalizedText {
 interface ChallengeTopic {
   name: LocalizedText;
   description: LocalizedText;
+  instructions: LocalizedText;
   difficulty: 'easy' | 'medium' | 'hard';
-  tags: string[];
+  tags: LocalizedText[];
+  functionName: string;
+  starterCode: string;
+  builtinFns?: Record<string, string>;
+  testCases: {
+    id: number;
+    description: LocalizedText;
+    args: unknown[];
+    expected: unknown;
+  }[];
 }
 
 interface ChallengeFile {
@@ -33,28 +43,38 @@ function categorySlugFromFilename(filename: string): string {
   return filename.replace(/\.json$/, '').replace(/^\d+-/, '');
 }
 
+function sortOrderFromFilename(filename: string): number {
+  const match = /^(\d+)-/.exec(filename);
+
+  return match ? Number(match[1]) : 0;
+}
+
 async function upsertFile(
   client: PoolClient,
   filename: string,
   content: ChallengeFile,
 ): Promise<void> {
+  const categorySortOrder = sortOrderFromFilename(filename);
   const categorySlug = categorySlugFromFilename(filename);
 
   const categoryResult = await client.query<{ id: string }>(
-    `INSERT INTO challenge_categories (name_en, name_ru, description_en, description_ru, slug)
-     VALUES ($1, $2, $3, $4, $5)
+    `INSERT INTO challenge_categories (slug, name_en, name_ru, description_en, description_ru, sort_order)
+     VALUES ($1, $2, $3, $4, $5, $6)
      ON CONFLICT (slug) DO UPDATE SET
        name_en        = EXCLUDED.name_en,
        name_ru        = EXCLUDED.name_ru,
        description_en = EXCLUDED.description_en,
-       description_ru = EXCLUDED.description_ru
+       description_ru = EXCLUDED.description_ru,
+       sort_order     = EXCLUDED.sort_order,
+       updated_at     = NOW()
      RETURNING id`,
     [
+      categorySlug,
       content.category.name.en,
       content.category.name.ru,
       content.category.description.en,
       content.category.description.ru,
-      categorySlug,
+      categorySortOrder,
     ],
   );
   const categoryId = categoryResult.rows[0]?.id;
@@ -66,53 +86,69 @@ async function upsertFile(
     const topicSlug = `${categorySlug}/${slugify(topic.name.en)}`;
 
     const topicResult = await client.query<{ id: string }>(
-      `INSERT INTO challenge_topics (category_id, name_en, name_ru, description_en, description_ru, difficulty, sort_order, slug)
-       VALUES ($1, $2, $3, $4, $5, $6, $7, $8)
+      `INSERT INTO challenge_topics (
+         category_id,
+         slug,
+         name_en,
+         name_ru,
+         description_en,
+         description_ru,
+         instructions_en,
+         instructions_ru,
+         difficulty,
+         tags,
+         function_name,
+         starter_code,
+         builtin_fns,
+         test_cases,
+         sort_order
+       )
+       VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10::jsonb, $11, $12, $13::jsonb, $14::jsonb, $15)
        ON CONFLICT (slug) DO UPDATE SET
          category_id    = EXCLUDED.category_id,
          name_en        = EXCLUDED.name_en,
          name_ru        = EXCLUDED.name_ru,
          description_en = EXCLUDED.description_en,
          description_ru = EXCLUDED.description_ru,
+         instructions_en = EXCLUDED.instructions_en,
+         instructions_ru = EXCLUDED.instructions_ru,
          difficulty     = EXCLUDED.difficulty,
-         sort_order     = EXCLUDED.sort_order
+         tags           = EXCLUDED.tags,
+         function_name  = EXCLUDED.function_name,
+         starter_code   = EXCLUDED.starter_code,
+         builtin_fns    = EXCLUDED.builtin_fns,
+         test_cases     = EXCLUDED.test_cases,
+         sort_order     = EXCLUDED.sort_order,
+         updated_at     = NOW()
        RETURNING id`,
       [
         categoryId,
+        topicSlug,
         topic.name.en,
         topic.name.ru,
         topic.description.en,
         topic.description.ru,
+        topic.instructions.en,
+        topic.instructions.ru,
         topic.difficulty,
+        JSON.stringify(topic.tags),
+        topic.functionName,
+        topic.starterCode,
+        JSON.stringify(topic.builtinFns ?? null),
+        JSON.stringify(topic.testCases),
         index,
-        topicSlug,
       ],
     );
     const topicId = topicResult.rows[0]?.id;
     if (!topicId) throw new Error(`Failed to upsert topic: ${topicSlug}`);
-
-    // Delete existing tag links for this topic before re-linking
-    await client.query(`DELETE FROM challenge_topic_tags WHERE topic_id = $1`, [topicId]);
-
-    for (const tagName of topic.tags) {
-      const normalizedName = tagName.trim();
-
-      const tagResult = await client.query<{ id: string }>(
-        `INSERT INTO challenge_tags (name)
-         VALUES ($1)
-         ON CONFLICT (name) DO UPDATE SET name = EXCLUDED.name
-         RETURNING id`,
-        [normalizedName],
-      );
-      const tagId = tagResult.rows[0]?.id;
-      if (!tagId) throw new Error(`Failed to upsert tag: ${normalizedName}`);
-
-      await client.query(
-        `INSERT INTO challenge_topic_tags (topic_id, tag_id) VALUES ($1, $2) ON CONFLICT DO NOTHING`,
-        [topicId, tagId],
-      );
-    }
   }
+
+  await client.query(
+    `DELETE FROM challenge_topics
+     WHERE category_id = $1
+       AND NOT (slug = ANY($2::TEXT[]))`,
+    [categoryId, content.topics.map((topic) => `${categorySlug}/${slugify(topic.name.en)}`)],
+  );
 }
 
 async function main(): Promise<void> {

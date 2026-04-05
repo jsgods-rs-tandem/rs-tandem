@@ -1,6 +1,7 @@
 export type ChallengeDifficulty = 'easy' | 'medium' | 'hard';
+export type ChallengeStatus = 'notStarted' | 'inProgress' | 'completed';
 
-export interface ChallengeSummary {
+export interface ChallengeCategorySummary {
   id: string;
   name: string;
   description: string;
@@ -15,19 +16,79 @@ export interface ChallengeTopicSummary {
   description: string;
   difficulty: ChallengeDifficulty;
   tags: string[];
-  inProgress: boolean;
-  isComplete: boolean;
+  status: ChallengeStatus;
 }
 
-export interface GetChallengesResponseDto {
-  categories: ChallengeSummary[];
-}
-
-export interface GetChallengeCategoryResponseDto {
+export interface ChallengeCategory {
   id: string;
-  categoryName: string;
+  name: string;
+  description: string;
   topicsCount: number;
   topicsCompleteCount: number;
   progress: number;
   topics: ChallengeTopicSummary[];
+}
+
+export interface BuiltinFunctionReference {
+  $fn: string;
+}
+
+export interface ChallengeTestCase {
+  id: number;
+  description: string;
+  args: unknown[];
+  expected: unknown;
+}
+
+export interface ChallengeTopicDetails {
+  id: string;
+  name: string;
+  description: string;
+  instructions: string;
+  categoryId: string;
+  difficulty: ChallengeDifficulty;
+  tags: string[];
+  status: ChallengeStatus;
+  functionName: string;
+  starterCode: string;
+  builtinFns?: Record<string, string>;
+  testCases: ChallengeTestCase[];
+}
+
+export interface GetChallengeCategoriesResponseDto {
+  categories: ChallengeCategorySummary[];
+}
+
+export interface GetChallengeCategoryResponseDto {
+  id: string;
+  name: string;
+  description: string;
+  topicsCount: number;
+  topicsCompleteCount: number;
+  progress: number;
+  topics: ChallengeTopicSummary[];
+}
+
+export interface GetChallengeTopicResponseDto {
+  id: string;
+  name: string;
+  description: string;
+  instructions: string;
+  categoryId: string;
+  difficulty: ChallengeDifficulty;
+  tags: string[];
+  status: ChallengeStatus;
+  functionName: string;
+  starterCode: string;
+  builtinFns?: Record<string, string>;
+  testCases: ChallengeTestCase[];
+}
+
+export interface UpdateChallengeStatusRequestDto {
+  status: 'inProgress' | 'completed';
+}
+
+export interface UpdateChallengeStatusResponseDto {
+  topicId: string;
+  status: ChallengeStatus;
 }

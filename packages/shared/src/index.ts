@@ -11,10 +11,18 @@ export type {
 } from './ai.js';
 export type {
   ChallengeDifficulty,
-  ChallengeSummary,
+  ChallengeStatus,
+  ChallengeCategorySummary,
+  ChallengeCategory,
   ChallengeTopicSummary,
-  GetChallengesResponseDto,
+  BuiltinFunctionReference,
+  ChallengeTestCase,
+  ChallengeTopicDetails,
+  GetChallengeCategoriesResponseDto,
   GetChallengeCategoryResponseDto,
+  GetChallengeTopicResponseDto,
+  UpdateChallengeStatusRequestDto,
+  UpdateChallengeStatusResponseDto,
 } from './challenges.js';
 export type {
   QuizAnswer,

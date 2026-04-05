@@ -2,7 +2,7 @@ import { Component, input } from '@angular/core';
 
 import { PopoverComponent } from '../popover';
 
-import type { Shape, Color } from './badge.types';
+import type { FontWeight, Shape, Color } from './badge.types';
 
 @Component({
   selector: 'app-badge',
@@ -13,6 +13,7 @@ import type { Shape, Color } from './badge.types';
 })
 export class BadgeComponent {
   readonly text = input.required<string>();
+  readonly fontWeight = input<FontWeight>('normal');
   readonly shape = input<Shape>('rectangle');
   readonly color = input.required<Color>();
 

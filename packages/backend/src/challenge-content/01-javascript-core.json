@@ -2,145 +2,497 @@
   "category": {
     "name": { "en": "JavaScript Core", "ru": "Основы JavaScript" },
     "description": {
-      "en": "Deep dive into JavaScript fundamentals — closures, prototypes, async patterns, and polyfills.",
-      "ru": "Глубокое погружение в основы JavaScript — замыкания, прототипы, асинхронные паттерны и полифилы."
+      "en": "Study fundamental JavaScript concepts, including array methods, closures, prototypes, and type inspection. Each task focuses on implementing core language behavior in a predictable way",
+      "ru": "Изучение базовых концепций JavaScript: методов массивов, замыканий, прототипов и определения типов. Каждая задача посвящена реализации ключевого поведения языка в предсказуемом и понятном виде"
     }
   },
   "topics": [
     {
-      "name": { "en": "Implement Array.prototype.map", "ru": "Реализовать Array.prototype.map" },
+      "name": { "en": "Array.prototype.map", "ru": "Реализация Array.prototype.map" },
       "description": {
-        "en": "Write a polyfill for the native Array.prototype.map method from scratch.",
-        "ru": "Напишите полифил для нативного метода Array.prototype.map с нуля."
+        "en": "This task introduces one of the core array transformation methods in JavaScript. You will work with callback invocation, index handling, and creation of a new result array. The focus is on preserving the original array while reproducing the expected mapping behavior",
+        "ru": "Эта задача знакомит с одним из базовых способов преобразования массивов в JavaScript. Нужно разобраться с вызовом callback, передачей индекса и формированием нового результирующего массива. Основной акцент сделан на сохранении исходного массива и воспроизведении стандартного поведения map"
+      },
+      "instructions": {
+        "en": "Implement your own version of Array.prototype.map. The function must return a new array, must not mutate the source array, and must pass value, index, and source array to the callback. The result should contain exactly one transformed item for each source element",
+        "ru": "Реализуйте собственную версию Array.prototype.map. Функция должна возвращать новый массив, не изменять исходный и передавать в callback значение, индекс и исходный массив. В результате должен получаться новый массив, содержащий по одному преобразованному элементу для каждого элемента исходного массива"
       },
       "difficulty": "easy",
-      "tags": ["Polyfill", "Array"]
+      "tags": [
+        { "en": "Polyfill", "ru": "Полифилы" },
+        { "en": "Array", "ru": "Массивы" },
+        { "en": "Callback", "ru": "Callback" }
+      ],
+      "functionName": "customMap",
+      "starterCode": "function customMap(array, callback, thisArg) {\n  // WRITE YOUR SOLUTION HERE\n}",
+      "builtinFns": {
+        "square": "(x) => x * x",
+        "identity": "(x) => x",
+        "addIndexAndLength": "(val, i, arr) => val + i + arr.length"
+      },
+      "testCases": [
+        {
+          "id": 1,
+          "description": {
+            "en": "Basic transformation: square numbers",
+            "ru": "Базовое преобразование: возведение чисел в квадрат"
+          },
+          "args": [[1, 2, 3], { "$fn": "square" }],
+          "expected": [1, 4, 9]
+        },
+        {
+          "id": 2,
+          "description": {
+            "en": "Callback receives index and array",
+            "ru": "Callback получает индекс и массив"
+          },
+          "args": [[10], { "$fn": "addIndexAndLength" }],
+          "expected": [11]
+        },
+        {
+          "id": 3,
+          "description": {
+            "en": "Identity callback keeps values unchanged",
+            "ru": "Identity callback оставляет значения без изменений"
+          },
+          "args": [[1, 2], { "$fn": "identity" }],
+          "expected": [1, 2]
+        }
+      ]
     },
     {
-      "name": {
-        "en": "Implement Array.prototype.filter",
-        "ru": "Реализовать Array.prototype.filter"
-      },
+      "name": { "en": "Array.prototype.filter", "ru": "Реализация Array.prototype.filter" },
       "description": {
-        "en": "Write a polyfill for the native Array.prototype.filter method from scratch.",
-        "ru": "Напишите полифил для нативного метода Array.prototype.filter с нуля."
+        "en": "This task is about selective processing of array elements. It checks whether you can evaluate a predicate and build a result collection only from matching values. The implementation should reflect how filtering separates accepted and rejected elements",
+        "ru": "Эта задача посвящена выборочной обработке элементов массива. Она проверяет, умеете ли вы вызывать predicate и собирать результат только из подходящих значений. Реализация должна воспроизводить стандартную логику отбора элементов"
+      },
+      "instructions": {
+        "en": "Implement a function equivalent to Array.prototype.filter. It must return a new array containing only the elements for which the predicate returns true. The original array must stay unchanged, and the order of accepted elements must be preserved",
+        "ru": "Реализуйте функцию, эквивалентную Array.prototype.filter. Она должна возвращать новый массив только с теми элементами, для которых predicate возвращает true. Исходный массив не должен изменяться, а порядок прошедших фильтрацию элементов должен сохраняться"
       },
       "difficulty": "easy",
-      "tags": ["Polyfill", "Array"]
+      "tags": [
+        { "en": "Polyfill", "ru": "Полифилы" },
+        { "en": "Array", "ru": "Массивы" }
+      ],
+      "functionName": "customFilter",
+      "starterCode": "function customFilter(array, predicate, thisArg) {\n  // WRITE YOUR SOLUTION HERE\n}",
+      "builtinFns": {
+        "isEven": "(x) => x % 2 === 0",
+        "greaterThanTwo": "(x) => x > 2"
+      },
+      "testCases": [
+        {
+          "id": 1,
+          "description": { "en": "Keeps only even numbers", "ru": "Оставляет только четные числа" },
+          "args": [[1, 2, 3, 4], { "$fn": "isEven" }],
+          "expected": [2, 4]
+        },
+        {
+          "id": 2,
+          "description": {
+            "en": "Filters values greater than two",
+            "ru": "Фильтрует значения больше двух"
+          },
+          "args": [[1, 2, 3, 4], { "$fn": "greaterThanTwo" }],
+          "expected": [3, 4]
+        }
+      ]
     },
     {
-      "name": {
-        "en": "Implement Array.prototype.reduce",
-        "ru": "Реализовать Array.prototype.reduce"
-      },
+      "name": { "en": "Array.prototype.reduce", "ru": "Реализация Array.prototype.reduce" },
       "description": {
-        "en": "Write a polyfill for the native Array.prototype.reduce method from scratch.",
-        "ru": "Напишите полифил для нативного метода Array.prototype.reduce с нуля."
+        "en": "This topic focuses on accumulation and state passing between iterations. It highlights how a single callback can gradually convert an entire array into one final value. The task is useful for understanding one of the most flexible array methods in the language",
+        "ru": "Эта тема посвящена аккумуляции и передаче состояния между итерациями. Она показывает, как один callback может постепенно превращать весь массив в одно итоговое значение. Задача помогает понять один из самых гибких методов работы с массивами"
       },
-      "difficulty": "easy",
-      "tags": ["Polyfill", "Array"]
-    },
-    {
-      "name": { "en": "Implement Array.prototype.flat", "ru": "Реализовать Array.prototype.flat" },
-      "description": {
-        "en": "Write a polyfill for Array.prototype.flat that supports an optional depth parameter.",
-        "ru": "Напишите полифил для Array.prototype.flat с поддержкой необязательного параметра глубины."
-      },
-      "difficulty": "medium",
-      "tags": ["Polyfill", "Array", "Recursion"]
-    },
-    {
-      "name": {
-        "en": "Implement Function.prototype.bind",
-        "ru": "Реализовать Function.prototype.bind"
-      },
-      "description": {
-        "en": "Write a polyfill for Function.prototype.bind, including support for partial application.",
-        "ru": "Напишите полифил для Function.prototype.bind с поддержкой частичного применения."
-      },
-      "difficulty": "medium",
-      "tags": ["Polyfill", "Function", "this"]
-    },
-    {
-      "name": { "en": "Implement Promise.all", "ru": "Реализовать Promise.all" },
-      "description": {
-        "en": "Write a polyfill for Promise.all that resolves when all promises resolve or rejects on first failure.",
-        "ru": "Напишите полифил для Promise.all, который резолвится когда все промисы выполнены или реджектится при первой ошибке."
-      },
-      "difficulty": "medium",
-      "tags": ["Promise", "Async"]
-    },
-    {
-      "name": { "en": "Implement Promise.allSettled", "ru": "Реализовать Promise.allSettled" },
-      "description": {
-        "en": "Write a polyfill for Promise.allSettled that waits for all promises to settle.",
-        "ru": "Напишите полифил для Promise.allSettled, который ждёт завершения всех промисов."
-      },
-      "difficulty": "medium",
-      "tags": ["Promise", "Async"]
-    },
-    {
-      "name": { "en": "Implement debounce", "ru": "Реализовать debounce" },
-      "description": {
-        "en": "Write a debounce function that delays execution until after a specified wait time has elapsed.",
-        "ru": "Напишите функцию debounce, откладывающую выполнение до истечения заданного интервала ожидания."
-      },
-      "difficulty": "easy",
-      "tags": ["Function", "Timing"]
-    },
-    {
-      "name": { "en": "Implement throttle", "ru": "Реализовать throttle" },
-      "description": {
-        "en": "Write a throttle function that ensures a function is called at most once per specified interval.",
-        "ru": "Напишите функцию throttle, которая гарантирует вызов функции не чаще одного раза за указанный интервал."
-      },
-      "difficulty": "easy",
-      "tags": ["Function", "Timing"]
-    },
-    {
-      "name": { "en": "Implement deep clone", "ru": "Реализовать глубокое копирование" },
-      "description": {
-        "en": "Write a deepClone function that creates a deep copy of any JavaScript value.",
-        "ru": "Напишите функцию deepClone для создания глубокой копии любого значения JavaScript."
-      },
-      "difficulty": "medium",
-      "tags": ["Object", "Recursion"]
-    },
-    {
-      "name": { "en": "Implement curry", "ru": "Реализовать каррирование" },
-      "description": {
-        "en": "Write a curry function that transforms a function with multiple arguments into a sequence of single-argument functions.",
-        "ru": "Напишите функцию curry, преобразующую функцию с несколькими аргументами в последовательность функций с одним аргументом."
+      "instructions": {
+        "en": "Implement Array.prototype.reduce behavior. The function should combine array elements into a single result using a reducer callback and an initial accumulator value. On each step, the reducer must receive the current accumulator and the next element from the array",
+        "ru": "Реализуйте поведение Array.prototype.reduce. Функция должна сворачивать элементы массива в одно итоговое значение с помощью reducer и начального значения аккумулятора. На каждом шаге reducer должен получать текущее значение аккумулятора и следующий элемент массива"
       },
       "difficulty": "hard",
-      "tags": ["Function", "Functional Programming"]
+      "tags": [
+        { "en": "Polyfill", "ru": "Полифилы" },
+        { "en": "Array", "ru": "Массивы" },
+        { "en": "Accumulator", "ru": "Аккумулятор" }
+      ],
+      "functionName": "customReduce",
+      "starterCode": "function customReduce(array, reducer, initialValue) {\n  // WRITE YOUR SOLUTION HERE\n}",
+      "builtinFns": {
+        "sum": "(acc, value) => acc + value",
+        "joinWithDash": "(acc, value) => acc ? `${acc}-${value}` : `${value}`"
+      },
+      "testCases": [
+        {
+          "id": 1,
+          "description": { "en": "Sums array values", "ru": "Суммирует значения массива" },
+          "args": [[1, 2, 3], { "$fn": "sum" }, 0],
+          "expected": 6
+        },
+        {
+          "id": 2,
+          "description": {
+            "en": "Builds string accumulator",
+            "ru": "Формирует строковый аккумулятор"
+          },
+          "args": [["a", "b", "c"], { "$fn": "joinWithDash" }, ""],
+          "expected": "a-b-c"
+        }
+      ]
     },
     {
-      "name": { "en": "Implement memoize", "ru": "Реализовать мемоизацию" },
+      "name": { "en": "Function.prototype.bind", "ru": "Реализация Function.prototype.bind" },
       "description": {
-        "en": "Write a memoize function that caches the results of expensive function calls.",
-        "ru": "Напишите функцию memoize, кэширующую результаты дорогостоящих вызовов функций."
+        "en": "This task explores function context and partial application. It focuses on how a function can remember both its target context and part of its arguments before execution. The topic helps clarify how this and argument binding work together",
+        "ru": "Эта задача посвящена контексту функции и частичному применению аргументов. Она показывает, как функция может заранее запомнить и контекст, и часть аргументов до момента вызова. Тема помогает понять совместную работу this и привязки аргументов"
+      },
+      "instructions": {
+        "en": "Implement binding of a function to a context and predefined arguments. The resulting call should use the provided this value and correctly combine bound and runtime arguments. The final invocation must behave as if the function had been called with both sets of arguments in order",
+        "ru": "Реализуйте привязку функции к контексту и заранее заданным аргументам. Вызов должен использовать переданный this и корректно объединять заранее связанные и обычные аргументы. Итоговое выполнение должно вести себя так, как если бы функция была вызвана с обоими наборами аргументов по порядку"
       },
       "difficulty": "medium",
-      "tags": ["Function", "Performance"]
+      "tags": [
+        { "en": "Polyfill", "ru": "Полифилы" },
+        { "en": "This", "ru": "this" },
+        { "en": "Context", "ru": "Контекст" }
+      ],
+      "functionName": "bindAndCall",
+      "starterCode": "function bindAndCall(fn, context, boundArgs, runtimeArgs) {\n  // WRITE YOUR SOLUTION HERE\n}",
+      "builtinFns": {
+        "describe": "function (greeting, punctuation) { return `${greeting}, ${this.name}${punctuation}`; }"
+      },
+      "testCases": [
+        {
+          "id": 1,
+          "description": {
+            "en": "Binds this and prepends arguments",
+            "ru": "Привязывает this и добавляет аргументы в начало"
+          },
+          "args": [{ "$fn": "describe" }, { "name": "Sam" }, ["Hello"], ["!"]],
+          "expected": "Hello, Sam!"
+        },
+        {
+          "id": 2,
+          "description": {
+            "en": "Supports multiple runtime args",
+            "ru": "Поддерживает несколько runtime-аргументов"
+          },
+          "args": [{ "$fn": "describe" }, { "name": "Alex" }, ["Hi"], ["?"]],
+          "expected": "Hi, Alex?"
+        }
+      ]
     },
     {
-      "name": { "en": "Implement EventEmitter", "ru": "Реализовать EventEmitter" },
+      "name": { "en": "Deep Clone", "ru": "Глубокое клонирование" },
       "description": {
-        "en": "Implement a basic EventEmitter class with on, off, and emit methods.",
-        "ru": "Реализуйте базовый класс EventEmitter с методами on, off и emit."
+        "en": "This topic focuses on copying nested data structures without sharing references. It highlights the difference between shallow copying and a true structural clone. The task is especially useful for understanding how objects and arrays behave in memory",
+        "ru": "Эта тема посвящена копированию вложенных структур данных без разделения ссылок. Она показывает разницу между поверхностным копированием и полноценным структурным клоном. Задача особенно полезна для понимания того, как объекты и массивы ведут себя в памяти"
+      },
+      "instructions": {
+        "en": "Create a deep clone of nested objects and arrays. The result must preserve the original structure without sharing nested references with the source value. If a nested object or array is changed later, the cloned structure should remain independent",
+        "ru": "Создайте глубокую копию вложенных объектов и массивов. Результат должен сохранять исходную структуру и не разделять вложенные ссылки с исходным значением. Если вложенный объект или массив будет изменен позже, клон должен оставаться независимым"
       },
       "difficulty": "medium",
-      "tags": ["Class", "Event"]
+      "tags": [
+        { "en": "Recursion", "ru": "Рекурсия" },
+        { "en": "Object", "ru": "Объекты" },
+        { "en": "Reference", "ru": "Ссылки" }
+      ],
+      "functionName": "deepClone",
+      "starterCode": "function deepClone(value) {\n  // WRITE YOUR SOLUTION HERE\n}",
+      "testCases": [
+        {
+          "id": 1,
+          "description": { "en": "Clones nested objects", "ru": "Клонирует вложенные объекты" },
+          "args": [{ "user": { "name": "Alice", "skills": ["js", "ts"] } }],
+          "expected": { "user": { "name": "Alice", "skills": ["js", "ts"] } }
+        },
+        {
+          "id": 2,
+          "description": { "en": "Clones nested arrays", "ru": "Клонирует вложенные массивы" },
+          "args": [[[1, [2, 3]], 4]],
+          "expected": [[1, [2, 3]], 4]
+        }
+      ]
     },
     {
-      "name": { "en": "Implement Observable", "ru": "Реализовать Observable" },
+      "name": { "en": "Flatten Array", "ru": "Выравнивание массива" },
       "description": {
-        "en": "Implement a simplified Observable pattern with subscribe and unsubscribe support.",
-        "ru": "Реализуйте упрощённый паттерн Observable с поддержкой subscribe и unsubscribe."
+        "en": "This task is about recursive traversal of nested arrays. It demonstrates how a hierarchical structure can be converted into a flat linear sequence. The topic also reinforces preservation of element order during recursive processing",
+        "ru": "Эта задача посвящена рекурсивному обходу вложенных массивов. Она показывает, как иерархическая структура может быть преобразована в плоскую последовательность. Тема также закрепляет сохранение порядка элементов при рекурсивной обработке"
+      },
+      "instructions": {
+        "en": "Flatten a nested array into a single-level array using recursion. The output must preserve the original left-to-right order of all primitive values. If an element is already flat, it should appear in the result unchanged",
+        "ru": "Преобразуйте вложенный массив в массив одного уровня с помощью рекурсии. В результате должен сохраняться исходный порядок всех значений слева направо. Если элемент уже не содержит вложенности, он должен попадать в результат без изменений"
+      },
+      "difficulty": "medium",
+      "tags": [
+        { "en": "Recursion", "ru": "Рекурсия" },
+        { "en": "Array", "ru": "Массивы" }
+      ],
+      "functionName": "flattenArray",
+      "starterCode": "function flattenArray(array) {\n  // WRITE YOUR SOLUTION HERE\n}",
+      "testCases": [
+        {
+          "id": 1,
+          "description": {
+            "en": "Flattens nested arrays",
+            "ru": "Разворачивает вложенные массивы"
+          },
+          "args": [[[1, [2, [3]], 4]]],
+          "expected": [1, 2, 3, 4]
+        },
+        {
+          "id": 2,
+          "description": {
+            "en": "Keeps already flat arrays unchanged",
+            "ru": "Оставляет уже плоский массив без изменений"
+          },
+          "args": [[1, 2, 3]],
+          "expected": [1, 2, 3]
+        }
+      ]
+    },
+    {
+      "name": { "en": "Currying Function", "ru": "Каррирование функции" },
+      "description": {
+        "en": "This topic examines staged function application. It shows how arguments can be supplied in separate groups while still producing a single final computation. The task is useful for understanding functional composition and closure-based state retention",
+        "ru": "Эта тема рассматривает поэтапное применение функции. Она показывает, как аргументы могут передаваться отдельными группами и при этом формировать одно итоговое вычисление. Задача полезна для понимания функциональной композиции и сохранения состояния через замыкания"
+      },
+      "instructions": {
+        "en": "Apply groups of arguments to a function step by step until the final result is produced. The implementation should support partial application across multiple calls. When all required arguments have been collected, the original function must be executed with them in the correct order",
+        "ru": "Последовательно примените группы аргументов к функции до получения итогового результата. Реализация должна поддерживать частичное применение аргументов в несколько шагов. Когда все необходимые аргументы собраны, исходная функция должна быть вызвана с ними в правильном порядке"
       },
       "difficulty": "hard",
-      "tags": ["Class", "Async", "Functional Programming"]
+      "tags": [
+        { "en": "Functional", "ru": "Функциональный подход" },
+        { "en": "Closure", "ru": "Замыкания" },
+        { "en": "Arity", "ru": "Арность" }
+      ],
+      "functionName": "applyCurried",
+      "starterCode": "function applyCurried(fn, argumentGroups) {\n  // WRITE YOUR SOLUTION HERE\n}",
+      "builtinFns": {
+        "sum3": "(a, b, c) => a + b + c",
+        "join3": "(a, b, c) => `${a}-${b}-${c}`"
+      },
+      "testCases": [
+        {
+          "id": 1,
+          "description": {
+            "en": "Applies grouped arguments to a sum function",
+            "ru": "Применяет группы аргументов к функции суммирования"
+          },
+          "args": [{ "$fn": "sum3" }, [[1], [2], [3]]],
+          "expected": 6
+        },
+        {
+          "id": 2,
+          "description": {
+            "en": "Supports multiple arguments per group",
+            "ru": "Поддерживает несколько аргументов в одной группе"
+          },
+          "args": [{ "$fn": "join3" }, [["a", "b"], ["c"]]],
+          "expected": "a-b-c"
+        }
+      ]
+    },
+    {
+      "name": { "en": "Object.assign Polyfill", "ru": "Реализация Object.assign" },
+      "description": {
+        "en": "This task is about object property copying and merge order. It checks whether you understand how enumerable own properties are transferred from sources to a target object. The topic also reinforces overwrite rules when the same key appears more than once",
+        "ru": "Эта задача посвящена копированию свойств объектов и порядку объединения. Она проверяет, понимаете ли вы, как собственные перечислимые свойства переносятся из исходных объектов в целевой. Тема также закрепляет правила перезаписи, когда один и тот же ключ встречается несколько раз"
+      },
+      "instructions": {
+        "en": "Implement behavior similar to Object.assign. The function should copy enumerable own properties from source objects into the target object and return that target. If later sources contain the same key, they must overwrite the value written earlier",
+        "ru": "Реализуйте поведение, аналогичное Object.assign. Функция должна копировать собственные перечислимые свойства из исходных объектов в target и возвращать этот target. Если более поздние источники содержат тот же ключ, они должны перезаписывать ранее записанное значение"
+      },
+      "difficulty": "easy",
+      "tags": [
+        { "en": "Polyfill", "ru": "Полифилы" },
+        { "en": "Object", "ru": "Объекты" }
+      ],
+      "functionName": "assignObjects",
+      "starterCode": "function assignObjects(target, ...sources) {\n  // WRITE YOUR SOLUTION HERE\n}",
+      "testCases": [
+        {
+          "id": 1,
+          "description": {
+            "en": "Merges multiple sources",
+            "ru": "Объединяет несколько источников"
+          },
+          "args": [{ "a": 1 }, { "b": 2 }, { "c": 3 }],
+          "expected": { "a": 1, "b": 2, "c": 3 }
+        },
+        {
+          "id": 2,
+          "description": {
+            "en": "Later sources override earlier keys",
+            "ru": "Поздние источники перезаписывают ранние ключи"
+          },
+          "args": [{ "a": 1 }, { "a": 2 }, { "b": 3 }],
+          "expected": { "a": 2, "b": 3 }
+        }
+      ]
+    },
+    {
+      "name": { "en": "Memoization Utility", "ru": "Мемоизация" },
+      "description": {
+        "en": "This topic focuses on optimization through caching. It demonstrates how repeated computations can be avoided when the same input appears multiple times. The task highlights the practical benefit of closures for storing previously calculated results",
+        "ru": "Эта тема посвящена оптимизации через кэширование. Она показывает, как можно избежать повторных вычислений, если одни и те же входные данные появляются несколько раз. Задача подчеркивает практическую пользу замыканий для хранения уже полученных результатов"
+      },
+      "instructions": {
+        "en": "Implement memoization for repeated function calls. The solution should cache results by argument value and reuse them instead of recalculating identical inputs. The returned output must preserve the order of the original input values",
+        "ru": "Реализуйте мемоизацию для повторных вызовов функции. Решение должно кэшировать результаты по значению аргумента и повторно использовать их вместо повторного вычисления одинаковых входных данных. Порядок значений в итоговом ответе должен совпадать с порядком исходного массива"
+      },
+      "difficulty": "medium",
+      "tags": [
+        { "en": "Optimization", "ru": "Оптимизация" },
+        { "en": "Closure", "ru": "Замыкания" },
+        { "en": "Cache", "ru": "Кэш" }
+      ],
+      "functionName": "memoizeSequence",
+      "starterCode": "function memoizeSequence(fn, values) {\n  // WRITE YOUR SOLUTION HERE\n}",
+      "builtinFns": {
+        "square": "(x) => x * x",
+        "doublePlusOne": "(x) => x * 2 + 1"
+      },
+      "testCases": [
+        {
+          "id": 1,
+          "description": {
+            "en": "Returns mapped values in order",
+            "ru": "Возвращает вычисленные значения в исходном порядке"
+          },
+          "args": [{ "$fn": "square" }, [2, 2, 3]],
+          "expected": [4, 4, 9]
+        },
+        {
+          "id": 2,
+          "description": {
+            "en": "Handles another function implementation",
+            "ru": "Корректно работает с другой реализацией функции"
+          },
+          "args": [{ "$fn": "doublePlusOne" }, [1, 2, 1]],
+          "expected": [3, 5, 3]
+        }
+      ]
+    },
+    {
+      "name": { "en": "Instanceof Operator", "ru": "Оператор instanceof" },
+      "description": {
+        "en": "This task explores prototype-chain inspection. It helps distinguish constructor-based relationships from plain value checks. The topic is useful for understanding how JavaScript resolves inheritance at runtime",
+        "ru": "Эта задача посвящена анализу цепочки прототипов. Она помогает отделить отношения через конструктор от обычной проверки значений. Тема полезна для понимания того, как JavaScript определяет наследование во время выполнения"
+      },
+      "instructions": {
+        "en": "Implement a manual check for instanceof by traversing the prototype chain. The function should determine whether the value is associated with the specified constructor. If the constructor does not appear in the chain, the result must be false",
+        "ru": "Реализуйте ручную проверку instanceof с обходом цепочки прототипов. Функция должна определять, связан ли объект с указанным конструктором. Если конструктор не встречается в цепочке, результат должен быть false"
+      },
+      "difficulty": "hard",
+      "tags": [
+        { "en": "Prototype", "ru": "Прототипы" },
+        { "en": "Inheritance", "ru": "Наследование" }
+      ],
+      "functionName": "customInstanceof",
+      "starterCode": "function customInstanceof(value, constructorName) {\n  // WRITE YOUR SOLUTION HERE\n}",
+      "testCases": [
+        {
+          "id": 1,
+          "description": { "en": "Detects Date instances", "ru": "Определяет экземпляры Date" },
+          "args": [{ "$fn": "makeDate" }, "Date"],
+          "expected": true
+        },
+        {
+          "id": 2,
+          "description": { "en": "Detects Array instances", "ru": "Определяет экземпляры Array" },
+          "args": [[1, 2, 3], "Array"],
+          "expected": true
+        },
+        {
+          "id": 3,
+          "description": {
+            "en": "Plain object is not an Array instance",
+            "ru": "Обычный объект не является экземпляром Array"
+          },
+          "args": [{ "value": 1 }, "Array"],
+          "expected": false
+        }
+      ]
+    },
+    {
+      "name": { "en": "Get Value by Path", "ru": "Получение значения по пути" },
+      "description": {
+        "en": "This topic is about safe navigation inside nested structures. It demonstrates how a string path can be interpreted step by step without producing runtime errors. The task is useful for utility-style code that reads data from unknown objects",
+        "ru": "Эта тема посвящена безопасной навигации внутри вложенных структур. Она показывает, как строковый путь можно интерпретировать шаг за шагом, не вызывая runtime-ошибок. Задача полезна для утилитарного кода, который читает данные из неизвестных объектов"
+      },
+      "instructions": {
+        "en": "Read a nested value from an object using a dot-separated path. If part of the path is missing, the function should return null instead of throwing an error. The function should stop traversal as soon as the path cannot be continued",
+        "ru": "Получите вложенное значение из объекта по строковому пути с разделителем точкой. Если часть пути отсутствует, функция должна возвращать null, а не выбрасывать ошибку. Обход должен прекращаться сразу, как только дальнейшее продвижение по пути становится невозможным"
+      },
+      "difficulty": "easy",
+      "tags": [
+        { "en": "String", "ru": "Строки" },
+        { "en": "Object", "ru": "Объекты" },
+        { "en": "Utility", "ru": "Утилиты" }
+      ],
+      "functionName": "getByPath",
+      "starterCode": "function getByPath(value, path) {\n  // WRITE YOUR SOLUTION HERE\n}",
+      "testCases": [
+        {
+          "id": 1,
+          "description": { "en": "Reads nested value", "ru": "Читает вложенное значение" },
+          "args": [{ "user": { "profile": { "name": "Alice" } } }, "user.profile.name"],
+          "expected": "Alice"
+        },
+        {
+          "id": 2,
+          "description": {
+            "en": "Returns null for missing path",
+            "ru": "Возвращает null при отсутствии пути"
+          },
+          "args": [{ "user": {} }, "user.profile.name"],
+          "expected": null
+        }
+      ]
+    },
+    {
+      "name": { "en": "Typeof Exact", "ru": "Точное определение типа" },
+      "description": {
+        "en": "This task focuses on more precise runtime type detection. It highlights edge cases where native typeof is too coarse or misleading. The topic helps distinguish between null, arrays, and plain objects in a more practical way",
+        "ru": "Эта задача посвящена более точному определению типов во время выполнения. Она подчеркивает случаи, в которых стандартный typeof дает слишком грубый или вводящий в заблуждение результат. Тема помогает практичнее различать null, массивы и обычные объекты"
+      },
+      "instructions": {
+        "en": "Return a more accurate type label than the native typeof operator for values such as null, arrays, and plain objects. The function should normalize these special cases into distinct readable results. The returned label must match the expectations from the provided test cases",
+        "ru": "Верните более точное обозначение типа, чем стандартный оператор typeof, для значений вроде null, массивов и обычных объектов. Функция должна выделять такие особые случаи в отдельные понятные результаты. Возвращаемая строка должна соответствовать ожиданиям из тестовых примеров"
+      },
+      "difficulty": "medium",
+      "tags": [
+        { "en": "Types", "ru": "Типы" },
+        { "en": "Coercion", "ru": "Приведение типов" }
+      ],
+      "functionName": "typeofExact",
+      "starterCode": "function typeofExact(value) {\n  // WRITE YOUR SOLUTION HERE\n}",
+      "testCases": [
+        {
+          "id": 1,
+          "description": { "en": "Detects null correctly", "ru": "Корректно определяет null" },
+          "args": [null],
+          "expected": "null"
+        },
+        {
+          "id": 2,
+          "description": { "en": "Detects arrays correctly", "ru": "Корректно определяет массивы" },
+          "args": [[1, 2, 3]],
+          "expected": "array"
+        },
+        {
+          "id": 3,
+          "description": {
+            "en": "Detects plain objects correctly",
+            "ru": "Корректно определяет обычные объекты"
+          },
+          "args": [{ "createdAt": "2024-01-01T00:00:00.000Z" }],
+          "expected": "object"
+        }
+      ]
     }
   ]
 }

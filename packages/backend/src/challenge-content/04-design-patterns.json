@@ -1,0 +1,327 @@
+{
+  "category": {
+    "name": { "en": "Design Patterns", "ru": "Паттерны проектирования" },
+    "description": {
+      "en": "Review classic software design patterns, including Singleton, Observer, Factory, Strategy, Decorator, Adapter, Builder, and Command. The tasks focus on the essential behavior of each pattern",
+      "ru": "Разбор классических паттернов проектирования: Singleton, Observer, Factory, Strategy, Decorator, Adapter, Builder и Command. Задачи сосредоточены на ключевом поведении каждого паттерна"
+    }
+  },
+  "topics": [
+    {
+      "name": { "en": "Singleton Registry", "ru": "Реестр singleton-объектов" },
+      "description": {
+        "en": "This task explores the core idea of one shared instance per identity. It shows how repeated access under the same key should reuse the original created value instead of replacing it. The topic is a simplified version of singleton-style object management",
+        "ru": "Эта задача рассматривает базовую идею одного общего экземпляра для каждой сущности. Она показывает, как повторный доступ по одному и тому же ключу должен возвращать исходное созданное значение, а не заменять его. Тема представляет собой упрощенную модель singleton-подхода к управлению объектами"
+      },
+      "instructions": {
+        "en": "Store only the first value created for each key and always return that original value for subsequent entries with the same key. The result should be an object that keeps the earliest value for every distinct key. Later duplicates must be ignored rather than overwritten",
+        "ru": "Сохраняйте только первое значение, созданное для каждого ключа, и всегда возвращайте именно его при последующих обращениях с тем же ключом. Результатом должен быть объект, в котором для каждого уникального ключа остается самое раннее значение. Более поздние дубликаты нужно игнорировать, а не перезаписывать"
+      },
+      "difficulty": "easy",
+      "tags": [
+        { "en": "Singleton", "ru": "Singleton" },
+        { "en": "Object", "ru": "Объекты" }
+      ],
+      "functionName": "singletonRegistry",
+      "starterCode": "function singletonRegistry(pairs) {\n  // WRITE YOUR SOLUTION HERE\n}",
+      "testCases": [
+        {
+          "id": 1,
+          "description": {
+            "en": "Keeps first value for each key",
+            "ru": "Сохраняет первое значение для каждого ключа"
+          },
+          "args": [
+            [
+              ["config", 1],
+              ["config", 2]
+            ]
+          ],
+          "expected": { "config": 1 }
+        },
+        {
+          "id": 2,
+          "description": {
+            "en": "Handles multiple keys",
+            "ru": "Корректно обрабатывает несколько ключей"
+          },
+          "args": [
+            [
+              ["a", 1],
+              ["b", 2],
+              ["a", 3]
+            ]
+          ],
+          "expected": { "a": 1, "b": 2 }
+        }
+      ]
+    },
+    {
+      "name": { "en": "Observer Notifications", "ru": "Уведомление наблюдателей" },
+      "description": {
+        "en": "This topic focuses on broadcasting one event to many listeners. It highlights that observers should react independently while the sender stays decoupled from their internal logic. The task captures the core mechanics of the Observer pattern without extra infrastructure",
+        "ru": "Эта тема посвящена рассылке одного события нескольким слушателям. Она подчеркивает, что наблюдатели должны реагировать независимо, а отправитель остается отделенным от их внутренней логики. Задача отражает базовую механику паттерна Observer без лишней инфраструктуры"
+      },
+      "instructions": {
+        "en": "Send an event payload to all registered observers and collect their return values in the order of invocation. Every observer must be called exactly once with the same payload. If there are no observers, return an empty array",
+        "ru": "Передайте payload события всем зарегистрированным наблюдателям и соберите их возвращаемые значения в порядке вызова. Каждый наблюдатель должен быть вызван ровно один раз с одним и тем же payload. Если наблюдателей нет, нужно вернуть пустой массив"
+      },
+      "difficulty": "medium",
+      "tags": [
+        { "en": "Observer", "ru": "Observer" },
+        { "en": "PubSub", "ru": "Pub/Sub" }
+      ],
+      "functionName": "notifyObservers",
+      "starterCode": "function notifyObservers(observers, payload) {\n  // WRITE YOUR SOLUTION HERE\n}",
+      "builtinFns": {
+        "appendDone": "(value) => `${value}:done`",
+        "appendSeen": "(value) => `${value}:seen`"
+      },
+      "testCases": [
+        {
+          "id": 1,
+          "description": { "en": "Calls all observers", "ru": "Вызывает всех наблюдателей" },
+          "args": [[{ "$fn": "appendDone" }, { "$fn": "appendSeen" }], "task"],
+          "expected": ["task:done", "task:seen"]
+        },
+        {
+          "id": 2,
+          "description": {
+            "en": "No observers gives empty array",
+            "ru": "При отсутствии наблюдателей возвращает пустой массив"
+          },
+          "args": [[], "task"],
+          "expected": []
+        }
+      ]
+    },
+    {
+      "name": { "en": "Factory Creator", "ru": "Фабричное создание объекта" },
+      "description": {
+        "en": "This task is about encapsulating object creation behind a simple interface. It shows how the caller can request a ready-to-use object by type without building it manually field by field. The topic reflects the essential idea behind the Factory pattern",
+        "ru": "Эта задача посвящена инкапсуляции создания объекта за простым интерфейсом. Она показывает, как вызывающий код может запросить готовый объект по типу, не собирая его вручную поле за полем. Тема отражает основную идею паттерна Factory"
+      },
+      "instructions": {
+        "en": "Create an object from a type label and a set of options. The result should always include the `type` field and copy the provided option properties into the new object. Do not mutate the original options object while building the result",
+        "ru": "Создайте объект на основе типа и набора параметров. Результат должен всегда включать поле `type` и копировать переданные свойства в новый объект. Во время построения результата исходный объект options изменять нельзя"
+      },
+      "difficulty": "easy",
+      "tags": [
+        { "en": "Factory", "ru": "Factory" },
+        { "en": "Object", "ru": "Объекты" }
+      ],
+      "functionName": "createWidget",
+      "starterCode": "function createWidget(type, options) {\n  // WRITE YOUR SOLUTION HERE\n}",
+      "testCases": [
+        {
+          "id": 1,
+          "description": { "en": "Builds typed object", "ru": "Создает объект с указанным типом" },
+          "args": ["button", { "text": "Save" }],
+          "expected": { "type": "button", "text": "Save" }
+        },
+        {
+          "id": 2,
+          "description": { "en": "Preserves options", "ru": "Сохраняет переданные параметры" },
+          "args": ["input", { "placeholder": "Email" }],
+          "expected": { "type": "input", "placeholder": "Email" }
+        }
+      ]
+    },
+    {
+      "name": { "en": "Strategy Selector", "ru": "Выбор стратегии" },
+      "description": {
+        "en": "This topic focuses on switching algorithms without changing the caller contract. It demonstrates how one interface can hide several interchangeable behaviors chosen by name. The task captures the essence of the Strategy pattern in a compact functional form",
+        "ru": "Эта тема посвящена переключению алгоритмов без изменения контракта вызывающего кода. Она показывает, как один интерфейс может скрывать несколько взаимозаменяемых вариантов поведения, выбираемых по имени. Задача отражает суть паттерна Strategy в компактной функциональной форме"
+      },
+      "instructions": {
+        "en": "Select an algorithm by name and apply it to the provided values. The function should support at least the strategies required by the test cases and return the transformed array. The caller must not need to know the internal implementation details of the chosen strategy",
+        "ru": "Выберите алгоритм по имени и примените его к переданным значениям. Функция должна поддерживать как минимум те стратегии, которые требуются тестами, и возвращать преобразованный массив. Вызывающий код не должен зависеть от внутренних деталей реализации выбранной стратегии"
+      },
+      "difficulty": "medium",
+      "tags": [
+        { "en": "Strategy", "ru": "Strategy" },
+        { "en": "Functional", "ru": "Функциональный подход" }
+      ],
+      "functionName": "applyStrategy",
+      "starterCode": "function applyStrategy(name, values) {\n  // WRITE YOUR SOLUTION HERE\n}",
+      "testCases": [
+        {
+          "id": 1,
+          "description": { "en": "Sorts ascending", "ru": "Сортирует по возрастанию" },
+          "args": ["sortAsc", [3, 1, 2]],
+          "expected": [1, 2, 3]
+        },
+        {
+          "id": 2,
+          "description": {
+            "en": "Reverses values",
+            "ru": "Разворачивает значения в обратном порядке"
+          },
+          "args": ["reverse", [1, 2, 3]],
+          "expected": [3, 2, 1]
+        }
+      ]
+    },
+    {
+      "name": { "en": "Decorator Wrapper", "ru": "Декоратор для строки" },
+      "description": {
+        "en": "This task demonstrates how behavior can be extended without changing the wrapped core value. It shows a minimal example where extra formatting is layered around existing content. The topic reflects the central idea of the Decorator pattern through string composition",
+        "ru": "Эта задача показывает, как поведение можно расширять, не изменяя само базовое значение. Она демонстрирует минимальный пример, где дополнительное оформление накладывается поверх существующего содержимого. Тема отражает центральную идею паттерна Decorator через композицию строк"
+      },
+      "instructions": {
+        "en": "Wrap a string value with a prefix and suffix while preserving the original content between them. The function should return the fully decorated string exactly in the expected order. No extra transformation of the inner value is required",
+        "ru": "Оберните строковое значение префиксом и суффиксом, сохранив исходное содержимое между ними. Функция должна возвращать полностью оформленную строку ровно в ожидаемом порядке. Никакого дополнительного преобразования внутреннего значения не требуется"
+      },
+      "difficulty": "easy",
+      "tags": [
+        { "en": "Decorator", "ru": "Decorator" },
+        { "en": "String", "ru": "Строки" }
+      ],
+      "functionName": "decorate",
+      "starterCode": "function decorate(value, prefix, suffix) {\n  // WRITE YOUR SOLUTION HERE\n}",
+      "testCases": [
+        {
+          "id": 1,
+          "description": {
+            "en": "Wraps with prefix and suffix",
+            "ru": "Добавляет префикс и суффикс"
+          },
+          "args": ["core", "[", "]"],
+          "expected": "[core]"
+        },
+        {
+          "id": 2,
+          "description": {
+            "en": "Supports multi-character wrappers",
+            "ru": "Поддерживает многосимвольные обертки"
+          },
+          "args": ["value", "<b>", "</b>"],
+          "expected": "<b>value</b>"
+        }
+      ]
+    },
+    {
+      "name": { "en": "Adapter Mapper", "ru": "Адаптация полей" },
+      "description": {
+        "en": "This topic focuses on translating one data contract into another. It demonstrates how a legacy structure can be reshaped so the rest of the code works with a cleaner interface. The task mirrors the essential role of the Adapter pattern in integration code",
+        "ru": "Эта тема посвящена преобразованию одного контракта данных в другой. Она показывает, как legacy-структуру можно перестроить так, чтобы остальной код работал с более чистым интерфейсом. Задача отражает основную роль паттерна Adapter в интеграционном коде"
+      },
+      "instructions": {
+        "en": "Transform a legacy user object into a new object with the expected field names. Only the mapped fields required by the new format should appear in the result. Extra legacy properties must not leak into the adapted object",
+        "ru": "Преобразуйте legacy-объект пользователя в новый объект с ожидаемыми именами полей. В результате должны присутствовать только те поля, которые требуются новому формату. Лишние legacy-свойства не должны попадать в адаптированный объект"
+      },
+      "difficulty": "easy",
+      "tags": [
+        { "en": "Adapter", "ru": "Adapter" },
+        { "en": "Object", "ru": "Объекты" }
+      ],
+      "functionName": "adaptUser",
+      "starterCode": "function adaptUser(legacyUser) {\n  // WRITE YOUR SOLUTION HERE\n}",
+      "testCases": [
+        {
+          "id": 1,
+          "description": { "en": "Maps legacy keys", "ru": "Преобразует legacy-ключи" },
+          "args": [{ "full_name": "Ann", "user_id": 10 }],
+          "expected": { "name": "Ann", "id": 10 }
+        },
+        {
+          "id": 2,
+          "description": { "en": "Keeps unknown values out", "ru": "Исключает лишние поля" },
+          "args": [{ "full_name": "Bob", "user_id": 20, "age": 30 }],
+          "expected": { "name": "Bob", "id": 20 }
+        }
+      ]
+    },
+    {
+      "name": { "en": "Builder Steps", "ru": "Построение объекта по шагам" },
+      "description": {
+        "en": "This task explores progressive object construction from a sequence of instructions. It highlights that the final result emerges gradually as each step enriches or updates the current state. The topic captures the step-by-step spirit of the Builder pattern",
+        "ru": "Эта задача посвящена поэтапному построению объекта из последовательности инструкций. Она подчеркивает, что итоговый результат возникает постепенно, когда каждый шаг дополняет или обновляет текущее состояние. Тема передает пошаговую природу паттерна Builder"
+      },
+      "instructions": {
+        "en": "Apply a sequence of build steps to an initial object. Each step should assign a value by key, and later steps may overwrite values written earlier. Return the final built object after all steps have been processed",
+        "ru": "Примените последовательность шагов построения к исходному объекту. Каждый шаг должен записывать значение по ключу, а более поздние шаги могут перезаписывать уже установленные значения. Верните итоговый построенный объект после обработки всех шагов"
+      },
+      "difficulty": "medium",
+      "tags": [
+        { "en": "Builder", "ru": "Builder" },
+        { "en": "Object", "ru": "Объекты" }
+      ],
+      "functionName": "applyBuildSteps",
+      "starterCode": "function applyBuildSteps(initial, steps) {\n  // WRITE YOUR SOLUTION HERE\n}",
+      "testCases": [
+        {
+          "id": 1,
+          "description": {
+            "en": "Builds from multiple steps",
+            "ru": "Собирает объект из нескольких шагов"
+          },
+          "args": [
+            {},
+            [
+              { "key": "name", "value": "App" },
+              { "key": "version", "value": 1 }
+            ]
+          ],
+          "expected": { "name": "App", "version": 1 }
+        },
+        {
+          "id": 2,
+          "description": {
+            "en": "Later step overwrites key",
+            "ru": "Поздний шаг перезаписывает ключ"
+          },
+          "args": [
+            {},
+            [
+              { "key": "name", "value": "Old" },
+              { "key": "name", "value": "New" }
+            ]
+          ],
+          "expected": { "name": "New" }
+        }
+      ]
+    },
+    {
+      "name": { "en": "Command Runner", "ru": "Выполнение команд" },
+      "description": {
+        "en": "This topic focuses on representing actions as explicit command objects. It demonstrates how a state can be updated by processing a list of instructions one by one. The task reflects the essence of the Command pattern through a small execution engine",
+        "ru": "Эта тема посвящена представлению действий в виде явных объектов-команд. Она показывает, как состояние можно изменять, обрабатывая список инструкций по одной. Задача отражает суть паттерна Command через небольшой исполнительный механизм"
+      },
+      "instructions": {
+        "en": "Execute a list of commands against a numeric state and return the final result after all operations have been applied. Support the command types required by the tests and update the current state sequentially. Each command must use the state produced by the previous one",
+        "ru": "Выполните список команд над числовым состоянием и верните итоговое значение после применения всех операций. Поддержите типы команд, которые требуются тестами, и обновляйте текущее состояние последовательно. Каждая команда должна использовать состояние, полученное после предыдущей"
+      },
+      "difficulty": "medium",
+      "tags": [
+        { "en": "Command", "ru": "Command" },
+        { "en": "State", "ru": "Состояние" }
+      ],
+      "functionName": "runCommands",
+      "starterCode": "function runCommands(initial, commands) {\n  // WRITE YOUR SOLUTION HERE\n}",
+      "testCases": [
+        {
+          "id": 1,
+          "description": {
+            "en": "Applies increment and decrement",
+            "ru": "Применяет увеличение и уменьшение"
+          },
+          "args": [
+            0,
+            [
+              { "type": "add", "value": 5 },
+              { "type": "subtract", "value": 2 }
+            ]
+          ],
+          "expected": 3
+        },
+        {
+          "id": 2,
+          "description": { "en": "Applies multiply command", "ru": "Применяет команду умножения" },
+          "args": [2, [{ "type": "multiply", "value": 4 }]],
+          "expected": 8
+        }
+      ]
+    }
+  ]
+}

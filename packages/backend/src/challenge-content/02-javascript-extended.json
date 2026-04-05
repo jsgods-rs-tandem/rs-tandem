@@ -1,0 +1,397 @@
+{
+  "category": {
+    "name": { "en": "JavaScript Extended", "ru": "Продвинутый JavaScript" },
+    "description": {
+      "en": "Explore modern JavaScript features, including generators, Proxy, Map, Set, and object transformation utilities. The tasks focus on common patterns used in real applications",
+      "ru": "Знакомство с современными возможностями JavaScript: генераторами, Proxy, Map, Set и утилитами преобразования объектов. Задачи сосредоточены на типовых приемах, которые используются в реальных приложениях"
+    }
+  },
+  "topics": [
+    {
+      "name": { "en": "Array.prototype.flatMap", "ru": "Реализация Array.prototype.flatMap" },
+      "description": {
+        "en": "This task combines transformation and flattening in one pipeline. It shows how callback results can expand the output array while the source array is processed only once. The topic is useful for understanding one-level flattening semantics in modern JavaScript",
+        "ru": "Эта задача объединяет преобразование и разворачивание результата в один проход. Она показывает, как результаты callback могут расширять итоговый массив при однократной обработке исходных данных. Тема полезна для понимания семантики одноуровневого flatten в современном JavaScript"
+      },
+      "instructions": {
+        "en": "Implement behavior similar to Array.prototype.flatMap. The function should apply the callback to each element and then flatten the returned value by one level. Nested arrays deeper than one level should not be fully flattened automatically",
+        "ru": "Реализуйте поведение, аналогичное Array.prototype.flatMap. Функция должна применять callback к каждому элементу и затем разворачивать возвращенное значение на один уровень. Более глубокая вложенность не должна раскрываться автоматически целиком"
+      },
+      "difficulty": "easy",
+      "tags": [
+        { "en": "Array", "ru": "Массивы" },
+        { "en": "ES6", "ru": "ES6" },
+        { "en": "Callback", "ru": "Callback" }
+      ],
+      "functionName": "customFlatMap",
+      "starterCode": "function customFlatMap(array, callback) {\n  // WRITE YOUR SOLUTION HERE\n}",
+      "builtinFns": {
+        "duplicate": "(x) => [x, x]",
+        "neighbors": "(x) => [x - 1, x, x + 1]"
+      },
+      "testCases": [
+        {
+          "id": 1,
+          "description": { "en": "Duplicates items", "ru": "Дублирует элементы" },
+          "args": [[1, 2], { "$fn": "duplicate" }],
+          "expected": [1, 1, 2, 2]
+        },
+        {
+          "id": 2,
+          "description": {
+            "en": "Flattens one level",
+            "ru": "Разворачивает результат на один уровень"
+          },
+          "args": [[2], { "$fn": "neighbors" }],
+          "expected": [1, 2, 3]
+        }
+      ]
+    },
+    {
+      "name": { "en": "Object.fromEntries", "ru": "Реализация Object.fromEntries" },
+      "description": {
+        "en": "This topic focuses on converting structured entry data into a regular object. It emphasizes sequential processing of key-value pairs and collision handling for repeated keys. The task also mirrors a utility that is widely used when transforming collections",
+        "ru": "Эта тема посвящена преобразованию структурированных пар данных в обычный объект. Она подчеркивает последовательную обработку пар ключ-значение и правила работы с повторяющимися ключами. Задача также повторяет поведение полезной утилиты, которая часто используется при преобразовании коллекций"
+      },
+      "instructions": {
+        "en": "Convert an array of key-value pairs into an object. If the same key appears multiple times, the latest value must overwrite the earlier one. The function should return a plain object containing all produced properties",
+        "ru": "Преобразуйте массив пар ключ-значение в объект. Если один и тот же ключ встречается несколько раз, последнее значение должно перезаписывать предыдущее. Функция должна возвращать обычный объект со всеми сформированными свойствами"
+      },
+      "difficulty": "easy",
+      "tags": [
+        { "en": "Object", "ru": "Объекты" },
+        { "en": "ES6", "ru": "ES6" }
+      ],
+      "functionName": "fromEntries",
+      "starterCode": "function fromEntries(entries) {\n  // WRITE YOUR SOLUTION HERE\n}",
+      "testCases": [
+        {
+          "id": 1,
+          "description": { "en": "Builds object from pairs", "ru": "Создает объект из пар" },
+          "args": [
+            [
+              ["a", 1],
+              ["b", 2]
+            ]
+          ],
+          "expected": { "a": 1, "b": 2 }
+        },
+        {
+          "id": 2,
+          "description": {
+            "en": "Keeps last duplicate key",
+            "ru": "Сохраняет последнее значение повторяющегося ключа"
+          },
+          "args": [
+            [
+              ["a", 1],
+              ["a", 2]
+            ]
+          ],
+          "expected": { "a": 2 }
+        }
+      ]
+    },
+    {
+      "name": { "en": "Group By Utility", "ru": "Группировка по ключу" },
+      "description": {
+        "en": "This task is about organizing a flat list into semantic groups. It demonstrates how a selector function can turn each element into a bucket key and how the result structure grows incrementally. The topic is useful for many reporting and aggregation scenarios",
+        "ru": "Эта задача посвящена организации плоского списка в осмысленные группы. Она показывает, как selector превращает каждый элемент в ключ группы и как результирующая структура постепенно заполняется. Тема полезна для множества сценариев агрегации и построения отчетов"
+      },
+      "instructions": {
+        "en": "Group array elements by the key returned from the selector function. The result should be an object where each property stores all values that produced the same key. Elements must remain in their original order inside each group",
+        "ru": "Сгруппируйте элементы массива по ключу, который возвращает selector. Результатом должен быть объект, в котором каждому ключу соответствует массив всех элементов с этим ключом. Внутри каждой группы исходный порядок элементов должен сохраняться"
+      },
+      "difficulty": "medium",
+      "tags": [
+        { "en": "Array", "ru": "Массивы" },
+        { "en": "Object", "ru": "Объекты" },
+        { "en": "Utility", "ru": "Утилиты" }
+      ],
+      "functionName": "groupBy",
+      "starterCode": "function groupBy(array, selector) {\n  // WRITE YOUR SOLUTION HERE\n}",
+      "builtinFns": {
+        "parity": "(x) => x % 2 === 0 ? 'even' : 'odd'",
+        "length": "(x) => String(x.length)"
+      },
+      "testCases": [
+        {
+          "id": 1,
+          "description": { "en": "Groups by parity", "ru": "Группирует по четности" },
+          "args": [[1, 2, 3], { "$fn": "parity" }],
+          "expected": { "odd": [1, 3], "even": [2] }
+        },
+        {
+          "id": 2,
+          "description": { "en": "Groups strings by length", "ru": "Группирует строки по длине" },
+          "args": [["a", "bb", "c"], { "$fn": "length" }],
+          "expected": { "1": ["a", "c"], "2": ["bb"] }
+        }
+      ]
+    },
+    {
+      "name": { "en": "Generator Range", "ru": "Диапазон через генератор" },
+      "description": {
+        "en": "This topic explores lazy iteration and sequential value production. It highlights how a range can be represented as a controlled stream instead of a hardcoded list. The task reinforces understanding of generator-like iteration flow",
+        "ru": "Эта тема посвящена ленивой итерации и последовательной выдаче значений. Она показывает, как диапазон можно представить как управляемый поток, а не как заранее подготовленный список. Задача закрепляет понимание генераторной модели обхода"
+      },
+      "instructions": {
+        "en": "Generate a sequence of numbers from start to end inclusive. The solution should model generator-style iteration, but the returned value for tests must be a regular array. Every number in the range must appear exactly once and in ascending order",
+        "ru": "Сгенерируйте последовательность чисел от start до end включительно. Решение должно моделировать генераторный подход к итерации, но для тестов должно возвращать обычный массив. Каждое число из диапазона должно появиться ровно один раз и в возрастающем порядке"
+      },
+      "difficulty": "medium",
+      "tags": [
+        { "en": "Generator", "ru": "Генераторы" },
+        { "en": "ES6", "ru": "ES6" }
+      ],
+      "functionName": "generatorRange",
+      "starterCode": "function generatorRange(start, end) {\n  // WRITE YOUR SOLUTION HERE\n}",
+      "testCases": [
+        {
+          "id": 1,
+          "description": { "en": "Creates ascending range", "ru": "Создает возрастающий диапазон" },
+          "args": [1, 4],
+          "expected": [1, 2, 3, 4]
+        },
+        {
+          "id": 2,
+          "description": {
+            "en": "Single value range",
+            "ru": "Возвращает диапазон из одного значения"
+          },
+          "args": [3, 3],
+          "expected": [3]
+        }
+      ]
+    },
+    {
+      "name": { "en": "Proxy Negative Index", "ru": "Отрицательный индекс через Proxy" },
+      "description": {
+        "en": "This task demonstrates how access behavior can be customized without changing the original array model. It focuses on translating negative indices into positions counted from the end. The topic shows a small but practical use case for Proxy-based interception",
+        "ru": "Эта задача показывает, как можно переопределить поведение доступа, не меняя саму модель массива. Она сосредоточена на переводе отрицательных индексов в позиции, отсчитываемые с конца. Тема демонстрирует небольшой, но практичный сценарий использования Proxy"
+      },
+      "instructions": {
+        "en": "Implement access to array elements by negative index. Negative indices should read values from the end of the array, while non-negative indices should behave normally. The function should simply return the resolved element value for the requested index",
+        "ru": "Реализуйте доступ к элементам массива по отрицательному индексу. Отрицательные индексы должны читать значения с конца массива, а неотрицательные должны работать стандартно. Функция должна просто возвращать элемент, соответствующий запрошенному индексу"
+      },
+      "difficulty": "medium",
+      "tags": [
+        { "en": "Proxy", "ru": "Proxy" },
+        { "en": "Array", "ru": "Массивы" }
+      ],
+      "functionName": "getWithNegativeIndex",
+      "starterCode": "function getWithNegativeIndex(array, index) {\n  // WRITE YOUR SOLUTION HERE\n}",
+      "testCases": [
+        {
+          "id": 1,
+          "description": {
+            "en": "Reads last element by -1",
+            "ru": "Читает последний элемент по индексу -1"
+          },
+          "args": [[1, 2, 3], -1],
+          "expected": 3
+        },
+        {
+          "id": 2,
+          "description": {
+            "en": "Reads regular index",
+            "ru": "Читает значение по обычному индексу"
+          },
+          "args": [[1, 2, 3], 0],
+          "expected": 1
+        }
+      ]
+    },
+    {
+      "name": { "en": "Map Frequency Counter", "ru": "Подсчет частот через Map" },
+      "description": {
+        "en": "This topic focuses on counting occurrences and building compact summaries from raw input data. It demonstrates how a keyed structure can accumulate frequencies efficiently during a single pass. The task reflects a very common preprocessing step in algorithmic problems",
+        "ru": "Эта тема посвящена подсчету повторений и построению компактной сводки по исходным данным. Она показывает, как keyed-структура может эффективно накапливать частоты за один проход. Задача отражает очень распространенный этап предварительной обработки в алгоритмических задачах"
+      },
+      "instructions": {
+        "en": "Count how many times each value appears in the input array. Return the frequencies as an object whose keys correspond to the original values. Each distinct value must appear exactly once in the result with its final count",
+        "ru": "Подсчитайте, сколько раз каждое значение встречается во входном массиве. Верните частоты в виде объекта, где ключами выступают исходные значения. Каждое уникальное значение должно появиться в результате ровно один раз вместе со своей итоговой частотой"
+      },
+      "difficulty": "easy",
+      "tags": [
+        { "en": "Map", "ru": "Map" },
+        { "en": "Counting", "ru": "Подсчет" }
+      ],
+      "functionName": "countFrequencies",
+      "starterCode": "function countFrequencies(array) {\n  // WRITE YOUR SOLUTION HERE\n}",
+      "testCases": [
+        {
+          "id": 1,
+          "description": {
+            "en": "Counts repeated values",
+            "ru": "Подсчитывает повторяющиеся значения"
+          },
+          "args": [[1, 1, 2]],
+          "expected": { "1": 2, "2": 1 }
+        },
+        {
+          "id": 2,
+          "description": { "en": "Counts strings", "ru": "Подсчитывает строки" },
+          "args": [["a", "b", "a"]],
+          "expected": { "a": 2, "b": 1 }
+        }
+      ]
+    },
+    {
+      "name": { "en": "Set Unique Merge", "ru": "Объединение уникальных значений" },
+      "description": {
+        "en": "This task is about deduplication with order preservation. It shows how two collections can be merged while keeping only the first occurrence of each value. The topic is useful when preparing normalized lists for display or further processing",
+        "ru": "Эта задача посвящена устранению дубликатов с сохранением порядка. Она показывает, как можно объединить две коллекции и оставить только первое появление каждого значения. Тема полезна при подготовке нормализованных списков для отображения или дальнейшей обработки"
+      },
+      "instructions": {
+        "en": "Merge two arrays into one array of unique values. The result should preserve the order in which each distinct value first appears across both inputs. Repeated values must not be duplicated in the final array",
+        "ru": "Объедините два массива в один массив уникальных значений. Результат должен сохранять порядок, в котором каждое уникальное значение впервые встретилось в обоих входных массивах. Повторяющиеся значения не должны дублироваться в итоговом массиве"
+      },
+      "difficulty": "easy",
+      "tags": [
+        { "en": "Set", "ru": "Set" },
+        { "en": "Array", "ru": "Массивы" }
+      ],
+      "functionName": "uniqueMerge",
+      "starterCode": "function uniqueMerge(first, second) {\n  // WRITE YOUR SOLUTION HERE\n}",
+      "testCases": [
+        {
+          "id": 1,
+          "description": {
+            "en": "Merges and removes duplicates",
+            "ru": "Объединяет массивы и удаляет дубликаты"
+          },
+          "args": [
+            [1, 2],
+            [2, 3]
+          ],
+          "expected": [1, 2, 3]
+        },
+        {
+          "id": 2,
+          "description": {
+            "en": "Preserves first seen order",
+            "ru": "Сохраняет порядок первого появления"
+          },
+          "args": [["b"], ["a", "b"]],
+          "expected": ["b", "a"]
+        }
+      ]
+    },
+    {
+      "name": { "en": "Optional Chaining Getter", "ru": "Безопасное получение значения" },
+      "description": {
+        "en": "This topic examines safe traversal of nested objects. It highlights how lookup logic can stop early when part of the path is missing instead of throwing. The task is useful for utility code that reads deeply nested configuration or API data",
+        "ru": "Эта тема рассматривает безопасный обход вложенных объектов. Она показывает, как логика поиска может завершаться раньше, если часть пути отсутствует, вместо выброса ошибки. Задача полезна для утилитарного кода, который читает глубоко вложенные конфигурации или данные API"
+      },
+      "instructions": {
+        "en": "Traverse a nested object using a path represented as an array of keys. If any intermediate segment is missing, the function should stop and return null. If the full path exists, return the resolved final value",
+        "ru": "Пройдите по вложенному объекту с использованием пути, заданного массивом ключей. Если один из промежуточных сегментов отсутствует, функция должна остановиться и вернуть null. Если весь путь существует, нужно вернуть найденное конечное значение"
+      },
+      "difficulty": "medium",
+      "tags": [
+        { "en": "Optional Chaining", "ru": "Optional chaining" },
+        { "en": "Object", "ru": "Объекты" }
+      ],
+      "functionName": "optionalGet",
+      "starterCode": "function optionalGet(value, path) {\n  // WRITE YOUR SOLUTION HERE\n}",
+      "testCases": [
+        {
+          "id": 1,
+          "description": { "en": "Reads nested value", "ru": "Читает вложенное значение" },
+          "args": [{ "user": { "profile": { "name": "Ann" } } }, ["user", "profile", "name"]],
+          "expected": "Ann"
+        },
+        {
+          "id": 2,
+          "description": {
+            "en": "Returns null for missing segment",
+            "ru": "Возвращает null при отсутствии сегмента пути"
+          },
+          "args": [{ "user": {} }, ["user", "profile", "name"]],
+          "expected": null
+        }
+      ]
+    },
+    {
+      "name": { "en": "Nullish Default", "ru": "Значение по умолчанию для nullish" },
+      "description": {
+        "en": "This task focuses on the distinction between missing values and merely falsy ones. It clarifies why nullish coalescing behaves differently from a generic logical fallback. The topic is especially important when zero, false, or an empty string are valid inputs",
+        "ru": "Эта задача посвящена различию между отсутствующим значением и просто falsy-значением. Она объясняет, почему nullish coalescing ведет себя иначе, чем обычный логический fallback. Тема особенно важна в случаях, когда ноль, false или пустая строка являются корректными входными данными"
+      },
+      "instructions": {
+        "en": "Return the fallback value only when the input is null or undefined. Other falsy values such as zero, false, or an empty string must be preserved as real values. The function should behave like a direct nullish default helper",
+        "ru": "Возвращайте запасное значение только тогда, когда входное значение равно null или undefined. Другие falsy-значения, такие как ноль, false или пустая строка, должны сохраняться как корректные значения. Функция должна вести себя как прямой helper для nullish-подстановки"
+      },
+      "difficulty": "easy",
+      "tags": [
+        { "en": "Nullish", "ru": "Nullish" },
+        { "en": "Utility", "ru": "Утилиты" }
+      ],
+      "functionName": "nullishDefault",
+      "starterCode": "function nullishDefault(value, fallback) {\n  // WRITE YOUR SOLUTION HERE\n}",
+      "testCases": [
+        {
+          "id": 1,
+          "description": {
+            "en": "Uses fallback for null",
+            "ru": "Использует запасное значение для null"
+          },
+          "args": [null, "guest"],
+          "expected": "guest"
+        },
+        {
+          "id": 2,
+          "description": {
+            "en": "Keeps zero as a real value",
+            "ru": "Сохраняет ноль как корректное значение"
+          },
+          "args": [0, 5],
+          "expected": 0
+        }
+      ]
+    },
+    {
+      "name": { "en": "Sorted Object Entries", "ru": "Сортировка пар объекта" },
+      "description": {
+        "en": "This topic is about stable object introspection and deterministic ordering. It shows how object properties can be converted into a sortable intermediate representation. The task is useful when preparing data for display, comparison, or predictable serialization",
+        "ru": "Эта тема посвящена предсказуемому чтению объекта и детерминированному порядку данных. Она показывает, как свойства объекта можно превратить в промежуточное представление, пригодное для сортировки. Задача полезна при подготовке данных к отображению, сравнению или предсказуемой сериализации"
+      },
+      "instructions": {
+        "en": "Convert an object into an array of entries and sort the result by key in ascending alphabetical order. Every own enumerable property should appear once in the output. The returned structure must be an array of `[key, value]` pairs",
+        "ru": "Преобразуйте объект в массив пар и отсортируйте результат по ключу в возрастающем алфавитном порядке. Каждое собственное перечислимое свойство должно появиться в выводе ровно один раз. Возвращаемое значение должно быть массивом пар вида `[key, value]`"
+      },
+      "difficulty": "medium",
+      "tags": [
+        { "en": "Object", "ru": "Объекты" },
+        { "en": "Sorting", "ru": "Сортировка" }
+      ],
+      "functionName": "sortedEntries",
+      "starterCode": "function sortedEntries(value) {\n  // WRITE YOUR SOLUTION HERE\n}",
+      "testCases": [
+        {
+          "id": 1,
+          "description": { "en": "Sorts string keys", "ru": "Сортирует строковые ключи" },
+          "args": [{ "b": 2, "a": 1 }],
+          "expected": [
+            ["a", 1],
+            ["b", 2]
+          ]
+        },
+        {
+          "id": 2,
+          "description": {
+            "en": "Handles more keys",
+            "ru": "Корректно обрабатывает большее число ключей"
+          },
+          "args": [{ "c": 3, "a": 1, "b": 2 }],
+          "expected": [
+            ["a", 1],
+            ["b", 2],
+            ["c", 3]
+          ]
+        }
+      ]
+    }
+  ]
+}

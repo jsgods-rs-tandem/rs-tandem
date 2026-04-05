@@ -1,10 +1,28 @@
-<app-layout>
-  <header class="categories-page__header">
-    <h1 class="h2">Challenges</h1>
-  </header>
+@let loading = challengesService.loading();
+@let categoriesValue = challengesService.categories();
 
-  <app-category-card-list
-    class="categories-page__category-card-list"
-    [categories]="challengesService.categories()"
-  />
+<app-layout [loading]="loading.categories || loading.category">
+  @if (categoriesValue.length > 0) {
+    <header class="categories-page__header">
+      <h1 class="h2">Challenges</h1>
+    </header>
+
+    <app-category-card-list
+      class="categories-page__category-card-list"
+      [categories]="challengesService.categories()"
+    />
+  } @else {
+    <app-empty
+      class="categories-page__empty"
+      heading="No&nbsp;categories available"
+      [headingLevel]="1"
+      description="We&nbsp;couldn&rsquo;t find any challenges categories at&nbsp;the moment. Try refreshing the page to&nbsp;see if&nbsp;anything has changed"
+      ><app-button
+        class="categories-page__refresh-button"
+        [isSmallButton]="true"
+        (click)="challengesService.reloadPage()"
+        >Refresh page</app-button
+      ></app-empty
+    >
+  }
 </app-layout>
