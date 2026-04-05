@@ -10,6 +10,13 @@ export type {
   UserMessageDto,
 } from './ai.js';
 export type {
+  ChallengeDifficulty,
+  ChallengeSummary,
+  ChallengeTopicSummary,
+  GetChallengesResponseDto,
+  GetChallengeCategoryResponseDto,
+} from './challenges.js';
+export type {
   QuizAnswer,
   QuizQuestion,
   QuizTopicSummary,
