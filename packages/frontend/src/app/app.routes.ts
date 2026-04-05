@@ -9,6 +9,8 @@ import {
   CategoriesPageComponent as ChallengesCategoriesPageComponent,
   CategoryPageComponent as ChallengesCategoryPageComponent,
   CodeEditorPageComponent,
+  categoryBreadcrumbResolver as challengesCategoryBreadcrumbResolver,
+  topicBreadcrumbResolver as challengesTopicBreadcrumbResolver,
 } from '@/features/challenges';
 
 import {
@@ -16,8 +18,8 @@ import {
   CategoryPageComponent as QuizCategoryPageComponent,
   QuizPageComponent,
   ResultsPageComponent,
-  categoryBreadcrumbResolver,
-  topicBreadcrumbResolver,
+  categoryBreadcrumbResolver as quizCategoryBreadcrumbResolver,
+  topicBreadcrumbResolver as quizTopicBreadcrumbResolver,
 } from '@/features/quiz';
 
 import { authGuard } from '@/core/guards';
@@ -75,7 +77,7 @@ export const routes: Routes = [
       },
       {
         path: ROUTES.challengesCategory,
-        data: { breadcrumb: 'Category' },
+        resolve: { breadcrumb: challengesCategoryBreadcrumbResolver },
         children: [
           {
             path: '',
@@ -84,7 +86,7 @@ export const routes: Routes = [
           },
           {
             path: ROUTES.challengesTopic,
-            data: { breadcrumb: 'Topic' },
+            resolve: { breadcrumb: challengesTopicBreadcrumbResolver },
             children: [
               {
                 path: '',
@@ -109,7 +111,7 @@ export const routes: Routes = [
       },
       {
         path: ROUTES.quizCategory,
-        resolve: { breadcrumb: categoryBreadcrumbResolver },
+        resolve: { breadcrumb: quizCategoryBreadcrumbResolver },
         children: [
           {
             path: '',
@@ -118,7 +120,7 @@ export const routes: Routes = [
           },
           {
             path: ROUTES.quizTopic,
-            resolve: { breadcrumb: topicBreadcrumbResolver },
+            resolve: { breadcrumb: quizTopicBreadcrumbResolver },
             children: [
               {
                 path: '',

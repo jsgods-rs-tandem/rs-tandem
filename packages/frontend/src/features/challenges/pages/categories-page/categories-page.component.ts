@@ -1,13 +1,13 @@
 import { Component, inject, type OnInit } from '@angular/core';
 
 import { LayoutComponent } from '@/pages/layout';
-import { CategoryCardListComponent } from '@/shared/ui';
+import { ButtonComponent, CategoryCardListComponent, EmptyComponent } from '@/shared/ui';
 
 import { ChallengesService } from '../../services';
 
 @Component({
   selector: 'app-categories-page',
-  imports: [CategoryCardListComponent, LayoutComponent],
+  imports: [ButtonComponent, CategoryCardListComponent, EmptyComponent, LayoutComponent],
   templateUrl: './categories-page.component.html',
   styleUrl: './categories-page.component.scss',
   standalone: true,

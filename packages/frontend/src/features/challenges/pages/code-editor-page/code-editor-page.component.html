@@ -3,8 +3,10 @@
 @let logsValue = logs();
 @let testsValue = tests();
 @let areInstructionsShownValue = areInstructionsShown();
+@let loading = challengesService.loading();
+@let isTopicSolved = canSubmitSolution();
 
-<app-layout>
+<app-layout [loading]="loading.codeEditor">
   @if (codeEditor) {
     <header>
       <h1 class="code-editor-page__heading h2">{{ codeEditor.name }}</h1>
@@ -21,7 +23,8 @@
             style="height: calc(100% - var(--spacing-x9))"
             [options]="editorOptions"
             [(ngModel)]="codeEditor.starterCode"
-            (onInit)="(onEditorInit)"
+            (ngModelChange)="onCodeChange()"
+            (onInit)="onEditorInit()"
           >
           </ngx-monaco-editor>
 
@@ -39,7 +42,7 @@
           <h2 class="h3 code-editor-page__editor-instructions-heading">Instructions</h2>
 
           <div class="text code-editor-page__editor-instructions-body">
-            {{ codeEditor.description }}
+            {{ codeEditor.instructions }}
           </div>
         </div>
       </div>
@@ -48,7 +51,7 @@
         <div class="code-editor-page__terminal-tabs" role="tablist">
           <button
             id="tab-console"
-            class="text code-editor-page__terminal-tab"
+            class="text-base-fluid code-editor-page__terminal-tab"
             [class.code-editor-page__terminal-tab_active]="terminateStateValue.isConsoleActive"
             type="button"
             role="tab"
@@ -61,7 +64,7 @@
 
           <button
             id="tab-tests"
-            class="text code-editor-page__terminal-tab"
+            class="text-base-fluid code-editor-page__terminal-tab"
             [class.code-editor-page__terminal-tab_active]="terminateStateValue.areTestsActive"
             type="button"
             role="tab"
@@ -137,12 +140,27 @@
           <app-button
             class="code-editor-page__submit-action"
             [isSmallButton]="true"
-            [disabled]="isCodeExecuting()"
-            (click)="onTestButtonClick()"
-            >Test</app-button
+            [disabled]="isTopicSolved ? challengesService.loading().solution : isCodeExecuting()"
+            (click)="isTopicSolved ? onSubmitButtonClick() : onTestButtonClick()"
+            >{{ isTopicSolved ? 'Submit' : 'Test' }}</app-button
           >
         </div>
       </div>
     </div>
+  } @else {
+    <app-empty
+      class="code-editor-page__empty"
+      heading="Challenge content not found"
+      [headingLevel]="1"
+      description="We&rsquo;re having trouble loading the challenge. Try refreshing the page or&nbsp;see all categories to&nbsp;choose another topic"
+    >
+      <div class="code-editor-page__nav-buttons">
+        <app-button [isSmallButton]="true" (click)="challengesService.reloadPage()"
+          >Refresh page</app-button
+        >
+
+        <app-button link="/challenges" [isSmallButton]="true">Back to&nbsp;categories</app-button>
+      </div>
+    </app-empty>
   }
 </app-layout>

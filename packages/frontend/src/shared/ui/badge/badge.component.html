@@ -1,7 +1,7 @@
 @let textValue = text();
 @let popoverContentValue = popoverContent();
 
-<div class="badge">
+<div class="badge badge_font-weight_{{ fontWeight() }}">
   @if (popoverContentValue) {
     <button
       [id]="id"

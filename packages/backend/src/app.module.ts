@@ -8,6 +8,7 @@ import { AuthModule } from './auth/auth.module.js';
 import { ProfilesModule } from './profiles/profiles.module.js';
 import { AiModule } from './ai/ai.module.js';
 import { QuizModule } from './quiz/quiz.module.js';
+import { ChallengesModule } from './challenges/challenges.module.js';
 import { ChatHistoryModule } from './chat-history/chat-history.module.js';
 
 @Module({
@@ -19,6 +20,7 @@ import { ChatHistoryModule } from './chat-history/chat-history.module.js';
     ProfilesModule,
     AiModule,
     QuizModule,
+    ChallengesModule,
     ChatHistoryModule,
   ],
   controllers: [AppController],

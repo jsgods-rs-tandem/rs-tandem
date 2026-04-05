@@ -1,10 +1,11 @@
-import { Component, computed, effect, inject, signal, type OnInit } from '@angular/core';
+import { Component, computed, effect, inject, input, signal, type OnInit } from '@angular/core';
 import { TitleCasePipe } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { MonacoEditorModule } from 'ngx-monaco-editor-v2';
 import { ThemeService } from '@/core/services/theme.service';
+
 import { LayoutComponent } from '@/pages/layout';
-import { ButtonComponent } from '@/shared/ui';
+import { ButtonComponent, EmptyComponent } from '@/shared/ui';
 
 import { ChallengesService } from '../../services';
 
@@ -33,7 +34,14 @@ interface MonacoInstance {
 
 @Component({
   selector: 'app-code-editor-page',
-  imports: [ButtonComponent, FormsModule, LayoutComponent, MonacoEditorModule, TitleCasePipe],
+  imports: [
+    ButtonComponent,
+    EmptyComponent,
+    FormsModule,
+    LayoutComponent,
+    MonacoEditorModule,
+    TitleCasePipe,
+  ],
   templateUrl: './code-editor-page.component.html',
   styleUrl: './code-editor-page.component.scss',
   standalone: true,
@@ -41,6 +49,8 @@ interface MonacoInstance {
 export class CodeEditorPageComponent implements OnInit {
   readonly challengesService = inject(ChallengesService);
   readonly themeService = inject(ThemeService);
+  readonly categoryId = input.required<string>();
+  readonly topicId = input.required<string>();
 
   readonly editorOptions = {
     language: 'javascript',
@@ -58,8 +68,11 @@ export class CodeEditorPageComponent implements OnInit {
   readonly logs = signal<Omit<Log, 'mode'>[]>([]);
   readonly tests = signal<TestTerminalRow[]>([]);
 
+  readonly solutions: string[] = [];
+
   readonly areInstructionsShown = signal<boolean>(true);
   readonly isCodeExecuting = signal<boolean>(false);
+  readonly canSubmitSolution = signal<boolean>(false);
 
   private readonly _activeTerminalId = signal<TerminalTabIds>(TERMINAL_TAB_IDS.console);
   private _worker: Worker | null = null;
@@ -77,19 +90,21 @@ export class CodeEditorPageComponent implements OnInit {
   constructor() {
     effect(() => {
       this.themeService.theme();
+
       queueMicrotask(() => {
-        this.applyMonacoTheme();
+        this._applyMonacoTheme();
       });
     });
   }
 
   ngOnInit() {
-    this.applyMonacoTheme();
-    this.challengesService.getCodeEditor();
+    if (this.challengesService.codeEditor()?.status === 'notStarted') {
+      this.challengesService.postTopicStatus(this.categoryId(), this.topicId(), 'inProgress');
+    }
   }
 
   onEditorInit() {
-    this.applyMonacoTheme();
+    this._applyMonacoTheme();
   }
 
   onTerminalTabButtonClick(tabId: TerminalTabIds) {
@@ -98,6 +113,12 @@ export class CodeEditorPageComponent implements OnInit {
 
   onInstructionsButtonClick() {
     this.areInstructionsShown.update((state) => !state);
+  }
+
+  onCodeChange() {
+    const code = this.challengesService.codeEditor()?.starterCode.replace(/\s/g, '') ?? '';
+
+    this.canSubmitSolution.set(this.solutions.includes(code));
   }
 
   onLogButtonClick() {
@@ -186,6 +207,20 @@ export class CodeEditorPageComponent implements OnInit {
           { kind: 'assert', type, description, expected, actual, passed },
         ]);
       }
+
+      const codeEditor = this.challengesService.codeEditor();
+      const tests = this.tests();
+
+      if (
+        codeEditor &&
+        Array.isArray(codeEditor.testCases) &&
+        codeEditor.testCases.length > 0 &&
+        codeEditor.testCases.length === tests.length &&
+        tests.every((test) => test.kind === 'assert' && test.passed)
+      ) {
+        this.solutions.push(codeEditor.starterCode.replace(/\s/g, ''));
+        this.onCodeChange();
+      }
     };
 
     this._worker.postMessage({
@@ -214,18 +249,22 @@ export class CodeEditorPageComponent implements OnInit {
     }, 3000);
   }
 
+  onSubmitButtonClick() {
+    this.challengesService.postTopicStatus(this.categoryId(), this.topicId(), 'completed');
+  }
+
   private isTestConsoleLine(data: TestCase | TestConsoleLine): data is TestConsoleLine {
     return 'value' in data && !('passed' in data);
   }
 
-  private applyMonacoTheme() {
-    const monaco = this.getMonacoInstance();
+  private _applyMonacoTheme() {
+    const monaco = this._getMonacoInstance();
     if (!monaco) {
       return;
     }
 
     const currentTheme = this.themeService.theme();
-    const secondaryColor = this.normalizeMonacoColor(
+    const secondaryColor = this._normalizeMonacoColor(
       getComputedStyle(document.documentElement).getPropertyValue('--secondary-color').trim(),
     );
 
@@ -243,7 +282,7 @@ export class CodeEditorPageComponent implements OnInit {
     monaco.editor.setTheme(MONACO_RS_THEME);
   }
 
-  private normalizeMonacoColor(color: string): string {
+  private _normalizeMonacoColor(color: string): string {
     if (MONACO_LONG_HEX_COLOR_PATTERN.test(color)) {
       return color;
     }
@@ -261,7 +300,7 @@ export class CodeEditorPageComponent implements OnInit {
     return MONACO_FALLBACK_BACKGROUND;
   }
 
-  private getMonacoInstance(): MonacoInstance | null {
+  private _getMonacoInstance(): MonacoInstance | null {
     const monaco = (window as Window & { monaco?: MonacoInstance }).monaco;
 
     return monaco ?? null;

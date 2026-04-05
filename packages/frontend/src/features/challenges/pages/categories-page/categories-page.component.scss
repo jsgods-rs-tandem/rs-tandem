@@ -17,4 +17,12 @@
   &__category-card-list {
     margin-block: var(--spacing-x10);
   }
+
+  &__empty {
+    margin: auto;
+  }
+
+  &__refresh-button {
+    margin-block-start: var(--spacing-x4);
+  }
 }
