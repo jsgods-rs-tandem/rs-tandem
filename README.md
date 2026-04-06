@@ -93,7 +93,7 @@ graph BT
 
 ## 📺 Demo Video
 
-[🔗 Demo Video - TBC](https://youtu.be/ALnNr4hQy_4) \
+[🔗 Demo Video - Checkpoint 7](https://youtu.be/ALnNr4hQy_4) \
 [🔗 Demo Video - Checkpoint 5](https://youtu.be/pV0YgJyy_Nk)
 
 ---
