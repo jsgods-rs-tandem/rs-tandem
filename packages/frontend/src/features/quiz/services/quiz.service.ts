@@ -263,6 +263,46 @@ export class QuizService {
       });
   }
 
+  resetCategories() {
+    this._state.update((state) => ({
+      ...state,
+      data: {
+        ...state.data,
+        categories: [],
+      },
+    }));
+  }
+
+  resetCategory() {
+    this._state.update((state) => ({
+      ...state,
+      data: {
+        ...state.data,
+        category: null,
+      },
+    }));
+  }
+
+  resetTopic() {
+    this._state.update((state) => ({
+      ...state,
+      data: {
+        ...state.data,
+        topic: null,
+      },
+    }));
+  }
+
+  resetResults() {
+    this._state.update((state) => ({
+      ...state,
+      data: {
+        ...state.data,
+        results: null,
+      },
+    }));
+  }
+
   private _showError(error: CustomHttpError) {
     const errorMessage = getHttpErrorMessage(error);
     const translateKey = (message: string) => this._t(marker(message as AppTranslationKey));

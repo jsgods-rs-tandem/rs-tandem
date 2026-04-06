@@ -17,6 +17,7 @@ describe('ResultsPageComponent', () => {
           provide: QuizService,
           useValue: {
             getResults: () => void 0,
+            resetResults: () => void 0,
             results: () => null,
             loading: () => ({
               categories: false,

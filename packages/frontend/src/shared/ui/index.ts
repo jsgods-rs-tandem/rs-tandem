@@ -1,11 +1,15 @@
+export { BadgeComponent } from './badge';
 export { BreadcrumbComponent } from './breadcrumb';
 export { ButtonComponent } from './button/button.component';
 export { CardComponent } from './card/card.component';
 export { CardFooterDirective } from './card/card-footer.directive';
+export { CategoryCardListComponent } from './category-card-list';
 export { EmptyComponent } from './empty';
 export { IconButtonComponent } from './icon-button/icon-button.component';
 export { IconComponent } from './icon/icon.component';
 export { LogoComponent } from './logo/logo.component';
 export { ModalComponent } from './modal/modal.component';
+export { PopoverComponent } from './popover';
+export { ProgressComponent } from './progress';
 export { SpinComponent } from './spin';
 export { TeamBoardComponent } from './team-board';

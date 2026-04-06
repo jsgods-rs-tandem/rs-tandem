@@ -1,6 +1,7 @@
 @let loading = quizService.loading();
 @let categoriesValue = quizService.categories();
 
+<!-- TODO: think on making template reusable as in Atomic Design level -->
 <app-layout [loading]="loading.categories || loading.category">
   @if (categoriesValue.length > 0) {
     <header class="categories-page__header">

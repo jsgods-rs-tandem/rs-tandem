@@ -16,6 +16,7 @@ import { getInitialLang } from '@/core/utils/i18n.utils';
 import { APP_LANGUAGES, AppLanguage } from '@/core/constants/i18n.constants';
 import { onViewTransitionCreated } from '@/core/configs/view-transitions.config';
 import { provideConsoleFilter } from '@/core/configs/console-filter.provider';
+import { provideMonacoEditor } from 'ngx-monaco-editor-v2';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -44,5 +45,6 @@ export const appConfig: ApplicationConfig = {
       },
       loader: TranslocoHttpLoader,
     }),
+    provideMonacoEditor(),
   ],
 };
