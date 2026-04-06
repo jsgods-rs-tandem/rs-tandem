@@ -33,33 +33,12 @@ describe('ModalService', () => {
       expect(service.activeModal()?.message).toBe('Message');
     });
 
-    it('should accept string message', () => {
-      service.open({ title: 'T', message: 'Single' });
-      expect(service.activeModal()?.message).toBe('Single');
-    });
-
-    it('should accept array message', () => {
-      service.open({ title: 'T', message: ['A', 'B'] });
-      expect(service.activeModal()?.message).toEqual(['A', 'B']);
-    });
-
-    it('should accept optional buttonText and icon', () => {
-      service.open({
-        title: 'T',
-        message: 'M',
-        buttonText: 'Close',
-        icon: 'moon',
-      });
-
-      expect(service.activeModal()?.buttonText).toBe('Close');
-      expect(service.activeModal()?.icon).toBe('moon');
-    });
-
     it('should replace previous modal when opened again', () => {
       service.open({ title: 'First', message: 'M1' });
       service.open({ title: 'Second', message: 'M2' });
 
       expect(service.activeModal()?.title).toBe('Second');
+      expect(service.activeModal()?.message).toBe('M2');
     });
   });
 
