@@ -10,6 +10,7 @@ import { provideHttpClient, withInterceptors } from '@angular/common/http';
 import { routes } from './app.routes';
 import { authInterceptor } from '@/core/interceptors/auth.interceptor';
 import { initializeAuth } from '@/core/initializers/auth.initializer';
+import { initializeI18n } from '@/core/initializers/i18n.initializer';
 import { TranslocoHttpLoader } from './transloco-loader';
 import { provideTransloco } from '@jsverse/transloco';
 import { getInitialLang } from '@/core/utils/i18n.utils';
@@ -36,6 +37,7 @@ export const appConfig: ApplicationConfig = {
     ),
     provideHttpClient(withInterceptors([authInterceptor])),
     provideAppInitializer(initializeAuth),
+    provideAppInitializer(initializeI18n),
     provideTransloco({
       config: {
         availableLangs: APP_LANGUAGES as unknown as AppLanguage[],
