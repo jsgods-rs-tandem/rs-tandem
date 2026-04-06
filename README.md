@@ -14,6 +14,26 @@ https://rs-tandem-production.up.railway.app
 
 ---
 
+## 🏆 Engineering Culture: What We Are Proud Of / Чем гордимся
+
+<details open>
+<summary><b>English</b></summary>
+
+In our work on the project, we focused on building a solid engineering foundation and transparent development processes. The system is built on a modular architecture using **Angular 21 and NestJS** within a monorepo, while visual consistency is ensured by a **custom-developed UI Kit**. Technical stability is maintained through a configured **CI/CD pipeline** with E2E tests in Docker and strict Git discipline (**Husky, Conventional Commits**).  
+  
+Our workflow was coordinated via **GitHub Projects**, regular sync-ups, and a Telegram chat. Active communication — with **over 10,000 messages** in Telegram — allowed us to make architectural decisions quickly and conduct meaningful code reviews. For the presentation, we suggest evaluating the project's internal organization: how automation and seamless teamwork helped us create a **complete and cohesive project** that is designed for easy and convenient future extension.
+</details>
+
+<details>
+<summary><b>Русский</b></summary>
+
+В работе над проектом мы сосредоточились на создании надежной инженерной базы и прозрачных процессах разработки. Основой системы стала модульная архитектура на **Angular 21 и NestJS** в рамках монорепозитория, а визуальное единство обеспечил специально разработанный **UI Kit**. Техническую стабильность поддерживают настроенный **CI/CD пайплайн** с E2E-тестами в Docker и строгая дисциплина работы с Git (**Husky, Conventional Commits**).  
+
+Рабочий процесс координировался через **GitHub Projects**, созвоны и общий чат. Активная коммуникация — **более 10 тысяч сообщений в Telegram** — позволила нам оперативно принимать архитектурные решения и проводить содержательные код-ревью. На презентации мы предлагаем оценить прежде всего внутреннюю организацию проекта: как автоматизация и слаженное взаимодействие позволили нам создать **завершенный и целостный проект**, который удобно и легко расширять в будущем.
+</details>
+
+---
+
 ## 👥 Team & Development Diaries
 
 | Name              | Github                                                  | Development Diary                                                                                                  |
