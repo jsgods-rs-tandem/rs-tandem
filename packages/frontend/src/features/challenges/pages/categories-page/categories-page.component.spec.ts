@@ -19,6 +19,7 @@ describe('CategoriesPageComponent', () => {
           provide: ChallengesService,
           useValue: {
             getCategories: () => void 0,
+            resetCategories: () => void 0,
             categories: () => [],
             loading: () => ({
               categories: false,

@@ -1,4 +1,4 @@
-import { Component, inject, type OnInit } from '@angular/core';
+import { Component, effect, inject, type OnInit } from '@angular/core';
 
 import { ButtonComponent, CategoryCardListComponent, EmptyComponent } from '@/shared/ui';
 import { LayoutComponent } from '@/pages/layout';
@@ -14,6 +14,14 @@ import { QuizService } from '../../services';
 })
 export class CategoriesPageComponent implements OnInit {
   readonly quizService = inject(QuizService);
+
+  constructor() {
+    effect((onCleanup) => {
+      onCleanup(() => {
+        this.quizService.resetCategories();
+      });
+    });
+  }
 
   ngOnInit(): void {
     this.quizService.getCategories();

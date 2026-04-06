@@ -82,6 +82,12 @@ export class QuizPageComponent implements OnInit {
       this.quizForm.controls.answer.disable();
       this._checkQuizCompletion();
     });
+
+    effect((onCleanup) => {
+      onCleanup(() => {
+        this.quizService.resetTopic();
+      });
+    });
   }
 
   ngOnInit(): void {

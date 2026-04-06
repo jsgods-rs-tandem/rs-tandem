@@ -1,4 +1,4 @@
-import { Component, computed, inject, input, type OnInit } from '@angular/core';
+import { Component, computed, effect, inject, input, type OnInit } from '@angular/core';
 import { DecimalPipe } from '@angular/common';
 
 import { LayoutComponent } from '@/pages/layout';
@@ -25,6 +25,14 @@ export class ResultsPageComponent implements OnInit {
   readonly topicId = input.required<string>();
 
   readonly ROUTE_PATHS = ROUTE_PATHS;
+
+  constructor() {
+    effect((onCleanup) => {
+      onCleanup(() => {
+        this.quizService.resetResults();
+      });
+    });
+  }
 
   ngOnInit(): void {
     this.quizService.getResults(this.topicId());
