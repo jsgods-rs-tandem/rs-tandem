@@ -3,6 +3,7 @@ import { provideRouter } from '@angular/router';
 
 import { CategoryPageComponent } from './category-page.component';
 import { QuizService } from '../../services';
+import { provideAppTranslocoTesting } from '@/testing/provide-transloco-testing';
 
 describe('CategoryPageComponent', () => {
   let component: CategoryPageComponent;
@@ -13,6 +14,7 @@ describe('CategoryPageComponent', () => {
       imports: [CategoryPageComponent],
       providers: [
         provideRouter([]),
+        provideAppTranslocoTesting(),
         {
           provide: QuizService,
           useValue: {

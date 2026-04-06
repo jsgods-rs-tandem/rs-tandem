@@ -7,7 +7,7 @@
     <div class="challenge-preview-card__heading-wrapper">
       <app-badge
         class="challenge-preview-card__difficulty-badge"
-        [text]="difficulty()"
+        [text]="difficultyTranslationKey() | transloco"
         fontWeight="medium"
         shape="diamond"
         [color]="badgeDifficultyColor()"
@@ -17,11 +17,19 @@
     </div>
 
     @if (inProgressValue) {
-      <app-badge class="challenge-preview-card__status-badge" text="In progress" color="info" />
+      <app-badge
+        class="challenge-preview-card__status-badge"
+        [text]="'challenges.category.previewCard.badges.inProgress' | transloco"
+        color="info"
+      />
     }
 
     @if (isCompleteValue) {
-      <app-badge class="challenge-preview-card__status-badge" text="Solved" color="success" />
+      <app-badge
+        class="challenge-preview-card__status-badge"
+        [text]="'challenges.category.previewCard.badges.done' | transloco"
+        color="success"
+      />
     }
   </header>
 
@@ -40,6 +48,8 @@
   </div>
 
   <footer class="challenge-preview-card__footer">
-    <app-button [link]="'topic/' + id()" [isSmallButton]="true">Start coding</app-button>
+    <app-button [link]="'topic/' + id()" [isSmallButton]="true">{{
+      'challenges.category.previewCard.navButton' | transloco
+    }}</app-button>
   </footer>
 </article>

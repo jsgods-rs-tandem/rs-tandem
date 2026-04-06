@@ -4,6 +4,7 @@ import {
   withInMemoryScrolling,
   withComponentInputBinding,
   withHashLocation,
+  withRouterConfig,
   withViewTransitions,
 } from '@angular/router';
 import { provideHttpClient, withInterceptors } from '@angular/common/http';
@@ -30,6 +31,9 @@ export const appConfig: ApplicationConfig = {
       }),
       withComponentInputBinding(),
       withHashLocation(),
+      withRouterConfig({
+        onSameUrlNavigation: 'reload',
+      }),
       withViewTransitions({
         skipInitialTransition: true,
         onViewTransitionCreated,

@@ -119,6 +119,13 @@
       "langEn": "Switch to English language"
     }
   },
+  "breadcrumbs": {
+    "challenges": "Challenges",
+    "quiz": "Quiz",
+    "results": "Results",
+    "category": "Category",
+    "topic": "Topic"
+  },
   "profile": {
     "title": "Profile",
     "view": {
@@ -292,7 +299,192 @@
       "server": "Server error. Please try again later."
     },
     "common": {
-      "unexpected": "Unexpected Error"
+      "unexpected": "Unexpected Error",
+      "networkTitle": "Network Error"
+    }
+  },
+  "ui": {
+    "progress": {
+      "popover": "Completed"
+    }
+  },
+  "library": {
+    "heading": "Library",
+    "features": [
+      {
+        "id": "ai",
+        "heading": "AI",
+        "description": "Practice JS/TS with an\u00A0AI tutor right inside the platform.\nAsk questions, request explanations, or\u00A0get hints for tricky topics.\nThe chat streams responses and keeps the dialogue context.\nPerfect for quick clarifications, interview prep, and focused learning sessions"
+      },
+      {
+        "id": "challenges",
+        "heading": "Challenges",
+        "description": "Solve interactive\u00A0JS and algorithmic tasks from top-tier tech interviews. Master the specific logic and data structures you'll face in\u00A0real-world technical screenings. Write code, run tests, and track your progress as\u00A0you bridge the gap between basic coding and high-level engineering"
+      },
+      {
+        "id": "quiz",
+        "heading": "Quiz",
+        "description": "Pick a\u00A0category and topic, then answer programming questions fast.\nYou have 2\u00A0minutes\u00A0— a\u00A0quick interview warm-up.\nAfter the round you get your score, feedback, and links to\u00A0reinforce learning and go\u00A0deeper.\nEarn badges and track your progress over time"
+      }
+    ],
+    "navButton": "Explore"
+  },
+  "challenges": {
+    "categories": {
+      "heading": "Challenges",
+      "startButton": "Explore topics",
+      "empty": {
+        "heading": "No\u00A0categories available",
+        "description": "We\u00A0couldn't find any challenges categories at\u00A0the moment. Try refreshing the page to\u00A0see if\u00A0anything has changed",
+        "refreshButton": "Refresh page"
+      }
+    },
+    "category": {
+      "previewCard": {
+        "badges": {
+          "inProgress": "In\u00A0progress",
+          "done": "Done"
+        },
+        "difficulty": {
+          "easy": "Easy",
+          "medium": "Medium",
+          "hard": "Hard"
+        },
+        "navButton": "Start coding"
+      },
+      "empty": {
+        "heading": "Category is\u00A0currently empty",
+        "description": "We\u00A0couldn't find any challenges in\u00A0this category right now. Try refreshing the page or\u00A0explore other categories",
+        "refreshButton": "Refresh page",
+        "backButton": "Back to\u00A0categories"
+      }
+    },
+    "codeEditor": {
+      "editor": {
+        "heading": "Code",
+        "language": "JavaScript",
+        "encoding": "UTF-8"
+      },
+      "instructions": {
+        "heading": "Instructions"
+      },
+      "terminal": {
+        "tabs": {
+          "console": "Console",
+          "tests": "Test results"
+        },
+        "expected": "expected",
+        "actual": "actual",
+        "undefined": "undefined"
+      },
+      "actions": {
+        "hideInstructions": "Hide instructions",
+        "showInstructions": "Show instructions",
+        "run": "Run",
+        "submit": "Submit",
+        "test": "Test"
+      },
+      "empty": {
+        "heading": "Challenge content not found",
+        "description": "We're having trouble loading the challenge. Try refreshing the page or see all categories to\u00A0choose another topic",
+        "refreshButton": "Refresh page",
+        "backButton": "Back to\u00A0categories"
+      }
+    },
+    "modals": {
+      "solutionCompleted": {
+        "title": "Well done!",
+        "message": "The task is complete. Try other challenges"
+      }
+    }
+  },
+  "quiz": {
+    "categories": {
+      "heading": "Quiz",
+      "empty": {
+        "heading": "No categories available",
+        "description": "We couldn't find any quiz categories at the moment. Try refreshing the page to\u00A0see if anything has changed",
+        "refreshButton": "Refresh page"
+      }
+    },
+    "category": {
+      "empty": {
+        "heading": "Category is currently empty",
+        "description": "We couldn't find any quizzes in this category right now. Try refreshing the page or\u00A0explore other categories",
+        "refreshButton": "Refresh page",
+        "backButton": "Back to\u00A0categories"
+      }
+    },
+    "topicCard": {
+      "questions": {
+        "single": "{{count}} question",
+        "multiple": "{{count}} questions"
+      },
+      "badges": {
+        "inProgress": "In progress",
+        "level": {
+          "senior": "Senior",
+          "middle": "Middle",
+          "junior": "Junior",
+          "trainee": "Trainee"
+        },
+        "popover": "90%+ Senior\n70%+ Middle\n50%+ Junior"
+      },
+      "startButton": "Start topic"
+    },
+    "quizPage": {
+      "timerLabel": "Time Left",
+      "questionLabel": "Question",
+      "questionOf": "of",
+      "actions": {
+        "seeResults": "See results",
+        "nextQuestion": "Next question",
+        "sendAnswer": "Send answer"
+      },
+      "errors": {
+        "required": "Please select an answer",
+        "requiredQuestionId": "Question id is missing",
+        "timeExpired": "Time for an answer has expired"
+      },
+      "comments": {
+        "success": {
+          "spotOn": "Spot on! Keep that momentum going!",
+          "brilliant": "Brilliant! You clearly know your stuff",
+          "niceWork": "Nice work! You're cruising through this",
+          "boom": "Boom! That's exactly right",
+          "perfect": "Perfect! You've got a sharp eye for detail",
+          "excellent": "Excellent! One step closer to mastery",
+          "correct": "Correct! You're making this look easy",
+          "greatJob": "Great job! Your logic is flawless"
+        }
+      },
+      "empty": {
+        "heading": "Quiz content not found",
+        "description": "We're having trouble loading the questions for this quiz. Try refreshing the page or see all categories to\u00A0choose another topic",
+        "refreshButton": "Refresh page",
+        "backButton": "Back to\u00A0categories"
+      }
+    },
+    "results": {
+      "title": "Results",
+      "progressLabel": "Your progress is",
+      "readingTitle": "Further reading:",
+      "heading": {
+        "senior": "Good job!\nYou're a true Senior",
+        "middle": "Well done!\nSolid Middle performance",
+        "junior": "Keep it up!\nYou're a confident Junior",
+        "trainee": "Keep going!\nTrainee stage complete"
+      },
+      "actions": {
+        "seeOtherTopics": "See other topics",
+        "reExploreTopic": "Re-explore topic"
+      },
+      "empty": {
+        "heading": "Couldn't load your score",
+        "description": "We're having trouble retrieving your results right now. Please refresh the page or try again in a moment",
+        "refreshButton": "Refresh page",
+        "backButton": "Back to\u00A0categories"
+      }
     }
   }
 }

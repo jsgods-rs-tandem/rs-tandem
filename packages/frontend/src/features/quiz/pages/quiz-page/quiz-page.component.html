@@ -19,7 +19,8 @@
         />
 
         <h2 class="h3 quiz-page__question">
-          Question {{ step + 1 | number: '2.0-0' }} of&nbsp;{{
+          {{ 'quiz.quizPage.questionLabel' | transloco }} {{ step + 1 | number: '2.0-0' }}
+          {{ 'quiz.quizPage.questionOf' | transloco }}&nbsp;{{
             topic.questionsCount | number: '2.0-0'
           }}
         </h2>
@@ -45,23 +46,25 @@
           [link]="resultsLink()"
           [loading]="loading.answer"
           [disabled]="quizForm.touched && quizForm.invalid"
-          >{{ submitButtonText() }}</app-button
+          >{{ submitButtonTextKey() | transloco }}</app-button
         >
       </form>
     </div>
   } @else {
     <app-empty
       class="quiz-page__empty"
-      heading="Quiz content not found"
+      [heading]="'quiz.quizPage.empty.heading' | transloco"
       [headingLevel]="1"
-      description="We&rsquo;re having trouble loading the questions for this quiz. Try refreshing the page or&nbsp;see all categories to&nbsp;choose another topic"
+      [description]="'quiz.quizPage.empty.description' | transloco"
     >
       <div class="quiz-page__nav-buttons">
-        <app-button [isSmallButton]="true" (click)="quizService.reloadPage()"
-          >Refresh page</app-button
-        >
+        <app-button [isSmallButton]="true" (click)="quizService.reloadPage()">{{
+          'quiz.quizPage.empty.refreshButton' | transloco
+        }}</app-button>
 
-        <app-button link="/quiz" [isSmallButton]="true">Back to&nbsp;categories</app-button>
+        <app-button link="/quiz" [isSmallButton]="true">{{
+          'quiz.quizPage.empty.backButton' | transloco
+        }}</app-button>
       </div>
     </app-empty>
   }

@@ -3,9 +3,11 @@ import { DecimalPipe } from '@angular/common';
 
 import { PopoverComponent } from '../popover/popover.component';
 
+import { TypedTranslocoPipe } from '@/shared/pipes/typed-transloco.pipe';
+
 @Component({
   selector: 'app-progress',
-  imports: [DecimalPipe, PopoverComponent],
+  imports: [DecimalPipe, PopoverComponent, TypedTranslocoPipe],
   templateUrl: './progress.component.html',
   styleUrl: './progress.component.scss',
   standalone: true,

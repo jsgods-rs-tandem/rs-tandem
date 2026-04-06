@@ -13,6 +13,8 @@ import { stringifyLog } from './code-editor-page.utilities';
 
 import { TERMINAL_TAB_IDS, type TerminalTabIds } from './code-edit-page.constants';
 
+import { TypedTranslocoPipe } from '@/shared/pipes/typed-transloco.pipe';
+
 import {
   WORKER_MODE,
   LOG_TYPE,
@@ -40,6 +42,7 @@ interface MonacoInstance {
     FormsModule,
     LayoutComponent,
     MonacoEditorModule,
+    TypedTranslocoPipe,
     TitleCasePipe,
   ],
   templateUrl: './code-editor-page.component.html',

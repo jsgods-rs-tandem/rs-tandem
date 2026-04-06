@@ -3,9 +3,11 @@ import { Component, input } from '@angular/core';
 import { ButtonComponent } from '../../../button/button.component';
 import { ProgressComponent } from '../../../progress/progress.component';
 
+import { TypedTranslocoPipe } from '@/shared/pipes/typed-transloco.pipe';
+
 @Component({
   selector: 'app-category-card',
-  imports: [ButtonComponent, ProgressComponent],
+  imports: [ButtonComponent, ProgressComponent, TypedTranslocoPipe],
   templateUrl: './category-card.component.html',
   styleUrl: './category-card.component.scss',
   standalone: true,

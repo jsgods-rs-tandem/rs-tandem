@@ -15,6 +15,7 @@ import { saveLanguage } from '@/core/utils/i18n.utils';
 import { injectActiveLang } from '@/shared/utils/translate.utilities';
 import { marker } from '@jsverse/transloco-keys-manager/marker';
 import { TypedTranslocoPipe } from '@/shared/pipes/typed-transloco.pipe';
+import { firstValueFrom } from 'rxjs';
 
 @Component({
   selector: 'app-header',
@@ -70,11 +71,13 @@ export class HeaderComponent {
     this.themeService.toggleTheme();
   }
 
-  toggleLanguage(): void {
+  async toggleLanguage(): Promise<void> {
     const newLanguage = this.isEngLanguage() ? 'ru' : 'en';
 
     this.translocoService.setActiveLang(newLanguage);
     saveLanguage(newLanguage);
+    await firstValueFrom(this.translocoService.load(newLanguage));
+    await this.router.navigateByUrl(this.router.url, { replaceUrl: true });
   }
 
   handleLogout(): void {

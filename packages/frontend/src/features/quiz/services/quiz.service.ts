@@ -7,9 +7,10 @@ import { environment } from '@/environments/environment';
 import { ModalService } from '@/core/services/modal.service';
 import { getHttpErrorMessage } from '@/shared/utils/http-error.utilities';
 import { injectTranslate } from '@/shared/utils/translate.utilities';
+import { TranslocoService } from '@jsverse/transloco';
 import { marker } from '@jsverse/transloco-keys-manager/marker';
-import type { AppTranslationKey } from '@/shared/types/translation-keys';
 
+import type { AppTranslationKey } from '@/shared/types/translation-keys';
 import type {
   GetCategoriesResponseDto,
   GetCategoryResponseDto,
@@ -25,6 +26,7 @@ import type { QuizState } from './quiz.types';
 @Injectable({ providedIn: 'root' })
 export class QuizService {
   private readonly _http = inject(HttpClient);
+  private readonly _transloco = inject(TranslocoService);
   private readonly _modalService = inject(ModalService);
   private readonly _t = injectTranslate();
 
@@ -96,7 +98,11 @@ export class QuizService {
     }));
 
     this._http
-      .get<GetCategoriesResponseDto>(`${environment.apiUrl}/quiz/categories`)
+      .get<GetCategoriesResponseDto>(`${environment.apiUrl}/quiz/categories`, {
+        headers: {
+          'Accept-Language': this._transloco.getActiveLang(),
+        },
+      })
       .pipe(
         finalize(() => {
           this._state.update((state) => ({
@@ -126,7 +132,11 @@ export class QuizService {
     }));
 
     this._http
-      .get<GetCategoryResponseDto>(`${environment.apiUrl}/quiz/categories/${id}`)
+      .get<GetCategoryResponseDto>(`${environment.apiUrl}/quiz/categories/${id}`, {
+        headers: {
+          'Accept-Language': this._transloco.getActiveLang(),
+        },
+      })
       .pipe(
         finalize(() => {
           this._state.update((state) => ({
@@ -153,7 +163,11 @@ export class QuizService {
     }));
 
     this._http
-      .get<GetTopicResponseDto>(`${environment.apiUrl}/quiz/topics/${id}`)
+      .get<GetTopicResponseDto>(`${environment.apiUrl}/quiz/topics/${id}`, {
+        headers: {
+          'Accept-Language': this._transloco.getActiveLang(),
+        },
+      })
       .pipe(
         finalize(() => {
           this._state.update((state) => ({
@@ -211,6 +225,11 @@ export class QuizService {
       .put<SubmitAnswerResponseDto>(
         `${environment.apiUrl}/quiz/topics/${topicId}/questions/${questionId}`,
         body,
+        {
+          headers: {
+            'Accept-Language': this._transloco.getActiveLang(),
+          },
+        },
       )
       .pipe(
         finalize(() => {
@@ -241,7 +260,11 @@ export class QuizService {
     }));
 
     this._http
-      .get<GetResultsResponseDto>(`${environment.apiUrl}/quiz/results/${topicId}`)
+      .get<GetResultsResponseDto>(`${environment.apiUrl}/quiz/results/${topicId}`, {
+        headers: {
+          'Accept-Language': this._transloco.getActiveLang(),
+        },
+      })
       .pipe(
         finalize(() => {
           this._state.update((state) => ({
@@ -311,7 +334,9 @@ export class QuizService {
       : translateKey(errorMessage);
 
     this._modalService.open({
-      title: `${String(error.error.statusCode || 0)} — ${error.error.error || 'Network Error'}`,
+      title: `${String(error.error.statusCode || 0)} — ${
+        error.error.error || this._t(marker('errors.common.networkTitle'))
+      }`,
       message: translatedMessage,
       icon: 'info-outline',
     });

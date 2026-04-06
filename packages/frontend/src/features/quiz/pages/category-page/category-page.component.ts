@@ -6,6 +6,8 @@ import { TopicCardListComponent } from '../../ui';
 
 import { QuizService } from '../../services';
 
+import { TypedTranslocoPipe } from '@/shared/pipes/typed-transloco.pipe';
+
 @Component({
   selector: 'app-category-page',
   imports: [
@@ -14,6 +16,7 @@ import { QuizService } from '../../services';
     LayoutComponent,
     ProgressComponent,
     TopicCardListComponent,
+    TypedTranslocoPipe,
   ],
   templateUrl: './category-page.component.html',
   styleUrl: './category-page.component.scss',

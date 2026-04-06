@@ -5,6 +5,7 @@ import { RouterTestingHarness } from '@angular/router/testing';
 import { BreadcrumbService } from './breadcrumb.service';
 
 import { SpinComponent } from '@/shared/ui/spin';
+import { provideAppTranslocoTesting } from '@/testing/provide-transloco-testing';
 
 describe('BreadcrumbService', () => {
   let service: BreadcrumbService;
@@ -12,6 +13,7 @@ describe('BreadcrumbService', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       providers: [
+        provideAppTranslocoTesting(),
         provideRouter([
           {
             path: 'quiz',

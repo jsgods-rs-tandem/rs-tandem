@@ -15,7 +15,7 @@
     <div class="code-editor-page__body">
       <div class="code-editor-page__editor">
         <div class="code-editor-page__editor-header">
-          <h2 class="h3">Code</h2>
+          <h2 class="h3">{{ 'challenges.codeEditor.editor.heading' | transloco }}</h2>
         </div>
 
         <div class="code-editor-page__editor-wrapper">
@@ -29,9 +29,13 @@
           </ngx-monaco-editor>
 
           <ul class="footer__text code-editor-page__editor-footer">
-            <li class="code-editor-page__editor-footer-item">JavaScript</li>
+            <li class="code-editor-page__editor-footer-item">
+              {{ 'challenges.codeEditor.editor.language' | transloco }}
+            </li>
 
-            <li class="code-editor-page__editor-footer-item">UTF-8</li>
+            <li class="code-editor-page__editor-footer-item">
+              {{ 'challenges.codeEditor.editor.encoding' | transloco }}
+            </li>
           </ul>
         </div>
 
@@ -39,7 +43,9 @@
           class="code-editor-page__editor-instructions"
           [class.code-editor-page__editor-instructions_shown]="areInstructionsShownValue"
         >
-          <h2 class="h3 code-editor-page__editor-instructions-heading">Instructions</h2>
+          <h2 class="h3 code-editor-page__editor-instructions-heading">
+            {{ 'challenges.codeEditor.instructions.heading' | transloco }}
+          </h2>
 
           <div class="text code-editor-page__editor-instructions-body">
             {{ codeEditor.instructions }}
@@ -59,7 +65,7 @@
             [ariaSelected]="terminateStateValue.isConsoleActive"
             (click)="onTerminalTabButtonClick('console')"
           >
-            Console
+            {{ 'challenges.codeEditor.terminal.tabs.console' | transloco }}
           </button>
 
           <button
@@ -72,7 +78,7 @@
             [ariaSelected]="terminateStateValue.areTestsActive"
             (click)="onTerminalTabButtonClick('tests')"
           >
-            Test results
+            {{ 'challenges.codeEditor.terminal.tabs.tests' | transloco }}
           </button>
         </div>
 
@@ -111,9 +117,19 @@
                     </div>
 
                     <div class="code-editor-page__console-item">
-                      <span>expected: {{ row.expected || 'undefined' }};</span>
+                      <span
+                        >{{ 'challenges.codeEditor.terminal.expected' | transloco }}:
+                        {{
+                          row.expected || ('challenges.codeEditor.terminal.undefined' | transloco)
+                        }};</span
+                      >
 
-                      <span>actual: {{ row.actual || 'undefined' }}</span>
+                      <span
+                        >{{ 'challenges.codeEditor.terminal.actual' | transloco }}:
+                        {{
+                          row.actual || ('challenges.codeEditor.terminal.undefined' | transloco)
+                        }}</span
+                      >
                     </div>
                   </div>
                 }
@@ -124,9 +140,11 @@
       </div>
 
       <div class="code-editor-page__actions">
-        <app-button [isSmallButton]="true" (click)="onInstructionsButtonClick()"
-          >{{ areInstructionsShownValue ? 'Hide' : 'Show' }} instructions</app-button
-        >
+        <app-button [isSmallButton]="true" (click)="onInstructionsButtonClick()">{{
+          areInstructionsShownValue
+            ? ('challenges.codeEditor.actions.hideInstructions' | transloco)
+            : ('challenges.codeEditor.actions.showInstructions' | transloco)
+        }}</app-button>
 
         <div class="code-editor-page__submit-actions">
           <app-button
@@ -134,7 +152,7 @@
             [isSmallButton]="true"
             [disabled]="isCodeExecuting()"
             (click)="onLogButtonClick()"
-            >Run</app-button
+            >{{ 'challenges.codeEditor.actions.run' | transloco }}</app-button
           >
 
           <app-button
@@ -142,7 +160,11 @@
             [isSmallButton]="true"
             [disabled]="isTopicSolved ? challengesService.loading().solution : isCodeExecuting()"
             (click)="isTopicSolved ? onSubmitButtonClick() : onTestButtonClick()"
-            >{{ isTopicSolved ? 'Submit' : 'Test' }}</app-button
+            >{{
+              isTopicSolved
+                ? ('challenges.codeEditor.actions.submit' | transloco)
+                : ('challenges.codeEditor.actions.test' | transloco)
+            }}</app-button
           >
         </div>
       </div>
@@ -150,16 +172,18 @@
   } @else {
     <app-empty
       class="code-editor-page__empty"
-      heading="Challenge content not found"
+      [heading]="'challenges.codeEditor.empty.heading' | transloco"
       [headingLevel]="1"
-      description="We&rsquo;re having trouble loading the challenge. Try refreshing the page or&nbsp;see all categories to&nbsp;choose another topic"
+      [description]="'challenges.codeEditor.empty.description' | transloco"
     >
       <div class="code-editor-page__nav-buttons">
-        <app-button [isSmallButton]="true" (click)="challengesService.reloadPage()"
-          >Refresh page</app-button
-        >
+        <app-button [isSmallButton]="true" (click)="challengesService.reloadPage()">{{
+          'challenges.codeEditor.empty.refreshButton' | transloco
+        }}</app-button>
 
-        <app-button link="/challenges" [isSmallButton]="true">Back to&nbsp;categories</app-button>
+        <app-button link="/challenges" [isSmallButton]="true">{{
+          'challenges.codeEditor.empty.backButton' | transloco
+        }}</app-button>
       </div>
     </app-empty>
   }

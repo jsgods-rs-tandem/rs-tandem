@@ -15,6 +15,8 @@
   </div>
 
   <footer class="category-card__footer">
-    <app-button [link]="id()" [isSmallButton]="true">Explore topics</app-button>
+    <app-button [link]="id()" [isSmallButton]="true">{{
+      'challenges.categories.startButton' | transloco
+    }}</app-button>
   </footer>
 </article>
