@@ -1,4 +1,4 @@
-import { Component, inject, input, type OnInit } from '@angular/core';
+import { Component, effect, inject, input, type OnInit } from '@angular/core';
 
 import { LayoutComponent } from '@/pages/layout';
 import { ButtonComponent, EmptyComponent, ProgressComponent } from '@/shared/ui';
@@ -23,10 +23,18 @@ export class CategoryPageComponent implements OnInit {
   readonly challengesService = inject(ChallengesService);
   readonly categoryId = input.required<string>();
 
-  ngOnInit(): void {
-    const categoryId = this.categoryId();
+  constructor() {
+    effect((onCleanup) => {
+      onCleanup(() => {
+        this.challengesService.resetCategory();
+      });
+    });
+  }
 
-    if (this.challengesService.category()?.id !== categoryId) {
+  ngOnInit(): void {
+    if (!this.challengesService.category()) {
+      const categoryId = this.categoryId();
+
       this.challengesService.getCategory(categoryId);
     }
   }

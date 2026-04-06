@@ -37,6 +37,7 @@ describe('CodeEditorPageComponent', () => {
             }),
             reloadPage: () => void 0,
             postTopicStatus: () => void 0,
+            resetCodeEditor: () => void 0,
           } as unknown as ChallengesService,
         },
       ],

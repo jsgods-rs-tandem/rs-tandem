@@ -95,6 +95,12 @@ export class CodeEditorPageComponent implements OnInit {
         this._applyMonacoTheme();
       });
     });
+
+    effect((onCleanup) => {
+      onCleanup(() => {
+        this.challengesService.resetCodeEditor();
+      });
+    });
   }
 
   ngOnInit() {

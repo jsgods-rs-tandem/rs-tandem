@@ -176,6 +176,36 @@ export class ChallengesService {
       });
   }
 
+  resetCategories() {
+    this._state.update((state) => ({
+      ...state,
+      data: {
+        ...state.data,
+        categories: [],
+      },
+    }));
+  }
+
+  resetCategory() {
+    this._state.update((state) => ({
+      ...state,
+      data: {
+        ...state.data,
+        category: null,
+      },
+    }));
+  }
+
+  resetCodeEditor() {
+    this._state.update((state) => ({
+      ...state,
+      data: {
+        ...state.data,
+        codeEditor: null,
+      },
+    }));
+  }
+
   private _showError(error: CustomHttpError) {
     const errorMessage = getHttpErrorMessage(error);
     const translateKey = (message: string) => this._t(marker(message as AppTranslationKey));
