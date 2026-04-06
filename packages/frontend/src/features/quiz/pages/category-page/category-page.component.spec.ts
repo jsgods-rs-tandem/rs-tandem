@@ -17,6 +17,7 @@ describe('CategoryPageComponent', () => {
           provide: QuizService,
           useValue: {
             getCategory: () => void 0,
+            resetCategory: () => void 0,
             category: () => null,
             loading: () => ({
               categories: false,

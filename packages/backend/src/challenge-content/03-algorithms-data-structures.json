@@ -1,0 +1,565 @@
+{
+  "category": {
+    "name": { "en": "Algorithms & Data Structures", "ru": "Алгоритмы и структуры данных" },
+    "description": {
+      "en": "Cover standard algorithmic techniques, including hash maps, binary search, stacks, queues, trees, dynamic programming, and matrix transformations. The tasks are based on common interview and training patterns",
+      "ru": "Разбор стандартных алгоритмических подходов: хеш-таблиц, бинарного поиска, стека, очереди, деревьев, динамического программирования и преобразования матриц. Задачи основаны на распространенных учебных и интервью-паттернах"
+    }
+  },
+  "topics": [
+    {
+      "name": { "en": "Two Sum", "ru": "Two Sum" },
+      "description": {
+        "en": "This task introduces one of the most recognizable hash-map problems. It focuses on turning repeated search into constant-time lookup by remembering values seen earlier. The topic is a compact example of trading extra memory for faster execution",
+        "ru": "Эта задача знакомит с одной из самых узнаваемых проблем для хеш-таблицы. Она показывает, как повторный поиск можно заменить на доступ за константное время, если запоминать уже просмотренные значения. Тема является компактным примером обмена памяти на скорость выполнения"
+      },
+      "instructions": {
+        "en": "Find two elements in the array whose sum equals the target value. Return the indices of the matching pair exactly as expected by the tests. You may assume that one valid answer exists for each input case",
+        "ru": "Найдите два элемента массива, сумма которых равна target. Верните индексы подходящей пары ровно в том формате, который ожидают тесты. Можно считать, что для каждого входного набора существует одно корректное решение"
+      },
+      "difficulty": "easy",
+      "tags": [
+        { "en": "Array", "ru": "Массивы" },
+        { "en": "Hash Map", "ru": "Хеш-таблица" }
+      ],
+      "functionName": "twoSum",
+      "starterCode": "function twoSum(nums, target) {\n  // WRITE YOUR SOLUTION HERE\n}",
+      "testCases": [
+        {
+          "id": 1,
+          "description": { "en": "Finds matching pair", "ru": "Находит подходящую пару" },
+          "args": [[2, 7, 11, 15], 9],
+          "expected": [0, 1]
+        },
+        {
+          "id": 2,
+          "description": {
+            "en": "Works with later pair",
+            "ru": "Корректно находит пару дальше по массиву"
+          },
+          "args": [[3, 2, 4], 6],
+          "expected": [1, 2]
+        }
+      ]
+    },
+    {
+      "name": { "en": "Binary Search", "ru": "Бинарный поиск" },
+      "description": {
+        "en": "This topic focuses on logarithmic search in ordered data. It demonstrates how the search interval can be halved repeatedly until the answer is found or ruled out. The task is a classic introduction to divide-and-conquer reasoning",
+        "ru": "Эта тема посвящена логарифмическому поиску в упорядоченных данных. Она показывает, как диапазон поиска можно многократно делить пополам, пока ответ не будет найден или исключен. Задача служит классическим введением в мышление в стиле divide and conquer"
+      },
+      "instructions": {
+        "en": "Search for the target in a sorted array using binary search. Return the index of the target if it exists, or `-1` if the value is absent. The implementation should work by narrowing the current search range instead of scanning linearly",
+        "ru": "Найдите target в отсортированном массиве с помощью бинарного поиска. Верните индекс найденного элемента или `-1`, если значение отсутствует. Реализация должна сужать текущий диапазон поиска, а не выполнять линейный обход"
+      },
+      "difficulty": "easy",
+      "tags": [
+        { "en": "Binary Search", "ru": "Бинарный поиск" },
+        { "en": "Array", "ru": "Массивы" }
+      ],
+      "functionName": "binarySearch",
+      "starterCode": "function binarySearch(nums, target) {\n  // WRITE YOUR SOLUTION HERE\n}",
+      "testCases": [
+        {
+          "id": 1,
+          "description": {
+            "en": "Finds an existing element",
+            "ru": "Находит существующий элемент"
+          },
+          "args": [[1, 3, 5, 7], 5],
+          "expected": 2
+        },
+        {
+          "id": 2,
+          "description": {
+            "en": "Returns -1 when missing",
+            "ru": "Возвращает -1 при отсутствии значения"
+          },
+          "args": [[1, 3, 5, 7], 4],
+          "expected": -1
+        }
+      ]
+    },
+    {
+      "name": { "en": "Valid Parentheses", "ru": "Корректная скобочная последовательность" },
+      "description": {
+        "en": "This task is about structural validation of bracketed text. It highlights the importance of both matching bracket types and preserving the correct nesting order. The topic is a standard example of stack-based state tracking",
+        "ru": "Эта задача посвящена структурной проверке строк со скобками. Она подчеркивает важность не только совпадения типов скобок, но и правильного порядка вложенности. Тема является стандартным примером отслеживания состояния с помощью стека"
+      },
+      "instructions": {
+        "en": "Determine whether the input string contains a valid bracket sequence. Opening and closing brackets must be matched by type and must appear in the correct order. If any closing bracket appears too early or mismatches the latest opening one, the result must be false",
+        "ru": "Определите, является ли входная строка корректной скобочной последовательностью. Открывающие и закрывающие скобки должны совпадать по типу и идти в правильном порядке. Если закрывающая скобка появляется слишком рано или не соответствует последней открывающей, результат должен быть false"
+      },
+      "difficulty": "easy",
+      "tags": [
+        { "en": "Stack", "ru": "Стек" },
+        { "en": "String", "ru": "Строки" }
+      ],
+      "functionName": "isValidParentheses",
+      "starterCode": "function isValidParentheses(value) {\n  // WRITE YOUR SOLUTION HERE\n}",
+      "testCases": [
+        {
+          "id": 1,
+          "description": {
+            "en": "Valid pair sequence",
+            "ru": "Корректная последовательность скобок"
+          },
+          "args": ["()[]{}"],
+          "expected": true
+        },
+        {
+          "id": 2,
+          "description": { "en": "Invalid nested order", "ru": "Некорректный порядок вложенности" },
+          "args": ["([)]"],
+          "expected": false
+        }
+      ]
+    },
+    {
+      "name": { "en": "Maximum Subarray", "ru": "Максимальная сумма подмассива" },
+      "description": {
+        "en": "This topic examines how a local choice can contribute to a global optimum. It shows that you do not need to enumerate every possible subarray to find the best sum. The task is a canonical dynamic-programming example with a compact iterative solution",
+        "ru": "Эта тема рассматривает, как локальное решение может приводить к глобальному оптимуму. Она показывает, что для поиска лучшей суммы не нужно перечислять все возможные подмассивы. Задача является каноническим примером динамического программирования с компактным итеративным решением"
+      },
+      "instructions": {
+        "en": "Find a contiguous subarray with the maximum possible sum and return only that sum. The implementation should consider every position as a potential continuation or restart point for the best running segment. The answer must reflect the best contiguous block in the input",
+        "ru": "Найдите непрерывный подмассив с максимально возможной суммой и верните только эту сумму. Реализация должна рассматривать каждую позицию как точку продолжения текущего лучшего отрезка или начала нового. Ответ должен соответствовать лучшему непрерывному фрагменту входного массива"
+      },
+      "difficulty": "medium",
+      "tags": [
+        { "en": "Dynamic Programming", "ru": "Динамическое программирование" },
+        { "en": "Array", "ru": "Массивы" }
+      ],
+      "functionName": "maxSubarray",
+      "starterCode": "function maxSubarray(nums) {\n  // WRITE YOUR SOLUTION HERE\n}",
+      "testCases": [
+        {
+          "id": 1,
+          "description": { "en": "Mixed numbers", "ru": "Смешанный набор чисел" },
+          "args": [[-2, 1, -3, 4, -1, 2, 1, -5, 4]],
+          "expected": 6
+        },
+        {
+          "id": 2,
+          "description": { "en": "Single value", "ru": "Массив из одного значения" },
+          "args": [[1]],
+          "expected": 1
+        }
+      ]
+    },
+    {
+      "name": { "en": "Valid Anagram", "ru": "Проверка анаграммы" },
+      "description": {
+        "en": "This task focuses on comparing character distributions rather than raw string order. It demonstrates how two different sequences can still encode the same multiset of symbols. The topic is a straightforward exercise in counting and normalization",
+        "ru": "Эта задача посвящена сравнению распределения символов, а не прямому порядку строк. Она показывает, как две разные последовательности могут представлять один и тот же мультимножество символов. Тема является наглядным упражнением на подсчет и нормализацию"
+      },
+      "instructions": {
+        "en": "Check whether two strings are anagrams of each other. The strings are considered anagrams if they contain the same characters with the same frequencies. If any character count differs, the function must return false",
+        "ru": "Проверьте, являются ли две строки анаграммами. Строки считаются анаграммами, если содержат одинаковые символы с одинаковой частотой. Если хотя бы одна частота отличается, функция должна вернуть false"
+      },
+      "difficulty": "easy",
+      "tags": [
+        { "en": "String", "ru": "Строки" },
+        { "en": "Counting", "ru": "Подсчет" }
+      ],
+      "functionName": "isAnagram",
+      "starterCode": "function isAnagram(first, second) {\n  // WRITE YOUR SOLUTION HERE\n}",
+      "testCases": [
+        {
+          "id": 1,
+          "description": { "en": "Anagram pair", "ru": "Пара анаграмм" },
+          "args": ["listen", "silent"],
+          "expected": true
+        },
+        {
+          "id": 2,
+          "description": { "en": "Non-anagram pair", "ru": "Пара, не являющаяся анаграммой" },
+          "args": ["rat", "car"],
+          "expected": false
+        }
+      ]
+    },
+    {
+      "name": { "en": "Merge Intervals", "ru": "Слияние интервалов" },
+      "description": {
+        "en": "This topic deals with overlapping ranges and normalized output. It shows how sorting creates a convenient order for incremental merging decisions. The task is a common example of combining greedy reasoning with interval manipulation",
+        "ru": "Эта тема посвящена пересекающимся диапазонам и нормализованному представлению результата. Она показывает, как сортировка создает удобный порядок для последовательных решений о слиянии. Задача является распространенным примером сочетания жадного подхода и работы с интервалами"
+      },
+      "instructions": {
+        "en": "Merge all overlapping intervals in the input list. Intervals that intersect or touch according to the expected rules should become one combined interval, while disjoint segments must remain separate. Return the merged intervals in their final sorted order",
+        "ru": "Объедините все пересекающиеся интервалы во входном списке. Интервалы, которые пересекаются или соприкасаются по ожидаемым правилам, должны превращаться в один общий интервал, а непересекающиеся отрезки должны оставаться отдельными. Верните итоговый набор интервалов в отсортированном порядке"
+      },
+      "difficulty": "medium",
+      "tags": [
+        { "en": "Intervals", "ru": "Интервалы" },
+        { "en": "Sorting", "ru": "Сортировка" }
+      ],
+      "functionName": "mergeIntervals",
+      "starterCode": "function mergeIntervals(intervals) {\n  // WRITE YOUR SOLUTION HERE\n}",
+      "testCases": [
+        {
+          "id": 1,
+          "description": { "en": "Merges overlaps", "ru": "Объединяет пересекающиеся интервалы" },
+          "args": [
+            [
+              [1, 3],
+              [2, 6],
+              [8, 10]
+            ]
+          ],
+          "expected": [
+            [1, 6],
+            [8, 10]
+          ]
+        },
+        {
+          "id": 2,
+          "description": {
+            "en": "Keeps disjoint intervals",
+            "ru": "Сохраняет непересекающиеся интервалы"
+          },
+          "args": [
+            [
+              [1, 2],
+              [3, 4]
+            ]
+          ],
+          "expected": [
+            [1, 2],
+            [3, 4]
+          ]
+        }
+      ]
+    },
+    {
+      "name": { "en": "Sliding Window Max Sum", "ru": "Максимальная сумма в окне" },
+      "description": {
+        "en": "This task explores fixed-size windows over sequential data. It demonstrates how a running sum can be updated incrementally instead of recomputed from scratch for every position. The topic is a compact introduction to window-based optimization",
+        "ru": "Эта задача посвящена окнам фиксированного размера над последовательными данными. Она показывает, как текущую сумму можно обновлять постепенно, а не пересчитывать с нуля для каждой позиции. Тема служит компактным введением в оптимизацию со скользящим окном"
+      },
+      "instructions": {
+        "en": "Find the maximum sum of any contiguous subarray of the given fixed size. Use the sliding-window idea by subtracting the outgoing element and adding the incoming one as the window moves. The answer must be the largest sum among all valid windows",
+        "ru": "Найдите максимальную сумму среди всех непрерывных подмассивов заданного фиксированного размера. Используйте идею скользящего окна: при сдвиге окна вычитайте уходящий элемент и добавляйте входящий. Ответом должна быть наибольшая сумма среди всех допустимых окон"
+      },
+      "difficulty": "medium",
+      "tags": [
+        { "en": "Sliding Window", "ru": "Скользящее окно" },
+        { "en": "Array", "ru": "Массивы" }
+      ],
+      "functionName": "maxWindowSum",
+      "starterCode": "function maxWindowSum(nums, size) {\n  // WRITE YOUR SOLUTION HERE\n}",
+      "testCases": [
+        {
+          "id": 1,
+          "description": { "en": "Finds max window", "ru": "Находит окно с максимальной суммой" },
+          "args": [[1, 2, 3, 4], 2],
+          "expected": 7
+        },
+        {
+          "id": 2,
+          "description": { "en": "Window equals array length", "ru": "Окно равно длине массива" },
+          "args": [[5, 1, 2], 3],
+          "expected": 8
+        }
+      ]
+    },
+    {
+      "name": { "en": "Queue Simulation", "ru": "Симуляция очереди" },
+      "description": {
+        "en": "This topic is about maintaining first-in, first-out behavior under a stream of operations. It emphasizes that data structure semantics matter as much as the raw container. The task is useful for checking whether command processing preserves the intended discipline",
+        "ru": "Эта тема посвящена поддержанию поведения first in, first out при потоке операций. Она подчеркивает, что семантика структуры данных важна не меньше, чем сам контейнер. Задача полезна для проверки того, сохраняет ли обработка команд нужную дисциплину работы"
+      },
+      "instructions": {
+        "en": "Process queue operations in the given order and return the results of all `pop` commands. The implementation must preserve FIFO behavior across the whole sequence. If a pop is requested from an empty queue, return `null` for that operation",
+        "ru": "Обработайте операции очереди в заданном порядке и верните результаты всех команд `pop`. Реализация должна сохранять FIFO-поведение на всей последовательности операций. Если `pop` вызывается для пустой очереди, для этой операции нужно вернуть `null`"
+      },
+      "difficulty": "medium",
+      "tags": [
+        { "en": "Queue", "ru": "Очередь" },
+        { "en": "Stack", "ru": "Стек" }
+      ],
+      "functionName": "simulateQueue",
+      "starterCode": "function simulateQueue(operations) {\n  // WRITE YOUR SOLUTION HERE\n}",
+      "testCases": [
+        {
+          "id": 1,
+          "description": { "en": "Processes FIFO operations", "ru": "Обрабатывает операции FIFO" },
+          "args": [[["push", 1], ["push", 2], ["pop"], ["pop"]]],
+          "expected": [1, 2]
+        },
+        {
+          "id": 2,
+          "description": {
+            "en": "Handles empty pop safely",
+            "ru": "Безопасно обрабатывает pop для пустой очереди"
+          },
+          "args": [[["pop"]]],
+          "expected": [null]
+        }
+      ]
+    },
+    {
+      "name": { "en": "Max Tree Depth", "ru": "Максимальная глубина дерева" },
+      "description": {
+        "en": "This task explores recursive reasoning on hierarchical data. It shows how the answer for a tree can be expressed through answers for its subtrees. The topic is a foundational exercise for working with binary-tree structure",
+        "ru": "Эта задача посвящена рекурсивному рассуждению на иерархических данных. Она показывает, как ответ для дерева можно выразить через ответы для его поддеревьев. Тема является базовым упражнением для работы со структурой бинарного дерева"
+      },
+      "instructions": {
+        "en": "Compute the maximum depth of a binary tree. The depth is the number of levels from the root to the deepest reachable node. For an empty tree, return the base value expected by the tests",
+        "ru": "Вычислите максимальную глубину бинарного дерева. Глубина определяется как количество уровней от корня до самого глубокого достижимого узла. Для пустого дерева верните базовое значение, которое ожидают тесты"
+      },
+      "difficulty": "medium",
+      "tags": [
+        { "en": "Tree", "ru": "Деревья" },
+        { "en": "Recursion", "ru": "Рекурсия" }
+      ],
+      "functionName": "maxTreeDepth",
+      "starterCode": "function maxTreeDepth(node) {\n  // WRITE YOUR SOLUTION HERE\n}",
+      "testCases": [
+        {
+          "id": 1,
+          "description": { "en": "Balanced tree depth", "ru": "Глубина сбалансированного дерева" },
+          "args": [{ "value": 1, "left": { "value": 2 }, "right": { "value": 3 } }],
+          "expected": 2
+        },
+        {
+          "id": 2,
+          "description": { "en": "Skewed tree depth", "ru": "Глубина несбалансированного дерева" },
+          "args": [{ "value": 1, "left": { "value": 2, "left": { "value": 3 } } }],
+          "expected": 3
+        }
+      ]
+    },
+    {
+      "name": { "en": "Binary Tree Levels", "ru": "Обход дерева по уровням" },
+      "description": {
+        "en": "This topic focuses on breadth-first traversal. It demonstrates how nodes can be processed layer by layer instead of descending one branch to the end. The task is a clear example of queue-based traversal over tree structure",
+        "ru": "Эта тема посвящена обходу в ширину. Она показывает, как узлы можно обрабатывать по слоям, а не углубляться по одной ветке до конца. Задача является наглядным примером queue-based обхода структуры дерева"
+      },
+      "instructions": {
+        "en": "Traverse a binary tree level by level and return the node values grouped by depth. An empty tree should produce an empty array. Values that belong to the same depth must appear together in the order they are visited from left to right",
+        "ru": "Выполните обход бинарного дерева по уровням и верните значения узлов, сгруппированные по глубине. Для пустого дерева должен возвращаться пустой массив. Значения одного уровня должны идти вместе в порядке обхода слева направо"
+      },
+      "difficulty": "medium",
+      "tags": [
+        { "en": "Tree", "ru": "Деревья" },
+        { "en": "BFS", "ru": "BFS" }
+      ],
+      "functionName": "treeLevels",
+      "starterCode": "function treeLevels(node) {\n  // WRITE YOUR SOLUTION HERE\n}",
+      "testCases": [
+        {
+          "id": 1,
+          "description": {
+            "en": "Traverses tree by level",
+            "ru": "Выполняет обход дерева по уровням"
+          },
+          "args": [{ "value": 1, "left": { "value": 2 }, "right": { "value": 3 } }],
+          "expected": [[1], [2, 3]]
+        },
+        {
+          "id": 2,
+          "description": {
+            "en": "Empty tree returns empty list",
+            "ru": "Для пустого дерева возвращает пустой список"
+          },
+          "args": [null],
+          "expected": []
+        }
+      ]
+    },
+    {
+      "name": { "en": "Longest Unique Substring", "ru": "Самая длинная подстрока без повторений" },
+      "description": {
+        "en": "This task examines dynamic windows over strings with repeated symbols. It shows how the valid segment must move forward as soon as a duplicate character appears. The topic is a classic example of combining indexing with sliding-window logic",
+        "ru": "Эта задача рассматривает динамические окна в строках с повторяющимися символами. Она показывает, как допустимый отрезок должен сдвигаться вперед сразу после появления дубликата. Тема является классическим примером сочетания индексации и логики скользящего окна"
+      },
+      "instructions": {
+        "en": "Return the length of the longest substring that contains only unique characters. Repeated characters should force the left boundary of the current valid window to move. The final answer must be the largest valid window size encountered during the scan",
+        "ru": "Верните длину самой длинной подстроки, в которой все символы уникальны. Повторяющиеся символы должны заставлять левую границу текущего допустимого окна смещаться вперед. Итоговый ответ должен быть равен максимальному размеру корректного окна, найденному во время прохода"
+      },
+      "difficulty": "medium",
+      "tags": [
+        { "en": "Sliding Window", "ru": "Скользящее окно" },
+        { "en": "String", "ru": "Строки" }
+      ],
+      "functionName": "longestUniqueSubstring",
+      "starterCode": "function longestUniqueSubstring(value) {\n  // WRITE YOUR SOLUTION HERE\n}",
+      "testCases": [
+        {
+          "id": 1,
+          "description": {
+            "en": "Typical repeated string",
+            "ru": "Типичная строка с повторениями"
+          },
+          "args": ["abcabcbb"],
+          "expected": 3
+        },
+        {
+          "id": 2,
+          "description": {
+            "en": "All repeated same char",
+            "ru": "Строка из одного повторяющегося символа"
+          },
+          "args": ["bbbbb"],
+          "expected": 1
+        }
+      ]
+    },
+    {
+      "name": { "en": "Climbing Stairs", "ru": "Подъем по лестнице" },
+      "description": {
+        "en": "This topic turns a simple story problem into a recurrence relation. It demonstrates how the number of ways to reach one step depends on smaller solved subproblems. The task is a gentle introduction to dynamic programming and Fibonacci-like growth",
+        "ru": "Эта тема превращает простую сюжетную задачу в рекуррентное соотношение. Она показывает, как число способов попасть на очередную ступень зависит от уже решенных меньших подзадач. Задача служит мягким введением в динамическое программирование и рост по типу чисел Фибоначчи"
+      },
+      "instructions": {
+        "en": "Count the number of distinct ways to reach the top when you can climb either one or two steps at a time. Each route should be treated as a different valid sequence of moves. Return only the total number of such sequences",
+        "ru": "Подсчитайте количество различных способов добраться до вершины, если за один ход можно подняться на одну или две ступени. Каждый маршрут должен рассматриваться как отдельная допустимая последовательность ходов. Верните только общее число таких последовательностей"
+      },
+      "difficulty": "easy",
+      "tags": [{ "en": "Dynamic Programming", "ru": "Динамическое программирование" }],
+      "functionName": "climbStairs",
+      "starterCode": "function climbStairs(steps) {\n  // WRITE YOUR SOLUTION HERE\n}",
+      "testCases": [
+        {
+          "id": 1,
+          "description": { "en": "Three steps", "ru": "Три ступени" },
+          "args": [3],
+          "expected": 3
+        },
+        {
+          "id": 2,
+          "description": { "en": "Five steps", "ru": "Пять ступеней" },
+          "args": [5],
+          "expected": 8
+        }
+      ]
+    },
+    {
+      "name": { "en": "Coin Change", "ru": "Размен монет" },
+      "description": {
+        "en": "This task focuses on optimal composition under constrained choices. It shows how local greedy decisions are not always enough when several coin combinations are possible. The topic is a standard dynamic-programming problem about minimum cost construction",
+        "ru": "Эта задача посвящена оптимальному составлению суммы при ограниченном наборе вариантов. Она показывает, что локально жадные решения не всегда достаточны, когда возможны разные комбинации монет. Тема является стандартной задачей динамического программирования на построение с минимальной стоимостью"
+      },
+      "instructions": {
+        "en": "Find the minimum number of coins needed to make the target amount. If the amount cannot be composed from the available coins, return `-1`. The result must reflect the smallest possible count, not just any valid combination",
+        "ru": "Найдите минимальное количество монет, необходимое для составления заданной суммы. Если собрать сумму из доступных монет невозможно, верните `-1`. Результат должен отражать именно минимально возможное число монет, а не любую допустимую комбинацию"
+      },
+      "difficulty": "hard",
+      "tags": [
+        { "en": "Dynamic Programming", "ru": "Динамическое программирование" },
+        { "en": "Array", "ru": "Массивы" }
+      ],
+      "functionName": "coinChange",
+      "starterCode": "function coinChange(coins, amount) {\n  // WRITE YOUR SOLUTION HERE\n}",
+      "testCases": [
+        {
+          "id": 1,
+          "description": {
+            "en": "Uses optimal combination",
+            "ru": "Использует оптимальную комбинацию"
+          },
+          "args": [[1, 2, 5], 11],
+          "expected": 3
+        },
+        {
+          "id": 2,
+          "description": {
+            "en": "Impossible amount returns -1",
+            "ru": "Возвращает -1, если сумму собрать невозможно"
+          },
+          "args": [[2], 3],
+          "expected": -1
+        }
+      ]
+    },
+    {
+      "name": { "en": "Top K Frequent Elements", "ru": "Наиболее частые элементы" },
+      "description": {
+        "en": "This topic combines counting with ranking. It demonstrates how raw occurrence data can be turned into a shortlist of the most significant values. The task is useful for practicing intermediate aggregation and selection logic",
+        "ru": "Эта тема объединяет подсчет и ранжирование. Она показывает, как данные о частотах можно превратить в короткий список наиболее значимых значений. Задача полезна для тренировки промежуточной агрегации и логики отбора"
+      },
+      "instructions": {
+        "en": "Return the `k` values that occur most frequently in the array. The result should contain the most frequent elements according to the input counts and match the test expectations for ordering. Start by counting occurrences, then select the top group",
+        "ru": "Верните `k` значений, которые встречаются в массиве чаще всего. Результат должен содержать элементы с наибольшей частотой появления и соответствовать ожиданиям тестов по порядку. Сначала подсчитайте частоты, а затем выберите верхнюю группу"
+      },
+      "difficulty": "medium",
+      "tags": [
+        { "en": "Heap", "ru": "Куча" },
+        { "en": "Hash Map", "ru": "Хеш-таблица" }
+      ],
+      "functionName": "topKFrequent",
+      "starterCode": "function topKFrequent(nums, count) {\n  // WRITE YOUR SOLUTION HERE\n}",
+      "testCases": [
+        {
+          "id": 1,
+          "description": {
+            "en": "Finds most frequent single value",
+            "ru": "Находит одно наиболее частое значение"
+          },
+          "args": [[1, 1, 1, 2, 2, 3], 1],
+          "expected": [1]
+        },
+        {
+          "id": 2,
+          "description": {
+            "en": "Finds two frequent values",
+            "ru": "Находит два наиболее частых значения"
+          },
+          "args": [[1, 1, 2, 2, 3], 2],
+          "expected": [1, 2]
+        }
+      ]
+    },
+    {
+      "name": { "en": "Rotate Matrix", "ru": "Поворот матрицы" },
+      "description": {
+        "en": "This task focuses on two-dimensional coordinate transformation. It highlights how rows and columns change roles during a clockwise rotation. The topic is useful for practicing index mapping in square matrices",
+        "ru": "Эта задача посвящена преобразованию двумерных координат. Она показывает, как строки и столбцы меняются ролями при повороте по часовой стрелке. Тема полезна для тренировки отображения индексов в квадратных матрицах"
+      },
+      "instructions": {
+        "en": "Rotate a square matrix 90 degrees clockwise. The relative positions of all elements must match the standard result of that rotation. Return the rotated matrix in the same nested-array structure as the input",
+        "ru": "Поверните квадратную матрицу на 90 градусов по часовой стрелке. Итоговое расположение всех элементов должно соответствовать стандартному результату такого поворота. Верните повернутую матрицу в той же структуре вложенных массивов, что и на входе"
+      },
+      "difficulty": "hard",
+      "tags": [
+        { "en": "Matrix", "ru": "Матрицы" },
+        { "en": "Array", "ru": "Массивы" }
+      ],
+      "functionName": "rotateMatrix",
+      "starterCode": "function rotateMatrix(matrix) {\n  // WRITE YOUR SOLUTION HERE\n}",
+      "testCases": [
+        {
+          "id": 1,
+          "description": { "en": "Rotates 2x2 matrix", "ru": "Поворачивает матрицу 2x2" },
+          "args": [
+            [
+              [1, 2],
+              [3, 4]
+            ]
+          ],
+          "expected": [
+            [3, 1],
+            [4, 2]
+          ]
+        },
+        {
+          "id": 2,
+          "description": { "en": "Rotates 3x3 matrix", "ru": "Поворачивает матрицу 3x3" },
+          "args": [
+            [
+              [1, 2, 3],
+              [4, 5, 6],
+              [7, 8, 9]
+            ]
+          ],
+          "expected": [
+            [7, 4, 1],
+            [8, 5, 2],
+            [9, 6, 3]
+          ]
+        }
+      ]
+    }
+  ]
+}

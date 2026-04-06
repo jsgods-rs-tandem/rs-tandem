@@ -1,0 +1,116 @@
+:host {
+  display: flex;
+}
+
+.badge {
+  display: flex;
+  font-family: var(--font-main);
+
+  &_font-weight {
+    &_normal {
+      font-weight: var(--fw-regular);
+    }
+
+    &_medium {
+      font-weight: var(--fw-medium);
+    }
+  }
+
+  &__inner {
+    display: flex;
+    align-items: center;
+
+    padding: var(--spacing-x1) var(--spacing-x2);
+
+    font-weight: inherit;
+    color: var(--secondary-color);
+    text-transform: capitalize;
+
+    background-color: var(--bg-color);
+
+    &_color {
+      &_success {
+        --bg-color: var(--success-color);
+        color: var(--primary-color);
+      }
+
+      &_error {
+        --bg-color: var(--error-color);
+        color: var(--primary-color);
+      }
+
+      &_info {
+        --bg-color: var(--in-progress-color);
+      }
+
+      &_gold {
+        --bg-color: var(--senior-color);
+      }
+
+      &_silver {
+        --bg-color: var(--middle-color);
+      }
+
+      &_bronze {
+        --bg-color: var(--junior-color);
+      }
+
+      &_pink {
+        --bg-color: var(--trainee-color);
+      }
+    }
+
+    &_shape {
+      &_rectangle {
+        border-radius: var(--radius-sm);
+      }
+
+      &_diamond {
+        position: relative;
+        min-height: 32px;
+        background-color: var(--bg-color);
+
+        &::before {
+          content: '';
+
+          position: absolute;
+          inset-inline-start: calc(-1 * var(--spacing-x2));
+
+          width: 0;
+          height: 0;
+          border-block-start: var(--spacing-x4) solid transparent;
+          border-block-end: var(--spacing-x4) solid transparent;
+          border-inline-end: var(--spacing-x2) solid var(--bg-color);
+        }
+
+        &::after {
+          content: '';
+
+          position: absolute;
+          inset-block-start: 0;
+          inset-inline-end: calc(-1 * var(--spacing-x2));
+
+          width: 0;
+          border-block-start: var(--spacing-x4) solid transparent;
+          border-block-end: var(--spacing-x4) solid transparent;
+          border-inline-start: var(--spacing-x2) solid var(--bg-color);
+        }
+      }
+    }
+
+    &_button {
+      font-family: inherit;
+      font-weight: inherit;
+
+      &:focus {
+        outline: none;
+      }
+
+      &:focus-visible {
+        border-radius: var(--radius-sm);
+        outline: var(--button-border);
+        outline-offset: 2px;
+      }
+    }
+  }
+}

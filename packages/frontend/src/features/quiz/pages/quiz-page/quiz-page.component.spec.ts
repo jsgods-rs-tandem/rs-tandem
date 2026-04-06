@@ -20,6 +20,7 @@ describe('QuizPageComponent', () => {
             startTopic: () => void 0,
             answerQuestion: () => void 0,
             setNextStep: () => void 0,
+            resetTopic: () => void 0,
             topic: () => null,
             currentQuestion: () => null,
             step: () => 0,

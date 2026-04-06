@@ -39,6 +39,9 @@ COPY packages/backend/src/migrations ./packages/backend/src/migrations
 # Quiz content JSON files (read at runtime by seed-content script)
 COPY packages/backend/src/quiz-content ./packages/backend/src/quiz-content
 
+# Challenges content JSON files (read at runtime by seed-challenges script)
+COPY packages/backend/src/challenge-content ./packages/backend/src/challenge-content
+
 # Shared TS source (needed for workspace symlink resolution; types are erased at runtime)
 COPY packages/shared/src ./packages/shared/src
 
@@ -46,5 +49,5 @@ ENV NODE_ENV=production
 
 EXPOSE 3000
 
-# Run migrations then start the server
-CMD sh -c "npm run migrate:up -w @rs-tandem/backend && QUIZ_CONTENT_DIR=/app/packages/backend/src/quiz-content node packages/backend/dist/backend/src/scripts/seed-content.js && exec node packages/backend/dist/backend/src/main.js"
+# Run migrations, seed content, then start the server
+CMD sh -c "npm run migrate:up -w @rs-tandem/backend && QUIZ_CONTENT_DIR=/app/packages/backend/src/quiz-content node packages/backend/dist/backend/src/scripts/seed-content.js && CHALLENGE_CONTENT_DIR=/app/packages/backend/src/challenge-content node packages/backend/dist/backend/src/scripts/seed-challenges.js && exec node packages/backend/dist/backend/src/main.js"

@@ -6,6 +6,9 @@ export const ROUTES = {
   library: 'library',
   aiChat: 'ai-chat',
   settings: 'settings',
+  challenges: 'challenges',
+  challengesCategory: ':categoryId',
+  challengesTopic: 'topic/:topicId',
   quiz: 'quiz',
   quizCategory: ':categoryId',
   quizTopic: 'topic/:topicId',
@@ -22,6 +25,7 @@ export const ROUTE_PATHS = {
   library: `/${ROUTES.library}`,
   aiChat: `/${ROUTES.aiChat}`,
   settings: `/${ROUTES.settings}`,
+  challenges: `/${ROUTES.challenges}`,
   quiz: `/${ROUTES.quiz}`,
   notFound: `/${ROUTES.notFound}`,
 } as const;

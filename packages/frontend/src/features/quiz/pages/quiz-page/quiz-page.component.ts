@@ -4,8 +4,8 @@ import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angula
 
 import { ShufflePipe } from '@/shared/pipes';
 
+import { LayoutComponent } from '@/pages/layout';
 import { ButtonComponent, EmptyComponent } from '@/shared/ui';
-import { LayoutComponent } from '../layout';
 import {
   AnswerTileGroupComponent,
   CountdownTimerComponent,
@@ -81,6 +81,12 @@ export class QuizPageComponent implements OnInit {
 
       this.quizForm.controls.answer.disable();
       this._checkQuizCompletion();
+    });
+
+    effect((onCleanup) => {
+      onCleanup(() => {
+        this.quizService.resetTopic();
+      });
     });
   }
 

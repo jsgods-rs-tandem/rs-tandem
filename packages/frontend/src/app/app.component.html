@@ -17,6 +17,7 @@
   <app-modal
     [title]="config.title"
     [message]="config.message"
+    [icon]="config.icon ?? 'info-outline'"
     [buttonText]="config.buttonText ?? 'OK'"
     (closed)="modalService.close()"
   />

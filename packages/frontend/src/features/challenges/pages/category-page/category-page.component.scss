@@ -1,0 +1,47 @@
+@use 'assets/styles/mixins' as mix;
+
+:host {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.category-page {
+  &__header {
+    display: flex;
+    gap: var(--spacing-x4);
+    align-items: end;
+    justify-content: space-between;
+
+    @include mix.media('s') {
+      flex-direction: column;
+      align-items: start;
+    }
+  }
+
+  &__progress {
+    width: 100%;
+    max-width: 300px;
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-x5);
+    margin-block-start: var(--spacing-x10);
+  }
+
+  &__empty {
+    margin: auto;
+  }
+
+  &__nav-buttons {
+    display: flex;
+    gap: var(--spacing-x4);
+    margin-block-start: var(--spacing-x4);
+
+    @include mix.media('s') {
+      flex-direction: column;
+    }
+  }
+}

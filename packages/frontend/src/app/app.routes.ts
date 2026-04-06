@@ -6,12 +6,20 @@ import { LibraryComponent } from '@/pages/library';
 import { ROUTES } from '@/core/constants';
 
 import {
-  CategoriesPageComponent,
-  CategoryPageComponent,
+  CategoriesPageComponent as ChallengesCategoriesPageComponent,
+  CategoryPageComponent as ChallengesCategoryPageComponent,
+  CodeEditorPageComponent,
+  categoryBreadcrumbResolver as challengesCategoryBreadcrumbResolver,
+  topicBreadcrumbResolver as challengesTopicBreadcrumbResolver,
+} from '@/features/challenges';
+
+import {
+  CategoriesPageComponent as QuizCategoriesPageComponent,
+  CategoryPageComponent as QuizCategoryPageComponent,
   QuizPageComponent,
   ResultsPageComponent,
-  categoryBreadcrumbResolver,
-  topicBreadcrumbResolver,
+  categoryBreadcrumbResolver as quizCategoryBreadcrumbResolver,
+  topicBreadcrumbResolver as quizTopicBreadcrumbResolver,
 } from '@/features/quiz';
 
 import { authGuard } from '@/core/guards';
@@ -58,6 +66,40 @@ export const routes: Routes = [
     data: { layout: { mode: 'logout', sidebar: true, auth: true } },
   },
   {
+    path: ROUTES.challenges,
+    data: { layout: { mode: 'logout', sidebar: true, auth: true }, breadcrumb: 'Challenges' },
+    canActivate: [authGuard],
+    children: [
+      {
+        path: '',
+        data: { breadcrumb: null },
+        component: ChallengesCategoriesPageComponent,
+      },
+      {
+        path: ROUTES.challengesCategory,
+        resolve: { breadcrumb: challengesCategoryBreadcrumbResolver },
+        children: [
+          {
+            path: '',
+            data: { breadcrumb: null },
+            component: ChallengesCategoryPageComponent,
+          },
+          {
+            path: ROUTES.challengesTopic,
+            resolve: { breadcrumb: challengesTopicBreadcrumbResolver },
+            children: [
+              {
+                path: '',
+                data: { breadcrumb: null },
+                component: CodeEditorPageComponent,
+              },
+            ],
+          },
+        ],
+      },
+    ],
+  },
+  {
     path: ROUTES.quiz,
     data: { layout: { mode: 'logout', sidebar: true, auth: true }, breadcrumb: 'Quiz' },
     canActivate: [authGuard],
@@ -65,20 +107,20 @@ export const routes: Routes = [
       {
         path: '',
         data: { breadcrumb: null },
-        component: CategoriesPageComponent,
+        component: QuizCategoriesPageComponent,
       },
       {
         path: ROUTES.quizCategory,
-        resolve: { breadcrumb: categoryBreadcrumbResolver },
+        resolve: { breadcrumb: quizCategoryBreadcrumbResolver },
         children: [
           {
             path: '',
             data: { breadcrumb: null },
-            component: CategoryPageComponent,
+            component: QuizCategoryPageComponent,
           },
           {
             path: ROUTES.quizTopic,
-            resolve: { breadcrumb: topicBreadcrumbResolver },
+            resolve: { breadcrumb: quizTopicBreadcrumbResolver },
             children: [
               {
                 path: '',
