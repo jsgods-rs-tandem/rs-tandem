@@ -2,6 +2,7 @@ import { Injectable, computed, inject, signal } from '@angular/core';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { finalize } from 'rxjs';
+import { TranslocoService } from '@jsverse/transloco';
 import { marker } from '@jsverse/transloco-keys-manager/marker';
 
 import { environment } from '@/environments/environment';
@@ -26,6 +27,7 @@ import type { State } from './challenges.types';
 @Injectable({ providedIn: 'root' })
 export class ChallengesService {
   private readonly _http = inject(HttpClient);
+  private readonly _transloco = inject(TranslocoService);
   private readonly _modalService = inject(ModalService);
   private readonly _router = inject(Router);
   private readonly _t = injectTranslate();
@@ -62,7 +64,11 @@ export class ChallengesService {
     }));
 
     this._http
-      .get<GetChallengeCategoriesResponseDto>(`${environment.apiUrl}/challenges/categories`)
+      .get<GetChallengeCategoriesResponseDto>(`${environment.apiUrl}/challenges/categories`, {
+        headers: {
+          'Accept-Language': this._transloco.getActiveLang(),
+        },
+      })
       .pipe(
         finalize(() => {
           this._state.update((state) => ({
@@ -92,7 +98,11 @@ export class ChallengesService {
     }));
 
     this._http
-      .get<GetChallengeCategoryResponseDto>(`${environment.apiUrl}/challenges/categories/${id}`)
+      .get<GetChallengeCategoryResponseDto>(`${environment.apiUrl}/challenges/categories/${id}`, {
+        headers: {
+          'Accept-Language': this._transloco.getActiveLang(),
+        },
+      })
       .pipe(
         finalize(() => {
           this._state.update((state) => ({
@@ -119,7 +129,11 @@ export class ChallengesService {
     }));
 
     this._http
-      .get<GetChallengeTopicResponseDto>(`${environment.apiUrl}/challenges/topics/${id}`)
+      .get<GetChallengeTopicResponseDto>(`${environment.apiUrl}/challenges/topics/${id}`, {
+        headers: {
+          'Accept-Language': this._transloco.getActiveLang(),
+        },
+      })
       .pipe(
         finalize(() => {
           this._state.update((state) => ({
@@ -161,8 +175,8 @@ export class ChallengesService {
         next: () => {
           if (status === 'completed') {
             this._modalService.open({
-              title: 'Well done!',
-              message: 'The task is complete. Try other challenges',
+              title: this._t(marker('challenges.modals.solutionCompleted.title')),
+              message: this._t(marker('challenges.modals.solutionCompleted.message')),
               icon: 'check-circle',
               onClose: () => {
                 void this._router.navigate([`${ROUTE_PATHS.challenges}/${categoryId}`]);
@@ -214,7 +228,9 @@ export class ChallengesService {
       : translateKey(errorMessage);
 
     this._modalService.open({
-      title: `${String(error.error.statusCode || 0)} — ${error.error.error || 'Network Error'}`,
+      title: `${String(error.error.statusCode || 0)} — ${
+        error.error.error || this._t(marker('errors.common.networkTitle'))
+      }`,
       message: translatedMessage,
     });
   }

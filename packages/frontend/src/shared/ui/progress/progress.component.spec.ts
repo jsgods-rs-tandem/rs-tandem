@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ProgressComponent } from './progress.component';
+import { provideAppTranslocoTesting } from '@/testing/provide-transloco-testing';
 
 describe('ProgressComponent', () => {
   let component: ProgressComponent;
@@ -9,6 +10,7 @@ describe('ProgressComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [ProgressComponent],
+      providers: [provideAppTranslocoTesting()],
     }).compileComponents();
 
     fixture = TestBed.createComponent(ProgressComponent);

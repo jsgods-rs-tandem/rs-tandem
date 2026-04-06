@@ -21,7 +21,7 @@
 
   <app-popover [id]="anchorId" [anchorId]="id">
     <p>
-      Completed: <span>{{ now | number: '2.0-0' }}</span> /
+      {{ 'ui.progress.popover' | transloco }}: <span>{{ now | number: '2.0-0' }}</span> /
       <span>{{ max | number: '2.0-0' }}</span>
     </p>
   </app-popover>

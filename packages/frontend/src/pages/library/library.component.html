@@ -1,8 +1,10 @@
+@let featuresList = features();
+
 <section class="library">
-  <h1 class="h2">Library</h1>
+  <h1 class="h2">{{ 'library.heading' | transloco }}</h1>
 
   <ul class="library__list">
-    @for (feature of features; track $index) {
+    @for (feature of featuresList; track $index) {
       <li class="library__list-item">
         <app-card [title]="feature.heading" footerPosition="end"
           >{{ feature.description }}
@@ -12,7 +14,7 @@
             [link]="feature.href"
             [isSmallButton]="true"
             appCardFooter
-            >Explore</app-button
+            >{{ 'library.navButton' | transloco }}</app-button
           >
         </app-card>
       </li>

@@ -2,6 +2,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { provideRouter } from '@angular/router';
 
 import { CategoryCardListComponent } from './category-card-list.component';
+import { provideAppTranslocoTesting } from '@/testing/provide-transloco-testing';
 
 describe('CategoryCardListComponent', () => {
   let component: CategoryCardListComponent;
@@ -10,7 +11,7 @@ describe('CategoryCardListComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [CategoryCardListComponent],
-      providers: [provideRouter([])],
+      providers: [provideRouter([]), provideAppTranslocoTesting()],
     }).compileComponents();
 
     fixture = TestBed.createComponent(CategoryCardListComponent);

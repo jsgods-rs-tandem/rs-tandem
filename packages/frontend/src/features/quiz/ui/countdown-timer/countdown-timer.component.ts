@@ -1,12 +1,14 @@
 import { Component, computed, effect, input, output, signal } from '@angular/core';
 
+import { TypedTranslocoPipe } from '@/shared/pipes/typed-transloco.pipe';
+
 import { DEFAULT_TIME_IN_SECONDS } from './countdown-timer.constants';
 
 import { computeDisplayTime } from './countdown-timer.utilities';
 
 @Component({
   selector: 'app-countdown-timer',
-  imports: [],
+  imports: [TypedTranslocoPipe],
   templateUrl: './countdown-timer.component.html',
   styleUrl: './countdown-timer.component.scss',
   standalone: true,

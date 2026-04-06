@@ -1,8 +1,11 @@
 import { Component, computed, effect, inject, input, signal, type OnInit } from '@angular/core';
 import { DecimalPipe } from '@angular/common';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { marker } from '@jsverse/transloco-keys-manager/marker';
 
 import { ShufflePipe } from '@/shared/pipes';
+import { TypedTranslocoPipe } from '@/shared/pipes/typed-transloco.pipe';
+import { injectTranslate } from '@/shared/utils/translate.utilities';
 
 import { LayoutComponent } from '@/pages/layout';
 import { ButtonComponent, EmptyComponent } from '@/shared/ui';
@@ -20,6 +23,8 @@ import { computeSubmitButtonText, getRandomArrayIndex } from './quiz-page.utilit
 import { ROUTES } from '@/core/constants';
 import { successAnswers, errorAnswers } from './quiz-page.constants';
 
+import type { AppTranslationKey } from '@/shared/types/translation-keys';
+
 @Component({
   selector: 'app-quiz-page',
   imports: [
@@ -31,6 +36,7 @@ import { successAnswers, errorAnswers } from './quiz-page.constants';
     LayoutComponent,
     ReactiveFormsModule,
     ShufflePipe,
+    TypedTranslocoPipe,
   ],
   templateUrl: './quiz-page.component.html',
   styleUrl: './quiz-page.component.scss',
@@ -38,6 +44,7 @@ import { successAnswers, errorAnswers } from './quiz-page.constants';
 })
 export class QuizPageComponent implements OnInit {
   readonly quizService = inject(QuizService);
+  private readonly _t = injectTranslate();
   readonly categoryId = input.required<string>();
   readonly topicId = input.required<string>();
 
@@ -52,7 +59,7 @@ export class QuizPageComponent implements OnInit {
   error = '';
   answerResult = signal<AnswerStatus | undefined>(undefined);
 
-  readonly submitButtonText = computed(() =>
+  readonly submitButtonTextKey = computed<AppTranslationKey>(() =>
     computeSubmitButtonText(this.isAnswerSubmitted(), this.isQuizComplete()),
   );
   readonly resultsLink = computed<string | undefined>(() =>
@@ -72,7 +79,10 @@ export class QuizPageComponent implements OnInit {
       this.isAnswerSubmitted.set(true);
 
       if (answer.isCorrect) {
-        this.comment.set(successAnswers[getRandomArrayIndex(successAnswers)] ?? 'Great Job!');
+        const successKey = successAnswers[getRandomArrayIndex(successAnswers)];
+        this.comment.set(
+          this._translateKey(successKey ?? 'quiz.quizPage.comments.success.greatJob'),
+        );
         this.answerResult.set(ANSWER_STATUS.success);
       } else {
         this.comment.set(answer.explanation ?? '');
@@ -104,14 +114,14 @@ export class QuizPageComponent implements OnInit {
     const questionId = this.quizService.currentQuestion()?.id;
 
     if (!questionId) {
-      this.error = errorAnswers.requiredQuestionId;
+      this.error = this._translateKey(errorAnswers.requiredQuestionId);
       return;
     }
 
     this._isTimeExpired.set(true);
 
     this.quizForm.markAllAsTouched();
-    this.error = errorAnswers.timeExpired;
+    this.error = this._translateKey(errorAnswers.timeExpired);
     this.quizService.answerQuestion(this.topicId(), questionId, {
       answerId: '',
       isTimeUp: this._isTimeExpired(),
@@ -144,14 +154,14 @@ export class QuizPageComponent implements OnInit {
     this.quizForm.markAllAsTouched();
 
     if (this.quizForm.invalid) {
-      this.error = errorAnswers.required;
+      this.error = this._translateKey(errorAnswers.required);
       return;
     }
 
     const questionId = this.quizService.currentQuestion()?.id;
 
     if (!questionId) {
-      this.error = errorAnswers.requiredQuestionId;
+      this.error = this._translateKey(errorAnswers.requiredQuestionId);
       return;
     }
 
@@ -172,5 +182,9 @@ export class QuizPageComponent implements OnInit {
     this.comment.set('');
     this.answerResult.set(undefined);
     this.quizForm.controls.answer.enable();
+  }
+
+  private _translateKey(key: AppTranslationKey): string {
+    return this._t(marker(key));
   }
 }

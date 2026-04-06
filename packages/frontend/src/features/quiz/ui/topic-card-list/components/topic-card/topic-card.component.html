@@ -1,26 +1,29 @@
 @let badgeRewardLevelValue = badgeRewardLevel();
+@let badgeRewardLevelTranslationKeyValue = badgeRewardLevelTranslationKey();
 @let inProgressValue = inProgress();
 
 <article class="topic-card">
   <header class="topic-card__header">
     <h2 class="h3 topic-card__heading">{{ heading() }}</h2>
 
-    <p class="topic-card__subheading">{{ subheading() }}</p>
+    <p class="topic-card__subheading">
+      {{ questionsCountTranslationKey() | transloco: { count: questionsCount() } }}
+    </p>
 
     @if (inProgressValue || badgeRewardLevelValue) {
       <ul class="topic-card__badges">
         @if (inProgressValue) {
           <li>
-            <app-badge text="In progress" color="info" />
+            <app-badge [text]="'quiz.topicCard.badges.inProgress' | transloco" color="info" />
           </li>
         }
 
-        @if (badgeRewardLevelValue) {
+        @if (badgeRewardLevelValue && badgeRewardLevelTranslationKeyValue) {
           <li>
             <app-badge
               class="topic-card__badge"
-              [text]="badgeRewardLevelValue"
-              [popoverContent]="'90%+ Senior\n70%+ Middle\n50%+ Junior'"
+              [text]="badgeRewardLevelTranslationKeyValue | transloco"
+              [popoverContent]="'quiz.topicCard.badges.popover' | transloco"
               [color]="badgeRewardLevelColor()"
             />
           </li>
@@ -34,6 +37,8 @@
   </div>
 
   <footer class="topic-card__footer">
-    <app-button [link]="'topic/' + id()" [isSmallButton]="true">Start topic</app-button>
+    <app-button [link]="'topic/' + id()" [isSmallButton]="true">{{
+      'quiz.topicCard.startButton' | transloco
+    }}</app-button>
   </footer>
 </article>

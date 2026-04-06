@@ -1,3 +1,4 @@
 <div role="timer" aria-atomic="true">
-  Time Left: <span [class.countdown-timer__time_error]="shouldWarn()">{{ displayTime() }}</span>
+  {{ 'quiz.quizPage.timerLabel' | transloco }}:
+  <span [class.countdown-timer__time_error]="shouldWarn()">{{ displayTime() }}</span>
 </div>

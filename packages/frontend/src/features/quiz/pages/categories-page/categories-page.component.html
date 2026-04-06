@@ -5,7 +5,7 @@
 <app-layout [loading]="loading.categories || loading.category">
   @if (categoriesValue.length > 0) {
     <header class="categories-page__header">
-      <h1 class="h2">Quiz</h1>
+      <h1 class="h2">{{ 'quiz.categories.heading' | transloco }}</h1>
     </header>
 
     <app-category-card-list
@@ -15,14 +15,14 @@
   } @else {
     <app-empty
       class="categories-page__empty"
-      heading="No&nbsp;categories available"
+      [heading]="'quiz.categories.empty.heading' | transloco"
       [headingLevel]="1"
-      description="We&nbsp;couldn&rsquo;t find any quiz categories at&nbsp;the moment. Try refreshing the page to&nbsp;see if&nbsp;anything has changed"
+      [description]="'quiz.categories.empty.description' | transloco"
       ><app-button
         class="categories-page__refresh-button"
         [isSmallButton]="true"
         (click)="quizService.reloadPage()"
-        >Refresh page</app-button
+        >{{ 'quiz.categories.empty.refreshButton' | transloco }}</app-button
       ></app-empty
     >
   }

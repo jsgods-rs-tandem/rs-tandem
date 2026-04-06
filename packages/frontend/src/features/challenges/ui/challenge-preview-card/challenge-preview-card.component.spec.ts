@@ -2,6 +2,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { provideRouter } from '@angular/router';
 
 import { ChallengePreviewCardComponent } from './challenge-preview-card.component';
+import { provideAppTranslocoTesting } from '@/testing/provide-transloco-testing';
 
 describe('ChallengePreviewCardComponent', () => {
   let component: ChallengePreviewCardComponent;
@@ -10,7 +11,7 @@ describe('ChallengePreviewCardComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [ChallengePreviewCardComponent],
-      providers: [provideRouter([])],
+      providers: [provideRouter([]), provideAppTranslocoTesting()],
     }).compileComponents();
 
     fixture = TestBed.createComponent(ChallengePreviewCardComponent);

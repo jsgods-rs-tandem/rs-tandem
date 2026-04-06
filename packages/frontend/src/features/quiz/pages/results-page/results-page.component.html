@@ -4,19 +4,19 @@
 <app-layout [loading]="quizService.loading().results">
   @if (results) {
     <header>
-      <h1 class="h2">Results</h1>
+      <h1 class="h2">{{ 'quiz.results.title' | transloco }}</h1>
     </header>
 
     <div class="results-page__body">
-      <h2 class="h3 results-page__heading">{{ heading() }}</h2>
+      <h2 class="h3 results-page__heading">{{ headingKey() | transloco }}</h2>
 
       <p class="h3 results-page__subheading">
-        Your progress is
+        {{ 'quiz.results.progressLabel' | transloco }}
         <strong class="results-page__progress">{{ results.score | number: '2.0-0' }}%</strong>
       </p>
 
       <div class="results-page__recommendations">
-        <h3 class="h4">Further reading:</h3>
+        <h3 class="h4">{{ 'quiz.results.readingTitle' | transloco }}</h3>
 
         <ul class="results-page__reading-list">
           @for (link of links; track $index) {
@@ -34,24 +34,28 @@
       </div>
 
       <div class="results-page__buttons">
-        <app-button [link]="`${ROUTE_PATHS.quiz}/${categoryId()}`">See other topics</app-button>
+        <app-button [link]="`${ROUTE_PATHS.quiz}/${categoryId()}`">{{
+          'quiz.results.actions.seeOtherTopics' | transloco
+        }}</app-button>
 
-        <app-button link="..">Re-explore topic</app-button>
+        <app-button link="..">{{ 'quiz.results.actions.reExploreTopic' | transloco }}</app-button>
       </div>
     </div>
   } @else {
     <app-empty
       class="results-page__empty"
-      heading="Couldn't load your score"
+      [heading]="'quiz.results.empty.heading' | transloco"
       [headingLevel]="1"
-      description="We&rsquo;re having trouble retrieving your results right now. Please refresh the page or&nbsp;try again in&nbsp;a&nbsp;moment"
+      [description]="'quiz.results.empty.description' | transloco"
     >
       <div class="results-page__nav-buttons">
-        <app-button [isSmallButton]="true" (click)="quizService.reloadPage()"
-          >Refresh page</app-button
-        >
+        <app-button [isSmallButton]="true" (click)="quizService.reloadPage()">{{
+          'quiz.results.empty.refreshButton' | transloco
+        }}</app-button>
 
-        <app-button link="/quiz" [isSmallButton]="true">Back to&nbsp;categories</app-button>
+        <app-button link="/quiz" [isSmallButton]="true">{{
+          'quiz.results.empty.backButton' | transloco
+        }}</app-button>
       </div>
     </app-empty>
   }

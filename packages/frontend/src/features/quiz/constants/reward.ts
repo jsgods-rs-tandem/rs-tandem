@@ -1,3 +1,5 @@
+import type { AppTranslationKey } from '@/shared/types/translation-keys';
+
 export const REWARD_LEVEL = {
   senior: 'senior',
   middle: 'middle',
@@ -11,9 +13,9 @@ export const REWARD_SCORE = {
   [REWARD_LEVEL.junior]: 50,
 } as const;
 
-export const REWARD_PRAISE: Record<keyof typeof REWARD_LEVEL, string> = {
-  [REWARD_LEVEL.senior]: 'Good job!\nYou’re a true Senior',
-  [REWARD_LEVEL.middle]: 'Well done!\nSolid Middle performance',
-  [REWARD_LEVEL.junior]: 'Keep it up!\nYou’re a confident Junior',
-  [REWARD_LEVEL.trainee]: 'Keep going!\nTrainee stage complete',
+export const REWARD_PRAISE: Record<keyof typeof REWARD_LEVEL, AppTranslationKey> = {
+  [REWARD_LEVEL.senior]: 'quiz.results.heading.senior',
+  [REWARD_LEVEL.middle]: 'quiz.results.heading.middle',
+  [REWARD_LEVEL.junior]: 'quiz.results.heading.junior',
+  [REWARD_LEVEL.trainee]: 'quiz.results.heading.trainee',
 } as const;

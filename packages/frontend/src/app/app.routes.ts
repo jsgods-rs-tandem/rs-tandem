@@ -67,7 +67,10 @@ export const routes: Routes = [
   },
   {
     path: ROUTES.challenges,
-    data: { layout: { mode: 'logout', sidebar: true, auth: true }, breadcrumb: 'Challenges' },
+    data: {
+      layout: { mode: 'logout', sidebar: true, auth: true },
+      breadcrumb: 'breadcrumbs.challenges',
+    },
     canActivate: [authGuard],
     children: [
       {
@@ -77,6 +80,7 @@ export const routes: Routes = [
       },
       {
         path: ROUTES.challengesCategory,
+        runGuardsAndResolvers: 'always',
         resolve: { breadcrumb: challengesCategoryBreadcrumbResolver },
         children: [
           {
@@ -86,6 +90,7 @@ export const routes: Routes = [
           },
           {
             path: ROUTES.challengesTopic,
+            runGuardsAndResolvers: 'always',
             resolve: { breadcrumb: challengesTopicBreadcrumbResolver },
             children: [
               {
@@ -101,7 +106,7 @@ export const routes: Routes = [
   },
   {
     path: ROUTES.quiz,
-    data: { layout: { mode: 'logout', sidebar: true, auth: true }, breadcrumb: 'Quiz' },
+    data: { layout: { mode: 'logout', sidebar: true, auth: true }, breadcrumb: 'breadcrumbs.quiz' },
     canActivate: [authGuard],
     children: [
       {
@@ -111,6 +116,7 @@ export const routes: Routes = [
       },
       {
         path: ROUTES.quizCategory,
+        runGuardsAndResolvers: 'always',
         resolve: { breadcrumb: quizCategoryBreadcrumbResolver },
         children: [
           {
@@ -120,6 +126,7 @@ export const routes: Routes = [
           },
           {
             path: ROUTES.quizTopic,
+            runGuardsAndResolvers: 'always',
             resolve: { breadcrumb: quizTopicBreadcrumbResolver },
             children: [
               {
@@ -129,7 +136,7 @@ export const routes: Routes = [
               },
               {
                 path: ROUTES.quizResults,
-                data: { breadcrumb: 'Results' },
+                data: { breadcrumb: 'breadcrumbs.results' },
                 component: ResultsPageComponent,
               },
             ],

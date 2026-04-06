@@ -10,7 +10,7 @@ export const categoryBreadcrumbResolver: ResolveFn<string> = (route) => {
   const categoryId = route.paramMap.get('categoryId');
 
   if (!categoryId) {
-    return 'Category';
+    return 'breadcrumbs.category';
   }
 
   quizService.getCategory(categoryId);
@@ -27,7 +27,7 @@ export const categoryBreadcrumbResolver: ResolveFn<string> = (route) => {
     map(() => {
       const category = quizService.category();
 
-      return category?.id === categoryId ? category.name : 'Category';
+      return category?.id === categoryId ? category.name : 'breadcrumbs.category';
     }),
   );
 };
@@ -37,7 +37,7 @@ export const topicBreadcrumbResolver: ResolveFn<string> = (route) => {
   const topicId = route.paramMap.get('topicId');
 
   if (!topicId) {
-    return 'Topic';
+    return 'breadcrumbs.topic';
   }
 
   quizService.getTopic(topicId);
@@ -54,7 +54,7 @@ export const topicBreadcrumbResolver: ResolveFn<string> = (route) => {
     map(() => {
       const topic = quizService.topic();
 
-      return topic?.id === topicId ? topic.name : 'Topic';
+      return topic?.id === topicId ? topic.name : 'breadcrumbs.topic';
     }),
   );
 };

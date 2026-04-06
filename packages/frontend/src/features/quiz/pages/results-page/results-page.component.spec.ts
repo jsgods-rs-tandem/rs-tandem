@@ -3,6 +3,7 @@ import { provideRouter } from '@angular/router';
 
 import { ResultsPageComponent } from './results-page.component';
 import { QuizService } from '../../services';
+import { provideAppTranslocoTesting } from '@/testing/provide-transloco-testing';
 
 describe('ResultsPageComponent', () => {
   let component: ResultsPageComponent;
@@ -13,6 +14,7 @@ describe('ResultsPageComponent', () => {
       imports: [ResultsPageComponent],
       providers: [
         provideRouter([]),
+        provideAppTranslocoTesting(),
         {
           provide: QuizService,
           useValue: {

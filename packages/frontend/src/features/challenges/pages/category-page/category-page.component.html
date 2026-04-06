@@ -32,16 +32,18 @@
   } @else {
     <app-empty
       class="category-page__empty"
-      heading="Category is&nbsp;currently empty"
+      [heading]="'challenges.category.empty.heading' | transloco"
       [headingLevel]="1"
-      description="We&nbsp;couldn&rsquo;t find any challenges in&nbsp;this category right now. Try refreshing the page or&nbsp;explore other categories"
+      [description]="'challenges.category.empty.description' | transloco"
     >
       <div class="category-page__nav-buttons">
-        <app-button [isSmallButton]="true" (click)="challengesService.reloadPage()"
-          >Refresh page</app-button
-        >
+        <app-button [isSmallButton]="true" (click)="challengesService.reloadPage()">{{
+          'challenges.category.empty.refreshButton' | transloco
+        }}</app-button>
 
-        <app-button link="/challenges" [isSmallButton]="true">Back to&nbsp;categories</app-button>
+        <app-button link="/challenges" [isSmallButton]="true">{{
+          'challenges.category.empty.backButton' | transloco
+        }}</app-button>
       </div>
     </app-empty>
   }

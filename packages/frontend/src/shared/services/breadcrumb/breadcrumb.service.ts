@@ -1,6 +1,9 @@
-import { Injectable, signal } from '@angular/core';
+import { Injectable, inject, signal } from '@angular/core';
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
+import { TranslocoService } from '@jsverse/transloco';
 import { filter } from 'rxjs/operators';
+
+import { isAppTranslationKey } from '@/shared/types/translation-keys';
 
 import type { Breadcrumb } from './breadcrumb.types';
 
@@ -9,6 +12,7 @@ import type { Breadcrumb } from './breadcrumb.types';
 })
 export class BreadcrumbService {
   readonly breadcrumbs = signal<Breadcrumb[]>([]);
+  private readonly _transloco = inject(TranslocoService);
 
   private _router: Router;
   private _activatedRoute: ActivatedRoute;
@@ -44,7 +48,11 @@ export class BreadcrumbService {
 
       if (breadcrumb) {
         const isString = (value: unknown): value is string => typeof value === 'string';
-        breadcrumbs.push({ label: isString(breadcrumb) ? breadcrumb : '', url });
+        const label = isString(breadcrumb) ? breadcrumb : '';
+        breadcrumbs.push({
+          label: isAppTranslationKey(label) ? this._transloco.translate(label) : label,
+          url,
+        });
       }
 
       return this.createBreadcrumbs(child, url, breadcrumbs);
