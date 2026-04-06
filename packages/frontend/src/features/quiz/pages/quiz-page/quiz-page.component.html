@@ -3,7 +3,7 @@
 @let step = quizService.step();
 @let loading = quizService.loading();
 
-<app-layout [loading]="loading.topic || loading.results">
+<app-layout [loading]="loading.topic || loading.results || loading.step">
   @if (topic && question) {
     <header>
       <h1 class="h2">{{ topic.name }}</h1>

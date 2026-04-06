@@ -1,0 +1,11 @@
+.tag {
+  display: flex;
+
+  padding: var(--spacing-x1) var(--spacing-x2);
+  border: 1px solid var(--accent-color);
+  border-radius: var(--radius-sm);
+
+  font-weight: var(--fw-medium);
+  text-transform: lowercase;
+  overflow-wrap: anywhere;
+}

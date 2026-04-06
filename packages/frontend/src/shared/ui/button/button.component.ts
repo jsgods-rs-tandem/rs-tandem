@@ -12,6 +12,7 @@ import { SpinComponent } from '../spin';
   imports: [NgTemplateOutlet, IconComponent, RouterLink, SpinComponent],
   templateUrl: './button.component.html',
   styleUrl: './button.component.scss',
+  standalone: true,
 })
 export class ButtonComponent {
   type = input<ButtonType>('button');

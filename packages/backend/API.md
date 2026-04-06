@@ -455,6 +455,170 @@ Authorization: Bearer <токен>
 
 **Ответ `500`:** - внутренняя ошибка сервра
 
+---
+
+### GET `/challenges/categories`
+
+Получить список категорий challenges. Требует токен.
+
+**Дополнительно:**
+
+- заголовок `Accept-Language: en | ru` влияет на локализованные `name` и `description`
+
+**Ответ `200`:**
+
+```json
+{
+  "categories": [
+    {
+      "id": "11111111-1111-1111-1111-111111111111",
+      "name": "JavaScript Core",
+      "description": "Pop the hood of the runtime. Master closures, prototypes, and execution context to understand exactly how your code behaves",
+      "topicsCount": 12,
+      "topicsCompleteCount": 0,
+      "progress": 0
+    }
+  ]
+}
+```
+
+---
+
+### GET `/challenges/categories/:id`
+
+Получить категорию challenges вместе со списком топиков. Требует токен.
+
+**Дополнительно:**
+
+- `id` — UUID идентификатор категории
+- заголовок `Accept-Language: en | ru` влияет на локализованные `name` и `description`
+
+**Ответ `200`:**
+
+```json
+{
+  "id": "11111111-1111-1111-1111-111111111111",
+  "name": "JavaScript Core",
+  "description": "Pop the hood of the runtime. Master closures, prototypes, and execution context to understand exactly how your code behaves",
+  "topicsCount": 12,
+  "topicsCompleteCount": 0,
+  "progress": 0,
+  "topics": [
+    {
+      "id": "22222222-2222-2222-2222-222222222222",
+      "name": "Array.prototype.map",
+      "description": "Transform arrays manually. Recreate .map() to project data into a new array without mutating the original",
+      "difficulty": "easy",
+      "tags": ["Polyfill", "Array", "Callback"],
+      "status": "notStarted"
+    }
+  ]
+}
+```
+
+**Ответ `404`:**
+
+```json
+{
+  "message": "challenges.category_not_found",
+  "error": "Not Found",
+  "statusCode": 404
+}
+```
+
+---
+
+### GET `/challenges/topics/:id`
+
+Получить конкретный challenge topic c payload для code editor. Требует токен.
+
+**Дополнительно:**
+
+- `id` — UUID идентификатор топика
+- заголовок `Accept-Language: en | ru` влияет на локализованные `name` и `description`
+
+**Ответ `200`:**
+
+```json
+{
+  "id": "22222222-2222-2222-2222-222222222222",
+  "name": "Array.prototype.map",
+  "description": "Implement your own version of Array.prototype.map",
+  "instructions": "Implement a custom version of Array.prototype.map that transforms an array without mutating the original. The callback receives value, index, and the original array.",
+  "categoryId": "11111111-1111-1111-1111-111111111111",
+  "difficulty": "easy",
+  "tags": ["Polyfill", "Array", "Callback"],
+  "status": "notStarted",
+  "functionName": "customMap",
+  "starterCode": "function customMap(array, callback, thisArg) {\n  // WRITE YOUR SOLUTION HERE\n}",
+  "builtinFns": {
+    "square": "(x) => x * x",
+    "identity": "(x) => x",
+    "addIndexAndLength": "(val, i, arr) => val + i + arr.length"
+  },
+  "testCases": [
+    {
+      "id": 1,
+      "description": "Basic transformation: square numbers",
+      "args": [[1, 2, 3], { "$fn": "square" }],
+      "expected": [1, 4, 9]
+    }
+  ]
+}
+```
+
+**Ответ `404`:**
+
+```json
+{
+  "message": "challenges.topic_not_found",
+  "error": "Not Found",
+  "statusCode": 404
+}
+```
+
+---
+
+### POST `/challenges/topics/:id`
+
+Обновить статус challenge topic для текущего пользователя. Требует токен.
+
+**Дополнительно:**
+
+- `id` — UUID идентификатор топика
+
+**Тело запроса:**
+
+```json
+{
+  "status": "completed"
+}
+```
+
+`status` принимает только значения:
+
+- `inProgress`
+- `completed`
+
+**Ответ `200`:**
+
+```json
+{
+  "topicId": "22222222-2222-2222-2222-222222222222",
+  "status": "completed"
+}
+```
+
+**Ответ `404`:**
+
+```json
+{
+  "message": "challenges.topic_not_found",
+  "error": "Not Found",
+  "statusCode": 404
+}
+```
+
 ### DELETE `/chat-history/history`
 
 Удалить историю сообщений. Требует токен.

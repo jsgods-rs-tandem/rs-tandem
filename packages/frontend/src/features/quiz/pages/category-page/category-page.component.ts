@@ -1,8 +1,8 @@
-import { Component, inject, input, type OnInit } from '@angular/core';
+import { Component, effect, inject, input, type OnInit } from '@angular/core';
 
-import { ButtonComponent, EmptyComponent } from '@/shared/ui';
-import { LayoutComponent } from '../layout';
-import { ProgressComponent, TopicCardListComponent } from '../../ui';
+import { ButtonComponent, EmptyComponent, ProgressComponent } from '@/shared/ui';
+import { LayoutComponent } from '@/pages/layout';
+import { TopicCardListComponent } from '../../ui';
 
 import { QuizService } from '../../services';
 
@@ -23,10 +23,18 @@ export class CategoryPageComponent implements OnInit {
   readonly quizService = inject(QuizService);
   readonly categoryId = input.required<string>();
 
-  ngOnInit(): void {
-    const categoryId = this.categoryId();
+  constructor() {
+    effect((onCleanup) => {
+      onCleanup(() => {
+        this.quizService.resetCategory();
+      });
+    });
+  }
 
-    if (this.quizService.category()?.id !== categoryId) {
+  ngOnInit(): void {
+    if (!this.quizService.category()) {
+      const categoryId = this.categoryId();
+
       this.quizService.getCategory(categoryId);
     }
   }
