@@ -10,7 +10,7 @@
 https://jsgods-rs-tandem.github.io/rs-tandem/
 
 🚀 **Backend API (Railway):**
-https://rs-tandem-production.up.railway.app/api/health
+https://rs-tandem-production.up.railway.app
 
 ---
 
