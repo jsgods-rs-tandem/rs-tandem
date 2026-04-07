@@ -85,13 +85,23 @@ const deepEqual = (a: unknown, b: unknown, seen = new WeakMap<object, object>())
   return true;
 };
 
-const quickJsWasmUrl = new URL('/assets/quickjs/emscripten-module.wasm', self.location.href).href;
+let quickJsModulePromise: ReturnType<typeof newQuickJSWASMModule> | null = null;
 
-const quickJsVariant = newVariant(RELEASE_SYNC, {
-  wasmLocation: quickJsWasmUrl,
-});
+const getQuickJSModule = async () => {
+  if (quickJsModulePromise) {
+    return quickJsModulePromise;
+  }
 
-const QuickJSModulePromise = newQuickJSWASMModule(quickJsVariant);
+  const baseUrl = self.location.href.includes('/rs-tandem/') ? '/rs-tandem' : '';
+  const quickJsWasmUrl = `${baseUrl}/assets/quickjs/emscripten-module.wasm`;
+
+  const quickJsVariant = newVariant(RELEASE_SYNC, {
+    wasmLocation: quickJsWasmUrl,
+  });
+
+  quickJsModulePromise = newQuickJSWASMModule(quickJsVariant);
+  return quickJsModulePromise;
+};
 
 const readErrorMessage = (dumped: unknown): string => {
   if (!isRecord(dumped)) return '';
@@ -140,7 +150,7 @@ async function runQuickJs(data: QuickJsWorkerRequest): Promise<void> {
   };
 
   try {
-    const QuickJS = await QuickJSModulePromise;
+    const QuickJS = await getQuickJSModule();
     const vm = QuickJS.newContext();
 
     vm.runtime.setInterruptHandler(shouldInterruptAfterDeadline(Date.now() + 2800));
