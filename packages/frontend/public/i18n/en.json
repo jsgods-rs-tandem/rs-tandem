@@ -306,6 +306,9 @@
   "ui": {
     "progress": {
       "popover": "Completed"
+    },
+    "select": {
+      "placeholderSelected": "Selected"
     }
   },
   "library": {
@@ -340,8 +343,28 @@
       }
     },
     "category": {
+      "filters": {
+        "difficulty": {
+          "label": "Difficulty",
+          "placeholder": "Select difficulty"
+        },
+        "tags": {
+          "label": "Tags",
+          "placeholder": "Select tags"
+        },
+        "status": {
+          "label": "Status",
+          "placeholder": "Select status"
+        },
+        "empty": {
+          "heading": "No\u00A0results found",
+          "description": "Try adjusting your filters or\u00A0resetting them to\u00A0see more options"
+        },
+        "resetButton": "Reset filters"
+      },
       "previewCard": {
         "badges": {
+          "notStarted": "Not started",
           "inProgress": "In\u00A0progress",
           "done": "Done"
         },
@@ -408,6 +431,21 @@
       }
     },
     "category": {
+      "filters": {
+        "achievements": {
+          "label": "Achievements",
+          "placeholder": "Select achievements"
+        },
+        "status": {
+          "label": "Status",
+          "placeholder": "Select status"
+        },
+        "empty": {
+          "heading": "No\u00A0results found",
+          "description": "Try adjusting your filters or\u00A0resetting them to\u00A0see more options"
+        },
+        "resetButton": "Reset filters"
+      },
       "empty": {
         "heading": "Category is currently empty",
         "description": "We couldn't find any quizzes in this category right now. Try refreshing the page or\u00A0explore other categories",
@@ -421,7 +459,9 @@
         "multiple": "{{count}} questions"
       },
       "badges": {
+        "notStarted": "Not started",
         "inProgress": "In progress",
+        "done": "Done",
         "level": {
           "senior": "Senior",
           "middle": "Middle",

@@ -1,0 +1,54 @@
+@let labelValue = label();
+@let placeholderValue = computedPlaceholder();
+@let optionList = options();
+@let expanded = isOpen();
+
+<div class="select">
+  @if (labelValue) {
+    <span [id]="_labelId" class="select__label">{{ labelValue }}</span>
+  }
+
+  <div class="select__wrapper" [class.select__wrapper_expanded]="expanded">
+    <div
+      class="select__input-wrapper"
+      role="combobox"
+      [aria-labelledby]="labelValue ? _labelId : undefined"
+      [aria-controls]="_listboxId"
+      aria-haspopup="listbox"
+      [aria-expanded]="expanded"
+      tabindex="0"
+      (keydown)="_onKeydown($event)"
+      (click)="_onClick()"
+    >
+      @if (placeholderValue) {
+        <div class="select__input-placeholder">{{ placeholderValue }}</div>
+      }
+
+      <app-icon class="select__icon" name="arrow-up" />
+    </div>
+
+    <ul
+      [id]="_listboxId"
+      class="select__dropdown"
+      role="listbox"
+      [aria-labelledby]="labelValue ? _labelId : undefined"
+      tabindex="-1"
+    >
+      @for (option of optionList; track option.value) {
+        <li class="select__option-list-item">
+          <label class="select__option-item">
+            <input
+              class="select__option-input"
+              type="checkbox"
+              [value]="option.value"
+              [checked]="_isOptionSelected()(option.value)"
+              (change)="_onOptionChange($event)"
+            />
+
+            <span class="select__option-label">{{ option.text }}</span>
+          </label>
+        </li>
+      }
+    </ul>
+  </div>
+</div>

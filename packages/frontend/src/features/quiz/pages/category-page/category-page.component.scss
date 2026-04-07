@@ -24,8 +24,37 @@
     max-width: 300px;
   }
 
-  &__topic-card-list {
+  &__body {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
     margin-block-start: var(--spacing-x10);
+  }
+
+  &__filters {
+    display: flex;
+    gap: var(--spacing-x2);
+
+    @include mix.media('m') {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include mix.media('xs') {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &__topic-card-list {
+    margin-block-start: var(--spacing-x6);
+  }
+
+  &__empty-filters {
+    margin: calc(var(--spacing-x12) * 2) auto;
+  }
+
+  &__reset-filters-button {
+    margin-block-start: var(--spacing-x4);
   }
 
   &__empty {

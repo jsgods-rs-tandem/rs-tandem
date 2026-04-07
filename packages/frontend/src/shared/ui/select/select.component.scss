@@ -1,0 +1,149 @@
+@use 'assets/styles/placeholders';
+@use 'assets/styles/mixins' as mix;
+
+:host {
+  width: 100%;
+}
+
+.select {
+  $this: &;
+
+  display: flex;
+  flex-direction: column;
+
+  &__wrapper {
+    position: relative;
+    margin-block-start: var(--spacing-x2);
+
+    &_expanded {
+      #{$this}__icon {
+        transform: rotate(270deg);
+      }
+
+      #{$this}__dropdown {
+        @extend %visible;
+        transform: translateY(0);
+      }
+    }
+  }
+
+  &__input-wrapper {
+    cursor: pointer;
+    user-select: none;
+
+    position: relative;
+    z-index: 2;
+
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-x3);
+    align-items: center;
+
+    min-height: 52px;
+    padding: var(--spacing-x2) var(--spacing-x12) var(--spacing-x2) var(--spacing-x3);
+    border: 1px solid var(--secondary-color);
+    border-radius: var(--radius-md);
+
+    background-color: var(--primary-color);
+
+    &:focus-visible {
+      border-radius: var(--radius-sm);
+      outline: var(--button-border);
+      outline-offset: 2px;
+    }
+  }
+
+  &__input-placeholder {
+    @extend %text-inline-hidden;
+    position: absolute;
+    inset-block-start: 50%;
+    inset-inline-start: var(--spacing-x3);
+    transform: translateY(-50%);
+
+    max-width: calc(100% - var(--spacing-x12));
+
+    color: rgb(var(--secondary-color-rgb), 0.66);
+  }
+
+  &__icon {
+    position: absolute;
+    inset-block-start: calc(var(--spacing-x7) / 2);
+    inset-inline-end: var(--spacing-x3);
+    transform: rotate(90deg);
+    @include mix.transition(transform);
+  }
+
+  &__dropdown {
+    @extend %hidden;
+    position: absolute;
+    z-index: 3;
+    inset-inline-start: 0;
+    transform: translateY(var(--spacing-x4));
+
+    overflow-y: auto;
+
+    width: 100%;
+    max-height: 248px;
+    margin-block-start: var(--spacing-x2);
+    border-radius: var(--radius-md);
+
+    background-color: var(--primary-color);
+    box-shadow: 0 4px 26px 0 rgb(var(--secondary-color-rgb), 0.2);
+    @include mix.set-scrollbar(6);
+    @include mix.transition((opacity, visibility, transform));
+  }
+
+  &__option-list-item {
+    &:not(:last-child) {
+      border-block-end: 1px solid var(--secondary-color);
+    }
+
+    &:first-child {
+      #{$this}__option-item {
+        border-start-start-radius: var(--radius-md);
+        border-start-end-radius: var(--radius-md);
+      }
+    }
+
+    &:last-child {
+      #{$this}__option-item {
+        border-end-start-radius: var(--radius-md);
+        border-end-end-radius: var(--radius-md);
+      }
+    }
+  }
+
+  &__option-item {
+    cursor: pointer;
+    user-select: none;
+
+    position: relative;
+
+    display: flex;
+
+    padding: var(--spacing-x4) var(--spacing-x5) var(--spacing-x4) var(--spacing-x3);
+    @include mix.transition((color, background-color));
+
+    &:has(input:focus-visible) {
+      outline: var(--button-border);
+      outline-offset: -2px;
+    }
+
+    &:has(input:focus-visible:checked) {
+      outline-color: var(--secondary-color);
+    }
+
+    &:has(input:checked) {
+      color: var(--primary-color);
+      background-color: var(--accent-color);
+    }
+  }
+
+  &__option-input {
+    @extend %visually-hidden;
+  }
+
+  &__option-label {
+    overflow-wrap: anywhere;
+  }
+}

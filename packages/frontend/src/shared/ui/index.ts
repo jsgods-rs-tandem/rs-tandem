@@ -11,5 +11,6 @@ export { LogoComponent } from './logo/logo.component';
 export { ModalComponent } from './modal/modal.component';
 export { PopoverComponent } from './popover';
 export { ProgressComponent } from './progress';
+export { SelectComponent, type SelectOption } from './select';
 export { SpinComponent } from './spin';
 export { TeamBoardComponent } from './team-board';

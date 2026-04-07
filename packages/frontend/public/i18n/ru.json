@@ -308,6 +308,9 @@
   "ui": {
     "progress": {
       "popover": "Завершено"
+    },
+    "select": {
+      "placeholderSelected": "Выбрано"
     }
   },
   "library": {
@@ -342,8 +345,28 @@
       }
     },
     "category": {
+      "filters": {
+        "difficulty": {
+          "label": "Сложность",
+          "placeholder": "Выберите сложность"
+        },
+        "tags": {
+          "label": "Теги",
+          "placeholder": "Выберите теги"
+        },
+        "status": {
+          "label": "Статус",
+          "placeholder": "Выберите статус"
+        },
+        "empty": {
+          "heading": "Ничего не\u00A0найдено",
+          "description": "Попробуйте изменить параметры фильтрации или сбросить настройки"
+        },
+        "resetButton": "Сбросить фильтры"
+      },
       "previewCard": {
         "badges": {
+          "notStarted": "Не\u00A0начато",
           "inProgress": "В\u00A0работе",
           "done": "Готово"
         },
@@ -410,6 +433,21 @@
       }
     },
     "category": {
+      "filters": {
+        "achievements": {
+          "label": "Достижения",
+          "placeholder": "Выберите достижения"
+        },
+        "status": {
+          "label": "Статус",
+          "placeholder": "Выберите статус"
+        },
+        "empty": {
+          "heading": "Ничего не\u00A0найдено",
+          "description": "Попробуйте изменить параметры фильтрации или сбросить настройки"
+        },
+        "resetButton": "Сбросить фильтры"
+      },
       "empty": {
         "heading": "Категория пока пуста",
         "description": "Мы\u00A0не\u00A0нашли квизов в\u00A0этой категории. Попробуйте обновить страницу или перейти в\u00A0другие категории",
@@ -423,14 +461,16 @@
         "multiple": "{{count}} вопросов"
       },
       "badges": {
+        "notStarted": "Не\u00A0начато",
         "inProgress": "В\u00A0работе",
+        "done": "Готово",
         "level": {
-          "senior": "Senior",
-          "middle": "Middle",
-          "junior": "Junior",
-          "trainee": "Trainee"
+          "senior": "Сеньор",
+          "middle": "Мидл",
+          "junior": "Джуниор",
+          "trainee": "Трейни"
         },
-        "popover": "90%+ Senior\n70%+ Middle\n50%+ Junior"
+        "popover": "90%+ Сеньор\n70%+ Мидл\n50%+ Джуниор"
       },
       "startButton": "Начать тему"
     },

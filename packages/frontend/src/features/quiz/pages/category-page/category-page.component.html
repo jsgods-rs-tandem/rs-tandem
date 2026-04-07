@@ -1,5 +1,7 @@
-@let category = quizService.category();
-@let loading = quizService.loading();
+@let category = _quizService.category();
+@let filters = _filtersValues();
+@let topics = _topics();
+@let loading = _quizService.loading();
 
 <app-layout [loading]="loading.category || loading.topic">
   @if (category) {
@@ -14,7 +16,43 @@
       />
     </header>
 
-    <app-topic-card-list class="category-page__topic-card-list" [topics]="category.topics" />
+    <div class="category-page__body">
+      <div class="category-page__filters">
+        <app-select
+          [label]="'quiz.category.filters.achievements.label' | transloco"
+          [placeholder]="'quiz.category.filters.achievements.placeholder' | transloco"
+          [options]="_achievementsFilter()"
+          [selectedOptionValues]="filters.achievements"
+          (selectedOptionValuesChange)="_onFilterChange('achievements', $event)"
+        />
+
+        <app-select
+          [label]="'quiz.category.filters.status.label' | transloco"
+          [placeholder]="'quiz.category.filters.status.placeholder' | transloco"
+          [options]="_statusFilter()"
+          [selectedOptionValues]="filters.status"
+          (selectedOptionValuesChange)="_onFilterChange('status', $event)"
+        />
+      </div>
+
+      @if (topics.length > 0) {
+        <app-topic-card-list class="category-page__topic-card-list" [topics]="topics" />
+      } @else {
+        <app-empty
+          class="category-page__empty-filters"
+          [heading]="'quiz.category.filters.empty.heading' | transloco"
+          [headingLevel]="2"
+          [description]="'quiz.category.filters.empty.description' | transloco"
+        >
+          <app-button
+            class="category-page__reset-filters-button"
+            [isSmallButton]="true"
+            (click)="_onFiltersReset()"
+            >{{ 'challenges.category.filters.resetButton' | transloco }}</app-button
+          >
+        </app-empty>
+      }
+    </div>
   } @else {
     <app-empty
       class="category-page__empty"
@@ -23,7 +61,7 @@
       [description]="'quiz.category.empty.description' | transloco"
     >
       <div class="category-page__nav-buttons">
-        <app-button [isSmallButton]="true" (click)="quizService.reloadPage()">{{
+        <app-button [isSmallButton]="true" (click)="_quizService.reloadPage()">{{
           'quiz.category.empty.refreshButton' | transloco
         }}</app-button>
 
