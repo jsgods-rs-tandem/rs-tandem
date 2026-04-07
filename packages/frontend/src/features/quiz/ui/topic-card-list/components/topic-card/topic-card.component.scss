@@ -24,6 +24,7 @@
     grid-row: 1 / 2;
     flex-wrap: wrap;
     gap: var(--spacing-x2);
+    justify-content: end;
   }
 
   &__badge {

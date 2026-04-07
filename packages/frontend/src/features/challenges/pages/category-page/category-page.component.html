@@ -1,5 +1,7 @@
-@let category = challengesService.category();
-@let loading = challengesService.loading();
+@let category = _challengesService.category();
+@let filters = _filtersValues();
+@let topics = _topics();
+@let loading = _challengesService.loading();
 
 <app-layout [loading]="loading.category || loading.codeEditor">
   @if (category) {
@@ -14,21 +16,66 @@
       />
     </header>
 
-    <ul class="category-page__list">
-      @for (topic of category.topics; track topic.id) {
-        <li>
-          <app-challenge-preview-card
-            [id]="topic.id"
-            [heading]="topic.name"
-            [description]="topic.description"
-            [difficulty]="topic.difficulty"
-            [tags]="topic.tags"
-            [inProgress]="topic.status === 'inProgress'"
-            [isComplete]="topic.status === 'completed'"
-          />
-        </li>
+    <div class="category-page__body">
+      <div class="category-page__filters">
+        <app-select
+          [label]="'challenges.category.filters.difficulty.label' | transloco"
+          [placeholder]="'challenges.category.filters.difficulty.placeholder' | transloco"
+          [options]="_difficultyFilter()"
+          [selectedOptionValues]="filters.difficulty"
+          (selectedOptionValuesChange)="_onFilterChange('difficulty', $event)"
+        />
+
+        <app-select
+          [label]="'challenges.category.filters.tags.label' | transloco"
+          [placeholder]="'challenges.category.filters.tags.placeholder' | transloco"
+          [options]="_tagsFilter()"
+          [selectedOptionValues]="filters.tags"
+          (selectedOptionValuesChange)="_onFilterChange('tags', $event)"
+        />
+
+        <app-select
+          class="category-page__filter-status"
+          [label]="'challenges.category.filters.status.label' | transloco"
+          [placeholder]="'challenges.category.filters.status.placeholder' | transloco"
+          [options]="_statusFilter()"
+          [selectedOptionValues]="filters.status"
+          (selectedOptionValuesChange)="_onFilterChange('status', $event)"
+        />
+      </div>
+
+      @if (topics.length > 0) {
+        <ul class="category-page__list">
+          @for (topic of topics; track topic.id) {
+            <li>
+              <app-challenge-preview-card
+                [id]="topic.id"
+                [heading]="topic.name"
+                [description]="topic.description"
+                [difficulty]="topic.difficulty"
+                [tags]="topic.tags"
+                [inProgress]="topic.status === 'inProgress'"
+                [isComplete]="topic.status === 'completed'"
+              />
+            </li>
+          }
+        </ul>
+      } @else {
+        <app-empty
+          class="category-page__empty-filters"
+          [heading]="'challenges.category.filters.empty.heading' | transloco"
+          [headingLevel]="2"
+          [description]="'challenges.category.filters.empty.description' | transloco"
+        >
+          <app-button
+            class="category-page__reset-filters-button"
+            [isSmallButton]="true"
+            (click)="_onFiltersReset()"
+            >{{ 'challenges.category.filters.resetButton' | transloco }}</app-button
+          >
+        </app-empty>
       }
-    </ul>
+    </div>
   } @else {
     <app-empty
       class="category-page__empty"
@@ -37,7 +84,7 @@
       [description]="'challenges.category.empty.description' | transloco"
     >
       <div class="category-page__nav-buttons">
-        <app-button [isSmallButton]="true" (click)="challengesService.reloadPage()">{{
+        <app-button [isSmallButton]="true" (click)="_challengesService.reloadPage()">{{
           'challenges.category.empty.refreshButton' | transloco
         }}</app-button>
 
