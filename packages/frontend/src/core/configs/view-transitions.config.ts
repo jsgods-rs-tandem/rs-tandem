@@ -13,8 +13,10 @@ export const onViewTransitionCreated = (info: ViewTransitionInfo): void => {
   const isSameRoute = fromRoute === toRoute;
   const isOnlyAnchorChange = isSameRoute && fromFragment !== toFragment;
   const isInsideQuiz = fromRouteBaseSegment === 'quiz' && toRouteBaseSegment === 'quiz';
+  const isInsideChallenges =
+    fromRouteBaseSegment === 'challenges' && toRouteBaseSegment === 'challenges';
 
-  if (isOnlyAnchorChange || isInsideQuiz) {
+  if (isOnlyAnchorChange || isInsideQuiz || isInsideChallenges) {
     info.transition.skipTransition();
   }
 };
