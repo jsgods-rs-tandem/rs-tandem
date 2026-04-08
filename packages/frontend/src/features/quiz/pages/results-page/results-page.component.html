@@ -40,6 +40,8 @@
 
         <app-button link="..">{{ 'quiz.results.actions.reExploreTopic' | transloco }}</app-button>
       </div>
+
+      <ngx-particles [id]="_id" [options]="_particlesOptions" />
     </div>
   } @else {
     <app-empty
