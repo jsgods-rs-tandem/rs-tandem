@@ -1,5 +1,3 @@
-@use 'assets/styles/mixins' as mix;
-
 .popover {
   position: absolute;
   inset: auto;
@@ -16,9 +14,12 @@
   opacity: 0;
   background: transparent;
 
-  transition-behavior: allow-discrete;
-
-  @include mix.transition((overlay, display, margin-block-end, opacity));
+  // We list proprties explicitly (not via a mixin), because auto-formatting breaks the smooth reverse animation
+  transition:
+    margin-block-end var(--transition-duration-basic) var(--transition-easing-func),
+    opacity var(--transition-duration-basic) var(--transition-easing-func),
+    display var(--transition-duration-basic) allow-discrete,
+    overlay var(--transition-duration-basic) allow-discrete;
 
   &:popover-open {
     margin-block-end: 0;
