@@ -1,3 +1,5 @@
+@use 'assets/styles/mixins' as mix;
+
 .popover {
   position: absolute;
   inset: auto;
@@ -7,10 +9,26 @@
 
   inline-size: max-content;
   max-inline-size: 300px;
+  margin-block-end: calc(-1 * var(--spacing-x1));
   padding: 0 0 10px;
   border: none;
 
+  opacity: 0;
   background: transparent;
+
+  transition-behavior: allow-discrete;
+
+  @include mix.transition((overlay, display, margin-block-end, opacity));
+
+  &:popover-open {
+    margin-block-end: 0;
+    opacity: 1;
+
+    @starting-style {
+      margin-block-end: calc(-1 * var(--spacing-x1));
+      opacity: 0;
+    }
+  }
 
   &__content {
     position: relative;
