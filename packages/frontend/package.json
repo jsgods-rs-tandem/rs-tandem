@@ -22,6 +22,8 @@
     "@angular/platform-browser": "^21.1.0",
     "@angular/router": "^21.1.0",
     "@rs-tandem/shared": "*",
+    "@tsparticles/angular": "^3.0.0",
+    "@tsparticles/preset-confetti": "^3.2.0",
     "monaco-editor": "^0.55.1",
     "ngx-monaco-editor-v2": "^21.1.4",
     "prismjs": "^1.30.0",
