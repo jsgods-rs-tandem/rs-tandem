@@ -364,7 +364,7 @@
           "sortOrder": 3,
           "name": {
             "en": "What does the `*` (universal) selector in CSS match?",
-            "ru": "Что соответствует универсальный селектор `*` в CSS?"
+            "ru": "Что соответствует универсальному селектору `*` в CSS?"
           },
           "codeSnippet": null,
           "explanation": {
@@ -426,8 +426,8 @@
         {
           "sortOrder": 6,
           "name": {
-            "en": "Which selector targets an element with both 'active' and 'primary' classes?",
-            "ru": "Какой селектор выбирает элемент с обоими классами 'active' и 'primary'?"
+            "en": "Which selector targets an element with both `active` and `primary` classes?",
+            "ru": "Какой селектор выбирает элемент с обоими классами `active` и `primary`?"
           },
           "codeSnippet": null,
           "explanation": {

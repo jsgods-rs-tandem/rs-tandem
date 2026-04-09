@@ -12,6 +12,7 @@
   --transition-easing-func: ease-in-out;
   --code-bg-color: #d8d8d8;
   --primary-color: #ececec;
+  --primary-color-rgb: 236, 236, 236;
   --primary-color-true: #ececec;
   --secondary-color: #222;
   --secondary-color-rgb: 34, 34, 34;
@@ -71,6 +72,7 @@
 [data-theme='dark'] {
   --code-bg-color: #252e35;
   --primary-color: #181e22;
+  --primary-color-rgb: 24, 30, 34;
   --secondary-color: #ececec;
   --secondary-color-rgb: 236, 236, 236;
   --accent-color: #ef6200;
