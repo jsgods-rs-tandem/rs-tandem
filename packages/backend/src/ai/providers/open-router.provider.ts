@@ -3,6 +3,7 @@ import type { AiProviderMeta, IAiProvider } from './ai-provider.interface.js';
 import { openrouterStreamToAsyncIterable } from '../utils/openrouter-stream-to-async-iterable.js';
 import OpenRouterError from '../errors/openrouter-error.js';
 import { error } from '../errors/errors.js';
+import { Logger } from '@nestjs/common';
 
 export class OpenRouterProvider implements IAiProvider {
   readonly meta: AiProviderMeta = {
@@ -10,6 +11,7 @@ export class OpenRouterProvider implements IAiProvider {
     label: 'Open Router',
     requiresKey: true,
   };
+  private logger = new Logger(this.meta.label);
 
   async chat(messages: AiMessage[], model: string | null, apiKey: string | null): Promise<string> {
     const asyncIterable = await this.streamChat(messages, model, apiKey);
@@ -47,7 +49,8 @@ export class OpenRouterProvider implements IAiProvider {
           stream: true,
         }),
       });
-    } catch {
+    } catch (_error) {
+      this.logger.error(_error);
       throw new OpenRouterError(`Failed to connect`, error.ServiceUnavailable);
     }
 
