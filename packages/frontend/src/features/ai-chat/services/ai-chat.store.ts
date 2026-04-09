@@ -5,6 +5,21 @@ import { AiSocketService } from './ai-socket-service';
 import { finalize, Subscription } from 'rxjs';
 import { AiChatResponseDto, AiMessage } from '@rs-tandem/shared';
 import { AiHttpService } from './ai-http-service';
+import { AiErrorDto } from '@rs-tandem/shared/src/ai';
+
+const unknownError: AiErrorDto = {
+  type: 'unknown_error',
+  title: 'Unknown',
+  message: 'ai.error.unknown',
+  status: 500,
+};
+
+const connectionErrorMessage = {
+  type: 'server_error',
+  title: 'Server',
+  message: 'ai.error.503',
+  status: 503,
+};
 
 @Injectable({
   providedIn: 'root',
@@ -17,6 +32,7 @@ export class AiChatStore {
   private socketSubscriptions: Subscription[] = [];
   private zone = inject(NgZone);
 
+  readonly errorMessage = signal<AiErrorDto>(unknownError);
   readonly messages = this._messages.asReadonly();
   readonly messagesLength = computed(() => this._messages().length);
   readonly status = this._status.asReadonly();
@@ -30,7 +46,12 @@ export class AiChatStore {
       const message: IMessage = { role: 'user', content: text };
       this._messages.update((array) => [...array, message]);
       this._status.set('pending');
-      this.wsApi.emit('chat', message);
+      if (this.isReady().socket) {
+        this.wsApi.emit('chat', message);
+      } else {
+        console.error(connectionErrorMessage);
+        this.handleError(connectionErrorMessage);
+      }
     }
   }
 
@@ -45,6 +66,8 @@ export class AiChatStore {
     this.subscribeToEvent('connect', this.handleConnect);
     this.subscribeToEvent('disconnect', this.handleDisconnect);
     this.subscribeToEvent('connect_error', this.handleConnectionError);
+    this.subscribeToEvent('exception', this.handleUnknownError);
+    this.subscribeToEvent('error', this.handleError);
   }
 
   destroySocketListeners() {
@@ -84,6 +107,30 @@ export class AiChatStore {
           console.error(error);
         },
       });
+  }
+
+  private handleError = (response: unknown) => {
+    const error = response as AiErrorDto;
+    this.updateErrorMessage(error);
+    this.updateStatus('error');
+  };
+
+  private updateErrorMessage(error: AiErrorDto) {
+    const knownErrors = new Set([400, 401, 402, 403, 404, 408, 422, 429, 500, 503]);
+    if (knownErrors.has(error.status)) {
+      this.errorMessage.set({
+        ...error,
+        message: `ai.error.${String(error.status)}`,
+      });
+    } else {
+      this.errorMessage.set(unknownError);
+    }
+  }
+
+  private handleUnknownError(error: unknown) {
+    console.error(error);
+    this.updateErrorMessage(unknownError);
+    this.updateStatus('error');
   }
 
   private deleteMessages() {

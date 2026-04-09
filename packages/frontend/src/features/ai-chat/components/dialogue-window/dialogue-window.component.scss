@@ -31,6 +31,10 @@
   overflow-wrap: anywhere;
 }
 
+.error {
+  color: var(--accent-color);
+}
+
 .assistant-message {
   display: flex;
   flex-direction: column;

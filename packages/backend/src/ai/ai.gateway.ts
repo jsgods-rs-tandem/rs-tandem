@@ -11,6 +11,9 @@ import { AiService } from './ai.service.js';
 import { HttpException, UseGuards } from '@nestjs/common';
 import { WsJwtGuard } from '../auth/guards/ws-jwt-auth.guard.js';
 import type { AiChatResponseDto, AiMessage, UserDto, UserMessageDto } from 'packages/shared';
+import AiAppError from './errors/app-error.js';
+import { AiErrorDto } from 'packages/shared/src/ai.js';
+import { title } from './errors/errors.js';
 
 export interface SocketData {
   user: UserDto;
@@ -23,6 +26,7 @@ interface ClientToServerEvents {
 interface ServerToClientEvents {
   chat_chunk: (chunk: string) => void;
   chat_end: () => void;
+  error: (error: AiErrorDto) => void;
 }
 
 type AuthenticatedSocket = Socket<
@@ -60,6 +64,15 @@ export class AiGateway {
     } catch (error) {
       if (error instanceof HttpException) {
         throw new WsException(error);
+      }
+      if (error instanceof AiAppError) {
+        const errorMessage: AiErrorDto = {
+          type: 'provider_error',
+          title: title[error.code],
+          message: error.message,
+          status: error.status,
+        };
+        client.emit('error', errorMessage);
       }
 
       console.error(error);

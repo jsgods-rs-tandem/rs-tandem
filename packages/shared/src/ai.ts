@@ -30,3 +30,10 @@ export interface AiChatRequestDto {
 export type AiChatResponseDto = string;
 
 export type UserMessageDto = Omit<AiMessage, 'role'>;
+
+export interface AiErrorDto {
+  type: 'provider_error' | 'unknown_error' | 'server_error';
+  title: string;
+  message: string;
+  status: number;
+}

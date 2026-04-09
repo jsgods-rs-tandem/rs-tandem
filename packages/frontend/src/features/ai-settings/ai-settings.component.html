@@ -1,4 +1,4 @@
-<h2 class="h3 title">{{ title }}</h2>
+<h2 class="h3 title">{{ 'settings.ai.title' | transloco }}</h2>
 <app-line-break></app-line-break>
 
 @if (isLoading()) {
@@ -8,7 +8,7 @@
 } @else {
   <form [formGroup]="settingsForm" class="form" (ngSubmit)="handleSubmit()">
     <div class="row">
-      <h3 class="h3">Use remote provider?</h3>
+      <h3 class="h3">{{ 'settings.ai.useRemoteProvider' | transloco }}</h3>
       <app-switcher
         (toggledEvent)="toggleProvider($event)"
         [initialStatus]="settings().useRemoteProvider"
@@ -16,7 +16,7 @@
     </div>
 
     <div class="provider-wrapper" [ngClass]="settings().useRemoteProvider ? 'enabled' : 'disabled'">
-      <h3 class="h3">Provider</h3>
+      <h3 class="h3">{{ 'settings.ai.provider' | transloco }}</h3>
       <select name="provider" id="model" class="select" formControlName="provider">
         @for (provider of providers(); track provider) {
           <option value="{{ provider.id }}">
@@ -24,11 +24,11 @@
           </option>
         }
       </select>
-      <h3 class="h3">Model</h3>
+      <h3 class="h3">{{ 'settings.ai.model' | transloco }}</h3>
       <app-input [placeholder]="'Model'" formControlName="model" [targetType]="'text'"></app-input>
-      <h3 class="h3">API key</h3>
+      <h3 class="h3">{{ 'settings.ai.apiKey' | transloco }}</h3>
       <app-input
-        [placeholder]="'API key'"
+        [placeholder]="'settings.ai.apiKey' | transloco"
         class="input"
         formControlName="apiKey"
         [targetType]="'password'"
@@ -36,8 +36,10 @@
     </div>
 
     <div class="control-wrapper">
-      <app-button type="submit">Update settings</app-button>
-      <app-button (click)="resetChatHistory()">Reset chat history</app-button>
+      <app-button type="submit">{{ 'settings.ai.update' | transloco }}</app-button>
+      <app-button (click)="resetChatHistory()">{{
+        'settings.ai.resetHistory' | transloco
+      }}</app-button>
     </div>
   </form>
 }
