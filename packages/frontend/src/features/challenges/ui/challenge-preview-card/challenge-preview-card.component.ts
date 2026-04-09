@@ -28,8 +28,10 @@ export class ChallengePreviewCardComponent {
   readonly inProgress = input.required<boolean>();
   readonly isComplete = input.required<boolean>();
 
-  readonly badgeDifficultyColor = computed(() => computeDifficultyBadgeColor(this.difficulty()));
-  readonly difficultyTranslationKey = computed(
+  protected readonly _badgeDifficultyColor = computed(() =>
+    computeDifficultyBadgeColor(this.difficulty()),
+  );
+  protected readonly _difficultyTranslationKey = computed(
     () => DIFFICULTY_TRANSLATION_KEYS[this.difficulty()],
   );
 }
