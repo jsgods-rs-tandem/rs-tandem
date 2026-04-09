@@ -1,6 +1,7 @@
 type IconName =
   | 'ai'
   | 'arrow-up'
+  | 'cancel'
   | 'check-circle'
   | 'close'
   | 'code'

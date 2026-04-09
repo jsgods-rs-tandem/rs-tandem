@@ -19,9 +19,9 @@
       },
       "difficulty": "easy",
       "tags": [
-        { "en": "Array", "ru": "Массивы" },
-        { "en": "ES6", "ru": "ES6" },
-        { "en": "Callback", "ru": "Callback" }
+        { "id": "array", "en": "Array", "ru": "Массивы" },
+        { "id": "es6", "en": "ES6", "ru": "ES6" },
+        { "id": "callback", "en": "Callback", "ru": "Callback" }
       ],
       "functionName": "customFlatMap",
       "starterCode": "function customFlatMap(array, callback) {\n  // WRITE YOUR SOLUTION HERE\n}",
@@ -59,8 +59,8 @@
       },
       "difficulty": "easy",
       "tags": [
-        { "en": "Object", "ru": "Объекты" },
-        { "en": "ES6", "ru": "ES6" }
+        { "id": "object", "en": "Object", "ru": "Объекты" },
+        { "id": "es6", "en": "ES6", "ru": "ES6" }
       ],
       "functionName": "fromEntries",
       "starterCode": "function fromEntries(entries) {\n  // WRITE YOUR SOLUTION HERE\n}",
@@ -104,9 +104,9 @@
       },
       "difficulty": "medium",
       "tags": [
-        { "en": "Array", "ru": "Массивы" },
-        { "en": "Object", "ru": "Объекты" },
-        { "en": "Utility", "ru": "Утилиты" }
+        { "id": "array", "en": "Array", "ru": "Массивы" },
+        { "id": "object", "en": "Object", "ru": "Объекты" },
+        { "id": "utility", "en": "Utility", "ru": "Утилиты" }
       ],
       "functionName": "groupBy",
       "starterCode": "function groupBy(array, selector) {\n  // WRITE YOUR SOLUTION HERE\n}",
@@ -141,8 +141,8 @@
       },
       "difficulty": "medium",
       "tags": [
-        { "en": "Generator", "ru": "Генераторы" },
-        { "en": "ES6", "ru": "ES6" }
+        { "id": "generator", "en": "Generator", "ru": "Генераторы" },
+        { "id": "es6", "en": "ES6", "ru": "ES6" }
       ],
       "functionName": "generatorRange",
       "starterCode": "function generatorRange(start, end) {\n  // WRITE YOUR SOLUTION HERE\n}",
@@ -176,8 +176,8 @@
       },
       "difficulty": "medium",
       "tags": [
-        { "en": "Proxy", "ru": "Proxy" },
-        { "en": "Array", "ru": "Массивы" }
+        { "id": "proxy", "en": "Proxy", "ru": "Proxy" },
+        { "id": "array", "en": "Array", "ru": "Массивы" }
       ],
       "functionName": "getWithNegativeIndex",
       "starterCode": "function getWithNegativeIndex(array, index) {\n  // WRITE YOUR SOLUTION HERE\n}",
@@ -214,8 +214,8 @@
       },
       "difficulty": "easy",
       "tags": [
-        { "en": "Map", "ru": "Map" },
-        { "en": "Counting", "ru": "Подсчет" }
+        { "id": "map", "en": "Map", "ru": "Map" },
+        { "id": "counting", "en": "Counting", "ru": "Подсчет" }
       ],
       "functionName": "countFrequencies",
       "starterCode": "function countFrequencies(array) {\n  // WRITE YOUR SOLUTION HERE\n}",
@@ -249,8 +249,8 @@
       },
       "difficulty": "easy",
       "tags": [
-        { "en": "Set", "ru": "Set" },
-        { "en": "Array", "ru": "Массивы" }
+        { "id": "set", "en": "Set", "ru": "Set" },
+        { "id": "array", "en": "Array", "ru": "Массивы" }
       ],
       "functionName": "uniqueMerge",
       "starterCode": "function uniqueMerge(first, second) {\n  // WRITE YOUR SOLUTION HERE\n}",
@@ -290,8 +290,8 @@
       },
       "difficulty": "medium",
       "tags": [
-        { "en": "Optional Chaining", "ru": "Optional chaining" },
-        { "en": "Object", "ru": "Объекты" }
+        { "id": "optional-chaining", "en": "Optional Chaining", "ru": "Optional chaining" },
+        { "id": "object", "en": "Object", "ru": "Объекты" }
       ],
       "functionName": "optionalGet",
       "starterCode": "function optionalGet(value, path) {\n  // WRITE YOUR SOLUTION HERE\n}",
@@ -325,8 +325,8 @@
       },
       "difficulty": "easy",
       "tags": [
-        { "en": "Nullish", "ru": "Nullish" },
-        { "en": "Utility", "ru": "Утилиты" }
+        { "id": "nullish", "en": "Nullish", "ru": "Nullish" },
+        { "id": "utility", "en": "Utility", "ru": "Утилиты" }
       ],
       "functionName": "nullishDefault",
       "starterCode": "function nullishDefault(value, fallback) {\n  // WRITE YOUR SOLUTION HERE\n}",
@@ -363,8 +363,8 @@
       },
       "difficulty": "medium",
       "tags": [
-        { "en": "Object", "ru": "Объекты" },
-        { "en": "Sorting", "ru": "Сортировка" }
+        { "id": "object", "en": "Object", "ru": "Объекты" },
+        { "id": "sorting", "en": "Sorting", "ru": "Сортировка" }
       ],
       "functionName": "sortedEntries",
       "starterCode": "function sortedEntries(value) {\n  // WRITE YOUR SOLUTION HERE\n}",

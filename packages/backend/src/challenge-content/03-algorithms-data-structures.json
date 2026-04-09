@@ -19,8 +19,8 @@
       },
       "difficulty": "easy",
       "tags": [
-        { "en": "Array", "ru": "Массивы" },
-        { "en": "Hash Map", "ru": "Хеш-таблица" }
+        { "id": "array", "en": "Array", "ru": "Массивы" },
+        { "id": "hash-map", "en": "Hash Map", "ru": "Хеш-таблица" }
       ],
       "functionName": "twoSum",
       "starterCode": "function twoSum(nums, target) {\n  // WRITE YOUR SOLUTION HERE\n}",
@@ -54,8 +54,8 @@
       },
       "difficulty": "easy",
       "tags": [
-        { "en": "Binary Search", "ru": "Бинарный поиск" },
-        { "en": "Array", "ru": "Массивы" }
+        { "id": "binary-search", "en": "Binary Search", "ru": "Бинарный поиск" },
+        { "id": "array", "en": "Array", "ru": "Массивы" }
       ],
       "functionName": "binarySearch",
       "starterCode": "function binarySearch(nums, target) {\n  // WRITE YOUR SOLUTION HERE\n}",
@@ -92,8 +92,8 @@
       },
       "difficulty": "easy",
       "tags": [
-        { "en": "Stack", "ru": "Стек" },
-        { "en": "String", "ru": "Строки" }
+        { "id": "stack", "en": "Stack", "ru": "Стек" },
+        { "id": "string", "en": "String", "ru": "Строки" }
       ],
       "functionName": "isValidParentheses",
       "starterCode": "function isValidParentheses(value) {\n  // WRITE YOUR SOLUTION HERE\n}",
@@ -127,8 +127,12 @@
       },
       "difficulty": "medium",
       "tags": [
-        { "en": "Dynamic Programming", "ru": "Динамическое программирование" },
-        { "en": "Array", "ru": "Массивы" }
+        {
+          "id": "dynamic-programming",
+          "en": "Dynamic Programming",
+          "ru": "Динамическое программирование"
+        },
+        { "id": "array", "en": "Array", "ru": "Массивы" }
       ],
       "functionName": "maxSubarray",
       "starterCode": "function maxSubarray(nums) {\n  // WRITE YOUR SOLUTION HERE\n}",
@@ -159,8 +163,8 @@
       },
       "difficulty": "easy",
       "tags": [
-        { "en": "String", "ru": "Строки" },
-        { "en": "Counting", "ru": "Подсчет" }
+        { "id": "string", "en": "String", "ru": "Строки" },
+        { "id": "counting", "en": "Counting", "ru": "Подсчет" }
       ],
       "functionName": "isAnagram",
       "starterCode": "function isAnagram(first, second) {\n  // WRITE YOUR SOLUTION HERE\n}",
@@ -191,8 +195,8 @@
       },
       "difficulty": "medium",
       "tags": [
-        { "en": "Intervals", "ru": "Интервалы" },
-        { "en": "Sorting", "ru": "Сортировка" }
+        { "id": "intervals", "en": "Intervals", "ru": "Интервалы" },
+        { "id": "sorting", "en": "Sorting", "ru": "Сортировка" }
       ],
       "functionName": "mergeIntervals",
       "starterCode": "function mergeIntervals(intervals) {\n  // WRITE YOUR SOLUTION HERE\n}",
@@ -243,8 +247,8 @@
       },
       "difficulty": "medium",
       "tags": [
-        { "en": "Sliding Window", "ru": "Скользящее окно" },
-        { "en": "Array", "ru": "Массивы" }
+        { "id": "sliding-window", "en": "Sliding Window", "ru": "Скользящее окно" },
+        { "id": "array", "en": "Array", "ru": "Массивы" }
       ],
       "functionName": "maxWindowSum",
       "starterCode": "function maxWindowSum(nums, size) {\n  // WRITE YOUR SOLUTION HERE\n}",
@@ -275,8 +279,8 @@
       },
       "difficulty": "medium",
       "tags": [
-        { "en": "Queue", "ru": "Очередь" },
-        { "en": "Stack", "ru": "Стек" }
+        { "id": "queue", "en": "Queue", "ru": "Очередь" },
+        { "id": "stack", "en": "Stack", "ru": "Стек" }
       ],
       "functionName": "simulateQueue",
       "starterCode": "function simulateQueue(operations) {\n  // WRITE YOUR SOLUTION HERE\n}",
@@ -310,8 +314,8 @@
       },
       "difficulty": "medium",
       "tags": [
-        { "en": "Tree", "ru": "Деревья" },
-        { "en": "Recursion", "ru": "Рекурсия" }
+        { "id": "tree", "en": "Tree", "ru": "Деревья" },
+        { "id": "recursion", "en": "Recursion", "ru": "Рекурсия" }
       ],
       "functionName": "maxTreeDepth",
       "starterCode": "function maxTreeDepth(node) {\n  // WRITE YOUR SOLUTION HERE\n}",
@@ -342,8 +346,8 @@
       },
       "difficulty": "medium",
       "tags": [
-        { "en": "Tree", "ru": "Деревья" },
-        { "en": "BFS", "ru": "BFS" }
+        { "id": "tree", "en": "Tree", "ru": "Деревья" },
+        { "id": "bfs", "en": "BFS", "ru": "BFS" }
       ],
       "functionName": "treeLevels",
       "starterCode": "function treeLevels(node) {\n  // WRITE YOUR SOLUTION HERE\n}",
@@ -380,8 +384,8 @@
       },
       "difficulty": "medium",
       "tags": [
-        { "en": "Sliding Window", "ru": "Скользящее окно" },
-        { "en": "String", "ru": "Строки" }
+        { "id": "sliding-window", "en": "Sliding Window", "ru": "Скользящее окно" },
+        { "id": "string", "en": "String", "ru": "Строки" }
       ],
       "functionName": "longestUniqueSubstring",
       "starterCode": "function longestUniqueSubstring(value) {\n  // WRITE YOUR SOLUTION HERE\n}",
@@ -417,7 +421,13 @@
         "ru": "Подсчитайте количество различных способов добраться до вершины, если за один ход можно подняться на одну или две ступени. Каждый маршрут должен рассматриваться как отдельная допустимая последовательность ходов. Верните только общее число таких последовательностей"
       },
       "difficulty": "easy",
-      "tags": [{ "en": "Dynamic Programming", "ru": "Динамическое программирование" }],
+      "tags": [
+        {
+          "id": "dynamic-programming",
+          "en": "Dynamic Programming",
+          "ru": "Динамическое программирование"
+        }
+      ],
       "functionName": "climbStairs",
       "starterCode": "function climbStairs(steps) {\n  // WRITE YOUR SOLUTION HERE\n}",
       "testCases": [
@@ -447,8 +457,12 @@
       },
       "difficulty": "hard",
       "tags": [
-        { "en": "Dynamic Programming", "ru": "Динамическое программирование" },
-        { "en": "Array", "ru": "Массивы" }
+        {
+          "id": "dynamic-programming",
+          "en": "Dynamic Programming",
+          "ru": "Динамическое программирование"
+        },
+        { "id": "array", "en": "Array", "ru": "Массивы" }
       ],
       "functionName": "coinChange",
       "starterCode": "function coinChange(coins, amount) {\n  // WRITE YOUR SOLUTION HERE\n}",
@@ -485,8 +499,8 @@
       },
       "difficulty": "medium",
       "tags": [
-        { "en": "Heap", "ru": "Куча" },
-        { "en": "Hash Map", "ru": "Хеш-таблица" }
+        { "id": "heap", "en": "Heap", "ru": "Куча" },
+        { "id": "hash-map", "en": "Hash Map", "ru": "Хеш-таблица" }
       ],
       "functionName": "topKFrequent",
       "starterCode": "function topKFrequent(nums, count) {\n  // WRITE YOUR SOLUTION HERE\n}",
@@ -523,8 +537,8 @@
       },
       "difficulty": "hard",
       "tags": [
-        { "en": "Matrix", "ru": "Матрицы" },
-        { "en": "Array", "ru": "Массивы" }
+        { "id": "matrix", "en": "Matrix", "ru": "Матрицы" },
+        { "id": "array", "en": "Array", "ru": "Массивы" }
       ],
       "functionName": "rotateMatrix",
       "starterCode": "function rotateMatrix(matrix) {\n  // WRITE YOUR SOLUTION HERE\n}",

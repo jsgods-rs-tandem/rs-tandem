@@ -1,7 +1,8 @@
 import { Component, forwardRef, input } from '@angular/core';
 import { NG_VALUE_ACCESSOR, ControlValueAccessor } from '@angular/forms';
 
-import { AlertComponent, AnswerTileComponent, CodeSnippetComponent } from './components';
+import { AlertComponent } from '@/shared/ui';
+import { AnswerTileComponent, CodeSnippetComponent } from './components';
 
 import type { AnswerTileGroupItem } from './answer-tile-group.types';
 

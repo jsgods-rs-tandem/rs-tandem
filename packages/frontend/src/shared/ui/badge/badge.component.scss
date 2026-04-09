@@ -31,12 +31,12 @@
     &_color {
       &_success {
         --bg-color: var(--success-color);
-        color: var(--primary-color);
+        color: var(--primary-color-true);
       }
 
       &_error {
         --bg-color: var(--error-color);
-        color: var(--primary-color);
+        color: var(--primary-color-true);
       }
 
       &_info {
@@ -68,6 +68,7 @@
       &_diamond {
         position: relative;
         min-height: 32px;
+        margin-inline: var(--spacing-x2);
         background-color: var(--bg-color);
 
         &::before {

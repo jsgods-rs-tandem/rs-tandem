@@ -1,6 +1,11 @@
 export type ChallengeDifficulty = 'easy' | 'medium' | 'hard';
 export type ChallengeStatus = 'notStarted' | 'inProgress' | 'completed';
 
+export interface ChallengeTag {
+  id: string;
+  name: string;
+}
+
 export interface ChallengeCategorySummary {
   id: string;
   name: string;
@@ -15,7 +20,7 @@ export interface ChallengeTopicSummary {
   name: string;
   description: string;
   difficulty: ChallengeDifficulty;
-  tags: string[];
+  tags: ChallengeTag[];
   status: ChallengeStatus;
 }
 
@@ -47,7 +52,7 @@ export interface ChallengeTopicDetails {
   instructions: string;
   categoryId: string;
   difficulty: ChallengeDifficulty;
-  tags: string[];
+  tags: ChallengeTag[];
   status: ChallengeStatus;
   functionName: string;
   starterCode: string;
@@ -76,7 +81,7 @@ export interface GetChallengeTopicResponseDto {
   instructions: string;
   categoryId: string;
   difficulty: ChallengeDifficulty;
-  tags: string[];
+  tags: ChallengeTag[];
   status: ChallengeStatus;
   functionName: string;
   starterCode: string;

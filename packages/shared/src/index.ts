@@ -12,6 +12,7 @@ export type {
 export type {
   ChallengeDifficulty,
   ChallengeStatus,
+  ChallengeTag,
   ChallengeCategorySummary,
   ChallengeCategory,
   ChallengeTopicSummary,

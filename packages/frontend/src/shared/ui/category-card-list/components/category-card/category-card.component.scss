@@ -5,6 +5,10 @@
   border: 2px solid var(--secondary-color);
   border-radius: var(--radius-md);
 
+  @include mix.media('s') {
+    padding: var(--spacing-x4);
+  }
+
   &__header {
     display: flex;
     gap: var(--spacing-x3);
@@ -23,6 +27,10 @@
     width: 100%;
     max-width: 300px;
     height: fit-content;
+
+    @include mix.media('s') {
+      max-width: none;
+    }
   }
 
   &__body,

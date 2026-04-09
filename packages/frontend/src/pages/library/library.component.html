@@ -6,7 +6,7 @@
   <ul class="library__list">
     @for (feature of featuresList; track $index) {
       <li class="library__list-item">
-        <app-card [title]="feature.heading" footerPosition="end"
+        <app-card [title]="feature.heading" [titleLevel]="2" footerPosition="end"
           >{{ feature.description }}
           <app-button
             icon="arrow-up"

@@ -29,6 +29,10 @@
     flex-direction: column;
     flex-grow: 1;
     margin-block-start: var(--spacing-x10);
+
+    @include mix.media('s') {
+      margin-block-start: var(--spacing-x7);
+    }
   }
 
   &__filters {

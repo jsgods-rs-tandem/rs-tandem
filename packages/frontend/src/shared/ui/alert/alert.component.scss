@@ -1,0 +1,52 @@
+:host {
+  display: flex;
+}
+
+.alert {
+  $this: &;
+
+  display: flex;
+  gap: var(--spacing-x2);
+
+  width: 100%;
+  padding: var(--spacing-x2) var(--spacing-x3);
+  border-style: solid;
+  border-width: 2px;
+  border-radius: var(--radius-md);
+
+  &_variant {
+    &_success {
+      border-color: var(--success-color);
+      background-color: rgb(var(--success-color-rgb), 0.2);
+
+      #{$this}__icon {
+        ::ng-deep .icon {
+          color: var(--success-color);
+        }
+      }
+    }
+
+    &_info {
+      border-color: var(--info-border-color);
+      color: var(--info-text-color);
+      background-color: var(--info-bg-color);
+
+      #{$this}__icon {
+        ::ng-deep .icon {
+          color: var(--info-color);
+        }
+      }
+    }
+
+    &_error {
+      border-color: var(--error-color);
+      background-color: rgb(var(--error-color-rgb), 0.2);
+
+      #{$this}__icon {
+        ::ng-deep .icon {
+          color: var(--error-color);
+        }
+      }
+    }
+  }
+}

@@ -31,9 +31,14 @@
     flex-direction: column;
 
     margin-block-start: var(--spacing-x10);
-    padding: var(--spacing-x10) var(--spacing-x13);
+    padding: var(--spacing-x9) var(--spacing-x10);
     border: 2px solid var(--secondary-color);
     border-radius: var(--radius-md);
+
+    @include mix.media('s') {
+      margin-block-start: var(--spacing-x7);
+      padding: var(--spacing-x4);
+    }
   }
 
   &__recommendations {
@@ -46,6 +51,7 @@
     gap: var(--spacing-x1);
 
     margin-block-start: var(--spacing-x1);
+    margin-inline-start: var(--spacing-x4);
 
     list-style-type: initial;
   }

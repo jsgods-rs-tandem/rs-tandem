@@ -2,7 +2,14 @@
   @let titleValue = title();
   @if (titleValue) {
     <header class="card__header">
-      <h3 class="h3">{{ titleValue }}</h3>
+      @switch (titleLevel()) {
+        @case (2) {
+          <h2 class="h3">{{ titleValue }}</h2>
+        }
+        @default {
+          <h3 class="h3">{{ titleValue }}</h3>
+        }
+      }
     </header>
   }
   <div class="card__body">

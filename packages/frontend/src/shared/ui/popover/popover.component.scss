@@ -14,7 +14,7 @@
   opacity: 0;
   background: transparent;
 
-  // We list proprties explicitly (not via a mixin), because auto-formatting breaks the smooth reverse animation
+  // We list properties explicitly (not via a mixin), because auto-formatting breaks the smooth reverse animation
   transition:
     margin-block-end var(--transition-duration-basic) var(--transition-easing-func),
     opacity var(--transition-duration-basic) var(--transition-easing-func),

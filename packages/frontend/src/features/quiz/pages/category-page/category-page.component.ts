@@ -25,6 +25,9 @@ import type { Filters } from './category-page.types';
 
 @Component({
   selector: 'app-category-page',
+  host: {
+    'collision-id': 'quiz-category-page',
+  },
   imports: [
     ButtonComponent,
     EmptyComponent,
@@ -70,11 +73,11 @@ export class CategoryPageComponent implements OnInit {
       const { score } = topic;
 
       if (status.length > 0) {
-        if (score === null && !status.includes('notStarted')) {
-          return acc;
-        }
-
-        if (topic.inProgress && !status.includes('inProgress')) {
+        if (topic.inProgress) {
+          if (!status.includes('inProgress')) {
+            return acc;
+          }
+        } else if (score === null && !status.includes('notStarted')) {
           return acc;
         }
 

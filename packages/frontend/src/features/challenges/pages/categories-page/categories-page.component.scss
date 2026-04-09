@@ -1,3 +1,5 @@
+@use 'assets/styles/mixins' as mix;
+
 :host {
   display: flex;
   flex-direction: column;
@@ -16,6 +18,10 @@
 
   &__category-card-list {
     margin-block: var(--spacing-x10);
+
+    @include mix.media('s') {
+      margin-block-start: var(--spacing-x7);
+    }
   }
 
   &__empty {

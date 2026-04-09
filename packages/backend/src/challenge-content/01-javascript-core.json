@@ -19,9 +19,9 @@
       },
       "difficulty": "easy",
       "tags": [
-        { "en": "Polyfill", "ru": "Полифилы" },
-        { "en": "Array", "ru": "Массивы" },
-        { "en": "Callback", "ru": "Callback" }
+        { "id": "polyfill", "en": "Polyfill", "ru": "Полифилы" },
+        { "id": "array", "en": "Array", "ru": "Массивы" },
+        { "id": "callback", "en": "Callback", "ru": "Callback" }
       ],
       "functionName": "customMap",
       "starterCode": "function customMap(array, callback, thisArg) {\n  // WRITE YOUR SOLUTION HERE\n}",
@@ -72,8 +72,8 @@
       },
       "difficulty": "easy",
       "tags": [
-        { "en": "Polyfill", "ru": "Полифилы" },
-        { "en": "Array", "ru": "Массивы" }
+        { "id": "polyfill", "en": "Polyfill", "ru": "Полифилы" },
+        { "id": "array", "en": "Array", "ru": "Массивы" }
       ],
       "functionName": "customFilter",
       "starterCode": "function customFilter(array, predicate, thisArg) {\n  // WRITE YOUR SOLUTION HERE\n}",
@@ -111,9 +111,9 @@
       },
       "difficulty": "hard",
       "tags": [
-        { "en": "Polyfill", "ru": "Полифилы" },
-        { "en": "Array", "ru": "Массивы" },
-        { "en": "Accumulator", "ru": "Аккумулятор" }
+        { "id": "polyfill", "en": "Polyfill", "ru": "Полифилы" },
+        { "id": "array", "en": "Array", "ru": "Массивы" },
+        { "id": "accumulator", "en": "Accumulator", "ru": "Аккумулятор" }
       ],
       "functionName": "customReduce",
       "starterCode": "function customReduce(array, reducer, initialValue) {\n  // WRITE YOUR SOLUTION HERE\n}",
@@ -151,9 +151,9 @@
       },
       "difficulty": "medium",
       "tags": [
-        { "en": "Polyfill", "ru": "Полифилы" },
-        { "en": "This", "ru": "this" },
-        { "en": "Context", "ru": "Контекст" }
+        { "id": "polyfill", "en": "Polyfill", "ru": "Полифилы" },
+        { "id": "this", "en": "This", "ru": "this" },
+        { "id": "context", "en": "Context", "ru": "Контекст" }
       ],
       "functionName": "bindAndCall",
       "starterCode": "function bindAndCall(fn, context, boundArgs, runtimeArgs) {\n  // WRITE YOUR SOLUTION HERE\n}",
@@ -193,9 +193,9 @@
       },
       "difficulty": "medium",
       "tags": [
-        { "en": "Recursion", "ru": "Рекурсия" },
-        { "en": "Object", "ru": "Объекты" },
-        { "en": "Reference", "ru": "Ссылки" }
+        { "id": "recursion", "en": "Recursion", "ru": "Рекурсия" },
+        { "id": "object", "en": "Object", "ru": "Объекты" },
+        { "id": "reference", "en": "Reference", "ru": "Ссылки" }
       ],
       "functionName": "deepClone",
       "starterCode": "function deepClone(value) {\n  // WRITE YOUR SOLUTION HERE\n}",
@@ -226,8 +226,8 @@
       },
       "difficulty": "medium",
       "tags": [
-        { "en": "Recursion", "ru": "Рекурсия" },
-        { "en": "Array", "ru": "Массивы" }
+        { "id": "recursion", "en": "Recursion", "ru": "Рекурсия" },
+        { "id": "array", "en": "Array", "ru": "Массивы" }
       ],
       "functionName": "flattenArray",
       "starterCode": "function flattenArray(array) {\n  // WRITE YOUR SOLUTION HERE\n}",
@@ -264,9 +264,9 @@
       },
       "difficulty": "hard",
       "tags": [
-        { "en": "Functional", "ru": "Функциональный подход" },
-        { "en": "Closure", "ru": "Замыкания" },
-        { "en": "Arity", "ru": "Арность" }
+        { "id": "functional", "en": "Functional", "ru": "Функциональный подход" },
+        { "id": "closure", "en": "Closure", "ru": "Замыкания" },
+        { "id": "arity", "en": "Arity", "ru": "Арность" }
       ],
       "functionName": "applyCurried",
       "starterCode": "function applyCurried(fn, argumentGroups) {\n  // WRITE YOUR SOLUTION HERE\n}",
@@ -307,8 +307,8 @@
       },
       "difficulty": "easy",
       "tags": [
-        { "en": "Polyfill", "ru": "Полифилы" },
-        { "en": "Object", "ru": "Объекты" }
+        { "id": "polyfill", "en": "Polyfill", "ru": "Полифилы" },
+        { "id": "object", "en": "Object", "ru": "Объекты" }
       ],
       "functionName": "assignObjects",
       "starterCode": "function assignObjects(target, ...sources) {\n  // WRITE YOUR SOLUTION HERE\n}",
@@ -345,9 +345,9 @@
       },
       "difficulty": "medium",
       "tags": [
-        { "en": "Optimization", "ru": "Оптимизация" },
-        { "en": "Closure", "ru": "Замыкания" },
-        { "en": "Cache", "ru": "Кэш" }
+        { "id": "optimization", "en": "Optimization", "ru": "Оптимизация" },
+        { "id": "closure", "en": "Closure", "ru": "Замыкания" },
+        { "id": "cache", "en": "Cache", "ru": "Кэш" }
       ],
       "functionName": "memoizeSequence",
       "starterCode": "function memoizeSequence(fn, values) {\n  // WRITE YOUR SOLUTION HERE\n}",
@@ -388,8 +388,8 @@
       },
       "difficulty": "hard",
       "tags": [
-        { "en": "Prototype", "ru": "Прототипы" },
-        { "en": "Inheritance", "ru": "Наследование" }
+        { "id": "prototype", "en": "Prototype", "ru": "Прототипы" },
+        { "id": "inheritance", "en": "Inheritance", "ru": "Наследование" }
       ],
       "functionName": "customInstanceof",
       "starterCode": "function customInstanceof(value, constructorName) {\n  // WRITE YOUR SOLUTION HERE\n}",
@@ -429,9 +429,9 @@
       },
       "difficulty": "easy",
       "tags": [
-        { "en": "String", "ru": "Строки" },
-        { "en": "Object", "ru": "Объекты" },
-        { "en": "Utility", "ru": "Утилиты" }
+        { "id": "string", "en": "String", "ru": "Строки" },
+        { "id": "object", "en": "Object", "ru": "Объекты" },
+        { "id": "utility", "en": "Utility", "ru": "Утилиты" }
       ],
       "functionName": "getByPath",
       "starterCode": "function getByPath(value, path) {\n  // WRITE YOUR SOLUTION HERE\n}",
@@ -465,8 +465,8 @@
       },
       "difficulty": "medium",
       "tags": [
-        { "en": "Types", "ru": "Типы" },
-        { "en": "Coercion", "ru": "Приведение типов" }
+        { "id": "types", "en": "Types", "ru": "Типы" },
+        { "id": "coercion", "en": "Coercion", "ru": "Приведение типов" }
       ],
       "functionName": "typeofExact",
       "starterCode": "function typeofExact(value) {\n  // WRITE YOUR SOLUTION HERE\n}",

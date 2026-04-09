@@ -6,7 +6,7 @@
 <app-layout [loading]="loading.topic || loading.results || loading.step">
   @if (topic && question) {
     <header>
-      <h1 class="h2">{{ topic.name }}</h1>
+      <h1 class="h2 quiz-page__heading">{{ topic.name }}</h1>
     </header>
 
     <div class="quiz-page__body">
@@ -19,7 +19,8 @@
         />
 
         <h2 class="h3 quiz-page__question">
-          {{ 'quiz.quizPage.questionLabel' | transloco }} {{ step + 1 | number: '2.0-0' }}
+          {{ 'quiz.quizPage.questionLabel' | transloco }}
+          <span aria-live="polite">{{ step + 1 | number: '2.0-0' }}</span>
           {{ 'quiz.quizPage.questionOf' | transloco }}&nbsp;{{
             topic.questionsCount | number: '2.0-0'
           }}
