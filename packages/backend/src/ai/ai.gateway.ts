@@ -11,7 +11,7 @@ import { AiService } from './ai.service.js';
 import { HttpException, UseGuards } from '@nestjs/common';
 import { WsJwtGuard } from '../auth/guards/ws-jwt-auth.guard.js';
 import type { AiChatResponseDto, AiMessage, UserDto, UserMessageDto } from 'packages/shared';
-import AppError from './errors/app-error.js';
+import AppError from '../common/utils/app-error.js';
 import { AiErrorDto } from 'packages/shared/src/ai.js';
 import { title } from './errors/errors.js';
 

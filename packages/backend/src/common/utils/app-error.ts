@@ -1,4 +1,4 @@
-import { ErrorCode } from './errors';
+import { ErrorCode } from '../../ai/errors/errors';
 
 export default class AppError extends Error {
   constructor(
