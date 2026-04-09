@@ -283,6 +283,10 @@
       "answer_not_found": "Ответ не найден",
       "no_completed_attempt": "Нет завершённых попыток"
     },
+    "challenges": {
+      "category_not_found": "Категория не найдена",
+      "topic_not_found": "Топик не найден"
+    },
     "ai": {
       "provider_not_selected": "AI провайдер не выбран",
       "provider_unknown": "Неизвестный AI провайдер",
@@ -294,7 +298,8 @@
     },
     "validation": {
       "email_invalid": "Невалидный имейл адрес",
-      "required": "Это поле обязательное"
+      "required": "Это поле обязательное",
+      "uuid_expected": "Неверный формат идентификатора"
     },
     "network": {
       "connection": "Не удалось подключиться к серверу. Проверьте подключение к интернету.",
@@ -302,7 +307,8 @@
     },
     "common": {
       "unexpected": "Неожиданная ошибка",
-      "networkTitle": "Ошибка сети"
+      "networkTitle": "Ошибка сети",
+      "badRequestTitle": "Некорректный запрос"
     }
   },
   "ui": {
