@@ -2,13 +2,19 @@ import { Component, forwardRef, input } from '@angular/core';
 import { NG_VALUE_ACCESSOR, ControlValueAccessor } from '@angular/forms';
 
 import { AlertComponent } from '@/shared/ui';
+import { FormattedTextContentComponent } from '../formatted-text-content';
 import { AnswerTileComponent, CodeSnippetComponent } from './components';
 
 import type { AnswerTileGroupItem } from './answer-tile-group.types';
 
 @Component({
   selector: 'app-answer-tile-group',
-  imports: [AlertComponent, AnswerTileComponent, CodeSnippetComponent],
+  imports: [
+    AlertComponent,
+    AnswerTileComponent,
+    CodeSnippetComponent,
+    FormattedTextContentComponent,
+  ],
   templateUrl: './answer-tile-group.component.html',
   styleUrl: './answer-tile-group.component.scss',
   providers: [

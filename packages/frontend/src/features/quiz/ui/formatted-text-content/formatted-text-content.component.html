@@ -1,0 +1,9 @@
+@let formattedText = _formattedText();
+
+@for (text of formattedText; track $index) {
+  @if (text.shouldFormat) {
+    <app-code [color]="codeColor()">{{ text.word }}</app-code>
+  } @else {
+    <span>{{ text.word }}</span>
+  }
+}

@@ -1,0 +1,30 @@
+:host {
+  display: inline-block;
+}
+
+.code {
+  display: inline-block;
+
+  margin-block: 0.12em;
+  padding: 0.2em 0.4em;
+  border-radius: var(--radius-md);
+
+  font: inherit;
+
+  &_color {
+    &_primary {
+      color: var(--secondary-color);
+      background-color: rgb(var(--secondary-color-rgb), 0.14);
+    }
+
+    &_secondary {
+      color: var(--primary-color);
+      background-color: rgb(var(--primary-color-rgb), 0.14);
+    }
+
+    &_error {
+      color: var(--error-color);
+      background-color: rgb(var(--error-color-rgb), 0.2);
+    }
+  }
+}

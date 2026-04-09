@@ -1,6 +1,7 @@
 import { Component, input, computed } from '@angular/core';
 
 import { BadgeComponent, ButtonComponent } from '@/shared/ui';
+import { FormattedTextContentComponent } from '../../../formatted-text-content';
 
 import { computeRewardLevel } from '@/features/quiz/utilities';
 import { computeBadgeRewardLevelColor } from './topic-card.utilities';
@@ -11,7 +12,7 @@ import type { AppTranslationKey } from '@/shared/types/translation-keys';
 
 @Component({
   selector: 'app-topic-card',
-  imports: [ButtonComponent, BadgeComponent, TypedTranslocoPipe],
+  imports: [ButtonComponent, BadgeComponent, FormattedTextContentComponent, TypedTranslocoPipe],
   templateUrl: './topic-card.component.html',
   styleUrl: './topic-card.component.scss',
   standalone: true,

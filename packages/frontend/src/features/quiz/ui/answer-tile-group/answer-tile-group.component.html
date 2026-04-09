@@ -5,16 +5,21 @@
 @let answerCommentValue = answerComment();
 
 <div role="radiogroup" [aria-labelledby]="questionId">
-  <h3 [id]="questionId" class="h3">{{ question() }}</h3>
+  <h3 [id]="questionId" class="h3">
+    <app-formatted-text-content [text]="question()" />
+  </h3>
 
   @if (code) {
     <app-code-snippet class="answer-tile-group__code-snippet" [code]="code" />
   }
 
   @if (answerCommentValue) {
-    <app-alert class="answer-tile-group__alert" [variant]="answerResultValue || 'info'">{{
-      answerCommentValue
-    }}</app-alert>
+    <app-alert class="answer-tile-group__alert" [variant]="answerResultValue || 'info'">
+      <app-formatted-text-content
+        [text]="answerCommentValue"
+        [codeColor]="answerResultValue === 'error' ? 'error' : 'primary'"
+      />
+    </app-alert>
   }
 
   <div class="answer-tile-group__body">
@@ -29,8 +34,9 @@
         [checked]="checked"
         [disabled]="disabled"
         (valueEvent)="onInput($event)"
-        >{{ answer.text }}</app-answer-tile
       >
+        <app-formatted-text-content [text]="answer.text" codeColor="secondary" />
+      </app-answer-tile>
     }
   </div>
 </div>
