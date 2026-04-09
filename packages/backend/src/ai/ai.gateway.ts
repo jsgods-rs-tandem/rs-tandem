@@ -12,7 +12,7 @@ import { HttpException, UseGuards } from '@nestjs/common';
 import { WsJwtGuard } from '../auth/guards/ws-jwt-auth.guard.js';
 import type { AiChatResponseDto, AiMessage, UserDto, UserMessageDto } from 'packages/shared';
 import AppError from './errors/app-error.js';
-import { AiError } from 'packages/shared/src/ai.js';
+import { AiErrorDto } from 'packages/shared/src/ai.js';
 import { title } from './errors/errors.js';
 
 export interface SocketData {
@@ -26,7 +26,7 @@ interface ClientToServerEvents {
 interface ServerToClientEvents {
   chat_chunk: (chunk: string) => void;
   chat_end: () => void;
-  error: (error: AiError) => void;
+  error: (error: AiErrorDto) => void;
 }
 
 type AuthenticatedSocket = Socket<
@@ -66,7 +66,7 @@ export class AiGateway {
         throw new WsException(error);
       }
       if (error instanceof AppError) {
-        const errorMessage: AiError = {
+        const errorMessage: AiErrorDto = {
           type: 'provider_error',
           title: title[error.code],
           message: error.message,
