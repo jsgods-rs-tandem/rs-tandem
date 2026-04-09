@@ -1,6 +1,6 @@
-import AppError from '../../common/utils/app-error';
+import AiAppError from './app-error';
 
-export default class OpenRouterError extends AppError {
+export default class OpenRouterError extends AiAppError {
   constructor(message: string, status: number) {
     super(message, 'OPENROUTER_ERROR', status);
   }

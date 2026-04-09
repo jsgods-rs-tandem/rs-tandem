@@ -11,7 +11,7 @@ import { AiService } from './ai.service.js';
 import { HttpException, UseGuards } from '@nestjs/common';
 import { WsJwtGuard } from '../auth/guards/ws-jwt-auth.guard.js';
 import type { AiChatResponseDto, AiMessage, UserDto, UserMessageDto } from 'packages/shared';
-import AppError from '../common/utils/app-error.js';
+import AiAppError from './errors/app-error.js';
 import { AiErrorDto } from 'packages/shared/src/ai.js';
 import { title } from './errors/errors.js';
 
@@ -65,7 +65,7 @@ export class AiGateway {
       if (error instanceof HttpException) {
         throw new WsException(error);
       }
-      if (error instanceof AppError) {
+      if (error instanceof AiAppError) {
         const errorMessage: AiErrorDto = {
           type: 'provider_error',
           title: title[error.code],

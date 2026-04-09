@@ -1,6 +1,6 @@
-import { ErrorCode } from '../../ai/errors/errors';
+import { ErrorCode } from './errors';
 
-export default class AppError extends Error {
+export default class AiAppError extends Error {
   constructor(
     public override message: string,
     public code: ErrorCode,
