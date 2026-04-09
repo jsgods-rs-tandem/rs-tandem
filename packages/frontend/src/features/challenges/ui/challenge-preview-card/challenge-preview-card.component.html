@@ -8,10 +8,10 @@
 
     <app-badge
       class="challenge-preview-card__difficulty-badge"
-      [text]="difficultyTranslationKey() | transloco"
+      [text]="_difficultyTranslationKey() | transloco"
       fontWeight="medium"
       shape="diamond"
-      [color]="badgeDifficultyColor()"
+      [color]="_badgeDifficultyColor()"
     />
 
     @if (inProgressValue) {
@@ -45,7 +45,10 @@
 
   <footer class="challenge-preview-card__footer">
     <app-button [link]="'topic/' + id()" [isSmallButton]="true">{{
-      'challenges.category.previewCard.navButton' | transloco
+      (inProgressValue
+        ? 'challenges.category.previewCard.navButton.resume'
+        : 'challenges.category.previewCard.navButton.start'
+      ) | transloco
     }}</app-button>
   </footer>
 </article>

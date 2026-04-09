@@ -25,24 +25,24 @@ export class TopicCardComponent {
   readonly score = input<number | null>();
   readonly inProgress = input<boolean>();
 
-  readonly badgeRewardLevel = computed(() => {
+  protected readonly _badgeRewardLevel = computed(() => {
     const s = this.score();
 
     return typeof s === 'number' ? computeRewardLevel(s) : null;
   });
 
-  readonly badgeRewardLevelColor = computed(() =>
-    computeBadgeRewardLevelColor(this.badgeRewardLevel()),
+  protected readonly _badgeRewardLevelColor = computed(() =>
+    computeBadgeRewardLevelColor(this._badgeRewardLevel()),
   );
 
-  readonly questionsCountTranslationKey = computed<AppTranslationKey>(() =>
+  protected readonly _questionsCountTranslationKey = computed<AppTranslationKey>(() =>
     this.questionsCount() === 1
       ? 'quiz.topicCard.questions.single'
       : 'quiz.topicCard.questions.multiple',
   );
 
-  readonly badgeRewardLevelTranslationKey = computed<AppTranslationKey | null>(() => {
-    const rewardLevel = this.badgeRewardLevel();
+  protected readonly _badgeRewardLevelTranslationKey = computed<AppTranslationKey | null>(() => {
+    const rewardLevel = this._badgeRewardLevel();
 
     if (!rewardLevel) {
       return null;

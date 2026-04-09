@@ -373,7 +373,10 @@
           "medium": "Medium",
           "hard": "Hard"
         },
-        "navButton": "Start coding"
+        "navButton": {
+          "start": "Start coding",
+          "resume": "Resume coding"
+        }
       },
       "empty": {
         "heading": "Category is\u00A0currently empty",
@@ -470,7 +473,10 @@
         },
         "popover": "90%+ Senior\n70%+ Middle\n50%+ Junior"
       },
-      "startButton": "Start topic"
+      "navButton": {
+        "start": "Start topic",
+        "resume": "Resume topic"
+      }
     },
     "quizPage": {
       "timerLabel": "Time Left",
