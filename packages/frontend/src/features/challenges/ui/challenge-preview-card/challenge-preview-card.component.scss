@@ -5,36 +5,50 @@
   border: 2px solid var(--secondary-color);
   border-radius: var(--radius-md);
 
+  @include mix.media('s') {
+    padding: var(--spacing-x4);
+  }
+
   &__header {
-    display: flex;
-    gap: var(--spacing-x3);
+    display: grid;
+    grid-template-columns: max-content 1fr max-content;
+    gap: var(--spacing-x2) var(--spacing-x3);
     align-items: center;
-    justify-content: space-between;
 
     @include mix.media('s') {
-      flex-direction: column;
+      grid-template-columns: 1fr max-content;
       align-items: flex-start;
     }
   }
 
-  &__heading-wrapper {
-    display: flex;
-    gap: var(--spacing-x4);
-    align-items: center;
-    margin-inline-start: var(--spacing-x2);
-  }
-
   &__heading {
+    grid-area: 1 / 2 / 2 / 3;
     overflow-wrap: anywhere;
+
+    @include mix.media('s') {
+      grid-column: 1 / 2;
+    }
   }
 
   &__difficulty-badge {
+    grid-area: 1 / 1 / 2 / 2;
     margin-block-end: auto;
+
+    @include mix.media('s') {
+      grid-column: 2 / 3;
+    }
   }
 
   &__status-badge {
+    grid-area: 1 / 3 / 2 / 4;
     flex-shrink: 0;
     margin-block-end: auto;
+    margin-inline-start: auto;
+
+    @include mix.media('s') {
+      grid-area: 2 / 1 / 3 / 3;
+      margin-inline-start: initial;
+    }
   }
 
   &__body,

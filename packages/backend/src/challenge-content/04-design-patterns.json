@@ -19,8 +19,8 @@
       },
       "difficulty": "easy",
       "tags": [
-        { "en": "Singleton", "ru": "Singleton" },
-        { "en": "Object", "ru": "Объекты" }
+        { "id": "singleton", "en": "Singleton", "ru": "Singleton" },
+        { "id": "object", "en": "Object", "ru": "Объекты" }
       ],
       "functionName": "singletonRegistry",
       "starterCode": "function singletonRegistry(pairs) {\n  // WRITE YOUR SOLUTION HERE\n}",
@@ -68,8 +68,8 @@
       },
       "difficulty": "medium",
       "tags": [
-        { "en": "Observer", "ru": "Observer" },
-        { "en": "PubSub", "ru": "Pub/Sub" }
+        { "id": "observer", "en": "Observer", "ru": "Observer" },
+        { "id": "pubsub", "en": "PubSub", "ru": "Pub/Sub" }
       ],
       "functionName": "notifyObservers",
       "starterCode": "function notifyObservers(observers, payload) {\n  // WRITE YOUR SOLUTION HERE\n}",
@@ -107,8 +107,8 @@
       },
       "difficulty": "easy",
       "tags": [
-        { "en": "Factory", "ru": "Factory" },
-        { "en": "Object", "ru": "Объекты" }
+        { "id": "factory", "en": "Factory", "ru": "Factory" },
+        { "id": "object", "en": "Object", "ru": "Объекты" }
       ],
       "functionName": "createWidget",
       "starterCode": "function createWidget(type, options) {\n  // WRITE YOUR SOLUTION HERE\n}",
@@ -139,8 +139,8 @@
       },
       "difficulty": "medium",
       "tags": [
-        { "en": "Strategy", "ru": "Strategy" },
-        { "en": "Functional", "ru": "Функциональный подход" }
+        { "id": "strategy", "en": "Strategy", "ru": "Strategy" },
+        { "id": "functional", "en": "Functional", "ru": "Функциональный подход" }
       ],
       "functionName": "applyStrategy",
       "starterCode": "function applyStrategy(name, values) {\n  // WRITE YOUR SOLUTION HERE\n}",
@@ -174,8 +174,8 @@
       },
       "difficulty": "easy",
       "tags": [
-        { "en": "Decorator", "ru": "Decorator" },
-        { "en": "String", "ru": "Строки" }
+        { "id": "decorator", "en": "Decorator", "ru": "Decorator" },
+        { "id": "string", "en": "String", "ru": "Строки" }
       ],
       "functionName": "decorate",
       "starterCode": "function decorate(value, prefix, suffix) {\n  // WRITE YOUR SOLUTION HERE\n}",
@@ -212,8 +212,8 @@
       },
       "difficulty": "easy",
       "tags": [
-        { "en": "Adapter", "ru": "Adapter" },
-        { "en": "Object", "ru": "Объекты" }
+        { "id": "adapter", "en": "Adapter", "ru": "Adapter" },
+        { "id": "object", "en": "Object", "ru": "Объекты" }
       ],
       "functionName": "adaptUser",
       "starterCode": "function adaptUser(legacyUser) {\n  // WRITE YOUR SOLUTION HERE\n}",
@@ -244,8 +244,8 @@
       },
       "difficulty": "medium",
       "tags": [
-        { "en": "Builder", "ru": "Builder" },
-        { "en": "Object", "ru": "Объекты" }
+        { "id": "builder", "en": "Builder", "ru": "Builder" },
+        { "id": "object", "en": "Object", "ru": "Объекты" }
       ],
       "functionName": "applyBuildSteps",
       "starterCode": "function applyBuildSteps(initial, steps) {\n  // WRITE YOUR SOLUTION HERE\n}",
@@ -294,8 +294,8 @@
       },
       "difficulty": "medium",
       "tags": [
-        { "en": "Command", "ru": "Command" },
-        { "en": "State", "ru": "Состояние" }
+        { "id": "command", "en": "Command", "ru": "Command" },
+        { "id": "state", "en": "State", "ru": "Состояние" }
       ],
       "functionName": "runCommands",
       "starterCode": "function runCommands(initial, commands) {\n  // WRITE YOUR SOLUTION HERE\n}",

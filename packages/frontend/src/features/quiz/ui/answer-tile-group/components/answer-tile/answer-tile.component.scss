@@ -18,7 +18,7 @@
   width: 100%;
   max-width: 60%;
   margin-inline: auto;
-  padding: var(--spacing-x6) var(--spacing-x8);
+  padding: var(--spacing-x3) var(--spacing-x5);
   border-radius: var(--radius-md);
 
   color: var(--primary-color);
@@ -45,6 +45,11 @@
 
   &:has(input:disabled) {
     cursor: not-allowed;
+    background-color: rgb(var(--secondary-color-rgb), 0.66);
+  }
+
+  @include mix.media('s') {
+    max-width: none;
   }
 
   &_success {

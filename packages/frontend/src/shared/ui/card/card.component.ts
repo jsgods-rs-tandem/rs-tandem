@@ -9,6 +9,7 @@ import { CardFooterDirective } from './card-footer.directive';
 })
 export class CardComponent {
   title = input<string>();
+  titleLevel = input<2 | 3>(3);
   footerExists = contentChild(CardFooterDirective);
   footerPosition = input<'start' | 'end'>('start');
 }

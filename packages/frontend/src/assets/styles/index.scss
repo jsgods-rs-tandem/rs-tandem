@@ -12,12 +12,15 @@
   --transition-easing-func: ease-in-out;
   --code-bg-color: #d8d8d8;
   --primary-color: #ececec;
+  --primary-color-true: #ececec;
   --secondary-color: #222;
   --secondary-color-rgb: 34, 34, 34;
   --accent-color: #ff6900;
   --accent-color-button-spin: #ff6900;
   --error-color: #9b3737;
+  --error-color-rgb: 155, 55, 55;
   --success-color: #357a55;
+  --success-color-rgb: 53, 122, 85;
   --backdrop-color: rgb(0 0 0 / 50%);
   --btn-bg-color: var(--secondary-color);
   --font-main: 'Roboto Mono', monospace;
@@ -80,7 +83,7 @@
   --text-primary: #ececec;
   --text-secondary: #ecececcc;
   --in-progress-color: #217388;
-  --senior-color: #90630f;
+  --senior-color: #8c600e;
   --middle-color: #54646b;
   --junior-color: #d53706;
   --trainee-color: #ad1457;

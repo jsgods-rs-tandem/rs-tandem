@@ -5,7 +5,7 @@
   overflow: auto;
   padding: var(--spacing-x2) var(--spacing-x1);
   white-space: nowrap;
-  @include mix.set-scrollbar(6);
+  @include mix.set-scrollbar(4);
 
   &_hidden {
     @extend %hidden;

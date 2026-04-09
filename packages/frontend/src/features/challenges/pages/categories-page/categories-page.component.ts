@@ -11,6 +11,9 @@ import { injectActiveLang } from '@/shared/utils/translate.utilities';
 
 @Component({
   selector: 'app-categories-page',
+  host: {
+    'collision-id': 'challenges-categories-page',
+  },
   imports: [
     ButtonComponent,
     CategoryCardListComponent,
@@ -29,19 +32,16 @@ export class CategoriesPageComponent implements OnInit {
   private _isInitialLangEffectRun = true;
 
   constructor() {
-    effect(
-      () => {
-        this._activeLang();
+    effect(() => {
+      this._activeLang();
 
-        if (this._isInitialLangEffectRun) {
-          this._isInitialLangEffectRun = false;
-          return;
-        }
+      if (this._isInitialLangEffectRun) {
+        this._isInitialLangEffectRun = false;
+        return;
+      }
 
-        this.challengesService.getCategories();
-      },
-      { allowSignalWrites: true },
-    );
+      this.challengesService.getCategories();
+    });
 
     effect((onCleanup) => {
       onCleanup(() => {

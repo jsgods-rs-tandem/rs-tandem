@@ -4,17 +4,15 @@
 
 <article class="challenge-preview-card">
   <header class="challenge-preview-card__header">
-    <div class="challenge-preview-card__heading-wrapper">
-      <app-badge
-        class="challenge-preview-card__difficulty-badge"
-        [text]="difficultyTranslationKey() | transloco"
-        fontWeight="medium"
-        shape="diamond"
-        [color]="badgeDifficultyColor()"
-      />
+    <h2 class="h3 challenge-preview-card__heading">{{ heading() }}</h2>
 
-      <h2 class="h3 challenge-preview-card__heading">{{ heading() }}</h2>
-    </div>
+    <app-badge
+      class="challenge-preview-card__difficulty-badge"
+      [text]="difficultyTranslationKey() | transloco"
+      fontWeight="medium"
+      shape="diamond"
+      [color]="badgeDifficultyColor()"
+    />
 
     @if (inProgressValue) {
       <app-badge
@@ -22,9 +20,7 @@
         [text]="'challenges.category.previewCard.badges.inProgress' | transloco"
         color="info"
       />
-    }
-
-    @if (isCompleteValue) {
+    } @else if (isCompleteValue) {
       <app-badge
         class="challenge-preview-card__status-badge"
         [text]="'challenges.category.previewCard.badges.done' | transloco"
@@ -38,9 +34,9 @@
 
     @if (tagsValue.length > 0) {
       <ul class="challenge-preview-card__tags">
-        @for (tag of tagsValue; track $index) {
+        @for (tag of tagsValue; track tag.id) {
           <li>
-            <app-tag>{{ `#${tag}` }}</app-tag>
+            <app-tag>{{ `#${tag.name}` }}</app-tag>
           </li>
         }
       </ul>

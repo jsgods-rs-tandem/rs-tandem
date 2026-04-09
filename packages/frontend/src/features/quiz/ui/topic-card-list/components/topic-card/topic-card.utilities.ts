@@ -7,7 +7,7 @@ import { REWARD_LEVEL } from '@/features/quiz/constants';
 export const computeQuestionsCount = (count: number) => {
   const countAsString = String(count);
 
-  if (count % 10 === 1) {
+  if (count % 10 === 1 && count !== 11) {
     return `${countAsString} question`;
   }
 

@@ -1,3 +1,5 @@
+@use 'assets/styles/mixins' as mix;
+
 :host,
 .layout {
   display: flex;
@@ -7,6 +9,10 @@
 
 .layout {
   margin-block: var(--spacing-x11);
+
+  @include mix.media('s') {
+    margin-block-start: var(--spacing-x6);
+  }
 
   &__section {
     display: flex;

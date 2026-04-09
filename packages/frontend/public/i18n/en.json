@@ -409,7 +409,7 @@
       },
       "empty": {
         "heading": "Challenge content not found",
-        "description": "We're having trouble loading the challenge. Try refreshing the page or see all categories to\u00A0choose another topic",
+        "description": "We're having trouble loading the challenge. Try refreshing the page or\u00A0see all categories to\u00A0choose another topic",
         "refreshButton": "Refresh page",
         "backButton": "Back to\u00A0categories"
       }
@@ -417,7 +417,7 @@
     "modals": {
       "solutionCompleted": {
         "title": "Well done!",
-        "message": "The task is complete. Try other challenges"
+        "message": "The task is\u00A0complete. Try other challenges"
       }
     }
   },
@@ -425,8 +425,8 @@
     "categories": {
       "heading": "Quiz",
       "empty": {
-        "heading": "No categories available",
-        "description": "We couldn't find any quiz categories at the moment. Try refreshing the page to\u00A0see if anything has changed",
+        "heading": "No\u00A0categories available",
+        "description": "We couldn't find any quiz categories at\u00A0the moment. Try refreshing the page to\u00A0see if\u00A0anything has changed",
         "refreshButton": "Refresh page"
       }
     },
@@ -447,8 +447,8 @@
         "resetButton": "Reset filters"
       },
       "empty": {
-        "heading": "Category is currently empty",
-        "description": "We couldn't find any quizzes in this category right now. Try refreshing the page or\u00A0explore other categories",
+        "heading": "Category is\u00A0currently empty",
+        "description": "We couldn't find any quizzes in\u00A0this category right now. Try refreshing the page or\u00A0explore other categories",
         "refreshButton": "Refresh page",
         "backButton": "Back to\u00A0categories"
       }
@@ -460,7 +460,7 @@
       },
       "badges": {
         "notStarted": "Not started",
-        "inProgress": "In progress",
+        "inProgress": "In\u00A0progress",
         "done": "Done",
         "level": {
           "senior": "Senior",
@@ -482,9 +482,9 @@
         "sendAnswer": "Send answer"
       },
       "errors": {
-        "required": "Please select an answer",
-        "requiredQuestionId": "Question id is missing",
-        "timeExpired": "Time for an answer has expired"
+        "required": "Please select an\u00A0answer",
+        "requiredQuestionId": "Question id\u00A0is\u00A0missing",
+        "timeExpired": "Time for an\u00A0answer has expired"
       },
       "comments": {
         "success": {
@@ -492,15 +492,15 @@
           "brilliant": "Brilliant! You clearly know your stuff",
           "niceWork": "Nice work! You're cruising through this",
           "boom": "Boom! That's exactly right",
-          "perfect": "Perfect! You've got a sharp eye for detail",
-          "excellent": "Excellent! One step closer to mastery",
+          "perfect": "Perfect! You've got a\u00A0sharp eye for detail",
+          "excellent": "Excellent! One step closer to\u00A0mastery",
           "correct": "Correct! You're making this look easy",
-          "greatJob": "Great job! Your logic is flawless"
+          "greatJob": "Great job! Your logic is\u00A0flawless"
         }
       },
       "empty": {
         "heading": "Quiz content not found",
-        "description": "We're having trouble loading the questions for this quiz. Try refreshing the page or see all categories to\u00A0choose another topic",
+        "description": "We're having trouble loading the questions for this quiz. Try refreshing the page or\u00A0see all categories to\u00A0choose another topic",
         "refreshButton": "Refresh page",
         "backButton": "Back to\u00A0categories"
       }
@@ -510,9 +510,9 @@
       "progressLabel": "Your progress is",
       "readingTitle": "Further reading:",
       "heading": {
-        "senior": "Good job!\nYou're a true Senior",
+        "senior": "Good job!\nYou're a\u00A0true Senior",
         "middle": "Well done!\nSolid Middle performance",
-        "junior": "Keep it up!\nYou're a confident Junior",
+        "junior": "Keep it up!\nYou're a\u00A0confident Junior",
         "trainee": "Keep going!\nTrainee stage complete"
       },
       "actions": {
@@ -521,7 +521,7 @@
       },
       "empty": {
         "heading": "Couldn't load your score",
-        "description": "We're having trouble retrieving your results right now. Please refresh the page or try again in a moment",
+        "description": "We're having trouble retrieving your results right now. Please refresh the page or\u00A0try again in\u00A0a\u00A0moment",
         "refreshButton": "Refresh page",
         "backButton": "Back to\u00A0categories"
       }

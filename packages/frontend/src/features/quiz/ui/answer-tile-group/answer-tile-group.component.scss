@@ -1,3 +1,5 @@
+@use 'assets/styles/mixins' as mix;
+
 :host {
   display: block;
 }
@@ -9,6 +11,11 @@
 
   &__alert {
     margin-block-start: var(--spacing-x5);
+
+    @include mix.media('s') {
+      gap: var(--spacing-x4);
+      margin-block-start: var(--spacing-x4);
+    }
   }
 
   &__body {
@@ -16,6 +23,11 @@
     flex-direction: column;
     gap: var(--spacing-x5);
     margin-block-start: var(--spacing-x7);
+
+    @include mix.media('s') {
+      gap: var(--spacing-x4);
+      margin-block-start: var(--spacing-x5);
+    }
   }
 
   &__answer {

@@ -12,7 +12,9 @@
   }
 
   @if (answerCommentValue) {
-    <app-alert class="answer-tile-group__alert">{{ answerCommentValue }}</app-alert>
+    <app-alert class="answer-tile-group__alert" [variant]="answerResultValue || 'info'">{{
+      answerCommentValue
+    }}</app-alert>
   }
 
   <div class="answer-tile-group__body">

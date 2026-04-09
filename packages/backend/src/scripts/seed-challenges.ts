@@ -7,12 +7,16 @@ interface LocalizedText {
   ru: string;
 }
 
+interface ChallengeTag extends LocalizedText {
+  id?: string;
+}
+
 interface ChallengeTopic {
   name: LocalizedText;
   description: LocalizedText;
   instructions: LocalizedText;
   difficulty: 'easy' | 'medium' | 'hard';
-  tags: LocalizedText[];
+  tags: ChallengeTag[];
   functionName: string;
   starterCode: string;
   builtinFns?: Record<string, string>;
@@ -47,6 +51,14 @@ function sortOrderFromFilename(filename: string): number {
   const match = /^(\d+)-/.exec(filename);
 
   return match ? Number(match[1]) : 0;
+}
+
+function toStoredChallengeTag(tag: ChallengeTag): Required<ChallengeTag> {
+  return {
+    id: tag.id ?? slugify(tag.en),
+    en: tag.en,
+    ru: tag.ru,
+  };
 }
 
 async function upsertFile(
@@ -131,7 +143,7 @@ async function upsertFile(
         topic.instructions.en,
         topic.instructions.ru,
         topic.difficulty,
-        JSON.stringify(topic.tags),
+        JSON.stringify(topic.tags.map((tag) => toStoredChallengeTag(tag))),
         topic.functionName,
         topic.starterCode,
         JSON.stringify(topic.builtinFns ?? null),

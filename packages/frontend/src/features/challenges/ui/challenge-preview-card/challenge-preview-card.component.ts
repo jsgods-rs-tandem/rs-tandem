@@ -9,6 +9,7 @@ import { computeDifficultyBadgeColor } from './challenge-preview-card.utilities'
 
 import { DIFFICULTY_TRANSLATION_KEYS } from './challenge-preview-card.constants';
 
+import type { ChallengeTag } from '@rs-tandem/shared';
 import type { Difficulty } from './challenge-preview-card.types';
 
 @Component({
@@ -23,7 +24,7 @@ export class ChallengePreviewCardComponent {
   readonly heading = input.required<string>();
   readonly description = input.required<string>();
   readonly difficulty = input.required<Difficulty>();
-  readonly tags = input<string[]>([]);
+  readonly tags = input<ChallengeTag[]>([]);
   readonly inProgress = input.required<boolean>();
   readonly isComplete = input.required<boolean>();
 

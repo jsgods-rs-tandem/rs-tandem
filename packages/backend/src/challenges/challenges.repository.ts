@@ -4,6 +4,7 @@ import { PG_POOL } from '../database/database.constants.js';
 import type {
   ChallengeCategorySummary,
   ChallengeStatus,
+  ChallengeTag,
   ChallengeTopicSummary,
   GetChallengeCategoryResponseDto,
   GetChallengeTopicResponseDto,
@@ -30,7 +31,7 @@ interface ChallengeTopicRow extends Record<string, unknown> {
   name: string;
   description: string;
   difficulty: string;
-  tags: LocalizedTextRow[];
+  tags: StoredChallengeTagRow[];
   status: string;
 }
 
@@ -41,7 +42,7 @@ interface ChallengeTopicDetailsRow extends Record<string, unknown> {
   instructions: string;
   category_id: string;
   difficulty: string;
-  tags: LocalizedTextRow[];
+  tags: StoredChallengeTagRow[];
   status: string;
   function_name: string;
   starter_code: string;
@@ -52,6 +53,10 @@ interface ChallengeTopicDetailsRow extends Record<string, unknown> {
 interface LocalizedTextRow {
   en: string;
   ru: string;
+}
+
+interface StoredChallengeTagRow extends LocalizedTextRow {
+  id?: string;
 }
 
 interface RawChallengeTestCase {
@@ -91,9 +96,16 @@ function isTopicRow(row: Record<string, unknown>): row is ChallengeTopicRow {
     typeof row.name === 'string' &&
     typeof row.description === 'string' &&
     typeof row.difficulty === 'string' &&
-    isLocalizedTextArray(row.tags) &&
+    isChallengeTagArray(row.tags) &&
     typeof row.status === 'string'
   );
+}
+
+function slugify(text: string): string {
+  return text
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '');
 }
 
 function isLocalizedText(value: unknown): value is LocalizedTextRow {
@@ -108,8 +120,17 @@ function isLocalizedText(value: unknown): value is LocalizedTextRow {
   );
 }
 
-function isLocalizedTextArray(value: unknown): value is LocalizedTextRow[] {
-  return Array.isArray(value) && value.every((entry) => isLocalizedText(entry));
+function isChallengeTag(value: unknown): value is StoredChallengeTagRow {
+  const candidate = value as Record<string, unknown>;
+
+  return (
+    isLocalizedText(value) &&
+    (!('id' in candidate) || typeof candidate.id === 'string' || candidate.id === undefined)
+  );
+}
+
+function isChallengeTagArray(value: unknown): value is StoredChallengeTagRow[] {
+  return Array.isArray(value) && value.every((entry) => isChallengeTag(entry));
 }
 
 function isStringRecord(value: unknown): value is Record<string, string> {
@@ -143,7 +164,7 @@ function isTopicDetailsRow(row: Record<string, unknown>): row is ChallengeTopicD
     typeof row.instructions === 'string' &&
     typeof row.category_id === 'string' &&
     typeof row.difficulty === 'string' &&
-    isLocalizedTextArray(row.tags) &&
+    isChallengeTagArray(row.tags) &&
     typeof row.status === 'string' &&
     typeof row.function_name === 'string' &&
     typeof row.starter_code === 'string' &&
@@ -163,6 +184,13 @@ function isChallengeStatus(status: string): status is ChallengeStatus {
 
 function resolveLocalizedText(value: LocalizedTextRow, lang: 'en' | 'ru'): string {
   return lang === 'ru' ? value.ru : value.en;
+}
+
+function toChallengeTag(value: StoredChallengeTagRow, lang: 'en' | 'ru'): ChallengeTag {
+  return {
+    id: value.id ?? slugify(value.en),
+    name: resolveLocalizedText(value, lang),
+  };
 }
 
 function toCategorySummary(row: Record<string, unknown>): ChallengeCategorySummary {
@@ -190,7 +218,7 @@ function toTopicSummary(row: Record<string, unknown>, lang: 'en' | 'ru'): Challe
     name: row.name,
     description: row.description,
     difficulty: row.difficulty as ChallengeTopicSummary['difficulty'],
-    tags: row.tags.map((tag) => resolveLocalizedText(tag, lang)),
+    tags: row.tags.map((tag) => toChallengeTag(tag, lang)),
     status: isChallengeStatus(row.status) ? row.status : 'notStarted',
   };
 }
@@ -210,7 +238,7 @@ function toTopicDetails(
     instructions: row.instructions,
     categoryId: row.category_id,
     difficulty: row.difficulty as GetChallengeTopicResponseDto['difficulty'],
-    tags: row.tags.map((tag) => resolveLocalizedText(tag, lang)),
+    tags: row.tags.map((tag) => toChallengeTag(tag, lang)),
     status: isChallengeStatus(row.status) ? row.status : 'notStarted',
     functionName: row.function_name,
     starterCode: row.starter_code,

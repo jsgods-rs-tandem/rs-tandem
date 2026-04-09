@@ -1,13 +1,23 @@
+@use 'assets/styles/mixins' as mix;
+
 .topic-card {
   padding: var(--spacing-x6);
   border: 2px solid var(--secondary-color);
   border-radius: var(--radius-md);
+
+  @include mix.media('s') {
+    padding: var(--spacing-x4);
+  }
 
   &__header {
     display: grid;
     grid-template-columns: repeat(2, auto);
     gap: var(--spacing-x1) var(--spacing-x3);
     justify-content: space-between;
+
+    @include mix.media('s') {
+      grid-template-columns: 1fr;
+    }
   }
 
   &__heading {
@@ -20,11 +30,15 @@
 
   &__badges {
     display: flex;
-    grid-column: 2 / 3;
-    grid-row: 1 / 2;
+    grid-area: 1 / 2 / 2 / 3;
     flex-wrap: wrap;
     gap: var(--spacing-x2);
     justify-content: end;
+
+    @include mix.media('s') {
+      grid-area: 3 / 1 / 4 / 3;
+      justify-content: start;
+    }
   }
 
   &__badge {

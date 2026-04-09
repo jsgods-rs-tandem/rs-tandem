@@ -16,11 +16,15 @@ import { ChallengesService } from '../../services';
 import { injectActiveLang, injectTranslate } from '@/shared/utils/translate.utilities';
 import { TypedTranslocoPipe } from '@/shared/pipes/typed-transloco.pipe';
 
+import type { ChallengeTag } from '@rs-tandem/shared';
 import type { AppTranslationKey } from '@/shared/types/translation-keys';
 import type { Filters } from './category-page.types';
 
 @Component({
   selector: 'app-category-page',
+  host: {
+    'collision-id': 'challenges-category-page',
+  },
   imports: [
     ButtonComponent,
     ChallengePreviewCardComponent,
@@ -44,20 +48,17 @@ export class CategoryPageComponent implements OnInit {
   private _isInitialLangEffectRun = true;
 
   constructor() {
-    effect(
-      () => {
-        this._activeLang();
-        const categoryId = this.categoryId();
+    effect(() => {
+      this._activeLang();
+      const categoryId = this.categoryId();
 
-        if (this._isInitialLangEffectRun) {
-          this._isInitialLangEffectRun = false;
-          return;
-        }
+      if (this._isInitialLangEffectRun) {
+        this._isInitialLangEffectRun = false;
+        return;
+      }
 
-        this._challengesService.getCategory(categoryId);
-      },
-      { allowSignalWrites: true },
-    );
+      this._challengesService.getCategory(categoryId);
+    });
 
     effect((onCleanup) => {
       onCleanup(() => {
@@ -83,7 +84,7 @@ export class CategoryPageComponent implements OnInit {
         return acc;
       }
 
-      if (filters.tags.length > 0 && !topic.tags.some((tag) => filters.tags.includes(tag))) {
+      if (filters.tags.length > 0 && !topic.tags.some((tag) => filters.tags.includes(tag.id))) {
         return acc;
       }
 
@@ -117,19 +118,23 @@ export class CategoryPageComponent implements OnInit {
 
   protected _tagsFilter = computed(() => {
     const category = this._challengesService.category();
-    const tags = new Set<string>();
+    const tags = new Map<ChallengeTag['id'], ChallengeTag['name']>();
 
     category?.topics.forEach((topic) => {
       topic.tags.forEach((tag) => {
-        tags.add(tag);
+        tags.set(tag.id, tag.name);
       });
     });
 
-    return Array.from(tags)
-      .map((tag) => ({
-        text: tag,
-        value: tag,
-      }))
+    return Array.from(tags.entries())
+      .flatMap(([id, name]) =>
+        typeof id === 'string' && typeof name === 'string'
+          ? {
+              text: name,
+              value: id,
+            }
+          : [],
+      )
       .sort((a, b) => a.text.localeCompare(b.text));
   });
 
