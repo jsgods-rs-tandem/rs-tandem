@@ -281,6 +281,10 @@
       "answer_not_found": "Answer not found",
       "no_completed_attempt": "No completed quiz found"
     },
+    "challenges": {
+      "category_not_found": "Category not found",
+      "topic_not_found": "Topic not found"
+    },
     "ai": {
       "provider_not_selected": "No AI provider selected",
       "provider_unknown": "Unknown AI provider",
@@ -292,7 +296,8 @@
     },
     "validation": {
       "email_invalid": "Invalid email address",
-      "required": "This field is required"
+      "required": "This field is required",
+      "uuid_expected": "Invalid identifier format"
     },
     "network": {
       "connection": "Unable to connect to the server. Please check your internet connection.",
@@ -300,7 +305,8 @@
     },
     "common": {
       "unexpected": "Unexpected Error",
-      "networkTitle": "Network Error"
+      "networkTitle": "Network Error",
+      "badRequestTitle": "Bad Request"
     }
   },
   "ui": {

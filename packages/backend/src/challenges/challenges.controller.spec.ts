@@ -1,5 +1,8 @@
+import { INestApplication } from '@nestjs/common';
+import { Server } from 'node:http';
 import { Test, TestingModule } from '@nestjs/testing';
 import { UserDto } from '@rs-tandem/shared';
+import request from 'supertest';
 import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard.js';
 import { ChallengesController } from './challenges.controller.js';
 import { ChallengesService } from './challenges.service.js';
@@ -39,6 +42,35 @@ describe('ChallengesController', () => {
       providers: [{ provide: ChallengesService, useValue: mockChallengesService }],
     }).compile();
     controller = module.get(ChallengesController);
+  });
+
+  describe('UUID validation (400)', () => {
+    let app: INestApplication;
+
+    beforeEach(async () => {
+      const module: TestingModule = await Test.createTestingModule({
+        controllers: [ChallengesController],
+        providers: [{ provide: ChallengesService, useValue: mockChallengesService }],
+      })
+        .overrideGuard(JwtAuthGuard)
+        .useValue({ canActivate: () => true })
+        .compile();
+
+      app = module.createNestApplication();
+      await app.init();
+    });
+
+    afterEach(() => app.close());
+
+    it.each([
+      ['GET', '/challenges/categories/not-a-uuid'],
+      ['GET', '/challenges/topics/not-a-uuid'],
+      ['POST', '/challenges/topics/not-a-uuid'],
+    ])('%s %s returns 400', async (method, url) => {
+      await request(app.getHttpServer() as Server)
+        [method.toLowerCase() as 'get' | 'post'](url)
+        .expect(400);
+    });
   });
 
   describe('guards', () => {

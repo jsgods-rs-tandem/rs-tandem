@@ -1,5 +1,5 @@
 import { Injectable, computed, inject, signal } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { finalize } from 'rxjs';
 
 import { environment } from '@/environments/environment';
@@ -10,7 +10,7 @@ import { injectTranslate } from '@/shared/utils/translate.utilities';
 import { TranslocoService } from '@jsverse/transloco';
 import { marker } from '@jsverse/transloco-keys-manager/marker';
 
-import type { AppTranslationKey } from '@/shared/types/translation-keys';
+import { isAppTranslationKey, type AppTranslationKey } from '@/shared/types/translation-keys';
 import type {
   GetCategoriesResponseDto,
   GetCategoryResponseDto,
@@ -25,6 +25,10 @@ import type { QuizState } from './quiz.types';
 
 @Injectable({ providedIn: 'root' })
 export class QuizService {
+  private static readonly _backendErrorMessageMap: Record<string, AppTranslationKey> = {
+    'Validation failed (uuid is expected)': 'errors.validation.uuid_expected',
+  };
+
   private readonly _http = inject(HttpClient);
   private readonly _transloco = inject(TranslocoService);
   private readonly _modalService = inject(ModalService);
@@ -327,18 +331,76 @@ export class QuizService {
   }
 
   private _showError(error: CustomHttpError) {
-    const errorMessage = getHttpErrorMessage(error);
-    const translateKey = (message: string) => this._t(marker(message as AppTranslationKey));
+    const errorMessage = this._getErrorMessage(error);
+    const translateKey = (message: AppTranslationKey) => this._t(marker(message));
     const translatedMessage = Array.isArray(errorMessage)
       ? errorMessage.map(translateKey)
       : translateKey(errorMessage);
 
     this._modalService.open({
-      title: `${String(error.error.statusCode || 0)} — ${
-        error.error.error || this._t(marker('errors.common.networkTitle'))
-      }`,
+      title: `${String(error.error.statusCode || 0)} — ${this._getErrorTitle(error)}`,
       message: translatedMessage,
       icon: 'info-outline',
     });
+  }
+
+  private _getErrorTitle(error: CustomHttpError): string {
+    if (error.status === 400 || error.error.error === 'Bad Request') {
+      return this._t(marker('errors.common.badRequestTitle'));
+    }
+
+    return error.error.error || this._t(marker('errors.common.networkTitle'));
+  }
+
+  private _getErrorMessage(error: HttpErrorResponse): AppTranslationKey | AppTranslationKey[] {
+    if (error.status === 0 || error.status >= 500) {
+      return getHttpErrorMessage(error);
+    }
+
+    const backendMessage = this._extractBackendMessage(error);
+
+    if (!backendMessage) {
+      return 'errors.common.unexpected';
+    }
+
+    if (Array.isArray(backendMessage)) {
+      const mappedMessages = backendMessage
+        .map((message) => this._mapBackendMessageToTranslationKey(message))
+        .filter((message): message is AppTranslationKey => message !== null);
+
+      return mappedMessages.length > 0 ? mappedMessages : 'errors.common.unexpected';
+    }
+
+    return this._mapBackendMessageToTranslationKey(backendMessage) ?? 'errors.common.unexpected';
+  }
+
+  private _extractBackendMessage(error: HttpErrorResponse): string | string[] | null {
+    if (!error.error || typeof error.error !== 'object' || !('message' in error.error)) {
+      return null;
+    }
+
+    const { message } = error.error as { message?: unknown };
+
+    if (typeof message === 'string') {
+      return message;
+    }
+
+    if (Array.isArray(message)) {
+      return message.filter((item): item is string => typeof item === 'string');
+    }
+
+    return null;
+  }
+
+  private _mapBackendMessageToTranslationKey(message: string): AppTranslationKey | null {
+    const mappedMessage = QuizService._backendErrorMessageMap[message];
+
+    if (mappedMessage) {
+      return mappedMessage;
+    }
+
+    const directKey = `errors.${message}` as AppTranslationKey;
+
+    return isAppTranslationKey(directKey) ? directKey : null;
   }
 }
