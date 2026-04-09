@@ -10,7 +10,7 @@ import { AiErrorDto } from '@rs-tandem/shared/src/ai';
 const unknownError: AiErrorDto = {
   type: 'unknown_error',
   title: 'Unknown',
-  message: 'ai.errpr.unknown',
+  message: 'ai.error.unknown',
   status: 500,
 };
 
