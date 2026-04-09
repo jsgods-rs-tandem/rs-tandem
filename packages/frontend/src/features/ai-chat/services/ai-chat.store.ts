@@ -14,6 +14,13 @@ const unknownError: AiErrorDto = {
   status: 500,
 };
 
+const connectionErrorMessage = {
+  type: 'server_error',
+  title: 'Server',
+  message: 'ai.error.503',
+  status: 503,
+};
+
 @Injectable({
   providedIn: 'root',
 })
@@ -42,14 +49,8 @@ export class AiChatStore {
       if (this.isReady().socket) {
         this.wsApi.emit('chat', message);
       } else {
-        const errorMessage = {
-          type: 'server_error',
-          title: 'Server',
-          message: 'no connection to socket',
-          status: 503,
-        };
-        console.error(errorMessage);
-        this.handleError(errorMessage);
+        console.error(connectionErrorMessage);
+        this.handleError(connectionErrorMessage);
       }
     }
   }
