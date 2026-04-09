@@ -5,7 +5,7 @@ export const title: Record<ErrorCode, string> = {
   OLLAMA_ERROR: 'Ollama',
 };
 
-type keys =
+type Keys =
   | 'BadRequest'
   | 'Unauthorized'
   | 'PaymentRequired'
@@ -20,7 +20,7 @@ type keys =
   | 'ServiceUnavailable'
   | 'GatewayTimeout';
 
-export const error: Record<keys, number> = {
+export const error: Record<Keys, number> = {
   BadRequest: 400,
   Unauthorized: 401,
   PaymentRequired: 402,
