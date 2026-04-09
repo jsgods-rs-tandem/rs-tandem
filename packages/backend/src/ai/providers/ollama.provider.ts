@@ -3,6 +3,7 @@ import type { AiProviderMeta, IAiProvider } from './ai-provider.interface.js';
 import { ollamaStreamToAsyncIterable } from '../utils/ollama-stream-to-async-iterable.js';
 import OllamaError from '../errors/ollama-error.js';
 import { error } from '../errors/errors.js';
+import { Logger } from '@nestjs/common';
 
 interface OllamaChatResponse {
   message: {
@@ -28,12 +29,14 @@ export class OllamaProvider implements IAiProvider {
     label: 'Ollama (local)',
     requiresKey: false,
   };
+  private logger = new Logger(this.meta.label);
 
   async streamChat(messages: AiMessage[]): Promise<AsyncIterable<string>> {
     let response;
     try {
       response = await this.sendPrompt(messages, true);
-    } catch {
+    } catch (_error) {
+      this.logger.error(_error);
       throw new OllamaError('Failed to connect to Ollama', error.ServiceUnavailable);
     }
 
