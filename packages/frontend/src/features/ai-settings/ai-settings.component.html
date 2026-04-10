@@ -16,23 +16,31 @@
     </div>
 
     <div class="provider-wrapper" [ngClass]="settings().useRemoteProvider ? 'enabled' : 'disabled'">
-      <h3 class="h3">{{ 'settings.ai.provider' | transloco }}</h3>
-      <select name="provider" id="model" class="select" formControlName="provider">
-        @for (provider of providers(); track provider) {
-          <option value="{{ provider.id }}">
-            {{ provider.label }}
-          </option>
-        }
-      </select>
-      <h3 class="h3">{{ 'settings.ai.model' | transloco }}</h3>
-      <app-input [placeholder]="'Model'" formControlName="model" [targetType]="'text'"></app-input>
-      <h3 class="h3">{{ 'settings.ai.apiKey' | transloco }}</h3>
-      <app-input
-        [placeholder]="'settings.ai.apiKey' | transloco"
-        class="input"
-        formControlName="apiKey"
-        [targetType]="'password'"
-      ></app-input>
+      <app-select
+        [label]="'settings.ai.provider' | transloco"
+        [placeholder]="'settings.ai.providerPlaceholder' | transloco"
+        [options]="providerOptions()"
+        [selectedOptionValues]="selectedProvider()"
+        (selectedOptionValuesChange)="onProviderChange($event)"
+      />
+      <div class="model-wrapper">
+        <h3 class="text-base settings-label">{{ 'settings.ai.model' | transloco }}</h3>
+        <app-input
+          [placeholder]="'Model'"
+          formControlName="model"
+          [targetType]="'text'"
+        ></app-input>
+      </div>
+
+      <div>
+        <h3 class="text-base settings-label">{{ 'settings.ai.apiKey' | transloco }}</h3>
+        <app-input
+          [placeholder]="'settings.ai.apiKey' | transloco"
+          class="input"
+          formControlName="apiKey"
+          [targetType]="'password'"
+        ></app-input>
+      </div>
     </div>
 
     <div class="control-wrapper">

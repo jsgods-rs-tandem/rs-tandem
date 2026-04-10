@@ -23,6 +23,7 @@
           [placeholder]="'challenges.category.filters.difficulty.placeholder' | transloco"
           [options]="_difficultyFilter()"
           [selectedOptionValues]="filters.difficulty"
+          [multiple]="true"
           (selectedOptionValuesChange)="_onFilterChange('difficulty', $event)"
         />
 
@@ -31,6 +32,7 @@
           [placeholder]="'challenges.category.filters.tags.placeholder' | transloco"
           [options]="_tagsFilter()"
           [selectedOptionValues]="filters.tags"
+          [multiple]="true"
           (selectedOptionValuesChange)="_onFilterChange('tags', $event)"
         />
 
@@ -40,6 +42,7 @@
           [placeholder]="'challenges.category.filters.status.placeholder' | transloco"
           [options]="_statusFilter()"
           [selectedOptionValues]="filters.status"
+          [multiple]="true"
           (selectedOptionValuesChange)="_onFilterChange('status', $event)"
         />
       </div>

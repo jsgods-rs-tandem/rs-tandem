@@ -582,6 +582,7 @@
       "title": "ИИ",
       "useRemoteProvider": "Использовать удаленный провайдер?",
       "provider": "Провайдер",
+      "providerPlaceholder": "Выберите провайдер",
       "model": "Модель",
       "apiKey": "API ключ",
       "update": "Обновить настройки",

@@ -2,8 +2,8 @@ import { SwitcherComponent } from '@/shared/switcher/switcher.component';
 import { InputComponent } from '@/shared/ui/input/input.component';
 import { LineBreakComponent } from '@/shared/ui/line-break/line-break.component';
 import { NgClass } from '@angular/common';
-import { Component, inject, signal } from '@angular/core';
-import { ButtonComponent, SpinComponent } from '@/shared/ui';
+import { Component, computed, inject, signal } from '@angular/core';
+import { ButtonComponent, SelectComponent, SpinComponent } from '@/shared/ui';
 import { AiHttpService } from '../ai-chat/services/ai-http-service';
 import { ModalService } from '@/core/services/modal.service';
 import { AiSettingsHttpService } from './ai-settings-http.service';
@@ -38,6 +38,7 @@ const initialProviders: AiProviderDto[] = [
     InputComponent,
     NgClass,
     ButtonComponent,
+    SelectComponent,
     SpinComponent,
     ReactiveFormsModule,
     TranslocoPipe,
@@ -49,6 +50,7 @@ export class AiSettingsComponent {
   protected providers = signal<AiProviderDto[]>(initialProviders);
   protected isLoading = signal(true);
   protected settings = signal<ISettings>(initialSettings);
+  protected selectedProvider = signal<string[]>([]);
   protected settingsForm = new FormGroup({
     provider: new FormControl(''),
     model: new FormControl(''),
@@ -63,6 +65,15 @@ export class AiSettingsComponent {
   constructor() {
     this.loadProviders();
     this.loadSettings();
+  }
+
+  protected providerOptions = computed(() =>
+    this.providers().map(({ id, label }) => ({ text: label, value: id })),
+  );
+
+  protected onProviderChange(values: string[]) {
+    this.selectedProvider.set(values);
+    this.settingsForm.controls.provider.setValue(values[0] ?? '');
   }
 
   protected handleSubmit() {
@@ -143,6 +154,7 @@ export class AiSettingsComponent {
           model: settings.model ?? '',
           apiKey: settings.apiKey ?? '',
         });
+        this.selectedProvider.set(this.getSelectedProviderValues(settings.providerId));
       },
       error: (error: unknown) => {
         console.error('Error fetching AI settings:', error);
@@ -171,6 +183,12 @@ export class AiSettingsComponent {
 
   toggleProvider(event: boolean) {
     this.settings.update((current) => ({ ...current, useRemoteProvider: event }));
+
+    if (event) {
+      this.selectedProvider.set(
+        this.getSelectedProviderValues(this.settingsForm.controls.provider.value),
+      );
+    }
   }
 
   protected resetChatHistory() {
@@ -215,5 +233,9 @@ export class AiSettingsComponent {
       message: `${this.t('settings.ai.modal.validationError.startOfMessage')} "${field}" ${this.t('settings.ai.modal.validationError.endOfMessage')}`,
       buttonText: 'OK',
     });
+  }
+
+  private getSelectedProviderValues(provider: string | null) {
+    return provider && provider !== 'ollama' ? [provider] : [];
   }
 }

@@ -23,6 +23,7 @@
           [placeholder]="'quiz.category.filters.achievements.placeholder' | transloco"
           [options]="_achievementsFilter()"
           [selectedOptionValues]="filters.achievements"
+          [multiple]="true"
           (selectedOptionValuesChange)="_onFilterChange('achievements', $event)"
         />
 
@@ -31,6 +32,7 @@
           [placeholder]="'quiz.category.filters.status.placeholder' | transloco"
           [options]="_statusFilter()"
           [selectedOptionValues]="filters.status"
+          [multiple]="true"
           (selectedOptionValuesChange)="_onFilterChange('status', $event)"
         />
       </div>

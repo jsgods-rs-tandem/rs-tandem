@@ -22,6 +22,7 @@ export class SelectComponent {
   readonly placeholder = input<string>();
   readonly options = input<Option[]>([]);
   readonly selectedOptionValues = input<Option['value'][]>([]);
+  readonly multiple = input<boolean>(false);
 
   readonly selectedOptionValuesChange = output<Option['value'][]>();
 
@@ -43,18 +44,16 @@ export class SelectComponent {
     this._elementRef = element;
   }
 
-  protected _onOptionChange(event: Event) {
-    if (!(event.target instanceof HTMLInputElement)) {
+  protected _onOptionChange({ target }: Event) {
+    if (!(target instanceof HTMLInputElement)) {
       return;
     }
 
-    const selectedOptionValues = this.selectedOptionValues();
-    const { value, checked } = event.target;
-
-    const nextSelectedOptionValues = checked
-      ? [...selectedOptionValues, value]
-      : selectedOptionValues.filter((v) => v !== value);
-    this.selectedOptionValuesChange.emit(nextSelectedOptionValues);
+    if (this.multiple()) {
+      this._onMultipleOptionChange(target);
+    } else {
+      this._onSingleOptionChange(target);
+    }
   }
 
   protected _onClick() {
@@ -89,5 +88,21 @@ export class SelectComponent {
 
   private _onOpenChange() {
     this.isOpen.update((previousState) => !previousState);
+  }
+
+  private _onSingleOptionChange({ value }: HTMLInputElement) {
+    this.selectedOptionValuesChange.emit(
+      this.selectedOptionValues().includes(value) ? [] : [value],
+    );
+    this.isOpen.set(false);
+  }
+
+  private _onMultipleOptionChange({ value, checked }: HTMLInputElement) {
+    const selectedOptionValues = this.selectedOptionValues();
+    const nextSelectedOptionValues = checked
+      ? [...selectedOptionValues, value]
+      : selectedOptionValues.filter((v) => v !== value);
+
+    this.selectedOptionValuesChange.emit(nextSelectedOptionValues);
   }
 }
