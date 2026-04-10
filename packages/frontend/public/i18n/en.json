@@ -580,6 +580,7 @@
       "title": "AI",
       "useRemoteProvider": "Use remote provider?",
       "provider": "Provider",
+      "providerPlaceholder": "Select provider",
       "model": "Model",
       "apiKey": "API key",
       "update": "Update Settings",
