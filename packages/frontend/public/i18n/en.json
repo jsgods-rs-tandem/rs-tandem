@@ -1,4 +1,18 @@
 {
+  "meta": {
+    "title": "RS Tandem",
+    "description": "The Rolling Scopes Tandem is a platform that helps developers prepare for technical interviews in a structured and engaging way. Train JavaScript, TypeScript, algorithms, and problem-solving skills with AI assistance, coding tasks, and quizzes",
+    "og": {
+      "title": "RS Tandem",
+      "description": "The Rolling Scopes Tandem is a platform that helps developers prepare for technical interviews in a structured and engaging way. Train JavaScript, TypeScript, algorithms, and problem-solving skills with AI assistance, coding tasks, and quizzes",
+      "type": "website"
+    },
+    "twitter": {
+      "card": "summary",
+      "title": "RS Tandem",
+      "description": "The Rolling Scopes Tandem is a platform that helps developers prepare for technical interviews in a structured and engaging way. Train JavaScript, TypeScript, algorithms, and problem-solving skills with AI assistance, coding tasks, and quizzes"
+    }
+  },
   "team": {
     "aria": {
       "avatarAlt": "{{name}} avatar",
